@@ -1,0 +1,271 @@
+====================
+VistA: MENTAL HEALTH
+====================
+
+This directory holds M routines and globals for a VistA package.
+
+See `<../../README.rst>`__ for more information.
+
+-------------
+Documentation
+-------------
+
+Documentation for this package is available in the `VistA Document Library`_.
+
+.. _`VistA Document Library`: http://www.va.gov/vdl/application.asp?appid=78
+
+-------------------
+VA Enterprise VistA
+-------------------
+
+US DVA sites standardize this package on the following routine checksums.
+
+.. csv-table::
+   :header:  "Routine Source", "VA Checksum", "Current Checksum"
+
+   `<Routines/YSASA2.m>`__,23828407,|check|
+   `<Routines/YSASBUL.m>`__,3526387,|check|
+   `<Routines/YSASCR.m>`__,632193,|check|
+   `<Routines/YSASCSA.m>`__,26922668,|check|
+   `<Routines/YSASCSB.m>`__,26082180,|check|
+   `<Routines/YSASCSC.m>`__,20249755,|check|
+   `<Routines/YSASES.m>`__,7095250,|check|
+   `<Routines/YSASFM.m>`__,12459768,|check|
+   `<Routines/YSASFS.m>`__,23500728,|check|
+   `<Routines/YSASFS1.m>`__,22570331,|check|
+   `<Routines/YSASFUR.m>`__,29229009,|check|
+   `<Routines/YSASGPH.m>`__,9594402,|check|
+   `<Routines/YSASLIB.m>`__,12975057,|check|
+   `<Routines/YSASNAR.m>`__,38698089,|check|
+   `<Routines/YSASO.m>`__,2904308,|check|
+   `<Routines/YSASO1.m>`__,12797860,|check|
+   `<Routines/YSASO2.m>`__,9572569,|check|
+   `<Routines/YSASOL.m>`__,29236654,|check|
+   `<Routines/YSASOSR.m>`__,6613119,|check|
+   `<Routines/YSASPNT.m>`__,10291993,|check|
+   `<Routines/YSASPRT.m>`__,4817471,|check|
+   `<Routines/YSASRPWP.m>`__,3755636,|check|
+   `<Routines/YSASRU.m>`__,24470974,|check|
+   `<Routines/YSASRU1.m>`__,6081972,|check|
+   `<Routines/YSASSEL.m>`__,23674748,|check|
+   `<Routines/YSASSN.m>`__,17535400,|check|
+   `<Routines/YSAST.m>`__,9014148,|check|
+   `<Routines/YSASU.m>`__,22089171,|check|
+   `<Routines/YSASU1.m>`__,7082344,|check|
+   `<Routines/YSCEN13.m>`__,982218,|check|
+   `<Routines/YSCEN5.m>`__,5014852,|check|
+   `<Routines/YSCLPOST.m>`__,7773911,7874308
+   `<Routines/YSCLSERV.m>`__,64095727,64166288
+   `<Routines/YSCLSRV1.m>`__,2228786,2265059
+   `<Routines/YSCLSRV2.m>`__,41052596,|check|
+   `<Routines/YSCLSRV3.m>`__,47455212,|check|
+   `<Routines/YSCLTEST.m>`__,20876343,20980097
+   `<Routines/YSCLTST1.m>`__,19103633,|check|
+   `<Routines/YSCLTST2.m>`__,49184088,49228663
+   `<Routines/YSCLTST3.m>`__,59491458,59576435
+   `<Routines/YSCLTST4.m>`__,15352155,|check|
+   `<Routines/YSD4C001.m>`__,5435824,|check|
+   `<Routines/YSD4C010.m>`__,452667,|check|
+   `<Routines/YSDGDEM.m>`__,5038550,|check|
+   `<Routines/YSDGDEM0.m>`__,10063531,|check|
+   `<Routines/YSDIZ.m>`__,7569820,|check|
+   `<Routines/YSDSS.m>`__,26475965,|check|
+   `<Routines/YSDX3.m>`__,10581455,|check|
+   `<Routines/YSDX3R.m>`__,8161908,|check|
+   `<Routines/YSDX3R1.m>`__,12384514,|check|
+   `<Routines/YSDX3U00.m>`__,1469542,|check|
+   `<Routines/YSDX3UA.m>`__,17115146,|check|
+   `<Routines/YSDX3UA0.m>`__,4109653,|check|
+   `<Routines/YSDX3UC.m>`__,6028387,|check|
+   `<Routines/YSDXR.m>`__,3156016,|check|
+   `<Routines/YSDXUT01.m>`__,3451113,|check|
+   `<Routines/YSFORM.m>`__,2883557,|check|
+   `<Routines/YSGAF.m>`__,41186678,|check|
+   `<Routines/YSGAF1.m>`__,15299192,|check|
+   `<Routines/YSGAF2.m>`__,6467016,|check|
+   `<Routines/YSGAF3.m>`__,95532,|check|
+   `<Routines/YSGAFAP1.m>`__,2926531,|check|
+   `<Routines/YSGAFAPI.m>`__,2459639,|check|
+   `<Routines/YSGAFHL7.m>`__,27123710,|check|
+   `<Routines/YSGAFOBX.m>`__,11099191,|check|
+   `<Routines/YSGAFTR.m>`__,22758846,22949566
+   `<Routines/YSGAFUTL.m>`__,38643467,38859795
+   `<Routines/YSKFASI3.m>`__,43728134,|check|
+   `<Routines/YSKFASIK.m>`__,4215056,|check|
+   `<Routines/YSKFASIP.m>`__,23161991,|check|
+   `<Routines/YSKFMAIL.m>`__,10045017,|check|
+   `<Routines/YSLOCN.m>`__,1428676,|check|
+   `<Routines/YSLRP.m>`__,836128,|check|
+   `<Routines/YSMHMENU.m>`__,571680,|check|
+   `<Routines/YSMTI.m>`__,16384688,|check|
+   `<Routines/YSMTI0.m>`__,6160997,|check|
+   `<Routines/YSMTI1.m>`__,18161324,|check|
+   `<Routines/YSMTI2.m>`__,12997091,|check|
+   `<Routines/YSMTI3.m>`__,13652331,|check|
+   `<Routines/YSMTI4.m>`__,19348256,|check|
+   `<Routines/YSMTI5.m>`__,12163284,|check|
+   `<Routines/YSMTI6.m>`__,6171967,|check|
+   `<Routines/YSMTI7.m>`__,1904635,|check|
+   `<Routines/YSP77I.m>`__,4354573,|check|
+   `<Routines/YSSITE.m>`__,3477669,|check|
+   `<Routines/YSSR.m>`__,31889856,|check|
+   `<Routines/YSSR1.m>`__,21510369,|check|
+   `<Routines/YSSR2.m>`__,7632392,|check|
+   `<Routines/YSSRU.m>`__,20557028,|check|
+   `<Routines/YSSRU1.m>`__,8454449,|check|
+   `<Routines/YSTUSE.m>`__,2644206,|check|
+   `<Routines/YSUTL.m>`__,11413377,|check|
+   `<Routines/YSXRAA.m>`__,7328095,|check|
+   `<Routines/YSXRAB.m>`__,7323301,|check|
+   `<Routines/YSXRAC.m>`__,8529023,|check|
+   `<Routines/YSXRAD.m>`__,6958190,|check|
+   `<Routines/YSXRAE.m>`__,7329815,|check|
+   `<Routines/YSXRAJ.m>`__,7327773,|check|
+   `<Routines/YSXRAK.m>`__,8957357,|check|
+   `<Routines/YSXRAL.m>`__,6961191,|check|
+   `<Routines/YSXRAM.m>`__,6961572,|check|
+   `<Routines/YSXRAN.m>`__,6961953,|check|
+   `<Routines/YSXRAO.m>`__,6962334,|check|
+   `<Routines/YSXRAP.m>`__,6962715,|check|
+   `<Routines/YSXRAQ.m>`__,7331425,|check|
+   `<Routines/YSXRAR.m>`__,6958607,|check|
+   `<Routines/YSXRAS.m>`__,6963600,|check|
+   `<Routines/YSXRAT.m>`__,7742972,|check|
+   `<Routines/YSXRAU.m>`__,6959403,|check|
+   `<Routines/YSXRAV.m>`__,6959918,|check|
+   `<Routines/YSXRAW.m>`__,6960331,|check|
+   `<Routines/YSXRAX.m>`__,7340124,|check|
+   `<Routines/YSXRAY.m>`__,7341048,|check|
+   `<Routines/YSXRAZ.m>`__,7738134,|check|
+   `<Routines/YTACL.m>`__,4247460,|check|
+   `<Routines/YTAIMS.m>`__,7739693,|check|
+   `<Routines/YTALUSE.m>`__,893981,|check|
+   `<Routines/YTALUSEC.m>`__,4029849,|check|
+   `<Routines/YTALUSR.m>`__,3606710,|check|
+   `<Routines/YTAPI.m>`__,21662254,|check|
+   `<Routines/YTAPI1.m>`__,6850000,|check|
+   `<Routines/YTAPI10.m>`__,18980623,|check|
+   `<Routines/YTAPI10A.m>`__,21115425,|check|
+   `<Routines/YTAPI2.m>`__,16762849,|check|
+   `<Routines/YTAPI3.m>`__,7774096,|check|
+   `<Routines/YTAPI4.m>`__,3663733,|check|
+   `<Routines/YTAPI5.m>`__,12579735,12634112
+   `<Routines/YTAPI6.m>`__,9502536,|check|
+   `<Routines/YTAPI7.m>`__,16428780,|check|
+   `<Routines/YTAPI8.m>`__,16700712,|check|
+   `<Routines/YTAPI9.m>`__,9230621,|check|
+   `<Routines/YTAR.m>`__,29936390,|check|
+   `<Routines/YTAR1.m>`__,9188379,|check|
+   `<Routines/YTAR2.m>`__,4358565,|check|
+   `<Routines/YTATQ.m>`__,902361,|check|
+   `<Routines/YTAUDIT.m>`__,7934250,|check|
+   `<Routines/YTAUIR.m>`__,9902777,|check|
+   `<Routines/YTAUIRR.m>`__,14880327,|check|
+   `<Routines/YTBECK.m>`__,3204612,|check|
+   `<Routines/YTBI.m>`__,26357240,|check|
+   `<Routines/YTBPRS.m>`__,2763203,|check|
+   `<Routines/YTBSI18.m>`__,6190425,|check|
+   `<Routines/YTCESD.m>`__,4361649,|check|
+   `<Routines/YTCHECK.m>`__,25475518,|check|
+   `<Routines/YTCLERK.m>`__,19061679,|check|
+   `<Routines/YTCLERK1.m>`__,10524166,|check|
+   `<Routines/YTDEMO.m>`__,1292615,|check|
+   `<Routines/YTDESC.m>`__,5798015,|check|
+   `<Routines/YTDOMR.m>`__,26438095,|check|
+   `<Routines/YTDOMR1.m>`__,13856663,|check|
+   `<Routines/YTDP.m>`__,20933177,|check|
+   `<Routines/YTDP1.m>`__,4828092,|check|
+   `<Routines/YTDRIV.m>`__,8805395,|check|
+   `<Routines/YTEXT.m>`__,21919848,|check|
+   `<Routines/YTEXT1.m>`__,7590462,|check|
+   `<Routines/YTFEAR.m>`__,3509438,|check|
+   `<Routines/YTFILE.m>`__,16256822,|check|
+   `<Routines/YTFIRO.m>`__,2503563,|check|
+   `<Routines/YTKIL.m>`__,9102073,|check|
+   `<Routines/YTKILINC.m>`__,5844605,|check|
+   `<Routines/YTLCTD.m>`__,2929177,|check|
+   `<Routines/YTLIST.m>`__,13019349,|check|
+   `<Routines/YTMATE.m>`__,3154414,|check|
+   `<Routines/YTMBMD.m>`__,20606864,|check|
+   `<Routines/YTMCMI.m>`__,9833954,|check|
+   `<Routines/YTMCMI2.m>`__,8707444,|check|
+   `<Routines/YTMCMI2A.m>`__,8075426,|check|
+   `<Routines/YTMCMI2B.m>`__,14715804,|check|
+   `<Routines/YTMCMI2C.m>`__,21611132,|check|
+   `<Routines/YTMCMI2D.m>`__,5722079,|check|
+   `<Routines/YTMCMI3.m>`__,19369222,|check|
+   `<Routines/YTMCMI3A.m>`__,16271558,|check|
+   `<Routines/YTMCMI3R.m>`__,8684866,|check|
+   `<Routines/YTMILL.m>`__,7529832,|check|
+   `<Routines/YTMMP1.m>`__,7989458,|check|
+   `<Routines/YTMMP2.m>`__,14537571,|check|
+   `<Routines/YTMMP3.m>`__,10558688,|check|
+   `<Routines/YTMMP4.m>`__,8892987,|check|
+   `<Routines/YTMMP5.m>`__,16927218,|check|
+   `<Routines/YTMMP6.m>`__,9374202,|check|
+   `<Routines/YTMMP7.m>`__,1295759,|check|
+   `<Routines/YTMMPI.m>`__,9095736,|check|
+   `<Routines/YTMMPI2.m>`__,20251423,|check|
+   `<Routines/YTMMPI2A.m>`__,14532305,|check|
+   `<Routines/YTMMPI2B.m>`__,30224283,|check|
+   `<Routines/YTMMPI2C.m>`__,11210369,|check|
+   `<Routines/YTMMPI2D.m>`__,8402319,|check|
+   `<Routines/YTMMPI2P.m>`__,17736010,|check|
+   `<Routines/YTMMPP.m>`__,11398784,|check|
+   `<Routines/YTMYER.m>`__,6444363,|check|
+   `<Routines/YTNEOPI.m>`__,15816087,|check|
+   `<Routines/YTNEOPI1.m>`__,23150324,|check|
+   `<Routines/YTNEOPI2.m>`__,16251191,|check|
+   `<Routines/YTONLY.m>`__,29076478,|check|
+   `<Routines/YTPAI.m>`__,23202181,|check|
+   `<Routines/YTPAI1.m>`__,14941687,|check|
+   `<Routines/YTPCL.m>`__,7363737,|check|
+   `<Routines/YTPHQ9.m>`__,4571822,|check|
+   `<Routines/YTPIT.m>`__,4191589,|check|
+   `<Routines/YTPSI.m>`__,3214453,|check|
+   `<Routines/YTPXRM.m>`__,4806121,|check|
+   `<Routines/YTQAPI.m>`__,15475641,|check|
+   `<Routines/YTQAPI1.m>`__,27189337,|check|
+   `<Routines/YTQAPI10.m>`__,24613112,|check|
+   `<Routines/YTQAPI11.m>`__,25396570,|check|
+   `<Routines/YTQAPI12.m>`__,20141561,|check|
+   `<Routines/YTQAPI13.m>`__,19997427,|check|
+   `<Routines/YTQAPI14.m>`__,29549616,|check|
+   `<Routines/YTQAPI15.m>`__,29251831,|check|
+   `<Routines/YTQAPI16.m>`__,13185422,|check|
+   `<Routines/YTQAPI17.m>`__,4160285,|check|
+   `<Routines/YTQAPI2.m>`__,23049934,|check|
+   `<Routines/YTQAPI3.m>`__,23768089,|check|
+   `<Routines/YTQAPI4.m>`__,28692651,|check|
+   `<Routines/YTQAPI5.m>`__,31633912,|check|
+   `<Routines/YTQAPI6.m>`__,8407277,|check|
+   `<Routines/YTQAPI7.m>`__,18902958,|check|
+   `<Routines/YTQAPI8.m>`__,32771511,|check|
+   `<Routines/YTQAPI9.m>`__,29518632,|check|
+   `<Routines/YTQCONS.m>`__,22590519,|check|
+   `<Routines/YTQHL7.m>`__,44857862,44918435
+   `<Routines/YTQKIL.m>`__,3326075,|check|
+   `<Routines/YTQLIB.m>`__,8410129,|check|
+   `<Routines/YTQPRT.m>`__,29277675,|check|
+   `<Routines/YTQPXRM.m>`__,4498627,|check|
+   `<Routines/YTQPXRM1.m>`__,12928367,|check|
+   `<Routines/YTQPXRM2.m>`__,14658221,|check|
+   `<Routines/YTQPXRM3.m>`__,16585590,|check|
+   `<Routines/YTQPXRM4.m>`__,21974840,|check|
+   `<Routines/YTQPXRM5.m>`__,19969917,|check|
+   `<Routines/YTQPXRM6.m>`__,17034666,|check|
+   `<Routines/YTQPXRM7.m>`__,22901061,|check|
+   `<Routines/YTQPXRM8.m>`__,15837966,|check|
+   `<Routines/YTQTIU.m>`__,22339305,|check|
+   `<Routines/YTQTUSE.m>`__,8194860,|check|
+   `<Routines/YTREPT.m>`__,16817574,|check|
+   `<Routines/YTRPEXT.m>`__,3923319,|check|
+   `<Routines/YTRPWRP.m>`__,16819326,|check|
+   `<Routines/YTS.m>`__,16658002,|check|
+   `<Routines/YTSCII.m>`__,17815699,|check|
+   `<Routines/YTSCL9R.m>`__,19518546,|check|
+   `<Routines/YTSCL9R1.m>`__,11229619,|check|
+   `<Routines/YTSF36.m>`__,16628452,|check|
+   `<Routines/YTTLS.m>`__,2425718,|check|
+
+.. |check| unicode:: U+2713

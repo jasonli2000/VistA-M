@@ -1,3 +1,15 @@
 MESSAGE
 ZWR
-^XMB(3.9,0)="MESSAGE^3.9s^^0"
+^XMB(3.9,0)="MESSAGE^3.9s^2^2"
+^XMB(3.9,1,0)="Problem Selection List Code Set Version review"
+^XMB(3.9,1,.6)="3130802"
+^XMB(3.9,1,2,0)="^^1^1^3130802"
+^XMB(3.9,1,2,1,0)="No Problems Selection List corrections/review required"
+^XMB(3.9,2,0)="DX Code check of Consult/Procedure QO's"
+^XMB(3.9,2,.6)="3130802"
+^XMB(3.9,2,2,0)="^^1^1^3130802"
+^XMB(3.9,2,2,1,0)="There were no problem quick orders found."
+^XMB(3.9,"B","DX Code check of Consult/Proce",2)=""
+^XMB(3.9,"B","Problem Selection List Code Se",1)=""
+^XMB(3.9,"C",3130802,1)=""
+^XMB(3.9,"C",3130802,2)=""

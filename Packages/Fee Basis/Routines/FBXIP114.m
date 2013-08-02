@@ -6,7 +6,6 @@ FBXIP114 ;ALB/RC-PATCH INSTALL ROUTINE ; 8/31/10 2:44pm
 PS ; post-install entry point
  ; create KIDS checkpoints with call backs
  N FBX
- Q
  F FBX="EN" D
  .S Y=$$NEWCP^XPDUTL(FBX,FBX_"^FBXIP114")
  .I 'Y D BMES^XPDUTL("ERROR Creating "_FBX_" Checkpoint.")
@@ -14,7 +13,6 @@ PS ; post-install entry point
  ;
 EN ; Begin Post-Install
  ;re-index "AF" cross reference.
- Q
  N DIK
  S DIK="^FBAA(161.7,",DIK(1)="13^AF"
  D ENALL2^DIK ;Kill existing "AF" cross-reference.

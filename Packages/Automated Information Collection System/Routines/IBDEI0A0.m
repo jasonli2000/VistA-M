@@ -1,368 +1,172 @@
-IBDEI0A0 ; ; 20-FEB-2013
- ;;3.0;IB ENCOUNTER FORM IMP/EXP;;FEB 20, 2013
- Q:'DIFQR(358.3)  F I=1:2 S X=$T(Q+I) Q:X=""  S Y=$E($T(Q+I+1),4,999),X=$E(X,4,999) S:$A(Y)=126 I=I+1,Y=$E(Y,2,999)_$E($T(Q+I+1),5,99) S:$A(Y)=61 Y=$E(Y,2,999) X NO E  S @X=Y
+IBDEI0A0 ; ; 05-APR-1999
+ ;;2.1;IB ENCOUNTER FORM IMP/EXP;;APR 05, 1999
+ Q:'DIFQR(358.5)  F I=3D1:2 S X=3D$T(Q+I) Q:X=3D""  S
+Y=3D$E($T(Q+I+1),4,999),X=3D$E(X,4,999) S:$A(Y)=3D126
+I=3DI+1,Y=3D$E(Y,2,999)_$E($T(Q+I+1),5,99) S:$A(Y)=3D61 Y=3D$E(Y,2,999) =
+X NO E
+S @X=3DY
 Q Q
- ;;^UTILITY(U,$J,358.3,13282,1,5,0)
- ;;=5^Hyperhidrosis
- ;;^UTILITY(U,$J,358.3,13282,2)
- ;;=Hyperhidrosis^60030
- ;;^UTILITY(U,$J,358.3,13283,0)
- ;;=307.41^^105^851^88
- ;;^UTILITY(U,$J,358.3,13283,1,0)
- ;;=^358.31IA^5^2
- ;;^UTILITY(U,$J,358.3,13283,1,4,0)
- ;;=4^307.41
- ;;^UTILITY(U,$J,358.3,13283,1,5,0)
- ;;=5^Insomnia, Nonorganic, Transient
- ;;^UTILITY(U,$J,358.3,13283,2)
- ;;=^268285
- ;;^UTILITY(U,$J,358.3,13284,0)
- ;;=780.52^^105^851^89
- ;;^UTILITY(U,$J,358.3,13284,1,0)
- ;;=^358.31IA^5^2
- ;;^UTILITY(U,$J,358.3,13284,1,4,0)
- ;;=4^780.52
- ;;^UTILITY(U,$J,358.3,13284,1,5,0)
- ;;=5^Insomnia, Organic
- ;;^UTILITY(U,$J,358.3,13284,2)
- ;;=Insomnia, Organic^87662
- ;;^UTILITY(U,$J,358.3,13285,0)
- ;;=302.71^^105^851^92
- ;;^UTILITY(U,$J,358.3,13285,1,0)
- ;;=^358.31IA^5^2
- ;;^UTILITY(U,$J,358.3,13285,1,4,0)
- ;;=4^302.71
- ;;^UTILITY(U,$J,358.3,13285,1,5,0)
- ;;=5^Loss of Libido
- ;;^UTILITY(U,$J,358.3,13285,2)
- ;;=^268178
- ;;^UTILITY(U,$J,358.3,13286,0)
- ;;=785.6^^105^851^95
- ;;^UTILITY(U,$J,358.3,13286,1,0)
- ;;=^358.31IA^5^2
- ;;^UTILITY(U,$J,358.3,13286,1,4,0)
- ;;=4^785.6
- ;;^UTILITY(U,$J,358.3,13286,1,5,0)
- ;;=5^Lymphadenopathy
- ;;^UTILITY(U,$J,358.3,13286,2)
- ;;=Lymphadenopathy^72368
- ;;^UTILITY(U,$J,358.3,13287,0)
- ;;=728.85^^105^851^102
- ;;^UTILITY(U,$J,358.3,13287,1,0)
- ;;=^358.31IA^5^2
- ;;^UTILITY(U,$J,358.3,13287,1,4,0)
- ;;=4^728.85
- ;;^UTILITY(U,$J,358.3,13287,1,5,0)
- ;;=5^Muscle Spasm
- ;;^UTILITY(U,$J,358.3,13287,2)
- ;;=Muscle Spasm^112558
- ;;^UTILITY(U,$J,358.3,13288,0)
- ;;=782.0^^105^851^50
- ;;^UTILITY(U,$J,358.3,13288,1,0)
- ;;=^358.31IA^5^2
- ;;^UTILITY(U,$J,358.3,13288,1,4,0)
- ;;=4^782.0
- ;;^UTILITY(U,$J,358.3,13288,1,5,0)
- ;;=5^Disturbance of Skin Sensation
- ;;^UTILITY(U,$J,358.3,13288,2)
- ;;=Disturbance of Skin Sensation^35757
- ;;^UTILITY(U,$J,358.3,13289,0)
- ;;=278.00^^105^851^107
- ;;^UTILITY(U,$J,358.3,13289,1,0)
- ;;=^358.31IA^5^2
- ;;^UTILITY(U,$J,358.3,13289,1,4,0)
- ;;=4^278.00
- ;;^UTILITY(U,$J,358.3,13289,1,5,0)
- ;;=5^Obesity (2nd dx only)
- ;;^UTILITY(U,$J,358.3,13289,2)
- ;;=Obesity^84823
- ;;^UTILITY(U,$J,358.3,13290,0)
- ;;=278.01^^105^851^108
- ;;^UTILITY(U,$J,358.3,13290,1,0)
- ;;=^358.31IA^5^2
- ;;^UTILITY(U,$J,358.3,13290,1,4,0)
- ;;=4^278.01
- ;;^UTILITY(U,$J,358.3,13290,1,5,0)
- ;;=5^Obesity, Morbid
- ;;^UTILITY(U,$J,358.3,13290,2)
- ;;=Obesity, Morbid^84844
- ;;^UTILITY(U,$J,358.3,13291,0)
- ;;=783.5^^105^851^117
- ;;^UTILITY(U,$J,358.3,13291,1,0)
- ;;=^358.31IA^5^2
- ;;^UTILITY(U,$J,358.3,13291,1,4,0)
- ;;=4^783.5
- ;;^UTILITY(U,$J,358.3,13291,1,5,0)
- ;;=5^Polydipsia
- ;;^UTILITY(U,$J,358.3,13291,2)
- ;;=Polydipsia^186699
- ;;^UTILITY(U,$J,358.3,13292,0)
- ;;=783.6^^105^851^118
- ;;^UTILITY(U,$J,358.3,13292,1,0)
- ;;=^358.31IA^5^2
- ;;^UTILITY(U,$J,358.3,13292,1,4,0)
- ;;=4^783.6
- ;;^UTILITY(U,$J,358.3,13292,1,5,0)
- ;;=5^Polyphagia
- ;;^UTILITY(U,$J,358.3,13292,2)
- ;;=Polyphagia^60236
- ;;^UTILITY(U,$J,358.3,13293,0)
- ;;=780.2^^105^851^134
- ;;^UTILITY(U,$J,358.3,13293,1,0)
- ;;=^358.31IA^5^2
- ;;^UTILITY(U,$J,358.3,13293,1,4,0)
- ;;=4^780.2
- ;;^UTILITY(U,$J,358.3,13293,1,5,0)
- ;;=5^Syncope and Collapse
- ;;^UTILITY(U,$J,358.3,13293,2)
- ;;=^116707
- ;;^UTILITY(U,$J,358.3,13294,0)
- ;;=783.1^^105^851^146
- ;;^UTILITY(U,$J,358.3,13294,1,0)
- ;;=^358.31IA^5^2
- ;;^UTILITY(U,$J,358.3,13294,1,4,0)
- ;;=4^783.1
- ;;^UTILITY(U,$J,358.3,13294,1,5,0)
- ;;=5^Weight gain, abnormal
- ;;^UTILITY(U,$J,358.3,13294,2)
- ;;=^998
- ;;^UTILITY(U,$J,358.3,13295,0)
- ;;=783.21^^105^851^147
- ;;^UTILITY(U,$J,358.3,13295,1,0)
- ;;=^358.31IA^5^2
- ;;^UTILITY(U,$J,358.3,13295,1,4,0)
- ;;=4^783.21
- ;;^UTILITY(U,$J,358.3,13295,1,5,0)
- ;;=5^Weight loss, abnormal
- ;;^UTILITY(U,$J,358.3,13295,2)
- ;;=^322005
- ;;^UTILITY(U,$J,358.3,13296,0)
- ;;=796.2^^105^851^32
- ;;^UTILITY(U,$J,358.3,13296,1,0)
- ;;=^358.31IA^5^2
- ;;^UTILITY(U,$J,358.3,13296,1,4,0)
- ;;=4^796.2
- ;;^UTILITY(U,$J,358.3,13296,1,5,0)
- ;;=5^Blood Pressure Elevated, w/o HTN
- ;;^UTILITY(U,$J,358.3,13296,2)
- ;;=^273464
- ;;^UTILITY(U,$J,358.3,13297,0)
- ;;=790.92^^105^851^9
- ;;^UTILITY(U,$J,358.3,13297,1,0)
- ;;=^358.31IA^5^2
- ;;^UTILITY(U,$J,358.3,13297,1,4,0)
- ;;=4^790.92
- ;;^UTILITY(U,$J,358.3,13297,1,5,0)
- ;;=5^Abnorm Coagulation Profile
- ;;^UTILITY(U,$J,358.3,13297,2)
- ;;=Abnorm Coagulation Profile^295771
- ;;^UTILITY(U,$J,358.3,13298,0)
- ;;=794.31^^105^851^10
- ;;^UTILITY(U,$J,358.3,13298,1,0)
- ;;=^358.31IA^5^2
- ;;^UTILITY(U,$J,358.3,13298,1,4,0)
- ;;=4^794.31
- ;;^UTILITY(U,$J,358.3,13298,1,5,0)
- ;;=5^Abnormal EKG
- ;;^UTILITY(U,$J,358.3,13298,2)
- ;;=Abnormal EKG^83844
- ;;^UTILITY(U,$J,358.3,13299,0)
- ;;=790.1^^105^851^60
- ;;^UTILITY(U,$J,358.3,13299,1,0)
- ;;=^358.31IA^5^2
- ;;^UTILITY(U,$J,358.3,13299,1,4,0)
- ;;=4^790.1
- ;;^UTILITY(U,$J,358.3,13299,1,5,0)
- ;;=5^Elevated Sedimentation Rate
- ;;^UTILITY(U,$J,358.3,13299,2)
- ;;=Elevated Sedimentation Rate^39339
- ;;^UTILITY(U,$J,358.3,13300,0)
- ;;=790.93^^105^851^59
- ;;^UTILITY(U,$J,358.3,13300,1,0)
- ;;=^358.31IA^5^2
- ;;^UTILITY(U,$J,358.3,13300,1,4,0)
- ;;=4^790.93
- ;;^UTILITY(U,$J,358.3,13300,1,5,0)
- ;;=5^Elevated PSA
- ;;^UTILITY(U,$J,358.3,13300,2)
- ;;=Elevated PSA^295772
- ;;^UTILITY(U,$J,358.3,13301,0)
- ;;=791.0^^105^851^122
- ;;^UTILITY(U,$J,358.3,13301,1,0)
- ;;=^358.31IA^5^2
- ;;^UTILITY(U,$J,358.3,13301,1,4,0)
- ;;=4^791.0
- ;;^UTILITY(U,$J,358.3,13301,1,5,0)
- ;;=5^Proteinuria
- ;;^UTILITY(U,$J,358.3,13301,2)
- ;;=Proteinuria^99873
- ;;^UTILITY(U,$J,358.3,13302,0)
- ;;=791.9^^105^851^14
- ;;^UTILITY(U,$J,358.3,13302,1,0)
- ;;=^358.31IA^5^2
- ;;^UTILITY(U,$J,358.3,13302,1,4,0)
- ;;=4^791.9
- ;;^UTILITY(U,$J,358.3,13302,1,5,0)
- ;;=5^Abnormal UA
- ;;^UTILITY(U,$J,358.3,13302,2)
- ;;=Abnormal UA^273408
- ;;^UTILITY(U,$J,358.3,13303,0)
- ;;=789.01^^105^851^7
- ;;^UTILITY(U,$J,358.3,13303,1,0)
- ;;=^358.31IA^5^2
- ;;^UTILITY(U,$J,358.3,13303,1,4,0)
- ;;=4^789.01
- ;;^UTILITY(U,$J,358.3,13303,1,5,0)
- ;;=5^Abdominal pain, RUQ
- ;;^UTILITY(U,$J,358.3,13303,2)
- ;;=^303318
- ;;^UTILITY(U,$J,358.3,13304,0)
- ;;=789.02^^105^851^4
- ;;^UTILITY(U,$J,358.3,13304,1,0)
- ;;=^358.31IA^5^2
- ;;^UTILITY(U,$J,358.3,13304,1,4,0)
- ;;=4^789.02
- ;;^UTILITY(U,$J,358.3,13304,1,5,0)
- ;;=5^Abdominal pain, LUQ
- ;;^UTILITY(U,$J,358.3,13304,2)
- ;;=^303319
- ;;^UTILITY(U,$J,358.3,13305,0)
- ;;=789.03^^105^851^6
- ;;^UTILITY(U,$J,358.3,13305,1,0)
- ;;=^358.31IA^5^2
- ;;^UTILITY(U,$J,358.3,13305,1,4,0)
- ;;=4^789.03
- ;;^UTILITY(U,$J,358.3,13305,1,5,0)
- ;;=5^Abdominal pain, RLQ
- ;;^UTILITY(U,$J,358.3,13305,2)
- ;;=^303320
- ;;^UTILITY(U,$J,358.3,13306,0)
- ;;=789.04^^105^851^3
- ;;^UTILITY(U,$J,358.3,13306,1,0)
- ;;=^358.31IA^5^2
- ;;^UTILITY(U,$J,358.3,13306,1,4,0)
- ;;=4^789.04
- ;;^UTILITY(U,$J,358.3,13306,1,5,0)
- ;;=5^Abdominal pain, LLQ
- ;;^UTILITY(U,$J,358.3,13306,2)
- ;;=^303321
- ;;^UTILITY(U,$J,358.3,13307,0)
- ;;=789.06^^105^851^2
- ;;^UTILITY(U,$J,358.3,13307,1,0)
- ;;=^358.31IA^5^2
- ;;^UTILITY(U,$J,358.3,13307,1,4,0)
- ;;=4^789.06
- ;;^UTILITY(U,$J,358.3,13307,1,5,0)
- ;;=5^Abdominal pain, Epigastric
- ;;^UTILITY(U,$J,358.3,13307,2)
- ;;=^303323
- ;;^UTILITY(U,$J,358.3,13308,0)
- ;;=789.05^^105^851^5
- ;;^UTILITY(U,$J,358.3,13308,1,0)
- ;;=^358.31IA^5^2
- ;;^UTILITY(U,$J,358.3,13308,1,4,0)
- ;;=4^789.05
- ;;^UTILITY(U,$J,358.3,13308,1,5,0)
- ;;=5^Abdominal pain, Periumbilical
- ;;^UTILITY(U,$J,358.3,13308,2)
- ;;=^303322
- ;;^UTILITY(U,$J,358.3,13309,0)
- ;;=789.40^^105^851^8
- ;;^UTILITY(U,$J,358.3,13309,1,0)
- ;;=^358.31IA^5^2
- ;;^UTILITY(U,$J,358.3,13309,1,4,0)
- ;;=4^789.40
- ;;^UTILITY(U,$J,358.3,13309,1,5,0)
- ;;=5^Abdominal rigidity, unsp site
- ;;^UTILITY(U,$J,358.3,13309,2)
- ;;=^273393
- ;;^UTILITY(U,$J,358.3,13310,0)
- ;;=789.1^^105^851^73
- ;;^UTILITY(U,$J,358.3,13310,1,0)
- ;;=^358.31IA^5^2
- ;;^UTILITY(U,$J,358.3,13310,1,4,0)
- ;;=4^789.1
- ;;^UTILITY(U,$J,358.3,13310,1,5,0)
- ;;=5^Hepatomegaly
- ;;^UTILITY(U,$J,358.3,13310,2)
- ;;=Hepatomegaly^56494
- ;;^UTILITY(U,$J,358.3,13311,0)
- ;;=789.30^^105^851^1
- ;;^UTILITY(U,$J,358.3,13311,1,0)
- ;;=^358.31IA^5^2
- ;;^UTILITY(U,$J,358.3,13311,1,4,0)
- ;;=4^789.30
- ;;^UTILITY(U,$J,358.3,13311,1,5,0)
- ;;=5^Abdominal Mass/Lump
- ;;^UTILITY(U,$J,358.3,13311,2)
- ;;=Abdominal Mass/Lump^917
- ;;^UTILITY(U,$J,358.3,13312,0)
- ;;=789.2^^105^851^130
- ;;^UTILITY(U,$J,358.3,13312,1,0)
- ;;=^358.31IA^5^2
- ;;^UTILITY(U,$J,358.3,13312,1,4,0)
- ;;=4^789.2
- ;;^UTILITY(U,$J,358.3,13312,1,5,0)
- ;;=5^Splenomegaly
- ;;^UTILITY(U,$J,358.3,13312,2)
- ;;=Splenomegaly^113452
- ;;^UTILITY(U,$J,358.3,13313,0)
- ;;=785.2^^105^851^34
- ;;^UTILITY(U,$J,358.3,13313,1,0)
- ;;=^358.31IA^5^2
- ;;^UTILITY(U,$J,358.3,13313,1,4,0)
- ;;=4^785.2
- ;;^UTILITY(U,$J,358.3,13313,1,5,0)
- ;;=5^Cardiac murmurs, undiagnosed
- ;;^UTILITY(U,$J,358.3,13313,2)
- ;;=^295854
- ;;^UTILITY(U,$J,358.3,13314,0)
- ;;=786.50^^105^851^37
- ;;^UTILITY(U,$J,358.3,13314,1,0)
- ;;=^358.31IA^5^2
- ;;^UTILITY(U,$J,358.3,13314,1,4,0)
- ;;=4^786.50
- ;;^UTILITY(U,$J,358.3,13314,1,5,0)
- ;;=5^Chest pain/Discomfort (nonsp) chest pain diff from discomfort
- ;;^UTILITY(U,$J,358.3,13314,2)
- ;;=^22485
- ;;^UTILITY(U,$J,358.3,13315,0)
- ;;=786.51^^105^851^121
- ;;^UTILITY(U,$J,358.3,13315,1,0)
- ;;=^358.31IA^5^2
- ;;^UTILITY(U,$J,358.3,13315,1,4,0)
- ;;=4^786.51
- ;;^UTILITY(U,$J,358.3,13315,1,5,0)
- ;;=5^Precordial Pain
- ;;^UTILITY(U,$J,358.3,13315,2)
- ;;=Precordial Pain^276877
- ;;^UTILITY(U,$J,358.3,13316,0)
- ;;=786.2^^105^851^44
- ;;^UTILITY(U,$J,358.3,13316,1,0)
- ;;=^358.31IA^5^2
- ;;^UTILITY(U,$J,358.3,13316,1,4,0)
- ;;=4^786.2
- ;;^UTILITY(U,$J,358.3,13316,1,5,0)
- ;;=5^Cough
- ;;^UTILITY(U,$J,358.3,13316,2)
- ;;=Cough^28905
- ;;^UTILITY(U,$J,358.3,13317,0)
- ;;=396.0^^105^851^40
- ;;^UTILITY(U,$J,358.3,13317,1,0)
- ;;=^358.31IA^5^2
- ;;^UTILITY(U,$J,358.3,13317,1,4,0)
- ;;=4^396.0
- ;;^UTILITY(U,$J,358.3,13317,1,5,0)
- ;;=5^Combined Aortic&Mitral Valve stenosis
- ;;^UTILITY(U,$J,358.3,13317,2)
- ;;=^269580
- ;;^UTILITY(U,$J,358.3,13318,0)
- ;;=786.09^^105^851^55
- ;;^UTILITY(U,$J,358.3,13318,1,0)
- ;;=^358.31IA^5^2
- ;;^UTILITY(U,$J,358.3,13318,1,4,0)
- ;;=4^786.09
- ;;^UTILITY(U,$J,358.3,13318,1,5,0)
- ;;=5^Dyspnea
- ;;^UTILITY(U,$J,358.3,13318,2)
- ;;=Dyspnea^87547
+ ;;^UTILITY(U,$J,358.5,26,2,0)
+ ;;=3D^358.52^1^1
+ ;;^UTILITY(U,$J,358.5,26,2,1,0)
+ ;;=3DFILL OUT EACH HIGHLIGHTED BLOCK^^BRU^1^0
+ ;;^UTILITY(U,$J,358.5,27,0)
+ ;;=3DPhone^17^1
+ ;;^UTILITY(U,$J,358.5,27,2,0)
+ ;;=3D^358.52^1^1
+ ;;^UTILITY(U,$J,358.5,27,2,1,0)
+ ;;=3DPhone:^^^37^2^2^44^20^1
+ ;;^UTILITY(U,$J,358.5,28,0)
+ ;;=3DInsurance^17^2^0^1
+ ;;^UTILITY(U,$J,358.5,28,2,0)
+ ;;=3D^358.52^1^1
+ ;;^UTILITY(U,$J,358.5,28,2,1,0)
+ ;;=3DINSURANCE:^^B^1^5^5^12^30^1
+ ;;^UTILITY(U,$J,358.5,29,0)
+ ;;=3DDOB^17^3
+ ;;^UTILITY(U,$J,358.5,29,2,0)
+ ;;=3D^358.52^1^1
+ ;;^UTILITY(U,$J,358.5,29,2,1,0)
+ ;;=3DDOB:^^^64^2^2^68^12^1
+ ;;^UTILITY(U,$J,358.5,30,0)
+ ;;=3DAddress^17^4^0^1
+ ;;^UTILITY(U,$J,358.5,30,2,0)
+ ;;=3D^358.52^1^1
+ ;;^UTILITY(U,$J,358.5,30,2,1,0)
+ ;;=3DAddress:^^I^1^3^3^1^38^1
+ ;;^UTILITY(U,$J,358.5,31,0)
+ ;;=3DCity^17^4^0^2
+ ;;^UTILITY(U,$J,358.5,31,2,0)
+ ;;=3D^358.52^1^1
+ ;;^UTILITY(U,$J,358.5,31,2,1,0)
+ ;;=3Dcity^^I^^^4^1^42^1
+ ;;^UTILITY(U,$J,358.5,32,0)
+ ;;=3DName^17^5
+ ;;^UTILITY(U,$J,358.5,32,2,0)
+ ;;=3D^358.52^1^1
+ ;;^UTILITY(U,$J,358.5,32,2,1,0)
+ ;;=3DName:^^^1^2^2^7^30^1
+ ;;^UTILITY(U,$J,358.5,33,0)
+ ;;=3DInsurance 2^17^2^1^2
+ ;;^UTILITY(U,$J,358.5,33,2,0)
+ ;;=3D^358.52^1^1
+ ;;^UTILITY(U,$J,358.5,33,2,1,0)
+ ;;=3DInsurance^^I^^^4^45^30^1
+ ;;^UTILITY(U,$J,358.5,34,0)
+ ;;=3DCLINIC^18^18^^^^^^^5^2
+ ;;^UTILITY(U,$J,358.5,34,2,0)
+ ;;=3D^358.52^1^1
+ ;;^UTILITY(U,$J,358.5,34,2,1,0)
+ ;;=3DClinic:^^^5^2^2^13^30^1
+ ;;^UTILITY(U,$J,358.5,35,0)
+ ;;=3DAPPT. DT/TIME^18^19^^^^^^^5^2
+ ;;^UTILITY(U,$J,358.5,35,2,0)
+ ;;=3D^358.52^1^1
+ ;;^UTILITY(U,$J,358.5,35,2,1,0)
+ ;;=3DAppt. DT/Time:^^^5^3^3^20^23^1
+ ;;^UTILITY(U,$J,358.5,36,0)
+ ;;=3DNO SHOW/CANCEL^18^12
+ ;;^UTILITY(U,$J,358.5,36,2,0)
+ ;;=3D^358.52^1^1
+ ;;^UTILITY(U,$J,358.5,36,2,1,0)
+ ;;=3D__NO-SHOW  __CANCEL  __RESCHEDULED^^B^5^5
+ ;;^UTILITY(U,$J,358.5,37,0)
+ ;;=3DSC condition 1^21^15^0^1
+ ;;^UTILITY(U,$J,358.5,37,2,0)
+ ;;=3D^358.52^1^1
+ ;;^UTILITY(U,$J,358.5,37,2,1,0)
+ ;;=3DSC Condtion 1^^I^^^2^4^45^1
+ ;;^UTILITY(U,$J,358.5,38,0)
+ ;;=3DSC Condition 2^21^15^0^2
+ ;;^UTILITY(U,$J,358.5,38,2,0)
+ ;;=3D^358.52^1^1
+ ;;^UTILITY(U,$J,358.5,38,2,1,0)
+ ;;=3DSC Condition 2^^I^^^3^4^45^1
+ ;;^UTILITY(U,$J,358.5,39,0)
+ ;;=3DSC Condition 3^21^15^0^3
+ ;;^UTILITY(U,$J,358.5,39,2,0)
+ ;;=3D^358.52^1^1
+ ;;^UTILITY(U,$J,358.5,39,2,1,0)
+ ;;=3D1^^I^^^4^4^45^1
+ ;;^UTILITY(U,$J,358.5,40,0)
+ ;;=3DSC Condition 4^21^15^0^4
+ ;;^UTILITY(U,$J,358.5,40,2,0)
+ ;;=3D^358.52^1^1
+ ;;^UTILITY(U,$J,358.5,40,2,1,0)
+ ;;=3DSC Condition 4^^I^^^5^4^45^1
+ ;;^UTILITY(U,$J,358.5,41,0)
+ ;;=3DSC Condition 5^21^15^0^5
+ ;;^UTILITY(U,$J,358.5,41,2,0)
+ ;;=3D^358.52^2^2
+ ;;^UTILITY(U,$J,358.5,41,2,1,0)
+ ;;=3DSC Condition 5^^I^^^6^4^45^1
+ ;;^UTILITY(U,$J,358.5,41,2,2,0)
+ ;;=3D1^^I^^^6^4^45^1
+ ;;^UTILITY(U,$J,358.5,42,0)
+ ;;=3DSC Condition 6^21^15^0^6
+ ;;^UTILITY(U,$J,358.5,42,2,0)
+ ;;=3D^358.52^1^1
+ ;;^UTILITY(U,$J,358.5,42,2,1,0)
+ ;;=3DSC Condition 6^^I^^^7^4^45^1
+ ;;^UTILITY(U,$J,358.5,43,0)
+ ;;=3DSC Condition 7^21^15^1^7
+ ;;^UTILITY(U,$J,358.5,43,2,0)
+ ;;=3D^358.52^1^1
+ ;;^UTILITY(U,$J,358.5,43,2,1,0)
+ ;;=3DSC Condition 7^^I^^^7^4^45^1
+ ;;^UTILITY(U,$J,358.5,44,0)
+ ;;=3Dwork-related?^22^12^^^^^^^^1
+ ;;^UTILITY(U,$J,358.5,44,2,0)
+ ;;=3D^358.52^1^1
+ ;;^UTILITY(U,$J,358.5,44,2,1,0)
+ ;;=3DIS TREATMENT TODAY FOR WORK-RELATED INJURY OR ILLNESS?  ___Y
+___N^^BU^1^3^1
+ ;;^UTILITY(U,$J,358.5,45,0)
+ ;;=3Dwork-related^22^12^^^^^^^^1
+ ;;^UTILITY(U,$J,358.5,45,2,0)
+ ;;=3D^358.52^1^1
+ ;;^UTILITY(U,$J,358.5,45,2,1,0)
+ ;;=3DIS TREATMENT TODAY RELATED TO AN ACCIDENT?  ___Y ___N^^UB^72^3^1
+ ;;^UTILITY(U,$J,358.5,46,0)
+ ;;=3DONE PRIMARY DX^24^12
+ ;;^UTILITY(U,$J,358.5,46,2,0)
+ ;;=3D^358.52^1^1
+ ;;^UTILITY(U,$J,358.5,46,2,1,0)
+ ;;=3DCHOOSE ONLY ONE PRIMARY DIAGNOSIS FROM EITHER LIST^^BU^41^2
+ ;;^UTILITY(U,$J,358.5,47,0)
+ ;;=3DIF DIAGNOSIS^25^12
+ ;;^UTILITY(U,$J,358.5,47,2,0)
+ ;;=3D^358.52^1^1
+ ;;^UTILITY(U,$J,358.5,47,2,1,0)
+ ;;=3DIF DIAGNOSIS IS ALREADY ON PROBLEM LIST, DO NOT MARK THE "ADD"
+BUBBLE^^BRU^32^2
+ ;;^UTILITY(U,$J,358.5,48,0)
+ ;;=3DHEADER^27
+ ;;^UTILITY(U,$J,358.5,48,2,0)
+ ;;=3D^358.52^1^1
+ ;;^UTILITY(U,$J,358.5,48,2,1,0)
+ ;;=3DVISN 22 CARDIOLOGY ENCOUNTER FORM^^BU^0^0
+ ;;^UTILITY(U,$J,358.5,49,0)
+ ;;=3DIF DIAG^30^12
+ ;;^UTILITY(U,$J,358.5,49,2,0)
+ ;;=3D^358.52^1^1
+ ;;^UTILITY(U,$J,358.5,49,2,1,0)
+ ;;=3DIF DIAGNOSIS IS ALREADY ON PROBLEM LIST, DO NOT MARK THE "ADD"
+BUBBLE. CHOOSE PRIMARY DIAGNOSIS FROM EITHER BLOCK, BUT NOT
+BOTH.^^BR^1^2
+ ;;^UTILITY(U,$J,358.5,50,0)
+ ;;=3DCHOOSE^31^12
+ ;;^UTILITY(U,$J,358.5,50,2,0)
+ ;;=3D^358.52^1^1
+ ;;^UTILITY(U,$J,358.5,50,2,1,0)
+ ;;=3DCHOOSE^^^41^2
+ ;;^UTILITY(U,$J,358.5,51,0)
+ ;;=3DCHOOSE^31^12
+ ;;^UTILITY(U,$J,358.5,51,2,0)
+ ;;=3D^358.52^1^1
+ ;;^UTILITY(U,$J,358.5,51,2,1,0)
+ ;;=3DCHOOSE^^^41^2
+ ;;^UTILITY(U,$J,358.5,52,0)
+ ;;=3DCHOOSE^31^12
+ ;;^UTILITY(U,$J,358.5,52,2,0)
+ ;;=3D^358.52^1^1

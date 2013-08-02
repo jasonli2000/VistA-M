@@ -1,5 +1,5 @@
 MAGGTIA ;WOIFO/GEK/RMP/NST - Imaging RPC Broker calls. Add/Modify Image entry ; 20 Dec 2010 3:16 PM
- ;;3.0;IMAGING;**8,48,106,117,99**;Mar 19, 2002;Build 2057;Apr 19, 2011
+ ;;3.0;IMAGING;**8,48,106,117**;Mar 19, 2002;Build 2238;Jul 15, 2011
  ;; Per VHA Directive 2004-038, this routine should not be modified.
  ;; +---------------------------------------------------------------+
  ;; | Property of the US Government.                                |

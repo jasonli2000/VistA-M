@@ -1,5 +1,5 @@
-RCDPESR6 ;ALB/TMK/DWA - Server auto-update file 344.4 - EDI Lockbox ; 10/29/02
- ;;4.5;Accounts Receivable;**173,214,208,230,252,269,271**;Mar 20, 1995;Build 29
+RCDPESR6 ;ALB/TMK/DWA - Server auto-update file 344.4 - EDI Lockbox ; 8/6/10 12:14pm
+ ;;4.5;Accounts Receivable;**173,214,208,230,252,269**;Mar 20, 1995;Build 113
  ;;Per VHA Directive 2004-038, this routine should not be modified.
  ;
 UPD3444(RCRTOT) ; Add EOB detail to list in 344.41 for file 344.4 entry RCRTOT
@@ -11,7 +11,7 @@ UPD3444(RCRTOT) ; Add EOB detail to list in 344.41 for file 344.4 entry RCRTOT
  . I RCEOB>0 Q:$D(^RCY(344.4,RCRTOT,1,"AC",RCEOB,RC))
  . I RCEOB'>0,$S($P(RC1,U,2)'="":$D(^RCY(344.4,RCRTOT,1,"AD",$P(RC1,U,2),RC)),1:0) Q
  . ; Disregard ECME reject related EEOBs
- . I RCEOB'>0,'$P(RC2,U,2),$P(RC1,U,2)?1.12N,$$REJECT^IBNCPDPU($P(RC1,U,2),$P(RC1,U,3)) Q    ; esg 9/7/10 ECME# 12 digits
+ . I RCEOB'>0,'$P(RC2,U,2),$P(RC1,U,2)?1.7N,$$REJECT^IBNCPDPU($P(RC1,U,2),$P(RC1,U,3)) Q
  . S DA(1)=RCRTOT,X=RC,DIC="^RCY(344.4,"_DA(1)_",1,",DIC(0)="L",DLAYGO=344.41
  . S DIC("DR")=$S($G(RCEOB)>0:".02////"_RCEOB,1:".05////"_$P(RC1,U,2)_";.07////1")
  . I $P(RC2,U,2)'="" S DIC("DR")=DIC("DR")_$S($L(DIC("DR")):";",1:"")_".03///"_$P(RC2,U,2) ; amt

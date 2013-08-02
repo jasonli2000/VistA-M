@@ -1,374 +1,164 @@
-IBDEI0BJ ; ; 20-FEB-2013
- ;;3.0;IB ENCOUNTER FORM IMP/EXP;;FEB 20, 2013
- Q:'DIFQR(358.3)  F I=1:2 S X=$T(Q+I) Q:X=""  S Y=$E($T(Q+I+1),4,999),X=$E(X,4,999) S:$A(Y)=126 I=I+1,Y=$E(Y,2,999)_$E($T(Q+I+1),5,99) S:$A(Y)=61 Y=$E(Y,2,999) X NO E  S @X=Y
+IBDEI0BJ ; ; 05-APR-1999
+ ;;2.1;IB ENCOUNTER FORM IMP/EXP;;APR 05, 1999
+ Q:'DIFQR(358.6)  F I=3D1:2 S X=3D$T(Q+I) Q:X=3D""  S
+Y=3D$E($T(Q+I+1),4,999),X=3D$E(X,4,999) S:$A(Y)=3D126
+I=3DI+1,Y=3D$E(Y,2,999)_$E($T(Q+I+1),5,99) S:$A(Y)=3D61 Y=3D$E(Y,2,999) =
+X NO E
+S @X=3DY
 Q Q
- ;;^UTILITY(U,$J,358.3,15345,1,2,0)
- ;;=2^304.40
- ;;^UTILITY(U,$J,358.3,15345,1,5,0)
- ;;=5^Amphetamine Dependence
- ;;^UTILITY(U,$J,358.3,15345,2)
- ;;=^268204
- ;;^UTILITY(U,$J,358.3,15346,0)
- ;;=304.43^^112^946^20
- ;;^UTILITY(U,$J,358.3,15346,1,0)
- ;;=^358.31IA^5^2
- ;;^UTILITY(U,$J,358.3,15346,1,2,0)
- ;;=2^304.43
- ;;^UTILITY(U,$J,358.3,15346,1,5,0)
- ;;=5^Amphetamine Dep-Remis
- ;;^UTILITY(U,$J,358.3,15346,2)
- ;;=^268207
- ;;^UTILITY(U,$J,358.3,15347,0)
- ;;=305.70^^112^946^16
- ;;^UTILITY(U,$J,358.3,15347,1,0)
- ;;=^358.31IA^5^2
- ;;^UTILITY(U,$J,358.3,15347,1,2,0)
- ;;=2^305.70
- ;;^UTILITY(U,$J,358.3,15347,1,5,0)
- ;;=5^Amphetamine Abuse
- ;;^UTILITY(U,$J,358.3,15347,2)
- ;;=^268250
- ;;^UTILITY(U,$J,358.3,15348,0)
- ;;=305.73^^112^946^19
- ;;^UTILITY(U,$J,358.3,15348,1,0)
- ;;=^358.31IA^5^2
- ;;^UTILITY(U,$J,358.3,15348,1,2,0)
- ;;=2^305.73
- ;;^UTILITY(U,$J,358.3,15348,1,5,0)
- ;;=5^Amphetamine Abuse-Remission
- ;;^UTILITY(U,$J,358.3,15348,2)
- ;;=^268253
- ;;^UTILITY(U,$J,358.3,15349,0)
- ;;=304.50^^112^946^62
- ;;^UTILITY(U,$J,358.3,15349,1,0)
- ;;=^358.31IA^5^2
- ;;^UTILITY(U,$J,358.3,15349,1,2,0)
- ;;=2^304.50
- ;;^UTILITY(U,$J,358.3,15349,1,5,0)
- ;;=5^Hallucinogen Dependence
- ;;^UTILITY(U,$J,358.3,15349,2)
- ;;=^53744
- ;;^UTILITY(U,$J,358.3,15350,0)
- ;;=304.53^^112^946^59
- ;;^UTILITY(U,$J,358.3,15350,1,0)
- ;;=^358.31IA^5^2
- ;;^UTILITY(U,$J,358.3,15350,1,2,0)
- ;;=2^304.53
- ;;^UTILITY(U,$J,358.3,15350,1,5,0)
- ;;=5^Hallucinogen Dep-Remission
- ;;^UTILITY(U,$J,358.3,15350,2)
- ;;=^268210
- ;;^UTILITY(U,$J,358.3,15351,0)
- ;;=305.30^^112^946^56
- ;;^UTILITY(U,$J,358.3,15351,1,0)
- ;;=^358.31IA^5^2
- ;;^UTILITY(U,$J,358.3,15351,1,2,0)
- ;;=2^305.30
- ;;^UTILITY(U,$J,358.3,15351,1,5,0)
- ;;=5^Hallucinogen Abuse
- ;;^UTILITY(U,$J,358.3,15351,2)
- ;;=^53741
- ;;^UTILITY(U,$J,358.3,15352,0)
- ;;=305.33^^112^946^55
- ;;^UTILITY(U,$J,358.3,15352,1,0)
- ;;=^358.31IA^5^2
- ;;^UTILITY(U,$J,358.3,15352,1,2,0)
- ;;=2^305.33
- ;;^UTILITY(U,$J,358.3,15352,1,5,0)
- ;;=5^Hallucinog Abuse-Remission
- ;;^UTILITY(U,$J,358.3,15352,2)
- ;;=^268239
- ;;^UTILITY(U,$J,358.3,15353,0)
- ;;=304.60^^112^946^54
- ;;^UTILITY(U,$J,358.3,15353,1,0)
- ;;=^358.31IA^5^2
- ;;^UTILITY(U,$J,358.3,15353,1,2,0)
- ;;=2^304.60
- ;;^UTILITY(U,$J,358.3,15353,1,5,0)
- ;;=5^Drug Dependence, Other
- ;;^UTILITY(U,$J,358.3,15353,2)
- ;;=^88038
- ;;^UTILITY(U,$J,358.3,15354,0)
- ;;=304.63^^112^946^51
- ;;^UTILITY(U,$J,358.3,15354,1,0)
- ;;=^358.31IA^5^2
- ;;^UTILITY(U,$J,358.3,15354,1,2,0)
- ;;=2^304.63
- ;;^UTILITY(U,$J,358.3,15354,1,5,0)
- ;;=5^Drug Depend Other-Remission
- ;;^UTILITY(U,$J,358.3,15354,2)
- ;;=^268213
- ;;^UTILITY(U,$J,358.3,15355,0)
- ;;=305.90^^112^946^76
- ;;^UTILITY(U,$J,358.3,15355,1,0)
- ;;=^358.31IA^5^2
- ;;^UTILITY(U,$J,358.3,15355,1,2,0)
- ;;=2^305.90
- ;;^UTILITY(U,$J,358.3,15355,1,5,0)
- ;;=5^Other Drug Abuse
- ;;^UTILITY(U,$J,358.3,15355,2)
- ;;=^268258
- ;;^UTILITY(U,$J,358.3,15356,0)
- ;;=305.93^^112^946^79
- ;;^UTILITY(U,$J,358.3,15356,1,0)
- ;;=^358.31IA^5^2
- ;;^UTILITY(U,$J,358.3,15356,1,2,0)
- ;;=2^305.93
- ;;^UTILITY(U,$J,358.3,15356,1,5,0)
- ;;=5^Other Drug Abuse-Remission
- ;;^UTILITY(U,$J,358.3,15356,2)
- ;;=^268261
- ;;^UTILITY(U,$J,358.3,15357,0)
- ;;=304.70^^112^946^65
- ;;^UTILITY(U,$J,358.3,15357,1,0)
- ;;=^358.31IA^5^2
- ;;^UTILITY(U,$J,358.3,15357,1,2,0)
- ;;=2^304.70
- ;;^UTILITY(U,$J,358.3,15357,1,5,0)
- ;;=5^Opioid + Other Depend
- ;;^UTILITY(U,$J,358.3,15357,2)
- ;;=^268214
- ;;^UTILITY(U,$J,358.3,15358,0)
- ;;=304.73^^112^946^64
- ;;^UTILITY(U,$J,358.3,15358,1,0)
- ;;=^358.31IA^5^2
- ;;^UTILITY(U,$J,358.3,15358,1,2,0)
- ;;=2^304.73
- ;;^UTILITY(U,$J,358.3,15358,1,5,0)
- ;;=5^Opioid + Other Dep-Remis
- ;;^UTILITY(U,$J,358.3,15358,2)
- ;;=^268217
- ;;^UTILITY(U,$J,358.3,15359,0)
- ;;=304.80^^112^946^50
- ;;^UTILITY(U,$J,358.3,15359,1,0)
- ;;=^358.31IA^5^2
- ;;^UTILITY(U,$J,358.3,15359,1,2,0)
- ;;=2^304.80
- ;;^UTILITY(U,$J,358.3,15359,1,5,0)
- ;;=5^Combination Drug Dep
- ;;^UTILITY(U,$J,358.3,15359,2)
- ;;=^268218
- ;;^UTILITY(U,$J,358.3,15360,0)
- ;;=304.83^^112^946^47
- ;;^UTILITY(U,$J,358.3,15360,1,0)
- ;;=^358.31IA^5^2
- ;;^UTILITY(U,$J,358.3,15360,1,2,0)
- ;;=2^304.83
- ;;^UTILITY(U,$J,358.3,15360,1,5,0)
- ;;=5^Comb Drug Dep-Remission
- ;;^UTILITY(U,$J,358.3,15360,2)
- ;;=^268221
- ;;^UTILITY(U,$J,358.3,15361,0)
- ;;=305.1^^112^946^63
- ;;^UTILITY(U,$J,358.3,15361,1,0)
- ;;=^358.31IA^5^2
- ;;^UTILITY(U,$J,358.3,15361,1,2,0)
- ;;=2^305.1
- ;;^UTILITY(U,$J,358.3,15361,1,5,0)
- ;;=5^Nicotine Dependence
- ;;^UTILITY(U,$J,358.3,15361,2)
- ;;=^119899
- ;;^UTILITY(U,$J,358.3,15362,0)
- ;;=291.81^^112^946^15
- ;;^UTILITY(U,$J,358.3,15362,1,0)
- ;;=^358.31IA^5^2
- ;;^UTILITY(U,$J,358.3,15362,1,2,0)
- ;;=2^291.81
- ;;^UTILITY(U,$J,358.3,15362,1,5,0)
- ;;=5^Alcohol Withdrawal
- ;;^UTILITY(U,$J,358.3,15362,2)
- ;;=^123498
- ;;^UTILITY(U,$J,358.3,15363,0)
- ;;=291.0^^112^946^14
- ;;^UTILITY(U,$J,358.3,15363,1,0)
- ;;=^358.31IA^5^2
- ;;^UTILITY(U,$J,358.3,15363,1,2,0)
- ;;=2^291.0
- ;;^UTILITY(U,$J,358.3,15363,1,5,0)
- ;;=5^Alcohol Withdraw Delir
- ;;^UTILITY(U,$J,358.3,15363,2)
- ;;=^4589
- ;;^UTILITY(U,$J,358.3,15364,0)
- ;;=303.00^^112^946^5
- ;;^UTILITY(U,$J,358.3,15364,1,0)
- ;;=^358.31IA^5^2
- ;;^UTILITY(U,$J,358.3,15364,1,2,0)
- ;;=2^303.00
- ;;^UTILITY(U,$J,358.3,15364,1,5,0)
- ;;=5^Alc Intox NOS
- ;;^UTILITY(U,$J,358.3,15364,2)
- ;;=^268183
- ;;^UTILITY(U,$J,358.3,15365,0)
- ;;=303.01^^112^946^6
- ;;^UTILITY(U,$J,358.3,15365,1,0)
- ;;=^358.31IA^5^2
- ;;^UTILITY(U,$J,358.3,15365,1,2,0)
- ;;=2^303.01
- ;;^UTILITY(U,$J,358.3,15365,1,5,0)
- ;;=5^Alc Intox, Continuous
- ;;^UTILITY(U,$J,358.3,15365,2)
- ;;=^268184
- ;;^UTILITY(U,$J,358.3,15366,0)
- ;;=303.02^^112^946^7
- ;;^UTILITY(U,$J,358.3,15366,1,0)
- ;;=^358.31IA^5^2
- ;;^UTILITY(U,$J,358.3,15366,1,2,0)
- ;;=2^303.02
- ;;^UTILITY(U,$J,358.3,15366,1,5,0)
- ;;=5^Alc Intox, Episodic
- ;;^UTILITY(U,$J,358.3,15366,2)
- ;;=^268185
- ;;^UTILITY(U,$J,358.3,15367,0)
- ;;=303.03^^112^946^8
- ;;^UTILITY(U,$J,358.3,15367,1,0)
- ;;=^358.31IA^5^2
- ;;^UTILITY(U,$J,358.3,15367,1,2,0)
- ;;=2^303.03
- ;;^UTILITY(U,$J,358.3,15367,1,5,0)
- ;;=5^Alc Intox, Remiss
- ;;^UTILITY(U,$J,358.3,15367,2)
- ;;=^268186
- ;;^UTILITY(U,$J,358.3,15368,0)
- ;;=303.91^^112^946^3
- ;;^UTILITY(U,$J,358.3,15368,1,0)
- ;;=^358.31IA^5^2
- ;;^UTILITY(U,$J,358.3,15368,1,2,0)
- ;;=2^303.91
- ;;^UTILITY(U,$J,358.3,15368,1,5,0)
- ;;=5^Alc Dep, Continuous
- ;;^UTILITY(U,$J,358.3,15368,2)
- ;;=^268188
- ;;^UTILITY(U,$J,358.3,15369,0)
- ;;=303.92^^112^946^4
- ;;^UTILITY(U,$J,358.3,15369,1,0)
- ;;=^358.31IA^5^2
- ;;^UTILITY(U,$J,358.3,15369,1,2,0)
- ;;=2^303.92
- ;;^UTILITY(U,$J,358.3,15369,1,5,0)
- ;;=5^Alc Dep, Episodic
- ;;^UTILITY(U,$J,358.3,15369,2)
- ;;=^268189
- ;;^UTILITY(U,$J,358.3,15370,0)
- ;;=304.01^^112^946^73
- ;;^UTILITY(U,$J,358.3,15370,1,0)
- ;;=^358.31IA^5^2
- ;;^UTILITY(U,$J,358.3,15370,1,2,0)
- ;;=2^304.01
- ;;^UTILITY(U,$J,358.3,15370,1,5,0)
- ;;=5^Opioid Depend, Continuous
- ;;^UTILITY(U,$J,358.3,15370,2)
- ;;=^268191
- ;;^UTILITY(U,$J,358.3,15371,0)
- ;;=304.02^^112^946^75
- ;;^UTILITY(U,$J,358.3,15371,1,0)
- ;;=^358.31IA^5^2
- ;;^UTILITY(U,$J,358.3,15371,1,2,0)
- ;;=2^304.02
- ;;^UTILITY(U,$J,358.3,15371,1,5,0)
- ;;=5^Opioid Dependence, Episodic
- ;;^UTILITY(U,$J,358.3,15371,2)
- ;;=^268192
- ;;^UTILITY(U,$J,358.3,15372,0)
- ;;=304.11^^112^946^29
- ;;^UTILITY(U,$J,358.3,15372,1,0)
- ;;=^358.31IA^5^2
- ;;^UTILITY(U,$J,358.3,15372,1,2,0)
- ;;=2^304.11
- ;;^UTILITY(U,$J,358.3,15372,1,5,0)
- ;;=5^Anxiolytic Depend, Continuous
- ;;^UTILITY(U,$J,358.3,15372,2)
- ;;=^331932
- ;;^UTILITY(U,$J,358.3,15373,0)
- ;;=304.12^^112^946^30
- ;;^UTILITY(U,$J,358.3,15373,1,0)
- ;;=^358.31IA^5^2
- ;;^UTILITY(U,$J,358.3,15373,1,2,0)
- ;;=2^304.12
- ;;^UTILITY(U,$J,358.3,15373,1,5,0)
- ;;=5^Anxiolytic Depend, Episodic
- ;;^UTILITY(U,$J,358.3,15373,2)
- ;;=^331933
- ;;^UTILITY(U,$J,358.3,15374,0)
- ;;=304.21^^112^946^44
- ;;^UTILITY(U,$J,358.3,15374,1,0)
- ;;=^358.31IA^5^2
- ;;^UTILITY(U,$J,358.3,15374,1,2,0)
- ;;=2^304.21
- ;;^UTILITY(U,$J,358.3,15374,1,5,0)
- ;;=5^Cocaine Depend, Continuous
- ;;^UTILITY(U,$J,358.3,15374,2)
- ;;=^268198
- ;;^UTILITY(U,$J,358.3,15375,0)
- ;;=304.22^^112^946^45
- ;;^UTILITY(U,$J,358.3,15375,1,0)
- ;;=^358.31IA^5^2
- ;;^UTILITY(U,$J,358.3,15375,1,2,0)
- ;;=2^304.22
- ;;^UTILITY(U,$J,358.3,15375,1,5,0)
- ;;=5^Cocaine Depend, Episodic
- ;;^UTILITY(U,$J,358.3,15375,2)
- ;;=^268199
- ;;^UTILITY(U,$J,358.3,15376,0)
- ;;=304.31^^112^946^37
- ;;^UTILITY(U,$J,358.3,15376,1,0)
- ;;=^358.31IA^5^2
- ;;^UTILITY(U,$J,358.3,15376,1,2,0)
- ;;=2^304.31
- ;;^UTILITY(U,$J,358.3,15376,1,5,0)
- ;;=5^Cannabis Depend, Continuous
- ;;^UTILITY(U,$J,358.3,15376,2)
- ;;=^268201
- ;;^UTILITY(U,$J,358.3,15377,0)
- ;;=304.32^^112^946^38
- ;;^UTILITY(U,$J,358.3,15377,1,0)
- ;;=^358.31IA^5^2
- ;;^UTILITY(U,$J,358.3,15377,1,2,0)
- ;;=2^304.32
- ;;^UTILITY(U,$J,358.3,15377,1,5,0)
- ;;=5^Cannabis Depend, Episodic
- ;;^UTILITY(U,$J,358.3,15377,2)
- ;;=^268202
- ;;^UTILITY(U,$J,358.3,15378,0)
- ;;=304.41^^112^946^21
- ;;^UTILITY(U,$J,358.3,15378,1,0)
- ;;=^358.31IA^5^2
- ;;^UTILITY(U,$J,358.3,15378,1,2,0)
- ;;=2^304.41
- ;;^UTILITY(U,$J,358.3,15378,1,5,0)
- ;;=5^Amphetamine Depend, Continuous
- ;;^UTILITY(U,$J,358.3,15378,2)
- ;;=^268205
- ;;^UTILITY(U,$J,358.3,15379,0)
- ;;=304.42^^112^946^22
- ;;^UTILITY(U,$J,358.3,15379,1,0)
- ;;=^358.31IA^5^2
- ;;^UTILITY(U,$J,358.3,15379,1,2,0)
- ;;=2^304.42
- ;;^UTILITY(U,$J,358.3,15379,1,5,0)
- ;;=5^Amphetamine Depend, Episodic
- ;;^UTILITY(U,$J,358.3,15379,2)
- ;;=^268206
- ;;^UTILITY(U,$J,358.3,15380,0)
- ;;=304.51^^112^946^60
- ;;^UTILITY(U,$J,358.3,15380,1,0)
- ;;=^358.31IA^5^2
- ;;^UTILITY(U,$J,358.3,15380,1,2,0)
- ;;=2^304.51
- ;;^UTILITY(U,$J,358.3,15380,1,5,0)
- ;;=5^Hallucinogen Depend, Continuous
- ;;^UTILITY(U,$J,358.3,15380,2)
- ;;=^268208
- ;;^UTILITY(U,$J,358.3,15381,0)
- ;;=304.52^^112^946^61
- ;;^UTILITY(U,$J,358.3,15381,1,0)
- ;;=^358.31IA^5^2
- ;;^UTILITY(U,$J,358.3,15381,1,2,0)
- ;;=2^304.52
- ;;^UTILITY(U,$J,358.3,15381,1,5,0)
- ;;=5^Hallucinogen Depend, Episodic
- ;;^UTILITY(U,$J,358.3,15381,2)
- ;;=^268209
- ;;^UTILITY(U,$J,358.3,15382,0)
- ;;=304.61^^112^946^52
- ;;^UTILITY(U,$J,358.3,15382,1,0)
- ;;=^358.31IA^5^2
+ ;;^UTILITY(U,$J,358.6,20,1,0)
+ ;;=3D^^7^7^2951026^
+ ;;^UTILITY(U,$J,358.6,20,1,1,0)
+ ;;=3DReturns a list of all future appointments for all clinics. =
+Includes:
+ ;;^UTILITY(U,$J,358.6,20,1,2,0)
+ ;;=3D  Appointment Date
+ ;;^UTILITY(U,$J,358.6,20,1,3,0)
+ ;;=3D  Appointment Time
+ ;;^UTILITY(U,$J,358.6,20,1,4,0)
+ ;;=3D  Appointment Date@Time
+ ;;^UTILITY(U,$J,358.6,20,1,5,0)
+ ;;=3D  Clinic
+ ;;^UTILITY(U,$J,358.6,20,1,6,0)
+ ;;=3D  Status
+ ;;^UTILITY(U,$J,358.6,20,1,7,0)
+ ;;=3D  Appointment Type
+ ;;^UTILITY(U,$J,358.6,20,2)
+ ;;=3DDATE (MMM
+DD,YYYY)^11^TIME^5^DATE@TIME^17^CLINIC^30^STATUS^35^APPOINTMENT
+TYPE^25^^^^^1
+ ;;^UTILITY(U,$J,358.6,20,3)
+ ;;=3DFUTURE APPOINTMENTS SCHEDULING
+ ;;^UTILITY(U,$J,358.6,20,7,0)
+ ;;=3D^357.67^2^2
+ ;;^UTILITY(U,$J,358.6,20,7,1,0)
+ ;;=3DDFN
+ ;;^UTILITY(U,$J,358.6,20,7,2,0)
+ ;;=3DIBAPPT
+ ;;^UTILITY(U,$J,358.6,20,15,0)
+ ;;=3D^357.615I^5^5
+ ;;^UTILITY(U,$J,358.6,20,15,1,0)
+ ;;=3DTIME^5^2^
+ ;;^UTILITY(U,$J,358.6,20,15,2,0)
+ ;;=3DDATE@TIME^17^3^
+ ;;^UTILITY(U,$J,358.6,20,15,3,0)
+ ;;=3DCLINIC^30^4^
+ ;;^UTILITY(U,$J,358.6,20,15,4,0)
+ ;;=3DSTATUS^35^5^
+ ;;^UTILITY(U,$J,358.6,20,15,5,0)
+ ;;=3DAPPOINTMENT TYPE^25^6^
+ ;;^UTILITY(U,$J,358.6,21,0)
+ ;;=3DIBDF UTILITY FOR BLANK LINES^BLANKS^IBDFN^AUTOMATED INFO =
+COLLECTION
+SYS^0^2^5^^1^^^1
+ ;;^UTILITY(U,$J,358.6,21,1,0)
+ ;;=3D^^2^2^2930408^^
+ ;;^UTILITY(U,$J,358.6,21,1,1,0)
+ ;;=3DNo data is returned by this interface - it's purpose is to print
+blank
+ ;;^UTILITY(U,$J,358.6,21,1,2,0)
+ ;;=3Dlines to the form for data entry.
+ ;;^UTILITY(U,$J,358.6,21,2)
+ ;;=3D^0^^^^^^^^^^^^^^^1
+ ;;^UTILITY(U,$J,358.6,21,3)
+ ;;=3DUTILITY BLANKS LINES
+ ;;^UTILITY(U,$J,358.6,21,15,0)
+ ;;=3D^357.615I^0^0
+ ;;^UTILITY(U,$J,358.6,22,0)
+ ;;=3DDPT PATIENT'S MEANS TEST DATA^MT^IBDFN2^REGISTRATION^1^2^2^^1^^^1
+ ;;^UTILITY(U,$J,358.6,22,1,0)
+ ;;=3D^^5^5^2931015^^^
+ ;;^UTILITY(U,$J,358.6,22,1,1,0)
+ ;;=3DReturns the patient's current means test category and the date of
+the most
+ ;;^UTILITY(U,$J,358.6,22,1,2,0)
+ ;;=3Drecent means test. Data returned:
+ ;;^UTILITY(U,$J,358.6,22,1,3,0)
+ ;;=3D  means test category
+ ;;^UTILITY(U,$J,358.6,22,1,4,0)
+ ;;=3D  means test code
+ ;;^UTILITY(U,$J,358.6,22,1,5,0)
+ ;;=3D  date of last means test
+ ;;^UTILITY(U,$J,358.6,22,2)
+ ;;=3DMEANS TEST CATEGORY^20^DATE OF LAST MEANS TEST^12^MEANS TEST
+CODE^1^^^^^^^^^^^1
+ ;;^UTILITY(U,$J,358.6,22,3)
+ ;;=3DMEANS TEST CATEGORY PATIENT
+ ;;^UTILITY(U,$J,358.6,22,7,0)
+ ;;=3D^357.67^1^1
+ ;;^UTILITY(U,$J,358.6,22,7,1,0)
+ ;;=3DDFN
+ ;;^UTILITY(U,$J,358.6,22,15,0)
+ ;;=3D^357.615I^2^2
+ ;;^UTILITY(U,$J,358.6,22,15,1,0)
+ ;;=3DDATE OF LAST MEANS TEST^12^2^
+ ;;^UTILITY(U,$J,358.6,22,15,2,0)
+ ;;=3DMEANS TEST CODE^1^3^
+ ;;^UTILITY(U,$J,358.6,23,0)
+ ;;=3DDPT PATIENT'S PID^VADPT^IBDFN^REGISTRATION^1^2^1^1^1^^^1
+ ;;^UTILITY(U,$J,358.6,23,1,0)
+ ;;=3D^^1^1^2931015^^
+ ;;^UTILITY(U,$J,358.6,23,1,1,0)
+ ;;=3DUsed to display the patient identifier.
+ ;;^UTILITY(U,$J,358.6,23,2)
+ ;;=3DPATIENT IDENTIFIER^15^^^^^^^^^^^^^^^1
+ ;;^UTILITY(U,$J,358.6,23,3)
+ ;;=3DPATIENT IDENTIFIER PID
+ ;;^UTILITY(U,$J,358.6,23,7,0)
+ ;;=3D^357.67^1^1
+ ;;^UTILITY(U,$J,358.6,23,7,1,0)
+ ;;=3DDFN
+ ;;^UTILITY(U,$J,358.6,23,15,0)
+ ;;=3D^357.615I^0^0
+ ;;^UTILITY(U,$J,358.6,24,0)
+ ;;=3DPX SELECT HEALTH FACTORS^HF^IBDFN10^PATIENT CARE
+ENCOUNTER^^3^2^^1^^^1^25
+ ;;^UTILITY(U,$J,358.6,24,1,0)
+ ;;=3D^^1^1^2951208^^^
+ ;;^UTILITY(U,$J,358.6,24,1,1,0)
+ ;;=3DAllows health factors from the HEALTH FACTORS file to be selected.
+ ;;^UTILITY(U,$J,358.6,24,2)
+ ;;=3DInternal Number^9^^^^^^^^^^^^^^^0^0
+ ;;^UTILITY(U,$J,358.6,24,3)
+ ;;=3DPATIENT HEALTH FACTORS
+ ;;^UTILITY(U,$J,358.6,24,11)
+ ;;=3DD TESTHF^PXAPIIB
+ ;;^UTILITY(U,$J,358.6,24,15,0)
+ ;;=3D^357.615I^4^4
+ ;;^UTILITY(U,$J,358.6,24,15,1,0)
+ ;;=3DHealth Factor Name^30^2^^HEALTH FACTOR
+ ;;^UTILITY(U,$J,358.6,24,15,2,0)
+ ;;=3DCode^5^3
+ ;;^UTILITY(U,$J,358.6,24,15,3,0)
+ ;;=3DShort Name^10^5
+ ;;^UTILITY(U,$J,358.6,24,15,4,0)
+ ;;=3DSex Specific^6^6^^FOR
+ ;;^UTILITY(U,$J,358.6,24,16)
+ ;;=3Dn^^^^n
+ ;;^UTILITY(U,$J,358.6,25,0)
+ ;;=3DPX INPUT HEALTH FACTORS^^^PATIENT CARE ENCOUNTER^^1^^^1^^^1^^^^SMP
+ ;;^UTILITY(U,$J,358.6,25,1,0)
+ ;;=3D^^1^1^2981026^^^^
+ ;;^UTILITY(U,$J,358.6,25,1,1,0)
+ ;;=3DUsed for inputting health factors determined to apply to the
+patient.
+ ;;^UTILITY(U,$J,358.6,25,2)
+ ;;=3D^^^^^^^^^^^^^^^^^0
+ ;;^UTILITY(U,$J,358.6,25,3)
+ ;;=3DHEALTH FACTORS
+ ;;^UTILITY(U,$J,358.6,25,10)
+ ;;=3DEnter a Patient Health Factor.
+ ;;^UTILITY(U,$J,358.6,25,11)
+ ;;=3DD TESTHF^PXAPIIB
+ ;;^UTILITY(U,$J,358.6,25,12)
+ ;;=3DHEALTH FACTORS^1^^^2
+ ;;^UTILITY(U,$J,358.6,25,13,0)
+ ;;=3D^358.613V^3^3
+ ;;^UTILITY(U,$J,358.6,25,13,1,0)
+ ;;=3D13;IBD(358.98,^^0
+ ;;^UTILITY(U,$J,358.6,25,13,2,0)
+ ;;=3D14;IBD(358.98,^^0
+ ;;^UTILITY(U,$J,358.6,25,13,3,0)
+ ;;=3D15;IBD(358.98,^^0
+ ;;^UTILITY(U,$J,358.6,25,14)
+ ;;=3DS Y=3D$$DSPLYHF^PXAPIIB(Y)

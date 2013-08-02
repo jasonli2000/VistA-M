@@ -1,5 +1,5 @@
 IBCEOB ;ALB/TMP/PJH - 835 EDI EOB MESSAGE PROCESSING ; 8/19/10 6:33pm
- ;;2.0;INTEGRATED BILLING;**137,135,265,155,377,407,431,432**;21-MAR-94;Build 192
+ ;;2.0;INTEGRATED BILLING;**137,135,265,155,377,407,431**;21-MAR-94;Build 106
  ;;Per VHA Directive 2004-038, this routine should not be modified.
  ;
  Q
@@ -33,7 +33,6 @@ UPDEOB(IBTDA) ; Update EXPLANATION OF BENEFITS file (#361.1) from return msg
  D UPD3611(IBEOB,IBTDA,0)
  ;
 UPDQ I IBEOB,$O(^TMP("IBCERR-EOB",$J,0)) D ERRUPD(IBEOB,"IBCERR-EOB")
- ;
  K ^TMP($J),^TMP("IBCERR-EOB",$J)
  D CLEAN^DILF
  Q +IBEOB
@@ -90,11 +89,8 @@ Q6 ; exit point for $$6 function
  ;
 10(IB0,IBEGBL,IBEOB) ; Record '10'
  ;
- N DA,DR,DIE,X,Y,VAL,IBOK,IB361
+ N DA,DR,DIE,X,Y,VAL,IBOK
  S DIE="^IBM(361.1,",DA=IBEOB
- ; put denied non-MRA claims on the worklist IB*2.0*432
- ;S IB361=$G(^IBM(361.1,DA,0))
- ;I $P(IB361,U,4)=0,$P(IB0,U,4)="Y" D PUTONWL^IBCAPP($P(IB361,U),"IB804:EOB Claim Status must be PROCESSED")
  S DR=".13////"_$S($P(IB0,U,3)="Y":1,$P(IB0,U,4)="Y":2,$P(IB0,U,5)="Y":3,$P(IB0,U,6)="Y":4,1:5)_";.21////"_$P(IB0,U,7)
  S DR=DR_";2.04////"_$$DOLLAR($P(IB0,U,10))_";1.01////"_$$DOLLAR($P(IB0,U,11))_$S($P(IB0,U,12)'="":";.14///"_$P(IB0,U,12),1:"")
  S DR=DR_$S($P(IB0,U,13)'="":";.1///"_$P(IB0,U,13),1:"")_";.11///"_($P(IB0,U,14)/10000)_";.12///"_($P(IB0,U,15)/100)
@@ -265,19 +261,6 @@ UPD3611(IBEOB,IBTDA,IBAR) ; From flat file 835 format, add EOB record
  . S IBREC=+IB0
  . I IBREC'=37 K ^TMP($J,37)
  . I IBREC S IB="S IBOK=$$"_IBREC_"(IB0,IBEGBL,IBEOB)",Q=IBREC_"^IBCEOB" I $T(@Q)'="" X IB S:'IBOK ^TMP(IBEGBL,$J,+$O(^TMP(IBEGBL,$J,""),-1)+1)=$S('$G(IBAR):"  ##RAW DATA: ",1:"")_IB0
- ; If a DENIED non MRA EOB with no filing errors is updated, put on the CBW worklist if the 
- ; claim isn't already COLLECTED/CLOSED and there is a subsequent payer (incl. Tricare & ChampVA)
- I IBEOB,'$O(^TMP(IBEGBL,$J,0)) D
- .N IB361,IBIFN,IBX,IBTXT,IBPYMT
- .; must be non-MRA EOB and DENIED
- .S IB361=$G(^IBM(361.1,IBEOB,0)),IBIFN=$P(IB361,U) Q:$P(IB361,U,4)'=0
- .Q:$P(IB361,U,13)'=2
- .Q:$P($$ARSTATA^IBJTU4(IBIFN),U)="COLLECTED/CLOSED"
- .; payment on this bill from A/R IA#380 OR payer paid amount from EOB
- .S IBPYMT=$$TPR^PRCAFN(IBIFN) S:IBPYMT="" IBPYMT=+$G(^IBM(361.1,IBEOB,1))
- .; check for subsequent payer
- .S IBX=$$EOB^IBCNSBL2($G(IBIFN),+$G(^DGCR(399,IBIFN,"U1")),$G(IBPYMT),.IBTXT) Q:'$D(IBTXT)
- .D PUTONWL^IBCAPP($P(IB361,U),"IB804:EOB Claim Status must be PROCESSED")
  ;
  Q
  ;

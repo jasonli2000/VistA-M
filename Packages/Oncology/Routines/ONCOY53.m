@@ -1,4 +1,4 @@
-ONCOY53 ; GENERATED FROM 'ONCOY53' PRINT TEMPLATE (#863) ; 03/18/13 ; (FILE 165.5, MARGIN=80)
+ONCOY53 ; GENERATED FROM 'ONCOY53' PRINT TEMPLATE (#1293) ; 03/01/11 ; (FILE 165.5, MARGIN=80)
  G BEGIN
 N W !
 T W:$X ! I '$D(DIOT(2)),DN,$D(IOSL),$S('$D(DIWF):1,$P(DIWF,"B",2):$P(DIWF,"B",2),1:1)+$Y'<IOSL,$D(^UTILITY($J,1))#2,^(1)?1U1P1E.E X ^(1)
@@ -11,7 +11,7 @@ M D @DIXX
  Q
 BEGIN ;
  S:'$D(DN) DN=1 S DISTP=$G(DISTP),DILCT=$G(DILCT)
- I $D(DXS)<9 M DXS=^DIPT(863,"DXS")
+ I $D(DXS)<9 M DXS=^DIPT(1293,"DXS")
  S I(0)="^ONCO(165.5,",J(0)=165.5
  D T Q:'DN  D N W ?0 W "* STAGE OF DISEASE AT DIAGNOSIS *"
  D T Q:'DN  D N D N:$X>2 Q:'DN  W ?2 W "TNM Clinical..................: "
@@ -111,25 +111,11 @@ BEGIN ;
  S X=$G(^ONCO(165.5,D0,"CS1")) D N:$X>34 Q:'DN  W ?34 S Y=$P(X,U,6) W:Y]"" $S($D(DXS(7,Y)):DXS(7,Y),1:Y)
  D N:$X>2 Q:'DN  W ?2 W "Derived AJCC-6 Stage Group....:"
  D N:$X>34 Q:'DN  W ?34 S Y=$P(X,U,7) S Y(0)=Y D SGOT^ONCCSOT W $E(Y,1,30)
- D T Q:'DN  D N D N:$X>2 Q:'DN  W ?2 W "Derived AJCC-7 T..............:"
+ D T Q:'DN  D N D N:$X>2 Q:'DN  W ?2 W "Derived AJCC-6 T..............:"
  S X=$G(^ONCO(165.5,D0,"CS1")) D N:$X>34 Q:'DN  W ?34 S Y=$P(X,U,13) S Y(0)=Y D TOT^ONCCSOT W $E(Y,1,30)
  D N:$X>2 Q:'DN  W ?2 W "Derived AJCC-7 T Descriptor...:"
  S X=$G(^ONCO(165.5,D0,"CS1")) D N:$X>34 Q:'DN  W ?34 S Y=$P(X,U,14) W:Y]"" $S($D(DXS(8,Y)):DXS(8,Y),1:Y)
  D N:$X>2 Q:'DN  W ?2 W "Derived AJCC-7 N..............:"
  D N:$X>34 Q:'DN  W ?34 S Y=$P(X,U,15) S Y(0)=Y D NOT^ONCCSOT W $E(Y,1,30)
  D N:$X>2 Q:'DN  W ?2 W "Derived AJCC-7 N Descriptor...:"
- S X=$G(^ONCO(165.5,D0,"CS1")) D N:$X>34 Q:'DN  W ?34 S Y=$P(X,U,16) W:Y]"" $S($D(DXS(9,Y)):DXS(9,Y),1:Y)
- D N:$X>2 Q:'DN  W ?2 W "Derived AJCC-7 M..............:"
- D N:$X>34 Q:'DN  W ?34 S Y=$P(X,U,17) S Y(0)=Y D MOT^ONCCSOT W $E(Y,1,30)
- D N:$X>2 Q:'DN  W ?2 W "Derived AJCC-7 M Descriptor...:"
- S X=$G(^ONCO(165.5,D0,"CS1")) D N:$X>34 Q:'DN  W ?34 S Y=$P(X,U,18) W:Y]"" $S($D(DXS(10,Y)):DXS(10,Y),1:Y)
- D N:$X>2 Q:'DN  W ?2 W "Derived AJCC-7 Stage Group....:"
- D N:$X>34 Q:'DN  W ?34 S Y=$P(X,U,19) S Y(0)=Y D SGOT^ONCCSOT W $E(Y,1,30)
- D T Q:'DN  D N D N:$X>2 Q:'DN  W ?2 W "Derived SS1977................:"
- S X=$G(^ONCO(165.5,D0,"CS1")) D N:$X>34 Q:'DN  W ?34 S Y=$P(X,U,8) W:Y]"" $S($D(DXS(11,Y)):DXS(11,Y),1:Y)
- D N:$X>2 Q:'DN  W ?2 W "Derived SS2000................:"
- D N:$X>34 Q:'DN  W ?34 S Y=$P(X,U,9) W:Y]"" $S($D(DXS(12,Y)):DXS(12,Y),1:Y)
- K Y
- Q
-HEAD ;
- W !,"--------------------------------------------------------------------------------",!!
+ G ^ONCOY531

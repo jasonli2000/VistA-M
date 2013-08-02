@@ -1,24 +1,21 @@
-ECXADM ;ALB/JAP,BIR/DMA,CML,PTD-Admissions Extract ;4/20/12  10:04
- ;;3.0;DSS EXTRACTS;**1,4,11,8,13,24,33,39,46,71,84,92,107,105,120,127,132,136**;Dec 22, 1997;Build 28
+ECXADM ;ALB/JAP,BIR/DMA,CML,PTD-Admissions Extract ; 10/15/07 12:14pm
+ ;;3.0;DSS EXTRACTS;**1,4,11,8,13,24,33,39,46,71,84,92,107,105,120,127**;Dec 22, 1997;Build 36
 BEG ;entry point from option
  D SETUP I ECFILE="" Q
  D ^ECXTRAC,^ECXKILL
  Q
  ;
 START ; start package specific extract
- K ^TMP($J,"EDIS") ;136 Clear temporary space for index
- D BLDXREF^ECXUTL1(ECSD,ECED) ;136 build temp xref for emergency dept
  S QFLG=0
  S ECED=ECED+.3,ECD=ECSD1
  F  S ECD=$O(^DGPM("ATT1",ECD)),ECDA=0 Q:('ECD)!(ECD>ECED)  D
  .F  S ECDA=$O(^DGPM("ATT1",ECD,ECDA)) Q:ECDA=""  D
  ..I $D(^DGPM(ECDA,0)) D
  ...S EC=^DGPM(ECDA,0),ECXDFN=$P(EC,U,3) D GET
- K ^TMP($J,"EDIS") ;136 delete temporary xref
  Q
  ;
 GET ;gather extract data
- N ADM,W,X,ECXNPRFI,ECXATTPC,ECXPRVPC,ECXEST,ECXAOT,ECXEDIS,ECXICD10P ;136
+ N ADM,W,X,ECXNPRFI,ECXATTPC,ECXPRVPC,ECXEST,ECXAOT
  ;patient demographics
  S ECXERR=0 D PAT(ECXDFN,ECD,.ECXERR)
  Q:ECXERR
@@ -28,7 +25,7 @@ GET ;gather extract data
  ;admission data
  S ELGA=$P($G(^DIC(8,+$P(EC,U,20),0)),U,9)
  I ELGA S ELGA=$$ELIG^ECXUTL3(ELGA,ECXSVC)
- S (ECDRG,ECDIA,ECXSADM,ECXADMS,ECXAOT)="",ECPTF=+$P(EC,U,16) I ECPTF,$D(^DGPT(ECPTF,"M")) D PTF
+ S (ECDRG,ECDIA,ECXSADM,ECXAOT)="",ECPTF=+$P(EC,U,16) I ECPTF,$D(^DGPT(ECPTF,"M")) D PTF
  ;get encounter classification
  S (ECXAO,ECXECE,ECXIR,ECXMIL,ECXHNC,ECXSHAD)="",ECXVISIT=$P(EC,U,27)
  I ECXVISIT'="" D
@@ -55,7 +52,6 @@ GET ;gather extract data
  S ECXUSRTN=$$NPI^XUSNPI("Individual_ID",$E(ECXPRV,2,$L(ECXPRV)),ECD)
  S:+ECXUSRTN'>0 ECXUSRTN=""
  S ECPWNPI=$P(ECXUSRTN,U)
- S ECXICD10P="" ;136 ICD-10 null for now
  ;
  ;- Observation patient indicator (YES/NO)
  S ECXOBS=$$OBSPAT^ECXUTL4(ECXA,ECXSPC)
@@ -63,7 +59,6 @@ GET ;gather extract data
  ;- Patient Type
  S ECXPTYPE=$$TYPE^ECXUTL5(ECXDFN)
  ;
- S ECXEDIS=$$EDIS^ECXUTL1(ECXDFN,ECD,"A") ;136 Get emergency room disposition
  ;- If null encounter number, don't file record
  S ECXENC=$$ENCNUM^ECXUTL4(ECXA,ECXSSN,ECXADMDT,,ECXSPC,ECXOBS,ECHEAD,,)
  D:ECXENC'="" FILE
@@ -141,7 +136,6 @@ PTF ; get admitting DRG, diagnosis, source of admission from PTF
  S ECDRG=$P($G(^DGPT(ECPTF,"M",EC,"P")),U)
  S ECDIA=$P($G(^ICD9(EC1,0)),U)
  S ECX=+$P($G(^DGPT(ECPTF,101)),U),ECXSADM=$P($G(^DIC(45.1,ECX,0)),U,11)
- S ECXADMS=$$GET1^DIQ(45.1,ECX,.01)
  ;if source of admission = admit outpatient treatment ('1P')
  S ECXAOT=$S(($$GET1^DIQ(45.1,ECX,.01)="1P"):"Y",1:"")
  Q
@@ -152,7 +146,7 @@ FILE ;file the extract record
  ;religion^employment status^health ins^state^county^zip^
  ;eligibility^vet^vietnam^agent orange^radiation^pow^
  ;period of service^means test^marital status^
- ;ward^treating specialty^attending physician^mov #^DRG^princ diagnosis^
+ ;ward^treating specialty^attending physician^mov #^DRG^diagnosis^
  ;time^primary care provider^race^primary ward provider
  ;node1
  ;mpi^dss dept^attending npi^pc provider npi^ward provider npi^
@@ -168,13 +162,10 @@ FILE ;file the extract record
  ;^primary ward provider person class ECXPRVPC^environ contamin ECXEST
  ;^emergency response indicator(FEMA) ECXERI^agent orange indic ECXAO
  ;^environ contam ECXECE^encoun head/neck ECXHNC^encoun MST ECXMIL^rad
- ;encoun ECXIR^
- ;node 2 - patch 136 seperated node1 from node 2 for clarity
- ;OEF/OIF ECXOEF^ OEF/OIF return date ECXOEFDT
+ ;encoun ECXIR^ OEF/OIF ECXOEF^ OEF/OIF return date ECXOEFDT
  ;^associate pc provider npi ECASNPI^attending physician npi ECATNPI^
  ;primary care provider npi ECPTNPI^primary ward provider npi ECPWNPI^
- ;admit outpatient treatment ECXAOT^country ECXCNTRY^pat cat ECXPATCAT^
- ;admit source ECXADMS ^emergency dept disposition ECXEDIS^Primary ICD-10 code ECXICD10P
+ ;admit outpatient treatment ECXAOT^country ECXCNTRY 
  ;
  ;Convert specialty to PTF Code
  ;
@@ -204,8 +195,6 @@ FILE ;file the extract record
  I ECXLOGIC>2009 S ECODE2=ECODE2_U_ECXAOT_U_ECXCNTRY
  ; ***** ADDING PATCAT TO 9TH PIECE OF ECODE  *******
  I ECXLOGIC>2010 S ECODE2=ECODE2_U_ECXPATCAT
- I ECXLOGIC>2011 S ECODE2=ECODE2_U_ECXADMS
- I ECXLOGIC>2012 S ECODE2=ECODE2_U_ECXEDIS_U_ECXICD10P ;136
  S ^ECX(ECFILE,EC7,0)=ECODE,^ECX(ECFILE,EC7,1)=ECODE1,^ECX(ECFILE,EC7,2)=$G(ECODE2)
  S ECRN=ECRN+1
  S DA=EC7,DIK="^ECX("_ECFILE_"," D IX1^DIK K DIK,DA

@@ -1,7 +1,12 @@
-SDBT5 ; ;12/14/10
+SDBT5 ; ;01/05/11
  D DE G BEGIN
-DE S DIE="^SC(D0,""SI"",",DIC=DIE,DP=44.03,DL=2,DIEL=1,DU="" K DG,DE,DB Q:$O(^SC(D0,"SI",DA,""))=""
- I $D(^(0)) S %Z=^(0) S %=$P(%Z,U,1) S:%]"" DE(1)=%
+DE S DIE="^SC(",DIC=DIE,DP=44,DL=1,DIEL=0,DU="" K DG,DE,DB Q:$O(^SC(DA,""))=""
+ I $D(^(0)) S %Z=^(0) S %=$P(%Z,U,18) S:%]"" DE(17)=% S %=$P(%Z,U,24) S:%]"" DE(3)=% S %=$P(%Z,U,30) S:%]"" DE(7)=%
+ I $D(^("LTR")) S %Z=^("LTR") S %=$P(%Z,U,3) S:%]"" DE(1)=% S %=$P(%Z,U,4) S:%]"" DE(2)=%
+ I $D(^("PC")) S %Z=^("PC") S %=$P(%Z,U,1) S:%]"" DE(5)=%
+ I $D(^("SDP")) S %Z=^("SDP") S %=$P(%Z,U,1) S:%]"" DE(8)=% S %=$P(%Z,U,2) S:%]"" DE(9)=% S %=$P(%Z,U,3) S:%]"" DE(14)=% S %=$P(%Z,U,4) S:%]"" DE(15)=%
+ I $D(^("SDPROT")) S %Z=^("SDPROT") S %=$P(%Z,U,1) S:%]"" DE(18)=%
+ I $D(^("SL")) S %Z=^("SL") S %=$P(%Z,U,3) S:%]"" DE(11)=% S %=$P(%Z,U,8) S:%]"" DE(16)=%
  K %Z Q
  ;
 W W !?DL+DL-2,DLB_": "
@@ -48,11 +53,140 @@ SAVEVALS S @DIEZTMP@("V",DP,DIIENS,DIFLD,"O")=$G(DE(DQ)) S:$D(^("F"))[0 ^("F")=$
  Q
 NKEY W:'$D(ZTQUEUED) "??  Required key field" S X="?BAD" G QS
 KEYCHK() Q:$G(DE(DW,"KEY"))="" 1 Q @DE(DW,"KEY")
-BEGIN S DNM="SDBT5",DQ=1+D G B
-1 S DW="0;1",DV="F",DU="",DLB="SPECIAL INSTRUCTIONS",DIFLD=.01
- G RE:'D S DQ=2 G 2
-X1 K:$L(X)>80!($L(X)<1) X
- I $D(X),X'?.ANP K X
+BEGIN S DNM="SDBT5",DQ=1
+1 D:$D(DG)>9 F^DIE17,DE S DQ=1,DW="LTR;3",DV="*P407.5'",DU="",DLB="CLINIC CANCELLATION LETTER",DIFLD=2510
+ S DE(DW)="C1^SDBT5"
+ S DU="VA(407.5,"
+ G RE
+C1 G C1S:$D(DE(1))[0 K DB
+ S X=DE(1),DIC=DIE
+ K ^SC("ALTC",$E(X,1,30),DA)
+C1S S X="" G:DG(DQ)=X C1F1 K DB
+ S X=DG(DQ),DIC=DIE
+ S ^SC("ALTC",$E(X,1,30),DA)=""
+C1F1 Q
+X1 S DIC("S")="I $P(^(0),""^"",2)=""C""" D ^DIC K DIC S DIC=DIE,X=+Y K:Y<0 X
  Q
  ;
-2 G 1^DIE17
+2 D:$D(DG)>9 F^DIE17,DE S DQ=2,DW="LTR;4",DV="*P407.5'",DU="",DLB="APPT. CANCELLATION LETTER",DIFLD=2511
+ S DE(DW)="C2^SDBT5"
+ S DU="VA(407.5,"
+ G RE
+C2 G C2S:$D(DE(2))[0 K DB
+ S X=DE(2),DIC=DIE
+ K ^SC("ALTA",$E(X,1,30),DA)
+C2S S X="" G:DG(DQ)=X C2F1 K DB
+ S X=DG(DQ),DIC=DIE
+ S ^SC("ALTA",$E(X,1,30),DA)=""
+C2F1 Q
+X2 S DIC("S")="I $P(^(0),""^"",2)=""A""" D ^DIC K DIC S DIC=DIE,X=+Y K:Y<0 X
+ Q
+ ;
+3 D:$D(DG)>9 F^DIE17,DE S DQ=3,DW="0;24",DV="S",DU="",DLB="ASK FOR CHECK IN/OUT TIME",DIFLD=24
+ S DU="0:NO;1:YES;"
+ G RE
+X3 Q
+4 S D=0 K DE(1) ;2600
+ S DIFLD=2600,DGO="^SDBT6",DC="2^44.1P^PR^",DV="44.1M*P200'",DW="0;1",DOW="PROVIDER",DLB=$P($$EZBLD^DIALOG(8042,DOW),": ") S:D DC=DC_D
+ S DU="VA(200,"
+ G RE:D I $D(DSC(44.1))#2,$P(DSC(44.1),"I $D(^UTILITY(",1)="" X DSC(44.1) S D=$O(^(0)) S:D="" D=-1 G M4
+ S D=$S($D(^SC(DA,"PR",0)):$P(^(0),U,3,4),$O(^(0))'="":$O(^(0)),1:-1)
+M4 I D>0 S DC=DC_D I $D(^SC(DA,"PR",+D,0)) S DE(4)=$P(^(0),U,1)
+ G RE
+R4 D DE
+ S D=$S($D(^SC(DA,"PR",0)):$P(^(0),U,3,4),1:1) G 4+1
+ ;
+5 S DW="PC;1",DV="S",DU="",DLB="DEFAULT TO PC PRACTITIONER?",DIFLD=2801
+ S DU="1:YES;0:NO;"
+ G RE
+X5 Q
+6 S D=0 K DE(1) ;2700
+ S DIFLD=2700,DGO="^SDBT7",DC="2^44.11P^DX^",DV="44.11M*P80'",DW="0;1",DOW="DIAGNOSIS",DLB=$P($$EZBLD^DIALOG(8042,DOW),": ") S:D DC=DC_D
+ S DU="ICD9("
+ G RE:D I $D(DSC(44.11))#2,$P(DSC(44.11),"I $D(^UTILITY(",1)="" X DSC(44.11) S D=$O(^(0)) S:D="" D=-1 G M6
+ S D=$S($D(^SC(DA,"DX",0)):$P(^(0),U,3,4),$O(^(0))'="":$O(^(0)),1:-1)
+M6 I D>0 S DC=DC_D I $D(^SC(DA,"DX",+D,0)) S DE(6)=$P(^(0),U,1)
+ G RE
+R6 D DE
+ S D=$S($D(^SC(DA,"DX",0)):$P(^(0),U,3,4),1:1) G 6+1
+ ;
+7 S DW="0;30",DV="S",DU="",DLB="WORKLOAD VALIDATION AT CHK OUT",DIFLD=30
+ S DU="1:YES;0:NO;"
+ G RE
+X7 Q
+8 S DW="SDP;1",DV="RNJ3,0",DU="",DLB="ALLOWABLE CONSECUTIVE NO-SHOWS",DIFLD=2001
+ G RE
+X8 K:+X'=X!(X>999)!(X<0)!(X?.E1"."1N.N) X
+ Q
+ ;
+9 S DW="SDP;2",DV="RNJ3,0",DU="",DLB="MAX # DAYS FOR FUTURE BOOKING",DIFLD=2002
+ G RE
+X9 K:+X'=X!(X>999)!(X<11)!(X?.E1"."1N.N) X
+ Q
+ ;
+10 D:$D(DG)>9 F^DIE17,DE S Y=U,DQ=10 D X10 D:$D(DIEFIRE)#2 FIREREC^DIE17 G A:$D(Y)[0,A:Y=U S X=Y,DIC(0)="F",DW=DQ G OUT^DIE17
+X10 S:+$O(^SC(DA,"ST",0))>0 Y="@25"
+ Q
+11 S DW="SL;3",DV="NJ2,0",DU="",DLB="HOUR CLINIC DISPLAY BEGINS",DIFLD=1914
+ G RE
+X11 K:+X'=X!(X>16)!(X<0)!(X?.E1"."1N.N) X
+ Q
+ ;
+12 D:$D(DG)>9 F^DIE17,DE S Y=U,DQ=12 G A
+13 S DQ=14 ;@25
+14 S DW="SDP;3",DV="NJ2,0X",DU="",DLB="START TIME FOR AUTO REBOOK",DIFLD=2003
+ G RE
+X14 K:+X'=X!(X>16)!(X<0)!(X?.E1"."1N.N) X I $D(X),$D(^SC(DA,"SL")) I X<$S('$P(^("SL"),"^",3):8,1:$P(^("SL"),"^",3)) W !,*7,"MUST NOT BE EARLIER THAN CLINIC START TIME" K X
+ Q
+ ;
+15 S DW="SDP;4",DV="RNJ3,0",DU="",DLB="MAX # DAYS FOR AUTO-REBOOK",DIFLD=2005
+ G RE
+X15 K:+X'=X!(X>365)!(X<1)!(X?.E1"."1N.N) X
+ Q
+ ;
+16 S DW="SL;8",DV="S",DU="",DLB="SCHEDULE ON HOLIDAYS?",DIFLD=1918.5
+ S DU="Y:YES;"
+ G RE
+X16 Q
+17 S DW="0;18",DV="*P40.7'Xa",DU="",DLB="CREDIT STOP CODE",DIFLD=2503
+ S DE(DW)="C17^SDBT5",DE(DW,"INDEX")=1
+ S DU="DIC(40.7,"
+ G RE
+C17 G C17S:$D(DE(17))[0 K DB
+ S X=DE(17),DIIX=2_U_DIFLD D AUDIT^DIET
+C17S S X="" G:DG(DQ)=X C17F1 K DB
+ I $D(DE(17))'[0!(^DD(DP,DIFLD,"AUDIT")'="e") S X=DG(DQ),DIIX=3_U_DIFLD D AUDIT^DIET
+C17F1 N X,X1,X2 S DIXR=445 D C17X1(U) K X2 M X2=X D C17X1("O") K X1 M X1=X
+ I $G(X(1))]"" D
+ . K ^SC("ACST",X,DA)
+ K X M X=X2 I $G(X(1))]"" D
+ . S ^SC("ACST",X,DA)=""
+ G C17F2
+C17X1(DION) K X
+ S X(1)=$G(@DIEZTMP@("V",44,DIIENS,2503,DION),$P($G(^SC(DA,0)),U,18))
+ S X=$G(X(1))
+ Q
+C17F2 Q
+X17 S DIC("S")="I $P(^(0),U,2)'=900&$S('$P(^(0),U,3):1,$P(^(0),U,3)>DT:1,1:0),""SE""[$P(^(0),U,6),$S('$P(^(0),U,7):1,$P(^(0),U,7)'>DT:1,1:0)" D ^DIC K DIC S DIC=DIE,X=+Y K:Y<0 X
+ Q
+ ;
+18 D:$D(DG)>9 F^DIE17,DE S DQ=18,DW="SDPROT;1",DV="S",DU="",DLB="PROHIBIT ACCESS TO CLINIC?",DIFLD=2500
+ S DU="Y:YES;"
+ G RE
+X18 Q
+19 D:$D(DG)>9 F^DIE17,DE S Y=U,DQ=19 D X19 D:$D(DIEFIRE)#2 FIREREC^DIE17 G A:$D(Y)[0,A:Y=U S X=Y,DIC(0)="F",DW=DQ G OUT^DIE17
+X19 S:X'="Y" Y="@30"
+ Q
+20 S D=0 K DE(1) ;2501
+ S DIFLD=2501,DGO="^SDBT8",DC="1^44.04PA^SDPRIV^",DV="44.04MP200'X",DW="0;1",DOW="PRIVILEGED USER",DLB=$P($$EZBLD^DIALOG(8042,DOW),": ") S:D DC=DC_D
+ S DU="VA(200,"
+ G RE:D I $D(DSC(44.04))#2,$P(DSC(44.04),"I $D(^UTILITY(",1)="" X DSC(44.04) S D=$O(^(0)) S:D="" D=-1 G M20
+ S D=$S($D(^SC(DA,"SDPRIV",0)):$P(^(0),U,3,4),$O(^(0))'="":$O(^(0)),1:-1)
+M20 I D>0 S DC=DC_D I $D(^SC(DA,"SDPRIV",+D,0)) S DE(20)=$P(^(0),U,1)
+ G RE
+R20 D DE
+ S D=$S($D(^SC(DA,"SDPRIV",0)):$P(^(0),U,3,4),1:1) G 20+1
+ ;
+21 D:$D(DG)>9 F^DIE17,DE S Y=U,DQ=21 G A
+22 S DQ=23 ;@30
+23 D:$D(DG)>9 F^DIE17 G ^SDBT9

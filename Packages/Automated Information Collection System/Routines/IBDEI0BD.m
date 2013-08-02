@@ -1,348 +1,170 @@
-IBDEI0BD ; ; 20-FEB-2013
- ;;3.0;IB ENCOUNTER FORM IMP/EXP;;FEB 20, 2013
- Q:'DIFQR(358.3)  F I=1:2 S X=$T(Q+I) Q:X=""  S Y=$E($T(Q+I+1),4,999),X=$E(X,4,999) S:$A(Y)=126 I=I+1,Y=$E(Y,2,999)_$E($T(Q+I+1),5,99) S:$A(Y)=61 Y=$E(Y,2,999) X NO E  S @X=Y
+IBDEI0BD ; ; 05-APR-1999
+ ;;2.1;IB ENCOUNTER FORM IMP/EXP;;APR 05, 1999
+ Q:'DIFQ(358.6)  F I=3D1:2 S X=3D$T(Q+I) Q:X=3D""  S
+Y=3D$E($T(Q+I+1),4,999),X=3D$E(X,4,999) S:$A(Y)=3D126
+I=3DI+1,Y=3D$E(Y,2,999)_$E($T(Q+I+1),5,99) S:$A(Y)=3D61 Y=3D$E(Y,2,999) =
+X NO E
+S @X=3DY
 Q Q
- ;;^UTILITY(U,$J,358.3,15109,1,0)
- ;;=^358.31IA^3^2
- ;;^UTILITY(U,$J,358.3,15109,1,2,0)
- ;;=2^90853
- ;;^UTILITY(U,$J,358.3,15109,1,3,0)
- ;;=3^Group Psychotherapy
- ;;^UTILITY(U,$J,358.3,15110,0)
- ;;=90846^^110^914^5^^^^1
- ;;^UTILITY(U,$J,358.3,15110,1,0)
- ;;=^358.31IA^3^2
- ;;^UTILITY(U,$J,358.3,15110,1,2,0)
- ;;=2^90846
- ;;^UTILITY(U,$J,358.3,15110,1,3,0)
- ;;=3^Family Psychotherapy w/o pt.
- ;;^UTILITY(U,$J,358.3,15111,0)
- ;;=90847^^110^914^6^^^^1
- ;;^UTILITY(U,$J,358.3,15111,1,0)
- ;;=^358.31IA^3^2
- ;;^UTILITY(U,$J,358.3,15111,1,2,0)
- ;;=2^90847
- ;;^UTILITY(U,$J,358.3,15111,1,3,0)
- ;;=3^Family Psychotherpy w/pt.
- ;;^UTILITY(U,$J,358.3,15112,0)
- ;;=90875^^110^914^7^^^^1
- ;;^UTILITY(U,$J,358.3,15112,1,0)
- ;;=^358.31IA^3^2
- ;;^UTILITY(U,$J,358.3,15112,1,2,0)
- ;;=2^90875
- ;;^UTILITY(U,$J,358.3,15112,1,3,0)
- ;;=3^with Biofeedback, 20-30 min
- ;;^UTILITY(U,$J,358.3,15113,0)
- ;;=90876^^110^914^8^^^^1
- ;;^UTILITY(U,$J,358.3,15113,1,0)
- ;;=^358.31IA^3^2
- ;;^UTILITY(U,$J,358.3,15113,1,2,0)
- ;;=2^90876
- ;;^UTILITY(U,$J,358.3,15113,1,3,0)
- ;;=3^with Biofeedback, 45-50 min
- ;;^UTILITY(U,$J,358.3,15114,0)
- ;;=90832^^110^914^1^^^^1
- ;;^UTILITY(U,$J,358.3,15114,1,0)
- ;;=^358.31IA^3^2
- ;;^UTILITY(U,$J,358.3,15114,1,2,0)
- ;;=2^90832
- ;;^UTILITY(U,$J,358.3,15114,1,3,0)
- ;;=3^PSYTX PT/FAM 16-37 MIN
- ;;^UTILITY(U,$J,358.3,15115,0)
- ;;=90834^^110^914^2^^^^1
- ;;^UTILITY(U,$J,358.3,15115,1,0)
- ;;=^358.31IA^3^2
- ;;^UTILITY(U,$J,358.3,15115,1,2,0)
- ;;=2^90834
- ;;^UTILITY(U,$J,358.3,15115,1,3,0)
- ;;=3^PSYTX PT/FAM 38-52 MIN
- ;;^UTILITY(U,$J,358.3,15116,0)
- ;;=90837^^110^914^3^^^^1
- ;;^UTILITY(U,$J,358.3,15116,1,0)
- ;;=^358.31IA^3^2
- ;;^UTILITY(U,$J,358.3,15116,1,2,0)
- ;;=2^90837
- ;;^UTILITY(U,$J,358.3,15116,1,3,0)
- ;;=3^PSYTX PT/FAM 53+ MIN
- ;;^UTILITY(U,$J,358.3,15117,0)
- ;;=90899^^110^915^13^^^^1
- ;;^UTILITY(U,$J,358.3,15117,1,0)
- ;;=^358.31IA^3^2
- ;;^UTILITY(U,$J,358.3,15117,1,2,0)
- ;;=2^90899
- ;;^UTILITY(U,$J,358.3,15117,1,3,0)
- ;;=3^NOS Psych Service
- ;;^UTILITY(U,$J,358.3,15118,0)
- ;;=J1631^^110^915^7^^^^1
- ;;^UTILITY(U,$J,358.3,15118,1,0)
- ;;=^358.31IA^3^2
- ;;^UTILITY(U,$J,358.3,15118,1,2,0)
- ;;=2^J1631
- ;;^UTILITY(U,$J,358.3,15118,1,3,0)
- ;;=3^Haldol, per 50 mg
- ;;^UTILITY(U,$J,358.3,15119,0)
- ;;=J2680^^110^915^18^^^^1
- ;;^UTILITY(U,$J,358.3,15119,1,0)
- ;;=^358.31IA^3^2
- ;;^UTILITY(U,$J,358.3,15119,1,2,0)
- ;;=2^J2680
- ;;^UTILITY(U,$J,358.3,15119,1,3,0)
- ;;=3^Prolixin, per 25mg
- ;;^UTILITY(U,$J,358.3,15120,0)
- ;;=97545^^110^915^30^^^^1
- ;;^UTILITY(U,$J,358.3,15120,1,0)
- ;;=^358.31IA^3^2
- ;;^UTILITY(U,$J,358.3,15120,1,2,0)
- ;;=2^97545
- ;;^UTILITY(U,$J,358.3,15120,1,3,0)
- ;;=3^Work Therapy, Init 2 hrs
- ;;^UTILITY(U,$J,358.3,15121,0)
- ;;=97546^^110^915^31^^^^1
- ;;^UTILITY(U,$J,358.3,15121,1,0)
- ;;=^358.31IA^3^2
- ;;^UTILITY(U,$J,358.3,15121,1,2,0)
- ;;=2^97546
- ;;^UTILITY(U,$J,358.3,15121,1,3,0)
- ;;=3^Work Ther, addl hrs after 2
- ;;^UTILITY(U,$J,358.3,15122,0)
- ;;=97537^^110^915^3^^^^1
- ;;^UTILITY(U,$J,358.3,15122,1,0)
- ;;=^358.31IA^3^2
- ;;^UTILITY(U,$J,358.3,15122,1,2,0)
- ;;=2^97537
- ;;^UTILITY(U,$J,358.3,15122,1,3,0)
- ;;=3^Community/Work Reintegration per 15 min
- ;;^UTILITY(U,$J,358.3,15123,0)
- ;;=97532^^110^915^2^^^^1
- ;;^UTILITY(U,$J,358.3,15123,1,0)
- ;;=^358.31IA^3^2
- ;;^UTILITY(U,$J,358.3,15123,1,2,0)
- ;;=2^97532
- ;;^UTILITY(U,$J,358.3,15123,1,3,0)
- ;;=3^Cognitive Sk Dev (PhD/OT)per 15min
- ;;^UTILITY(U,$J,358.3,15124,0)
- ;;=97533^^110^915^24^^^^1
- ;;^UTILITY(U,$J,358.3,15124,1,0)
- ;;=^358.31IA^3^2
- ;;^UTILITY(U,$J,358.3,15124,1,2,0)
- ;;=2^97533
- ;;^UTILITY(U,$J,358.3,15124,1,3,0)
- ;;=3^Sensory Integrat per 15 min
- ;;^UTILITY(U,$J,358.3,15125,0)
- ;;=97535^^110^915^1^^^^1
- ;;^UTILITY(U,$J,358.3,15125,1,0)
- ;;=^358.31IA^3^2
- ;;^UTILITY(U,$J,358.3,15125,1,2,0)
- ;;=2^97535
- ;;^UTILITY(U,$J,358.3,15125,1,3,0)
- ;;=3^ADL Train per 15 min
- ;;^UTILITY(U,$J,358.3,15126,0)
- ;;=H0004^^110^915^9^^^^1
- ;;^UTILITY(U,$J,358.3,15126,1,0)
- ;;=^358.31IA^3^2
- ;;^UTILITY(U,$J,358.3,15126,1,2,0)
- ;;=2^H0004
- ;;^UTILITY(U,$J,358.3,15126,1,3,0)
- ;;=3^Ind Counseling, per 15 min
- ;;^UTILITY(U,$J,358.3,15127,0)
- ;;=H0046^^110^915^16^^^^1
- ;;^UTILITY(U,$J,358.3,15127,1,0)
- ;;=^358.31IA^3^2
- ;;^UTILITY(U,$J,358.3,15127,1,2,0)
- ;;=2^H0046
- ;;^UTILITY(U,$J,358.3,15127,1,3,0)
- ;;=3^PTSD Group
- ;;^UTILITY(U,$J,358.3,15128,0)
- ;;=96119^^110^915^14^^^^1
- ;;^UTILITY(U,$J,358.3,15128,1,0)
- ;;=^358.31IA^3^2
- ;;^UTILITY(U,$J,358.3,15128,1,2,0)
- ;;=2^96119
- ;;^UTILITY(U,$J,358.3,15128,1,3,0)
- ;;=3^Neuropsych Test by tech,per hr
- ;;^UTILITY(U,$J,358.3,15129,0)
- ;;=96402^^110^915^10^^^^1
- ;;^UTILITY(U,$J,358.3,15129,1,0)
- ;;=^358.31IA^3^2
- ;;^UTILITY(U,$J,358.3,15129,1,2,0)
- ;;=2^96402
- ;;^UTILITY(U,$J,358.3,15129,1,3,0)
- ;;=3^Injec,IM,anti-neplastic horm
- ;;^UTILITY(U,$J,358.3,15130,0)
- ;;=96102^^110^915^20^^^^1
- ;;^UTILITY(U,$J,358.3,15130,1,0)
- ;;=^358.31IA^3^2
- ;;^UTILITY(U,$J,358.3,15130,1,2,0)
- ;;=2^96102
- ;;^UTILITY(U,$J,358.3,15130,1,3,0)
- ;;=3^Psych Test by Tech,per hr
- ;;^UTILITY(U,$J,358.3,15131,0)
- ;;=96103^^110^915^21^^^^1
- ;;^UTILITY(U,$J,358.3,15131,1,0)
- ;;=^358.31IA^3^2
- ;;^UTILITY(U,$J,358.3,15131,1,2,0)
- ;;=2^96103
- ;;^UTILITY(U,$J,358.3,15131,1,3,0)
- ;;=3^Psych Test by computer
- ;;^UTILITY(U,$J,358.3,15132,0)
- ;;=96120^^110^915^15^^^^1
- ;;^UTILITY(U,$J,358.3,15132,1,0)
- ;;=^358.31IA^3^2
- ;;^UTILITY(U,$J,358.3,15132,1,2,0)
- ;;=2^96120
- ;;^UTILITY(U,$J,358.3,15132,1,3,0)
- ;;=3^Neuropsych Tst Admin w/Comp
- ;;^UTILITY(U,$J,358.3,15133,0)
- ;;=96125^^110^915^25^^^^1
- ;;^UTILITY(U,$J,358.3,15133,1,0)
- ;;=^358.31IA^3^2
- ;;^UTILITY(U,$J,358.3,15133,1,2,0)
- ;;=2^96125
- ;;^UTILITY(U,$J,358.3,15133,1,3,0)
- ;;=3^Stan Cog Perf Tst, per hr
- ;;^UTILITY(U,$J,358.3,15134,0)
- ;;=96372^^110^915^27^^^^1
- ;;^UTILITY(U,$J,358.3,15134,1,0)
- ;;=^358.31IA^3^2
- ;;^UTILITY(U,$J,358.3,15134,1,2,0)
- ;;=2^96372
- ;;^UTILITY(U,$J,358.3,15134,1,3,0)
- ;;=3^Ther/Proph/Diag Inj,SC/IM
- ;;^UTILITY(U,$J,358.3,15135,0)
- ;;=Q3014^^110^915^26^^^^1
- ;;^UTILITY(U,$J,358.3,15135,1,0)
- ;;=^358.31IA^3^2
- ;;^UTILITY(U,$J,358.3,15135,1,2,0)
- ;;=2^Q3014
- ;;^UTILITY(U,$J,358.3,15135,1,3,0)
- ;;=3^Telehealth Facility Fee
- ;;^UTILITY(U,$J,358.3,15136,0)
- ;;=90887^^110^915^5^^^^1
- ;;^UTILITY(U,$J,358.3,15136,1,0)
- ;;=^358.31IA^3^2
- ;;^UTILITY(U,$J,358.3,15136,1,2,0)
- ;;=2^90887
- ;;^UTILITY(U,$J,358.3,15136,1,3,0)
- ;;=3^Consultation w/Family
- ;;^UTILITY(U,$J,358.3,15137,0)
- ;;=90885^^110^915^19^^^^1
- ;;^UTILITY(U,$J,358.3,15137,1,0)
- ;;=^358.31IA^3^2
- ;;^UTILITY(U,$J,358.3,15137,1,2,0)
- ;;=2^90885
- ;;^UTILITY(U,$J,358.3,15137,1,3,0)
- ;;=3^Psych Eval of Records
- ;;^UTILITY(U,$J,358.3,15138,0)
- ;;=90889^^110^915^17^^^^1
- ;;^UTILITY(U,$J,358.3,15138,1,0)
- ;;=^358.31IA^3^2
- ;;^UTILITY(U,$J,358.3,15138,1,2,0)
- ;;=2^90889
- ;;^UTILITY(U,$J,358.3,15138,1,3,0)
- ;;=3^Preparation of Report
- ;;^UTILITY(U,$J,358.3,15139,0)
- ;;=96118^^110^915^12^^^^1
- ;;^UTILITY(U,$J,358.3,15139,1,0)
- ;;=^358.31IA^3^2
- ;;^UTILITY(U,$J,358.3,15139,1,2,0)
- ;;=2^96118
- ;;^UTILITY(U,$J,358.3,15139,1,3,0)
- ;;=3^NEUROPSYCH TST/HR OF PSYCHOLOGIST/MD TIME
- ;;^UTILITY(U,$J,358.3,15140,0)
- ;;=97150^^110^915^6^^^^1
- ;;^UTILITY(U,$J,358.3,15140,1,0)
- ;;=^358.31IA^3^2
- ;;^UTILITY(U,$J,358.3,15140,1,2,0)
- ;;=2^97150
- ;;^UTILITY(U,$J,358.3,15140,1,3,0)
- ;;=3^THERAPEUTIC PROCEDURE(S) GROUP
- ;;^UTILITY(U,$J,358.3,15141,0)
- ;;=97530^^110^915^28^^^^1
- ;;^UTILITY(U,$J,358.3,15141,1,0)
- ;;=^358.31IA^3^2
- ;;^UTILITY(U,$J,358.3,15141,1,2,0)
- ;;=2^97530
- ;;^UTILITY(U,$J,358.3,15141,1,3,0)
- ;;=3^THERAPEUTIC ACTIV,DIR PROV CONTACT,EA 15MIN
- ;;^UTILITY(U,$J,358.3,15142,0)
- ;;=G0177^^110^915^29^^^^1
- ;;^UTILITY(U,$J,358.3,15142,1,0)
- ;;=^358.31IA^3^2
- ;;^UTILITY(U,$J,358.3,15142,1,2,0)
- ;;=2^G0177
- ;;^UTILITY(U,$J,358.3,15142,1,3,0)
- ;;=3^Train/Ed for Disability > 44 Min
- ;;^UTILITY(U,$J,358.3,15143,0)
- ;;=H0038^^110^915^23^^^^1
- ;;^UTILITY(U,$J,358.3,15143,1,0)
- ;;=^358.31IA^3^2
- ;;^UTILITY(U,$J,358.3,15143,1,2,0)
- ;;=2^H0038
- ;;^UTILITY(U,$J,358.3,15143,1,3,0)
- ;;=3^Self-Help/Peer Svc per 15 Min
- ;;^UTILITY(U,$J,358.3,15144,0)
- ;;=J1630^^110^915^8^^^^1
- ;;^UTILITY(U,$J,358.3,15144,1,0)
- ;;=^358.31IA^3^2
- ;;^UTILITY(U,$J,358.3,15144,1,2,0)
- ;;=2^J1630
- ;;^UTILITY(U,$J,358.3,15144,1,3,0)
- ;;=3^HALOPERIDOL,UP TO 5MG
- ;;^UTILITY(U,$J,358.3,15145,0)
- ;;=J2794^^110^915^22^^^^1
- ;;^UTILITY(U,$J,358.3,15145,1,0)
- ;;=^358.31IA^3^2
- ;;^UTILITY(U,$J,358.3,15145,1,2,0)
- ;;=2^J2794
- ;;^UTILITY(U,$J,358.3,15145,1,3,0)
- ;;=3^Risperidone,Long Acting per 0.5mg
- ;;^UTILITY(U,$J,358.3,15146,0)
- ;;=96150^^110^916^1^^^^1
- ;;^UTILITY(U,$J,358.3,15146,1,0)
- ;;=^358.31IA^3^2
- ;;^UTILITY(U,$J,358.3,15146,1,2,0)
- ;;=2^96150
- ;;^UTILITY(U,$J,358.3,15146,1,3,0)
- ;;=3^Behavior Assess,Initial,ea 15min
- ;;^UTILITY(U,$J,358.3,15147,0)
- ;;=96151^^110^916^2^^^^1
- ;;^UTILITY(U,$J,358.3,15147,1,0)
- ;;=^358.31IA^3^2
- ;;^UTILITY(U,$J,358.3,15147,1,2,0)
- ;;=2^96151
- ;;^UTILITY(U,$J,358.3,15147,1,3,0)
- ;;=3^Behavior Reassessment,ea 15min
- ;;^UTILITY(U,$J,358.3,15148,0)
- ;;=96152^^110^916^3^^^^1
- ;;^UTILITY(U,$J,358.3,15148,1,0)
- ;;=^358.31IA^3^2
- ;;^UTILITY(U,$J,358.3,15148,1,2,0)
- ;;=2^96152
- ;;^UTILITY(U,$J,358.3,15148,1,3,0)
- ;;=3^Behavior Intervention,Ind,ea 15min
- ;;^UTILITY(U,$J,358.3,15149,0)
- ;;=96153^^110^916^4^^^^1
- ;;^UTILITY(U,$J,358.3,15149,1,0)
- ;;=^358.31IA^3^2
- ;;^UTILITY(U,$J,358.3,15149,1,2,0)
- ;;=2^96153
- ;;^UTILITY(U,$J,358.3,15149,1,3,0)
- ;;=3^Behavior Intervention,Grp,ea 15min
- ;;^UTILITY(U,$J,358.3,15150,0)
- ;;=96154^^110^916^5^^^^1
- ;;^UTILITY(U,$J,358.3,15150,1,0)
- ;;=^358.31IA^3^2
- ;;^UTILITY(U,$J,358.3,15150,1,2,0)
- ;;=2^96154
- ;;^UTILITY(U,$J,358.3,15150,1,3,0)
- ;;=3^Behav Intervent,Fam w/Pt,ea 15min
- ;;^UTILITY(U,$J,358.3,15151,0)
- ;;=96155^^110^916^6^^^^1
- ;;^UTILITY(U,$J,358.3,15151,1,0)
- ;;=^358.31IA^3^2
- ;;^UTILITY(U,$J,358.3,15151,1,2,0)
- ;;=2^96155
- ;;^UTILITY(U,$J,358.3,15151,1,3,0)
- ;;=3^Behav Intervent,Fam w/o Pt,ea 15min
- ;;^UTILITY(U,$J,358.3,15152,0)
- ;;=99367^^110^917^1^^^^1
+ ;;^DIC(358.6,0,"GL")
+ ;;=3D^IBE(358.6,
+ ;;^DIC("B","IMP/EXP PACKAGE INTERFACE",358.6)
+ ;;=3D
+ ;;^DIC(358.6,"%D",0)
+ ;;=3D^^1^1^2950927^^^^
+ ;;^DIC(358.6,"%D",1,0)
+ ;;=3DThis file is used as a workspace by the import/export utility.
+ ;;^DIC(358.6,"%D",2,0)
+ ;;=3DImport/Export Utility as a temporary staging area for data from =
+that
+file
+ ;;^DIC(358.6,"%D",3,0)
+ ;;=3Dthat is being imported or exported.
+ ;;^DIC(358.6,"%D",4,0)
+ ;;=3D=20
+ ;;^DIC(358.6,"%D",5,0)
+ ;;=3DThis file contains a description of all of the interfaces with =
+other
+packages.
+ ;;^DIC(358.6,"%D",6,0)
+ ;;=3DThe form will invoke the proper interface routines by doing a =
+lookup
+on
+ ;;^DIC(358.6,"%D",7,0)
+ ;;=3Dthis file and then invoking the routine by indirection. The INPUT
+VARIABLE
+ ;;^DIC(358.6,"%D",8,0)
+ ;;=3Dfields are for documentation purposes and to verify that the =
+proper
+ ;;^DIC(358.6,"%D",9,0)
+ ;;=3Dvariables are defined. Data will be exchanged between the =
+encounter
+form
+ ;;^DIC(358.6,"%D",10,0)
+ ;;=3Dutilities and other packages by putting the data in a predefined
+location.
+ ;;^DIC(358.6,"%D",11,0)
+ ;;=3DThe first part of the subscript is always be
+^TMP("IB",$J,"INTERFACES".
+ ;;^DIC(358.6,"%D",12,0)
+ ;;=3DFor output routines, but not selection routines, the fourth
+subscript is
+ ;;^DIC(358.6,"%D",13,0)
+ ;;=3Dbe the patient DFN. The next subscript is the name of the Package
+ ;;^DIC(358.6,"%D",14,0)
+ ;;=3DInterface. For single valued data and record valued data there is =
+no
+ ;;^DIC(358.6,"%D",15,0)
+ ;;=3Dadditional subscript. For interfaces returning a list there is one
+ ;;^DIC(358.6,"%D",16,0)
+ ;;=3Dadditional subscript level, the number of the item on the list. =
+For
+ ;;^DIC(358.6,"%D",17,0)
+ ;;=3Dword processing type data the data will be in FM word-processing
+format,
+ ;;^DIC(358.6,"%D",18,0)
+ ;;=3Di.e., the final subscripts will be ...1,0),...2,0),...3,0), etc.
+ ;;^DIC(358.6,"%D",19,0)
+ ;;=3Dthese items of data can have its own entry in the Package =
+Interface
+file,
+ ;;^DIC(358.6,"%D",20,0)
+ ;;=3Dbut by using the same entry point there is a savings because all =
+of
+the
+ ;;^DIC(358.6,"%D",21,0)
+ ;;=3Ddata on that node can be obtained at once. The routines that =
+invoke
+the
+ ;;^DIC(358.6,"%D",22,0)
+ ;;=3Dentry point keep track of the entry points already invoked so they
+are
+ ;;^DIC(358.6,"%D",23,0)
+ ;;=3Dnot repeated.
+ ;;^DD(358.6,0)
+ ;;=3DFIELD^^21^75
+ ;;^DD(358.6,0,"DDA")
+ ;;=3DN
+ ;;^DD(358.6,0,"DT")
+ ;;=3D2961031
+ ;;^DD(358.6,0,"ID",.06)
+ ;;=3DW ""
+ ;;^DD(358.6,0,"ID","WRITE")
+ ;;=3DN IBDWNAM S IBDWNAM=3D$E($P(^(0),U),1,40) D =
+EN^DDIOL(IBDWNAM,"","!?0")
+ ;;^DD(358.6,0,"ID","WRITE1")
+ ;;=3DN IBDWTYPE S
+IBDWTYPE=3D$S($P(^(0),"^",6)=3D1:"INPUT",$P(^(0),"^",6)=3D2:"OUTPUT",$P(^=
+(0),"
+^",6)=3D3:"SELECTION",1:"REPORT")_$S($P(^(0),U,6)=3D3&'$P(^(0),"^",13):" =
+ **
+NOT SCANNABLE **",1:"") D EN^DDIOL("TYPE=3D"_IBDWTYPE,"","?45")
+ ;;^DD(358.6,0,"IX","B",358.6,.01)
+ ;;=3D
+ ;;^DD(358.6,0,"IX","C",358.6,.04)
+ ;;=3D
+ ;;^DD(358.6,0,"IX","D",358.6,3)
+ ;;=3D
+ ;;^DD(358.6,0,"IX","E",358.6,.01)
+ ;;=3D
+ ;;^DD(358.6,0,"NM","IMP/EXP PACKAGE INTERFACE")
+ ;;=3D=20
+ ;;^DD(358.6,0,"PT",358.2,.11)
+ ;;=3D=20
+ ;;^DD(358.6,0,"PT",358.5,.03)
+ ;;=3D=20
+ ;;^DD(358.6,0,"PT",358.6,.13)
+ ;;=3D
+ ;;^DD(358.6,0,"PT",358.93,.06)
+ ;;=3D=20
+ ;;^DD(358.6,0,"VRPK")
+ ;;=3DIBD
+ ;;^DD(358.6,.01,0)
+ ;;=3DNAME^RF^^0;1^K:X[""""!($A(X)=3D45) X I $D(X)
+K:$L(X)>40!($L(X)<3)!'(X'?1P.E) X
+ ;;^DD(358.6,.01,1,0)
+ ;;=3D^.1
+ ;;^DD(358.6,.01,1,1,0)
+ ;;=3D358.6^B
+ ;;^DD(358.6,.01,1,1,1)
+ ;;=3DS ^IBE(358.6,"B",$E(X,1,30),DA)=3D""
+ ;;^DD(358.6,.01,1,1,2)
+ ;;=3DK ^IBE(358.6,"B",$E(X,1,30),DA)
+ ;;^DD(358.6,.01,1,2,0)
+ ;;=3D358.6^E^MUMPS
+ ;;^DD(358.6,.01,1,2,1)
+ ;;=3DS ^IBE(358.6,"E",$E(X,$F(X," "),40),DA)=3D""
+ ;;^DD(358.6,.01,1,2,2)
+ ;;=3DK ^IBE(358.6,"E",$E(X,$F(X," "),40),DA)
+ ;;^DD(358.6,.01,1,2,"%D",0)
+ ;;=3D^^4^4^2940224^
+ ;;^DD(358.6,.01,1,2,"%D",1,0)
+ ;;=3D=20
+ ;;^DD(358.6,.01,1,2,"%D",2,0)
+ ;;=3DFor package interfaces that are output routines the name has the
+custodial
+ ;;^DD(358.6,.01,1,2,"%D",3,0)
+ ;;=3Dpackage's name space as a prefix. This cross-reference removes =
+that
+ ;;^DD(358.6,.01,1,2,"%D",4,0)
+ ;;=3Dprefix. It is used to improve the display of output routines for =
+the
+user.
+ ;;^DD(358.6,.01,1,2,"DT")
+ ;;=3D2930409
+ ;;^DD(358.6,.01,3)
+ ;;=3DAnswer must be 3-40 characters in length. All entries with Action
+Type other than PRINT REPORT must be be prefixed with the namespace of
+the package that is responsible for the data.
+ ;;^DD(358.6,.01,21,0)
+ ;;=3D^^3^3^2950412^^^^
+ ;;^DD(358.6,.01,21,1,0)
+ ;;=3D=20
+ ;;^DD(358.6,.01,21,2,0)
+ ;;=3DThe name of the Package Interface. For interfaces returning data =
+the
+name
+ ;;^DD(358.6,.01,21,3,0)
+ ;;=3Dshould be preceded with the namespace of the package.
+ ;;^DD(358.6,.01,23,0)
+ ;;=3D^^1^1^2950412^

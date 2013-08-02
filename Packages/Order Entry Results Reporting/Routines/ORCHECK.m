@@ -1,5 +1,5 @@
-ORCHECK ;SLC/MKB-Order checking calls ;06/08/12  07:16
- ;;3.0;ORDER ENTRY/RESULTS REPORTING;**7,56,70,94,141,215,243,293,280,346,357,352**;Dec 17, 1997;Build 18
+ORCHECK ;SLC/MKB-Order checking calls ;07/26/11  13:23
+ ;;3.0;ORDER ENTRY/RESULTS REPORTING;**7,56,70,94,141,215,243,293,280,346**;Dec 17, 1997;Build 5
  ;;Per VHA Directive 2004-038, this routine should not be modified.
 DISPLAY ; -- DISPLAY event [called from ORCDLG,ORCACT4,ORCMED]
  ;    Expects ORVP, ORNMSP, ORTAB, [ORWARD]
@@ -160,10 +160,10 @@ FDBDOWN(ORX) ; -- Checks to see if the FDB was down and if so set appropriate OC
  ;look for the "not able to be performed" OCs for each type (DSG and ENH), set flag for each to 1 if found and remove them from ORCHECK
  N I S I="" F  S I=$O(ORCHECK(I)) Q:'$L(I)  D
  .N ORNEXT,ORDSG,ORENH,ORTHERE
- .S ORDSG=0,ORENH=0,ORTHERE=0,ORNEXT=1
+ .S ORDSG=0,ORENH=0,ORTHERE=0
  .N J S J=0 F  S J=$O(ORCHECK(I,J)) Q:'J  D
  ..N K S K=0 F  S K=$O(ORCHECK(I,J,K)) Q:'K  D
- ...I (K+1)>ORNEXT S ORNEXT=K+1
+ ...S ORNEXT=K+1
  ...I $G(ORCHECK(I,J,K))["Drug Dosage checks were not able to be performed." K ORCHECK(I,J,K) S ORDSG=1
  ...I $G(ORCHECK(I,J,K))["Drug-Drug order checks (Duplicate Therapy, Duplicate Drug, Drug Interaction) were not able to be performed." K ORCHECK(I,J,K) S ORENH=1
  ...I $G(ORCHECK(I,J,K))["These checks could not be completed for this patient:" S ORTHERE=1
@@ -178,7 +178,7 @@ FDBDOWN(ORX) ; -- Checks to see if the FDB was down and if so set appropriate OC
  ..N ORCNT S ORCNT=1
  ..I ORENH S ORCNT=ORCNT+1,^TMP($J,"ORK XTRA TXT",ORKGLOB,ORMAIN,ORCNT)="      Drug Interactions"
  ..I ORENH S ORCNT=ORCNT+1,^TMP($J,"ORK XTRA TXT",ORKGLOB,ORMAIN,ORCNT)="      Duplicate Therapy"
- ..I '$G(ORX),ORDSG S ORCNT=ORCNT+1,^TMP($J,"ORK XTRA TXT",ORKGLOB,ORMAIN,ORCNT)="      Dosing"
+ ..I '$G(ORX),ORDSG S ORCNT=ORCNT+1,^TMP($J,"ORK XTRA TXT",ORKGLOB,ORMAIN,ORCNT)="      Dosing Warnings"
  Q
  ;
 RETURN ; -- Return checks in ORCHECK(ORIFN,CDL,#)

@@ -1,354 +1,164 @@
-IBDEI0A9 ; ; 20-FEB-2013
- ;;3.0;IB ENCOUNTER FORM IMP/EXP;;FEB 20, 2013
- Q:'DIFQR(358.3)  F I=1:2 S X=$T(Q+I) Q:X=""  S Y=$E($T(Q+I+1),4,999),X=$E(X,4,999) S:$A(Y)=126 I=I+1,Y=$E(Y,2,999)_$E($T(Q+I+1),5,99) S:$A(Y)=61 Y=$E(Y,2,999) X NO E  S @X=Y
+IBDEI0A9 ; ; 05-APR-1999
+ ;;2.1;IB ENCOUNTER FORM IMP/EXP;;APR 05, 1999
+ Q:'DIFQR(358.5)  F I=3D1:2 S X=3D$T(Q+I) Q:X=3D""  S
+Y=3D$E($T(Q+I+1),4,999),X=3D$E(X,4,999) S:$A(Y)=3D126
+I=3DI+1,Y=3D$E(Y,2,999)_$E($T(Q+I+1),5,99) S:$A(Y)=3D61 Y=3D$E(Y,2,999) =
+X NO E
+S @X=3DY
 Q Q
- ;;^UTILITY(U,$J,358.3,13616,1,5,0)
- ;;=5^Heart Failure, Diastolic
- ;;^UTILITY(U,$J,358.3,13616,2)
- ;;=Heart Failure, Diastolic^328595
- ;;^UTILITY(U,$J,358.3,13617,0)
- ;;=428.31^^107^861^41
- ;;^UTILITY(U,$J,358.3,13617,1,0)
- ;;=^358.31IA^5^2
- ;;^UTILITY(U,$J,358.3,13617,1,4,0)
- ;;=4^428.31
- ;;^UTILITY(U,$J,358.3,13617,1,5,0)
- ;;=5^Heart Failure, Acute Diastolic
- ;;^UTILITY(U,$J,358.3,13617,2)
- ;;=Heart Failure, Acute Diastolic^328497
- ;;^UTILITY(U,$J,358.3,13618,0)
- ;;=428.32^^107^861^43
- ;;^UTILITY(U,$J,358.3,13618,1,0)
- ;;=^358.31IA^5^2
- ;;^UTILITY(U,$J,358.3,13618,1,4,0)
- ;;=4^428.32
- ;;^UTILITY(U,$J,358.3,13618,1,5,0)
- ;;=5^Heart Failure, Chronic Diastolic
- ;;^UTILITY(U,$J,358.3,13618,2)
- ;;=Heart Failure, Chronic Diastolic^328498
- ;;^UTILITY(U,$J,358.3,13619,0)
- ;;=428.33^^107^861^47
- ;;^UTILITY(U,$J,358.3,13619,1,0)
- ;;=^358.31IA^5^2
- ;;^UTILITY(U,$J,358.3,13619,1,4,0)
- ;;=4^428.33
- ;;^UTILITY(U,$J,358.3,13619,1,5,0)
- ;;=5^Heart Failure, Diastolic, Acute On Chronic
- ;;^UTILITY(U,$J,358.3,13619,2)
- ;;=Heart Failure, Diastolic, Acute on Chronic^328499
- ;;^UTILITY(U,$J,358.3,13620,0)
- ;;=428.40^^107^861^46
- ;;^UTILITY(U,$J,358.3,13620,1,0)
- ;;=^358.31IA^5^2
- ;;^UTILITY(U,$J,358.3,13620,1,4,0)
- ;;=4^428.40
- ;;^UTILITY(U,$J,358.3,13620,1,5,0)
- ;;=5^Heart Failure, Diastolic& Systolic
- ;;^UTILITY(U,$J,358.3,13620,2)
- ;;=Heart Failure, Systolic and Diastolic^328596
- ;;^UTILITY(U,$J,358.3,13621,0)
- ;;=428.41^^107^861^49
- ;;^UTILITY(U,$J,358.3,13621,1,0)
- ;;=^358.31IA^5^2
- ;;^UTILITY(U,$J,358.3,13621,1,4,0)
- ;;=4^428.41
- ;;^UTILITY(U,$J,358.3,13621,1,5,0)
- ;;=5^Heart Failure, Systolic & Diastolic, Acute
- ;;^UTILITY(U,$J,358.3,13621,2)
- ;;=Heart Failure, Systolic & Diastolic, Acute^328500
- ;;^UTILITY(U,$J,358.3,13622,0)
- ;;=428.42^^107^861^50
- ;;^UTILITY(U,$J,358.3,13622,1,0)
- ;;=^358.31IA^5^2
- ;;^UTILITY(U,$J,358.3,13622,1,4,0)
- ;;=4^428.42
- ;;^UTILITY(U,$J,358.3,13622,1,5,0)
- ;;=5^Heart Failure, Systolic & Diastolic, Chronic
- ;;^UTILITY(U,$J,358.3,13622,2)
- ;;= Heart Failure, Systolic & Diastolic, Chronic^328501
- ;;^UTILITY(U,$J,358.3,13623,0)
- ;;=428.43^^107^861^48
- ;;^UTILITY(U,$J,358.3,13623,1,0)
- ;;=^358.31IA^5^2
- ;;^UTILITY(U,$J,358.3,13623,1,4,0)
- ;;=4^428.43
- ;;^UTILITY(U,$J,358.3,13623,1,5,0)
- ;;=5^Heart Failure, Syst & Diast, Acut on Chr
- ;;^UTILITY(U,$J,358.3,13623,2)
- ;;= Heart Failure, Systolic & Diastolic, Acute on Chronic^328502
- ;;^UTILITY(U,$J,358.3,13624,0)
- ;;=396.3^^107^861^7
- ;;^UTILITY(U,$J,358.3,13624,1,0)
- ;;=^358.31IA^5^2
- ;;^UTILITY(U,$J,358.3,13624,1,4,0)
- ;;=4^396.3
- ;;^UTILITY(U,$J,358.3,13624,1,5,0)
- ;;=5^Aortic And Mitral Insufficiency
- ;;^UTILITY(U,$J,358.3,13624,2)
- ;;=Aortic and Mitral Insufficiency^269583
- ;;^UTILITY(U,$J,358.3,13625,0)
- ;;=414.3^^107^861^19
- ;;^UTILITY(U,$J,358.3,13625,1,0)
- ;;=^358.31IA^5^2
- ;;^UTILITY(U,$J,358.3,13625,1,4,0)
- ;;=4^414.3
- ;;^UTILITY(U,$J,358.3,13625,1,5,0)
- ;;=5^CAD,due to lipid rich plaque
- ;;^UTILITY(U,$J,358.3,13625,2)
- ;;=^336601
- ;;^UTILITY(U,$J,358.3,13626,0)
- ;;=453.9^^107^861^84
- ;;^UTILITY(U,$J,358.3,13626,1,0)
- ;;=^358.31IA^5^2
- ;;^UTILITY(U,$J,358.3,13626,1,4,0)
- ;;=4^453.9
- ;;^UTILITY(U,$J,358.3,13626,1,5,0)
- ;;=5^Venous Thrombosis NOS
- ;;^UTILITY(U,$J,358.3,13626,2)
- ;;=^39455
- ;;^UTILITY(U,$J,358.3,13627,0)
- ;;=453.89^^107^861^1
- ;;^UTILITY(U,$J,358.3,13627,1,0)
- ;;=^358.31IA^5^2
- ;;^UTILITY(U,$J,358.3,13627,1,4,0)
- ;;=4^453.89
- ;;^UTILITY(U,$J,358.3,13627,1,5,0)
- ;;=5^AC Venous Embolism NEC
- ;;^UTILITY(U,$J,358.3,13627,2)
- ;;=^338259
- ;;^UTILITY(U,$J,358.3,13628,0)
- ;;=453.79^^107^861^28
- ;;^UTILITY(U,$J,358.3,13628,1,0)
- ;;=^358.31IA^5^2
- ;;^UTILITY(U,$J,358.3,13628,1,4,0)
- ;;=4^453.79
- ;;^UTILITY(U,$J,358.3,13628,1,5,0)
- ;;=5^Chr Venous Embolism NEC
- ;;^UTILITY(U,$J,358.3,13628,2)
- ;;=^338251
- ;;^UTILITY(U,$J,358.3,13629,0)
- ;;=414.4^^107^861^16
- ;;^UTILITY(U,$J,358.3,13629,1,0)
- ;;=^358.31IA^5^2
- ;;^UTILITY(U,$J,358.3,13629,1,4,0)
- ;;=4^414.4
- ;;^UTILITY(U,$J,358.3,13629,1,5,0)
- ;;=5^CAD d/t Calcified Coronary Lesion
- ;;^UTILITY(U,$J,358.3,13629,2)
- ;;=^340518
- ;;^UTILITY(U,$J,358.3,13630,0)
- ;;=425.11^^107^861^58
- ;;^UTILITY(U,$J,358.3,13630,1,0)
- ;;=^358.31IA^5^2
- ;;^UTILITY(U,$J,358.3,13630,1,4,0)
- ;;=4^425.11
- ;;^UTILITY(U,$J,358.3,13630,1,5,0)
- ;;=5^Hypertrophic Obst Cardiomyopathy
- ;;^UTILITY(U,$J,358.3,13630,2)
- ;;=^340520
- ;;^UTILITY(U,$J,358.3,13631,0)
- ;;=425.18^^107^861^63
- ;;^UTILITY(U,$J,358.3,13631,1,0)
- ;;=^358.31IA^5^2
- ;;^UTILITY(U,$J,358.3,13631,1,4,0)
- ;;=4^425.18
- ;;^UTILITY(U,$J,358.3,13631,1,5,0)
- ;;=5^Oth Hypertrophic Cardiomyopathy
- ;;^UTILITY(U,$J,358.3,13631,2)
- ;;=^340521
- ;;^UTILITY(U,$J,358.3,13632,0)
- ;;=414.4^^107^861^18
- ;;^UTILITY(U,$J,358.3,13632,1,0)
- ;;=^358.31IA^5^2
- ;;^UTILITY(U,$J,358.3,13632,1,4,0)
- ;;=4^414.4
- ;;^UTILITY(U,$J,358.3,13632,1,5,0)
- ;;=5^CAD, due to Calc Coronary Lesion
- ;;^UTILITY(U,$J,358.3,13632,2)
- ;;=^340518
- ;;^UTILITY(U,$J,358.3,13633,0)
- ;;=454.9^^107^861^81
- ;;^UTILITY(U,$J,358.3,13633,1,0)
- ;;=^358.31IA^5^2
- ;;^UTILITY(U,$J,358.3,13633,1,4,0)
- ;;=4^454.9
- ;;^UTILITY(U,$J,358.3,13633,1,5,0)
- ;;=5^Varicose Veins
- ;;^UTILITY(U,$J,358.3,13633,2)
- ;;=^328758
- ;;^UTILITY(U,$J,358.3,13634,0)
- ;;=271.3^^107^862^11
- ;;^UTILITY(U,$J,358.3,13634,1,0)
- ;;=^358.31IA^5^2
- ;;^UTILITY(U,$J,358.3,13634,1,4,0)
- ;;=4^271.3
- ;;^UTILITY(U,$J,358.3,13634,1,5,0)
- ;;=5^Glucose Intolerance
- ;;^UTILITY(U,$J,358.3,13634,2)
- ;;=^64790
- ;;^UTILITY(U,$J,358.3,13635,0)
- ;;=611.1^^107^862^16
- ;;^UTILITY(U,$J,358.3,13635,1,0)
- ;;=^358.31IA^5^2
- ;;^UTILITY(U,$J,358.3,13635,1,4,0)
- ;;=4^611.1
- ;;^UTILITY(U,$J,358.3,13635,1,5,0)
- ;;=5^Gynecomastia
- ;;^UTILITY(U,$J,358.3,13635,2)
- ;;=^60454
- ;;^UTILITY(U,$J,358.3,13636,0)
- ;;=704.1^^107^862^17
- ;;^UTILITY(U,$J,358.3,13636,1,0)
- ;;=^358.31IA^5^2
- ;;^UTILITY(U,$J,358.3,13636,1,4,0)
- ;;=4^704.1
- ;;^UTILITY(U,$J,358.3,13636,1,5,0)
- ;;=5^Hirsutism
- ;;^UTILITY(U,$J,358.3,13636,2)
- ;;=^57407
- ;;^UTILITY(U,$J,358.3,13637,0)
- ;;=251.2^^107^862^29
- ;;^UTILITY(U,$J,358.3,13637,1,0)
- ;;=^358.31IA^5^2
- ;;^UTILITY(U,$J,358.3,13637,1,4,0)
- ;;=4^251.2
- ;;^UTILITY(U,$J,358.3,13637,1,5,0)
- ;;=5^Hypoglycemia Nos
- ;;^UTILITY(U,$J,358.3,13637,2)
- ;;=^60580
- ;;^UTILITY(U,$J,358.3,13638,0)
- ;;=257.2^^107^862^30
- ;;^UTILITY(U,$J,358.3,13638,1,0)
- ;;=^358.31IA^5^2
- ;;^UTILITY(U,$J,358.3,13638,1,4,0)
- ;;=4^257.2
- ;;^UTILITY(U,$J,358.3,13638,1,5,0)
- ;;=5^Hypogonadism,Male
- ;;^UTILITY(U,$J,358.3,13638,2)
- ;;=^88213
- ;;^UTILITY(U,$J,358.3,13639,0)
- ;;=253.2^^107^862^33
- ;;^UTILITY(U,$J,358.3,13639,1,0)
- ;;=^358.31IA^5^2
- ;;^UTILITY(U,$J,358.3,13639,1,4,0)
- ;;=4^253.2
- ;;^UTILITY(U,$J,358.3,13639,1,5,0)
- ;;=5^Hypopituitarism
- ;;^UTILITY(U,$J,358.3,13639,2)
- ;;=^60686
- ;;^UTILITY(U,$J,358.3,13640,0)
- ;;=733.00^^107^862^43
- ;;^UTILITY(U,$J,358.3,13640,1,0)
- ;;=^358.31IA^5^2
- ;;^UTILITY(U,$J,358.3,13640,1,4,0)
- ;;=4^733.00
- ;;^UTILITY(U,$J,358.3,13640,1,5,0)
- ;;=5^Osteoporosis Nos
- ;;^UTILITY(U,$J,358.3,13640,2)
- ;;=^87159
- ;;^UTILITY(U,$J,358.3,13641,0)
- ;;=278.00^^107^862^40
- ;;^UTILITY(U,$J,358.3,13641,1,0)
- ;;=^358.31IA^5^2
- ;;^UTILITY(U,$J,358.3,13641,1,4,0)
- ;;=4^278.00
- ;;^UTILITY(U,$J,358.3,13641,1,5,0)
- ;;=5^Obesity
- ;;^UTILITY(U,$J,358.3,13641,2)
- ;;=^84823
- ;;^UTILITY(U,$J,358.3,13642,0)
- ;;=278.01^^107^862^39
- ;;^UTILITY(U,$J,358.3,13642,1,0)
- ;;=^358.31IA^5^2
- ;;^UTILITY(U,$J,358.3,13642,1,4,0)
- ;;=4^278.01
- ;;^UTILITY(U,$J,358.3,13642,1,5,0)
- ;;=5^Morbid Obesity
- ;;^UTILITY(U,$J,358.3,13642,2)
- ;;=^84844
- ;;^UTILITY(U,$J,358.3,13643,0)
- ;;=250.80^^107^862^9
- ;;^UTILITY(U,$J,358.3,13643,1,0)
- ;;=^358.31IA^5^2
- ;;^UTILITY(U,$J,358.3,13643,1,4,0)
- ;;=4^250.80
- ;;^UTILITY(U,$J,358.3,13643,1,5,0)
- ;;=5^Dm Type II With LE Ulcer
- ;;^UTILITY(U,$J,358.3,13643,2)
- ;;=DM Type II with LE Ulcer^267846^707.10
- ;;^UTILITY(U,$J,358.3,13644,0)
- ;;=250.00^^107^862^4
- ;;^UTILITY(U,$J,358.3,13644,1,0)
- ;;=^358.31IA^5^2
- ;;^UTILITY(U,$J,358.3,13644,1,4,0)
- ;;=4^250.00
- ;;^UTILITY(U,$J,358.3,13644,1,5,0)
- ;;=5^Dm Type II Dm W/O Complications
- ;;^UTILITY(U,$J,358.3,13644,2)
- ;;=^33605
- ;;^UTILITY(U,$J,358.3,13645,0)
- ;;=250.40^^107^862^5
- ;;^UTILITY(U,$J,358.3,13645,1,0)
- ;;=^358.31IA^5^2
- ;;^UTILITY(U,$J,358.3,13645,1,4,0)
- ;;=4^250.40
- ;;^UTILITY(U,$J,358.3,13645,1,5,0)
- ;;=5^Dm Type II Dm With Nephropathy
- ;;^UTILITY(U,$J,358.3,13645,2)
- ;;=^267837^583.81
- ;;^UTILITY(U,$J,358.3,13646,0)
- ;;=250.50^^107^862^8
- ;;^UTILITY(U,$J,358.3,13646,1,0)
- ;;=^358.31IA^5^2
- ;;^UTILITY(U,$J,358.3,13646,1,4,0)
- ;;=4^250.50
- ;;^UTILITY(U,$J,358.3,13646,1,5,0)
- ;;=5^DM Type II W/ Peripheral Vasc Dx
- ;;^UTILITY(U,$J,358.3,13646,2)
- ;;=DM Type II w/ PDR^267839^362.02
- ;;^UTILITY(U,$J,358.3,13647,0)
- ;;=250.60^^107^862^6
- ;;^UTILITY(U,$J,358.3,13647,1,0)
- ;;=^358.31IA^5^2
- ;;^UTILITY(U,$J,358.3,13647,1,4,0)
- ;;=4^250.60
- ;;^UTILITY(U,$J,358.3,13647,1,5,0)
- ;;=5^Dm Type II Dm With Neuropathy
- ;;^UTILITY(U,$J,358.3,13647,2)
- ;;=^267841^357.2
- ;;^UTILITY(U,$J,358.3,13648,0)
- ;;=250.70^^107^862^7
- ;;^UTILITY(U,$J,358.3,13648,1,0)
- ;;=^358.31IA^5^2
- ;;^UTILITY(U,$J,358.3,13648,1,4,0)
- ;;=4^250.70
- ;;^UTILITY(U,$J,358.3,13648,1,5,0)
- ;;=5^Dm Type II Dm With Peripheral Vasc Dis
- ;;^UTILITY(U,$J,358.3,13648,2)
- ;;=^267843^443.81
- ;;^UTILITY(U,$J,358.3,13649,0)
- ;;=250.01^^107^862^3
- ;;^UTILITY(U,$J,358.3,13649,1,0)
- ;;=^358.31IA^5^2
- ;;^UTILITY(U,$J,358.3,13649,1,4,0)
- ;;=4^250.01
- ;;^UTILITY(U,$J,358.3,13649,1,5,0)
- ;;=5^Dm Type I Dm W/O Complications
- ;;^UTILITY(U,$J,358.3,13649,2)
- ;;=^33586
- ;;^UTILITY(U,$J,358.3,13650,0)
- ;;=272.0^^107^862^22
- ;;^UTILITY(U,$J,358.3,13650,1,0)
- ;;=^358.31IA^5^2
- ;;^UTILITY(U,$J,358.3,13650,1,4,0)
- ;;=4^272.0
- ;;^UTILITY(U,$J,358.3,13650,1,5,0)
- ;;=5^Hypercholesterolemia, Pure
- ;;^UTILITY(U,$J,358.3,13650,2)
- ;;=Hypercholesterolemia, Pure^59973
- ;;^UTILITY(U,$J,358.3,13651,0)
- ;;=272.1^^107^862^27
- ;;^UTILITY(U,$J,358.3,13651,1,0)
- ;;=^358.31IA^5^2
- ;;^UTILITY(U,$J,358.3,13651,1,4,0)
- ;;=4^272.1
+ ;;^UTILITY(U,$J,358.5,258,0)
+ ;;=3DPhone^135^1
+ ;;^UTILITY(U,$J,358.5,258,2,0)
+ ;;=3D^358.52^1^1
+ ;;^UTILITY(U,$J,358.5,258,2,1,0)
+ ;;=3DPhone:^^^37^2^2^44^20^1
+ ;;^UTILITY(U,$J,358.5,259,0)
+ ;;=3DInsurance^135^2^0^1
+ ;;^UTILITY(U,$J,358.5,259,2,0)
+ ;;=3D^358.52^1^1
+ ;;^UTILITY(U,$J,358.5,259,2,1,0)
+ ;;=3DINSURANCE:^^B^1^5^5^12^30^1
+ ;;^UTILITY(U,$J,358.5,260,0)
+ ;;=3DDOB^135^3
+ ;;^UTILITY(U,$J,358.5,260,2,0)
+ ;;=3D^358.52^1^1
+ ;;^UTILITY(U,$J,358.5,260,2,1,0)
+ ;;=3DDOB:^^^64^2^2^68^12^1
+ ;;^UTILITY(U,$J,358.5,261,0)
+ ;;=3DAddress^135^4^0^1
+ ;;^UTILITY(U,$J,358.5,261,2,0)
+ ;;=3D^358.52^1^1
+ ;;^UTILITY(U,$J,358.5,261,2,1,0)
+ ;;=3DAddress:^^I^1^3^3^1^38^1
+ ;;^UTILITY(U,$J,358.5,262,0)
+ ;;=3DCity^135^4^0^2
+ ;;^UTILITY(U,$J,358.5,262,2,0)
+ ;;=3D^358.52^1^1
+ ;;^UTILITY(U,$J,358.5,262,2,1,0)
+ ;;=3Dcity^^I^^^4^1^42^1
+ ;;^UTILITY(U,$J,358.5,263,0)
+ ;;=3DName^135^5
+ ;;^UTILITY(U,$J,358.5,263,2,0)
+ ;;=3D^358.52^1^1
+ ;;^UTILITY(U,$J,358.5,263,2,1,0)
+ ;;=3DName:^^^1^2^2^7^30^1
+ ;;^UTILITY(U,$J,358.5,264,0)
+ ;;=3DInsurance 2^135^2^1^2
+ ;;^UTILITY(U,$J,358.5,264,2,0)
+ ;;=3D^358.52^1^1
+ ;;^UTILITY(U,$J,358.5,264,2,1,0)
+ ;;=3DInsurance^^I^^^4^45^30^1
+ ;;^UTILITY(U,$J,358.5,265,0)
+ ;;=3DONE PRIMARY DX^137^12
+ ;;^UTILITY(U,$J,358.5,265,2,0)
+ ;;=3D^358.52^1^1
+ ;;^UTILITY(U,$J,358.5,265,2,1,0)
+ ;;=3DCHOOSE ONLY ONE PRIMARY DIAGNOSIS FROM EITHER LIST^^BRU^41^2
+ ;;^UTILITY(U,$J,358.5,266,0)
+ ;;=3Dwork-related?^138^12^^^^^^^^1
+ ;;^UTILITY(U,$J,358.5,266,2,0)
+ ;;=3D^358.52^1^1
+ ;;^UTILITY(U,$J,358.5,266,2,1,0)
+ ;;=3DIS TREATMENT TODAY FOR WORK-RELATED INJURY OR ILLNESS?  ___Y
+___N^^BU^1^3^1
+ ;;^UTILITY(U,$J,358.5,267,0)
+ ;;=3Dwork-related^138^12^^^^^^^^1
+ ;;^UTILITY(U,$J,358.5,267,2,0)
+ ;;=3D^358.52^1^1
+ ;;^UTILITY(U,$J,358.5,267,2,1,0)
+ ;;=3DIS TREATMENT TODAY RELATED TO AN ACCIDENT?  ___Y ___N^^UB^72^3^1
+ ;;^UTILITY(U,$J,358.5,268,0)
+ ;;=3DSC condition 1^140^15^0^1
+ ;;^UTILITY(U,$J,358.5,268,2,0)
+ ;;=3D^358.52^1^1
+ ;;^UTILITY(U,$J,358.5,268,2,1,0)
+ ;;=3DSC Condtion 1^^I^^^2^4^45^1
+ ;;^UTILITY(U,$J,358.5,269,0)
+ ;;=3DSC Condition 2^140^15^0^2
+ ;;^UTILITY(U,$J,358.5,269,2,0)
+ ;;=3D^358.52^1^1
+ ;;^UTILITY(U,$J,358.5,269,2,1,0)
+ ;;=3DSC Condition 2^^I^^^3^4^45^1
+ ;;^UTILITY(U,$J,358.5,270,0)
+ ;;=3DSC Condition 3^140^15^0^3
+ ;;^UTILITY(U,$J,358.5,270,2,0)
+ ;;=3D^358.52^1^1
+ ;;^UTILITY(U,$J,358.5,270,2,1,0)
+ ;;=3D1^^I^^^4^4^45^1
+ ;;^UTILITY(U,$J,358.5,271,0)
+ ;;=3DSC Condition 4^140^15^0^4
+ ;;^UTILITY(U,$J,358.5,271,2,0)
+ ;;=3D^358.52^1^1
+ ;;^UTILITY(U,$J,358.5,271,2,1,0)
+ ;;=3DSC Condition 4^^I^^^5^4^45^1
+ ;;^UTILITY(U,$J,358.5,272,0)
+ ;;=3DSC Condition 5^140^15^0^5
+ ;;^UTILITY(U,$J,358.5,272,2,0)
+ ;;=3D^358.52^2^2
+ ;;^UTILITY(U,$J,358.5,272,2,1,0)
+ ;;=3DSC Condition 5^^I^^^6^4^45^1
+ ;;^UTILITY(U,$J,358.5,272,2,2,0)
+ ;;=3D1^^I^^^6^4^45^1
+ ;;^UTILITY(U,$J,358.5,273,0)
+ ;;=3DSC Condition 6^140^15^0^6
+ ;;^UTILITY(U,$J,358.5,273,2,0)
+ ;;=3D^358.52^1^1
+ ;;^UTILITY(U,$J,358.5,273,2,1,0)
+ ;;=3DSC Condition 6^^I^^^7^4^45^1
+ ;;^UTILITY(U,$J,358.5,274,0)
+ ;;=3DSC Condition 7^140^15^1^7
+ ;;^UTILITY(U,$J,358.5,274,2,0)
+ ;;=3D^358.52^1^1
+ ;;^UTILITY(U,$J,358.5,274,2,1,0)
+ ;;=3DSC Condition 7^^I^^^7^4^45^1
+ ;;^UTILITY(U,$J,358.5,275,0)
+ ;;=3DIF DIAGNOSIS^141^12
+ ;;^UTILITY(U,$J,358.5,275,2,0)
+ ;;=3D^358.52^1^1
+ ;;^UTILITY(U,$J,358.5,275,2,1,0)
+ ;;=3DIF DIAGNOSIS IS ALREADY ON PROBLEM LIST, DO NOT MARK THE "ADD"
+BUBBLE^^BR^32^2
+ ;;^UTILITY(U,$J,358.5,276,0)
+ ;;=3DHEADER^142
+ ;;^UTILITY(U,$J,358.5,276,2,0)
+ ;;=3D^358.52^1^1
+ ;;^UTILITY(U,$J,358.5,276,2,1,0)
+ ;;=3DVISN 22 HEMATOLOGY/ONCOLOGY ENCOUNTER FORM^^BU^0^0
+ ;;^UTILITY(U,$J,358.5,277,0)
+ ;;=3DCLINIC^143^18^^^^^^^5^2
+ ;;^UTILITY(U,$J,358.5,277,2,0)
+ ;;=3D^358.52^1^1
+ ;;^UTILITY(U,$J,358.5,277,2,1,0)
+ ;;=3DClinic:^^^5^2^2^13^30^1
+ ;;^UTILITY(U,$J,358.5,278,0)
+ ;;=3DAPPT. DT/TIME^143^19^^^^^^^5^2
+ ;;^UTILITY(U,$J,358.5,278,2,0)
+ ;;=3D^358.52^1^1
+ ;;^UTILITY(U,$J,358.5,278,2,1,0)
+ ;;=3DAppt. DT/Time:^^^5^3^3^20^23^1
+ ;;^UTILITY(U,$J,358.5,279,0)
+ ;;=3DNO SHOW/CANCEL^143^12
+ ;;^UTILITY(U,$J,358.5,279,2,0)
+ ;;=3D^358.52^1^1
+ ;;^UTILITY(U,$J,358.5,279,2,1,0)
+ ;;=3D__NO-SHOW  __CANCEL  __RESCHEDULED^^B^5^5
+ ;;^UTILITY(U,$J,358.5,280,0)
+ ;;=3DCHOOSE PRIMARY DX^146^12
+ ;;^UTILITY(U,$J,358.5,280,2,0)
+ ;;=3D^358.52^1^1
+ ;;^UTILITY(U,$J,358.5,280,2,1,0)
+ ;;=3DEACH ENCOUNTER MUST HAVE A PRIMARY DIAGNOSIS AS REASON FOR VISIT.
+PLEASE CHOOSE ONE FROM THE ABOVE BLOCK^^BR^14^2
+ ;;^UTILITY(U,$J,358.5,281,0)
+ ;;=3DHEADER^148
+ ;;^UTILITY(U,$J,358.5,281,2,0)
+ ;;=3D^358.52^1^1
+ ;;^UTILITY(U,$J,358.5,281,2,1,0)
+ ;;=3DVISN 22 HEMODIALYSIS ENCOUNTER FORM^^BU^0^0
+ ;;^UTILITY(U,$J,358.5,282,0)
+ ;;=3DIF DIAG^149^12
+ ;;^UTILITY(U,$J,358.5,282,2,0)
+ ;;=3D^358.52^1^1
+ ;;^UTILITY(U,$J,358.5,282,2,1,0)
+ ;;=3DIF DIAGNOSIS IS ALREADY ON PROBLEM LIST, DO NOT MARK THE "ADD"
+BUBBLE.  CHOOSE PRIMARY DIAGNOSIS FROM EITHER BLOCK, BUT NOT BOTH.^^^1^2

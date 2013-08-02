@@ -1,5 +1,5 @@
 PSOVER1 ;BHAM ISC/SAB - verify one rx ;3/9/05 12:53pm
- ;;7.0;OUTPATIENT PHARMACY;**32,46,90,131,202,207,148,243,268,281,324,358,251,375,387,379,390**;DEC 1997;Build 86
+ ;;7.0;OUTPATIENT PHARMACY;**32,46,90,131,202,207,148,243,268,281,324,358,251,375,387**;DEC 1997;Build 13
  ;External reference ^PSDRUG( supported by DBIA 221
  ;External reference to PSOUL^PSSLOCK supported by DBIA 2789
  ;External reference ^PS(55 supported by DBIA 2228
@@ -9,10 +9,6 @@ PSOVER1 ;BHAM ISC/SAB - verify one rx ;3/9/05 12:53pm
  ;External reference to $$DS^PSSDSAPI supported by DBIA 5425
  ;External reference to ^PS(4 supported by DBIA 2229
  ;External reference to $$GETNDC^PSSNDCUT supported by DBIA 4707
- ;External reference to ^DPT( supported by DBIA 3097
- ;External reference to ^PS(50.606 supported by DBIA 2174
- ;External reference to ^PS(50.7 supported by DBIA 2223
- ;External reference to ^PS(56 supported by DBIA 2229
 REDO ;
  I '$G(PSOCLK) Q:$G(PSVERFLG)
  S (DRG,PSODRUG("NAME"))=$P(^PSDRUG(+$P(^PSRX(PSONV,0),"^",6),0),"^"),PSODRUG("VA CLASS")=$P(^(0),"^",2)
@@ -26,7 +22,7 @@ EDIT ;
  S DA=PSONV D ^PSORXPR
  I $G(PKI1)=2 D DCV1^PSOPKIV1 G OUT
  K PSDTSTOP S DIR("A")="EDIT",DIR("B")="N",DIR(0)="SB^Y:YES;N:NO;P:PROFILE",DIR("?")="Enter Y to change this RX, P to see a profile, or N to proceed with verification and order checks."
-  D ^DIR K DIR W ! I $G(DIRUT)!($G(DTOUT)) S PSOVBCK=1 G OUT
+ D ^DIR K DIR W ! G OUT:$G(DIRUT)!($G(DTOUT))
  ;PSOPOCK=1 called from Process Order Check option; PSOCLK=1 means initiated from Rx verify by clerk.
  I Y="Y",($G(PSOCLK)!($G(PSOPOCK))) D FULLEDT S VALMBCK="R" G KILL:$$CHECK(PSONV) G EDIT
  I Y="Y",$G(PSOACT)]"" S VALMBCK="R",PSVERFLG=1 G OUT  ;this pops the user back to the med profile screen when verify is called from Patient Prescription Processing
@@ -55,7 +51,6 @@ EXPIRE S RX0=^PSRX(DA,0),X1=$P($P(RX0,"^",13),"."),X2=$P(RX0,"^",9)+1*$P(RX0,"^"
 ORDCHK ;
  S RX0=^PSRX(PSONV,0)
  D ORDCK
- I $G(PSOQUIT) S:$G(PSOCLK) PSOQUIT=0 S:'$G(PSOCLK) PSORX("DFLG")=1  ;if verify by clerk continue on with the next Rx; if not exit
  I $G(PSOVQUIT)!$G(PSORX("DFLG")) G OUT
  ;------
 VERIFY ; 
@@ -64,8 +59,8 @@ VERIFY ;
  . W:$D(PSODRUG("NAME")) !,PSODRUG("NAME"),!
  S DIR("A")="VERIFY FOR "_PSONAM_" ? (Y/N/Delete/Quit): ",DIR("B")="Y",DIR(0)="SA^Y:YES;N:NO;D:DELETE;Q:QUIT"
  S DIR("?",1)="Enter Y (or return) to verify this prescription",DIR("?",2)="N to leave this prescription non-verified and to end this session of verification",DIR("?")="D to delete this prescription"
- D ^DIR K DIR I Y="N"!("Q^"[$E(Y)) S PSOVBCK=1,PSORX("DFLG")=1 G OUT
- G DELETE:Y="D"
+ D ^DIR K DIR I Y="N" S PSORX("DFLG")=1 G OUT
+ G QUIT:"Q^"[$E(Y),DELETE:Y="D"
 VERY I $G(PKI1)=1 D REA^PSOPKIV1 G:'$D(PKIR) VERIFY
  K ^PSRX(PSONV,"DAI") S $P(^PSRX(PSONV,3),"^",6)=""
  K ^PSRX(PSONV,"DRI"),SPFL
@@ -92,12 +87,6 @@ VERY I $G(PKI1)=1 D REA^PSOPKIV1 G:'$D(PKIR) VERIFY
  S $P(PSOSD("NON-VERIFIED",DRG),"^",2)=0,PSOSD("ACTIVE",DRG)=PSOSD("NON-VERIFIED",DRG)
  I $G(PKI1)=1,$G(PKIR)]"" D ACT^PSOPKIV1(DA)
  K PSOSD("NON-VERIFIED",DRG) D EN^PSOHLSN1(PSONV,"SC","CM","") ;S VALMBCK=""
- ;saves drug allergy order chks pso*7*390
- I +$G(^TMP("PSODAOC",$J,1,0)) D
- .I $G(PSORX("DFLG")) K ^TMP("PSODAOC",$J) Q
- .N RXN,PSODAOC S RXN=PSONV,PSODAOC="Rx Backdoor VERIFIED NEW Order Acceptance_OP"
- .D DAOC^PSONEW
- .K ^TMP("PSODAOC",$J),RET
  ;
  ; - Calling ECME for claims generation and transmission / REJECT handling
  N ACTION
@@ -117,7 +106,6 @@ QUIT S PSOQUIT="" D CLEAN Q
 UPSUS S $P(PSOSD("NON-VERIFIED",DRG),"^",2)=5,PSOSD("ACTIVE",DRG)=PSOSD("NON-VERIFIED",DRG) K PSOSD("NON-VERIFIED",DRG) D EN^PSOHLSN1(PSONV,"SC","CM","")
  Q
 CLEAN ;cleans up tmp("psorxdc") global
- I $G(PSODOSEX) K PSODOSEX Q
  N PSOWRITE
  I $O(^TMP("PSORXDC",$J,0)) F RORD=0:0 S RORD=$O(^TMP("PSORXDC",$J,RORD)) Q:'RORD  D
  .D PSOUL^PSSLOCK(RORD_$S($P(^TMP("PSORXDC",$J,RORD,0),"^")="P":"S",1:""))
@@ -147,7 +135,7 @@ REMOTE ;
  .D HD^PSODDPR2():(($Y+5)'>IOSL)
  .I $D(^XTMP("ORRDI","OUTAGE INFO","DOWN")) D  Q
  ..I $T(REMOTE^PSORX1)]"" Q
- ..W !!,"Remote data not available - Only local order checks processed.",! D HD^PSODDPR2():(($Y+5)>IOSL)
+ ..W !!,"Remote data not available - Only local order checks processed.",! D HD^PSODDPR2():(($Y+5)>IOSL) ; D PAUSE^PSOORRD2
  .W !!,"Now doing remote order checks. Please wait..."
  .D REMOTE^PSOORRDI(PSODFN,+$P($G(^PSRX(PSONV,0)),"^",6))
  .I $P($G(^XTMP("ORRDI","PSOO",PSODFN,0)),"^",3)<0 W !!,"Remote data not available - Only local order checks processed.",! D HD^PSODDPR2():(($Y+5)>IOSL) ;D PAUSE^PSOORRD2 Q
@@ -163,7 +151,7 @@ NOALRGY ;
  Q
  ;
 ORDCK ;
-  N ORN,ORNZZ,PSOLST,Y,PSOODFN S ORN=PSONV,PSOLST(PSONV)=PSONV_"^"_PSONV,PSOVORD=1
+ N ORN,ORNZZ,PSOLST,Y,PSOODFN S ORN=PSONV,PSOLST(PSONV)=PSONV_"^"_PSONV,PSOVORD=1
  N DRG,ON,CT,DRGI,PDRG,SEV,STX,INT,CLI,PSONULN,PSONULN1,LST,LSI,DGI,SER,SERS,DUPT,SV
  S ORNZZ=ORN,PRNXZ(ORN)=PSOLST(ORN),PSORENW("OIRXN")=PSONV,PSOODFN=DFN
  I '$D(PSODFN) S PSODFN=$P(^PSRX(PSONV,0),"^",2)
@@ -176,7 +164,7 @@ ORDCK ;
  S PSODRUG("SIG")=$P(PSOVINF,"^",5),PSODRUG("NDC")=$$GETNDC^PSSNDCUT(PSDRUG("IEN"),$G(PSOSITE)),PSODRUG("STKLVL")=$G(^PSDRUG(PSDRUG("IEN"),660.1))
  S PSODRUG("DAW")=+$$GET1^DIQ(50,PSONV,81)
  K PSOVINF
- D POST^PSODRG S DFN=PSODFN
+ D POST^PSODRG S DFN=PSOODFN
  I $$GET1^DIQ(52,PSONV,100,"I")=13 S PSORX("DFLG")=1 Q
  I $G(PSVERFLG),$G(PSOCLK) S PSVERFLG=0
  I $G(PSOCLK),$G(PSORX("DFLG")) S PSOVQUIT=1 K PSORX("DFLG"),DIRUT,DTOUT Q
@@ -184,7 +172,7 @@ ORDCK ;
  D:$$DS^PSSDSAPI&('$G(PSORX("DFLG"))) DOSCK^PSODOSUT("V")
  I $$GET1^DIQ(52,PSONV,100,"I")=13 S PSORX("DFLG")=1 Q
  I $G(PSOCLK),$G(PSORX("DFLG")) S PSOVQUIT=1 K PSORX("DFLG"),DIRUT,DTOUT Q
- Q:PSORX("DFLG")!($G(PSOQUIT))
+ Q:PSORX("DFLG")
  S PSOLST(ORNZZ)=PRNXZ(ORNZZ),ORN=ORNZZ K PSORENW("OIRXN")
  Q
  ;

@@ -1,5 +1,5 @@
 PRCHE ;WOIFO/LKG/DST-EDIT ROUTINES FOR SUPPLY SYSTEM ; 6/22/05 8:40am
-V ;;5.1;IFCAP;**1,28,39,81,63,144,163**;Oct 20, 2000;Build 2
+V ;;5.1;IFCAP;**1,28,39,81,63,144**;Oct 20, 2000;Build 2
  ;Per VHA Directive 10-93-142, this routine should not be modified.
 EN1 ;ITEM FILE EDIT
  N PRCVDA
@@ -107,15 +107,12 @@ EN13 ; Delete 2237 option has been de-activated.
 EN14 ;CREATE ADJUSTMENT VOUCHER
  D ST Q:'$D(PRC("SITE"))
 EN140 D PORQ Q:'$D(PRCHPO)
- N PRCOK,PRCARDIEN,PCARDID,PCARDNM
+ N PRCOK,PRCARDIEN,PCARDID
  I X=28!(X=33) W $C(7),!,"Adjustment Vouchers not allowed until after order has been Obligated!!" G EN140
  I '$O(^PRC(442,PRCHPO,11,0)) W !?3,"Order has no Receiving Reports !",$C(7) G EN140
  S PRCOK=$$PCAUTH(DUZ,PRCHPO) I 'PRCOK D  G EN140 ; check authorization level, must be holder, surrogate or approver
- . S PCARDIEN=$P(PRCOK,U,2),PCARDID=$P(^PRC(440.5,PCARDIEN,0),U,1) D
- .. ;PRC*5.1*163 alters unauthorized user display to card name and card holder
- .. S PCARDNM=$P(^PRC(440.5,PCARDIEN,0),U,8),PCARDNM=$P($G(^VA(200,PCARDNM,0)),U)
- .. W $C(7),!,"You are not authorized to make adjustments on P-Card:"
- .. W !,?6,$P(^PRC(440.5,PCARDIEN,0),U,11),", belonging to ",PCARDNM
+ . S PCARDIEN=$P(PRCOK,U,2),PCARDID=$P(^PRC(440.5,PCARDIEN,0),U,1)
+ . W $C(7),!,"You are not authorized to make adjustments on P-Card ",PCARDID,"."
  . D WRNGMSG ; send e-mail to card holder
  D ^PRCHAM4 G EN140
  ;

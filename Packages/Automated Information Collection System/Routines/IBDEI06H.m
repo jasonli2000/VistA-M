@@ -1,378 +1,282 @@
-IBDEI06H ; ; 20-FEB-2013
- ;;3.0;IB ENCOUNTER FORM IMP/EXP;;FEB 20, 2013
- Q:'DIFQR(358.3)  F I=1:2 S X=$T(Q+I) Q:X=""  S Y=$E($T(Q+I+1),4,999),X=$E(X,4,999) S:$A(Y)=126 I=I+1,Y=$E(Y,2,999)_$E($T(Q+I+1),5,99) S:$A(Y)=61 Y=$E(Y,2,999) X NO E  S @X=Y
+IBDEI06H ; ; 18-FEB-2009
+ ;;3.0;IB ENCOUNTER FORM IMP/EXP;;FEB 18, 2009
+ Q:'DIFQR(358.3)  F I=3D1:2 S X=3D$T(Q+I) Q:X=3D""  S
+Y=3D$E($T(Q+I+1),4,999),X=3D$E(X,4,999) S:$A(Y)=3D126
+I=3DI+1,Y=3D$E(Y,2,999)_$E($T(Q+I+1),5,99) S:$A(Y)=3D61 Y=3D$E(Y,2,999) =
+X NO E
+S @X=3DY
 Q Q
- ;;^UTILITY(U,$J,358.3,8465,0)
- ;;=307.81^^74^628^67
- ;;^UTILITY(U,$J,358.3,8465,1,0)
- ;;=^358.31IA^5^2
- ;;^UTILITY(U,$J,358.3,8465,1,4,0)
- ;;=4^307.81
- ;;^UTILITY(U,$J,358.3,8465,1,5,0)
- ;;=5^Tension Headache
- ;;^UTILITY(U,$J,358.3,8465,2)
- ;;=^100405
- ;;^UTILITY(U,$J,358.3,8466,0)
- ;;=333.1^^74^628^3
- ;;^UTILITY(U,$J,358.3,8466,1,0)
- ;;=^358.31IA^5^2
- ;;^UTILITY(U,$J,358.3,8466,1,4,0)
- ;;=4^333.1
- ;;^UTILITY(U,$J,358.3,8466,1,5,0)
- ;;=5^Benign Tremor
- ;;^UTILITY(U,$J,358.3,8466,2)
- ;;=^42610
- ;;^UTILITY(U,$J,358.3,8467,0)
- ;;=354.0^^74^628^5
- ;;^UTILITY(U,$J,358.3,8467,1,0)
- ;;=^358.31IA^5^2
- ;;^UTILITY(U,$J,358.3,8467,1,4,0)
- ;;=4^354.0
- ;;^UTILITY(U,$J,358.3,8467,1,5,0)
- ;;=5^Carpal Tunnel Syndrome
- ;;^UTILITY(U,$J,358.3,8467,2)
- ;;=^19944
- ;;^UTILITY(U,$J,358.3,8468,0)
- ;;=780.31^^74^628^11
- ;;^UTILITY(U,$J,358.3,8468,1,0)
- ;;=^358.31IA^5^2
- ;;^UTILITY(U,$J,358.3,8468,1,4,0)
- ;;=4^780.31
- ;;^UTILITY(U,$J,358.3,8468,1,5,0)
- ;;=5^Convulsions, Febrile
- ;;^UTILITY(U,$J,358.3,8468,2)
- ;;=^28172
- ;;^UTILITY(U,$J,358.3,8469,0)
- ;;=331.0^^74^628^18
- ;;^UTILITY(U,$J,358.3,8469,1,0)
- ;;=^358.31IA^5^2
- ;;^UTILITY(U,$J,358.3,8469,1,4,0)
- ;;=4^331.0
- ;;^UTILITY(U,$J,358.3,8469,1,5,0)
- ;;=5^Dementia, Alzheimer'S
- ;;^UTILITY(U,$J,358.3,8469,2)
- ;;=^5679^294.10
- ;;^UTILITY(U,$J,358.3,8470,0)
- ;;=291.2^^74^628^17
- ;;^UTILITY(U,$J,358.3,8470,1,0)
- ;;=^358.31IA^5^2
- ;;^UTILITY(U,$J,358.3,8470,1,4,0)
- ;;=4^291.2
- ;;^UTILITY(U,$J,358.3,8470,1,5,0)
- ;;=5^Dementia, Alcoholic
- ;;^UTILITY(U,$J,358.3,8470,2)
- ;;=^268015
- ;;^UTILITY(U,$J,358.3,8471,0)
- ;;=290.40^^74^628^20
- ;;^UTILITY(U,$J,358.3,8471,1,0)
- ;;=^358.31IA^5^2
- ;;^UTILITY(U,$J,358.3,8471,1,4,0)
- ;;=4^290.40
- ;;^UTILITY(U,$J,358.3,8471,1,5,0)
- ;;=5^Dementia,Multi-Infarct
- ;;^UTILITY(U,$J,358.3,8471,2)
- ;;=^303487
- ;;^UTILITY(U,$J,358.3,8472,0)
- ;;=290.0^^74^628^65
- ;;^UTILITY(U,$J,358.3,8472,1,0)
- ;;=^358.31IA^5^2
- ;;^UTILITY(U,$J,358.3,8472,1,4,0)
- ;;=4^290.0
- ;;^UTILITY(U,$J,358.3,8472,1,5,0)
- ;;=5^Senile Dementia 
- ;;^UTILITY(U,$J,358.3,8472,2)
- ;;=^31703
- ;;^UTILITY(U,$J,358.3,8473,0)
- ;;=780.4^^74^628^74
- ;;^UTILITY(U,$J,358.3,8473,1,0)
- ;;=^358.31IA^5^2
- ;;^UTILITY(U,$J,358.3,8473,1,4,0)
- ;;=4^780.4
- ;;^UTILITY(U,$J,358.3,8473,1,5,0)
- ;;=5^Vertigo
- ;;^UTILITY(U,$J,358.3,8473,2)
- ;;=^35946
- ;;^UTILITY(U,$J,358.3,8474,0)
- ;;=345.90^^74^628^21
- ;;^UTILITY(U,$J,358.3,8474,1,0)
- ;;=^358.31IA^5^2
- ;;^UTILITY(U,$J,358.3,8474,1,4,0)
- ;;=4^345.90
- ;;^UTILITY(U,$J,358.3,8474,1,5,0)
- ;;=5^Epilepsy
- ;;^UTILITY(U,$J,358.3,8474,2)
- ;;=^268477
- ;;^UTILITY(U,$J,358.3,8475,0)
- ;;=355.1^^74^628^38
- ;;^UTILITY(U,$J,358.3,8475,1,0)
- ;;=^358.31IA^5^2
- ;;^UTILITY(U,$J,358.3,8475,1,4,0)
- ;;=4^355.1
- ;;^UTILITY(U,$J,358.3,8475,1,5,0)
- ;;=5^Meralgia Paresthetica
- ;;^UTILITY(U,$J,358.3,8475,2)
- ;;=^265141
- ;;^UTILITY(U,$J,358.3,8476,0)
- ;;=340.^^74^628^46
- ;;^UTILITY(U,$J,358.3,8476,1,0)
- ;;=^358.31IA^5^2
- ;;^UTILITY(U,$J,358.3,8476,1,4,0)
- ;;=4^340.
- ;;^UTILITY(U,$J,358.3,8476,1,5,0)
- ;;=5^Multiple Sclerosis
- ;;^UTILITY(U,$J,358.3,8476,2)
- ;;=^79761
- ;;^UTILITY(U,$J,358.3,8477,0)
- ;;=729.2^^74^628^47
- ;;^UTILITY(U,$J,358.3,8477,1,0)
- ;;=^358.31IA^5^2
- ;;^UTILITY(U,$J,358.3,8477,1,4,0)
- ;;=4^729.2
- ;;^UTILITY(U,$J,358.3,8477,1,5,0)
- ;;=5^Neuropathic Pain
- ;;^UTILITY(U,$J,358.3,8477,2)
- ;;=Neuropathic Pain^82605
- ;;^UTILITY(U,$J,358.3,8478,0)
- ;;=053.19^^74^628^54
- ;;^UTILITY(U,$J,358.3,8478,1,0)
- ;;=^358.31IA^5^2
- ;;^UTILITY(U,$J,358.3,8478,1,4,0)
- ;;=4^053.19
- ;;^UTILITY(U,$J,358.3,8478,1,5,0)
- ;;=5^Post-Herpetic Neuralgia
- ;;^UTILITY(U,$J,358.3,8478,2)
- ;;=^266544
- ;;^UTILITY(U,$J,358.3,8479,0)
- ;;=310.9^^74^628^48
- ;;^UTILITY(U,$J,358.3,8479,1,0)
- ;;=^358.31IA^5^2
- ;;^UTILITY(U,$J,358.3,8479,1,4,0)
- ;;=4^310.9
- ;;^UTILITY(U,$J,358.3,8479,1,5,0)
- ;;=5^Organic Brain Syndrome
- ;;^UTILITY(U,$J,358.3,8479,2)
- ;;=^123952
- ;;^UTILITY(U,$J,358.3,8480,0)
- ;;=332.0^^74^628^50
- ;;^UTILITY(U,$J,358.3,8480,1,0)
- ;;=^358.31IA^5^2
- ;;^UTILITY(U,$J,358.3,8480,1,4,0)
- ;;=4^332.0
- ;;^UTILITY(U,$J,358.3,8480,1,5,0)
- ;;=5^Parkinson'S Disease
- ;;^UTILITY(U,$J,358.3,8480,2)
- ;;=Parkinson's Disease^304847
- ;;^UTILITY(U,$J,358.3,8481,0)
- ;;=250.60^^74^628^51
- ;;^UTILITY(U,$J,358.3,8481,1,0)
- ;;=^358.31IA^5^2
- ;;^UTILITY(U,$J,358.3,8481,1,4,0)
- ;;=4^250.60
- ;;^UTILITY(U,$J,358.3,8481,1,5,0)
- ;;=5^Peripheral Neuropathy, Diabetic
- ;;^UTILITY(U,$J,358.3,8481,2)
- ;;=^267841^357.2
- ;;^UTILITY(U,$J,358.3,8482,0)
- ;;=356.9^^74^628^53
- ;;^UTILITY(U,$J,358.3,8482,1,0)
- ;;=^358.31IA^5^2
- ;;^UTILITY(U,$J,358.3,8482,1,4,0)
- ;;=4^356.9
- ;;^UTILITY(U,$J,358.3,8482,1,5,0)
- ;;=5^Peripheral Neuropathy, Unsp
- ;;^UTILITY(U,$J,358.3,8482,2)
- ;;=^123931
- ;;^UTILITY(U,$J,358.3,8483,0)
- ;;=780.2^^74^628^66
- ;;^UTILITY(U,$J,358.3,8483,1,0)
- ;;=^358.31IA^5^2
- ;;^UTILITY(U,$J,358.3,8483,1,4,0)
- ;;=4^780.2
- ;;^UTILITY(U,$J,358.3,8483,1,5,0)
- ;;=5^Syncope Or Presyncope
- ;;^UTILITY(U,$J,358.3,8483,2)
- ;;=^116707
- ;;^UTILITY(U,$J,358.3,8484,0)
- ;;=724.3^^74^628^62
- ;;^UTILITY(U,$J,358.3,8484,1,0)
- ;;=^358.31IA^5^2
- ;;^UTILITY(U,$J,358.3,8484,1,4,0)
- ;;=4^724.3
- ;;^UTILITY(U,$J,358.3,8484,1,5,0)
- ;;=5^Sciatica
- ;;^UTILITY(U,$J,358.3,8484,2)
- ;;=^108484
- ;;^UTILITY(U,$J,358.3,8485,0)
- ;;=780.39^^74^628^64
- ;;^UTILITY(U,$J,358.3,8485,1,0)
- ;;=^358.31IA^5^2
- ;;^UTILITY(U,$J,358.3,8485,1,4,0)
- ;;=4^780.39
- ;;^UTILITY(U,$J,358.3,8485,1,5,0)
- ;;=5^Seizure NOS
- ;;^UTILITY(U,$J,358.3,8485,2)
- ;;=^28162
- ;;^UTILITY(U,$J,358.3,8486,0)
- ;;=782.0^^74^628^49
- ;;^UTILITY(U,$J,358.3,8486,1,0)
- ;;=^358.31IA^5^2
- ;;^UTILITY(U,$J,358.3,8486,1,4,0)
- ;;=4^782.0
- ;;^UTILITY(U,$J,358.3,8486,1,5,0)
- ;;=5^Parasthesia
- ;;^UTILITY(U,$J,358.3,8486,2)
- ;;=Parasthesia^35757
- ;;^UTILITY(U,$J,358.3,8487,0)
- ;;=435.9^^74^628^71
- ;;^UTILITY(U,$J,358.3,8487,1,0)
- ;;=^358.31IA^5^2
- ;;^UTILITY(U,$J,358.3,8487,1,4,0)
- ;;=4^435.9
- ;;^UTILITY(U,$J,358.3,8487,1,5,0)
- ;;=5^Transient Ischemic Attack
- ;;^UTILITY(U,$J,358.3,8487,2)
- ;;=^21635
- ;;^UTILITY(U,$J,358.3,8488,0)
- ;;=354.2^^74^628^73
- ;;^UTILITY(U,$J,358.3,8488,1,0)
- ;;=^358.31IA^5^2
- ;;^UTILITY(U,$J,358.3,8488,1,4,0)
- ;;=4^354.2
- ;;^UTILITY(U,$J,358.3,8488,1,5,0)
- ;;=5^Ulnar Nerve Entrapment
- ;;^UTILITY(U,$J,358.3,8488,2)
- ;;=^268506
- ;;^UTILITY(U,$J,358.3,8489,0)
- ;;=729.1^^74^628^22
- ;;^UTILITY(U,$J,358.3,8489,1,0)
- ;;=^358.31IA^5^2
- ;;^UTILITY(U,$J,358.3,8489,1,4,0)
- ;;=4^729.1
- ;;^UTILITY(U,$J,358.3,8489,1,5,0)
- ;;=5^Fibromyalgia
- ;;^UTILITY(U,$J,358.3,8489,2)
- ;;=Fibromyalgia^80160
- ;;^UTILITY(U,$J,358.3,8490,0)
- ;;=438.20^^74^628^16
- ;;^UTILITY(U,$J,358.3,8490,1,0)
- ;;=^358.31IA^5^2
- ;;^UTILITY(U,$J,358.3,8490,1,4,0)
- ;;=4^438.20
- ;;^UTILITY(U,$J,358.3,8490,1,5,0)
- ;;=5^CVA w/ Hemiplegia (Late Effect)
- ;;^UTILITY(U,$J,358.3,8490,2)
- ;;=CVA w/Hemiplegia^317910
- ;;^UTILITY(U,$J,358.3,8491,0)
- ;;=438.12^^74^628^15
- ;;^UTILITY(U,$J,358.3,8491,1,0)
- ;;=^358.31IA^5^2
- ;;^UTILITY(U,$J,358.3,8491,1,4,0)
- ;;=4^438.12
- ;;^UTILITY(U,$J,358.3,8491,1,5,0)
- ;;=5^CVA w/ Dysphasia (Late Effect)
- ;;^UTILITY(U,$J,358.3,8491,2)
- ;;=Stroke w/Dysphasia^317908
- ;;^UTILITY(U,$J,358.3,8492,0)
- ;;=356.8^^74^628^52
- ;;^UTILITY(U,$J,358.3,8492,1,0)
- ;;=^358.31IA^5^2
- ;;^UTILITY(U,$J,358.3,8492,1,4,0)
- ;;=4^356.8
- ;;^UTILITY(U,$J,358.3,8492,1,5,0)
- ;;=5^Peripheral Neuropathy, Idiopathic
- ;;^UTILITY(U,$J,358.3,8492,2)
- ;;=Peripheral Neuropathy, Idio^268525
- ;;^UTILITY(U,$J,358.3,8493,0)
- ;;=337.20^^74^628^59
- ;;^UTILITY(U,$J,358.3,8493,1,0)
- ;;=^358.31IA^5^2
- ;;^UTILITY(U,$J,358.3,8493,1,4,0)
- ;;=4^337.20
- ;;^UTILITY(U,$J,358.3,8493,1,5,0)
- ;;=5^Reflexive Sympathetic Dystrophy
- ;;^UTILITY(U,$J,358.3,8493,2)
- ;;=Reflexive Sympathetic Dystrophy^295799
- ;;^UTILITY(U,$J,358.3,8494,0)
- ;;=294.8^^74^628^19
- ;;^UTILITY(U,$J,358.3,8494,1,0)
- ;;=^358.31IA^5^2
- ;;^UTILITY(U,$J,358.3,8494,1,4,0)
- ;;=4^294.8
- ;;^UTILITY(U,$J,358.3,8494,1,5,0)
- ;;=5^Dementia, Other
- ;;^UTILITY(U,$J,358.3,8494,2)
- ;;=^268044
- ;;^UTILITY(U,$J,358.3,8495,0)
- ;;=438.6^^74^628^13
- ;;^UTILITY(U,$J,358.3,8495,1,0)
- ;;=^358.31IA^5^2
- ;;^UTILITY(U,$J,358.3,8495,1,4,0)
- ;;=4^438.6
- ;;^UTILITY(U,$J,358.3,8495,1,5,0)
- ;;=5^CVA w/ Dysesthesia (Late Effect)
- ;;^UTILITY(U,$J,358.3,8495,2)
- ;;=CVA w/Dysesthesia (late effect)^328503
- ;;^UTILITY(U,$J,358.3,8496,0)
- ;;=438.7^^74^628^14
- ;;^UTILITY(U,$J,358.3,8496,1,0)
- ;;=^358.31IA^5^2
- ;;^UTILITY(U,$J,358.3,8496,1,4,0)
- ;;=4^438.7
- ;;^UTILITY(U,$J,358.3,8496,1,5,0)
- ;;=5^CVA w/ Vision Changes (Late Effect)
- ;;^UTILITY(U,$J,358.3,8496,2)
- ;;=CVA w/Vision Changes (late effect)^328504
- ;;^UTILITY(U,$J,358.3,8497,0)
- ;;=438.84^^74^628^12
- ;;^UTILITY(U,$J,358.3,8497,1,0)
- ;;=^358.31IA^5^2
- ;;^UTILITY(U,$J,358.3,8497,1,4,0)
- ;;=4^438.84
- ;;^UTILITY(U,$J,358.3,8497,1,5,0)
- ;;=5^CVA w/ Ataxia (Late Effect)
- ;;^UTILITY(U,$J,358.3,8497,2)
- ;;=CVA w/Ataxia (late effect)^328507
- ;;^UTILITY(U,$J,358.3,8498,0)
- ;;=434.91^^74^628^4
- ;;^UTILITY(U,$J,358.3,8498,1,0)
- ;;=^358.31IA^5^2
- ;;^UTILITY(U,$J,358.3,8498,1,4,0)
- ;;=4^434.91
- ;;^UTILITY(U,$J,358.3,8498,1,5,0)
- ;;=5^CVA,Acute Onset
- ;;^UTILITY(U,$J,358.3,8498,2)
- ;;=^295738
- ;;^UTILITY(U,$J,358.3,8499,0)
- ;;=V12.54^^74^628^23
- ;;^UTILITY(U,$J,358.3,8499,1,0)
- ;;=^358.31IA^5^2
- ;;^UTILITY(U,$J,358.3,8499,1,4,0)
- ;;=4^V12.54
- ;;^UTILITY(U,$J,358.3,8499,1,5,0)
- ;;=5^HX Stroke w/o Residuals
- ;;^UTILITY(U,$J,358.3,8499,2)
- ;;=^335309
- ;;^UTILITY(U,$J,358.3,8500,0)
- ;;=333.94^^74^628^60
- ;;^UTILITY(U,$J,358.3,8500,1,0)
- ;;=^358.31IA^5^2
- ;;^UTILITY(U,$J,358.3,8500,1,4,0)
- ;;=4^333.94
- ;;^UTILITY(U,$J,358.3,8500,1,5,0)
- ;;=5^Restless Leg Syndrome
- ;;^UTILITY(U,$J,358.3,8500,2)
- ;;=^105368
- ;;^UTILITY(U,$J,358.3,8501,0)
- ;;=345.90^^74^628^63
- ;;^UTILITY(U,$J,358.3,8501,1,0)
- ;;=^358.31IA^5^2
- ;;^UTILITY(U,$J,358.3,8501,1,4,0)
- ;;=4^345.90
- ;;^UTILITY(U,$J,358.3,8501,1,5,0)
- ;;=5^Seizure Disorder NOS
- ;;^UTILITY(U,$J,358.3,8501,2)
- ;;=^268477
- ;;^UTILITY(U,$J,358.3,8502,0)
- ;;=339.00^^74^628^6
- ;;^UTILITY(U,$J,358.3,8502,1,0)
- ;;=^358.31IA^5^2
+ ;;^UTILITY(U,$J,358.3,6857,1,3,0)
+ ;;=3D3^728.71
+ ;;^UTILITY(U,$J,358.3,6857,1,5,0)
+ ;;=3D5^Fascite, Plantar
+ ;;^UTILITY(U,$J,358.3,6857,2)
+ ;;=3D^272598
+ ;;^UTILITY(U,$J,358.3,6858,0)
+ ;;=3D729.1^^62^516^2
+ ;;^UTILITY(U,$J,358.3,6858,1,0)
+ ;;=3D^358.31IA^5^2
+ ;;^UTILITY(U,$J,358.3,6858,1,3,0)
+ ;;=3D3^729.1
+ ;;^UTILITY(U,$J,358.3,6858,1,5,0)
+ ;;=3D5^Fibromyalgia
+ ;;^UTILITY(U,$J,358.3,6858,2)
+ ;;=3D^80160
+ ;;^UTILITY(U,$J,358.3,6859,0)
+ ;;=3D709.8^^62^516^3
+ ;;^UTILITY(U,$J,358.3,6859,1,0)
+ ;;=3D^358.31IA^5^2
+ ;;^UTILITY(U,$J,358.3,6859,1,3,0)
+ ;;=3D3^709.8
+ ;;^UTILITY(U,$J,358.3,6859,1,5,0)
+ ;;=3D5^Fissured skin
+ ;;^UTILITY(U,$J,358.3,6859,2)
+ ;;=3D^88026
+ ;;^UTILITY(U,$J,358.3,6860,0)
+ ;;=3DV53.7^^62^516^4
+ ;;^UTILITY(U,$J,358.3,6860,1,0)
+ ;;=3D^358.31IA^5^2
+ ;;^UTILITY(U,$J,358.3,6860,1,3,0)
+ ;;=3D3^V53.7
+ ;;^UTILITY(U,$J,358.3,6860,1,5,0)
+ ;;=3D5^Fitting of Orthotic
+ ;;^UTILITY(U,$J,358.3,6860,2)
+ ;;=3D^295510
+ ;;^UTILITY(U,$J,358.3,6861,0)
+ ;;=3D709.4^^62^516^5
+ ;;^UTILITY(U,$J,358.3,6861,1,0)
+ ;;=3D^358.31IA^5^2
+ ;;^UTILITY(U,$J,358.3,6861,1,3,0)
+ ;;=3D3^709.4
+ ;;^UTILITY(U,$J,358.3,6861,1,5,0)
+ ;;=3D5^Foreign body granuloma of skin and subcutaneous tissue (old)=20
+ ;;^UTILITY(U,$J,358.3,6861,2)
+ ;;=3D^271943
+ ;;^UTILITY(U,$J,358.3,6862,0)
+ ;;=3D917.6^^62^516^6
+ ;;^UTILITY(U,$J,358.3,6862,1,0)
+ ;;=3D^358.31IA^5^2
+ ;;^UTILITY(U,$J,358.3,6862,1,3,0)
+ ;;=3D3^917.6
+ ;;^UTILITY(U,$J,358.3,6862,1,5,0)
+ ;;=3D5^Foreign body, superficial injury (splinter) of foot &
+toe(s)without major open wound & without mention of infection =20
+ ;;^UTILITY(U,$J,358.3,6862,2)
+ ;;=3D^275347
+ ;;^UTILITY(U,$J,358.3,6863,0)
+ ;;=3D892.1^^62^516^7
+ ;;^UTILITY(U,$J,358.3,6863,1,0)
+ ;;=3D^358.31IA^5^2
+ ;;^UTILITY(U,$J,358.3,6863,1,3,0)
+ ;;=3D3^892.1
+ ;;^UTILITY(U,$J,358.3,6863,1,5,0)
+ ;;=3D5^Foreign body, open wound of foot except toe(s); complicated
+ ;;^UTILITY(U,$J,358.3,6863,2)
+ ;;=3D^275092
+ ;;^UTILITY(U,$J,358.3,6864,0)
+ ;;=3D893.1^^62^516^8
+ ;;^UTILITY(U,$J,358.3,6864,1,0)
+ ;;=3D^358.31IA^5^2
+ ;;^UTILITY(U,$J,358.3,6864,1,3,0)
+ ;;=3D3^893.1
+ ;;^UTILITY(U,$J,358.3,6864,1,5,0)
+ ;;=3D5^Foreign body, open wound of toe; complicated
+ ;;^UTILITY(U,$J,358.3,6864,2)
+ ;;=3D^275096
+ ;;^UTILITY(U,$J,358.3,6865,0)
+ ;;=3D916.6^^62^516^9
+ ;;^UTILITY(U,$J,358.3,6865,1,0)
+ ;;=3D^358.31IA^5^2
+ ;;^UTILITY(U,$J,358.3,6865,1,3,0)
+ ;;=3D3^916.6
+ ;;^UTILITY(U,$J,358.3,6865,1,5,0)
+ ;;=3D5^Foreign body, superficial injury (splinter) of hip, thigh, leg,
+and ankle w/o major open wound & w/o mention of infection
+ ;;^UTILITY(U,$J,358.3,6865,2)
+ ;;=3D^275336
+ ;;^UTILITY(U,$J,358.3,6866,0)
+ ;;=3D891.1^^62^516^10
+ ;;^UTILITY(U,$J,358.3,6866,1,0)
+ ;;=3D^358.31IA^5^2
+ ;;^UTILITY(U,$J,358.3,6866,1,3,0)
+ ;;=3D3^891.1
+ ;;^UTILITY(U,$J,358.3,6866,1,5,0)
+ ;;=3D5^Foreign body, open wound of knee, leg(except thigh), & ankle;
+complicated
+ ;;^UTILITY(U,$J,358.3,6866,2)
+ ;;=3D^275088
+ ;;^UTILITY(U,$J,358.3,6867,0)
+ ;;=3D824.8^^62^516^11
+ ;;^UTILITY(U,$J,358.3,6867,1,0)
+ ;;=3D^358.31IA^5^2
+ ;;^UTILITY(U,$J,358.3,6867,1,3,0)
+ ;;=3D3^824.8
+ ;;^UTILITY(U,$J,358.3,6867,1,5,0)
+ ;;=3D5^Fracture of ankle; unspecified, closed
+ ;;^UTILITY(U,$J,358.3,6867,2)
+ ;;=3D^274256
+ ;;^UTILITY(U,$J,358.3,6868,0)
+ ;;=3D824.4^^62^516^12
+ ;;^UTILITY(U,$J,358.3,6868,1,0)
+ ;;=3D^358.31IA^5^2
+ ;;^UTILITY(U,$J,358.3,6868,1,3,0)
+ ;;=3D3^824.4
+ ;;^UTILITY(U,$J,358.3,6868,1,5,0)
+ ;;=3D5^Fracture of ankle; bimalleolar, closed
+ ;;^UTILITY(U,$J,358.3,6868,2)
+ ;;=3D^14370
+ ;;^UTILITY(U,$J,358.3,6869,0)
+ ;;=3D824.2^^62^516^13
+ ;;^UTILITY(U,$J,358.3,6869,1,0)
+ ;;=3D^358.31IA^5^2
+ ;;^UTILITY(U,$J,358.3,6869,1,3,0)
+ ;;=3D3^824.2
+ ;;^UTILITY(U,$J,358.3,6869,1,5,0)
+ ;;=3D5^Fracture of ankle; lateral malleolus, closed
+ ;;^UTILITY(U,$J,358.3,6869,2)
+ ;;=3D^274247
+ ;;^UTILITY(U,$J,358.3,6870,0)
+ ;;=3D824.0^^62^516^14
+ ;;^UTILITY(U,$J,358.3,6870,1,0)
+ ;;=3D^358.31IA^5^2
+ ;;^UTILITY(U,$J,358.3,6870,1,3,0)
+ ;;=3D3^824.0
+ ;;^UTILITY(U,$J,358.3,6870,1,5,0)
+ ;;=3D5^Fracture of ankle; medial malleolus, closed
+ ;;^UTILITY(U,$J,358.3,6870,2)
+ ;;=3D^274245
+ ;;^UTILITY(U,$J,358.3,6871,0)
+ ;;=3D824.6^^62^516^15
+ ;;^UTILITY(U,$J,358.3,6871,1,0)
+ ;;=3D^358.31IA^5^2
+ ;;^UTILITY(U,$J,358.3,6871,1,3,0)
+ ;;=3D3^824.6
+ ;;^UTILITY(U,$J,358.3,6871,1,5,0)
+ ;;=3D5^Fracture of ankle; trimalleolar, closed
+ ;;^UTILITY(U,$J,358.3,6871,2)
+ ;;=3D^274251
+ ;;^UTILITY(U,$J,358.3,6872,0)
+ ;;=3D825.20^^62^516^16
+ ;;^UTILITY(U,$J,358.3,6872,1,0)
+ ;;=3D^358.31IA^5^2
+ ;;^UTILITY(U,$J,358.3,6872,1,3,0)
+ ;;=3D3^825.20
+ ;;^UTILITY(U,$J,358.3,6872,1,5,0)
+ ;;=3D5^Fracture of other tarsal & metatarsal bone, closed; unspecified
+bone(s) of foot (except toes)
+ ;;^UTILITY(U,$J,358.3,6872,2)
+ ;;=3D^274265
+ ;;^UTILITY(U,$J,358.3,6873,0)
+ ;;=3D825.0^^62^516^17
+ ;;^UTILITY(U,$J,358.3,6873,1,0)
+ ;;=3D^358.31IA^5^2
+ ;;^UTILITY(U,$J,358.3,6873,1,3,0)
+ ;;=3D3^825.0
+ ;;^UTILITY(U,$J,358.3,6873,1,5,0)
+ ;;=3D5^Fracture of one or more tarsal & metatarsal bone, closed;
+calcaneus, closed
+ ;;^UTILITY(U,$J,358.3,6873,2)
+ ;;=3D^274259
+ ;;^UTILITY(U,$J,358.3,6874,0)
+ ;;=3D825.23^^62^516^18
+ ;;^UTILITY(U,$J,358.3,6874,1,0)
+ ;;=3D^358.31IA^5^2
+ ;;^UTILITY(U,$J,358.3,6874,1,3,0)
+ ;;=3D3^825.23
+ ;;^UTILITY(U,$J,358.3,6874,1,5,0)
+ ;;=3D5^Fracture of other tarsal & metatarsal bones, closed; Cuboid
+ ;;^UTILITY(U,$J,358.3,6874,2)
+ ;;=3D^274270
+ ;;^UTILITY(U,$J,358.3,6875,0)
+ ;;=3D825.24^^62^516^19
+ ;;^UTILITY(U,$J,358.3,6875,1,0)
+ ;;=3D^358.31IA^5^2
+ ;;^UTILITY(U,$J,358.3,6875,1,3,0)
+ ;;=3D3^825.24
+ ;;^UTILITY(U,$J,358.3,6875,1,5,0)
+ ;;=3D5^Fracture of other tarsal & metatarsal bones, closed; Cuneiform,
+foot &
+ ;;^UTILITY(U,$J,358.3,6875,2)
+ ;;=3D^274271
+ ;;^UTILITY(U,$J,358.3,6876,0)
+ ;;=3D825.25^^62^516^20
+ ;;^UTILITY(U,$J,358.3,6876,1,0)
+ ;;=3D^358.31IA^5^2
+ ;;^UTILITY(U,$J,358.3,6876,1,3,0)
+ ;;=3D3^825.25
+ ;;^UTILITY(U,$J,358.3,6876,1,5,0)
+ ;;=3D5^Fracture of other tarsal & metatarsal bones, closed; Jones=20
+ ;;^UTILITY(U,$J,358.3,6876,2)
+ ;;=3D^274272
+ ;;^UTILITY(U,$J,358.3,6877,0)
+ ;;=3D825.22^^62^516^21
+ ;;^UTILITY(U,$J,358.3,6877,1,0)
+ ;;=3D^358.31IA^5^2
+ ;;^UTILITY(U,$J,358.3,6877,1,3,0)
+ ;;=3D3^825.22
+ ;;^UTILITY(U,$J,358.3,6877,1,5,0)
+ ;;=3D5^Fracture of other tarsal & metatarsal bones, closed; Navicular
+(scapiod), foot & metatarsal
+ ;;^UTILITY(U,$J,358.3,6877,2)
+ ;;=3D^274269
+ ;;^UTILITY(U,$J,358.3,6878,0)
+ ;;=3D825.21^^62^516^22
+ ;;^UTILITY(U,$J,358.3,6878,1,0)
+ ;;=3D^358.31IA^5^2
+ ;;^UTILITY(U,$J,358.3,6878,1,3,0)
+ ;;=3D3^825.21
+ ;;^UTILITY(U,$J,358.3,6878,1,5,0)
+ ;;=3D5^Fracture of other tarsal & metatarsal bones, closed; Astragalus,
+talus
+ ;;^UTILITY(U,$J,358.3,6878,2)
+ ;;=3D^274266
+ ;;^UTILITY(U,$J,358.3,6879,0)
+ ;;=3D825.29^^62^516^23
+ ;;^UTILITY(U,$J,358.3,6879,1,0)
+ ;;=3D^358.31IA^5^2
+ ;;^UTILITY(U,$J,358.3,6879,1,3,0)
+ ;;=3D3^825.29
+ ;;^UTILITY(U,$J,358.3,6879,1,5,0)
+ ;;=3D5^Fracture of other tarsal & metatarsal bones, closed; Tarsal or
+tarsal w/metatarsal
+ ;;^UTILITY(U,$J,358.3,6879,2)
+ ;;=3D^274263
+ ;;^UTILITY(U,$J,358.3,6880,0)
+ ;;=3D826.0^^62^516^24
+ ;;^UTILITY(U,$J,358.3,6880,1,0)
+ ;;=3D^358.31IA^5^2
+ ;;^UTILITY(U,$J,358.3,6880,1,3,0)
+ ;;=3D3^826.0
+ ;;^UTILITY(U,$J,358.3,6880,1,5,0)
+ ;;=3D5^Fracture of one or more phalanges of foot/toe(s), closed
+ ;;^UTILITY(U,$J,358.3,6880,2)
+ ;;=3D^274282
+ ;;^UTILITY(U,$J,358.3,6881,0)
+ ;;=3D733.16^^62^516^25
+ ;;^UTILITY(U,$J,358.3,6881,1,0)
+ ;;=3D^358.31IA^5^2
+ ;;^UTILITY(U,$J,358.3,6881,1,3,0)
+ ;;=3D3^733.16
+ ;;^UTILITY(U,$J,358.3,6881,1,5,0)
+ ;;=3D5^Fracture-stress/pathologic/spontaneous; tibia or fibula
+ ;;^UTILITY(U,$J,358.3,6881,2)
+ ;;=3D^295757
+ ;;^UTILITY(U,$J,358.3,6882,0)
+ ;;=3D733.19^^62^516^26
+ ;;^UTILITY(U,$J,358.3,6882,1,0)
+ ;;=3D^358.31IA^5^2
+ ;;^UTILITY(U,$J,358.3,6882,1,3,0)
+ ;;=3D3^733.19
+ ;;^UTILITY(U,$J,358.3,6882,1,5,0)
+ ;;=3D5^Fracture-stress/pathologic/spontanous; foot, toe, other of lower
+extremities
+ ;;^UTILITY(U,$J,358.3,6882,2)
+ ;;=3D^295758
+ ;;^UTILITY(U,$J,358.3,6883,0)
+ ;;=3D991.2^^62^516^27
+ ;;^UTILITY(U,$J,358.3,6883,1,0)
+ ;;=3D^358.31IA^5^2
+ ;;^UTILITY(U,$J,358.3,6883,1,3,0)
+ ;;=3D3^991.2
+ ;;^UTILITY(U,$J,358.3,6883,1,5,0)
+ ;;=3D5^Frostbite of foot

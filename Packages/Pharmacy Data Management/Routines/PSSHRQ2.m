@@ -1,5 +1,5 @@
 PSSHRQ2 ;WOIFO/AV,TS - Makes a request to PEPS and returns as Global ;09/20/07
- ;;1.0;PHARMACY DATA MANAGEMENT;**136,163,168**;9/30/97;Build 4
+ ;;1.0;PHARMACY DATA MANAGEMENT;**136,163**;9/30/97;Build 8
  ;
  ; @authors - Alex Vazquez, Tim Sabat
  ; @date    - September 19, 2007
@@ -12,12 +12,11 @@ IN(PSSBASE) ;
  ;
  ; @RETURNS Nothing. Value stored in output global.
  ;
- NEW PSS,PSSRESLT,PSSDOC,PSSXML,FDBFLG,PSSRBASE,PSSRBASX,PSSHRTMX,PSSHRTRT
+ NEW PSS,PSSRESLT,PSSDOC,PSSXML,FDBFLG,PSSRBASE,PSSRBASX
  ; Cleanup output global
  ; KILL ^TMP($JOB,PSSBASE,"OUT")  ; PO: commented as requested by Stan Brown on 6/4/09
  ;
  ; save "IN" nodes
- S PSSHRTMX=0
  K ^TMP($J,"SAVE","IN")
  M ^TMP($J,"SAVE","IN")=^TMP($J,PSSBASE,"IN") S PSSRBASE=PSSBASE
  ;
@@ -40,8 +39,6 @@ IN(PSSBASE) ;
  ; Create XML request
  SET PSSXML=$$BLDPREQ^PSSHREQ(PSSBASE)
  ; Send XML request to PEPS, receive handle to XML in return
- ;
-RETRY ;Retry entry point if first connection attempt fails
  SET PSSRESLT=$$PEPSPOST^PSSHTTP(.PSSDOC,PSSXML)
  ;
  ; If request unsuccessful go straight to error handling
@@ -50,8 +47,6 @@ RETRY ;Retry entry point if first connection attempt fails
  ; If request is successful parse response
  ; and put in results global object.  Also set the last successful run time.
  IF +PSSRESLT>0 DO OUT^PSSHRQ2O(PSSDOC,PSSBASE),SLASTRUN^PSSHRIT($$NOW^XLFDT())
- ; 
- I 'PSSHRTMX S PSSHRTRT=$P($G(^TMP($J,PSSRBASE,"OUT",0)),"^") I PSSHRTRT'=0,PSSHRTRT'=1 K ^TMP($J,PSSRBASE,"OUT",0) D SHG G RETRY
  ;
 END ; re-store "IN" nodes
  M ^TMP($J,PSSBASE,"IN")=^TMP($J,"SAVE","IN")
@@ -61,9 +56,3 @@ END ; re-store "IN" nodes
  .S ^TMP($J,PSSRBASE,"OUT",0)="-1^Unexpected error has occurred."
  QUIT
  ;;
- ;
-SHG ;Hang before retry
- S PSSHRTMX=1
- I $E(PSSRBASE,1,4)'="PING"!($G(PSSMCHK)="CHECK") H 3 Q
- H 30
- Q

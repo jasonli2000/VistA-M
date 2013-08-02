@@ -1,5 +1,5 @@
-MAGDIR9A ;WOIFO/PMK/RRB - Read a DICOM image file ; 06 Apr 2011 9:29 AM
- ;;3.0;IMAGING;**11,30,51,46,54,53,49,99**;Mar 19, 2002;Build 2057;Apr 19, 2011
+MAGDIR9A ;WOIFO/PMK - Read a DICOM image file ; 05 Apr 2011 8:21 AM
+ ;;3.0;IMAGING;**11,30,51,46,54,53,49**;Mar 19, 2002;Build 2033;Apr 07, 2011
  ;; Per VHA Directive 2004-038, this routine should not be modified.
  ;; +---------------------------------------------------------------+
  ;; | Property of the US Government.                                |

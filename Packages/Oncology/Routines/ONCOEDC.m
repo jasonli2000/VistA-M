@@ -1,5 +1,5 @@
-ONCOEDC ;Hines OIFO/GWB - ABSTRACT STATUS (165.5,91) Input Transform ;10/19/11
- ;;2.11;ONCOLOGY;**6,7,13,27,36,41,47,48,49,51,53,54,57**;Mar 07,1995;Build 6
+ONCOEDC ;Hines OIFO/GWB - ABSTRACT STATUS (165.5,91) Input Transform ;03/24/11
+ ;;2.11;ONCOLOGY;**6,7,13,27,36,41,47,48,49,51,53**;Mar 07,1995;Build 31
  ;
 CHECK ;Required field check
  ;CLASS OF CASE   = 00-22
@@ -21,14 +21,6 @@ CHECK ;Required field check
  .W !?5,"""Required"" field checking requires CLASS OF CASE."
  .W !
  I +CC<23,(+SQN<60)!(SQN=99),DTDX>2951231 S ONCANL=1 D CHKFLDS
- ;follow-up and approach fields must be entered.
- N ONCFOLDT,ONCAUDT
- I $D(^ONCO(160,PTN,1)) S ONCAUDT=$P(^ONCO(160,PTN,1),U,9)
- S ONCFOLDT=$O(^ONCO(160,PTN,"F","B",9999999),-1)
- I '$G(ONCAUDT) D
- .I (ONCFOLDT="")!(ONCFOLDT<DTDX) S LIST("DATE OF LAST CONTACT OR DEATH")="" S CMPLT=0
- I (DTDX>3091231),($$GET1^DIQ(165.5,PRM,234,"I")="") S CMPLT=0,LIST($P($G(^DD(165.5,234,0)),U,1))=""
- ;
  I CMPLT=0 S ONCTYP="A" K X Q
  I CMPLT=1 D
  .I $G(ONCANL)=1 D
@@ -99,7 +91,6 @@ EDITS ;Call to EDITS API
  .S $P(^ONCO(165.5,PRM,7),U,1)=DT
  .S ^ONCO(165.5,"AAD",DT,PRM)=""
  .S $P(^ONCO(165.5,PRM,7),U,3)=DUZ
- .S $P(^ONCO(165.5,PRM,"EDITS"),U,3)="N"
  I ABSTAT=3,$P($G(^ONCO(165.5,D0,7)),U,3)="" S $P(^ONCO(165.5,PRM,7),U,3)=DUZ
  I DCC'="",$P($G(^ONCO(165.5,D0,7)),U,3)="" S $P(^ONCO(165.5,PRM,7),U,3)=DUZ
  D ^ONCGENED
@@ -111,7 +102,6 @@ EDITS ;Call to EDITS API
  ..S $P(^ONCO(165.5,D0,7),U,1)=""
  ..K ^ONCO(165.5,"AAD",DT,PRM)
  ..S $P(^ONCO(165.5,D0,7),U,3)=""
- ..S $P(^ONCO(165.5,D0,"EDITS"),U,3)=""
  .K DIR S DIR(0)="YA"
  .S DIR("A")=" Do you wish to return to the Primary Menu Options? "
  .S DIR("B")="Yes" D ^DIR K DIR

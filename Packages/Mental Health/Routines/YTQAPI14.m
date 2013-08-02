@@ -1,10 +1,9 @@
-YTQAPI14 ;ASF/ALB - MHA PROCEDURES ; 1/20/11 2:15pm
- ;;5.01;MENTAL HEALTH;**85,97,96,103**;Dec 30, 1994;Build 27
+YTQAPI14 ;ASF/ALB MHA PROCEDURES ; 9/25/09 11:14am
+ ;;5.01;MENTAL HEALTH;**85,97,96**;Dec 30, 1994;Build 46
  Q
  ;Reference to ^XUSEC( supported by DBIA #10076
  ;Reference to ^DPT( supported by DBIA #10035
  ;Reference to ^PXRMINDX(601.84, supported by DBIA #4290
- ;Reference to FILE 870 supported by DBIA #5603
 RESEND ;resend all no transmits and errors
  N YSDATE,YSAD,YSTS,YSFILT,YSBEG,YSEND
  W @IOF,!,"MHA3 HL7 Resends",!!,"CAUTION:: use only if instructed by National Support Staff",!
@@ -78,7 +77,7 @@ SELADM(YSADIEN) ;select admin by pt and test
 NOPNOTE ;restrict Pnote for a test
  N DIE,DIC,X,Y,DA
  S DIC="^YTT(601.71,",DIC(0)="AEMQ" D ^DIC Q:Y'>0
- S DIE="^YTT(601.71,",DA=+Y,DR="28;29;30" D ^DIE
+ S DIE="^YTT(601.71,",DA=+Y,DR="28;29" D ^DIE
  Q
 EXEMPT ;exempt by adim and report
  N DIE,DIC,X,Y,DA
@@ -87,7 +86,7 @@ EXEMPT ;exempt by adim and report
  S DIC="^YTT(601.71,",DIC(0)="AEMQ" D ^DIC Q:Y'>0
  S DIE="^YTT(601.71,",DA=+Y,DR="8;9;27;18///NOW" D ^DIE
  Q
-SIGNOK(YSDATA,YS) ; all required fields
+SIGNOK(YSDATA,YS) ; all reqiured fields
  ;Input: IENS as iens for 604
  ;Output: 1^OK TO SIGN
  ;        0^MISSING REQUIRED FIELDS
@@ -103,6 +102,7 @@ SIGNOK(YSDATA,YS) ; all required fields
  S N1=0 F  S N1=$O(^YSTX(604.66,N1)) Q:N1'>0  D:($P(^YSTX(604.66,N1,0),U,8)&($P(^YSTX(604.66,N1,0),U,YSASCLS)))
  . S YSASFLD=$P(^YSTX(604.66,N1,0),U,3)
  . D TYPE
+ .; S YSF=$S(YSASFLD>10.02&(YSASFLD<10.44):"I",$P(^DD(604,YSASFLD,0),U,2)?1"P".E:"",1:"I")
  . S YSF=$S(YSASFLD>10.02&(YSASFLD<10.44):"I",YSTYPE=1:"",1:"I")
  . S X=$$GET1^DIQ(604,YSIEN,YSASFLD,YSF)
  . S:X="" YSFLAG=0,YSN=YSN+1,YSDATA(YSN)=^YSTX(604.66,N1,0)

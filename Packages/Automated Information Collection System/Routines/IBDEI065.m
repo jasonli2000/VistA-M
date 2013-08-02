@@ -1,356 +1,270 @@
-IBDEI065 ; ; 20-FEB-2013
- ;;3.0;IB ENCOUNTER FORM IMP/EXP;;FEB 20, 2013
- Q:'DIFQR(358.3)  F I=1:2 S X=$T(Q+I) Q:X=""  S Y=$E($T(Q+I+1),4,999),X=$E(X,4,999) S:$A(Y)=126 I=I+1,Y=$E(Y,2,999)_$E($T(Q+I+1),5,99) S:$A(Y)=61 Y=$E(Y,2,999) X NO E  S @X=Y
+IBDEI065 ; ; 18-FEB-2009
+ ;;3.0;IB ENCOUNTER FORM IMP/EXP;;FEB 18, 2009
+ Q:'DIFQR(358.3)  F I=3D1:2 S X=3D$T(Q+I) Q:X=3D""  S
+Y=3D$E($T(Q+I+1),4,999),X=3D$E(X,4,999) S:$A(Y)=3D126
+I=3DI+1,Y=3D$E(Y,2,999)_$E($T(Q+I+1),5,99) S:$A(Y)=3D61 Y=3D$E(Y,2,999) =
+X NO E
+S @X=3DY
 Q Q
- ;;^UTILITY(U,$J,358.3,7990,0)
- ;;=29126^^72^599^3^^^^1
- ;;^UTILITY(U,$J,358.3,7990,1,0)
- ;;=^358.31IA^3^2
- ;;^UTILITY(U,$J,358.3,7990,1,2,0)
- ;;=2^29126
- ;;^UTILITY(U,$J,358.3,7990,1,3,0)
- ;;=3^Short Arm Splint; Dynamic
- ;;^UTILITY(U,$J,358.3,7991,0)
- ;;=29130^^72^599^1^^^^1
- ;;^UTILITY(U,$J,358.3,7991,1,0)
- ;;=^358.31IA^3^2
- ;;^UTILITY(U,$J,358.3,7991,1,2,0)
- ;;=2^29130
- ;;^UTILITY(U,$J,358.3,7991,1,3,0)
- ;;=3^Finger Splint
- ;;^UTILITY(U,$J,358.3,7992,0)
- ;;=12001^^72^600^1^^^^1
- ;;^UTILITY(U,$J,358.3,7992,1,0)
- ;;=^358.31IA^3^2
- ;;^UTILITY(U,$J,358.3,7992,1,2,0)
- ;;=2^12001
- ;;^UTILITY(U,$J,358.3,7992,1,3,0)
- ;;=3^Simple repair; 2.5 cm or less
- ;;^UTILITY(U,$J,358.3,7993,0)
- ;;=12002^^72^600^2^^^^1
- ;;^UTILITY(U,$J,358.3,7993,1,0)
- ;;=^358.31IA^3^2
- ;;^UTILITY(U,$J,358.3,7993,1,2,0)
- ;;=2^12002
- ;;^UTILITY(U,$J,358.3,7993,1,3,0)
- ;;=3^Simple repair; 2.6 cm to 7.5 cm
- ;;^UTILITY(U,$J,358.3,7994,0)
- ;;=12004^^72^600^3^^^^1
- ;;^UTILITY(U,$J,358.3,7994,1,0)
- ;;=^358.31IA^3^2
- ;;^UTILITY(U,$J,358.3,7994,1,2,0)
- ;;=2^12004
- ;;^UTILITY(U,$J,358.3,7994,1,3,0)
- ;;=3^Simple repair; 7.6 cm to 12.5 cm
- ;;^UTILITY(U,$J,358.3,7995,0)
- ;;=12005^^72^600^4^^^^1
- ;;^UTILITY(U,$J,358.3,7995,1,0)
- ;;=^358.31IA^3^2
- ;;^UTILITY(U,$J,358.3,7995,1,2,0)
- ;;=2^12005
- ;;^UTILITY(U,$J,358.3,7995,1,3,0)
- ;;=3^Simple repair; 12.6 cm to 20 cm
- ;;^UTILITY(U,$J,358.3,7996,0)
- ;;=12006^^72^600^5^^^^1
- ;;^UTILITY(U,$J,358.3,7996,1,0)
- ;;=^358.31IA^3^2
- ;;^UTILITY(U,$J,358.3,7996,1,2,0)
- ;;=2^12006
- ;;^UTILITY(U,$J,358.3,7996,1,3,0)
- ;;=3^Simple repair; 20.1 cm to 30 cm
- ;;^UTILITY(U,$J,358.3,7997,0)
- ;;=12007^^72^600^6^^^^1
- ;;^UTILITY(U,$J,358.3,7997,1,0)
- ;;=^358.31IA^3^2
- ;;^UTILITY(U,$J,358.3,7997,1,2,0)
- ;;=2^12007
- ;;^UTILITY(U,$J,358.3,7997,1,3,0)
- ;;=3^Simple repair; over 30 cm
- ;;^UTILITY(U,$J,358.3,7998,0)
- ;;=12011^^72^601^1^^^^1
- ;;^UTILITY(U,$J,358.3,7998,1,0)
- ;;=^358.31IA^3^2
- ;;^UTILITY(U,$J,358.3,7998,1,2,0)
- ;;=2^12011
- ;;^UTILITY(U,$J,358.3,7998,1,3,0)
- ;;=3^Simple repair; 2.5 cm or less
- ;;^UTILITY(U,$J,358.3,7999,0)
- ;;=12013^^72^601^2^^^^1
- ;;^UTILITY(U,$J,358.3,7999,1,0)
- ;;=^358.31IA^3^2
- ;;^UTILITY(U,$J,358.3,7999,1,2,0)
- ;;=2^12013
- ;;^UTILITY(U,$J,358.3,7999,1,3,0)
- ;;=3^Simple repair; 2.6 cm to 5.0 cm
- ;;^UTILITY(U,$J,358.3,8000,0)
- ;;=12014^^72^601^3^^^^1
- ;;^UTILITY(U,$J,358.3,8000,1,0)
- ;;=^358.31IA^3^2
- ;;^UTILITY(U,$J,358.3,8000,1,2,0)
- ;;=2^12014
- ;;^UTILITY(U,$J,358.3,8000,1,3,0)
- ;;=3^Simple repair; 5.1 cm to 7.5 cm
- ;;^UTILITY(U,$J,358.3,8001,0)
- ;;=12015^^72^601^4^^^^1
- ;;^UTILITY(U,$J,358.3,8001,1,0)
- ;;=^358.31IA^3^2
- ;;^UTILITY(U,$J,358.3,8001,1,2,0)
- ;;=2^12015
- ;;^UTILITY(U,$J,358.3,8001,1,3,0)
- ;;=3^Simple repair; 7.6 cm to 12.5 cm
- ;;^UTILITY(U,$J,358.3,8002,0)
- ;;=12016^^72^601^5^^^^1
- ;;^UTILITY(U,$J,358.3,8002,1,0)
- ;;=^358.31IA^3^2
- ;;^UTILITY(U,$J,358.3,8002,1,2,0)
- ;;=2^12016
- ;;^UTILITY(U,$J,358.3,8002,1,3,0)
- ;;=3^Simple repair; 12.6 cm to 20 cm
- ;;^UTILITY(U,$J,358.3,8003,0)
- ;;=12017^^72^601^6^^^^1
- ;;^UTILITY(U,$J,358.3,8003,1,0)
- ;;=^358.31IA^3^2
- ;;^UTILITY(U,$J,358.3,8003,1,2,0)
- ;;=2^12017
- ;;^UTILITY(U,$J,358.3,8003,1,3,0)
- ;;=3^Simple repair; 20.1 cm to 30 cm
- ;;^UTILITY(U,$J,358.3,8004,0)
- ;;=12018^^72^601^7^^^^1
- ;;^UTILITY(U,$J,358.3,8004,1,0)
- ;;=^358.31IA^3^2
- ;;^UTILITY(U,$J,358.3,8004,1,2,0)
- ;;=2^12018
- ;;^UTILITY(U,$J,358.3,8004,1,3,0)
- ;;=3^Simple repair; over 30 cm
- ;;^UTILITY(U,$J,358.3,8005,0)
- ;;=12020^^72^601^8^^^^1
- ;;^UTILITY(U,$J,358.3,8005,1,0)
- ;;=^358.31IA^3^2
- ;;^UTILITY(U,$J,358.3,8005,1,2,0)
- ;;=2^12020
- ;;^UTILITY(U,$J,358.3,8005,1,3,0)
- ;;=3^TRXMT SUPERFICIAL WOUND DEHISCENCE;SIMPLE
- ;;^UTILITY(U,$J,358.3,8006,0)
- ;;=99291^^72^602^1^^^^1
- ;;^UTILITY(U,$J,358.3,8006,1,0)
- ;;=^358.31IA^3^2
- ;;^UTILITY(U,$J,358.3,8006,1,2,0)
- ;;=2^99291
- ;;^UTILITY(U,$J,358.3,8006,1,3,0)
- ;;=3^CRITICAL CARE 1ST HR
- ;;^UTILITY(U,$J,358.3,8007,0)
- ;;=99292^^72^602^2^^^^1
- ;;^UTILITY(U,$J,358.3,8007,1,0)
- ;;=^358.31IA^3^2
- ;;^UTILITY(U,$J,358.3,8007,1,2,0)
- ;;=2^99292
- ;;^UTILITY(U,$J,358.3,8007,1,3,0)
- ;;=3^CRITICAL CARE ADDL 30 MIN
- ;;^UTILITY(U,$J,358.3,8008,0)
- ;;=99288^^72^602^3^^^^1
- ;;^UTILITY(U,$J,358.3,8008,1,0)
- ;;=^358.31IA^3^2
- ;;^UTILITY(U,$J,358.3,8008,1,2,0)
- ;;=2^99288
- ;;^UTILITY(U,$J,358.3,8008,1,3,0)
- ;;=3^DIRECT ADVANCED LIFE SUPPORT
- ;;^UTILITY(U,$J,358.3,8009,0)
- ;;=92950^^72^602^4^^^^1
- ;;^UTILITY(U,$J,358.3,8009,1,0)
- ;;=^358.31IA^3^2
- ;;^UTILITY(U,$J,358.3,8009,1,2,0)
- ;;=2^92950
- ;;^UTILITY(U,$J,358.3,8009,1,3,0)
- ;;=3^HEART/LUNG RESUSCITATION CPR
- ;;^UTILITY(U,$J,358.3,8010,0)
- ;;=99144^^72^603^1^^^^1
- ;;^UTILITY(U,$J,358.3,8010,1,0)
- ;;=^358.31IA^3^2
- ;;^UTILITY(U,$J,358.3,8010,1,2,0)
- ;;=2^99144
- ;;^UTILITY(U,$J,358.3,8010,1,3,0)
- ;;=3^MOD SEDATION,1ST 30MIN
- ;;^UTILITY(U,$J,358.3,8011,0)
- ;;=99145^^72^603^2^^^^1
- ;;^UTILITY(U,$J,358.3,8011,1,0)
- ;;=^358.31IA^3^2
- ;;^UTILITY(U,$J,358.3,8011,1,2,0)
- ;;=2^99145
- ;;^UTILITY(U,$J,358.3,8011,1,3,0)
- ;;=3^MOD SEDATION,EA ADDL 15MIN
- ;;^UTILITY(U,$J,358.3,8012,0)
- ;;=10060^^72^604^1^^^^1
- ;;^UTILITY(U,$J,358.3,8012,1,0)
- ;;=^358.31IA^3^2
- ;;^UTILITY(U,$J,358.3,8012,1,2,0)
- ;;=2^10060
- ;;^UTILITY(U,$J,358.3,8012,1,3,0)
- ;;=3^ABSCESS I&D SIMP/SINGLE
- ;;^UTILITY(U,$J,358.3,8013,0)
- ;;=10061^^72^604^2^^^^1
- ;;^UTILITY(U,$J,358.3,8013,1,0)
- ;;=^358.31IA^3^2
- ;;^UTILITY(U,$J,358.3,8013,1,2,0)
- ;;=2^10061
- ;;^UTILITY(U,$J,358.3,8013,1,3,0)
- ;;=3^ABSCESS I&D COMP/MULTI
- ;;^UTILITY(U,$J,358.3,8014,0)
- ;;=10080^^72^604^3^^^^1
- ;;^UTILITY(U,$J,358.3,8014,1,0)
- ;;=^358.31IA^3^2
- ;;^UTILITY(U,$J,358.3,8014,1,2,0)
- ;;=2^10080
- ;;^UTILITY(U,$J,358.3,8014,1,3,0)
- ;;=3^PILONIDAL CYST,SIMPLE
- ;;^UTILITY(U,$J,358.3,8015,0)
- ;;=10120^^72^604^4^^^^1
- ;;^UTILITY(U,$J,358.3,8015,1,0)
- ;;=^358.31IA^3^2
- ;;^UTILITY(U,$J,358.3,8015,1,2,0)
- ;;=2^10120
- ;;^UTILITY(U,$J,358.3,8015,1,3,0)
- ;;=3^REMOVE FB SIMPLE,SKIN
- ;;^UTILITY(U,$J,358.3,8016,0)
- ;;=10121^^72^604^5^^^^1
- ;;^UTILITY(U,$J,358.3,8016,1,0)
- ;;=^358.31IA^3^2
- ;;^UTILITY(U,$J,358.3,8016,1,2,0)
- ;;=2^10121
- ;;^UTILITY(U,$J,358.3,8016,1,3,0)
- ;;=3^REMOVE FB COMPLEX
- ;;^UTILITY(U,$J,358.3,8017,0)
- ;;=10140^^72^604^6^^^^1
- ;;^UTILITY(U,$J,358.3,8017,1,0)
- ;;=^358.31IA^3^2
- ;;^UTILITY(U,$J,358.3,8017,1,2,0)
- ;;=2^10140
- ;;^UTILITY(U,$J,358.3,8017,1,3,0)
- ;;=3^HEMATOMA/SEROMA,SIMPLE
- ;;^UTILITY(U,$J,358.3,8018,0)
- ;;=10160^^72^604^7^^^^1
- ;;^UTILITY(U,$J,358.3,8018,1,0)
- ;;=^358.31IA^3^2
- ;;^UTILITY(U,$J,358.3,8018,1,2,0)
- ;;=2^10160
- ;;^UTILITY(U,$J,358.3,8018,1,3,0)
- ;;=3^ASPIRATE ABSCESS/HEMA/BULLA
- ;;^UTILITY(U,$J,358.3,8019,0)
- ;;=11000^^72^605^1^^^^1
- ;;^UTILITY(U,$J,358.3,8019,1,0)
- ;;=^358.31IA^3^2
- ;;^UTILITY(U,$J,358.3,8019,1,2,0)
- ;;=2^11000
- ;;^UTILITY(U,$J,358.3,8019,1,3,0)
- ;;=3^DEBRIDE SKIN UP TO 10%
- ;;^UTILITY(U,$J,358.3,8020,0)
- ;;=11042^^72^605^2^^^^1
- ;;^UTILITY(U,$J,358.3,8020,1,0)
- ;;=^358.31IA^3^2
- ;;^UTILITY(U,$J,358.3,8020,1,2,0)
- ;;=2^11042
- ;;^UTILITY(U,$J,358.3,8020,1,3,0)
- ;;=3^DEB SUBQ TISSUE 20 SQ CM/<
- ;;^UTILITY(U,$J,358.3,8021,0)
- ;;=11055^^72^605^3^^^^1
- ;;^UTILITY(U,$J,358.3,8021,1,0)
- ;;=^358.31IA^3^2
- ;;^UTILITY(U,$J,358.3,8021,1,2,0)
- ;;=2^11055
- ;;^UTILITY(U,$J,358.3,8021,1,3,0)
- ;;=3^TRIM CORN/CALLOUS,SINGLE
- ;;^UTILITY(U,$J,358.3,8022,0)
- ;;=11056^^72^605^4^^^^1
- ;;^UTILITY(U,$J,358.3,8022,1,0)
- ;;=^358.31IA^3^2
- ;;^UTILITY(U,$J,358.3,8022,1,2,0)
- ;;=2^11056
- ;;^UTILITY(U,$J,358.3,8022,1,3,0)
- ;;=3^TRIM CORN/CALLOUS,2-4 LESIONS
- ;;^UTILITY(U,$J,358.3,8023,0)
- ;;=11057^^72^605^5^^^^1
- ;;^UTILITY(U,$J,358.3,8023,1,0)
- ;;=^358.31IA^3^2
- ;;^UTILITY(U,$J,358.3,8023,1,2,0)
- ;;=2^11057
- ;;^UTILITY(U,$J,358.3,8023,1,3,0)
- ;;=3^TRIM CORN/CALLOUS,5 OR MORE
- ;;^UTILITY(U,$J,358.3,8024,0)
- ;;=11200^^72^605^6^^^^1
- ;;^UTILITY(U,$J,358.3,8024,1,0)
- ;;=^358.31IA^3^2
- ;;^UTILITY(U,$J,358.3,8024,1,2,0)
- ;;=2^11200
- ;;^UTILITY(U,$J,358.3,8024,1,3,0)
- ;;=3^REMOVAL OF SKIN TAGS UP TO 15
- ;;^UTILITY(U,$J,358.3,8025,0)
- ;;=11719^^72^605^7^^^^1
- ;;^UTILITY(U,$J,358.3,8025,1,0)
- ;;=^358.31IA^3^2
- ;;^UTILITY(U,$J,358.3,8025,1,2,0)
- ;;=2^11719
- ;;^UTILITY(U,$J,358.3,8025,1,3,0)
- ;;=3^TRIM NAILS (NONDYSTROPHIC)
- ;;^UTILITY(U,$J,358.3,8026,0)
- ;;=11730^^72^605^8^^^^1
- ;;^UTILITY(U,$J,358.3,8026,1,0)
- ;;=^358.31IA^3^2
- ;;^UTILITY(U,$J,358.3,8026,1,2,0)
- ;;=2^11730
- ;;^UTILITY(U,$J,358.3,8026,1,3,0)
- ;;=3^REMOVAL OF NAIL PLATE
- ;;^UTILITY(U,$J,358.3,8027,0)
- ;;=11740^^72^605^9^^^^1
- ;;^UTILITY(U,$J,358.3,8027,1,0)
- ;;=^358.31IA^3^2
- ;;^UTILITY(U,$J,358.3,8027,1,2,0)
- ;;=2^11740
- ;;^UTILITY(U,$J,358.3,8027,1,3,0)
- ;;=3^DRAIN BLOOD FROM UNDER NAIL
- ;;^UTILITY(U,$J,358.3,8028,0)
- ;;=11750^^72^605^10^^^^1
- ;;^UTILITY(U,$J,358.3,8028,1,0)
- ;;=^358.31IA^3^2
- ;;^UTILITY(U,$J,358.3,8028,1,2,0)
- ;;=2^11750
- ;;^UTILITY(U,$J,358.3,8028,1,3,0)
- ;;=3^REMOVAL OF NAIL BED
- ;;^UTILITY(U,$J,358.3,8029,0)
- ;;=11760^^72^605^11^^^^1
- ;;^UTILITY(U,$J,358.3,8029,1,0)
- ;;=^358.31IA^3^2
- ;;^UTILITY(U,$J,358.3,8029,1,2,0)
- ;;=2^11760
- ;;^UTILITY(U,$J,358.3,8029,1,3,0)
- ;;=3^REPAIR OF NAIL BED
- ;;^UTILITY(U,$J,358.3,8030,0)
- ;;=20600^^72^606^3^^^^1
- ;;^UTILITY(U,$J,358.3,8030,1,0)
- ;;=^358.31IA^3^2
- ;;^UTILITY(U,$J,358.3,8030,1,2,0)
- ;;=2^20600
- ;;^UTILITY(U,$J,358.3,8030,1,3,0)
- ;;=3^ARTHOCENTESIS,FINGERS/TOES
- ;;^UTILITY(U,$J,358.3,8031,0)
- ;;=20610^^72^606^4^^^^1
- ;;^UTILITY(U,$J,358.3,8031,1,0)
- ;;=^358.31IA^3^2
- ;;^UTILITY(U,$J,358.3,8031,1,2,0)
- ;;=2^20610
- ;;^UTILITY(U,$J,358.3,8031,1,3,0)
- ;;=3^ARTHOCENTESIS,KNEE/SHLDR/HIP
- ;;^UTILITY(U,$J,358.3,8032,0)
- ;;=20605^^72^606^5^^^^1
- ;;^UTILITY(U,$J,358.3,8032,1,0)
- ;;=^358.31IA^3^2
- ;;^UTILITY(U,$J,358.3,8032,1,2,0)
- ;;=2^20605
- ;;^UTILITY(U,$J,358.3,8032,1,3,0)
- ;;=3^ARTHROCENTESIS,WRIST/ELBOW/ANKLE/AC JT
- ;;^UTILITY(U,$J,358.3,8033,0)
- ;;=20612^^72^606^14^^^^1
- ;;^UTILITY(U,$J,358.3,8033,1,0)
- ;;=^358.31IA^3^2
- ;;^UTILITY(U,$J,358.3,8033,1,2,0)
- ;;=2^20612
- ;;^UTILITY(U,$J,358.3,8033,1,3,0)
- ;;=3^GANGLION CYST ASPIRATION/INJECTION
+ ;;^UTILITY(U,$J,358.3,6498,1,3,0)
+ ;;=3D3^16020
+ ;;^UTILITY(U,$J,358.3,6499,0)
+ ;;=3D11100^^60^493^1^^^^1
+ ;;^UTILITY(U,$J,358.3,6499,1,0)
+ ;;=3D^358.31IA^3^2
+ ;;^UTILITY(U,$J,358.3,6499,1,2,0)
+ ;;=3D2^Biopsy of skin, subcutaneous tissue and/or mucous membrane, =
+unless
+otherwise listed; single lesion
+ ;;^UTILITY(U,$J,358.3,6499,1,3,0)
+ ;;=3D3^11100
+ ;;^UTILITY(U,$J,358.3,6500,0)
+ ;;=3D11101^^60^493^2^^^^1
+ ;;^UTILITY(U,$J,358.3,6500,1,0)
+ ;;=3D^358.31IA^3^2
+ ;;^UTILITY(U,$J,358.3,6500,1,2,0)
+ ;;=3D2^Biopsy of skin, subcutaneous tissue and/or mucous membrane, =
+unless
+otherwise listed; each separate/additional lesion
+ ;;^UTILITY(U,$J,358.3,6500,1,3,0)
+ ;;=3D3^11101
+ ;;^UTILITY(U,$J,358.3,6501,0)
+ ;;=3D20605^^60^494^1^^^^1
+ ;;^UTILITY(U,$J,358.3,6501,1,0)
+ ;;=3D^358.31IA^3^2
+ ;;^UTILITY(U,$J,358.3,6501,1,2,0)
+ ;;=3D2^Arthrocentesis, aspiration, aspiration &/or injection;
+intermediate joint, bursa or ganglion cyst
+ ;;^UTILITY(U,$J,358.3,6501,1,3,0)
+ ;;=3D3^20605
+ ;;^UTILITY(U,$J,358.3,6502,0)
+ ;;=3D20615^^60^494^3^^^^1
+ ;;^UTILITY(U,$J,358.3,6502,1,0)
+ ;;=3D^358.31IA^3^2
+ ;;^UTILITY(U,$J,358.3,6502,1,2,0)
+ ;;=3D2^Aspiration and injection for tx of bone cyst
+ ;;^UTILITY(U,$J,358.3,6502,1,3,0)
+ ;;=3D3^20615
+ ;;^UTILITY(U,$J,358.3,6503,0)
+ ;;=3D20600^^60^494^4^^^^1
+ ;;^UTILITY(U,$J,358.3,6503,1,0)
+ ;;=3D^358.31IA^3^2
+ ;;^UTILITY(U,$J,358.3,6503,1,2,0)
+ ;;=3D2^Arthroentesis, aspiration and/or injection; small joint, bursa =
+or
+ganglion cyst=20
+ ;;^UTILITY(U,$J,358.3,6503,1,3,0)
+ ;;=3D3^20600
+ ;;^UTILITY(U,$J,358.3,6504,0)
+ ;;=3D11900^^60^494^5^^^^1
+ ;;^UTILITY(U,$J,358.3,6504,1,0)
+ ;;=3D^358.31IA^3^2
+ ;;^UTILITY(U,$J,358.3,6504,1,2,0)
+ ;;=3D2^Injection, intralesional; up to and including seven lesion=20
+ ;;^UTILITY(U,$J,358.3,6504,1,3,0)
+ ;;=3D3^11900
+ ;;^UTILITY(U,$J,358.3,6505,0)
+ ;;=3D11901^^60^494^6^^^^1
+ ;;^UTILITY(U,$J,358.3,6505,1,0)
+ ;;=3D^358.31IA^3^2
+ ;;^UTILITY(U,$J,358.3,6505,1,2,0)
+ ;;=3D2^Injection, intralesional; more than seven lesions
+ ;;^UTILITY(U,$J,358.3,6505,1,3,0)
+ ;;=3D3^11901
+ ;;^UTILITY(U,$J,358.3,6506,0)
+ ;;=3D64450^^60^494^9^^^^1
+ ;;^UTILITY(U,$J,358.3,6506,1,0)
+ ;;=3D^358.31IA^3^2
+ ;;^UTILITY(U,$J,358.3,6506,1,2,0)
+ ;;=3D2^Injection, anesthetic agent; other peripheral nerve or branch
+ ;;^UTILITY(U,$J,358.3,6506,1,3,0)
+ ;;=3D3^64450
+ ;;^UTILITY(U,$J,358.3,6507,0)
+ ;;=3D20550^^60^494^10^^^^1
+ ;;^UTILITY(U,$J,358.3,6507,1,0)
+ ;;=3D^358.31IA^3^2
+ ;;^UTILITY(U,$J,358.3,6507,1,2,0)
+ ;;=3D2^Injection; tendon sheath, ligament, ganglion cyst
+ ;;^UTILITY(U,$J,358.3,6507,1,3,0)
+ ;;=3D3^20550
+ ;;^UTILITY(U,$J,358.3,6508,0)
+ ;;=3D20500^^60^494^12^^^^1
+ ;;^UTILITY(U,$J,358.3,6508,1,0)
+ ;;=3D^358.31IA^3^2
+ ;;^UTILITY(U,$J,358.3,6508,1,2,0)
+ ;;=3D2^Injection of sinus tract; therapeutic diagnostic
+ ;;^UTILITY(U,$J,358.3,6508,1,3,0)
+ ;;=3D3^20500
+ ;;^UTILITY(U,$J,358.3,6509,0)
+ ;;=3D90765^^60^494^9^^^^1
+ ;;^UTILITY(U,$J,358.3,6509,1,0)
+ ;;=3D^358.31IA^3^2
+ ;;^UTILITY(U,$J,358.3,6509,1,2,0)
+ ;;=3D2^Infusion,IV up to 1 hour
+ ;;^UTILITY(U,$J,358.3,6509,1,3,0)
+ ;;=3D3^90765
+ ;;^UTILITY(U,$J,358.3,6510,0)
+ ;;=3D90760^^60^494^7^^^^1
+ ;;^UTILITY(U,$J,358.3,6510,1,0)
+ ;;=3D^358.31IA^3^2
+ ;;^UTILITY(U,$J,358.3,6510,1,2,0)
+ ;;=3D2^Hydration,IV,First hour
+ ;;^UTILITY(U,$J,358.3,6510,1,3,0)
+ ;;=3D3^90760
+ ;;^UTILITY(U,$J,358.3,6511,0)
+ ;;=3D90761^^60^494^8^^^^1
+ ;;^UTILITY(U,$J,358.3,6511,1,0)
+ ;;=3D^358.31IA^3^2
+ ;;^UTILITY(U,$J,358.3,6511,1,2,0)
+ ;;=3D2^Hydration,IV,each addl hour
+ ;;^UTILITY(U,$J,358.3,6511,1,3,0)
+ ;;=3D3^90761
+ ;;^UTILITY(U,$J,358.3,6512,0)
+ ;;=3D90766^^60^494^10^^^^1
+ ;;^UTILITY(U,$J,358.3,6512,1,0)
+ ;;=3D^358.31IA^3^2
+ ;;^UTILITY(U,$J,358.3,6512,1,2,0)
+ ;;=3D2^Infusion,IV each addl hour
+ ;;^UTILITY(U,$J,358.3,6512,1,3,0)
+ ;;=3D3^90766
+ ;;^UTILITY(U,$J,358.3,6513,0)
+ ;;=3D90772^^60^494^11^^^^1
+ ;;^UTILITY(U,$J,358.3,6513,1,0)
+ ;;=3D^358.31IA^3^2
+ ;;^UTILITY(U,$J,358.3,6513,1,2,0)
+ ;;=3D2^Injection,IM/SQ
+ ;;^UTILITY(U,$J,358.3,6513,1,3,0)
+ ;;=3D3^90772
+ ;;^UTILITY(U,$J,358.3,6514,0)
+ ;;=3D96402^^60^494^11.25^^^^1
+ ;;^UTILITY(U,$J,358.3,6514,1,0)
+ ;;=3D^358.31IA^3^2
+ ;;^UTILITY(U,$J,358.3,6514,1,2,0)
+ ;;=3D2^Injec,IM,anti-neplastic horm
+ ;;^UTILITY(U,$J,358.3,6514,1,3,0)
+ ;;=3D3^96402
+ ;;^UTILITY(U,$J,358.3,6515,0)
+ ;;=3D64450^^60^494^13^^^^1
+ ;;^UTILITY(U,$J,358.3,6515,1,0)
+ ;;=3D^358.31IA^3^2
+ ;;^UTILITY(U,$J,358.3,6515,1,2,0)
+ ;;=3D2^Injection, Nerve Block
+ ;;^UTILITY(U,$J,358.3,6515,1,3,0)
+ ;;=3D3^64450
+ ;;^UTILITY(U,$J,358.3,6516,0)
+ ;;=3DJ0690^^60^495^1^^^^1
+ ;;^UTILITY(U,$J,358.3,6516,1,0)
+ ;;=3D^358.31IA^3^2
+ ;;^UTILITY(U,$J,358.3,6516,1,2,0)
+ ;;=3D2^Injection, cefazolin sodium injection =20
+ ;;^UTILITY(U,$J,358.3,6516,1,3,0)
+ ;;=3D3^J0690
+ ;;^UTILITY(U,$J,358.3,6517,0)
+ ;;=3DS0077^^60^495^2^^^^1
+ ;;^UTILITY(U,$J,358.3,6517,1,0)
+ ;;=3D^358.31IA^3^2
+ ;;^UTILITY(U,$J,358.3,6517,1,2,0)
+ ;;=3D2^Injection, clindamycin phosphate, 300 mg
+ ;;^UTILITY(U,$J,358.3,6517,1,3,0)
+ ;;=3D3^S0077
+ ;;^UTILITY(U,$J,358.3,6518,0)
+ ;;=3DJ3360^^60^495^4^^^^1
+ ;;^UTILITY(U,$J,358.3,6518,1,0)
+ ;;=3D^358.31IA^3^2
+ ;;^UTILITY(U,$J,358.3,6518,1,2,0)
+ ;;=3D2^Injection, diazepam, up to 5mg         =20
+ ;;^UTILITY(U,$J,358.3,6518,1,3,0)
+ ;;=3D3^J3360
+ ;;^UTILITY(U,$J,358.3,6519,0)
+ ;;=3DJ1710^^60^495^5^^^^1
+ ;;^UTILITY(U,$J,358.3,6519,1,0)
+ ;;=3D^358.31IA^3^2
+ ;;^UTILITY(U,$J,358.3,6519,1,2,0)
+ ;;=3D2^Injection, hydrocortisone sodium phosphate, up to 50mg
+ ;;^UTILITY(U,$J,358.3,6519,1,3,0)
+ ;;=3D3^J1710
+ ;;^UTILITY(U,$J,358.3,6520,0)
+ ;;=3DJ2550^^60^495^7^^^^1
+ ;;^UTILITY(U,$J,358.3,6520,1,0)
+ ;;=3D^358.31IA^3^2
+ ;;^UTILITY(U,$J,358.3,6520,1,2,0)
+ ;;=3D2^Injection, promethazinc HCl, up to 50mg =20
+ ;;^UTILITY(U,$J,358.3,6520,1,3,0)
+ ;;=3D3^J2550
+ ;;^UTILITY(U,$J,358.3,6521,0)
+ ;;=3DJ3301^^60^495^8^^^^1
+ ;;^UTILITY(U,$J,358.3,6521,1,0)
+ ;;=3D^358.31IA^3^2
+ ;;^UTILITY(U,$J,358.3,6521,1,2,0)
+ ;;=3D2^Injection, triamcinolone acetonide, per 10 mg
+ ;;^UTILITY(U,$J,358.3,6521,1,3,0)
+ ;;=3D3^J3301
+ ;;^UTILITY(U,$J,358.3,6522,0)
+ ;;=3DJ3302^^60^495^9^^^^1
+ ;;^UTILITY(U,$J,358.3,6522,1,0)
+ ;;=3D^358.31IA^3^2
+ ;;^UTILITY(U,$J,358.3,6522,1,2,0)
+ ;;=3D2^Injection, triamcinolone diacetate, per 5mg=20
+ ;;^UTILITY(U,$J,358.3,6522,1,3,0)
+ ;;=3D3^J3302
+ ;;^UTILITY(U,$J,358.3,6523,0)
+ ;;=3DJ3303^^60^495^10^^^^1
+ ;;^UTILITY(U,$J,358.3,6523,1,0)
+ ;;=3D^358.31IA^3^2
+ ;;^UTILITY(U,$J,358.3,6523,1,2,0)
+ ;;=3D2^Injection, triamcinolone hexacetonide, per 5mg
+ ;;^UTILITY(U,$J,358.3,6523,1,3,0)
+ ;;=3D3^J3303
+ ;;^UTILITY(U,$J,358.3,6524,0)
+ ;;=3DJ3410^^60^495^11^^^^1
+ ;;^UTILITY(U,$J,358.3,6524,1,0)
+ ;;=3D^358.31IA^3^2
+ ;;^UTILITY(U,$J,358.3,6524,1,2,0)
+ ;;=3D2^Injection, hydroxyzine HCl, up to 25mg  =20
+ ;;^UTILITY(U,$J,358.3,6524,1,3,0)
+ ;;=3D3^J3410
+ ;;^UTILITY(U,$J,358.3,6525,0)
+ ;;=3DJ1094^^60^495^3^^^^1
+ ;;^UTILITY(U,$J,358.3,6525,1,0)
+ ;;=3D^358.31IA^3^2
+ ;;^UTILITY(U,$J,358.3,6525,1,2,0)
+ ;;=3D2^Dexamethasone, per mg
+ ;;^UTILITY(U,$J,358.3,6525,1,3,0)
+ ;;=3D3^J1094
+ ;;^UTILITY(U,$J,358.3,6526,0)
+ ;;=3D26535^^60^496^1^^^^1
+ ;;^UTILITY(U,$J,358.3,6526,1,0)
+ ;;=3D^358.31IA^3^2
+ ;;^UTILITY(U,$J,358.3,6526,1,2,0)
+ ;;=3D2^Arthroplasty, interphalangeal joint; each joint
+ ;;^UTILITY(U,$J,358.3,6526,1,3,0)
+ ;;=3D3^26535
+ ;;^UTILITY(U,$J,358.3,6527,0)
+ ;;=3D26536^^60^496^2^^^^1
+ ;;^UTILITY(U,$J,358.3,6527,1,0)
+ ;;=3D^358.31IA^3^2
+ ;;^UTILITY(U,$J,358.3,6527,1,2,0)
+ ;;=3D2^Arthroplasty, interphalangeal joint; with prosthetic implant, =
+each
+jointangeal=20
+ ;;^UTILITY(U,$J,358.3,6527,1,3,0)
+ ;;=3D3^26536
+ ;;^UTILITY(U,$J,358.3,6528,0)
+ ;;=3D27650^^60^496^3^^^^1
+ ;;^UTILITY(U,$J,358.3,6528,1,0)
+ ;;=3D^358.31IA^3^2
+ ;;^UTILITY(U,$J,358.3,6528,1,2,0)
+ ;;=3D2^Repair, primary, open or percutaneous, ruptured Achilles tendon
+ ;;^UTILITY(U,$J,358.3,6528,1,3,0)
+ ;;=3D3^27650
+ ;;^UTILITY(U,$J,358.3,6529,0)
+ ;;=3D27686^^60^496^5^^^^1
+ ;;^UTILITY(U,$J,358.3,6529,1,0)
+ ;;=3D^358.31IA^3^2
+ ;;^UTILITY(U,$J,358.3,6529,1,2,0)
+ ;;=3D2^Lengthening or shortening of tendon each, leg or ankle; multiple
+tendon
+ ;;^UTILITY(U,$J,358.3,6529,1,3,0)
+ ;;=3D3^27686
+ ;;^UTILITY(U,$J,358.3,6530,0)
+ ;;=3D27685^^60^496^4^^^^1

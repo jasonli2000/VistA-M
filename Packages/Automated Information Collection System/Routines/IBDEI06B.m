@@ -1,384 +1,271 @@
-IBDEI06B ; ; 20-FEB-2013
- ;;3.0;IB ENCOUNTER FORM IMP/EXP;;FEB 20, 2013
- Q:'DIFQR(358.3)  F I=1:2 S X=$T(Q+I) Q:X=""  S Y=$E($T(Q+I+1),4,999),X=$E(X,4,999) S:$A(Y)=126 I=I+1,Y=$E(Y,2,999)_$E($T(Q+I+1),5,99) S:$A(Y)=61 Y=$E(Y,2,999) X NO E  S @X=Y
+IBDEI06B ; ; 18-FEB-2009
+ ;;3.0;IB ENCOUNTER FORM IMP/EXP;;FEB 18, 2009
+ Q:'DIFQR(358.3)  F I=3D1:2 S X=3D$T(Q+I) Q:X=3D""  S
+Y=3D$E($T(Q+I+1),4,999),X=3D$E(X,4,999) S:$A(Y)=3D126
+I=3DI+1,Y=3D$E(Y,2,999)_$E($T(Q+I+1),5,99) S:$A(Y)=3D61 Y=3D$E(Y,2,999) =
+X NO E
+S @X=3DY
 Q Q
- ;;^UTILITY(U,$J,358.3,8236,1,5,0)
- ;;=5^Chr Venous Embolism NEC
- ;;^UTILITY(U,$J,358.3,8236,2)
- ;;=^338251
- ;;^UTILITY(U,$J,358.3,8237,0)
- ;;=425.11^^74^623^57
- ;;^UTILITY(U,$J,358.3,8237,1,0)
- ;;=^358.31IA^5^2
- ;;^UTILITY(U,$J,358.3,8237,1,4,0)
- ;;=4^425.11
- ;;^UTILITY(U,$J,358.3,8237,1,5,0)
- ;;=5^Hypertrophic Subaortic Stenosis
- ;;^UTILITY(U,$J,358.3,8237,2)
- ;;=^340520
- ;;^UTILITY(U,$J,358.3,8238,0)
- ;;=425.18^^74^623^62
- ;;^UTILITY(U,$J,358.3,8238,1,0)
- ;;=^358.31IA^5^2
- ;;^UTILITY(U,$J,358.3,8238,1,4,0)
- ;;=4^425.18
- ;;^UTILITY(U,$J,358.3,8238,1,5,0)
- ;;=5^Oth Hypertrophic Cardiomyopathy
- ;;^UTILITY(U,$J,358.3,8238,2)
- ;;=^340521
- ;;^UTILITY(U,$J,358.3,8239,0)
- ;;=V12.55^^74^623^52
- ;;^UTILITY(U,$J,358.3,8239,1,0)
- ;;=^358.31IA^5^2
- ;;^UTILITY(U,$J,358.3,8239,1,4,0)
- ;;=4^V12.55
- ;;^UTILITY(U,$J,358.3,8239,1,5,0)
- ;;=5^Hx of Pulmonary Embolism
- ;;^UTILITY(U,$J,358.3,8239,2)
- ;;=^340615
- ;;^UTILITY(U,$J,358.3,8240,0)
- ;;=271.3^^74^624^17
- ;;^UTILITY(U,$J,358.3,8240,1,0)
- ;;=^358.31IA^5^2
- ;;^UTILITY(U,$J,358.3,8240,1,4,0)
- ;;=4^271.3
- ;;^UTILITY(U,$J,358.3,8240,1,5,0)
- ;;=5^Glucose Intolerance
- ;;^UTILITY(U,$J,358.3,8240,2)
- ;;=^64790
- ;;^UTILITY(U,$J,358.3,8241,0)
- ;;=611.1^^74^624^22
- ;;^UTILITY(U,$J,358.3,8241,1,0)
- ;;=^358.31IA^5^2
- ;;^UTILITY(U,$J,358.3,8241,1,4,0)
- ;;=4^611.1
- ;;^UTILITY(U,$J,358.3,8241,1,5,0)
- ;;=5^Gynecomastia
- ;;^UTILITY(U,$J,358.3,8241,2)
- ;;=^60454
- ;;^UTILITY(U,$J,358.3,8242,0)
- ;;=704.1^^74^624^23
- ;;^UTILITY(U,$J,358.3,8242,1,0)
- ;;=^358.31IA^5^2
- ;;^UTILITY(U,$J,358.3,8242,1,4,0)
- ;;=4^704.1
- ;;^UTILITY(U,$J,358.3,8242,1,5,0)
- ;;=5^Hirsutism
- ;;^UTILITY(U,$J,358.3,8242,2)
- ;;=^57407
- ;;^UTILITY(U,$J,358.3,8243,0)
- ;;=251.2^^74^624^36
- ;;^UTILITY(U,$J,358.3,8243,1,0)
- ;;=^358.31IA^5^2
- ;;^UTILITY(U,$J,358.3,8243,1,4,0)
- ;;=4^251.2
- ;;^UTILITY(U,$J,358.3,8243,1,5,0)
- ;;=5^Hypoglycemia Nos
- ;;^UTILITY(U,$J,358.3,8243,2)
- ;;=^60580
- ;;^UTILITY(U,$J,358.3,8244,0)
- ;;=257.2^^74^624^37
- ;;^UTILITY(U,$J,358.3,8244,1,0)
- ;;=^358.31IA^5^2
- ;;^UTILITY(U,$J,358.3,8244,1,4,0)
- ;;=4^257.2
- ;;^UTILITY(U,$J,358.3,8244,1,5,0)
- ;;=5^Hypogonadism,Male
- ;;^UTILITY(U,$J,358.3,8244,2)
- ;;=^88213
- ;;^UTILITY(U,$J,358.3,8245,0)
- ;;=253.2^^74^624^41
- ;;^UTILITY(U,$J,358.3,8245,1,0)
- ;;=^358.31IA^5^2
- ;;^UTILITY(U,$J,358.3,8245,1,4,0)
- ;;=4^253.2
- ;;^UTILITY(U,$J,358.3,8245,1,5,0)
- ;;=5^Hypopituitarism
- ;;^UTILITY(U,$J,358.3,8245,2)
- ;;=^60686
- ;;^UTILITY(U,$J,358.3,8246,0)
- ;;=733.00^^74^624^52
- ;;^UTILITY(U,$J,358.3,8246,1,0)
- ;;=^358.31IA^5^2
- ;;^UTILITY(U,$J,358.3,8246,1,4,0)
- ;;=4^733.00
- ;;^UTILITY(U,$J,358.3,8246,1,5,0)
- ;;=5^Osteoporosis Nos
- ;;^UTILITY(U,$J,358.3,8246,2)
- ;;=^87159
- ;;^UTILITY(U,$J,358.3,8247,0)
- ;;=278.00^^74^624^48
- ;;^UTILITY(U,$J,358.3,8247,1,0)
- ;;=^358.31IA^5^2
- ;;^UTILITY(U,$J,358.3,8247,1,4,0)
- ;;=4^278.00
- ;;^UTILITY(U,$J,358.3,8247,1,5,0)
- ;;=5^Obesity
- ;;^UTILITY(U,$J,358.3,8247,2)
- ;;=^84823
- ;;^UTILITY(U,$J,358.3,8248,0)
- ;;=278.01^^74^624^47
- ;;^UTILITY(U,$J,358.3,8248,1,0)
- ;;=^358.31IA^5^2
- ;;^UTILITY(U,$J,358.3,8248,1,4,0)
- ;;=4^278.01
- ;;^UTILITY(U,$J,358.3,8248,1,5,0)
- ;;=5^Morbid Obesity
- ;;^UTILITY(U,$J,358.3,8248,2)
- ;;=^84844
- ;;^UTILITY(U,$J,358.3,8249,0)
- ;;=250.80^^74^624^15
- ;;^UTILITY(U,$J,358.3,8249,1,0)
- ;;=^358.31IA^5^2
- ;;^UTILITY(U,$J,358.3,8249,1,4,0)
- ;;=4^250.80
- ;;^UTILITY(U,$J,358.3,8249,1,5,0)
- ;;=5^DM Type II W/ LE Ulcer
- ;;^UTILITY(U,$J,358.3,8249,2)
- ;;=DM Type II with LE Ulcer^267846^707.10
- ;;^UTILITY(U,$J,358.3,8250,0)
- ;;=250.00^^74^624^9
- ;;^UTILITY(U,$J,358.3,8250,1,0)
- ;;=^358.31IA^5^2
- ;;^UTILITY(U,$J,358.3,8250,1,4,0)
- ;;=4^250.00
- ;;^UTILITY(U,$J,358.3,8250,1,5,0)
- ;;=5^DM Type II  W/O Complications
- ;;^UTILITY(U,$J,358.3,8250,2)
- ;;=^33605
- ;;^UTILITY(U,$J,358.3,8251,0)
- ;;=250.40^^74^624^11
- ;;^UTILITY(U,$J,358.3,8251,1,0)
- ;;=^358.31IA^5^2
- ;;^UTILITY(U,$J,358.3,8251,1,4,0)
- ;;=4^250.40
- ;;^UTILITY(U,$J,358.3,8251,1,5,0)
- ;;=5^DM Type II W/ Nephropathy
- ;;^UTILITY(U,$J,358.3,8251,2)
- ;;=^267837^583.81
- ;;^UTILITY(U,$J,358.3,8252,0)
- ;;=250.50^^74^624^14
- ;;^UTILITY(U,$J,358.3,8252,1,0)
- ;;=^358.31IA^5^2
- ;;^UTILITY(U,$J,358.3,8252,1,4,0)
- ;;=4^250.50
- ;;^UTILITY(U,$J,358.3,8252,1,5,0)
- ;;=5^DM Type II W/ PDR
- ;;^UTILITY(U,$J,358.3,8252,2)
- ;;=DM Type II w/ PDR^267839^362.02
- ;;^UTILITY(U,$J,358.3,8253,0)
- ;;=250.60^^74^624^12
- ;;^UTILITY(U,$J,358.3,8253,1,0)
- ;;=^358.31IA^5^2
- ;;^UTILITY(U,$J,358.3,8253,1,4,0)
- ;;=4^250.60
- ;;^UTILITY(U,$J,358.3,8253,1,5,0)
- ;;=5^DM Type II W/ Neuropathy
- ;;^UTILITY(U,$J,358.3,8253,2)
- ;;=^267841^357.2
- ;;^UTILITY(U,$J,358.3,8254,0)
- ;;=250.70^^74^624^13
- ;;^UTILITY(U,$J,358.3,8254,1,0)
- ;;=^358.31IA^5^2
- ;;^UTILITY(U,$J,358.3,8254,1,4,0)
- ;;=4^250.70
- ;;^UTILITY(U,$J,358.3,8254,1,5,0)
- ;;=5^DM Type II W/ Peripheral Vasc Dis
- ;;^UTILITY(U,$J,358.3,8254,2)
- ;;=^267843^443.81
- ;;^UTILITY(U,$J,358.3,8255,0)
- ;;=250.01^^74^624^8
- ;;^UTILITY(U,$J,358.3,8255,1,0)
- ;;=^358.31IA^5^2
- ;;^UTILITY(U,$J,358.3,8255,1,4,0)
- ;;=4^250.01
- ;;^UTILITY(U,$J,358.3,8255,1,5,0)
- ;;=5^DM Type I  W/O Complications
- ;;^UTILITY(U,$J,358.3,8255,2)
- ;;=^33586
- ;;^UTILITY(U,$J,358.3,8256,0)
- ;;=272.0^^74^624^28
- ;;^UTILITY(U,$J,358.3,8256,1,0)
- ;;=^358.31IA^5^2
- ;;^UTILITY(U,$J,358.3,8256,1,4,0)
- ;;=4^272.0
- ;;^UTILITY(U,$J,358.3,8256,1,5,0)
- ;;=5^Hypercholesterolemia, Pure
- ;;^UTILITY(U,$J,358.3,8256,2)
- ;;=Hypercholesterolemia, Pure^59973
- ;;^UTILITY(U,$J,358.3,8257,0)
- ;;=272.1^^74^624^33
- ;;^UTILITY(U,$J,358.3,8257,1,0)
- ;;=^358.31IA^5^2
- ;;^UTILITY(U,$J,358.3,8257,1,4,0)
- ;;=4^272.1
- ;;^UTILITY(U,$J,358.3,8257,1,5,0)
- ;;=5^Hypertriglyceridemia, Pure
- ;;^UTILITY(U,$J,358.3,8257,2)
- ;;=Hypertriglyceridemia, Pure^101303
- ;;^UTILITY(U,$J,358.3,8258,0)
- ;;=272.2^^74^624^30
- ;;^UTILITY(U,$J,358.3,8258,1,0)
- ;;=^358.31IA^5^2
- ;;^UTILITY(U,$J,358.3,8258,1,4,0)
- ;;=4^272.2
- ;;^UTILITY(U,$J,358.3,8258,1,5,0)
- ;;=5^Hyperlipidemia, Mixed
- ;;^UTILITY(U,$J,358.3,8258,2)
- ;;=^78424
- ;;^UTILITY(U,$J,358.3,8259,0)
- ;;=275.42^^74^624^27
- ;;^UTILITY(U,$J,358.3,8259,1,0)
- ;;=^358.31IA^5^2
- ;;^UTILITY(U,$J,358.3,8259,1,4,0)
- ;;=4^275.42
- ;;^UTILITY(U,$J,358.3,8259,1,5,0)
- ;;=5^Hypercalcemia
- ;;^UTILITY(U,$J,358.3,8259,2)
- ;;=^59932
- ;;^UTILITY(U,$J,358.3,8260,0)
- ;;=275.41^^74^624^35
- ;;^UTILITY(U,$J,358.3,8260,1,0)
- ;;=^358.31IA^5^2
- ;;^UTILITY(U,$J,358.3,8260,1,4,0)
- ;;=4^275.41
- ;;^UTILITY(U,$J,358.3,8260,1,5,0)
- ;;=5^Hypocalcemia
- ;;^UTILITY(U,$J,358.3,8260,2)
- ;;=^60542
- ;;^UTILITY(U,$J,358.3,8261,0)
- ;;=276.7^^74^624^29
- ;;^UTILITY(U,$J,358.3,8261,1,0)
- ;;=^358.31IA^5^2
- ;;^UTILITY(U,$J,358.3,8261,1,4,0)
- ;;=4^276.7
- ;;^UTILITY(U,$J,358.3,8261,1,5,0)
- ;;=5^Hyperkalemia
- ;;^UTILITY(U,$J,358.3,8261,2)
- ;;=^60042
- ;;^UTILITY(U,$J,358.3,8262,0)
- ;;=275.2^^74^624^25
- ;;^UTILITY(U,$J,358.3,8262,1,0)
- ;;=^358.31IA^5^2
- ;;^UTILITY(U,$J,358.3,8262,1,4,0)
- ;;=4^275.2
- ;;^UTILITY(U,$J,358.3,8262,1,5,0)
- ;;=5^Hyper Or Hypomagnesemia
- ;;^UTILITY(U,$J,358.3,8262,2)
- ;;=^35626
- ;;^UTILITY(U,$J,358.3,8263,0)
- ;;=276.0^^74^624^31
- ;;^UTILITY(U,$J,358.3,8263,1,0)
- ;;=^358.31IA^5^2
- ;;^UTILITY(U,$J,358.3,8263,1,4,0)
- ;;=4^276.0
- ;;^UTILITY(U,$J,358.3,8263,1,5,0)
- ;;=5^Hypernatremia
- ;;^UTILITY(U,$J,358.3,8263,2)
- ;;=^60144
- ;;^UTILITY(U,$J,358.3,8264,0)
- ;;=276.1^^74^624^38
- ;;^UTILITY(U,$J,358.3,8264,1,0)
- ;;=^358.31IA^5^2
- ;;^UTILITY(U,$J,358.3,8264,1,4,0)
- ;;=4^276.1
- ;;^UTILITY(U,$J,358.3,8264,1,5,0)
- ;;=5^Hyponatremia
- ;;^UTILITY(U,$J,358.3,8264,2)
- ;;=Hyponatremia^60722
- ;;^UTILITY(U,$J,358.3,8265,0)
- ;;=275.3^^74^624^26
- ;;^UTILITY(U,$J,358.3,8265,1,0)
- ;;=^358.31IA^5^2
- ;;^UTILITY(U,$J,358.3,8265,1,4,0)
- ;;=4^275.3
- ;;^UTILITY(U,$J,358.3,8265,1,5,0)
- ;;=5^Hyper Or Hypophosphatemia
- ;;^UTILITY(U,$J,358.3,8265,2)
- ;;=^93796
- ;;^UTILITY(U,$J,358.3,8266,0)
- ;;=240.0^^74^624^20
- ;;^UTILITY(U,$J,358.3,8266,1,0)
- ;;=^358.31IA^5^2
- ;;^UTILITY(U,$J,358.3,8266,1,4,0)
- ;;=4^240.0
- ;;^UTILITY(U,$J,358.3,8266,1,5,0)
- ;;=5^Goiter, Simple
- ;;^UTILITY(U,$J,358.3,8266,2)
- ;;=^259806
- ;;^UTILITY(U,$J,358.3,8267,0)
- ;;=241.1^^74^624^19
- ;;^UTILITY(U,$J,358.3,8267,1,0)
- ;;=^358.31IA^5^2
- ;;^UTILITY(U,$J,358.3,8267,1,4,0)
- ;;=4^241.1
- ;;^UTILITY(U,$J,358.3,8267,1,5,0)
- ;;=5^Goiter, Nontox, Multinod
- ;;^UTILITY(U,$J,358.3,8267,2)
- ;;=^267790
- ;;^UTILITY(U,$J,358.3,8268,0)
- ;;=241.0^^74^624^59
- ;;^UTILITY(U,$J,358.3,8268,1,0)
- ;;=^358.31IA^5^2
- ;;^UTILITY(U,$J,358.3,8268,1,4,0)
- ;;=4^241.0
- ;;^UTILITY(U,$J,358.3,8268,1,5,0)
- ;;=5^Thyroid Nodule, Nontoxic
- ;;^UTILITY(U,$J,358.3,8268,2)
- ;;=^83865
- ;;^UTILITY(U,$J,358.3,8269,0)
- ;;=242.00^^74^624^21
- ;;^UTILITY(U,$J,358.3,8269,1,0)
- ;;=^358.31IA^5^2
- ;;^UTILITY(U,$J,358.3,8269,1,4,0)
- ;;=4^242.00
- ;;^UTILITY(U,$J,358.3,8269,1,5,0)
- ;;=5^Graves' Disease
- ;;^UTILITY(U,$J,358.3,8269,2)
- ;;=^267793
- ;;^UTILITY(U,$J,358.3,8270,0)
- ;;=242.01^^74^624^18
- ;;^UTILITY(U,$J,358.3,8270,1,0)
- ;;=^358.31IA^5^2
- ;;^UTILITY(U,$J,358.3,8270,1,4,0)
- ;;=4^242.01
- ;;^UTILITY(U,$J,358.3,8270,1,5,0)
- ;;=5^Goiter Diff Tox W Strm
- ;;^UTILITY(U,$J,358.3,8270,2)
- ;;=^267794
- ;;^UTILITY(U,$J,358.3,8271,0)
- ;;=252.1^^74^624^40
- ;;^UTILITY(U,$J,358.3,8271,1,0)
- ;;=^358.31IA^5^2
- ;;^UTILITY(U,$J,358.3,8271,1,4,0)
- ;;=4^252.1
- ;;^UTILITY(U,$J,358.3,8271,1,5,0)
- ;;=5^Hypoparathyroidism
- ;;^UTILITY(U,$J,358.3,8271,2)
- ;;=^60635
- ;;^UTILITY(U,$J,358.3,8272,0)
- ;;=242.90^^74^624^32
- ;;^UTILITY(U,$J,358.3,8272,1,0)
- ;;=^358.31IA^5^2
- ;;^UTILITY(U,$J,358.3,8272,1,4,0)
- ;;=4^242.90
- ;;^UTILITY(U,$J,358.3,8272,1,5,0)
- ;;=5^Hyperthyroid W/O Goiter Or Strm
- ;;^UTILITY(U,$J,358.3,8272,2)
- ;;=^267811
- ;;^UTILITY(U,$J,358.3,8273,0)
- ;;=242.91^^74^624^45
- ;;^UTILITY(U,$J,358.3,8273,1,0)
- ;;=^358.31IA^5^2
- ;;^UTILITY(U,$J,358.3,8273,1,4,0)
- ;;=4^242.91
- ;;^UTILITY(U,$J,358.3,8273,1,5,0)
- ;;=5^Hyprthy W/O Goit W Strm
- ;;^UTILITY(U,$J,358.3,8273,2)
- ;;=^267812
- ;;^UTILITY(U,$J,358.3,8274,0)
- ;;=244.0^^74^624^43
- ;;^UTILITY(U,$J,358.3,8274,1,0)
- ;;=^358.31IA^5^2
- ;;^UTILITY(U,$J,358.3,8274,1,4,0)
- ;;=4^244.0
+ ;;^UTILITY(U,$J,358.3,6676,1,3,0)
+ ;;=3D3^28665
+ ;;^UTILITY(U,$J,358.3,6677,0)
+ ;;=3D28666^^60^500^64^^^^1
+ ;;^UTILITY(U,$J,358.3,6677,1,0)
+ ;;=3D^358.31IA^3^2
+ ;;^UTILITY(U,$J,358.3,6677,1,2,0)
+ ;;=3D2^Perc Fixation Interphalangeal Joint Dislocation
+ ;;^UTILITY(U,$J,358.3,6677,1,3,0)
+ ;;=3D3^28666
+ ;;^UTILITY(U,$J,358.3,6678,0)
+ ;;=3D28675^^60^500^65^^^^1
+ ;;^UTILITY(U,$J,358.3,6678,1,0)
+ ;;=3D^358.31IA^3^2
+ ;;^UTILITY(U,$J,358.3,6678,1,2,0)
+ ;;=3D2^Open Tx of interphalangeal joint dislocation, with or without
+internal or external fixation
+ ;;^UTILITY(U,$J,358.3,6678,1,3,0)
+ ;;=3D3^28675
+ ;;^UTILITY(U,$J,358.3,6679,0)
+ ;;=3D27840^^60^500^66^^^^1
+ ;;^UTILITY(U,$J,358.3,6679,1,0)
+ ;;=3D^358.31IA^3^2
+ ;;^UTILITY(U,$J,358.3,6679,1,2,0)
+ ;;=3D2^Closed Tx of ankle dislocation; w/o anesthesia
+ ;;^UTILITY(U,$J,358.3,6679,1,3,0)
+ ;;=3D3^27840
+ ;;^UTILITY(U,$J,358.3,6680,0)
+ ;;=3D27842^^60^500^67^^^^1
+ ;;^UTILITY(U,$J,358.3,6680,1,0)
+ ;;=3D^358.31IA^3^2
+ ;;^UTILITY(U,$J,358.3,6680,1,2,0)
+ ;;=3D2^Closed Tx of ankle dislocation; requiring anesthesia, with or =
+w/o
+percutaneous skeletal fixation
+ ;;^UTILITY(U,$J,358.3,6680,1,3,0)
+ ;;=3D3^27842
+ ;;^UTILITY(U,$J,358.3,6681,0)
+ ;;=3D27846^^60^500^68^^^^1
+ ;;^UTILITY(U,$J,358.3,6681,1,0)
+ ;;=3D^358.31IA^3^2
+ ;;^UTILITY(U,$J,358.3,6681,1,2,0)
+ ;;=3D2^Open Tx of ankle dislocation, with or w/o percutaneous skeletal
+fixation; w/o repair or internal fixation
+ ;;^UTILITY(U,$J,358.3,6681,1,3,0)
+ ;;=3D3^27846
+ ;;^UTILITY(U,$J,358.3,6682,0)
+ ;;=3D27848^^60^500^69^^^^1
+ ;;^UTILITY(U,$J,358.3,6682,1,0)
+ ;;=3D^358.31IA^3^2
+ ;;^UTILITY(U,$J,358.3,6682,1,2,0)
+ ;;=3D2^Open Tx of ankle dislocation, with or w/o precutaneous
+skeletalfixation; with repair or internal or external fixation
+ ;;^UTILITY(U,$J,358.3,6682,1,3,0)
+ ;;=3D3^27848
+ ;;^UTILITY(U,$J,358.3,6683,0)
+ ;;=3D28750^^60^501^1^^^^1
+ ;;^UTILITY(U,$J,358.3,6683,1,0)
+ ;;=3D^358.31IA^3^2
+ ;;^UTILITY(U,$J,358.3,6683,1,2,0)
+ ;;=3D2^Arthrodesis, great toe; metartarsophalangeal joint
+ ;;^UTILITY(U,$J,358.3,6683,1,3,0)
+ ;;=3D3^28750
+ ;;^UTILITY(U,$J,358.3,6684,0)
+ ;;=3D28755^^60^501^2^^^^1
+ ;;^UTILITY(U,$J,358.3,6684,1,0)
+ ;;=3D^358.31IA^3^2
+ ;;^UTILITY(U,$J,358.3,6684,1,2,0)
+ ;;=3D2^Arthrodesis, great toe; interphlangeal joint
+ ;;^UTILITY(U,$J,358.3,6684,1,3,0)
+ ;;=3D3^28755
+ ;;^UTILITY(U,$J,358.3,6685,0)
+ ;;=3D27870^^60^501^3^^^^1
+ ;;^UTILITY(U,$J,358.3,6685,1,0)
+ ;;=3D^358.31IA^3^2
+ ;;^UTILITY(U,$J,358.3,6685,1,2,0)
+ ;;=3D2^Arthrodesis, ankle, any method
+ ;;^UTILITY(U,$J,358.3,6685,1,3,0)
+ ;;=3D3^27870
+ ;;^UTILITY(U,$J,358.3,6686,0)
+ ;;=3D27871^^60^501^4^^^^1
+ ;;^UTILITY(U,$J,358.3,6686,1,0)
+ ;;=3D^358.31IA^3^2
+ ;;^UTILITY(U,$J,358.3,6686,1,2,0)
+ ;;=3D2^Arthrodesis, tibiofibular joint, proximal or distal
+ ;;^UTILITY(U,$J,358.3,6686,1,3,0)
+ ;;=3D3^27871
+ ;;^UTILITY(U,$J,358.3,6687,0)
+ ;;=3D29358^^60^502^1^^^^1
+ ;;^UTILITY(U,$J,358.3,6687,1,0)
+ ;;=3D^358.31IA^3^2
+ ;;^UTILITY(U,$J,358.3,6687,1,2,0)
+ ;;=3D2^Application Of Long Leg Cast Brace
+ ;;^UTILITY(U,$J,358.3,6687,1,3,0)
+ ;;=3D3^29358
+ ;;^UTILITY(U,$J,358.3,6688,0)
+ ;;=3D29405^^60^502^2^^^^1
+ ;;^UTILITY(U,$J,358.3,6688,1,0)
+ ;;=3D^358.31IA^3^2
+ ;;^UTILITY(U,$J,358.3,6688,1,2,0)
+ ;;=3D2^Application Of Short Leg Cast
+ ;;^UTILITY(U,$J,358.3,6688,1,3,0)
+ ;;=3D3^29405
+ ;;^UTILITY(U,$J,358.3,6689,0)
+ ;;=3D29425^^60^502^3^^^^1
+ ;;^UTILITY(U,$J,358.3,6689,1,0)
+ ;;=3D^358.31IA^3^2
+ ;;^UTILITY(U,$J,358.3,6689,1,2,0)
+ ;;=3D2^Application Of Short Leg Cast; Walking Or Ambulatory Type
+ ;;^UTILITY(U,$J,358.3,6689,1,3,0)
+ ;;=3D3^29425
+ ;;^UTILITY(U,$J,358.3,6690,0)
+ ;;=3D29440^^60^502^4^^^^1
+ ;;^UTILITY(U,$J,358.3,6690,1,0)
+ ;;=3D^358.31IA^3^2
+ ;;^UTILITY(U,$J,358.3,6690,1,2,0)
+ ;;=3D2^Adding Walker to Previous Cast
+ ;;^UTILITY(U,$J,358.3,6690,1,3,0)
+ ;;=3D3^29440
+ ;;^UTILITY(U,$J,358.3,6691,0)
+ ;;=3D29445^^60^502^11^^^^1
+ ;;^UTILITY(U,$J,358.3,6691,1,0)
+ ;;=3D^358.31IA^3^2
+ ;;^UTILITY(U,$J,358.3,6691,1,2,0)
+ ;;=3D2^Application Of Rigid Total Contact Leg Cast
+ ;;^UTILITY(U,$J,358.3,6691,1,3,0)
+ ;;=3D3^29445
+ ;;^UTILITY(U,$J,358.3,6692,0)
+ ;;=3D29515^^60^502^6^^^^1
+ ;;^UTILITY(U,$J,358.3,6692,1,0)
+ ;;=3D^358.31IA^3^2
+ ;;^UTILITY(U,$J,358.3,6692,1,2,0)
+ ;;=3D2^Application Of Short Leg Splint (Calf To Foot)
+ ;;^UTILITY(U,$J,358.3,6692,1,3,0)
+ ;;=3D3^29515
+ ;;^UTILITY(U,$J,358.3,6693,0)
+ ;;=3D29540^^60^502^7^^^^1
+ ;;^UTILITY(U,$J,358.3,6693,1,0)
+ ;;=3D^358.31IA^3^2
+ ;;^UTILITY(U,$J,358.3,6693,1,2,0)
+ ;;=3D2^Strapping ; Ankle
+ ;;^UTILITY(U,$J,358.3,6693,1,3,0)
+ ;;=3D3^29540
+ ;;^UTILITY(U,$J,358.3,6694,0)
+ ;;=3D29590^^60^502^8^^^^1
+ ;;^UTILITY(U,$J,358.3,6694,1,0)
+ ;;=3D^358.31IA^3^2
+ ;;^UTILITY(U,$J,358.3,6694,1,2,0)
+ ;;=3D2^Denis-Browne Splint Strapping
+ ;;^UTILITY(U,$J,358.3,6694,1,3,0)
+ ;;=3D3^29590
+ ;;^UTILITY(U,$J,358.3,6695,0)
+ ;;=3D29530^^60^502^9^^^^1
+ ;;^UTILITY(U,$J,358.3,6695,1,0)
+ ;;=3D^358.31IA^3^2
+ ;;^UTILITY(U,$J,358.3,6695,1,2,0)
+ ;;=3D2^Strapping; Knee
+ ;;^UTILITY(U,$J,358.3,6695,1,3,0)
+ ;;=3D3^29530
+ ;;^UTILITY(U,$J,358.3,6696,0)
+ ;;=3D29550^^60^502^10^^^^1
+ ;;^UTILITY(U,$J,358.3,6696,1,0)
+ ;;=3D^358.31IA^3^2
+ ;;^UTILITY(U,$J,358.3,6696,1,2,0)
+ ;;=3D2^Strapping; Toes
+ ;;^UTILITY(U,$J,358.3,6696,1,3,0)
+ ;;=3D3^29550
+ ;;^UTILITY(U,$J,358.3,6697,0)
+ ;;=3D29580^^60^502^12^^^^1
+ ;;^UTILITY(U,$J,358.3,6697,1,0)
+ ;;=3D^358.31IA^3^2
+ ;;^UTILITY(U,$J,358.3,6697,1,2,0)
+ ;;=3D2^Strapping; Unna Boot
+ ;;^UTILITY(U,$J,358.3,6697,1,3,0)
+ ;;=3D3^29580
+ ;;^UTILITY(U,$J,358.3,6698,0)
+ ;;=3D29700^^60^503^1^^^^1
+ ;;^UTILITY(U,$J,358.3,6698,1,0)
+ ;;=3D^358.31IA^3^2
+ ;;^UTILITY(U,$J,358.3,6698,1,2,0)
+ ;;=3D2^Removal or bivalving; gauntlet, boot or body cast
+ ;;^UTILITY(U,$J,358.3,6698,1,3,0)
+ ;;=3D3^29700
+ ;;^UTILITY(U,$J,358.3,6699,0)
+ ;;=3D29730^^60^503^2^^^^1
+ ;;^UTILITY(U,$J,358.3,6699,1,0)
+ ;;=3D^358.31IA^3^2
+ ;;^UTILITY(U,$J,358.3,6699,1,2,0)
+ ;;=3D2^Windowing of cast
+ ;;^UTILITY(U,$J,358.3,6699,1,3,0)
+ ;;=3D3^29730
+ ;;^UTILITY(U,$J,358.3,6700,0)
+ ;;=3DL9900^^60^504^3^^^^1
+ ;;^UTILITY(U,$J,358.3,6700,1,0)
+ ;;=3D^358.31IA^3^2
+ ;;^UTILITY(U,$J,358.3,6700,1,2,0)
+ ;;=3D2^Orthotic & prosthetic supply, accessory, &/or service component =
+of
+another HCPCS L code
+ ;;^UTILITY(U,$J,358.3,6700,1,3,0)
+ ;;=3D3^L9900
+ ;;^UTILITY(U,$J,358.3,6701,0)
+ ;;=3DA9150^^60^505^2^^^^1
+ ;;^UTILITY(U,$J,358.3,6701,1,0)
+ ;;=3D^358.31IA^3^2
+ ;;^UTILITY(U,$J,358.3,6701,1,2,0)
+ ;;=3D2^Nonprescription drug
+ ;;^UTILITY(U,$J,358.3,6701,1,3,0)
+ ;;=3D3^A9150
+ ;;^UTILITY(U,$J,358.3,6702,0)
+ ;;=3DL3332^^60^505^3^^^^1
+ ;;^UTILITY(U,$J,358.3,6702,1,0)
+ ;;=3D^358.31IA^3^2
+ ;;^UTILITY(U,$J,358.3,6702,1,2,0)
+ ;;=3D2^Lift, elevation, inside shoe, tapered, up to one-half inch
+ ;;^UTILITY(U,$J,358.3,6702,1,3,0)
+ ;;=3D3^L3332
+ ;;^UTILITY(U,$J,358.3,6703,0)
+ ;;=3DL3170^^60^505^4^^^^1
+ ;;^UTILITY(U,$J,358.3,6703,1,0)
+ ;;=3D^358.31IA^3^2
+ ;;^UTILITY(U,$J,358.3,6703,1,2,0)
+ ;;=3D2^Foot, plastic heel stabilizer
+ ;;^UTILITY(U,$J,358.3,6703,1,3,0)
+ ;;=3D3^L3170
+ ;;^UTILITY(U,$J,358.3,6704,0)
+ ;;=3DA4570^^60^505^6^^^^1
+ ;;^UTILITY(U,$J,358.3,6704,1,0)
+ ;;=3D^358.31IA^3^2
+ ;;^UTILITY(U,$J,358.3,6704,1,2,0)
+ ;;=3D2^Splint                     =20
+ ;;^UTILITY(U,$J,358.3,6704,1,3,0)
+ ;;=3D3^A4570
+ ;;^UTILITY(U,$J,358.3,6705,0)
+ ;;=3DL3260^^60^505^7^^^^1
+ ;;^UTILITY(U,$J,358.3,6705,1,0)
+ ;;=3D^358.31IA^3^2
+ ;;^UTILITY(U,$J,358.3,6705,1,2,0)
+ ;;=3D2^Ambulatory surgical boot, each=20
+ ;;^UTILITY(U,$J,358.3,6705,1,3,0)
+ ;;=3D3^L3260
+ ;;^UTILITY(U,$J,358.3,6706,0)
+ ;;=3DA4500^^60^505^8^^^^1
+ ;;^UTILITY(U,$J,358.3,6706,1,0)
+ ;;=3D^358.31IA^3^2
+ ;;^UTILITY(U,$J,358.3,6706,1,2,0)
+ ;;=3D2^Surgical stocking below knee lenght, each
+ ;;^UTILITY(U,$J,358.3,6706,1,3,0)
+ ;;=3D3^A4500
+ ;;^UTILITY(U,$J,358.3,6707,0)
+ ;;=3DA5501^^60^505^9^^^^1
+ ;;^UTILITY(U,$J,358.3,6707,1,0)
+ ;;=3D^358.31IA^3^2
+ ;;^UTILITY(U,$J,358.3,6707,1,2,0)
+ ;;=3D2^Diabetic Shoes, Custom Fit
+ ;;^UTILITY(U,$J,358.3,6707,1,3,0)
+ ;;=3D3^A5501
+ ;;^UTILITY(U,$J,358.3,6708,0)
+ ;;=3D28190^^60^506^1^^^^1
+ ;;^UTILITY(U,$J,358.3,6708,1,0)
+ ;;=3D^358.31IA^3^2
+ ;;^UTILITY(U,$J,358.3,6708,1,2,0)
+ ;;=3D2^Removal of foreign body, foot; subcutaneous

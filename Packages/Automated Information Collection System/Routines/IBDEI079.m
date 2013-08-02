@@ -1,362 +1,306 @@
-IBDEI079 ; ; 20-FEB-2013
- ;;3.0;IB ENCOUNTER FORM IMP/EXP;;FEB 20, 2013
- Q:'DIFQR(358.3)  F I=1:2 S X=$T(Q+I) Q:X=""  S Y=$E($T(Q+I+1),4,999),X=$E(X,4,999) S:$A(Y)=126 I=I+1,Y=$E(Y,2,999)_$E($T(Q+I+1),5,99) S:$A(Y)=61 Y=$E(Y,2,999) X NO E  S @X=Y
+IBDEI079 ; ; 18-FEB-2009
+ ;;3.0;IB ENCOUNTER FORM IMP/EXP;;FEB 18, 2009
+ Q:'DIFQR(358.3)  F I=3D1:2 S X=3D$T(Q+I) Q:X=3D""  S
+Y=3D$E($T(Q+I+1),4,999),X=3D$E(X,4,999) S:$A(Y)=3D126
+I=3DI+1,Y=3D$E(Y,2,999)_$E($T(Q+I+1),5,99) S:$A(Y)=3D61 Y=3D$E(Y,2,999) =
+X NO E
+S @X=3DY
 Q Q
- ;;^UTILITY(U,$J,358.3,9541,2)
- ;;=^268988
- ;;^UTILITY(U,$J,358.3,9542,0)
- ;;=370.34^^77^657^38
- ;;^UTILITY(U,$J,358.3,9542,1,0)
- ;;=^358.31IA^4^2
- ;;^UTILITY(U,$J,358.3,9542,1,3,0)
- ;;=3^Keratitis, Exposure
- ;;^UTILITY(U,$J,358.3,9542,1,4,0)
- ;;=4^370.34
- ;;^UTILITY(U,$J,358.3,9542,2)
- ;;=Exposure Keratoconjunctivitis^268932
- ;;^UTILITY(U,$J,358.3,9543,0)
- ;;=370.21^^77^657^40
- ;;^UTILITY(U,$J,358.3,9543,1,0)
- ;;=^358.31IA^4^2
- ;;^UTILITY(U,$J,358.3,9543,1,3,0)
- ;;=3^Keratitis, Punctate
- ;;^UTILITY(U,$J,358.3,9543,1,4,0)
- ;;=4^370.21
- ;;^UTILITY(U,$J,358.3,9543,2)
- ;;=Keratitis, Punctate^268920
- ;;^UTILITY(U,$J,358.3,9544,0)
- ;;=054.42^^77^657^36
- ;;^UTILITY(U,$J,358.3,9544,1,0)
- ;;=^358.31IA^4^2
- ;;^UTILITY(U,$J,358.3,9544,1,3,0)
- ;;=3^Keratitis, Dendritic (HSV)
- ;;^UTILITY(U,$J,358.3,9544,1,4,0)
- ;;=4^054.42
- ;;^UTILITY(U,$J,358.3,9544,2)
- ;;=Dendritic Keratitis^66763
- ;;^UTILITY(U,$J,358.3,9545,0)
- ;;=370.62^^77^657^54
- ;;^UTILITY(U,$J,358.3,9545,1,0)
- ;;=^358.31IA^4^2
- ;;^UTILITY(U,$J,358.3,9545,1,3,0)
- ;;=3^Pannus
- ;;^UTILITY(U,$J,358.3,9545,1,4,0)
- ;;=4^370.62
- ;;^UTILITY(U,$J,358.3,9545,2)
- ;;=^268949
- ;;^UTILITY(U,$J,358.3,9546,0)
- ;;=053.21^^77^657^44
- ;;^UTILITY(U,$J,358.3,9546,1,0)
- ;;=^358.31IA^4^2
- ;;^UTILITY(U,$J,358.3,9546,1,3,0)
- ;;=3^Keratoconjunctivits, H Zoster
- ;;^UTILITY(U,$J,358.3,9546,1,4,0)
- ;;=4^053.21
- ;;^UTILITY(U,$J,358.3,9546,2)
- ;;=Herp Zost Keratoconjunctivitis^266553
- ;;^UTILITY(U,$J,358.3,9547,0)
- ;;=V42.5^^77^657^19
- ;;^UTILITY(U,$J,358.3,9547,1,0)
- ;;=^358.31IA^4^2
- ;;^UTILITY(U,$J,358.3,9547,1,3,0)
- ;;=3^Corneal Transplant
- ;;^UTILITY(U,$J,358.3,9547,1,4,0)
- ;;=4^V42.5
- ;;^UTILITY(U,$J,358.3,9547,2)
- ;;=Corneal Transplant^174117
- ;;^UTILITY(U,$J,358.3,9548,0)
- ;;=996.51^^77^657^62
- ;;^UTILITY(U,$J,358.3,9548,1,0)
- ;;=^358.31IA^4^2
- ;;^UTILITY(U,$J,358.3,9548,1,3,0)
- ;;=3^Reject/Failure, Corneal Transp
- ;;^UTILITY(U,$J,358.3,9548,1,4,0)
- ;;=4^996.51
- ;;^UTILITY(U,$J,358.3,9548,2)
- ;;=Rejection/Failure, Corneal Transplant^276277^V42.5
- ;;^UTILITY(U,$J,358.3,9549,0)
- ;;=918.1^^77^657^1
- ;;^UTILITY(U,$J,358.3,9549,1,0)
- ;;=^358.31IA^4^2
- ;;^UTILITY(U,$J,358.3,9549,1,3,0)
- ;;=3^Abrasion, Cornea
- ;;^UTILITY(U,$J,358.3,9549,1,4,0)
- ;;=4^918.1
- ;;^UTILITY(U,$J,358.3,9549,2)
- ;;=Corneal Abrasion^115829
- ;;^UTILITY(U,$J,358.3,9550,0)
- ;;=370.49^^77^657^43
- ;;^UTILITY(U,$J,358.3,9550,1,0)
- ;;=^358.31IA^4^2
- ;;^UTILITY(U,$J,358.3,9550,1,3,0)
- ;;=3^Keratoconjunctivitis, Other
- ;;^UTILITY(U,$J,358.3,9550,1,4,0)
- ;;=4^370.49
- ;;^UTILITY(U,$J,358.3,9550,2)
- ;;=^87674
- ;;^UTILITY(U,$J,358.3,9551,0)
- ;;=371.41^^77^657^5
- ;;^UTILITY(U,$J,358.3,9551,1,0)
- ;;=^358.31IA^4^2
- ;;^UTILITY(U,$J,358.3,9551,1,3,0)
- ;;=3^Arcus, Corneal
- ;;^UTILITY(U,$J,358.3,9551,1,4,0)
- ;;=4^371.41
- ;;^UTILITY(U,$J,358.3,9551,2)
- ;;=Corneal Arcus^109206
- ;;^UTILITY(U,$J,358.3,9552,0)
- ;;=371.10^^77^657^67
- ;;^UTILITY(U,$J,358.3,9552,1,0)
- ;;=^358.31IA^4^2
- ;;^UTILITY(U,$J,358.3,9552,1,3,0)
- ;;=3^Toxic Keratopathy, Due to med
- ;;^UTILITY(U,$J,358.3,9552,1,4,0)
- ;;=4^371.10
- ;;^UTILITY(U,$J,358.3,9552,2)
- ;;=Toxic Keratopathy, Due to med^276846
- ;;^UTILITY(U,$J,358.3,9553,0)
- ;;=370.60^^77^657^50
- ;;^UTILITY(U,$J,358.3,9553,1,0)
- ;;=^358.31IA^4^2
- ;;^UTILITY(U,$J,358.3,9553,1,3,0)
- ;;=3^Neovascularization, Corneal
- ;;^UTILITY(U,$J,358.3,9553,1,4,0)
- ;;=4^370.60
- ;;^UTILITY(U,$J,358.3,9553,2)
- ;;=Corneal Neovascularization^184274
- ;;^UTILITY(U,$J,358.3,9554,0)
- ;;=371.20^^77^657^22
- ;;^UTILITY(U,$J,358.3,9554,1,0)
- ;;=^358.31IA^4^2
- ;;^UTILITY(U,$J,358.3,9554,1,3,0)
- ;;=3^Edema, Cornea
- ;;^UTILITY(U,$J,358.3,9554,1,4,0)
- ;;=4^371.20
- ;;^UTILITY(U,$J,358.3,9554,2)
- ;;=Edema, Cornea^28394
- ;;^UTILITY(U,$J,358.3,9555,0)
- ;;=371.00^^77^657^51
- ;;^UTILITY(U,$J,358.3,9555,1,0)
- ;;=^358.31IA^4^2
- ;;^UTILITY(U,$J,358.3,9555,1,3,0)
- ;;=3^Opacity, Corneal
- ;;^UTILITY(U,$J,358.3,9555,1,4,0)
- ;;=4^371.00
- ;;^UTILITY(U,$J,358.3,9555,2)
- ;;=Corneal Opacity^28398
- ;;^UTILITY(U,$J,358.3,9556,0)
- ;;=371.43^^77^657^6
- ;;^UTILITY(U,$J,358.3,9556,1,0)
- ;;=^358.31IA^4^2
- ;;^UTILITY(U,$J,358.3,9556,1,3,0)
- ;;=3^Band Keratopathy
- ;;^UTILITY(U,$J,358.3,9556,1,4,0)
- ;;=4^371.43
- ;;^UTILITY(U,$J,358.3,9556,2)
- ;;=Band Keratopathy^268979
- ;;^UTILITY(U,$J,358.3,9557,0)
- ;;=710.2^^77^657^64
- ;;^UTILITY(U,$J,358.3,9557,1,0)
- ;;=^358.31IA^4^2
- ;;^UTILITY(U,$J,358.3,9557,1,3,0)
- ;;=3^Sjogren's Disease
- ;;^UTILITY(U,$J,358.3,9557,1,4,0)
- ;;=4^710.2
- ;;^UTILITY(U,$J,358.3,9557,2)
- ;;=Sjogren's Disease^192145
- ;;^UTILITY(U,$J,358.3,9558,0)
- ;;=374.20^^77^657^47
- ;;^UTILITY(U,$J,358.3,9558,1,0)
- ;;=^358.31IA^4^2
- ;;^UTILITY(U,$J,358.3,9558,1,3,0)
- ;;=3^Lagophthalmos
- ;;^UTILITY(U,$J,358.3,9558,1,4,0)
- ;;=4^374.20
- ;;^UTILITY(U,$J,358.3,9558,2)
- ;;=Lagophthalmos^265452
- ;;^UTILITY(U,$J,358.3,9559,0)
- ;;=372.72^^77^657^28
- ;;^UTILITY(U,$J,358.3,9559,1,0)
- ;;=^358.31IA^4^2
- ;;^UTILITY(U,$J,358.3,9559,1,3,0)
- ;;=3^Hemorrhage, Conjunctival
- ;;^UTILITY(U,$J,358.3,9559,1,4,0)
- ;;=4^372.72
- ;;^UTILITY(U,$J,358.3,9559,2)
- ;;=Hemorrhage, Conjunctival^27538
- ;;^UTILITY(U,$J,358.3,9560,0)
- ;;=372.00^^77^657^13
- ;;^UTILITY(U,$J,358.3,9560,1,0)
- ;;=^358.31IA^4^2
- ;;^UTILITY(U,$J,358.3,9560,1,3,0)
- ;;=3^Conjunctivitis, Acute
- ;;^UTILITY(U,$J,358.3,9560,1,4,0)
- ;;=4^372.00
- ;;^UTILITY(U,$J,358.3,9560,2)
- ;;=Conjunctivitis, Acute^269000
- ;;^UTILITY(U,$J,358.3,9561,0)
- ;;=372.05^^77^657^14
- ;;^UTILITY(U,$J,358.3,9561,1,0)
- ;;=^358.31IA^4^2
- ;;^UTILITY(U,$J,358.3,9561,1,3,0)
- ;;=3^Conjunctivitis, Atopic Acute
- ;;^UTILITY(U,$J,358.3,9561,1,4,0)
- ;;=4^372.05
- ;;^UTILITY(U,$J,358.3,9561,2)
- ;;=Conjuntivitis, Atopic, Acute^2605
- ;;^UTILITY(U,$J,358.3,9562,0)
- ;;=372.14^^77^657^18
- ;;^UTILITY(U,$J,358.3,9562,1,0)
- ;;=^358.31IA^4^2
- ;;^UTILITY(U,$J,358.3,9562,1,3,0)
- ;;=3^Conjuntivitis, Allergic, Chronic
- ;;^UTILITY(U,$J,358.3,9562,1,4,0)
- ;;=4^372.14
- ;;^UTILITY(U,$J,358.3,9562,2)
- ;;=Conjunctivitis, Allergic, Chr^87396
- ;;^UTILITY(U,$J,358.3,9563,0)
- ;;=372.03^^77^657^12
- ;;^UTILITY(U,$J,358.3,9563,1,0)
- ;;=^358.31IA^4^2
- ;;^UTILITY(U,$J,358.3,9563,1,3,0)
- ;;=3^Conjuncitivitis, Mucopurulent
- ;;^UTILITY(U,$J,358.3,9563,1,4,0)
- ;;=4^372.03
- ;;^UTILITY(U,$J,358.3,9563,2)
- ;;=Conjuncitivitis, Mucopurulent^87718
- ;;^UTILITY(U,$J,358.3,9564,0)
- ;;=372.10^^77^657^15
- ;;^UTILITY(U,$J,358.3,9564,1,0)
- ;;=^358.31IA^4^2
- ;;^UTILITY(U,$J,358.3,9564,1,3,0)
- ;;=3^Conjunctivitis, Chronic
- ;;^UTILITY(U,$J,358.3,9564,1,4,0)
- ;;=4^372.10
- ;;^UTILITY(U,$J,358.3,9564,2)
- ;;=Conjunctivitis, Chronic^269008
- ;;^UTILITY(U,$J,358.3,9565,0)
- ;;=077.8^^77^657^16
- ;;^UTILITY(U,$J,358.3,9565,1,0)
- ;;=^358.31IA^4^2
- ;;^UTILITY(U,$J,358.3,9565,1,3,0)
- ;;=3^Conjunctivitis, Viral
- ;;^UTILITY(U,$J,358.3,9565,1,4,0)
- ;;=4^077.8
- ;;^UTILITY(U,$J,358.3,9565,2)
- ;;=Conjunctivitis, Viral^88239
- ;;^UTILITY(U,$J,358.3,9566,0)
- ;;=372.54^^77^657^11
- ;;^UTILITY(U,$J,358.3,9566,1,0)
- ;;=^358.31IA^4^2
- ;;^UTILITY(U,$J,358.3,9566,1,3,0)
- ;;=3^Concretions, Conjunctival
- ;;^UTILITY(U,$J,358.3,9566,1,4,0)
- ;;=4^372.54
- ;;^UTILITY(U,$J,358.3,9566,2)
- ;;=...Concretions, Conjunctival^269038
- ;;^UTILITY(U,$J,358.3,9567,0)
- ;;=930.9^^77^657^26
- ;;^UTILITY(U,$J,358.3,9567,1,0)
- ;;=^358.31IA^4^2
- ;;^UTILITY(U,$J,358.3,9567,1,3,0)
- ;;=3^Foreign Body, External Eye
- ;;^UTILITY(U,$J,358.3,9567,1,4,0)
- ;;=4^930.9
- ;;^UTILITY(U,$J,358.3,9567,2)
- ;;=Foreign Body, External Eye^275489
- ;;^UTILITY(U,$J,358.3,9568,0)
- ;;=372.51^^77^657^57
- ;;^UTILITY(U,$J,358.3,9568,1,0)
- ;;=^358.31IA^4^2
- ;;^UTILITY(U,$J,358.3,9568,1,3,0)
- ;;=3^Pinguecula
- ;;^UTILITY(U,$J,358.3,9568,1,4,0)
- ;;=4^372.51
- ;;^UTILITY(U,$J,358.3,9568,2)
- ;;=Pinguecula^265525
- ;;^UTILITY(U,$J,358.3,9569,0)
- ;;=379.00^^77^657^23
- ;;^UTILITY(U,$J,358.3,9569,1,0)
- ;;=^358.31IA^4^2
- ;;^UTILITY(U,$J,358.3,9569,1,3,0)
- ;;=3^Episcleritis
- ;;^UTILITY(U,$J,358.3,9569,1,4,0)
- ;;=4^379.00
- ;;^UTILITY(U,$J,358.3,9569,2)
- ;;=...^108564
- ;;^UTILITY(U,$J,358.3,9570,0)
- ;;=372.20^^77^657^9
- ;;^UTILITY(U,$J,358.3,9570,1,0)
- ;;=^358.31IA^4^2
- ;;^UTILITY(U,$J,358.3,9570,1,3,0)
- ;;=3^Blepharoconjunctivitis
- ;;^UTILITY(U,$J,358.3,9570,1,4,0)
- ;;=4^372.20
- ;;^UTILITY(U,$J,358.3,9570,2)
- ;;=Blepharoconjunctivitis^15277
- ;;^UTILITY(U,$J,358.3,9571,0)
- ;;=372.40^^77^657^59
- ;;^UTILITY(U,$J,358.3,9571,1,0)
- ;;=^358.31IA^4^2
- ;;^UTILITY(U,$J,358.3,9571,1,3,0)
- ;;=3^Pterygium
- ;;^UTILITY(U,$J,358.3,9571,1,4,0)
- ;;=4^372.40
- ;;^UTILITY(U,$J,358.3,9571,2)
- ;;=Pterygium^100819
- ;;^UTILITY(U,$J,358.3,9572,0)
- ;;=694.4^^77^657^56
- ;;^UTILITY(U,$J,358.3,9572,1,0)
- ;;=^358.31IA^4^2
- ;;^UTILITY(U,$J,358.3,9572,1,3,0)
- ;;=3^Pemphigus
- ;;^UTILITY(U,$J,358.3,9572,1,4,0)
- ;;=4^694.4
- ;;^UTILITY(U,$J,358.3,9572,2)
- ;;=Pemphigus^91124
- ;;^UTILITY(U,$J,358.3,9573,0)
- ;;=224.3^^77^657^8
- ;;^UTILITY(U,$J,358.3,9573,1,0)
- ;;=^358.31IA^4^2
- ;;^UTILITY(U,$J,358.3,9573,1,3,0)
- ;;=3^Benign Neoplasm Conjunctiva
- ;;^UTILITY(U,$J,358.3,9573,1,4,0)
- ;;=4^224.3
- ;;^UTILITY(U,$J,358.3,9573,2)
- ;;=Benign Neoplasm Conjunctiva^267673
- ;;^UTILITY(U,$J,358.3,9574,0)
- ;;=370.40^^77^657^41
- ;;^UTILITY(U,$J,358.3,9574,1,0)
- ;;=^358.31IA^4^2
- ;;^UTILITY(U,$J,358.3,9574,1,3,0)
- ;;=3^Keratoconjunctivitis
- ;;^UTILITY(U,$J,358.3,9574,1,4,0)
- ;;=4^370.40
- ;;^UTILITY(U,$J,358.3,9574,2)
- ;;=^66777
- ;;^UTILITY(U,$J,358.3,9575,0)
- ;;=694.5^^77^657^55
- ;;^UTILITY(U,$J,358.3,9575,1,0)
- ;;=^358.31IA^4^2
- ;;^UTILITY(U,$J,358.3,9575,1,3,0)
- ;;=3^Pemphigoid
- ;;^UTILITY(U,$J,358.3,9575,1,4,0)
- ;;=4^694.5
- ;;^UTILITY(U,$J,358.3,9575,2)
- ;;=Pemphigoid^91108
- ;;^UTILITY(U,$J,358.3,9576,0)
- ;;=364.10^^77^657^32
- ;;^UTILITY(U,$J,358.3,9576,1,0)
- ;;=^358.31IA^4^2
- ;;^UTILITY(U,$J,358.3,9576,1,3,0)
- ;;=3^Iridocyclitis, Chronic
- ;;^UTILITY(U,$J,358.3,9576,1,4,0)
- ;;=4^364.10
- ;;^UTILITY(U,$J,358.3,9576,2)
- ;;=Iridocyclitis, Chronic^24398
- ;;^UTILITY(U,$J,358.3,9577,0)
- ;;=054.44^^77^657^33
- ;;^UTILITY(U,$J,358.3,9577,1,0)
- ;;=^358.31IA^4^2
- ;;^UTILITY(U,$J,358.3,9577,1,3,0)
- ;;=3^Iridocyclitis, H Simplex
+ ;;^UTILITY(U,$J,358.3,7710,0)
+ ;;=3DV10.04^^65^550^67
+ ;;^UTILITY(U,$J,358.3,7710,1,0)
+ ;;=3D^358.31IA^5^2
+ ;;^UTILITY(U,$J,358.3,7710,1,4,0)
+ ;;=3D4^V10.04
+ ;;^UTILITY(U,$J,358.3,7710,1,5,0)
+ ;;=3D5^H/O Stomach Cancer
+ ;;^UTILITY(U,$J,358.3,7710,2)
+ ;;=3D^295206
+ ;;^UTILITY(U,$J,358.3,7711,0)
+ ;;=3DV10.47^^65^550^68
+ ;;^UTILITY(U,$J,358.3,7711,1,0)
+ ;;=3D^358.31IA^5^2
+ ;;^UTILITY(U,$J,358.3,7711,1,4,0)
+ ;;=3D4^V10.47
+ ;;^UTILITY(U,$J,358.3,7711,1,5,0)
+ ;;=3D5^H/O Testicular Cancer
+ ;;^UTILITY(U,$J,358.3,7711,2)
+ ;;=3D^295225
+ ;;^UTILITY(U,$J,358.3,7712,0)
+ ;;=3DV10.83^^65^550^66
+ ;;^UTILITY(U,$J,358.3,7712,1,0)
+ ;;=3D^358.31IA^5^2
+ ;;^UTILITY(U,$J,358.3,7712,1,4,0)
+ ;;=3D4^V10.83
+ ;;^UTILITY(U,$J,358.3,7712,1,5,0)
+ ;;=3D5^H/O Skin Cancer
+ ;;^UTILITY(U,$J,358.3,7712,2)
+ ;;=3DH/O Skin Cancer^295241
+ ;;^UTILITY(U,$J,358.3,7713,0)
+ ;;=3D7^1^65^550^69^HEMATOLOGY^1
+ ;;^UTILITY(U,$J,358.3,7713,1,0)
+ ;;=3D^358.31IA^5^2
+ ;;^UTILITY(U,$J,358.3,7713,1,4,0)
+ ;;=3D4
+ ;;^UTILITY(U,$J,358.3,7713,1,5,0)
+ ;;=3D5
+ ;;^UTILITY(U,$J,358.3,7714,0)
+ ;;=3D70^1^65^550^70^-Anemia^1^1
+ ;;^UTILITY(U,$J,358.3,7714,1,0)
+ ;;=3D^358.31IA^5^2
+ ;;^UTILITY(U,$J,358.3,7714,1,4,0)
+ ;;=3D4
+ ;;^UTILITY(U,$J,358.3,7714,1,5,0)
+ ;;=3D5
+ ;;^UTILITY(U,$J,358.3,7715,0)
+ ;;=3D91^1^65^550^91^-Coagulation Disorders^1
+ ;;^UTILITY(U,$J,358.3,7715,1,0)
+ ;;=3D^358.31IA^5^2
+ ;;^UTILITY(U,$J,358.3,7715,1,4,0)
+ ;;=3D4
+ ;;^UTILITY(U,$J,358.3,7715,1,5,0)
+ ;;=3D5
+ ;;^UTILITY(U,$J,358.3,7716,0)
+ ;;=3D99^1^65^550^100^-Myelomas/Lymphomas^1^1
+ ;;^UTILITY(U,$J,358.3,7716,1,0)
+ ;;=3D^358.31IA^5^2
+ ;;^UTILITY(U,$J,358.3,7716,1,4,0)
+ ;;=3D4
+ ;;^UTILITY(U,$J,358.3,7716,1,5,0)
+ ;;=3D5
+ ;;^UTILITY(U,$J,358.3,7717,0)
+ ;;=3D285.22^^65^550^71
+ ;;^UTILITY(U,$J,358.3,7717,1,0)
+ ;;=3D^358.31IA^5^2
+ ;;^UTILITY(U,$J,358.3,7717,1,4,0)
+ ;;=3D4^285.22
+ ;;^UTILITY(U,$J,358.3,7717,1,5,0)
+ ;;=3D5^Anemia In Cancer
+ ;;^UTILITY(U,$J,358.3,7717,2)
+ ;;=3D^321978
+ ;;^UTILITY(U,$J,358.3,7718,0)
+ ;;=3D285.21^^65^550^72
+ ;;^UTILITY(U,$J,358.3,7718,1,0)
+ ;;=3D^358.31IA^5^2
+ ;;^UTILITY(U,$J,358.3,7718,1,4,0)
+ ;;=3D4^285.21
+ ;;^UTILITY(U,$J,358.3,7718,1,5,0)
+ ;;=3D5^Anemia In Renal Dis
+ ;;^UTILITY(U,$J,358.3,7718,2)
+ ;;=3D^321977
+ ;;^UTILITY(U,$J,358.3,7719,0)
+ ;;=3D285.29^^65^550^73
+ ;;^UTILITY(U,$J,358.3,7719,1,0)
+ ;;=3D^358.31IA^5^2
+ ;;^UTILITY(U,$J,358.3,7719,1,4,0)
+ ;;=3D4^285.29
+ ;;^UTILITY(U,$J,358.3,7719,1,5,0)
+ ;;=3D5^Anemia Of Chronic Dis
+ ;;^UTILITY(U,$J,358.3,7719,2)
+ ;;=3D^321979
+ ;;^UTILITY(U,$J,358.3,7720,0)
+ ;;=3D284.9^^65^550^74
+ ;;^UTILITY(U,$J,358.3,7720,1,0)
+ ;;=3D^358.31IA^5^2
+ ;;^UTILITY(U,$J,358.3,7720,1,4,0)
+ ;;=3D4^284.9
+ ;;^UTILITY(U,$J,358.3,7720,1,5,0)
+ ;;=3D5^Aplastic Anemia Nos
+ ;;^UTILITY(U,$J,358.3,7720,2)
+ ;;=3D^7020
+ ;;^UTILITY(U,$J,358.3,7721,0)
+ ;;=3D282.61^^65^550^76
+ ;;^UTILITY(U,$J,358.3,7721,1,0)
+ ;;=3D^358.31IA^5^2
+ ;;^UTILITY(U,$J,358.3,7721,1,4,0)
+ ;;=3D4^282.61
+ ;;^UTILITY(U,$J,358.3,7721,1,5,0)
+ ;;=3D5^Hemoglobin S Disease
+ ;;^UTILITY(U,$J,358.3,7721,2)
+ ;;=3D^267981
+ ;;^UTILITY(U,$J,358.3,7722,0)
+ ;;=3D282.7^^65^550^75
+ ;;^UTILITY(U,$J,358.3,7722,1,0)
+ ;;=3D^358.31IA^5^2
+ ;;^UTILITY(U,$J,358.3,7722,1,4,0)
+ ;;=3D4^282.7
+ ;;^UTILITY(U,$J,358.3,7722,1,5,0)
+ ;;=3D5^Hemoglobin C Disease
+ ;;^UTILITY(U,$J,358.3,7722,2)
+ ;;=3D^87629
+ ;;^UTILITY(U,$J,358.3,7723,0)
+ ;;=3D283.9^^65^550^78
+ ;;^UTILITY(U,$J,358.3,7723,1,0)
+ ;;=3D^358.31IA^5^2
+ ;;^UTILITY(U,$J,358.3,7723,1,4,0)
+ ;;=3D4^283.9
+ ;;^UTILITY(U,$J,358.3,7723,1,5,0)
+ ;;=3D5^Hemolytic Anemia , Acquired
+ ;;^UTILITY(U,$J,358.3,7723,2)
+ ;;=3D^7071
+ ;;^UTILITY(U,$J,358.3,7724,0)
+ ;;=3D283.0^^65^550^79
+ ;;^UTILITY(U,$J,358.3,7724,1,0)
+ ;;=3D^358.31IA^5^2
+ ;;^UTILITY(U,$J,358.3,7724,1,4,0)
+ ;;=3D4^283.0
+ ;;^UTILITY(U,$J,358.3,7724,1,5,0)
+ ;;=3D5^Hemolytic Anemia, Autoimmune
+ ;;^UTILITY(U,$J,358.3,7724,2)
+ ;;=3D^7079
+ ;;^UTILITY(U,$J,358.3,7725,0)
+ ;;=3D282.9^^65^550^77
+ ;;^UTILITY(U,$J,358.3,7725,1,0)
+ ;;=3D^358.31IA^5^2
+ ;;^UTILITY(U,$J,358.3,7725,1,4,0)
+ ;;=3D4^282.9
+ ;;^UTILITY(U,$J,358.3,7725,1,5,0)
+ ;;=3D5^Hemolytic Anem, Heredit
+ ;;^UTILITY(U,$J,358.3,7725,2)
+ ;;=3D^56578
+ ;;^UTILITY(U,$J,358.3,7726,0)
+ ;;=3D283.19^^65^550^80
+ ;;^UTILITY(U,$J,358.3,7726,1,0)
+ ;;=3D^358.31IA^5^2
+ ;;^UTILITY(U,$J,358.3,7726,1,4,0)
+ ;;=3D4^283.19
+ ;;^UTILITY(U,$J,358.3,7726,1,5,0)
+ ;;=3D5^Hemolytic Anemia, Microang
+ ;;^UTILITY(U,$J,358.3,7726,2)
+ ;;=3D^293664
+ ;;^UTILITY(U,$J,358.3,7727,0)
+ ;;=3D280.9^^65^550^83
+ ;;^UTILITY(U,$J,358.3,7727,1,0)
+ ;;=3D^358.31IA^5^2
+ ;;^UTILITY(U,$J,358.3,7727,1,4,0)
+ ;;=3D4^280.9
+ ;;^UTILITY(U,$J,358.3,7727,1,5,0)
+ ;;=3D5^Iron Defic Anemia(Unspecified)
+ ;;^UTILITY(U,$J,358.3,7727,2)
+ ;;=3D^276946
+ ;;^UTILITY(U,$J,358.3,7728,0)
+ ;;=3D285.1^^65^550^81
+ ;;^UTILITY(U,$J,358.3,7728,1,0)
+ ;;=3D^358.31IA^5^2
+ ;;^UTILITY(U,$J,358.3,7728,1,4,0)
+ ;;=3D4^285.1
+ ;;^UTILITY(U,$J,358.3,7728,1,5,0)
+ ;;=3D5^Iron Defic Anemia Due To Acute Blood Loss
+ ;;^UTILITY(U,$J,358.3,7728,2)
+ ;;=3D^267986
+ ;;^UTILITY(U,$J,358.3,7729,0)
+ ;;=3D280.0^^65^550^82
+ ;;^UTILITY(U,$J,358.3,7729,1,0)
+ ;;=3D^358.31IA^5^2
+ ;;^UTILITY(U,$J,358.3,7729,1,4,0)
+ ;;=3D4^280.0
+ ;;^UTILITY(U,$J,358.3,7729,1,5,0)
+ ;;=3D5^Iron Defic Anemia Due To Chronic Blood Loss
+ ;;^UTILITY(U,$J,358.3,7729,2)
+ ;;=3D^267971
+ ;;^UTILITY(U,$J,358.3,7730,0)
+ ;;=3D281.9^^65^550^85
+ ;;^UTILITY(U,$J,358.3,7730,1,0)
+ ;;=3D^358.31IA^5^2
+ ;;^UTILITY(U,$J,358.3,7730,1,4,0)
+ ;;=3D4^281.9
+ ;;^UTILITY(U,$J,358.3,7730,1,5,0)
+ ;;=3D5^Nutritional Anemia
+ ;;^UTILITY(U,$J,358.3,7730,2)
+ ;;=3D^123801
+ ;;^UTILITY(U,$J,358.3,7731,0)
+ ;;=3D281.0^^65^550^89
+ ;;^UTILITY(U,$J,358.3,7731,1,0)
+ ;;=3D^358.31IA^5^2
+ ;;^UTILITY(U,$J,358.3,7731,1,4,0)
+ ;;=3D4^281.0
+ ;;^UTILITY(U,$J,358.3,7731,1,5,0)
+ ;;=3D5^Vit B12 Deficiency (Pernicious Anemia)
+ ;;^UTILITY(U,$J,358.3,7731,2)
+ ;;=3D^7161
+ ;;^UTILITY(U,$J,358.3,7732,0)
+ ;;=3D282.60^^65^550^86
+ ;;^UTILITY(U,$J,358.3,7732,1,0)
+ ;;=3D^358.31IA^5^2
+ ;;^UTILITY(U,$J,358.3,7732,1,4,0)
+ ;;=3D4^282.60
+ ;;^UTILITY(U,$J,358.3,7732,1,5,0)
+ ;;=3D5^Sickle-Cell Anemia
+ ;;^UTILITY(U,$J,358.3,7732,2)
+ ;;=3D^7188
+ ;;^UTILITY(U,$J,358.3,7733,0)
+ ;;=3D282.62^^65^550^87
+ ;;^UTILITY(U,$J,358.3,7733,1,0)
+ ;;=3D^358.31IA^5^2
+ ;;^UTILITY(U,$J,358.3,7733,1,4,0)
+ ;;=3D4^282.62
+ ;;^UTILITY(U,$J,358.3,7733,1,5,0)
+ ;;=3D5^Sickle-Cell With Crisis
+ ;;^UTILITY(U,$J,358.3,7733,2)
+ ;;=3D^267982
+ ;;^UTILITY(U,$J,358.3,7734,0)
+ ;;=3D281.1^^65^550^90
+ ;;^UTILITY(U,$J,358.3,7734,1,0)
+ ;;=3D^358.31IA^5^2
+ ;;^UTILITY(U,$J,358.3,7734,1,4,0)
+ ;;=3D4^281.1
+ ;;^UTILITY(U,$J,358.3,7734,1,5,0)
+ ;;=3D5^Vit B12 Deficiency(Dietary)
+ ;;^UTILITY(U,$J,358.3,7734,2)
+ ;;=3D^267974
+ ;;^UTILITY(U,$J,358.3,7735,0)
+ ;;=3D286.7^^65^550^92
+ ;;^UTILITY(U,$J,358.3,7735,1,0)
+ ;;=3D^358.31IA^5^2
+ ;;^UTILITY(U,$J,358.3,7735,1,4,0)
+ ;;=3D4^286.7
+ ;;^UTILITY(U,$J,358.3,7735,1,5,0)
+ ;;=3D5^Coagulation Defect(Any),Acquired
+ ;;^UTILITY(U,$J,358.3,7735,2)
+ ;;=3D^2235
+ ;;^UTILITY(U,$J,358.3,7736,0)
+ ;;=3D287.4^^65^550^94
+ ;;^UTILITY(U,$J,358.3,7736,1,0)
+ ;;=3D^358.31IA^5^2
+ ;;^UTILITY(U,$J,358.3,7736,1,4,0)
+ ;;=3D4^287.4
+ ;;^UTILITY(U,$J,358.3,7736,1,5,0)
+ ;;=3D5^Thrombocytopenia, Drug Induced
+ ;;^UTILITY(U,$J,358.3,7736,2)
+ ;;=3D^267991
+ ;;^UTILITY(U,$J,358.3,7737,0)
+ ;;=3D289.9^^65^550^95
+ ;;^UTILITY(U,$J,358.3,7737,1,0)
+ ;;=3D^358.31IA^5^2
+ ;;^UTILITY(U,$J,358.3,7737,1,4,0)
+ ;;=3D4^289.9
+ ;;^UTILITY(U,$J,358.3,7737,1,5,0)
+ ;;=3D5^Thrombocytosis, Essential
+ ;;^UTILITY(U,$J,358.3,7737,2)
+ ;;=3D^55344
+ ;;^UTILITY(U,$J,358.3,7738,0)
+ ;;=3D451.9^^65^550^96
+ ;;^UTILITY(U,$J,358.3,7738,1,0)
+ ;;=3D^358.31IA^5^2
+ ;;^UTILITY(U,$J,358.3,7738,1,4,0)
+ ;;=3D4^451.9
+ ;;^UTILITY(U,$J,358.3,7738,1,5,0)
+ ;;=3D5^Thrombophlebitis=20
+ ;;^UTILITY(U,$J,358.3,7738,2)
+ ;;=3D^93357
+ ;;^UTILITY(U,$J,358.3,7739,0)
+ ;;=3D446.6^^65^550^97
+ ;;^UTILITY(U,$J,358.3,7739,1,0)
+ ;;=3D^358.31IA^5^2
+ ;;^UTILITY(U,$J,358.3,7739,1,4,0)
+ ;;=3D4^446.6
+ ;;^UTILITY(U,$J,358.3,7739,1,5,0)
+ ;;=3D5^Thrombotic Thrombocytopenic Purpura(Ttp)
+ ;;^UTILITY(U,$J,358.3,7739,2)
+ ;;=3D^119061
+ ;;^UTILITY(U,$J,358.3,7740,0)
+ ;;=3D286.4^^65^550^98
+ ;;^UTILITY(U,$J,358.3,7740,1,0)
+ ;;=3D^358.31IA^5^2
+ ;;^UTILITY(U,$J,358.3,7740,1,4,0)
+ ;;=3D4^286.4

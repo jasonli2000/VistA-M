@@ -1,384 +1,279 @@
-IBDEI02J ; ; 20-FEB-2013
- ;;3.0;IB ENCOUNTER FORM IMP/EXP;;FEB 20, 2013
- Q:'DIFQR(358.3)  F I=1:2 S X=$T(Q+I) Q:X=""  S Y=$E($T(Q+I+1),4,999),X=$E(X,4,999) S:$A(Y)=126 I=I+1,Y=$E(Y,2,999)_$E($T(Q+I+1),5,99) S:$A(Y)=61 Y=$E(Y,2,999) X NO E  S @X=Y
+IBDEI02J ; ; 06-DEC-2010
+ ;;3.0;IB ENCOUNTER FORM IMP/EXP;;DEC 06, 2010
+ Q:'DIFQR(358.6)  F I=3D1:2 S X=3D$T(Q+I) Q:X=3D""  S
+Y=3D$E($T(Q+I+1),4,999),X=3D$E(X,4,999) S:$A(Y)=3D126
+I=3DI+1,Y=3D$E(Y,2,999)_$E($T(Q+I+1),5,99) S:$A(Y)=3D61 Y=3D$E(Y,2,999) =
+X NO E
+S @X=3DY
 Q Q
- ;;^UTILITY(U,$J,358.3,2893,2)
- ;;=^87364
- ;;^UTILITY(U,$J,358.3,2894,0)
- ;;=728.6^^34^236^24
- ;;^UTILITY(U,$J,358.3,2894,1,0)
- ;;=^358.31IA^4^2
- ;;^UTILITY(U,$J,358.3,2894,1,3,0)
- ;;=3^Contracted Palmar Fascia
- ;;^UTILITY(U,$J,358.3,2894,1,4,0)
- ;;=4^728.6
- ;;^UTILITY(U,$J,358.3,2894,2)
- ;;=^28077
- ;;^UTILITY(U,$J,358.3,2895,0)
- ;;=728.85^^34^236^123
- ;;^UTILITY(U,$J,358.3,2895,1,0)
- ;;=^358.31IA^4^2
- ;;^UTILITY(U,$J,358.3,2895,1,3,0)
- ;;=3^Spasm Of Muscle
- ;;^UTILITY(U,$J,358.3,2895,1,4,0)
- ;;=4^728.85
- ;;^UTILITY(U,$J,358.3,2895,2)
- ;;=^112558
- ;;^UTILITY(U,$J,358.3,2896,0)
- ;;=727.81^^34^236^25
- ;;^UTILITY(U,$J,358.3,2896,1,0)
- ;;=^358.31IA^4^2
- ;;^UTILITY(U,$J,358.3,2896,1,3,0)
- ;;=3^Contracture Of Tendon
- ;;^UTILITY(U,$J,358.3,2896,1,4,0)
- ;;=4^727.81
- ;;^UTILITY(U,$J,358.3,2896,2)
- ;;=^272586
- ;;^UTILITY(U,$J,358.3,2897,0)
- ;;=717.7^^34^236^22
- ;;^UTILITY(U,$J,358.3,2897,1,0)
- ;;=^358.31IA^4^2
- ;;^UTILITY(U,$J,358.3,2897,1,3,0)
- ;;=3^Chondromalacia Patellae
- ;;^UTILITY(U,$J,358.3,2897,1,4,0)
- ;;=4^717.7
- ;;^UTILITY(U,$J,358.3,2897,2)
- ;;=^23780
- ;;^UTILITY(U,$J,358.3,2898,0)
- ;;=717.9^^34^236^33
- ;;^UTILITY(U,$J,358.3,2898,1,0)
- ;;=^358.31IA^4^2
- ;;^UTILITY(U,$J,358.3,2898,1,3,0)
- ;;=3^Int Derangement Knee Nos
- ;;^UTILITY(U,$J,358.3,2898,1,4,0)
- ;;=4^717.9
- ;;^UTILITY(U,$J,358.3,2898,2)
- ;;=^272277
- ;;^UTILITY(U,$J,358.3,2899,0)
- ;;=718.86^^34^236^59
- ;;^UTILITY(U,$J,358.3,2899,1,0)
- ;;=^358.31IA^4^2
- ;;^UTILITY(U,$J,358.3,2899,1,3,0)
- ;;=3^Jt Derangement Nec-L/Leg
- ;;^UTILITY(U,$J,358.3,2899,1,4,0)
- ;;=4^718.86
- ;;^UTILITY(U,$J,358.3,2899,2)
- ;;=^272345
- ;;^UTILITY(U,$J,358.3,2900,0)
- ;;=718.81^^34^236^60
- ;;^UTILITY(U,$J,358.3,2900,1,0)
- ;;=^358.31IA^4^2
- ;;^UTILITY(U,$J,358.3,2900,1,3,0)
- ;;=3^Jt Derangment Nec-Shlder
- ;;^UTILITY(U,$J,358.3,2900,1,4,0)
- ;;=4^718.81
- ;;^UTILITY(U,$J,358.3,2900,2)
- ;;=^272340
- ;;^UTILITY(U,$J,358.3,2901,0)
- ;;=727.04^^34^236^103
- ;;^UTILITY(U,$J,358.3,2901,1,0)
- ;;=^358.31IA^4^2
- ;;^UTILITY(U,$J,358.3,2901,1,3,0)
- ;;=3^Radial Styloid Tenosynov
- ;;^UTILITY(U,$J,358.3,2901,1,4,0)
- ;;=4^727.04
- ;;^UTILITY(U,$J,358.3,2901,2)
- ;;=^272561
- ;;^UTILITY(U,$J,358.3,2902,0)
- ;;=719.00^^34^236^42
- ;;^UTILITY(U,$J,358.3,2902,1,0)
- ;;=^358.31IA^4^2
- ;;^UTILITY(U,$J,358.3,2902,1,3,0)
- ;;=3^Joint Effusion-Unspec
- ;;^UTILITY(U,$J,358.3,2902,1,4,0)
- ;;=4^719.00
- ;;^UTILITY(U,$J,358.3,2902,2)
- ;;=^38674
- ;;^UTILITY(U,$J,358.3,2903,0)
- ;;=726.32^^34^236^61
- ;;^UTILITY(U,$J,358.3,2903,1,0)
- ;;=^358.31IA^4^2
- ;;^UTILITY(U,$J,358.3,2903,1,3,0)
- ;;=3^Lateral Epicondylitis
- ;;^UTILITY(U,$J,358.3,2903,1,4,0)
- ;;=4^726.32
- ;;^UTILITY(U,$J,358.3,2903,2)
- ;;=^117801
- ;;^UTILITY(U,$J,358.3,2904,0)
- ;;=726.31^^34^236^69
- ;;^UTILITY(U,$J,358.3,2904,1,0)
- ;;=^358.31IA^4^2
- ;;^UTILITY(U,$J,358.3,2904,1,3,0)
- ;;=3^Medial Epicondylitis
- ;;^UTILITY(U,$J,358.3,2904,1,4,0)
- ;;=4^726.31
- ;;^UTILITY(U,$J,358.3,2904,2)
- ;;=^272532
- ;;^UTILITY(U,$J,358.3,2905,0)
- ;;=727.63^^34^236^106
- ;;^UTILITY(U,$J,358.3,2905,1,0)
- ;;=^358.31IA^4^2
- ;;^UTILITY(U,$J,358.3,2905,1,3,0)
- ;;=3^Rupt Exten Tendon Hand
- ;;^UTILITY(U,$J,358.3,2905,1,4,0)
- ;;=4^727.63
- ;;^UTILITY(U,$J,358.3,2905,2)
- ;;=^272579
- ;;^UTILITY(U,$J,358.3,2906,0)
- ;;=728.71^^34^236^100
- ;;^UTILITY(U,$J,358.3,2906,1,0)
- ;;=^358.31IA^4^2
- ;;^UTILITY(U,$J,358.3,2906,1,3,0)
- ;;=3^Plantar Fibromatosis
- ;;^UTILITY(U,$J,358.3,2906,1,4,0)
- ;;=4^728.71
- ;;^UTILITY(U,$J,358.3,2906,2)
- ;;=^272598
- ;;^UTILITY(U,$J,358.3,2907,0)
- ;;=727.64^^34^236^107
- ;;^UTILITY(U,$J,358.3,2907,1,0)
- ;;=^358.31IA^4^2
- ;;^UTILITY(U,$J,358.3,2907,1,3,0)
- ;;=3^Rupt Flexor Tendon Hand
- ;;^UTILITY(U,$J,358.3,2907,1,4,0)
- ;;=4^727.64
- ;;^UTILITY(U,$J,358.3,2907,2)
- ;;=^272580
- ;;^UTILITY(U,$J,358.3,2908,0)
- ;;=736.81^^34^236^132
- ;;^UTILITY(U,$J,358.3,2908,1,0)
- ;;=^358.31IA^4^2
- ;;^UTILITY(U,$J,358.3,2908,1,3,0)
- ;;=3^Unequal Leg Length
- ;;^UTILITY(U,$J,358.3,2908,1,4,0)
- ;;=4^736.81
- ;;^UTILITY(U,$J,358.3,2908,2)
- ;;=^68758
- ;;^UTILITY(U,$J,358.3,2909,0)
- ;;=728.9^^34^236^78
- ;;^UTILITY(U,$J,358.3,2909,1,0)
- ;;=^358.31IA^4^2
- ;;^UTILITY(U,$J,358.3,2909,1,3,0)
- ;;=3^Muscle/Ligament Dis Nos
- ;;^UTILITY(U,$J,358.3,2909,1,4,0)
- ;;=4^728.9
- ;;^UTILITY(U,$J,358.3,2909,2)
- ;;=^123859
- ;;^UTILITY(U,$J,358.3,2910,0)
- ;;=729.2^^34^236^81
- ;;^UTILITY(U,$J,358.3,2910,1,0)
- ;;=^358.31IA^4^2
- ;;^UTILITY(U,$J,358.3,2910,1,3,0)
- ;;=3^Neuralgia/Neuritis Nos
- ;;^UTILITY(U,$J,358.3,2910,1,4,0)
- ;;=4^729.2
- ;;^UTILITY(U,$J,358.3,2910,2)
- ;;=^82605
- ;;^UTILITY(U,$J,358.3,2911,0)
- ;;=715.97^^34^236^91
- ;;^UTILITY(U,$J,358.3,2911,1,0)
- ;;=^358.31IA^4^2
- ;;^UTILITY(U,$J,358.3,2911,1,3,0)
- ;;=3^Osteoarthros Nos-Ankle
- ;;^UTILITY(U,$J,358.3,2911,1,4,0)
- ;;=4^715.97
- ;;^UTILITY(U,$J,358.3,2911,2)
- ;;=^272168
- ;;^UTILITY(U,$J,358.3,2912,0)
- ;;=715.94^^34^236^92
- ;;^UTILITY(U,$J,358.3,2912,1,0)
- ;;=^358.31IA^4^2
- ;;^UTILITY(U,$J,358.3,2912,1,3,0)
- ;;=3^Osteoarthros Nos-Hand
- ;;^UTILITY(U,$J,358.3,2912,1,4,0)
- ;;=4^715.94
- ;;^UTILITY(U,$J,358.3,2912,2)
- ;;=^272165
- ;;^UTILITY(U,$J,358.3,2913,0)
- ;;=715.96^^34^236^93
- ;;^UTILITY(U,$J,358.3,2913,1,0)
- ;;=^358.31IA^4^2
- ;;^UTILITY(U,$J,358.3,2913,1,3,0)
- ;;=3^Osteoarthros Nos-L/Leg
- ;;^UTILITY(U,$J,358.3,2913,1,4,0)
- ;;=4^715.96
- ;;^UTILITY(U,$J,358.3,2913,2)
- ;;=^272167
- ;;^UTILITY(U,$J,358.3,2914,0)
- ;;=715.91^^34^236^94
- ;;^UTILITY(U,$J,358.3,2914,1,0)
- ;;=^358.31IA^4^2
- ;;^UTILITY(U,$J,358.3,2914,1,3,0)
- ;;=3^Osteoarthros Nos-Shlder
- ;;^UTILITY(U,$J,358.3,2914,1,4,0)
- ;;=4^715.91
- ;;^UTILITY(U,$J,358.3,2914,2)
- ;;=^272162
- ;;^UTILITY(U,$J,358.3,2915,0)
- ;;=715.00^^34^236^32
- ;;^UTILITY(U,$J,358.3,2915,1,0)
- ;;=^358.31IA^4^2
- ;;^UTILITY(U,$J,358.3,2915,1,3,0)
- ;;=3^General Osteoarthrosis
- ;;^UTILITY(U,$J,358.3,2915,1,4,0)
- ;;=4^715.00
- ;;^UTILITY(U,$J,358.3,2915,2)
- ;;=^272125
- ;;^UTILITY(U,$J,358.3,2916,0)
- ;;=733.00^^34^236^95
- ;;^UTILITY(U,$J,358.3,2916,1,0)
- ;;=^358.31IA^4^2
- ;;^UTILITY(U,$J,358.3,2916,1,3,0)
- ;;=3^Osteoporosis Nos
- ;;^UTILITY(U,$J,358.3,2916,1,4,0)
- ;;=4^733.00
- ;;^UTILITY(U,$J,358.3,2916,2)
- ;;=^87159
- ;;^UTILITY(U,$J,358.3,2917,0)
- ;;=734.^^34^236^31
- ;;^UTILITY(U,$J,358.3,2917,1,0)
- ;;=^358.31IA^4^2
- ;;^UTILITY(U,$J,358.3,2917,1,3,0)
- ;;=3^Flat Foot
- ;;^UTILITY(U,$J,358.3,2917,1,4,0)
- ;;=4^734.
- ;;^UTILITY(U,$J,358.3,2917,2)
- ;;=^46756
- ;;^UTILITY(U,$J,358.3,2918,0)
- ;;=726.10^^34^236^105
- ;;^UTILITY(U,$J,358.3,2918,1,0)
- ;;=^358.31IA^4^2
- ;;^UTILITY(U,$J,358.3,2918,1,3,0)
- ;;=3^Rotator Cuff Synd Nos
- ;;^UTILITY(U,$J,358.3,2918,1,4,0)
- ;;=4^726.10
- ;;^UTILITY(U,$J,358.3,2918,2)
- ;;=^272523
- ;;^UTILITY(U,$J,358.3,2919,0)
- ;;=726.64^^34^236^99
- ;;^UTILITY(U,$J,358.3,2919,1,0)
- ;;=^358.31IA^4^2
- ;;^UTILITY(U,$J,358.3,2919,1,3,0)
- ;;=3^Patellar Tendinitis
- ;;^UTILITY(U,$J,358.3,2919,1,4,0)
- ;;=4^726.64
- ;;^UTILITY(U,$J,358.3,2919,2)
- ;;=^272545
- ;;^UTILITY(U,$J,358.3,2920,0)
- ;;=726.12^^34^236^12
- ;;^UTILITY(U,$J,358.3,2920,1,0)
- ;;=^358.31IA^4^2
- ;;^UTILITY(U,$J,358.3,2920,1,3,0)
- ;;=3^Bicipital Tenosynovitis
- ;;^UTILITY(U,$J,358.3,2920,1,4,0)
- ;;=4^726.12
- ;;^UTILITY(U,$J,358.3,2920,2)
- ;;=^272525
- ;;^UTILITY(U,$J,358.3,2921,0)
- ;;=727.05^^34^236^126
- ;;^UTILITY(U,$J,358.3,2921,1,0)
- ;;=^358.31IA^4^2
- ;;^UTILITY(U,$J,358.3,2921,1,3,0)
- ;;=3^Tenosynov Hand/Wrist Nec
- ;;^UTILITY(U,$J,358.3,2921,1,4,0)
- ;;=4^727.05
- ;;^UTILITY(U,$J,358.3,2921,2)
- ;;=^272563
- ;;^UTILITY(U,$J,358.3,2922,0)
- ;;=716.91^^34^236^10
- ;;^UTILITY(U,$J,358.3,2922,1,0)
- ;;=^358.31IA^4^2
- ;;^UTILITY(U,$J,358.3,2922,1,3,0)
- ;;=3^Arthropathy/Arthritis,Shoulder
- ;;^UTILITY(U,$J,358.3,2922,1,4,0)
- ;;=4^716.91
- ;;^UTILITY(U,$J,358.3,2922,2)
- ;;=^272248
- ;;^UTILITY(U,$J,358.3,2923,0)
- ;;=726.33^^34^236^89
- ;;^UTILITY(U,$J,358.3,2923,1,0)
- ;;=^358.31IA^4^2
- ;;^UTILITY(U,$J,358.3,2923,1,3,0)
- ;;=3^Olecranon Bursitis
- ;;^UTILITY(U,$J,358.3,2923,1,4,0)
- ;;=4^726.33
- ;;^UTILITY(U,$J,358.3,2923,2)
- ;;=^259119
- ;;^UTILITY(U,$J,358.3,2924,0)
- ;;=307.81^^34^236^127
- ;;^UTILITY(U,$J,358.3,2924,1,0)
- ;;=^358.31IA^4^2
- ;;^UTILITY(U,$J,358.3,2924,1,3,0)
- ;;=3^Tension Headache
- ;;^UTILITY(U,$J,358.3,2924,1,4,0)
- ;;=4^307.81
- ;;^UTILITY(U,$J,358.3,2924,2)
- ;;=^100405
- ;;^UTILITY(U,$J,358.3,2925,0)
- ;;=353.0^^34^236^14
- ;;^UTILITY(U,$J,358.3,2925,1,0)
- ;;=^358.31IA^4^2
- ;;^UTILITY(U,$J,358.3,2925,1,3,0)
- ;;=3^Brachial Plexus Lesions
- ;;^UTILITY(U,$J,358.3,2925,1,4,0)
- ;;=4^353.0
- ;;^UTILITY(U,$J,358.3,2925,2)
- ;;=^16605
- ;;^UTILITY(U,$J,358.3,2926,0)
- ;;=721.91^^34^236^125
- ;;^UTILITY(U,$J,358.3,2926,1,0)
- ;;=^358.31IA^4^2
- ;;^UTILITY(U,$J,358.3,2926,1,3,0)
- ;;=3^Spondylosis NOS w/ Myelop
- ;;^UTILITY(U,$J,358.3,2926,1,4,0)
- ;;=4^721.91
- ;;^UTILITY(U,$J,358.3,2926,2)
- ;;=^272464
- ;;^UTILITY(U,$J,358.3,2927,0)
- ;;=722.10^^34^236^29
- ;;^UTILITY(U,$J,358.3,2927,1,0)
- ;;=^358.31IA^4^2
- ;;^UTILITY(U,$J,358.3,2927,1,3,0)
- ;;=3^Displacement Lumbar Disc w/o Myelop
- ;;^UTILITY(U,$J,358.3,2927,1,4,0)
- ;;=4^722.10
- ;;^UTILITY(U,$J,358.3,2927,2)
- ;;=^272469
- ;;^UTILITY(U,$J,358.3,2928,0)
- ;;=722.11^^34^236^30
- ;;^UTILITY(U,$J,358.3,2928,1,0)
- ;;=^358.31IA^4^2
- ;;^UTILITY(U,$J,358.3,2928,1,3,0)
- ;;=3^Displacmnt Thoracic Disc w/o Myelop
- ;;^UTILITY(U,$J,358.3,2928,1,4,0)
- ;;=4^722.11
- ;;^UTILITY(U,$J,358.3,2928,2)
- ;;=^272470
- ;;^UTILITY(U,$J,358.3,2929,0)
- ;;=722.31^^34^236^111
- ;;^UTILITY(U,$J,358.3,2929,1,0)
- ;;=^358.31IA^4^2
- ;;^UTILITY(U,$J,358.3,2929,1,3,0)
- ;;=3^Schmorls Node-Thoracic
- ;;^UTILITY(U,$J,358.3,2929,1,4,0)
- ;;=4^722.31
- ;;^UTILITY(U,$J,358.3,2929,2)
- ;;=^272475
- ;;^UTILITY(U,$J,358.3,2930,0)
- ;;=722.32^^34^236^110
- ;;^UTILITY(U,$J,358.3,2930,1,0)
- ;;=^358.31IA^4^2
- ;;^UTILITY(U,$J,358.3,2930,1,3,0)
- ;;=3^Schmorls Node-Lumbar
- ;;^UTILITY(U,$J,358.3,2930,1,4,0)
- ;;=4^722.32
- ;;^UTILITY(U,$J,358.3,2930,2)
- ;;=^272476
- ;;^UTILITY(U,$J,358.3,2931,0)
- ;;=722.4^^34^236^26
- ;;^UTILITY(U,$J,358.3,2931,1,0)
- ;;=^358.31IA^4^2
- ;;^UTILITY(U,$J,358.3,2931,1,3,0)
- ;;=3^Degeneration-Cervical Disc
- ;;^UTILITY(U,$J,358.3,2931,1,4,0)
- ;;=4^722.4
+ ;;^UTILITY(U,$J,358.6)
+ ;;=3D^IBE(358.6,
+ ;;^UTILITY(U,$J,358.6,0)
+ ;;=3DIMP/EXP PACKAGE INTERFACE^358.6I^10^10
+ ;;^UTILITY(U,$J,358.6,1,0)
+ ;;=3DDG SELECT CPT PROCEDURE
+CODES^CPT^IBDFN4^SCHEDULING^^3^2^^1^^^1^2^^^^^^^^1
+ ;;^UTILITY(U,$J,358.6,1,1,0)
+ ;;=3D^^2^2^2961007^^^^
+ ;;^UTILITY(U,$J,358.6,1,1,1,0)
+ ;;=3DAllows for the selection of CPT codes from the CPT file. Only =
+active
+codes
+ ;;^UTILITY(U,$J,358.6,1,1,2,0)
+ ;;=3Dare allowed.
+ ;;^UTILITY(U,$J,358.6,1,2)
+ ;;=3DCODE^5^SHORT NAME^28^DESCRIPTION^161^^^^^^^^^^CODE^1^1
+ ;;^UTILITY(U,$J,358.6,1,3)
+ ;;=3DSELECT CPT PROCEDURE CODES
+ ;;^UTILITY(U,$J,358.6,1,9)
+ ;;=3DS X=3D$$CPT^IBDFN12(X)
+ ;;^UTILITY(U,$J,358.6,1,11)
+ ;;=3DD TESTCPT^IBDFN7
+ ;;^UTILITY(U,$J,358.6,1,15,0)
+ ;;=3D^357.615I^2^2
+ ;;^UTILITY(U,$J,358.6,1,15,1,0)
+ ;;=3DSHORT NAME^28^2^^PROCEDURE
+ ;;^UTILITY(U,$J,358.6,1,15,2,0)
+ ;;=3DDESCRIPTION^161^3^^PROCEDURE
+ ;;^UTILITY(U,$J,358.6,1,16)
+ ;;=3Do^1^Procedure Narrative^^r^2^CPT CODE^1
+ ;;^UTILITY(U,$J,358.6,2,0)
+ ;;=3DINPUT PROCEDURE CODE (CPT4)^^^PATIENT CARE
+ENCOUNTER^^1^4^^1^0^^1^^^^SMP
+ ;;^UTILITY(U,$J,358.6,2,1,0)
+ ;;=3D^^1^1^2960205^^^^
+ ;;^UTILITY(U,$J,358.6,2,1,1,0)
+ ;;=3DUsed for inputting CPT coded procedures performed on the patient.
+ ;;^UTILITY(U,$J,358.6,2,2)
+ ;;=3D^^^^^^^^^^^^^^^^^1
+ ;;^UTILITY(U,$J,358.6,2,3)
+ ;;=3DCPT4 PROCEDURE CODES
+ ;;^UTILITY(U,$J,358.6,2,9)
+ ;;=3DD INPUTCPT^IBDFN8(.X)
+ ;;^UTILITY(U,$J,358.6,2,10)
+ ;;=3DEnter an active CPT procedure code.
+ ;;^UTILITY(U,$J,358.6,2,11)
+ ;;=3DD TESTCPT^IBDFN7
+ ;;^UTILITY(U,$J,358.6,2,12)
+ ;;=3DPROCEDURE^1^6^7^3^2
+ ;;^UTILITY(U,$J,358.6,2,13,0)
+ ;;=3D^358.613V^2^2
+ ;;^UTILITY(U,$J,358.6,2,13,1,0)
+ ;;=3D1;IBD(358.98,^^0
+ ;;^UTILITY(U,$J,358.6,2,13,2,0)
+ ;;=3D2;IBD(358.98,^^0
+ ;;^UTILITY(U,$J,358.6,2,14)
+ ;;=3DS Y=3D$$DSPLYCPT^IBDFN9(Y)
+ ;;^UTILITY(U,$J,358.6,2,17)
+ ;;=3DD SLCTCPT^IBDFN12(.X)
+ ;;^UTILITY(U,$J,358.6,2,18)
+ ;;=3DS IBDF("OTHER")=3D"81^I '$P(^(0),U,4)" D
+LIST^IBDFDE2(.IBDSEL,.IBDF,"CPT Procedure Code")
+ ;;^UTILITY(U,$J,358.6,2,19)
+ ;;=3DD CPT^IBDFN14(X)
+ ;;^UTILITY(U,$J,358.6,3,0)
+ ;;=3DDPT PATIENT'S NAME^VADPT^IBDFN^REGISTRATION^1^2^1^1^1^^^1
+ ;;^UTILITY(U,$J,358.6,3,1,0)
+ ;;=3D^^2^2^2930212^^^^
+ ;;^UTILITY(U,$J,358.6,3,1,1,0)
+ ;;=3D=20
+ ;;^UTILITY(U,$J,358.6,3,1,2,0)
+ ;;=3DPatient's Name
+ ;;^UTILITY(U,$J,358.6,3,2)
+ ;;=3DPatient's Name^30^^^^^^^^^^^^^^^1
+ ;;^UTILITY(U,$J,358.6,3,3)
+ ;;=3DPATIENT NAME
+ ;;^UTILITY(U,$J,358.6,3,7,0)
+ ;;=3D^357.67^1^1
+ ;;^UTILITY(U,$J,358.6,3,7,1,0)
+ ;;=3DDFN
+ ;;^UTILITY(U,$J,358.6,3,15,0)
+ ;;=3D^357.615I^0^0
+ ;;^UTILITY(U,$J,358.6,4,0)
+ ;;=3DDPT PATIENT'S PID^VADPT^IBDFN^REGISTRATION^1^2^1^1^1^^^1
+ ;;^UTILITY(U,$J,358.6,4,1,0)
+ ;;=3D^^1^1^2931015^^
+ ;;^UTILITY(U,$J,358.6,4,1,1,0)
+ ;;=3DUsed to display the patient identifier.
+ ;;^UTILITY(U,$J,358.6,4,2)
+ ;;=3DPATIENT IDENTIFIER^15^^^^^^^^^^^^^^^1
+ ;;^UTILITY(U,$J,358.6,4,3)
+ ;;=3DPATIENT IDENTIFIER PID
+ ;;^UTILITY(U,$J,358.6,4,7,0)
+ ;;=3D^357.67^1^1
+ ;;^UTILITY(U,$J,358.6,4,7,1,0)
+ ;;=3DDFN
+ ;;^UTILITY(U,$J,358.6,4,15,0)
+ ;;=3D^357.615I^0^0
+ ;;^UTILITY(U,$J,358.6,5,0)
+ ;;=3DDPT PATIENT'S DOB/AGE^VADPT^IBDFN^REGISTRATION^1^2^2^^1^^^1
+ ;;^UTILITY(U,$J,358.6,5,1,0)
+ ;;=3D^^2^2^2951023^
+ ;;^UTILITY(U,$J,358.6,5,1,1,0)
+ ;;=3DPatient's DOB in MM DD, YYYY format
+ ;;^UTILITY(U,$J,358.6,5,1,2,0)
+ ;;=3DPatient's age in years.
+ ;;^UTILITY(U,$J,358.6,5,2)
+ ;;=3DPatient's DOB^12^Patient's Age^3^^^^^^^^^^^^^1
+ ;;^UTILITY(U,$J,358.6,5,3)
+ ;;=3DPATIENT DOB AGE PIMS
+ ;;^UTILITY(U,$J,358.6,5,7,0)
+ ;;=3D^357.67^1^1
+ ;;^UTILITY(U,$J,358.6,5,7,1,0)
+ ;;=3DDFN
+ ;;^UTILITY(U,$J,358.6,5,15,0)
+ ;;=3D^357.615I^1^1
+ ;;^UTILITY(U,$J,358.6,5,15,1,0)
+ ;;=3DPatient's Age^3^2^
+ ;;^UTILITY(U,$J,358.6,6,0)
+ ;;=3DDG SELECT ICD-9 DIAGNOSIS
+CODES^ICD9^IBDFN4^SCHEDULING^^3^2^^1^^^1^7^^^^1^1
+ ;;^UTILITY(U,$J,358.6,6,1,0)
+ ;;=3D^^2^2^2970304^^^^
+ ;;^UTILITY(U,$J,358.6,6,1,1,0)
+ ;;=3DAllows the user to select ICD-9 diagnosis codes from the ICD
+Diagnosis
+ ;;^UTILITY(U,$J,358.6,6,1,2,0)
+ ;;=3Dfile. Allows only active codes to be selected.
+ ;;^UTILITY(U,$J,358.6,6,2)
+ ;;=3DCODE^7^DIAGNOSIS^30^DESCRIPTION^200^^^^^^^^^^^1^1
+ ;;^UTILITY(U,$J,358.6,6,3)
+ ;;=3DSELECT ICD9 ICD-9 CODES DIAGNOSIS
+ ;;^UTILITY(U,$J,358.6,6,9)
+ ;;=3DD INPUTICD^IBDFN8(.X)
+ ;;^UTILITY(U,$J,358.6,6,11)
+ ;;=3DD TESTICD^IBDFN7
+ ;;^UTILITY(U,$J,358.6,6,13,0)
+ ;;=3D^358.613V^2^2
+ ;;^UTILITY(U,$J,358.6,6,13,1,0)
+ ;;=3D1;IBD(358.98,
+ ;;^UTILITY(U,$J,358.6,6,13,2,0)
+ ;;=3D2;IBD(358.98,
+ ;;^UTILITY(U,$J,358.6,6,15,0)
+ ;;=3D^357.615I^2^2
+ ;;^UTILITY(U,$J,358.6,6,15,1,0)
+ ;;=3DDIAGNOSIS^30^2^^DIAGNOSIS
+ ;;^UTILITY(U,$J,358.6,6,15,2,0)
+ ;;=3DDESCRIPTION^200^3^^DIAGNOSIS
+ ;;^UTILITY(U,$J,358.6,6,16)
+ ;;=3Do^1^Diagnosis^^r^3^ICD-9 Code^^1
+ ;;^UTILITY(U,$J,358.6,6,17)
+ ;;=3DD SLCTDX^IBDFN12(.X)
+ ;;^UTILITY(U,$J,358.6,6,19)
+ ;;=3DD DX^IBDFN14(X)
+ ;;^UTILITY(U,$J,358.6,7,0)
+ ;;=3DINPUT DIAGNOSIS CODE (ICD9)^^^PATIENT CARE
+ENCOUNTER^^1^^^1^^^1^^^^SMP^^^1
+ ;;^UTILITY(U,$J,358.6,7,1,0)
+ ;;=3D^^1^1^2970304^^^^
+ ;;^UTILITY(U,$J,358.6,7,1,1,0)
+ ;;=3DUsed for inputting ICD9 diagnosis codes.
+ ;;^UTILITY(U,$J,358.6,7,2)
+ ;;=3D^^^^^^^^^^^^^^^^^1
+ ;;^UTILITY(U,$J,358.6,7,3)
+ ;;=3DINPUT ICD9 ICD-9 DIAGNOSIS CODES
+ ;;^UTILITY(U,$J,358.6,7,9)
+ ;;=3DD INPUTICD^IBDFN8(.X)
+ ;;^UTILITY(U,$J,358.6,7,10)
+ ;;=3DEnter an active ICD9 diagnosis code.
+ ;;^UTILITY(U,$J,358.6,7,11)
+ ;;=3DD TESTICD^IBDFN7
+ ;;^UTILITY(U,$J,358.6,7,12)
+ ;;=3DDIAGNOSIS/PROBLEM^1^13^14^2
+ ;;^UTILITY(U,$J,358.6,7,13,0)
+ ;;=3D^358.613V^10^10
+ ;;^UTILITY(U,$J,358.6,7,13,1,0)
+ ;;=3D1;IBD(358.98,^^1^^^^^2
+ ;;^UTILITY(U,$J,358.6,7,13,2,0)
+ ;;=3D2;IBD(358.98,^^1^^^^^2
+ ;;^UTILITY(U,$J,358.6,7,13,3,0)
+ ;;=3D3;IBD(358.98,^^1^^^^^9
+ ;;^UTILITY(U,$J,358.6,7,13,4,0)
+ ;;=3D3;IBE(358.99,^^0
+ ;;^UTILITY(U,$J,358.6,7,13,5,0)
+ ;;=3D4;IBD(358.98,^^1^^^^^10
+ ;;^UTILITY(U,$J,358.6,7,13,6,0)
+ ;;=3D5;IBD(358.98,^^1^^^^^11
+ ;;^UTILITY(U,$J,358.6,7,13,7,0)
+ ;;=3D6;IBD(358.98,^^1^^^^^12
+ ;;^UTILITY(U,$J,358.6,7,13,8,0)
+ ;;=3D7;IBD(358.98,^^1^^^^^5
+ ;;^UTILITY(U,$J,358.6,7,13,9,0)
+ ;;=3D8;IBD(358.98,^^1^^^^^6
+ ;;^UTILITY(U,$J,358.6,7,13,10,0)
+ ;;=3D9;IBD(358.98,^^1^^^^^6
+ ;;^UTILITY(U,$J,358.6,7,14)
+ ;;=3DS Y=3D$$DSPLYICD^IBDFN9(Y)
+ ;;^UTILITY(U,$J,358.6,7,17)
+ ;;=3DD SLCTDX^IBDFN12(.X)
+ ;;^UTILITY(U,$J,358.6,7,18)
+ ;;=3DS IBDF("OTHER")=3D"80^I '$P(^(0),U,9)" D
+LIST^IBDFDE2(.IBDSEL,.IBDF,"Diagnosis Code")
+ ;;^UTILITY(U,$J,358.6,7,19)
+ ;;=3DD DX^IBDFN14(X)
+ ;;^UTILITY(U,$J,358.6,8,0)
+ ;;=3DDG SELECT VISIT TYPE CPT
+PROCEDURES^VSIT^IBDFN4^SCHEDULING^^3^2^^1^^^1^9^^^^^^^^1
+ ;;^UTILITY(U,$J,358.6,8,1,0)
+ ;;=3D^^1^1^2941116^^^^
+ ;;^UTILITY(U,$J,358.6,8,1,1,0)
+ ;;=3DAllows for select of just Visit type CPT codes from the CPT file.
+ ;;^UTILITY(U,$J,358.6,8,2)
+ ;;=3DCODE^5^RECOMMENDED TEXT-SHORT NAME^40^RECOMMENDED HEADER^30^SHORT
+NAME FROM CPT FILE^28^^^^^^^^^1^1
+ ;;^UTILITY(U,$J,358.6,8,3)
+ ;;=3DSELECT TYPE OF VISIT CPT
+ ;;^UTILITY(U,$J,358.6,8,11)
+ ;;=3DD TESTVST^IBDFN7
+ ;;^UTILITY(U,$J,358.6,8,15,0)
+ ;;=3D^357.615I^4^3
+ ;;^UTILITY(U,$J,358.6,8,15,2,0)
+ ;;=3DRECOMMENDED TEXT-SHORT NAME^40^2
+ ;;^UTILITY(U,$J,358.6,8,15,3,0)
+ ;;=3DRECOMMENDED HEADER^30^3
+ ;;^UTILITY(U,$J,358.6,8,15,4,0)
+ ;;=3DSHORT NAME FROM CPT FILE^28^4
+ ;;^UTILITY(U,$J,358.6,9,0)
+ ;;=3DINPUT VISIT TYPE^^^PATIENT CARE ENCOUNTER^^1^^^1^^^1^^^^SMP
+ ;;^UTILITY(U,$J,358.6,9,1,0)
+ ;;=3D^^1^1^2951023^
+ ;;^UTILITY(U,$J,358.6,9,1,1,0)
+ ;;=3DUsed for inputting the visit type that applies to the visit.
+ ;;^UTILITY(U,$J,358.6,9,2)
+ ;;=3D^^^^^^^^^^^^^^^^^1
+ ;;^UTILITY(U,$J,358.6,9,3)
+ ;;=3DVISIT TYPE OF VISIT
+ ;;^UTILITY(U,$J,358.6,9,9)
+ ;;=3DD INPUTCPT^IBDFN8(.X)
+ ;;^UTILITY(U,$J,358.6,9,10)
+ ;;=3DEnter an active Visit Type code.
+ ;;^UTILITY(U,$J,358.6,9,11)
+ ;;=3DD TESTVST^IBDFN7
+ ;;^UTILITY(U,$J,358.6,9,12)
+ ;;=3DENCOUNTER^5
+ ;;^UTILITY(U,$J,358.6,9,14)
+ ;;=3DS Y=3D$$DSPLYCPT^IBDFN9(Y)
+ ;;^UTILITY(U,$J,358.6,9,17)
+ ;;=3DD SLCTVST^IBDFN12(.X)
+ ;;^UTILITY(U,$J,358.6,9,18)
+ ;;=3DS IBDF("OTHER")=3D"357.69^I '$P(^(0),U,4)" D
+LIST^IBDFDE2(.IBDSEL,.IBDF,"Visit Type (EM) Code")
+ ;;^UTILITY(U,$J,358.6,9,19)
+ ;;=3DD VST^IBDFN14(X)
+ ;;^UTILITY(U,$J,358.6,10,0)
+ ;;=3DIBDF UTILITY FOR LABELS ONLY^LABELS^IBDFN^AUTOMATED INFO =
+COLLECTION
+SYS^0^2^2^^1^^^1
+ ;;^UTILITY(U,$J,358.6,10,1,0)
+ ;;=3D^^2^2^2970319^^^
+ ;;^UTILITY(U,$J,358.6,10,1,1,0)
+ ;;=3DThis interface returns no data. Its purpose is to print labels
+without
+ ;;^UTILITY(U,$J,358.6,10,1,2,0)
+ ;;=3Ddata to the form.
+ ;;^UTILITY(U,$J,358.6,10,2)
+ ;;=3DUnderscore Only^0^^^^^^^^^^^^^^^1
+ ;;^UTILITY(U,$J,358.6,10,3)
+ ;;=3DUTILITY BLANKS LABELS
+ ;;^UTILITY(U,$J,358.6,10,15,0)
+ ;;=3D^357.615I^0^0

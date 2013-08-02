@@ -1,5 +1,5 @@
-ONCACD1 ;Hines OIFO/GWB - Extract NAACCR/STATE/VACCR data ;09/06/11
- ;;2.11;Oncology;**9,12,14,18,20,22,24,25,26,28,29,31,36,37,41,43,47,48,51,52,53,55**;Mar 07, 1995;Build 15
+ONCACD1 ;Hines OIFO/GWB - Extract NAACCR/STATE/VACCR data ;03/04/11
+ ;;2.11;Oncology;**9,12,14,18,20,22,24,25,26,28,29,31,36,37,41,43,47,48,51,52,53**;Mar 07, 1995;Build 31
  ;
 EN1 ;Entry point
  K ^TMP($J)
@@ -57,6 +57,7 @@ LOOP ;Apply extract selection rules
  .X LINE
  Q:'VALID
  S ^TMP($J,IEN)=""
+ S:$P(^ONCO(165.5,IEN,24),U,25)="" $P(^ONCO(165.5,IEN,24),U,25)=DT
  D OUTPUT(IEN,EXTRACT,JUMP,.OUT)
  I 'DEVICE W !
  Q

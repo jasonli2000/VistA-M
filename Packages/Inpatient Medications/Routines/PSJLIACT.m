@@ -1,5 +1,5 @@
 PSJLIACT ;BIR/MV-IV ACTION ;28 Jul 98 / 8:50 AM
- ;;5.0;INPATIENT MEDICATIONS ;**15,47,62,58,82,97,80,110,111,134,181,247,260**;16 DEC 97;Build 94
+ ;;5.0; INPATIENT MEDICATIONS ;**15,47,62,58,82,97,80,110,111,134,181**;16 DEC 97;Build 190
  ;
  ; Reference to ^PS(55 is supported by DBIA 2191.
  ; Reference to MAIN^TIUEDIT is supported by DBIA 2410.
@@ -11,7 +11,6 @@ DC ; Discontinue order
  I PSJCOM W !!,"This order is part of a complex order. If you discontinue this order the",!,"following orders will be discontinued too (unless the stop date has already",!,"been reached)." D CMPLX^PSJCOM1(PSGP,PSJCOM,PSJORD)
  I PSJCOM F  W !!,"Do you want to discontinue this order" S %=1 D YN^DICN Q:%  D ENCOM^PSGOEM
  I PSJCOM,%'=1 S VALMBK="" Q
- I $G(ON55)["P",$G(PSIVOORD) S PSJORD=ON55 ;*247 - Correct DCing newly copied orders
  I PSJORD["V" D DC^PSIVORA D:'$G(PSJOCFLG) EN^PSJLIORD(DFN,ON) Q
  D:PSJORD["P" DISCONT^PSIVORC
  S VALMBCK="Q"
@@ -97,14 +96,9 @@ O ; On Call
  D:P(17)="A" PAUSE^VALM1
  D EN^PSJLIORD(DFN,ON)
  Q
-VF ; Make the order active **ENHANCEMENTS MADE IN PSJ*5.0*260
- NEW PSIVCHG,PSGORQF,PSJVFF S PSIVCHG=0
- IF VALM("TITLE")="ACTIVE IV " W !!,">>>  Verify may not be selected at this point." D PAUSE^VALM1 S VALMBCK="R" Q
- ELSE  IF $G(PSGSTAT)="NON-VERIFIED",$G(PSJNEWOE)=0 S PSJVFF=1 D EN^PSJGMRA($G(DFN),$G(PSGPD)),IN^PSJOCDS($G(PSGORD),"IV",""),OC^PSIVOC K PSJVFF Q:$G(PSGORQF)
- ELSE  IF '$G(PSGORQF),(ON["V") S ON55=ON D VF1("V","ORDER VERIFIED BY ",1) Q
- ELSE  IF $G(PSIVFN1),(ON["V") S ON55=ON D VF1("V","ORDER VERIFIED BY ",1) Q
- ELSE  IF $G(PSGDEF),(ON["V") S ON55=ON D VF1("V","ORDER VERIFIED BY ",1) Q
- ELSE  IF $G(PSIVCOPY),(ON["V") S ON55=ON D VF1("V","ORDER VERIFIED BY ",1) Q
+VF ; Make the order active
+ NEW PSIVCHG S PSIVCHG=0
+ I ON["V" S ON55=ON D VF1("V","ORDER VERIFIED BY ",1) Q
  D ACTIVE^PSIVORC2
  Q
 VF1(PSIVREA,PSIVAL,PSIVLOG) ;

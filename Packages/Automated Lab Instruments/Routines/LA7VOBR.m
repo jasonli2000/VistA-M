@@ -1,5 +1,5 @@
-LA7VOBR ;DALOI/JMC - LAB OBR segment builder ;Feb 26, 2008
- ;;5.2;AUTOMATED LAB INSTRUMENTS;**46,64,68,74**;Sep 27, 1994;Build 229
+LA7VOBR ;DALOI/JMC - LAB OBR segment builder ;Sep 18, 2007
+ ;;5.2;AUTOMATED LAB INSTRUMENTS;**46,64,68**;Sep 27, 1994;Build 56
  ;
  Q
  ;
@@ -86,7 +86,7 @@ OBR9(LA7VOL,LA764061,LA7FS,LA7ECH) ; Build OBR-9 sequence - collection volume
  Q LA7Y
  ;
  ;
-OBR11(LA7X) ; Build OBR-11 sequence - specimen action code
+OBR11(LA7X) ; Build OBR-11 sequence - speciman action code
  ; Call with LA7X = HL7 Table 0065 entry
  ; Returns OBR-11 sequence
  ;
@@ -102,16 +102,18 @@ OBR12(LRDFN,LA7FS,LA7ECH) ; Build OBR-12 sequence - patient info
  ; Returns OBR-12 sequence
  ;
  N LA7X
+ ;
  S LRDFN=$G(LRDFN),LA7ECH=$G(LA7ECH)
  ; Infection Warning
  S LA7X=$P($G(^LR(LRDFN,.091)),"^")
  I LA7X'="" D
  . S LA7X=$$CHKDATA^LA7VHLU3(LA7X,LA7FS_LA7ECH)
  . S LA7X=$E(LA7ECH,1)_LA7X
+ ;
  Q LA7X
  ;
  ;
-OBR13(LA7TXT,LA7FS,LA7ECH) ; Build OBR-13 sequence - relevant clinical info
+OBR13(LA7TXT,LA7FS,LA7ECH) ; Build OBR-13 sequence - revelant clinical info
  ; Call with LA7TXT = text to place into OBR-13
  ;            LA7FS = HL7 field separator
  ;           LA7ECH = HL7 encoding characters
@@ -122,7 +124,7 @@ OBR13(LA7TXT,LA7FS,LA7ECH) ; Build OBR-13 sequence - relevant clinical info
  Q LA7X
  ;
  ;
-OBR14(LA7DT) ; Build OBR-14 sequence - specimen arrival date/time
+OBR14(LA7DT) ; Build OBR-14 sequence - speciman arrival date/time
  ; Call with LA7DT = FileMan date/time
  ; Returns OBR-14 sequence
  ;
@@ -134,7 +136,7 @@ OBR15(LA761,LA762,LA7ALT,LA7FS,LA7ECH,LA7CM,LA7SNM) ; Build OBR-15 sequence - sp
  ; Call with LA761 = ien of topography file #61
  ;           LA762 = ien of collection sample in file #62
  ;          LA7ALT = alternate non-HL7 codes/text/coding system in form -
- ;                   specimen code^specimen text^specimen system^CONTROL^collection sample code^collection sample^collection system^alt specimen SNOMED^alt collection SNOMED.
+ ;                   specimen code^specimen text^specimen system^CONTROL^collection sample code^collection sample^collection system.
  ;                   "CONTROL" only present when specimen is a lab control from file #62.3.
  ;                   presence of these will override standard HL7 tables
  ;           LA7FS = HL7 field separator
@@ -245,6 +247,7 @@ OBR27(LA7DUR,LA7DURU,LA76205,LA7FS,LA7ECH) ; Build OBR-27 sequence - Quantity/Ti
  ;            LA7ECH = HL encoding characters
  ;
  ; Returns OBR-27 sequence
+ ;
  ; Since field is same as ORC-7, use builder for ORC-7 field.
  ;
  Q $$ORC7^LA7VORC(LA7DUR,LA7DURU,LA76205,LA7FS,LA7ECH)
@@ -252,7 +255,7 @@ OBR27(LA7DUR,LA7DURU,LA76205,LA7FS,LA7ECH) ; Build OBR-27 sequence - Quantity/Ti
  ;
 OBR29(LA7PON,LA7FON,LA7FS,LA7ECH)       ; Build OBR-29 sequence - Parent
  ; Call with LA7PON = parent's placer order number
- ;           LA7FON = parent's filler order number
+ ;           LA7FON = parent's filler order nubmer
  ;            LA7FS = HL7 field separator
  ;           LA7ECH = HL7 encoding characters
  ;
@@ -288,7 +291,7 @@ OBR33(LA7DUZ,LA7DIV,LA7FS,LA7ECH) ; Build OBR-32 sequence - Assistant Result Int
  ;
  ;
 OBR34(LA7DUZ,LA7DIV,LA7FS,LA7ECH) ; Build OBR-34 sequence - Technician field
- ; Call with   LA7DUZ = DUZ of technician
+ ; Call with   LA7DUZ = DUZ of techician
  ;             LA7DIV = Institution of user
  ;              LA7FS = HL field separator
  ;             LA7ECH = HL encoding characters

@@ -1,6 +1,6 @@
-RCDPESR4 ;ALB/TMK/PJH - Server interface 835ERA processing ; 06/03/02
- ;;4.5;Accounts Receivable;**173,216,208,230,269,271**;Mar 20, 1995;Build 29
- ;;Per VHA Directive 2004-038, this routine should not be modified.
+RCDPESR4 ;ALB/TMK/PJH - Server interface 835ERA processing ; 8/23/10 6:19pm
+ ;;4.5;Accounts Receivable;**173,216,208,230,269**;Mar 20, 1995;Build 113
+ ;;Per VHA Directive 10-93-142, this routine should not be modified.
  ;
 ERAEOBIN(RCTXN,RCD,RCGBL,RCEFLG) ; Store/process 835ERA or 835XFR
  ;  transaction coming into the site
@@ -13,7 +13,7 @@ ERAEOBIN(RCTXN,RCD,RCGBL,RCEFLG) ; Store/process 835ERA or 835XFR
  S (RCTDA,RCEFLG)=0
  ;
  ;
- F  L +^RCY(344.5,"AMSEQ",+$P(RCTXN,U,13)):30 Q:$T
+ L +^RCY(344.5,"AMSEQ",+$P(RCTXN,U,13))
  S RCMSG=$$EXTERA(RCTXN,.RCLAST,.RCBILL) ; Extract from mail msg
  ;
  ; If full msg received (99^$ record exists), file it
@@ -79,7 +79,7 @@ EXTERA(RCTXN,RCLAST,RCBILL) ;Extract 835ERA or 835XFR transaction
  . I +XMRG=99,$P(XMRG,U,2)="$" S RCLAST=1 Q
  . S CT=CT+1
  . I +XMRG=5,$P(XMRG,U,2)'="" S C5=CT
- . I +XMRG=40,$P(XMRG,U,2)?1.12N,C5,$P(XMRG,U,19),'$D(@RCSD@(C5)) S ^(C5)=+$P(XMRG,U,19)  ; save the service date for possible ECME# look up
+ . I +XMRG=40,$P(XMRG,U,2)?1.7N,C5,$P(XMRG,U,19),'$D(@RCSD@(C5)) S ^(C5)=+$P(XMRG,U,19)
  . S ^TMP("RCMSG",$J,2,"D",CT)=XMRG
  ;
  ; reformat bill# if needed
@@ -90,7 +90,7 @@ EXTERA(RCTXN,RCLAST,RCBILL) ;Extract 835ERA or 835XFR transaction
  . I +XMRG=5,$P(XMRG,U,2)'="" D
  .. S RCREFORM="",RCSTAT=1
  .. ; Check if bill is in AR & is a 3rd party bill
- .. S RCBILL=$$BILL^RCDPESR1($P(XMRG,U,2),$G(@RCSD@(CT)),.RCINS)    ; look up claim ien by claim# or ECME#
+ .. S RCBILL=$$BILL^RCDPESR1($P(XMRG,U,2),$G(@RCSD@(CT)),.RCINS)
  .. I '$G(RCINS)!(RCBILL<0) S (RCBILL,RCSTAT)=0
  .. I RCBILL S B=$P($G(^PRCA(430,RCBILL,0)),U) I B'=$P(XMRG,U,2) S $P(XMRG,U,2)=B,RCREFORM=B
  .. I RCBILL,$P(^PRCA(430.3,+$P($G(^PRCA(430,+RCBILL,0)),U,8),0),U,3)'=102 S RCSTAT=2

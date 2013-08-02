@@ -1,5 +1,5 @@
-HLOPING ;alb/cjm HLO PING UTILITY - 10/4/94 1pm ;07/12/2012
- ;;1.6;HEALTH LEVEL SEVEN;**147,155,158**;Oct 13, 1995;Build 14
+HLOPING ;alb/cjm HLO PING UTILITY - 10/4/94 1pm ;01/27/2010
+ ;;1.6;HEALTH LEVEL SEVEN;**147**;Oct 13, 1995;Build 15
  ;Per VHA Directive 2004-038, this routine should not be modified.
  ;
  ;
@@ -12,7 +12,6 @@ PING ;
  W !,"What HL Logical Link do you want to test?"
  S LINK=$$ASKLINK^HLOUSR
  Q:LINK=""
- I $$NOPING(LINK) W !,"That link does not allowing PINGING!" D PAUSE^VALM1 Q
  S PORT=$$ASKPORT(LINK)
  Q:'PORT
  L +^HLB("QUEUE","OUT",LINK_":"_PORT,"HLOPING"_$J):1
@@ -31,13 +30,6 @@ PING ;
  L -^HLB("QUEUE","OUT",LINK_":"_PORT,"HLOPING"_$J)
  D STARTQUE^HLOQUE("OUT","HLOPING"_$J)
  Q
- ;
-NOPING(LINK) ;
- N IEN,RETURN
- S RETURN=1
- S IEN=$O(^HLCS(870,"B",LINK,0))
- I IEN S RETURN=$P($G(^HLCS(870,IEN,0)),"^",24)
- Q RETURN
  ;
 ASKPORT(LINK) ;
  N IEN,NODE,HLOPORT,HL7PORT,DIR,X,Y
@@ -63,7 +55,7 @@ ADDMSG(LINK) ;
  S PARMS("EVENT")="ZZZ"
  I '$$NEWMSG^HLOAPI(.PARMS,.MSG,.ERROR) W !,"ERROR",ERROR Q 0
  D SET^HLOAPI(.SEG,"NTE",0)
- D SET^HLOAPI(.SEG,"This is a PING message to test connectivity. Sender DUZ: "_$G(DUZ),1)
+ D SET^HLOAPI(.SEG,"This is a PING message to test connectivity.",1)
  I '$$ADDSEG^HLOAPI(.MSG,.SEG,.ERROR) W !,"ERROR",ERROR Q 0
  S PARMS("SENDING APPLICATION")="HLO PING CLIENT",WHOTO("RECEIVING APPLICATION")="HLO PING SERVER",WHOTO("FACILITY LINK NAME")=LINK
  S PARMS("ACCEPT ACK TYPE")="AL"
@@ -75,7 +67,7 @@ ADDMSG(LINK) ;
 PURGE(LINK) ;
  N IEN
  S IEN=0
- F  S IEN=$O(^HLB("QUEUE","OUT",LINK,"HLOPING"_$J,IEN)) Q:'IEN  D DEQUE^HLOQUE(LINK,"HLOPING"_$J,"OUT",IEN),SETPURGE^HLOUSR7(IEN)
+ F  S IEN=$O(^HLB("QUEUE","OUT",LINK,"HLOPING"_$J,IEN)) Q:'IEN  D DEQUE^HLOQUE(LINK,"HLOPING"_$J,"OUT",IEN),SETPURGE^HLOAPI3(IEN)
  Q
  ;
 BREAKS ;
@@ -89,9 +81,7 @@ BREAKS ;
  ;set break in $$IFSHUT^HLOTLNK to circumvent shutdown of the link
  ZB ZB0^HLOTLNK:"N":1:"S RET=0"
  ;set break at ZB1 in client ($$CONNECT)
- ;
  ZB ZB1^HLOCLNT1:"N":1:"D WRITE^HLOPING(""Trying to connect..."")"
- ;
  ;set break at ZB2 in client (end of $$CONNECT)
  ZB ZB2^HLOCLNT1:"N":1:"D ZB2^HLOPING"
  ;
@@ -102,7 +92,6 @@ BREAKS ;
  ;set break at ZB8 in client (start of $$READACK^HLOCLNT1)
  ZB ZB8^HLOCLNT1:"N":1:"D WRITE^HLOPING(""Reading acknowledgment...."")"
  ;set break at ZB9 in client (end of $$READACK^HLOCLNT1)
- ;
  ZB ZB9^HLOCLNT1:"N":1:"D ZB9^HLOPING"
  ;
  ;set break at ZB4 in client (FOR loop on the outgoing queue)
@@ -112,8 +101,6 @@ BREAKS ;
  ZB ZB22^HLOCLNT:"N":1:"S $P(UPDATE,""^"",3)=""SU"",$P(UPDATE,""^"",4)=1"
  ;
  ZB ZB24^HLOCLNT1:"N":1:"D ZB24^HLOPING"
- ZB ZB27^HLOT:"N":1:"D ZB27^HLOPING"
- ;
  ;set break at ZB3 in client (ERROR TRAP)
  ZB ZB3^HLOCLNT:"N":1:"D ZB3^HLOPING"
  Q
@@ -133,8 +120,6 @@ WRITE(MSG) ;
  Q
 ZB2 ;
  D WRITE($S('HLCSTATE("CONNECTED"):"Unable to Connect!",1:"Connected!"))
- ;!!!!!!!!!!!!
- ;F I=1:1:15 H 1
  Q
 ZB3 ;
  N CON,MSG
@@ -150,17 +135,10 @@ ZB9 ;
  .D WRITE("Acknowledgment received!")
  E  D
  .D WRITE("Acknowledgment NOT returned!")
- ;!!!!!!!!!!!!
- ;H 50
  Q
 ZB24 ;
  S HLCSTATE("LINK","SHUTDOWN")=0
  Q
 ZB25 ;
  I '$L(PARMS("RECEIVING FACILITY",2)),'PARMS("RECEIVING FACILITY",1) S PARMS("RECEIVING FACILITY",2)="REMOTE FACILITY TO PING"
- Q
- ;
-ZB27 ;
- Q:'$G(HLCSTATE("LOCK FAILED"))
- D WRITE("Remote server is single threaded and is locked by another process!")
  Q

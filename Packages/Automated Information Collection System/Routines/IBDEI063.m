@@ -1,376 +1,267 @@
-IBDEI063 ; ; 20-FEB-2013
- ;;3.0;IB ENCOUNTER FORM IMP/EXP;;FEB 20, 2013
- Q:'DIFQR(358.3)  F I=1:2 S X=$T(Q+I) Q:X=""  S Y=$E($T(Q+I+1),4,999),X=$E(X,4,999) S:$A(Y)=126 I=I+1,Y=$E(Y,2,999)_$E($T(Q+I+1),5,99) S:$A(Y)=61 Y=$E(Y,2,999) X NO E  S @X=Y
+IBDEI063 ; ; 18-FEB-2009
+ ;;3.0;IB ENCOUNTER FORM IMP/EXP;;FEB 18, 2009
+ Q:'DIFQR(358.3)  F I=3D1:2 S X=3D$T(Q+I) Q:X=3D""  S
+Y=3D$E($T(Q+I+1),4,999),X=3D$E(X,4,999) S:$A(Y)=3D126
+I=3DI+1,Y=3D$E(Y,2,999)_$E($T(Q+I+1),5,99) S:$A(Y)=3D61 Y=3D$E(Y,2,999) =
+X NO E
+S @X=3DY
 Q Q
- ;;^UTILITY(U,$J,358.3,7901,1,1,0)
- ;;=1^Comprehensive/High
- ;;^UTILITY(U,$J,358.3,7901,1,2,0)
- ;;=2^99223
- ;;^UTILITY(U,$J,358.3,7902,0)
- ;;=99231^^69^588^1
- ;;^UTILITY(U,$J,358.3,7902,1,0)
- ;;=^358.31IA^2^2
- ;;^UTILITY(U,$J,358.3,7902,1,1,0)
- ;;=1^Prob Focus-Daily
- ;;^UTILITY(U,$J,358.3,7902,1,2,0)
- ;;=2^99231
- ;;^UTILITY(U,$J,358.3,7903,0)
- ;;=99232^^69^588^2
- ;;^UTILITY(U,$J,358.3,7903,1,0)
- ;;=^358.31IA^2^2
- ;;^UTILITY(U,$J,358.3,7903,1,1,0)
- ;;=1^Exp Prob Focus-Daily
- ;;^UTILITY(U,$J,358.3,7903,1,2,0)
- ;;=2^99232
- ;;^UTILITY(U,$J,358.3,7904,0)
- ;;=99233^^69^588^3
- ;;^UTILITY(U,$J,358.3,7904,1,0)
- ;;=^358.31IA^2^2
- ;;^UTILITY(U,$J,358.3,7904,1,1,0)
- ;;=1^Detailed-Daily
- ;;^UTILITY(U,$J,358.3,7904,1,2,0)
- ;;=2^99233
- ;;^UTILITY(U,$J,358.3,7905,0)
- ;;=99251^^69^589^1
- ;;^UTILITY(U,$J,358.3,7905,1,0)
- ;;=^358.31IA^2^2
- ;;^UTILITY(U,$J,358.3,7905,1,1,0)
- ;;=1^Problem Focus
- ;;^UTILITY(U,$J,358.3,7905,1,2,0)
- ;;=2^99251
- ;;^UTILITY(U,$J,358.3,7906,0)
- ;;=99252^^69^589^2
- ;;^UTILITY(U,$J,358.3,7906,1,0)
- ;;=^358.31IA^2^2
- ;;^UTILITY(U,$J,358.3,7906,1,1,0)
- ;;=1^Expanded Problem Focus
- ;;^UTILITY(U,$J,358.3,7906,1,2,0)
- ;;=2^99252
- ;;^UTILITY(U,$J,358.3,7907,0)
- ;;=99253^^69^589^3
- ;;^UTILITY(U,$J,358.3,7907,1,0)
- ;;=^358.31IA^2^2
- ;;^UTILITY(U,$J,358.3,7907,1,1,0)
- ;;=1^Detailed
- ;;^UTILITY(U,$J,358.3,7907,1,2,0)
- ;;=2^99253
- ;;^UTILITY(U,$J,358.3,7908,0)
- ;;=99254^^69^589^4
- ;;^UTILITY(U,$J,358.3,7908,1,0)
- ;;=^358.31IA^2^2
- ;;^UTILITY(U,$J,358.3,7908,1,1,0)
- ;;=1^Comprehensive, Mod
- ;;^UTILITY(U,$J,358.3,7908,1,2,0)
- ;;=2^99254
- ;;^UTILITY(U,$J,358.3,7909,0)
- ;;=99255^^69^589^5
- ;;^UTILITY(U,$J,358.3,7909,1,0)
- ;;=^358.31IA^2^2
- ;;^UTILITY(U,$J,358.3,7909,1,1,0)
- ;;=1^Comprehensive, High
- ;;^UTILITY(U,$J,358.3,7909,1,2,0)
- ;;=2^99255
- ;;^UTILITY(U,$J,358.3,7910,0)
- ;;=99234^^69^590^1
- ;;^UTILITY(U,$J,358.3,7910,1,0)
- ;;=^358.31IA^2^2
- ;;^UTILITY(U,$J,358.3,7910,1,1,0)
- ;;=1^Admit/Discharge,Low
- ;;^UTILITY(U,$J,358.3,7910,1,2,0)
- ;;=2^99234
- ;;^UTILITY(U,$J,358.3,7911,0)
- ;;=99235^^69^590^2
- ;;^UTILITY(U,$J,358.3,7911,1,0)
- ;;=^358.31IA^2^2
- ;;^UTILITY(U,$J,358.3,7911,1,1,0)
- ;;=1^Admit/Discharge,Mod
- ;;^UTILITY(U,$J,358.3,7911,1,2,0)
- ;;=2^99235
- ;;^UTILITY(U,$J,358.3,7912,0)
- ;;=99236^^69^590^3
- ;;^UTILITY(U,$J,358.3,7912,1,0)
- ;;=^358.31IA^2^2
- ;;^UTILITY(U,$J,358.3,7912,1,1,0)
- ;;=1^Admit/Discharge,High
- ;;^UTILITY(U,$J,358.3,7912,1,2,0)
- ;;=2^99236
- ;;^UTILITY(U,$J,358.3,7913,0)
- ;;=99238^^69^591^1
- ;;^UTILITY(U,$J,358.3,7913,1,0)
- ;;=^358.31IA^2^2
- ;;^UTILITY(U,$J,358.3,7913,1,1,0)
- ;;=1^Discharge Day,30 min
- ;;^UTILITY(U,$J,358.3,7913,1,2,0)
- ;;=2^99238
- ;;^UTILITY(U,$J,358.3,7914,0)
- ;;=99239^^69^591^2
- ;;^UTILITY(U,$J,358.3,7914,1,0)
- ;;=^358.31IA^2^2
- ;;^UTILITY(U,$J,358.3,7914,1,1,0)
- ;;=1^Discharge Day,> 30 min
- ;;^UTILITY(U,$J,358.3,7914,1,2,0)
- ;;=2^99239
- ;;^UTILITY(U,$J,358.3,7915,0)
- ;;=V80.01^^70^592^1
- ;;^UTILITY(U,$J,358.3,7915,1,0)
- ;;=^358.31IA^2^2
- ;;^UTILITY(U,$J,358.3,7915,1,1,0)
- ;;=1^V80.01
- ;;^UTILITY(U,$J,358.3,7915,1,2,0)
- ;;=2^SCREEN-TRAUMTC BRAIN INJ
- ;;^UTILITY(U,$J,358.3,7915,2)
- ;;=^338517
- ;;^UTILITY(U,$J,358.3,7916,0)
- ;;=V80.09^^70^592^2
- ;;^UTILITY(U,$J,358.3,7916,1,0)
- ;;=^358.31IA^2^2
- ;;^UTILITY(U,$J,358.3,7916,1,1,0)
- ;;=1^V80.09
- ;;^UTILITY(U,$J,358.3,7916,1,2,0)
- ;;=2^SCREEN-NEURO CONDITION
- ;;^UTILITY(U,$J,358.3,7916,2)
- ;;=^338518
- ;;^UTILITY(U,$J,358.3,7917,0)
- ;;=780.39^^70^593^11
- ;;^UTILITY(U,$J,358.3,7917,1,0)
- ;;=^358.31IA^2^2
- ;;^UTILITY(U,$J,358.3,7917,1,1,0)
- ;;=1^780.39
- ;;^UTILITY(U,$J,358.3,7917,1,2,0)
- ;;=2^SEIZURES
- ;;^UTILITY(U,$J,358.3,7917,2)
- ;;=^28162
- ;;^UTILITY(U,$J,358.3,7918,0)
- ;;=345.90^^70^593^4
- ;;^UTILITY(U,$J,358.3,7918,1,0)
- ;;=^358.31IA^2^2
- ;;^UTILITY(U,$J,358.3,7918,1,1,0)
- ;;=1^345.90
- ;;^UTILITY(U,$J,358.3,7918,1,2,0)
- ;;=2^EPILEPSY NOS
- ;;^UTILITY(U,$J,358.3,7918,2)
- ;;=^268477
- ;;^UTILITY(U,$J,358.3,7919,0)
- ;;=345.10^^70^593^3
- ;;^UTILITY(U,$J,358.3,7919,1,0)
- ;;=^358.31IA^2^2
- ;;^UTILITY(U,$J,358.3,7919,1,1,0)
- ;;=1^345.10
- ;;^UTILITY(U,$J,358.3,7919,1,2,0)
- ;;=2^EPILEPSY CNV W/O INTR
- ;;^UTILITY(U,$J,358.3,7919,2)
- ;;=^268463
- ;;^UTILITY(U,$J,358.3,7920,0)
- ;;=345.11^^70^593^2
- ;;^UTILITY(U,$J,358.3,7920,1,0)
- ;;=^358.31IA^2^2
- ;;^UTILITY(U,$J,358.3,7920,1,1,0)
- ;;=1^345.11
- ;;^UTILITY(U,$J,358.3,7920,1,2,0)
- ;;=2^EPILEPSY CNV W/ INTR
- ;;^UTILITY(U,$J,358.3,7920,2)
- ;;=^268464
- ;;^UTILITY(U,$J,358.3,7921,0)
- ;;=345.40^^70^593^9
- ;;^UTILITY(U,$J,358.3,7921,1,0)
- ;;=^358.31IA^2^2
- ;;^UTILITY(U,$J,358.3,7921,1,1,0)
- ;;=1^345.40
- ;;^UTILITY(U,$J,358.3,7921,1,2,0)
- ;;=2^EPILEPSY PSYMOTR W/O INT
- ;;^UTILITY(U,$J,358.3,7921,2)
- ;;=^334267
- ;;^UTILITY(U,$J,358.3,7922,0)
- ;;=345.41^^70^593^8
- ;;^UTILITY(U,$J,358.3,7922,1,0)
- ;;=^358.31IA^2^2
- ;;^UTILITY(U,$J,358.3,7922,1,1,0)
- ;;=1^345.41
- ;;^UTILITY(U,$J,358.3,7922,1,2,0)
- ;;=2^EPILEPSY PSYMOTR W/ INTR
- ;;^UTILITY(U,$J,358.3,7922,2)
- ;;=^334233
- ;;^UTILITY(U,$J,358.3,7923,0)
- ;;=345.50^^70^593^7
- ;;^UTILITY(U,$J,358.3,7923,1,0)
- ;;=^358.31IA^2^2
- ;;^UTILITY(U,$J,358.3,7923,1,1,0)
- ;;=1^345.50
- ;;^UTILITY(U,$J,358.3,7923,1,2,0)
- ;;=2^EPILEPSY PART W/O INTR
- ;;^UTILITY(U,$J,358.3,7923,2)
- ;;=^334268
- ;;^UTILITY(U,$J,358.3,7924,0)
- ;;=345.51^^70^593^6
- ;;^UTILITY(U,$J,358.3,7924,1,0)
- ;;=^358.31IA^2^2
- ;;^UTILITY(U,$J,358.3,7924,1,1,0)
- ;;=1^345.51
- ;;^UTILITY(U,$J,358.3,7924,1,2,0)
- ;;=2^EPILEPSY PART W/ INTR
- ;;^UTILITY(U,$J,358.3,7924,2)
- ;;=^334234
- ;;^UTILITY(U,$J,358.3,7925,0)
- ;;=345.91^^70^593^5
- ;;^UTILITY(U,$J,358.3,7925,1,0)
- ;;=^358.31IA^2^2
- ;;^UTILITY(U,$J,358.3,7925,1,1,0)
- ;;=1^345.91
- ;;^UTILITY(U,$J,358.3,7925,1,2,0)
- ;;=2^EPILEPSY NOS W/ INTR
- ;;^UTILITY(U,$J,358.3,7925,2)
- ;;=^268478
- ;;^UTILITY(U,$J,358.3,7926,0)
- ;;=780.02^^70^593^12
- ;;^UTILITY(U,$J,358.3,7926,1,0)
- ;;=^358.31IA^2^2
- ;;^UTILITY(U,$J,358.3,7926,1,1,0)
- ;;=1^780.02
- ;;^UTILITY(U,$J,358.3,7926,1,2,0)
- ;;=2^TRANSIENT ALTERATION
- ;;^UTILITY(U,$J,358.3,7926,2)
- ;;=^293932
- ;;^UTILITY(U,$J,358.3,7927,0)
- ;;=780.09^^70^593^1
- ;;^UTILITY(U,$J,358.3,7927,1,0)
- ;;=^358.31IA^2^2
- ;;^UTILITY(U,$J,358.3,7927,1,1,0)
- ;;=1^780.09
- ;;^UTILITY(U,$J,358.3,7927,1,2,0)
- ;;=2^ALTERATION OF CONSCIOUSNESS
- ;;^UTILITY(U,$J,358.3,7927,2)
- ;;=^260077
- ;;^UTILITY(U,$J,358.3,7928,0)
- ;;=780.33^^70^593^10
- ;;^UTILITY(U,$J,358.3,7928,1,0)
- ;;=^358.31IA^2^2
- ;;^UTILITY(U,$J,358.3,7928,1,1,0)
- ;;=1^780.33
- ;;^UTILITY(U,$J,358.3,7928,1,2,0)
- ;;=2^POST TRAUMATIC SEIZURES
- ;;^UTILITY(U,$J,358.3,7928,2)
- ;;=^339635
- ;;^UTILITY(U,$J,358.3,7929,0)
- ;;=95812^^71^594^1^^^^1
- ;;^UTILITY(U,$J,358.3,7929,1,0)
- ;;=^358.31IA^3^2
- ;;^UTILITY(U,$J,358.3,7929,1,2,0)
- ;;=2^EEG, 41-60 Minutes
- ;;^UTILITY(U,$J,358.3,7929,1,3,0)
- ;;=3^95812
- ;;^UTILITY(U,$J,358.3,7930,0)
- ;;=95813^^71^594^2^^^^1
- ;;^UTILITY(U,$J,358.3,7930,1,0)
- ;;=^358.31IA^3^2
- ;;^UTILITY(U,$J,358.3,7930,1,2,0)
- ;;=2^EEG, Over 1 Hr
- ;;^UTILITY(U,$J,358.3,7930,1,3,0)
- ;;=3^95813
- ;;^UTILITY(U,$J,358.3,7931,0)
- ;;=95816^^71^594^3^^^^1
- ;;^UTILITY(U,$J,358.3,7931,1,0)
- ;;=^358.31IA^3^2
- ;;^UTILITY(U,$J,358.3,7931,1,2,0)
- ;;=2^EEG, Awake and Drowsy
- ;;^UTILITY(U,$J,358.3,7931,1,3,0)
- ;;=3^95816
- ;;^UTILITY(U,$J,358.3,7932,0)
- ;;=95819^^71^594^4^^^^1
- ;;^UTILITY(U,$J,358.3,7932,1,0)
- ;;=^358.31IA^3^2
- ;;^UTILITY(U,$J,358.3,7932,1,2,0)
- ;;=2^EEG, Awake and Asleep
- ;;^UTILITY(U,$J,358.3,7932,1,3,0)
- ;;=3^95819
- ;;^UTILITY(U,$J,358.3,7933,0)
- ;;=95822^^71^594^5^^^^1
- ;;^UTILITY(U,$J,358.3,7933,1,0)
- ;;=^358.31IA^3^2
- ;;^UTILITY(U,$J,358.3,7933,1,2,0)
- ;;=2^EEG, Sleep or Coma Only
- ;;^UTILITY(U,$J,358.3,7933,1,3,0)
- ;;=3^95822
- ;;^UTILITY(U,$J,358.3,7934,0)
- ;;=95827^^71^594^6^^^^1
- ;;^UTILITY(U,$J,358.3,7934,1,0)
- ;;=^358.31IA^3^2
- ;;^UTILITY(U,$J,358.3,7934,1,2,0)
- ;;=2^EEG, All Night Study
- ;;^UTILITY(U,$J,358.3,7934,1,3,0)
- ;;=3^95827
- ;;^UTILITY(U,$J,358.3,7935,0)
- ;;=95953^^71^594^7^^^^1
- ;;^UTILITY(U,$J,358.3,7935,1,0)
- ;;=^358.31IA^3^2
- ;;^UTILITY(U,$J,358.3,7935,1,2,0)
- ;;=2^EEG, Monitoring /Computer
- ;;^UTILITY(U,$J,358.3,7935,1,3,0)
- ;;=3^95953
- ;;^UTILITY(U,$J,358.3,7936,0)
- ;;=95954^^71^594^8^^^^1
- ;;^UTILITY(U,$J,358.3,7936,1,0)
- ;;=^358.31IA^3^2
- ;;^UTILITY(U,$J,358.3,7936,1,2,0)
- ;;=2^EEG. Monitoring/Giving Drugs
- ;;^UTILITY(U,$J,358.3,7936,1,3,0)
- ;;=3^95954
- ;;^UTILITY(U,$J,358.3,7937,0)
- ;;=95950^^71^594^9^^^^1
- ;;^UTILITY(U,$J,358.3,7937,1,0)
- ;;=^358.31IA^3^2
- ;;^UTILITY(U,$J,358.3,7937,1,2,0)
- ;;=2^Ambulatory EEG Monitoring
- ;;^UTILITY(U,$J,358.3,7937,1,3,0)
- ;;=3^95950
- ;;^UTILITY(U,$J,358.3,7938,0)
- ;;=95956^^71^594^10^^^^1
- ;;^UTILITY(U,$J,358.3,7938,1,0)
- ;;=^358.31IA^3^2
- ;;^UTILITY(U,$J,358.3,7938,1,2,0)
- ;;=2^EEG, Monitor Technol Attended
- ;;^UTILITY(U,$J,358.3,7938,1,3,0)
- ;;=3^95956
- ;;^UTILITY(U,$J,358.3,7939,0)
- ;;=95951^^71^594^11^^^^1
- ;;^UTILITY(U,$J,358.3,7939,1,0)
- ;;=^358.31IA^3^2
- ;;^UTILITY(U,$J,358.3,7939,1,2,0)
- ;;=2^EEG, Monitoring/Videorecord
- ;;^UTILITY(U,$J,358.3,7939,1,3,0)
- ;;=3^95951
- ;;^UTILITY(U,$J,358.3,7940,0)
- ;;=90471^^72^595^1^^^^1
- ;;^UTILITY(U,$J,358.3,7940,1,0)
- ;;=^358.31IA^3^2
- ;;^UTILITY(U,$J,358.3,7940,1,2,0)
- ;;=2^90471
- ;;^UTILITY(U,$J,358.3,7940,1,3,0)
- ;;=3^Immunization Administration (use w/ Vacs below)
- ;;^UTILITY(U,$J,358.3,7941,0)
- ;;=90472^^72^595^2^^^^1
- ;;^UTILITY(U,$J,358.3,7941,1,0)
- ;;=^358.31IA^3^2
- ;;^UTILITY(U,$J,358.3,7941,1,2,0)
- ;;=2^90472
- ;;^UTILITY(U,$J,358.3,7941,1,3,0)
- ;;=3^2 or more Immunization Administration (use w/ Vacs below)
- ;;^UTILITY(U,$J,358.3,7942,0)
- ;;=90632^^72^595^3^^^^1
- ;;^UTILITY(U,$J,358.3,7942,1,0)
- ;;=^358.31IA^3^2
- ;;^UTILITY(U,$J,358.3,7942,1,2,0)
- ;;=2^90632
- ;;^UTILITY(U,$J,358.3,7942,1,3,0)
- ;;=3^Hepatitis A Vaccine
- ;;^UTILITY(U,$J,358.3,7943,0)
- ;;=90746^^72^595^4^^^^1
- ;;^UTILITY(U,$J,358.3,7943,1,0)
- ;;=^358.31IA^3^2
- ;;^UTILITY(U,$J,358.3,7943,1,2,0)
- ;;=2^90746
- ;;^UTILITY(U,$J,358.3,7943,1,3,0)
- ;;=3^Hepatitis B Vaccine
- ;;^UTILITY(U,$J,358.3,7944,0)
- ;;=90636^^72^595^5^^^^1
- ;;^UTILITY(U,$J,358.3,7944,1,0)
- ;;=^358.31IA^3^2
+ ;;^UTILITY(U,$J,358.3,6439,1,3,0)
+ ;;=3D3^11306
+ ;;^UTILITY(U,$J,358.3,6440,0)
+ ;;=3D11307^^60^484^7
+ ;;^UTILITY(U,$J,358.3,6440,1,0)
+ ;;=3D^358.31IA^3^2
+ ;;^UTILITY(U,$J,358.3,6440,1,2,0)
+ ;;=3D2^Shaving of Epidermal or Dermal Lesion, Single; scalp, neck, =
+hands,
+feet, genitalia- 1.1 to 2.0 cm
+ ;;^UTILITY(U,$J,358.3,6440,1,3,0)
+ ;;=3D3^11307
+ ;;^UTILITY(U,$J,358.3,6441,0)
+ ;;=3D11308^^60^484^8
+ ;;^UTILITY(U,$J,358.3,6441,1,0)
+ ;;=3D^358.31IA^3^2
+ ;;^UTILITY(U,$J,358.3,6441,1,2,0)
+ ;;=3D2^Shaving of Epidermal or Dermal Lesion, Single; scalp, neck, =
+hands,
+feet, genitalia- over 2.0 cm
+ ;;^UTILITY(U,$J,358.3,6441,1,3,0)
+ ;;=3D3^11308
+ ;;^UTILITY(U,$J,358.3,6442,0)
+ ;;=3D11303^^60^484^4^^^^1
+ ;;^UTILITY(U,$J,358.3,6442,1,0)
+ ;;=3D^358.31IA^3^2
+ ;;^UTILITY(U,$J,358.3,6442,1,2,0)
+ ;;=3D2^Shaving of Epidermal or Dermal Lesion, Single; trunk, arms or
+legs- over 2.0 cm
+ ;;^UTILITY(U,$J,358.3,6442,1,3,0)
+ ;;=3D3^11303
+ ;;^UTILITY(U,$J,358.3,6443,0)
+ ;;=3D11719^^60^485^1^^^^1
+ ;;^UTILITY(U,$J,358.3,6443,1,0)
+ ;;=3D^358.31IA^3^2
+ ;;^UTILITY(U,$J,358.3,6443,1,2,0)
+ ;;=3D2^Trimming Nondystrophic Nails, any number
+ ;;^UTILITY(U,$J,358.3,6443,1,3,0)
+ ;;=3D3^11719
+ ;;^UTILITY(U,$J,358.3,6444,0)
+ ;;=3DG0127^^60^485^2^^^^1
+ ;;^UTILITY(U,$J,358.3,6444,1,0)
+ ;;=3D^358.31IA^3^2
+ ;;^UTILITY(U,$J,358.3,6444,1,2,0)
+ ;;=3D2^Trimming Dystrophic Nails, any number
+ ;;^UTILITY(U,$J,358.3,6444,1,3,0)
+ ;;=3D3^G0127
+ ;;^UTILITY(U,$J,358.3,6445,0)
+ ;;=3D11720^^60^485^3^^^^1
+ ;;^UTILITY(U,$J,358.3,6445,1,0)
+ ;;=3D^358.31IA^3^2
+ ;;^UTILITY(U,$J,358.3,6445,1,2,0)
+ ;;=3D2^Debridement of Nail(s)any method(s); 1-5=20
+ ;;^UTILITY(U,$J,358.3,6445,1,3,0)
+ ;;=3D3^11720
+ ;;^UTILITY(U,$J,358.3,6446,0)
+ ;;=3D11721^^60^485^4^^^^1
+ ;;^UTILITY(U,$J,358.3,6446,1,0)
+ ;;=3D^358.31IA^3^2
+ ;;^UTILITY(U,$J,358.3,6446,1,2,0)
+ ;;=3D2^Debridement of Nails any method; 6 or more
+ ;;^UTILITY(U,$J,358.3,6446,1,3,0)
+ ;;=3D3^11721
+ ;;^UTILITY(U,$J,358.3,6447,0)
+ ;;=3D11730^^60^485^5^^^^1
+ ;;^UTILITY(U,$J,358.3,6447,1,0)
+ ;;=3D^358.31IA^3^2
+ ;;^UTILITY(U,$J,358.3,6447,1,2,0)
+ ;;=3D2^Avulsion of Nail Plate, partial/complete, simple; single=20
+ ;;^UTILITY(U,$J,358.3,6447,1,3,0)
+ ;;=3D3^11730
+ ;;^UTILITY(U,$J,358.3,6448,0)
+ ;;=3D11732^^60^485^6^^^^1
+ ;;^UTILITY(U,$J,358.3,6448,1,0)
+ ;;=3D^358.31IA^3^2
+ ;;^UTILITY(U,$J,358.3,6448,1,2,0)
+ ;;=3D2^Avulsion of Nail Plate, partial/complete, simple; each add'l =
+nail
+plate=20
+ ;;^UTILITY(U,$J,358.3,6448,1,3,0)
+ ;;=3D3^11732
+ ;;^UTILITY(U,$J,358.3,6449,0)
+ ;;=3D11740^^60^485^7^^^^1
+ ;;^UTILITY(U,$J,358.3,6449,1,0)
+ ;;=3D^358.31IA^3^2
+ ;;^UTILITY(U,$J,358.3,6449,1,2,0)
+ ;;=3D2^Evacuation Subungual Hematoma
+ ;;^UTILITY(U,$J,358.3,6449,1,3,0)
+ ;;=3D3^11740
+ ;;^UTILITY(U,$J,358.3,6450,0)
+ ;;=3D11750^^60^485^8^^^^1
+ ;;^UTILITY(U,$J,358.3,6450,1,0)
+ ;;=3D^358.31IA^3^2
+ ;;^UTILITY(U,$J,358.3,6450,1,2,0)
+ ;;=3D2^Excision of Nail and Nail Matrx, partial or complete, for
+permanent removal
+ ;;^UTILITY(U,$J,358.3,6450,1,3,0)
+ ;;=3D3^11750
+ ;;^UTILITY(U,$J,358.3,6451,0)
+ ;;=3D11755^^60^485^9^^^^1
+ ;;^UTILITY(U,$J,358.3,6451,1,0)
+ ;;=3D^358.31IA^3^2
+ ;;^UTILITY(U,$J,358.3,6451,1,2,0)
+ ;;=3D2^Biopsy of Nail Unit
+ ;;^UTILITY(U,$J,358.3,6451,1,3,0)
+ ;;=3D3^11755
+ ;;^UTILITY(U,$J,358.3,6452,0)
+ ;;=3D11760^^60^485^10^^^^1
+ ;;^UTILITY(U,$J,358.3,6452,1,0)
+ ;;=3D^358.31IA^3^2
+ ;;^UTILITY(U,$J,358.3,6452,1,2,0)
+ ;;=3D2^Repair of Nail Bed
+ ;;^UTILITY(U,$J,358.3,6452,1,3,0)
+ ;;=3D3^11760
+ ;;^UTILITY(U,$J,358.3,6453,0)
+ ;;=3D11765^^60^485^11^^^^1
+ ;;^UTILITY(U,$J,358.3,6453,1,0)
+ ;;=3D^358.31IA^3^2
+ ;;^UTILITY(U,$J,358.3,6453,1,2,0)
+ ;;=3D2^Wedge Excision of Skin Nail Fold
+ ;;^UTILITY(U,$J,358.3,6453,1,3,0)
+ ;;=3D3^11765
+ ;;^UTILITY(U,$J,358.3,6454,0)
+ ;;=3D11055^^60^486^1^^^^1
+ ;;^UTILITY(U,$J,358.3,6454,1,0)
+ ;;=3D^358.31IA^3^2
+ ;;^UTILITY(U,$J,358.3,6454,1,2,0)
+ ;;=3D2^Trim Skin Lesion, Single Lesion
+ ;;^UTILITY(U,$J,358.3,6454,1,3,0)
+ ;;=3D3^11055
+ ;;^UTILITY(U,$J,358.3,6455,0)
+ ;;=3D11056^^60^486^2^^^^1
+ ;;^UTILITY(U,$J,358.3,6455,1,0)
+ ;;=3D^358.31IA^3^2
+ ;;^UTILITY(U,$J,358.3,6455,1,2,0)
+ ;;=3D2^Trim Skin Lesion,2-4 Lesions
+ ;;^UTILITY(U,$J,358.3,6455,1,3,0)
+ ;;=3D3^11056
+ ;;^UTILITY(U,$J,358.3,6456,0)
+ ;;=3D11057^^60^486^3^^^^1
+ ;;^UTILITY(U,$J,358.3,6456,1,0)
+ ;;=3D^358.31IA^3^2
+ ;;^UTILITY(U,$J,358.3,6456,1,2,0)
+ ;;=3D2^Trim Skin Lesions, Over 4
+ ;;^UTILITY(U,$J,358.3,6456,1,3,0)
+ ;;=3D3^11057
+ ;;^UTILITY(U,$J,358.3,6457,0)
+ ;;=3D17000^^60^488^1^^^^1
+ ;;^UTILITY(U,$J,358.3,6457,1,0)
+ ;;=3D^358.31IA^3^2
+ ;;^UTILITY(U,$J,358.3,6457,1,2,0)
+ ;;=3D2^Destruction, all benign or premalignant lesions other than skin
+tags or cutaneous vascular proliferative lesion; 1st lesion
+ ;;^UTILITY(U,$J,358.3,6457,1,3,0)
+ ;;=3D3^17000
+ ;;^UTILITY(U,$J,358.3,6458,0)
+ ;;=3D17003^^60^488^2^^^^1
+ ;;^UTILITY(U,$J,358.3,6458,1,0)
+ ;;=3D^358.31IA^3^2
+ ;;^UTILITY(U,$J,358.3,6458,1,2,0)
+ ;;=3D2^Destruction, all benign or premalignant lesions other than skin
+tags or cutaneous vascular proliferative lesions; 2nd-14th lesion, each
+ ;;^UTILITY(U,$J,358.3,6458,1,3,0)
+ ;;=3D3^17003
+ ;;^UTILITY(U,$J,358.3,6459,0)
+ ;;=3D17004^^60^488^3^^^^1
+ ;;^UTILITY(U,$J,358.3,6459,1,0)
+ ;;=3D^358.31IA^3^2
+ ;;^UTILITY(U,$J,358.3,6459,1,2,0)
+ ;;=3D2^Destruction, all benign or premalignant lesions other than skin
+tags or cutaneous vascular proliferative lesions; 15 or more lesions
+ ;;^UTILITY(U,$J,358.3,6459,1,3,0)
+ ;;=3D3^17004
+ ;;^UTILITY(U,$J,358.3,6460,0)
+ ;;=3D17110^^60^488^4^^^^1
+ ;;^UTILITY(U,$J,358.3,6460,1,0)
+ ;;=3D^358.31IA^3^2
+ ;;^UTILITY(U,$J,358.3,6460,1,2,0)
+ ;;=3D2^Destruction, of flat warts, molluscum contagiosum, or milia; up =
+to
+14 lesions
+ ;;^UTILITY(U,$J,358.3,6460,1,3,0)
+ ;;=3D3^17110
+ ;;^UTILITY(U,$J,358.3,6461,0)
+ ;;=3D17111^^60^488^5^^^^1
+ ;;^UTILITY(U,$J,358.3,6461,1,0)
+ ;;=3D^358.31IA^3^2
+ ;;^UTILITY(U,$J,358.3,6461,1,2,0)
+ ;;=3D2^Destruction, of flat warts, molluscum contagiosum, or milia; 15 =
+or
+more lesions
+ ;;^UTILITY(U,$J,358.3,6461,1,3,0)
+ ;;=3D3^17111
+ ;;^UTILITY(U,$J,358.3,6462,0)
+ ;;=3D17250^^60^488^6^^^^1
+ ;;^UTILITY(U,$J,358.3,6462,1,0)
+ ;;=3D^358.31IA^3^2
+ ;;^UTILITY(U,$J,358.3,6462,1,2,0)
+ ;;=3D2^Chemical cauterization of granulation tissue
+ ;;^UTILITY(U,$J,358.3,6462,1,3,0)
+ ;;=3D3^17250
+ ;;^UTILITY(U,$J,358.3,6463,0)
+ ;;=3D11400^^60^489^1^^^^1
+ ;;^UTILITY(U,$J,358.3,6463,1,0)
+ ;;=3D^358.31IA^3^2
+ ;;^UTILITY(U,$J,358.3,6463,1,2,0)
+ ;;=3D2^Excision Benign Lesion-trunk,  legs; 0.5 cm or less=20
+ ;;^UTILITY(U,$J,358.3,6463,1,3,0)
+ ;;=3D3^11400
+ ;;^UTILITY(U,$J,358.3,6464,0)
+ ;;=3D11401^^60^489^2^^^^1
+ ;;^UTILITY(U,$J,358.3,6464,1,0)
+ ;;=3D^358.31IA^3^2
+ ;;^UTILITY(U,$J,358.3,6464,1,2,0)
+ ;;=3D2^Excision Benign Lesion-trunk,  legs; 0.6cm to 1.0cm
+ ;;^UTILITY(U,$J,358.3,6464,1,3,0)
+ ;;=3D3^11401
+ ;;^UTILITY(U,$J,358.3,6465,0)
+ ;;=3D11402^^60^489^3^^^^1
+ ;;^UTILITY(U,$J,358.3,6465,1,0)
+ ;;=3D^358.31IA^3^2
+ ;;^UTILITY(U,$J,358.3,6465,1,2,0)
+ ;;=3D2^Excision Benign Lesion-trunk,  legs; 1.1cm to 2.0cm
+ ;;^UTILITY(U,$J,358.3,6465,1,3,0)
+ ;;=3D3^11402
+ ;;^UTILITY(U,$J,358.3,6466,0)
+ ;;=3D11403^^60^489^4^^^^1
+ ;;^UTILITY(U,$J,358.3,6466,1,0)
+ ;;=3D^358.31IA^3^2
+ ;;^UTILITY(U,$J,358.3,6466,1,2,0)
+ ;;=3D2^Excision Benign Lesion-trunk,  legs; 2.1cm to 3.0cm
+ ;;^UTILITY(U,$J,358.3,6466,1,3,0)
+ ;;=3D3^11403
+ ;;^UTILITY(U,$J,358.3,6467,0)
+ ;;=3D11404^^60^489^5^^^^1
+ ;;^UTILITY(U,$J,358.3,6467,1,0)
+ ;;=3D^358.31IA^3^2
+ ;;^UTILITY(U,$J,358.3,6467,1,2,0)
+ ;;=3D2^Excision Benign Lesion-trunk,  legs; 3.1cm to 4.0cm
+ ;;^UTILITY(U,$J,358.3,6467,1,3,0)
+ ;;=3D3^11404
+ ;;^UTILITY(U,$J,358.3,6468,0)
+ ;;=3D11406^^60^489^6^^^^1
+ ;;^UTILITY(U,$J,358.3,6468,1,0)
+ ;;=3D^358.31IA^3^2
+ ;;^UTILITY(U,$J,358.3,6468,1,2,0)
+ ;;=3D2^Excision Benign Lesion-trunk,  legs; over 4.0cm
+ ;;^UTILITY(U,$J,358.3,6468,1,3,0)
+ ;;=3D3^11406
+ ;;^UTILITY(U,$J,358.3,6469,0)
+ ;;=3D11420^^60^489^7^^^^1
+ ;;^UTILITY(U,$J,358.3,6469,1,0)
+ ;;=3D^358.31IA^3^2
+ ;;^UTILITY(U,$J,358.3,6469,1,2,0)
+ ;;=3D2^Excisiofeet, genitalia; 0.5cm or less
+ ;;^UTILITY(U,$J,358.3,6469,1,3,0)
+ ;;=3D3^11420
+ ;;^UTILITY(U,$J,358.3,6470,0)
+ ;;=3D11421^^60^489^8^^^^1

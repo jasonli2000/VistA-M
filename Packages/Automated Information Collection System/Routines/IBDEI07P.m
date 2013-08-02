@@ -1,360 +1,294 @@
-IBDEI07P ; ; 20-FEB-2013
- ;;3.0;IB ENCOUNTER FORM IMP/EXP;;FEB 20, 2013
- Q:'DIFQR(358.3)  F I=1:2 S X=$T(Q+I) Q:X=""  S Y=$E($T(Q+I+1),4,999),X=$E(X,4,999) S:$A(Y)=126 I=I+1,Y=$E(Y,2,999)_$E($T(Q+I+1),5,99) S:$A(Y)=61 Y=$E(Y,2,999) X NO E  S @X=Y
+IBDEI07P ; ; 18-FEB-2009
+ ;;3.0;IB ENCOUNTER FORM IMP/EXP;;FEB 18, 2009
+ Q:'DIFQR(358.3)  F I=3D1:2 S X=3D$T(Q+I) Q:X=3D""  S
+Y=3D$E($T(Q+I+1),4,999),X=3D$E(X,4,999) S:$A(Y)=3D126
+I=3DI+1,Y=3D$E(Y,2,999)_$E($T(Q+I+1),5,99) S:$A(Y)=3D61 Y=3D$E(Y,2,999) =
+X NO E
+S @X=3DY
 Q Q
- ;;^UTILITY(U,$J,358.3,10121,1,3,0)
- ;;=3^Sarcoidosis
- ;;^UTILITY(U,$J,358.3,10121,1,4,0)
- ;;=4^135.
- ;;^UTILITY(U,$J,358.3,10121,2)
- ;;=Sarcoidosis^107916
- ;;^UTILITY(U,$J,358.3,10122,0)
- ;;=446.5^^79^677^21
- ;;^UTILITY(U,$J,358.3,10122,1,0)
- ;;=^358.31IA^4^2
- ;;^UTILITY(U,$J,358.3,10122,1,3,0)
- ;;=3^Temporal Arteritis
- ;;^UTILITY(U,$J,358.3,10122,1,4,0)
- ;;=4^446.5
- ;;^UTILITY(U,$J,358.3,10122,2)
- ;;=Temporal Arteritis^117658
- ;;^UTILITY(U,$J,358.3,10123,0)
- ;;=401.9^^79^677^12
- ;;^UTILITY(U,$J,358.3,10123,1,0)
- ;;=^358.31IA^4^2
- ;;^UTILITY(U,$J,358.3,10123,1,3,0)
- ;;=3^Hypertension
- ;;^UTILITY(U,$J,358.3,10123,1,4,0)
- ;;=4^401.9
- ;;^UTILITY(U,$J,358.3,10123,2)
- ;;=Hypertension^186630
- ;;^UTILITY(U,$J,358.3,10124,0)
- ;;=V72.0^^79^677^9
- ;;^UTILITY(U,$J,358.3,10124,1,0)
- ;;=^358.31IA^4^2
- ;;^UTILITY(U,$J,358.3,10124,1,3,0)
- ;;=3^Eye Exam
- ;;^UTILITY(U,$J,358.3,10124,1,4,0)
- ;;=4^V72.0
- ;;^UTILITY(U,$J,358.3,10124,2)
- ;;=Eye Exam^43432
- ;;^UTILITY(U,$J,358.3,10125,0)
- ;;=V41.0^^79^677^19
- ;;^UTILITY(U,$J,358.3,10125,1,0)
- ;;=^358.31IA^4^2
- ;;^UTILITY(U,$J,358.3,10125,1,3,0)
- ;;=3^Problems with Sight
- ;;^UTILITY(U,$J,358.3,10125,1,4,0)
- ;;=4^V41.0
- ;;^UTILITY(U,$J,358.3,10125,2)
- ;;=^295427
- ;;^UTILITY(U,$J,358.3,10126,0)
- ;;=998.59^^79^677^18
- ;;^UTILITY(U,$J,358.3,10126,1,0)
- ;;=^358.31IA^4^2
- ;;^UTILITY(U,$J,358.3,10126,1,3,0)
- ;;=3^Post Op Infection
- ;;^UTILITY(U,$J,358.3,10126,1,4,0)
- ;;=4^998.59
- ;;^UTILITY(U,$J,358.3,10126,2)
- ;;=Post Op Infection^97081
- ;;^UTILITY(U,$J,358.3,10127,0)
- ;;=365.11^^79^678^15
- ;;^UTILITY(U,$J,358.3,10127,1,0)
- ;;=^358.31IA^4^2
- ;;^UTILITY(U,$J,358.3,10127,1,3,0)
- ;;=3^Open Angle Glaucoma
- ;;^UTILITY(U,$J,358.3,10127,1,4,0)
- ;;=4^365.11
- ;;^UTILITY(U,$J,358.3,10127,2)
- ;;=Open Angle Glaucoma^51203
- ;;^UTILITY(U,$J,358.3,10128,0)
- ;;=365.12^^79^678^10
- ;;^UTILITY(U,$J,358.3,10128,1,0)
- ;;=^358.31IA^4^2
- ;;^UTILITY(U,$J,358.3,10128,1,3,0)
- ;;=3^Low Tension Glaucoma
- ;;^UTILITY(U,$J,358.3,10128,1,4,0)
- ;;=4^365.12
- ;;^UTILITY(U,$J,358.3,10128,2)
- ;;=Low Tension Glaucoma^265223
- ;;^UTILITY(U,$J,358.3,10129,0)
- ;;=365.63^^79^678^13
- ;;^UTILITY(U,$J,358.3,10129,1,0)
- ;;=^358.31IA^4^2
- ;;^UTILITY(U,$J,358.3,10129,1,3,0)
- ;;=3^Neovascular Glaucoma
- ;;^UTILITY(U,$J,358.3,10129,1,4,0)
- ;;=4^365.63
- ;;^UTILITY(U,$J,358.3,10129,2)
- ;;=Neovascular Glaucoma^268778
- ;;^UTILITY(U,$J,358.3,10130,0)
- ;;=365.10^^79^678^17
- ;;^UTILITY(U,$J,358.3,10130,1,0)
- ;;=^358.31IA^4^2
- ;;^UTILITY(U,$J,358.3,10130,1,3,0)
- ;;=3^Open Angle, Glaucoma Unspec
- ;;^UTILITY(U,$J,358.3,10130,1,4,0)
- ;;=4^365.10
- ;;^UTILITY(U,$J,358.3,10130,2)
- ;;=^51206
- ;;^UTILITY(U,$J,358.3,10131,0)
- ;;=365.13^^79^678^21
- ;;^UTILITY(U,$J,358.3,10131,1,0)
- ;;=^358.31IA^4^2
- ;;^UTILITY(U,$J,358.3,10131,1,3,0)
- ;;=3^Pigmentary Glaucoma
- ;;^UTILITY(U,$J,358.3,10131,1,4,0)
- ;;=4^365.13
- ;;^UTILITY(U,$J,358.3,10131,2)
- ;;=Pigmentary Glaucoma^51211
- ;;^UTILITY(U,$J,358.3,10132,0)
- ;;=365.20^^79^678^23
- ;;^UTILITY(U,$J,358.3,10132,1,0)
- ;;=^358.31IA^4^2
- ;;^UTILITY(U,$J,358.3,10132,1,3,0)
- ;;=3^Prim Angle Closure Glaucoma
- ;;^UTILITY(U,$J,358.3,10132,1,4,0)
- ;;=4^365.20
- ;;^UTILITY(U,$J,358.3,10132,2)
- ;;=^51195
- ;;^UTILITY(U,$J,358.3,10133,0)
- ;;=365.52^^79^678^24
- ;;^UTILITY(U,$J,358.3,10133,1,0)
- ;;=^358.31IA^4^2
- ;;^UTILITY(U,$J,358.3,10133,1,3,0)
- ;;=3^Pseudoexfoliation Glaucoma
- ;;^UTILITY(U,$J,358.3,10133,1,4,0)
- ;;=4^365.52
- ;;^UTILITY(U,$J,358.3,10133,2)
- ;;=Pseudoexfoliation Glaucoma^268771
- ;;^UTILITY(U,$J,358.3,10134,0)
- ;;=365.15^^79^678^27
- ;;^UTILITY(U,$J,358.3,10134,1,0)
- ;;=^358.31IA^4^2
- ;;^UTILITY(U,$J,358.3,10134,1,3,0)
- ;;=3^Residual Open Angle Glaucoma
- ;;^UTILITY(U,$J,358.3,10134,1,4,0)
- ;;=4^365.15
- ;;^UTILITY(U,$J,358.3,10134,2)
- ;;=Residual Open Angle Glaucoma^268751
- ;;^UTILITY(U,$J,358.3,10135,0)
- ;;=365.31^^79^678^31
- ;;^UTILITY(U,$J,358.3,10135,1,0)
- ;;=^358.31IA^4^2
- ;;^UTILITY(U,$J,358.3,10135,1,3,0)
- ;;=3^Steroid Induced Glaucoma
- ;;^UTILITY(U,$J,358.3,10135,1,4,0)
- ;;=4^365.31
- ;;^UTILITY(U,$J,358.3,10135,2)
- ;;=Steroid Induced Glaucoma^268761
- ;;^UTILITY(U,$J,358.3,10136,0)
- ;;=365.61^^79^678^8
- ;;^UTILITY(U,$J,358.3,10136,1,0)
- ;;=^358.31IA^4^2
- ;;^UTILITY(U,$J,358.3,10136,1,3,0)
- ;;=3^Glaucoma W/Pupillary Block
- ;;^UTILITY(U,$J,358.3,10136,1,4,0)
- ;;=4^365.61
- ;;^UTILITY(U,$J,358.3,10136,2)
- ;;=Glaucoma W/Pupillary Block^268776
- ;;^UTILITY(U,$J,358.3,10137,0)
- ;;=365.23^^79^678^4
- ;;^UTILITY(U,$J,358.3,10137,1,0)
- ;;=^358.31IA^4^2
- ;;^UTILITY(U,$J,358.3,10137,1,3,0)
- ;;=3^Chronic Angle Clos Glaucoma
- ;;^UTILITY(U,$J,358.3,10137,1,4,0)
- ;;=4^365.23
- ;;^UTILITY(U,$J,358.3,10137,2)
- ;;=^268756
- ;;^UTILITY(U,$J,358.3,10138,0)
- ;;=363.71^^79^678^29
- ;;^UTILITY(U,$J,358.3,10138,1,0)
- ;;=^358.31IA^4^2
- ;;^UTILITY(U,$J,358.3,10138,1,3,0)
- ;;=3^Serous Choroidal Detachment
- ;;^UTILITY(U,$J,358.3,10138,1,4,0)
- ;;=4^363.71
- ;;^UTILITY(U,$J,358.3,10138,2)
- ;;=Choroidal Detachment^268699
- ;;^UTILITY(U,$J,358.3,10139,0)
- ;;=365.51^^79^678^19
- ;;^UTILITY(U,$J,358.3,10139,1,0)
- ;;=^358.31IA^4^2
- ;;^UTILITY(U,$J,358.3,10139,1,3,0)
- ;;=3^Phacolytic Glaucoma
- ;;^UTILITY(U,$J,358.3,10139,1,4,0)
- ;;=4^365.51
- ;;^UTILITY(U,$J,358.3,10139,2)
- ;;=Phacolytic Glaucoma^265226
- ;;^UTILITY(U,$J,358.3,10140,0)
- ;;=365.01^^79^678^16
- ;;^UTILITY(U,$J,358.3,10140,1,0)
- ;;=^358.31IA^4^2
- ;;^UTILITY(U,$J,358.3,10140,1,3,0)
- ;;=3^Open Angle Glaucoma Suspect
- ;;^UTILITY(U,$J,358.3,10140,1,4,0)
- ;;=4^365.01
- ;;^UTILITY(U,$J,358.3,10140,2)
- ;;=Open Angle Glaucoma Suspect^268747
- ;;^UTILITY(U,$J,358.3,10141,0)
- ;;=365.04^^79^678^14
- ;;^UTILITY(U,$J,358.3,10141,1,0)
- ;;=^358.31IA^4^2
- ;;^UTILITY(U,$J,358.3,10141,1,3,0)
- ;;=3^Ocular Hypertension
- ;;^UTILITY(U,$J,358.3,10141,1,4,0)
- ;;=4^365.04
- ;;^UTILITY(U,$J,358.3,10141,2)
- ;;=Ocular Hypertension^85124
- ;;^UTILITY(U,$J,358.3,10142,0)
- ;;=365.03^^79^678^32
- ;;^UTILITY(U,$J,358.3,10142,1,0)
- ;;=^358.31IA^4^2
- ;;^UTILITY(U,$J,358.3,10142,1,3,0)
- ;;=3^Steroid Responder
- ;;^UTILITY(U,$J,358.3,10142,1,4,0)
- ;;=4^365.03
- ;;^UTILITY(U,$J,358.3,10142,2)
- ;;=^268749
- ;;^UTILITY(U,$J,358.3,10143,0)
- ;;=366.11^^79^678^25
- ;;^UTILITY(U,$J,358.3,10143,1,0)
- ;;=^358.31IA^4^2
- ;;^UTILITY(U,$J,358.3,10143,1,3,0)
- ;;=3^Pseudoexfoliation w/o Glaucoma
- ;;^UTILITY(U,$J,358.3,10143,1,4,0)
- ;;=4^366.11
- ;;^UTILITY(U,$J,358.3,10143,2)
- ;;=^265538
- ;;^UTILITY(U,$J,358.3,10144,0)
- ;;=365.02^^79^678^1
- ;;^UTILITY(U,$J,358.3,10144,1,0)
- ;;=^358.31IA^4^2
- ;;^UTILITY(U,$J,358.3,10144,1,3,0)
- ;;=3^Anatomic Narrow Angle
- ;;^UTILITY(U,$J,358.3,10144,1,4,0)
- ;;=4^365.02
- ;;^UTILITY(U,$J,358.3,10144,2)
- ;;=Anatomic Narrow Angle^268748
- ;;^UTILITY(U,$J,358.3,10145,0)
- ;;=364.53^^79^678^20
- ;;^UTILITY(U,$J,358.3,10145,1,0)
- ;;=^358.31IA^4^2
- ;;^UTILITY(U,$J,358.3,10145,1,3,0)
- ;;=3^Pigment Dispersion w/o Glauc
- ;;^UTILITY(U,$J,358.3,10145,1,4,0)
- ;;=4^364.53
- ;;^UTILITY(U,$J,358.3,10145,2)
- ;;=^268720
- ;;^UTILITY(U,$J,358.3,10146,0)
- ;;=364.42^^79^678^28
- ;;^UTILITY(U,$J,358.3,10146,1,0)
- ;;=^358.31IA^4^2
- ;;^UTILITY(U,$J,358.3,10146,1,3,0)
- ;;=3^Rubeosis Iridis w/o Glaucoma
- ;;^UTILITY(U,$J,358.3,10146,1,4,0)
- ;;=4^364.42
- ;;^UTILITY(U,$J,358.3,10146,2)
- ;;=Rubeosis Iridis w/o Glaucoma^268716
- ;;^UTILITY(U,$J,358.3,10147,0)
- ;;=364.77^^79^678^2
- ;;^UTILITY(U,$J,358.3,10147,1,0)
- ;;=^358.31IA^4^2
- ;;^UTILITY(U,$J,358.3,10147,1,3,0)
- ;;=3^Angle Recession w/o Glauc
- ;;^UTILITY(U,$J,358.3,10147,1,4,0)
- ;;=4^364.77
- ;;^UTILITY(U,$J,358.3,10147,2)
- ;;=Angle Recession w/o Glauc^268743
- ;;^UTILITY(U,$J,358.3,10148,0)
- ;;=368.40^^79^678^35
- ;;^UTILITY(U,$J,358.3,10148,1,0)
- ;;=^358.31IA^4^2
- ;;^UTILITY(U,$J,358.3,10148,1,3,0)
- ;;=3^Visual Field Defect
- ;;^UTILITY(U,$J,358.3,10148,1,4,0)
- ;;=4^368.40
- ;;^UTILITY(U,$J,358.3,10148,2)
- ;;=Visual Field Defect^126859
- ;;^UTILITY(U,$J,358.3,10149,0)
- ;;=363.70^^79^678^3
- ;;^UTILITY(U,$J,358.3,10149,1,0)
- ;;=^358.31IA^4^2
- ;;^UTILITY(U,$J,358.3,10149,1,3,0)
- ;;=3^Choroidal Detachment NOS
- ;;^UTILITY(U,$J,358.3,10149,1,4,0)
- ;;=4^363.70
- ;;^UTILITY(U,$J,358.3,10149,2)
- ;;=^276841
- ;;^UTILITY(U,$J,358.3,10150,0)
- ;;=365.24^^79^678^26
- ;;^UTILITY(U,$J,358.3,10150,1,0)
- ;;=^358.31IA^4^2
- ;;^UTILITY(U,$J,358.3,10150,1,3,0)
- ;;=3^Residual Angle-Closure Glaucoma
- ;;^UTILITY(U,$J,358.3,10150,1,4,0)
- ;;=4^365.24
- ;;^UTILITY(U,$J,358.3,10150,2)
- ;;=^268758
- ;;^UTILITY(U,$J,358.3,10151,0)
- ;;=365.65^^79^678^33
- ;;^UTILITY(U,$J,358.3,10151,1,0)
- ;;=^358.31IA^4^2
- ;;^UTILITY(U,$J,358.3,10151,1,3,0)
- ;;=3^Traumatic Glaucoma
- ;;^UTILITY(U,$J,358.3,10151,1,4,0)
- ;;=4^365.65
- ;;^UTILITY(U,$J,358.3,10151,2)
- ;;=^268780
- ;;^UTILITY(U,$J,358.3,10152,0)
- ;;=365.89^^79^678^34
- ;;^UTILITY(U,$J,358.3,10152,1,0)
- ;;=^358.31IA^4^2
- ;;^UTILITY(U,$J,358.3,10152,1,3,0)
- ;;=3^Uveitic Glaucoma
- ;;^UTILITY(U,$J,358.3,10152,1,4,0)
- ;;=4^365.89
- ;;^UTILITY(U,$J,358.3,10152,2)
- ;;=^88069
- ;;^UTILITY(U,$J,358.3,10153,0)
- ;;=365.05^^79^678^18
- ;;^UTILITY(U,$J,358.3,10153,1,0)
- ;;=^358.31IA^4^2
- ;;^UTILITY(U,$J,358.3,10153,1,3,0)
- ;;=3^Opn Ang w/ brdrlne fnd-Hi Risk
- ;;^UTILITY(U,$J,358.3,10153,1,4,0)
- ;;=4^365.05
- ;;^UTILITY(U,$J,358.3,10153,2)
- ;;=^340511
- ;;^UTILITY(U,$J,358.3,10154,0)
- ;;=365.06^^79^678^22
- ;;^UTILITY(U,$J,358.3,10154,1,0)
- ;;=^358.31IA^4^2
- ;;^UTILITY(U,$J,358.3,10154,1,3,0)
- ;;=3^Prim Ang Clos w/o Glauc Dmg
- ;;^UTILITY(U,$J,358.3,10154,1,4,0)
- ;;=4^365.06
- ;;^UTILITY(U,$J,358.3,10154,2)
- ;;=^340512
- ;;^UTILITY(U,$J,358.3,10155,0)
- ;;=365.70^^79^678^7
- ;;^UTILITY(U,$J,358.3,10155,1,0)
- ;;=^358.31IA^4^2
- ;;^UTILITY(U,$J,358.3,10155,1,3,0)
- ;;=3^Glaucoma Stage NOS
- ;;^UTILITY(U,$J,358.3,10155,1,4,0)
- ;;=4^365.70
- ;;^UTILITY(U,$J,358.3,10155,2)
- ;;=^340609
- ;;^UTILITY(U,$J,358.3,10156,0)
- ;;=365.71^^79^678^11
- ;;^UTILITY(U,$J,358.3,10156,1,0)
- ;;=^358.31IA^4^2
- ;;^UTILITY(U,$J,358.3,10156,1,3,0)
- ;;=3^Mild Stage Glaucoma
- ;;^UTILITY(U,$J,358.3,10156,1,4,0)
- ;;=4^365.71
- ;;^UTILITY(U,$J,358.3,10156,2)
- ;;=^340513
+ ;;^UTILITY(U,$J,358.3,8194,2)
+ ;;=3DFall on/from Sidewalk or Curb^303367
+ ;;^UTILITY(U,$J,358.3,8195,0)
+ ;;=3DE881.0^^65^560^5
+ ;;^UTILITY(U,$J,358.3,8195,1,0)
+ ;;=3D^358.31IA^5^2
+ ;;^UTILITY(U,$J,358.3,8195,1,4,0)
+ ;;=3D4^E881.0
+ ;;^UTILITY(U,$J,358.3,8195,1,5,0)
+ ;;=3D5^Fall From Ladder
+ ;;^UTILITY(U,$J,358.3,8195,2)
+ ;;=3DFall From Ladder^294644
+ ;;^UTILITY(U,$J,358.3,8196,0)
+ ;;=3DE882.^^65^560^3
+ ;;^UTILITY(U,$J,358.3,8196,1,0)
+ ;;=3D^358.31IA^5^2
+ ;;^UTILITY(U,$J,358.3,8196,1,4,0)
+ ;;=3D4^E882.
+ ;;^UTILITY(U,$J,358.3,8196,1,5,0)
+ ;;=3D5^Fall From Building
+ ;;^UTILITY(U,$J,358.3,8196,2)
+ ;;=3DFall From Building^294646
+ ;;^UTILITY(U,$J,358.3,8197,0)
+ ;;=3DE883.9^^65^560^7
+ ;;^UTILITY(U,$J,358.3,8197,1,0)
+ ;;=3D^358.31IA^5^2
+ ;;^UTILITY(U,$J,358.3,8197,1,4,0)
+ ;;=3D4^E883.9
+ ;;^UTILITY(U,$J,358.3,8197,1,5,0)
+ ;;=3D5^Fall Into Hole
+ ;;^UTILITY(U,$J,358.3,8197,2)
+ ;;=3DFall Into Hole^294650
+ ;;^UTILITY(U,$J,358.3,8198,0)
+ ;;=3DE884.2^^65^560^4
+ ;;^UTILITY(U,$J,358.3,8198,1,0)
+ ;;=3D^358.31IA^5^2
+ ;;^UTILITY(U,$J,358.3,8198,1,4,0)
+ ;;=3D4^E884.2
+ ;;^UTILITY(U,$J,358.3,8198,1,5,0)
+ ;;=3D5^Fall From Chair
+ ;;^UTILITY(U,$J,358.3,8198,2)
+ ;;=3DFall From Chair^294653
+ ;;^UTILITY(U,$J,358.3,8199,0)
+ ;;=3DE884.3^^65^560^6
+ ;;^UTILITY(U,$J,358.3,8199,1,0)
+ ;;=3D^358.31IA^5^2
+ ;;^UTILITY(U,$J,358.3,8199,1,4,0)
+ ;;=3D4^E884.3
+ ;;^UTILITY(U,$J,358.3,8199,1,5,0)
+ ;;=3D5^Fall From Wheelchair
+ ;;^UTILITY(U,$J,358.3,8199,2)
+ ;;=3DFall From Wheelchair^303368
+ ;;^UTILITY(U,$J,358.3,8200,0)
+ ;;=3DE884.4^^65^560^2
+ ;;^UTILITY(U,$J,358.3,8200,1,0)
+ ;;=3D^358.31IA^5^2
+ ;;^UTILITY(U,$J,358.3,8200,1,4,0)
+ ;;=3D4^E884.4
+ ;;^UTILITY(U,$J,358.3,8200,1,5,0)
+ ;;=3D5^Fall From Bed
+ ;;^UTILITY(U,$J,358.3,8200,2)
+ ;;=3DFall From Bed^303369
+ ;;^UTILITY(U,$J,358.3,8201,0)
+ ;;=3DE884.6^^65^560^8
+ ;;^UTILITY(U,$J,358.3,8201,1,0)
+ ;;=3D^358.31IA^5^2
+ ;;^UTILITY(U,$J,358.3,8201,1,4,0)
+ ;;=3D4^E884.6
+ ;;^UTILITY(U,$J,358.3,8201,1,5,0)
+ ;;=3D5^Fall from Commode
+ ;;^UTILITY(U,$J,358.3,8201,2)
+ ;;=3DFall from Commode^303371
+ ;;^UTILITY(U,$J,358.3,8202,0)
+ ;;=3DE884.9^^65^560^18
+ ;;^UTILITY(U,$J,358.3,8202,1,0)
+ ;;=3D^358.31IA^5^2
+ ;;^UTILITY(U,$J,358.3,8202,1,4,0)
+ ;;=3D4^E884.9
+ ;;^UTILITY(U,$J,358.3,8202,1,5,0)
+ ;;=3D5^Other Fall, one level to another
+ ;;^UTILITY(U,$J,358.3,8202,2)
+ ;;=3DOther Fall^294654
+ ;;^UTILITY(U,$J,358.3,8203,0)
+ ;;=3DE885.1^^65^560^9
+ ;;^UTILITY(U,$J,358.3,8203,1,0)
+ ;;=3D^358.31IA^5^2
+ ;;^UTILITY(U,$J,358.3,8203,1,4,0)
+ ;;=3D4^E885.1
+ ;;^UTILITY(U,$J,358.3,8203,1,5,0)
+ ;;=3D5^Fall from Roller Skates
+ ;;^UTILITY(U,$J,358.3,8203,2)
+ ;;=3DFall from Roller Skates^322100
+ ;;^UTILITY(U,$J,358.3,8204,0)
+ ;;=3DE885.2^^65^560^10
+ ;;^UTILITY(U,$J,358.3,8204,1,0)
+ ;;=3D^358.31IA^5^2
+ ;;^UTILITY(U,$J,358.3,8204,1,4,0)
+ ;;=3D4^E885.2
+ ;;^UTILITY(U,$J,358.3,8204,1,5,0)
+ ;;=3D5^Fall from Skateboard
+ ;;^UTILITY(U,$J,358.3,8204,2)
+ ;;=3DFall from Skateboard^322102
+ ;;^UTILITY(U,$J,358.3,8205,0)
+ ;;=3DE885.3^^65^560^11
+ ;;^UTILITY(U,$J,358.3,8205,1,0)
+ ;;=3D^358.31IA^5^2
+ ;;^UTILITY(U,$J,358.3,8205,1,4,0)
+ ;;=3D4^E885.3
+ ;;^UTILITY(U,$J,358.3,8205,1,5,0)
+ ;;=3D5^Fall from Skis
+ ;;^UTILITY(U,$J,358.3,8205,2)
+ ;;=3DFall from Skis^322103
+ ;;^UTILITY(U,$J,358.3,8206,0)
+ ;;=3DE885.4^^65^560^12
+ ;;^UTILITY(U,$J,358.3,8206,1,0)
+ ;;=3D^358.31IA^5^2
+ ;;^UTILITY(U,$J,358.3,8206,1,4,0)
+ ;;=3D4^E885.4
+ ;;^UTILITY(U,$J,358.3,8206,1,5,0)
+ ;;=3D5^Fall from Snowboard
+ ;;^UTILITY(U,$J,358.3,8206,2)
+ ;;=3DFall from Snowboard^322104
+ ;;^UTILITY(U,$J,358.3,8207,0)
+ ;;=3DE885.9^^65^560^1
+ ;;^UTILITY(U,$J,358.3,8207,1,0)
+ ;;=3D^358.31IA^5^2
+ ;;^UTILITY(U,$J,358.3,8207,1,4,0)
+ ;;=3D4^E885.9
+ ;;^UTILITY(U,$J,358.3,8207,1,5,0)
+ ;;=3D5^Fall After Tripping or Slipping
+ ;;^UTILITY(U,$J,358.3,8207,2)
+ ;;=3DFall after tripping or slipping^322105
+ ;;^UTILITY(U,$J,358.3,8208,0)
+ ;;=3DE886.0^^65^560^13
+ ;;^UTILITY(U,$J,358.3,8208,1,0)
+ ;;=3D^358.31IA^5^2
+ ;;^UTILITY(U,$J,358.3,8208,1,4,0)
+ ;;=3D4^E886.0
+ ;;^UTILITY(U,$J,358.3,8208,1,5,0)
+ ;;=3D5^Fall in Sports
+ ;;^UTILITY(U,$J,358.3,8208,2)
+ ;;=3DFall in Sports^294656
+ ;;^UTILITY(U,$J,358.3,8209,0)
+ ;;=3DE886.9^^65^560^15
+ ;;^UTILITY(U,$J,358.3,8209,1,0)
+ ;;=3D^358.31IA^5^2
+ ;;^UTILITY(U,$J,358.3,8209,1,4,0)
+ ;;=3D4^E886.9
+ ;;^UTILITY(U,$J,358.3,8209,1,5,0)
+ ;;=3D5^Fall, Collision with another person
+ ;;^UTILITY(U,$J,358.3,8209,2)
+ ;;=3DFall, Collision with another person^294657
+ ;;^UTILITY(U,$J,358.3,8210,0)
+ ;;=3DE888.9^^65^560^16
+ ;;^UTILITY(U,$J,358.3,8210,1,0)
+ ;;=3D^358.31IA^5^2
+ ;;^UTILITY(U,$J,358.3,8210,1,4,0)
+ ;;=3D4^E888.9
+ ;;^UTILITY(U,$J,358.3,8210,1,5,0)
+ ;;=3D5^Fall, Not Specified
+ ;;^UTILITY(U,$J,358.3,8210,2)
+ ;;=3DFall, Not Specified^323639
+ ;;^UTILITY(U,$J,358.3,8211,0)
+ ;;=3DE819.0^^65^560^19
+ ;;^UTILITY(U,$J,358.3,8211,1,0)
+ ;;=3D^358.31IA^5^2
+ ;;^UTILITY(U,$J,358.3,8211,1,4,0)
+ ;;=3D4^E819.0
+ ;;^UTILITY(U,$J,358.3,8211,1,5,0)
+ ;;=3D5^Traffic Accident, Driver
+ ;;^UTILITY(U,$J,358.3,8211,2)
+ ;;=3DTraffic Accident, Driver^294215
+ ;;^UTILITY(U,$J,358.3,8212,0)
+ ;;=3DE819.1^^65^560^20
+ ;;^UTILITY(U,$J,358.3,8212,1,0)
+ ;;=3D^358.31IA^5^2
+ ;;^UTILITY(U,$J,358.3,8212,1,4,0)
+ ;;=3D4^E819.1
+ ;;^UTILITY(U,$J,358.3,8212,1,5,0)
+ ;;=3D5^Traffic Accident, Passenger
+ ;;^UTILITY(U,$J,358.3,8212,2)
+ ;;=3D^294216
+ ;;^UTILITY(U,$J,358.3,8213,0)
+ ;;=3DE891.9^^65^560^17
+ ;;^UTILITY(U,$J,358.3,8213,1,0)
+ ;;=3D^358.31IA^5^2
+ ;;^UTILITY(U,$J,358.3,8213,1,4,0)
+ ;;=3D4^E891.9
+ ;;^UTILITY(U,$J,358.3,8213,1,5,0)
+ ;;=3D5^Fire in Building
+ ;;^UTILITY(U,$J,358.3,8213,2)
+ ;;=3DFire in Building^294669
+ ;;^UTILITY(U,$J,358.3,8214,0)
+ ;;=3D0^1^65^560^0^CODE THE CONDITION OR SYMPTOM FIRST
+ ;;^UTILITY(U,$J,358.3,8214,1,0)
+ ;;=3D^358.31IA^5^2
+ ;;^UTILITY(U,$J,358.3,8214,1,4,0)
+ ;;=3D4
+ ;;^UTILITY(U,$J,358.3,8214,1,5,0)
+ ;;=3D5
+ ;;^UTILITY(U,$J,358.3,8215,0)
+ ;;=3D99201^^66^561^1
+ ;;^UTILITY(U,$J,358.3,8215,1,0)
+ ;;=3D^358.31IA^2^2
+ ;;^UTILITY(U,$J,358.3,8215,1,1,0)
+ ;;=3D1^Problem Focus
+ ;;^UTILITY(U,$J,358.3,8215,1,2,0)
+ ;;=3D2^99201
+ ;;^UTILITY(U,$J,358.3,8216,0)
+ ;;=3D99202^^66^561^2
+ ;;^UTILITY(U,$J,358.3,8216,1,0)
+ ;;=3D^358.31IA^2^2
+ ;;^UTILITY(U,$J,358.3,8216,1,1,0)
+ ;;=3D1^Expanded Problem Focus
+ ;;^UTILITY(U,$J,358.3,8216,1,2,0)
+ ;;=3D2^99202
+ ;;^UTILITY(U,$J,358.3,8217,0)
+ ;;=3D99203^^66^561^3
+ ;;^UTILITY(U,$J,358.3,8217,1,0)
+ ;;=3D^358.31IA^2^2
+ ;;^UTILITY(U,$J,358.3,8217,1,1,0)
+ ;;=3D1^Detailed
+ ;;^UTILITY(U,$J,358.3,8217,1,2,0)
+ ;;=3D2^99203
+ ;;^UTILITY(U,$J,358.3,8218,0)
+ ;;=3D99204^^66^561^4
+ ;;^UTILITY(U,$J,358.3,8218,1,0)
+ ;;=3D^358.31IA^2^2
+ ;;^UTILITY(U,$J,358.3,8218,1,1,0)
+ ;;=3D1^Comprehensive, Moderate
+ ;;^UTILITY(U,$J,358.3,8218,1,2,0)
+ ;;=3D2^99204
+ ;;^UTILITY(U,$J,358.3,8219,0)
+ ;;=3D99205^^66^561^5
+ ;;^UTILITY(U,$J,358.3,8219,1,0)
+ ;;=3D^358.31IA^2^2
+ ;;^UTILITY(U,$J,358.3,8219,1,1,0)
+ ;;=3D1^Comprehensive, High
+ ;;^UTILITY(U,$J,358.3,8219,1,2,0)
+ ;;=3D2^99205
+ ;;^UTILITY(U,$J,358.3,8220,0)
+ ;;=3D99211^^66^562^1
+ ;;^UTILITY(U,$J,358.3,8220,1,0)
+ ;;=3D^358.31IA^2^2
+ ;;^UTILITY(U,$J,358.3,8220,1,1,0)
+ ;;=3D1^Brief (no MD seen)
+ ;;^UTILITY(U,$J,358.3,8220,1,2,0)
+ ;;=3D2^99211
+ ;;^UTILITY(U,$J,358.3,8221,0)
+ ;;=3D99212^^66^562^2
+ ;;^UTILITY(U,$J,358.3,8221,1,0)
+ ;;=3D^358.31IA^2^2
+ ;;^UTILITY(U,$J,358.3,8221,1,1,0)
+ ;;=3D1^Problem Focused
+ ;;^UTILITY(U,$J,358.3,8221,1,2,0)
+ ;;=3D2^99212
+ ;;^UTILITY(U,$J,358.3,8222,0)
+ ;;=3D99213^^66^562^3
+ ;;^UTILITY(U,$J,358.3,8222,1,0)
+ ;;=3D^358.31IA^2^2
+ ;;^UTILITY(U,$J,358.3,8222,1,1,0)
+ ;;=3D1^Expanded Problem Focus
+ ;;^UTILITY(U,$J,358.3,8222,1,2,0)
+ ;;=3D2^99213
+ ;;^UTILITY(U,$J,358.3,8223,0)
+ ;;=3D99214^^66^562^4
+ ;;^UTILITY(U,$J,358.3,8223,1,0)
+ ;;=3D^358.31IA^2^2
+ ;;^UTILITY(U,$J,358.3,8223,1,1,0)
+ ;;=3D1^Detailed
+ ;;^UTILITY(U,$J,358.3,8223,1,2,0)
+ ;;=3D2^99214
+ ;;^UTILITY(U,$J,358.3,8224,0)
+ ;;=3D99215^^66^562^5
+ ;;^UTILITY(U,$J,358.3,8224,1,0)
+ ;;=3D^358.31IA^2^2
+ ;;^UTILITY(U,$J,358.3,8224,1,1,0)
+ ;;=3D1^Comprehensive
+ ;;^UTILITY(U,$J,358.3,8224,1,2,0)
+ ;;=3D2^99215
+ ;;^UTILITY(U,$J,358.3,8225,0)
+ ;;=3D99241^^66^563^1
+ ;;^UTILITY(U,$J,358.3,8225,1,0)
+ ;;=3D^358.31IA^2^2
+ ;;^UTILITY(U,$J,358.3,8225,1,1,0)
+ ;;=3D1^PROBLEM FOCUSED

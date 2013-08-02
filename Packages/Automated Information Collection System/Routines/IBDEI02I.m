@@ -1,374 +1,174 @@
-IBDEI02I ; ; 20-FEB-2013
- ;;3.0;IB ENCOUNTER FORM IMP/EXP;;FEB 20, 2013
- Q:'DIFQR(358.3)  F I=1:2 S X=$T(Q+I) Q:X=""  S Y=$E($T(Q+I+1),4,999),X=$E(X,4,999) S:$A(Y)=126 I=I+1,Y=$E(Y,2,999)_$E($T(Q+I+1),5,99) S:$A(Y)=61 Y=$E(Y,2,999) X NO E  S @X=Y
+IBDEI02I ; ; 06-DEC-2010
+ ;;3.0;IB ENCOUNTER FORM IMP/EXP;;DEC 06, 2010
+ Q:'DIFQ(358.6)  F I=3D1:2 S X=3D$T(Q+I) Q:X=3D""  S
+Y=3D$E($T(Q+I+1),4,999),X=3D$E(X,4,999) S:$A(Y)=3D126
+I=3DI+1,Y=3D$E(Y,2,999)_$E($T(Q+I+1),5,99) S:$A(Y)=3D61 Y=3D$E(Y,2,999) =
+X NO E
+S @X=3DY
 Q Q
- ;;^UTILITY(U,$J,358.3,2848,1,2,0)
- ;;=2^99204
- ;;^UTILITY(U,$J,358.3,2849,0)
- ;;=99205^^31^227^5
- ;;^UTILITY(U,$J,358.3,2849,1,0)
- ;;=^358.31IA^2^2
- ;;^UTILITY(U,$J,358.3,2849,1,1,0)
- ;;=1^Comprehensive, High
- ;;^UTILITY(U,$J,358.3,2849,1,2,0)
- ;;=2^99205
- ;;^UTILITY(U,$J,358.3,2850,0)
- ;;=99211^^31^228^1
- ;;^UTILITY(U,$J,358.3,2850,1,0)
- ;;=^358.31IA^2^2
- ;;^UTILITY(U,$J,358.3,2850,1,1,0)
- ;;=1^Brief (no MD seen)
- ;;^UTILITY(U,$J,358.3,2850,1,2,0)
- ;;=2^99211
- ;;^UTILITY(U,$J,358.3,2851,0)
- ;;=99212^^31^228^2
- ;;^UTILITY(U,$J,358.3,2851,1,0)
- ;;=^358.31IA^2^2
- ;;^UTILITY(U,$J,358.3,2851,1,1,0)
- ;;=1^Problem Focused
- ;;^UTILITY(U,$J,358.3,2851,1,2,0)
- ;;=2^99212
- ;;^UTILITY(U,$J,358.3,2852,0)
- ;;=99213^^31^228^3
- ;;^UTILITY(U,$J,358.3,2852,1,0)
- ;;=^358.31IA^2^2
- ;;^UTILITY(U,$J,358.3,2852,1,1,0)
- ;;=1^Expanded Problem Focus
- ;;^UTILITY(U,$J,358.3,2852,1,2,0)
- ;;=2^99213
- ;;^UTILITY(U,$J,358.3,2853,0)
- ;;=99214^^31^228^4
- ;;^UTILITY(U,$J,358.3,2853,1,0)
- ;;=^358.31IA^2^2
- ;;^UTILITY(U,$J,358.3,2853,1,1,0)
- ;;=1^Detailed
- ;;^UTILITY(U,$J,358.3,2853,1,2,0)
- ;;=2^99214
- ;;^UTILITY(U,$J,358.3,2854,0)
- ;;=99215^^31^228^5
- ;;^UTILITY(U,$J,358.3,2854,1,0)
- ;;=^358.31IA^2^2
- ;;^UTILITY(U,$J,358.3,2854,1,1,0)
- ;;=1^Comprehensive
- ;;^UTILITY(U,$J,358.3,2854,1,2,0)
- ;;=2^99215
- ;;^UTILITY(U,$J,358.3,2855,0)
- ;;=99241^^31^229^1
- ;;^UTILITY(U,$J,358.3,2855,1,0)
- ;;=^358.31IA^2^2
- ;;^UTILITY(U,$J,358.3,2855,1,1,0)
- ;;=1^Problem Focused
- ;;^UTILITY(U,$J,358.3,2855,1,2,0)
- ;;=2^99241
- ;;^UTILITY(U,$J,358.3,2856,0)
- ;;=99242^^31^229^2
- ;;^UTILITY(U,$J,358.3,2856,1,0)
- ;;=^358.31IA^2^2
- ;;^UTILITY(U,$J,358.3,2856,1,1,0)
- ;;=1^Expanded Problem Focus
- ;;^UTILITY(U,$J,358.3,2856,1,2,0)
- ;;=2^99242
- ;;^UTILITY(U,$J,358.3,2857,0)
- ;;=99243^^31^229^3
- ;;^UTILITY(U,$J,358.3,2857,1,0)
- ;;=^358.31IA^2^2
- ;;^UTILITY(U,$J,358.3,2857,1,1,0)
- ;;=1^Detailed
- ;;^UTILITY(U,$J,358.3,2857,1,2,0)
- ;;=2^99243
- ;;^UTILITY(U,$J,358.3,2858,0)
- ;;=99244^^31^229^4
- ;;^UTILITY(U,$J,358.3,2858,1,0)
- ;;=^358.31IA^2^2
- ;;^UTILITY(U,$J,358.3,2858,1,1,0)
- ;;=1^Comprehensive, Moderate
- ;;^UTILITY(U,$J,358.3,2858,1,2,0)
- ;;=2^99244
- ;;^UTILITY(U,$J,358.3,2859,0)
- ;;=99245^^31^229^5
- ;;^UTILITY(U,$J,358.3,2859,1,0)
- ;;=^358.31IA^2^2
- ;;^UTILITY(U,$J,358.3,2859,1,1,0)
- ;;=1^Comprehensive, High
- ;;^UTILITY(U,$J,358.3,2859,1,2,0)
- ;;=2^99245
- ;;^UTILITY(U,$J,358.3,2860,0)
- ;;=99201^^32^230^1
- ;;^UTILITY(U,$J,358.3,2860,1,0)
- ;;=^358.31IA^2^2
- ;;^UTILITY(U,$J,358.3,2860,1,1,0)
- ;;=1^Problem Focus
- ;;^UTILITY(U,$J,358.3,2860,1,2,0)
- ;;=2^99201
- ;;^UTILITY(U,$J,358.3,2861,0)
- ;;=99202^^32^230^2
- ;;^UTILITY(U,$J,358.3,2861,1,0)
- ;;=^358.31IA^2^2
- ;;^UTILITY(U,$J,358.3,2861,1,1,0)
- ;;=1^Expanded Problem Focus
- ;;^UTILITY(U,$J,358.3,2861,1,2,0)
- ;;=2^99202
- ;;^UTILITY(U,$J,358.3,2862,0)
- ;;=99203^^32^230^3
- ;;^UTILITY(U,$J,358.3,2862,1,0)
- ;;=^358.31IA^2^2
- ;;^UTILITY(U,$J,358.3,2862,1,1,0)
- ;;=1^Detailed
- ;;^UTILITY(U,$J,358.3,2862,1,2,0)
- ;;=2^99203
- ;;^UTILITY(U,$J,358.3,2863,0)
- ;;=99204^^32^230^4
- ;;^UTILITY(U,$J,358.3,2863,1,0)
- ;;=^358.31IA^2^2
- ;;^UTILITY(U,$J,358.3,2863,1,1,0)
- ;;=1^Comprehensive, Moderate
- ;;^UTILITY(U,$J,358.3,2863,1,2,0)
- ;;=2^99204
- ;;^UTILITY(U,$J,358.3,2864,0)
- ;;=99212^^32^231^2
- ;;^UTILITY(U,$J,358.3,2864,1,0)
- ;;=^358.31IA^2^2
- ;;^UTILITY(U,$J,358.3,2864,1,1,0)
- ;;=1^Problem Focused
- ;;^UTILITY(U,$J,358.3,2864,1,2,0)
- ;;=2^99212
- ;;^UTILITY(U,$J,358.3,2865,0)
- ;;=99213^^32^231^3
- ;;^UTILITY(U,$J,358.3,2865,1,0)
- ;;=^358.31IA^2^2
- ;;^UTILITY(U,$J,358.3,2865,1,1,0)
- ;;=1^Expanded Problem Focus
- ;;^UTILITY(U,$J,358.3,2865,1,2,0)
- ;;=2^99213
- ;;^UTILITY(U,$J,358.3,2866,0)
- ;;=99214^^32^231^4
- ;;^UTILITY(U,$J,358.3,2866,1,0)
- ;;=^358.31IA^2^2
- ;;^UTILITY(U,$J,358.3,2866,1,1,0)
- ;;=1^Detailed
- ;;^UTILITY(U,$J,358.3,2866,1,2,0)
- ;;=2^99214
- ;;^UTILITY(U,$J,358.3,2867,0)
- ;;=99241^^32^232^1
- ;;^UTILITY(U,$J,358.3,2867,1,0)
- ;;=^358.31IA^2^2
- ;;^UTILITY(U,$J,358.3,2867,1,1,0)
- ;;=1^Problem Focused
- ;;^UTILITY(U,$J,358.3,2867,1,2,0)
- ;;=2^99241
- ;;^UTILITY(U,$J,358.3,2868,0)
- ;;=99242^^32^232^2
- ;;^UTILITY(U,$J,358.3,2868,1,0)
- ;;=^358.31IA^2^2
- ;;^UTILITY(U,$J,358.3,2868,1,1,0)
- ;;=1^Expanded Problem Focus
- ;;^UTILITY(U,$J,358.3,2868,1,2,0)
- ;;=2^99242
- ;;^UTILITY(U,$J,358.3,2869,0)
- ;;=99243^^32^232^3
- ;;^UTILITY(U,$J,358.3,2869,1,0)
- ;;=^358.31IA^2^2
- ;;^UTILITY(U,$J,358.3,2869,1,1,0)
- ;;=1^Detailed
- ;;^UTILITY(U,$J,358.3,2869,1,2,0)
- ;;=2^99243
- ;;^UTILITY(U,$J,358.3,2870,0)
- ;;=99244^^32^232^4
- ;;^UTILITY(U,$J,358.3,2870,1,0)
- ;;=^358.31IA^2^2
- ;;^UTILITY(U,$J,358.3,2870,1,1,0)
- ;;=1^Comprehensive, Moderate
- ;;^UTILITY(U,$J,358.3,2870,1,2,0)
- ;;=2^99244
- ;;^UTILITY(U,$J,358.3,2871,0)
- ;;=99245^^32^232^5
- ;;^UTILITY(U,$J,358.3,2871,1,0)
- ;;=^358.31IA^2^2
- ;;^UTILITY(U,$J,358.3,2871,1,1,0)
- ;;=1^Comprehensive, High
- ;;^UTILITY(U,$J,358.3,2871,1,2,0)
- ;;=2^99245
- ;;^UTILITY(U,$J,358.3,2872,0)
- ;;=97014^^33^233^9^^^^1
- ;;^UTILITY(U,$J,358.3,2872,1,0)
- ;;=^358.31IA^3^2
- ;;^UTILITY(U,$J,358.3,2872,1,2,0)
- ;;=2^Electric Stimulation Therapy
- ;;^UTILITY(U,$J,358.3,2872,1,3,0)
- ;;=3^97014
- ;;^UTILITY(U,$J,358.3,2873,0)
- ;;=97032^^33^233^10^^^^1
- ;;^UTILITY(U,$J,358.3,2873,1,0)
- ;;=^358.31IA^3^2
- ;;^UTILITY(U,$J,358.3,2873,1,2,0)
- ;;=2^Electrical Stimulation
- ;;^UTILITY(U,$J,358.3,2873,1,3,0)
- ;;=3^97032
- ;;^UTILITY(U,$J,358.3,2874,0)
- ;;=97010^^33^233^20^^^^1
- ;;^UTILITY(U,$J,358.3,2874,1,0)
- ;;=^358.31IA^3^2
- ;;^UTILITY(U,$J,358.3,2874,1,2,0)
- ;;=2^Hot Or Cold Packs Therapy
- ;;^UTILITY(U,$J,358.3,2874,1,3,0)
- ;;=3^97010
- ;;^UTILITY(U,$J,358.3,2875,0)
- ;;=97036^^33^233^21^^^^1
- ;;^UTILITY(U,$J,358.3,2875,1,0)
- ;;=^358.31IA^3^2
- ;;^UTILITY(U,$J,358.3,2875,1,2,0)
- ;;=2^Hydrotherapy
- ;;^UTILITY(U,$J,358.3,2875,1,3,0)
- ;;=3^97036
- ;;^UTILITY(U,$J,358.3,2876,0)
- ;;=97124^^33^233^24^^^^1
- ;;^UTILITY(U,$J,358.3,2876,1,0)
- ;;=^358.31IA^3^2
- ;;^UTILITY(U,$J,358.3,2876,1,2,0)
- ;;=2^Massage Therapy
- ;;^UTILITY(U,$J,358.3,2876,1,3,0)
- ;;=3^97124
- ;;^UTILITY(U,$J,358.3,2877,0)
- ;;=64550^^33^233^30^^^^1
- ;;^UTILITY(U,$J,358.3,2877,1,0)
- ;;=^358.31IA^3^2
- ;;^UTILITY(U,$J,358.3,2877,1,2,0)
- ;;=2^Apply Neurostimulator
- ;;^UTILITY(U,$J,358.3,2877,1,3,0)
- ;;=3^64550
- ;;^UTILITY(U,$J,358.3,2878,0)
- ;;=97012^^33^233^42^^^^1
- ;;^UTILITY(U,$J,358.3,2878,1,0)
- ;;=^358.31IA^3^2
- ;;^UTILITY(U,$J,358.3,2878,1,2,0)
- ;;=2^Mechanical Traction Therapy 
- ;;^UTILITY(U,$J,358.3,2878,1,3,0)
- ;;=3^97012
- ;;^UTILITY(U,$J,358.3,2879,0)
- ;;=97035^^33^233^43^^^^1
- ;;^UTILITY(U,$J,358.3,2879,1,0)
- ;;=^358.31IA^3^2
- ;;^UTILITY(U,$J,358.3,2879,1,2,0)
- ;;=2^Ultrasound Therapy
- ;;^UTILITY(U,$J,358.3,2879,1,3,0)
- ;;=3^97035
- ;;^UTILITY(U,$J,358.3,2880,0)
- ;;=97028^^33^233^44^^^^1
- ;;^UTILITY(U,$J,358.3,2880,1,0)
- ;;=^358.31IA^3^2
- ;;^UTILITY(U,$J,358.3,2880,1,2,0)
- ;;=2^Ultraviolet Therapy
- ;;^UTILITY(U,$J,358.3,2880,1,3,0)
- ;;=3^97028
- ;;^UTILITY(U,$J,358.3,2881,0)
- ;;=98940^^33^234^1^^^^1
- ;;^UTILITY(U,$J,358.3,2881,1,0)
- ;;=^358.31IA^3^2
- ;;^UTILITY(U,$J,358.3,2881,1,2,0)
- ;;=2^CMT; Spinal, one to two regions
- ;;^UTILITY(U,$J,358.3,2881,1,3,0)
- ;;=3^98940
- ;;^UTILITY(U,$J,358.3,2882,0)
- ;;=98941^^33^234^2^^^^1
- ;;^UTILITY(U,$J,358.3,2882,1,0)
- ;;=^358.31IA^3^2
- ;;^UTILITY(U,$J,358.3,2882,1,2,0)
- ;;=2^CMT; Spinal, three to four regions
- ;;^UTILITY(U,$J,358.3,2882,1,3,0)
- ;;=3^98941
- ;;^UTILITY(U,$J,358.3,2883,0)
- ;;=98942^^33^234^3^^^^1
- ;;^UTILITY(U,$J,358.3,2883,1,0)
- ;;=^358.31IA^3^2
- ;;^UTILITY(U,$J,358.3,2883,1,2,0)
- ;;=2^CMT; Spinal, five regions
- ;;^UTILITY(U,$J,358.3,2883,1,3,0)
- ;;=3^98942
- ;;^UTILITY(U,$J,358.3,2884,0)
- ;;=98943^^33^234^4^^^^1
- ;;^UTILITY(U,$J,358.3,2884,1,0)
- ;;=^358.31IA^3^2
- ;;^UTILITY(U,$J,358.3,2884,1,2,0)
- ;;=2^CMT; Extraspinal, one or more regions
- ;;^UTILITY(U,$J,358.3,2884,1,3,0)
- ;;=3^98943
- ;;^UTILITY(U,$J,358.3,2885,0)
- ;;=98925^^33^235^1^^^^1
- ;;^UTILITY(U,$J,358.3,2885,1,0)
- ;;=^358.31IA^3^2
- ;;^UTILITY(U,$J,358.3,2885,1,2,0)
- ;;=2^OMT, 1-2 body regions involved
- ;;^UTILITY(U,$J,358.3,2885,1,3,0)
- ;;=3^98925
- ;;^UTILITY(U,$J,358.3,2886,0)
- ;;=98926^^33^235^2^^^^1
- ;;^UTILITY(U,$J,358.3,2886,1,0)
- ;;=^358.31IA^3^2
- ;;^UTILITY(U,$J,358.3,2886,1,2,0)
- ;;=2^OMT, 3-4 body regions involved
- ;;^UTILITY(U,$J,358.3,2886,1,3,0)
- ;;=3^98926
- ;;^UTILITY(U,$J,358.3,2887,0)
- ;;=98927^^33^235^3^^^^1
- ;;^UTILITY(U,$J,358.3,2887,1,0)
- ;;=^358.31IA^3^2
- ;;^UTILITY(U,$J,358.3,2887,1,2,0)
- ;;=2^OMT, 5-6 body regions involved
- ;;^UTILITY(U,$J,358.3,2887,1,3,0)
- ;;=3^98927
- ;;^UTILITY(U,$J,358.3,2888,0)
- ;;=98928^^33^235^4^^^^1
- ;;^UTILITY(U,$J,358.3,2888,1,0)
- ;;=^358.31IA^3^2
- ;;^UTILITY(U,$J,358.3,2888,1,2,0)
- ;;=2^OMT, 9-10 body regions involved
- ;;^UTILITY(U,$J,358.3,2888,1,3,0)
- ;;=3^98928
- ;;^UTILITY(U,$J,358.3,2889,0)
- ;;=726.0^^34^236^3
- ;;^UTILITY(U,$J,358.3,2889,1,0)
- ;;=^358.31IA^4^2
- ;;^UTILITY(U,$J,358.3,2889,1,3,0)
- ;;=3^Adhesive Capsulit Shlder
- ;;^UTILITY(U,$J,358.3,2889,1,4,0)
- ;;=4^726.0
- ;;^UTILITY(U,$J,358.3,2889,2)
- ;;=^272520
- ;;^UTILITY(U,$J,358.3,2890,0)
- ;;=716.98^^34^236^5
- ;;^UTILITY(U,$J,358.3,2890,1,0)
- ;;=^358.31IA^4^2
- ;;^UTILITY(U,$J,358.3,2890,1,3,0)
- ;;=3^Arthropathy Nos-Oth Site
- ;;^UTILITY(U,$J,358.3,2890,1,4,0)
- ;;=4^716.98
- ;;^UTILITY(U,$J,358.3,2890,2)
- ;;=^272255
- ;;^UTILITY(U,$J,358.3,2891,0)
- ;;=714.0^^34^236^104
- ;;^UTILITY(U,$J,358.3,2891,1,0)
- ;;=^358.31IA^4^2
- ;;^UTILITY(U,$J,358.3,2891,1,3,0)
- ;;=3^Rheumatoid Arthritis
- ;;^UTILITY(U,$J,358.3,2891,1,4,0)
- ;;=4^714.0
- ;;^UTILITY(U,$J,358.3,2891,2)
- ;;=^10473
- ;;^UTILITY(U,$J,358.3,2892,0)
- ;;=726.71^^34^236^1
- ;;^UTILITY(U,$J,358.3,2892,1,0)
- ;;=^358.31IA^4^2
- ;;^UTILITY(U,$J,358.3,2892,1,3,0)
- ;;=3^Achilles Tendinitis
- ;;^UTILITY(U,$J,358.3,2892,1,4,0)
- ;;=4^726.71
- ;;^UTILITY(U,$J,358.3,2892,2)
- ;;=^272550
- ;;^UTILITY(U,$J,358.3,2893,0)
- ;;=727.3^^34^236^15
- ;;^UTILITY(U,$J,358.3,2893,1,0)
- ;;=^358.31IA^4^2
- ;;^UTILITY(U,$J,358.3,2893,1,3,0)
- ;;=3^Bursitis Nec
- ;;^UTILITY(U,$J,358.3,2893,1,4,0)
- ;;=4^727.3
+ ;;^DIC(358.6,0,"GL")
+ ;;=3D^IBE(358.6,
+ ;;^DIC("B","IMP/EXP PACKAGE INTERFACE",358.6)
+ ;;=3D
+ ;;^DIC(358.6,"%D",0)
+ ;;=3D^^1^1^2950927^^^^
+ ;;^DIC(358.6,"%D",1,0)
+ ;;=3DThis file is used as a workspace by the import/export utility.
+ ;;^DIC(358.6,"%D",2,0)
+ ;;=3DImport/Export Utility as a temporary staging area for data from =
+that
+file
+ ;;^DIC(358.6,"%D",3,0)
+ ;;=3Dthat is being imported or exported.
+ ;;^DIC(358.6,"%D",4,0)
+ ;;=3D=20
+ ;;^DIC(358.6,"%D",5,0)
+ ;;=3DThis file contains a description of all of the interfaces with =
+other
+packages.
+ ;;^DIC(358.6,"%D",6,0)
+ ;;=3DThe form will invoke the proper interface routines by doing a =
+lookup
+on
+ ;;^DIC(358.6,"%D",7,0)
+ ;;=3Dthis file and then invoking the routine by indirection. The INPUT
+VARIABLE
+ ;;^DIC(358.6,"%D",8,0)
+ ;;=3Dfields are for documentation purposes and to verify that the =
+proper
+ ;;^DIC(358.6,"%D",9,0)
+ ;;=3Dvariables are defined. Data will be exchanged between the =
+encounter
+form
+ ;;^DIC(358.6,"%D",10,0)
+ ;;=3Dutilities and other packages by putting the data in a predefined
+location.
+ ;;^DIC(358.6,"%D",11,0)
+ ;;=3DThe first part of the subscript is always be
+^TMP("IB",$J,"INTERFACES".
+ ;;^DIC(358.6,"%D",12,0)
+ ;;=3DFor output routines, but not selection routines, the fourth
+subscript is
+ ;;^DIC(358.6,"%D",13,0)
+ ;;=3Dbe the patient DFN. The next subscript is the name of the Package
+ ;;^DIC(358.6,"%D",14,0)
+ ;;=3DInterface. For single valued data and record valued data there is =
+no
+ ;;^DIC(358.6,"%D",15,0)
+ ;;=3Dadditional subscript. For interfaces returning a list there is one
+ ;;^DIC(358.6,"%D",16,0)
+ ;;=3Dadditional subscript level, the number of the item on the list. =
+For
+ ;;^DIC(358.6,"%D",17,0)
+ ;;=3Dword processing type data the data will be in FM word-processing
+format,
+ ;;^DIC(358.6,"%D",18,0)
+ ;;=3Di.e., the final subscripts will be ...1,0),...2,0),...3,0), etc.
+ ;;^DIC(358.6,"%D",19,0)
+ ;;=3Dthese items of data can have its own entry in the Package =
+Interface
+file,
+ ;;^DIC(358.6,"%D",20,0)
+ ;;=3Dbut by using the same entry point there is a savings because all =
+of
+the
+ ;;^DIC(358.6,"%D",21,0)
+ ;;=3Ddata on that node can be obtained at once. The routines that =
+invoke
+the
+ ;;^DIC(358.6,"%D",22,0)
+ ;;=3Dentry point keep track of the entry points already invoked so they
+are
+ ;;^DIC(358.6,"%D",23,0)
+ ;;=3Dnot repeated.
+ ;;^DD(358.6,0)
+ ;;=3DFIELD^^21^76
+ ;;^DD(358.6,0,"DDA")
+ ;;=3DN
+ ;;^DD(358.6,0,"DT")
+ ;;=3D3000124
+ ;;^DD(358.6,0,"ID",.06)
+ ;;=3DW ""
+ ;;^DD(358.6,0,"ID","WRITE")
+ ;;=3DN IBDWNAM S IBDWNAM=3D$E($P(^(0),U),1,40) D =
+EN^DDIOL(IBDWNAM,"","!?0")
+ ;;^DD(358.6,0,"ID","WRITE1")
+ ;;=3DN IBDWTYPE S
+IBDWTYPE=3D$S($P(^(0),"^",6)=3D1:"INPUT",$P(^(0),"^",6)=3D2:"OUTPUT",$P(^=
+(0),"
+^",6)=3D3:"SELECTION",1:"REPORT")_$S($P(^(0),U,6)=3D3&'$P(^(0),"^",13):" =
+ **
+NOT SCANNABLE **",1:"") D EN^DDIOL("TYPE=3D"_IBDWTYPE,"","?45")
+ ;;^DD(358.6,0,"IX","B",358.6,.01)
+ ;;=3D
+ ;;^DD(358.6,0,"IX","C",358.6,.04)
+ ;;=3D
+ ;;^DD(358.6,0,"IX","D",358.6,3)
+ ;;=3D
+ ;;^DD(358.6,0,"IX","E",358.6,.01)
+ ;;=3D
+ ;;^DD(358.6,0,"NM","IMP/EXP PACKAGE INTERFACE")
+ ;;=3D
+ ;;^DD(358.6,0,"PT",358.2,.11)
+ ;;=3D
+ ;;^DD(358.6,0,"PT",358.5,.03)
+ ;;=3D
+ ;;^DD(358.6,0,"PT",358.6,.13)
+ ;;=3D
+ ;;^DD(358.6,0,"PT",358.93,.06)
+ ;;=3D
+ ;;^DD(358.6,0,"VRPK")
+ ;;=3DIBD
+ ;;^DD(358.6,.01,0)
+ ;;=3DNAME^RF^^0;1^K:X[""""!($A(X)=3D45) X I $D(X)
+K:$L(X)>40!($L(X)<3)!'(X'?1P.E) X
+ ;;^DD(358.6,.01,1,0)
+ ;;=3D^.1
+ ;;^DD(358.6,.01,1,1,0)
+ ;;=3D358.6^B
+ ;;^DD(358.6,.01,1,1,1)
+ ;;=3DS ^IBE(358.6,"B",$E(X,1,30),DA)=3D""
+ ;;^DD(358.6,.01,1,1,2)
+ ;;=3DK ^IBE(358.6,"B",$E(X,1,30),DA)
+ ;;^DD(358.6,.01,1,2,0)
+ ;;=3D358.6^E^MUMPS
+ ;;^DD(358.6,.01,1,2,1)
+ ;;=3DS ^IBE(358.6,"E",$E(X,$F(X," "),40),DA)=3D""
+ ;;^DD(358.6,.01,1,2,2)
+ ;;=3DK ^IBE(358.6,"E",$E(X,$F(X," "),40),DA)
+ ;;^DD(358.6,.01,1,2,"%D",0)
+ ;;=3D^^4^4^2940224^
+ ;;^DD(358.6,.01,1,2,"%D",1,0)
+ ;;=3D=20
+ ;;^DD(358.6,.01,1,2,"%D",2,0)
+ ;;=3DFor package interfaces that are output routines the name has the
+custodial
+ ;;^DD(358.6,.01,1,2,"%D",3,0)
+ ;;=3Dpackage's name space as a prefix. This cross-reference removes =
+that
+ ;;^DD(358.6,.01,1,2,"%D",4,0)
+ ;;=3Dprefix. It is used to improve the display of output routines for =
+the
+user.
+ ;;^DD(358.6,.01,1,2,"DT")
+ ;;=3D2930409
+ ;;^DD(358.6,.01,3)
+ ;;=3DAnswer must be 3-40 characters in length. All entries with Action
+Type other than PRINT REPORT must be be prefixed with the namespace of
+the package that is responsible for the data.
+ ;;^DD(358.6,.01,21,0)
+ ;;=3D^^3^3^2950412^^^^
+ ;;^DD(358.6,.01,21,1,0)
+ ;;=3D=20
+ ;;^DD(358.6,.01,21,2,0)
+ ;;=3DThe name of the Package Interface. For interfaces returning data =
+the
+name
+ ;;^DD(358.6,.01,21,3,0)
+ ;;=3Dshould be preceded with the namespace of the package.
+ ;;^DD(358.6,.01,23,0)
+ ;;=3D^^1^1^2950412^
+ ;;^DD(358.6,.01,23,1,0)
+ ;;=3D=20
+ ;;^DD(358.6,.01,"DT")
+ ;;=3D2930409

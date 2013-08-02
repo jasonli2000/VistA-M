@@ -1,5 +1,5 @@
-RCDPESR2 ;ALB/TMK/DWA - Server auto-upd - EDI Lockbox ; 06/03/02
- ;;4.5;Accounts Receivable;**173,216,208,230,252,264,269,271**;Mar 20, 1995;Build 29
+RCDPESR2 ;ALB/TMK/DWA - Server auto-upd - EDI Lockbox ; 6/14/11 3:03pm
+ ;;4.5;Accounts Receivable;**173,216,208,230,252,264,269**;Mar 20, 1995;Build 113
  ;;Per VHA Directive 2004-038, this routine should not be modified.
  ; IA 4042 (IBCEOB)
  ;
@@ -93,7 +93,7 @@ UPDEOB(RCTDA,RCFILE,DUP) ;Upd 361.1 from ERA msg in 344.5 or .4
  F  S RC=$O(@RCGBL@(RC)) Q:'RC  S RC0=$G(^(RC,0)) D
  .I RC0<5 Q
  .I +RC0=5 S C5=RC,CP5=$P(RC0,U,2) Q  ;retrofit 264 into 269
- .I +RC0=40,CP5?1.12N,C5,'$D(@RCSD@(C5)) S @RCSD@(C5)=$P(RC0,U,19) ;serv date for possible ECME# matching
+ .I +RC0=40,CP5?1.7N,C5,'$D(@RCSD@(C5)) S @RCSD@(C5)=$P(RC0,U,19) ;serv date
  ;
  S RC=1,(RCCT,RCCT1,RCX,REFORM)=0,RCBILL=""
  S RCERR1=$NA(^TMP("RCERR1",$J)) K @RCERR1
@@ -108,7 +108,7 @@ UPDEOB(RCTDA,RCFILE,DUP) ;Upd 361.1 from ERA msg in 344.5 or .4
  .;
  .I +RC0=5 S RCCT=RCCT+1,RCCT1=0 D
  ..S REFORM=0
- ..S Z=$$BILL^RCDPESR1($P(RC0,U,2),$G(@RCSD@(RC)),.RCIB)   ; look up claim ien by claim# or by ECME#
+ ..S Z=$$BILL^RCDPESR1($P(RC0,U,2),$G(@RCSD@(RC)),.RCIB)
  ..I Z S RCBILL=$P($G(^PRCA(430,Z,0)),U) I RCBILL'="",RCBILL'=$P(RC0,U,2) S REFORM=1,$P(RC0,U,2)=RCBILL
  ..S RCBILL=$P(RC0,U,2)
  ..S Z=$S(Z>0:$S($G(RCIB):Z,1:-1),1:-1)

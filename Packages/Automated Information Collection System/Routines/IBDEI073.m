@@ -1,366 +1,302 @@
-IBDEI073 ; ; 20-FEB-2013
- ;;3.0;IB ENCOUNTER FORM IMP/EXP;;FEB 20, 2013
- Q:'DIFQR(358.3)  F I=1:2 S X=$T(Q+I) Q:X=""  S Y=$E($T(Q+I+1),4,999),X=$E(X,4,999) S:$A(Y)=126 I=I+1,Y=$E(Y,2,999)_$E($T(Q+I+1),5,99) S:$A(Y)=61 Y=$E(Y,2,999) X NO E  S @X=Y
+IBDEI073 ; ; 18-FEB-2009
+ ;;3.0;IB ENCOUNTER FORM IMP/EXP;;FEB 18, 2009
+ Q:'DIFQR(358.3)  F I=3D1:2 S X=3D$T(Q+I) Q:X=3D""  S
+Y=3D$E($T(Q+I+1),4,999),X=3D$E(X,4,999) S:$A(Y)=3D126
+I=3DI+1,Y=3D$E(Y,2,999)_$E($T(Q+I+1),5,99) S:$A(Y)=3D61 Y=3D$E(Y,2,999) =
+X NO E
+S @X=3DY
 Q Q
- ;;^UTILITY(U,$J,358.3,9301,1,0)
- ;;=^358.31IA^5^2
- ;;^UTILITY(U,$J,358.3,9301,1,4,0)
- ;;=4^729.1
- ;;^UTILITY(U,$J,358.3,9301,1,5,0)
- ;;=5^Neuropathic Pain
- ;;^UTILITY(U,$J,358.3,9301,2)
- ;;=Neuropathic Pain^80160
- ;;^UTILITY(U,$J,358.3,9302,0)
- ;;=608.9^^74^641^20
- ;;^UTILITY(U,$J,358.3,9302,1,0)
- ;;=^358.31IA^5^2
- ;;^UTILITY(U,$J,358.3,9302,1,4,0)
- ;;=4^608.9
- ;;^UTILITY(U,$J,358.3,9302,1,5,0)
- ;;=5^Penile Pain
- ;;^UTILITY(U,$J,358.3,9302,2)
- ;;=Penile Pain^123856
- ;;^UTILITY(U,$J,358.3,9303,0)
- ;;=608.89^^74^641^21
- ;;^UTILITY(U,$J,358.3,9303,1,0)
- ;;=^358.31IA^5^2
- ;;^UTILITY(U,$J,358.3,9303,1,4,0)
- ;;=4^608.89
- ;;^UTILITY(U,$J,358.3,9303,1,5,0)
- ;;=5^Scrotal Pain
- ;;^UTILITY(U,$J,358.3,9303,2)
- ;;=Scrotal Pain^88009
- ;;^UTILITY(U,$J,358.3,9304,0)
- ;;=625.9^^74^641^19
- ;;^UTILITY(U,$J,358.3,9304,1,0)
- ;;=^358.31IA^5^2
- ;;^UTILITY(U,$J,358.3,9304,1,4,0)
- ;;=4^625.9
- ;;^UTILITY(U,$J,358.3,9304,1,5,0)
- ;;=5^Pelvic Pain (Female)
- ;;^UTILITY(U,$J,358.3,9304,2)
- ;;=^123993
- ;;^UTILITY(U,$J,358.3,9305,0)
- ;;=388.70^^74^641^8
- ;;^UTILITY(U,$J,358.3,9305,1,0)
- ;;=^358.31IA^5^2
- ;;^UTILITY(U,$J,358.3,9305,1,4,0)
- ;;=4^388.70
- ;;^UTILITY(U,$J,358.3,9305,1,5,0)
- ;;=5^Ear Pain
- ;;^UTILITY(U,$J,358.3,9305,2)
- ;;=Ear Pain^37811
- ;;^UTILITY(U,$J,358.3,9306,0)
- ;;=526.9^^74^641^13
- ;;^UTILITY(U,$J,358.3,9306,1,0)
- ;;=^358.31IA^5^2
- ;;^UTILITY(U,$J,358.3,9306,1,4,0)
- ;;=4^526.9
- ;;^UTILITY(U,$J,358.3,9306,1,5,0)
- ;;=5^Jaw Pain
- ;;^UTILITY(U,$J,358.3,9306,2)
- ;;=Jaw Pain^66177
- ;;^UTILITY(U,$J,358.3,9307,0)
- ;;=789.01^^74^641^5
- ;;^UTILITY(U,$J,358.3,9307,1,0)
- ;;=^358.31IA^5^2
- ;;^UTILITY(U,$J,358.3,9307,1,4,0)
- ;;=4^789.01
- ;;^UTILITY(U,$J,358.3,9307,1,5,0)
- ;;=5^Abdominal Pain, Ruq
- ;;^UTILITY(U,$J,358.3,9307,2)
- ;;=Abdominal Pain, RUQ^303318
- ;;^UTILITY(U,$J,358.3,9308,0)
- ;;=789.02^^74^641^3
- ;;^UTILITY(U,$J,358.3,9308,1,0)
- ;;=^358.31IA^5^2
- ;;^UTILITY(U,$J,358.3,9308,1,4,0)
- ;;=4^789.02
- ;;^UTILITY(U,$J,358.3,9308,1,5,0)
- ;;=5^Abdominal Pain, Luq
- ;;^UTILITY(U,$J,358.3,9308,2)
- ;;=Abdominal Pain, LUQ^303319
- ;;^UTILITY(U,$J,358.3,9309,0)
- ;;=789.03^^74^641^4
- ;;^UTILITY(U,$J,358.3,9309,1,0)
- ;;=^358.31IA^5^2
- ;;^UTILITY(U,$J,358.3,9309,1,4,0)
- ;;=4^789.03
- ;;^UTILITY(U,$J,358.3,9309,1,5,0)
- ;;=5^Abdominal Pain, Rlq
- ;;^UTILITY(U,$J,358.3,9309,2)
- ;;=Abdominal PainLLQ^303320
- ;;^UTILITY(U,$J,358.3,9310,0)
- ;;=789.04^^74^641^2
- ;;^UTILITY(U,$J,358.3,9310,1,0)
- ;;=^358.31IA^5^2
- ;;^UTILITY(U,$J,358.3,9310,1,4,0)
- ;;=4^789.04
- ;;^UTILITY(U,$J,358.3,9310,1,5,0)
- ;;=5^Abdominal Pain, Llq
- ;;^UTILITY(U,$J,358.3,9310,2)
- ;;=^303321
- ;;^UTILITY(U,$J,358.3,9311,0)
- ;;=789.06^^74^641^9
- ;;^UTILITY(U,$J,358.3,9311,1,0)
- ;;=^358.31IA^5^2
- ;;^UTILITY(U,$J,358.3,9311,1,4,0)
- ;;=4^789.06
- ;;^UTILITY(U,$J,358.3,9311,1,5,0)
- ;;=5^Epigastric Pain
- ;;^UTILITY(U,$J,358.3,9311,2)
- ;;=Epigastric Pain^303323
- ;;^UTILITY(U,$J,358.3,9312,0)
- ;;=789.07^^74^641^1
- ;;^UTILITY(U,$J,358.3,9312,1,0)
- ;;=^358.31IA^5^2
- ;;^UTILITY(U,$J,358.3,9312,1,4,0)
- ;;=4^789.07
- ;;^UTILITY(U,$J,358.3,9312,1,5,0)
- ;;=5^Abdominal Pain, Generalized
- ;;^UTILITY(U,$J,358.3,9312,2)
- ;;=^303324
- ;;^UTILITY(U,$J,358.3,9313,0)
- ;;=788.0^^74^641^14
- ;;^UTILITY(U,$J,358.3,9313,1,0)
- ;;=^358.31IA^5^2
- ;;^UTILITY(U,$J,358.3,9313,1,4,0)
- ;;=4^788.0
- ;;^UTILITY(U,$J,358.3,9313,1,5,0)
- ;;=5^Kidney Pain
- ;;^UTILITY(U,$J,358.3,9313,2)
- ;;=^265306
- ;;^UTILITY(U,$J,358.3,9314,0)
- ;;=V68.1^^74^642^4
- ;;^UTILITY(U,$J,358.3,9314,1,0)
- ;;=^358.31IA^5^2
- ;;^UTILITY(U,$J,358.3,9314,1,4,0)
- ;;=4^V68.1
- ;;^UTILITY(U,$J,358.3,9314,1,5,0)
- ;;=5^Rx Refill (Also Mark Condition)
- ;;^UTILITY(U,$J,358.3,9314,2)
- ;;=RX Refill (also mark Condition)^295585
- ;;^UTILITY(U,$J,358.3,9315,0)
- ;;=V68.81^^74^642^5
- ;;^UTILITY(U,$J,358.3,9315,1,0)
- ;;=^358.31IA^5^2
- ;;^UTILITY(U,$J,358.3,9315,1,4,0)
- ;;=4^V68.81
- ;;^UTILITY(U,$J,358.3,9315,1,5,0)
- ;;=5^Transfer Of Care (Also Mark Conditions)
- ;;^UTILITY(U,$J,358.3,9315,2)
- ;;=Transfer of Care ^295587
- ;;^UTILITY(U,$J,358.3,9316,0)
- ;;=V58.83^^74^642^1
- ;;^UTILITY(U,$J,358.3,9316,1,0)
- ;;=^358.31IA^5^2
- ;;^UTILITY(U,$J,358.3,9316,1,4,0)
- ;;=4^V58.83
- ;;^UTILITY(U,$J,358.3,9316,1,5,0)
- ;;=5^Encounter For Therapeutic Drug Monitoring
- ;;^UTILITY(U,$J,358.3,9316,2)
- ;;=Encounter for Therapeutic Drug Monitoring^322076
- ;;^UTILITY(U,$J,358.3,9317,0)
- ;;=V68.09^^74^642^3
- ;;^UTILITY(U,$J,358.3,9317,1,0)
- ;;=^358.31IA^5^2
- ;;^UTILITY(U,$J,358.3,9317,1,4,0)
- ;;=4^V68.09
- ;;^UTILITY(U,$J,358.3,9317,1,5,0)
- ;;=5^Issue Of Med Certif Nec
- ;;^UTILITY(U,$J,358.3,9317,2)
- ;;=^335321
- ;;^UTILITY(U,$J,358.3,9318,0)
- ;;=V60.89^^74^642^2
- ;;^UTILITY(U,$J,358.3,9318,1,0)
- ;;=^358.31IA^5^2
- ;;^UTILITY(U,$J,358.3,9318,1,4,0)
- ;;=4^V60.89
- ;;^UTILITY(U,$J,358.3,9318,1,5,0)
- ;;=5^Housing/Econo Needs NEC
- ;;^UTILITY(U,$J,358.3,9318,2)
- ;;=^295545
- ;;^UTILITY(U,$J,358.3,9319,0)
- ;;=E880.1^^74^643^1
- ;;^UTILITY(U,$J,358.3,9319,1,0)
- ;;=^358.31IA^5^2
- ;;^UTILITY(U,$J,358.3,9319,1,4,0)
- ;;=4^E880.1
- ;;^UTILITY(U,$J,358.3,9319,1,5,0)
- ;;=5^Fall On/From Sidewalk Or Curb
- ;;^UTILITY(U,$J,358.3,9319,2)
- ;;=Fall on/from Sidewalk or Curb^303367
- ;;^UTILITY(U,$J,358.3,9320,0)
- ;;=E881.0^^74^643^2
- ;;^UTILITY(U,$J,358.3,9320,1,0)
- ;;=^358.31IA^5^2
- ;;^UTILITY(U,$J,358.3,9320,1,4,0)
- ;;=4^E881.0
- ;;^UTILITY(U,$J,358.3,9320,1,5,0)
- ;;=5^Fall From Ladder
- ;;^UTILITY(U,$J,358.3,9320,2)
- ;;=Fall From Ladder^294644
- ;;^UTILITY(U,$J,358.3,9321,0)
- ;;=E882.^^74^643^3
- ;;^UTILITY(U,$J,358.3,9321,1,0)
- ;;=^358.31IA^5^2
- ;;^UTILITY(U,$J,358.3,9321,1,4,0)
- ;;=4^E882.
- ;;^UTILITY(U,$J,358.3,9321,1,5,0)
- ;;=5^Fall From Building
- ;;^UTILITY(U,$J,358.3,9321,2)
- ;;=Fall From Building^294646
- ;;^UTILITY(U,$J,358.3,9322,0)
- ;;=E883.9^^74^643^4
- ;;^UTILITY(U,$J,358.3,9322,1,0)
- ;;=^358.31IA^5^2
- ;;^UTILITY(U,$J,358.3,9322,1,4,0)
- ;;=4^E883.9
- ;;^UTILITY(U,$J,358.3,9322,1,5,0)
- ;;=5^Fall Into Hole
- ;;^UTILITY(U,$J,358.3,9322,2)
- ;;=Fall Into Hole^294650
- ;;^UTILITY(U,$J,358.3,9323,0)
- ;;=E884.2^^74^643^5
- ;;^UTILITY(U,$J,358.3,9323,1,0)
- ;;=^358.31IA^5^2
- ;;^UTILITY(U,$J,358.3,9323,1,4,0)
- ;;=4^E884.2
- ;;^UTILITY(U,$J,358.3,9323,1,5,0)
- ;;=5^Fall From Chair
- ;;^UTILITY(U,$J,358.3,9323,2)
- ;;=Fall From Chair^294653
- ;;^UTILITY(U,$J,358.3,9324,0)
- ;;=E884.3^^74^643^6
- ;;^UTILITY(U,$J,358.3,9324,1,0)
- ;;=^358.31IA^5^2
- ;;^UTILITY(U,$J,358.3,9324,1,4,0)
- ;;=4^E884.3
- ;;^UTILITY(U,$J,358.3,9324,1,5,0)
- ;;=5^Fall From Wheelchair
- ;;^UTILITY(U,$J,358.3,9324,2)
- ;;=Fall From Wheelchair^303368
- ;;^UTILITY(U,$J,358.3,9325,0)
- ;;=E884.4^^74^643^7
- ;;^UTILITY(U,$J,358.3,9325,1,0)
- ;;=^358.31IA^5^2
- ;;^UTILITY(U,$J,358.3,9325,1,4,0)
- ;;=4^E884.4
- ;;^UTILITY(U,$J,358.3,9325,1,5,0)
- ;;=5^Fall From Bed
- ;;^UTILITY(U,$J,358.3,9325,2)
- ;;=Fall From Bed^303369
- ;;^UTILITY(U,$J,358.3,9326,0)
- ;;=E884.6^^74^643^8
- ;;^UTILITY(U,$J,358.3,9326,1,0)
- ;;=^358.31IA^5^2
- ;;^UTILITY(U,$J,358.3,9326,1,4,0)
- ;;=4^E884.6
- ;;^UTILITY(U,$J,358.3,9326,1,5,0)
- ;;=5^Fall From Commode
- ;;^UTILITY(U,$J,358.3,9326,2)
- ;;=Fall from Commode^303371
- ;;^UTILITY(U,$J,358.3,9327,0)
- ;;=E884.9^^74^643^9
- ;;^UTILITY(U,$J,358.3,9327,1,0)
- ;;=^358.31IA^5^2
- ;;^UTILITY(U,$J,358.3,9327,1,4,0)
- ;;=4^E884.9
- ;;^UTILITY(U,$J,358.3,9327,1,5,0)
- ;;=5^Other Fall, One Level To Another
- ;;^UTILITY(U,$J,358.3,9327,2)
- ;;=Other Fall^294654
- ;;^UTILITY(U,$J,358.3,9328,0)
- ;;=E885.1^^74^643^10
- ;;^UTILITY(U,$J,358.3,9328,1,0)
- ;;=^358.31IA^5^2
- ;;^UTILITY(U,$J,358.3,9328,1,4,0)
- ;;=4^E885.1
- ;;^UTILITY(U,$J,358.3,9328,1,5,0)
- ;;=5^Fall From Roller Skates
- ;;^UTILITY(U,$J,358.3,9328,2)
- ;;=Fall from Roller Skates^322100
- ;;^UTILITY(U,$J,358.3,9329,0)
- ;;=E885.2^^74^643^11
- ;;^UTILITY(U,$J,358.3,9329,1,0)
- ;;=^358.31IA^5^2
- ;;^UTILITY(U,$J,358.3,9329,1,4,0)
- ;;=4^E885.2
- ;;^UTILITY(U,$J,358.3,9329,1,5,0)
- ;;=5^Fall From Skateboard
- ;;^UTILITY(U,$J,358.3,9329,2)
- ;;=Fall from Skateboard^322102
- ;;^UTILITY(U,$J,358.3,9330,0)
- ;;=E885.3^^74^643^12
- ;;^UTILITY(U,$J,358.3,9330,1,0)
- ;;=^358.31IA^5^2
- ;;^UTILITY(U,$J,358.3,9330,1,4,0)
- ;;=4^E885.3
- ;;^UTILITY(U,$J,358.3,9330,1,5,0)
- ;;=5^Fall From Skis
- ;;^UTILITY(U,$J,358.3,9330,2)
- ;;=Fall from Skis^322103
- ;;^UTILITY(U,$J,358.3,9331,0)
- ;;=E885.4^^74^643^13
- ;;^UTILITY(U,$J,358.3,9331,1,0)
- ;;=^358.31IA^5^2
- ;;^UTILITY(U,$J,358.3,9331,1,4,0)
- ;;=4^E885.4
- ;;^UTILITY(U,$J,358.3,9331,1,5,0)
- ;;=5^Fall From Snowboard
- ;;^UTILITY(U,$J,358.3,9331,2)
- ;;=Fall from Snowboard^322104
- ;;^UTILITY(U,$J,358.3,9332,0)
- ;;=E885.9^^74^643^14
- ;;^UTILITY(U,$J,358.3,9332,1,0)
- ;;=^358.31IA^5^2
- ;;^UTILITY(U,$J,358.3,9332,1,4,0)
- ;;=4^E885.9
- ;;^UTILITY(U,$J,358.3,9332,1,5,0)
- ;;=5^Fall After Tripping Or Slipping
- ;;^UTILITY(U,$J,358.3,9332,2)
- ;;=Fall after tripping or slipping^322105
- ;;^UTILITY(U,$J,358.3,9333,0)
- ;;=E886.0^^74^643^15
- ;;^UTILITY(U,$J,358.3,9333,1,0)
- ;;=^358.31IA^5^2
- ;;^UTILITY(U,$J,358.3,9333,1,4,0)
- ;;=4^E886.0
- ;;^UTILITY(U,$J,358.3,9333,1,5,0)
- ;;=5^Fall In Sports
- ;;^UTILITY(U,$J,358.3,9333,2)
- ;;=Fall in Sports^294656
- ;;^UTILITY(U,$J,358.3,9334,0)
- ;;=E886.9^^74^643^16
- ;;^UTILITY(U,$J,358.3,9334,1,0)
- ;;=^358.31IA^5^2
- ;;^UTILITY(U,$J,358.3,9334,1,4,0)
- ;;=4^E886.9
- ;;^UTILITY(U,$J,358.3,9334,1,5,0)
- ;;=5^Fall, Collision With Another Person
- ;;^UTILITY(U,$J,358.3,9334,2)
- ;;=Fall, Collision with another person^294657
- ;;^UTILITY(U,$J,358.3,9335,0)
- ;;=E888.9^^74^643^17
- ;;^UTILITY(U,$J,358.3,9335,1,0)
- ;;=^358.31IA^5^2
- ;;^UTILITY(U,$J,358.3,9335,1,4,0)
- ;;=4^E888.9
- ;;^UTILITY(U,$J,358.3,9335,1,5,0)
- ;;=5^Fall, Not Specified
- ;;^UTILITY(U,$J,358.3,9335,2)
- ;;=Fall, Not Specified^323639
- ;;^UTILITY(U,$J,358.3,9336,0)
- ;;=E819.0^^74^643^18
- ;;^UTILITY(U,$J,358.3,9336,1,0)
- ;;=^358.31IA^5^2
- ;;^UTILITY(U,$J,358.3,9336,1,4,0)
- ;;=4^E819.0
- ;;^UTILITY(U,$J,358.3,9336,1,5,0)
- ;;=5^Traffic Accident, Driver
- ;;^UTILITY(U,$J,358.3,9336,2)
- ;;=Traffic Accident, Driver^294215
- ;;^UTILITY(U,$J,358.3,9337,0)
- ;;=E819.1^^74^643^19
- ;;^UTILITY(U,$J,358.3,9337,1,0)
- ;;=^358.31IA^5^2
+ ;;^UTILITY(U,$J,358.3,7528,2)
+ ;;=3D^83446
+ ;;^UTILITY(U,$J,358.3,7529,0)
+ ;;=3D403.90^^65^548^51
+ ;;^UTILITY(U,$J,358.3,7529,1,0)
+ ;;=3D^358.31IA^5^2
+ ;;^UTILITY(U,$J,358.3,7529,1,4,0)
+ ;;=3D4^403.90
+ ;;^UTILITY(U,$J,358.3,7529,1,5,0)
+ ;;=3D5^Renal Insufficiency with Hypertension (CRI and HTN)
+ ;;^UTILITY(U,$J,358.3,7529,2)
+ ;;=3DRenal Insufficiency with Hypertension (CRI and HTN)^269609
+ ;;^UTILITY(U,$J,358.3,7530,0)
+ ;;=3D593.9^^65^548^11
+ ;;^UTILITY(U,$J,358.3,7530,1,0)
+ ;;=3D^358.31IA^5^2
+ ;;^UTILITY(U,$J,358.3,7530,1,4,0)
+ ;;=3D4^593.9
+ ;;^UTILITY(U,$J,358.3,7530,1,5,0)
+ ;;=3D5^Chronic Renal Insufficiency
+ ;;^UTILITY(U,$J,358.3,7530,2)
+ ;;=3DChronic Renal Insufficiency^123849
+ ;;^UTILITY(U,$J,358.3,7531,0)
+ ;;=3D581.9^^65^548^37
+ ;;^UTILITY(U,$J,358.3,7531,1,0)
+ ;;=3D^358.31IA^5^2
+ ;;^UTILITY(U,$J,358.3,7531,1,4,0)
+ ;;=3D4^581.9
+ ;;^UTILITY(U,$J,358.3,7531,1,5,0)
+ ;;=3D5^Nephrotic Syndrome
+ ;;^UTILITY(U,$J,358.3,7531,2)
+ ;;=3D^82357
+ ;;^UTILITY(U,$J,358.3,7532,0)
+ ;;=3D753.12^^65^548^43
+ ;;^UTILITY(U,$J,358.3,7532,1,0)
+ ;;=3D^358.31IA^5^2
+ ;;^UTILITY(U,$J,358.3,7532,1,4,0)
+ ;;=3D4^753.12
+ ;;^UTILITY(U,$J,358.3,7532,1,5,0)
+ ;;=3D5^Polycystic Kidney Disease
+ ;;^UTILITY(U,$J,358.3,7532,2)
+ ;;=3D^67295
+ ;;^UTILITY(U,$J,358.3,7533,0)
+ ;;=3D791.0^^65^548^45
+ ;;^UTILITY(U,$J,358.3,7533,1,0)
+ ;;=3D^358.31IA^5^2
+ ;;^UTILITY(U,$J,358.3,7533,1,4,0)
+ ;;=3D4^791.0
+ ;;^UTILITY(U,$J,358.3,7533,1,5,0)
+ ;;=3D5^Proteinuria
+ ;;^UTILITY(U,$J,358.3,7533,2)
+ ;;=3DProteinuria^99873
+ ;;^UTILITY(U,$J,358.3,7534,0)
+ ;;=3D791.9^^65^548^48
+ ;;^UTILITY(U,$J,358.3,7534,1,0)
+ ;;=3D^358.31IA^5^2
+ ;;^UTILITY(U,$J,358.3,7534,1,4,0)
+ ;;=3D4^791.9
+ ;;^UTILITY(U,$J,358.3,7534,1,5,0)
+ ;;=3D5^Pyuria
+ ;;^UTILITY(U,$J,358.3,7534,2)
+ ;;=3D^273408
+ ;;^UTILITY(U,$J,358.3,7535,0)
+ ;;=3D592.0^^65^548^49
+ ;;^UTILITY(U,$J,358.3,7535,1,0)
+ ;;=3D^358.31IA^5^2
+ ;;^UTILITY(U,$J,358.3,7535,1,4,0)
+ ;;=3D4^592.0
+ ;;^UTILITY(U,$J,358.3,7535,1,5,0)
+ ;;=3D5^Renal Calculi
+ ;;^UTILITY(U,$J,358.3,7535,2)
+ ;;=3D^67056
+ ;;^UTILITY(U,$J,358.3,7536,0)
+ ;;=3D403.91^^65^548^50
+ ;;^UTILITY(U,$J,358.3,7536,1,0)
+ ;;=3D^358.31IA^5^2
+ ;;^UTILITY(U,$J,358.3,7536,1,4,0)
+ ;;=3D4^403.91
+ ;;^UTILITY(U,$J,358.3,7536,1,5,0)
+ ;;=3D5^Renal Failure, Chronic Hypertensive
+ ;;^UTILITY(U,$J,358.3,7536,2)
+ ;;=3D^269610
+ ;;^UTILITY(U,$J,358.3,7537,0)
+ ;;=3D586.^^65^548^53
+ ;;^UTILITY(U,$J,358.3,7537,1,0)
+ ;;=3D^358.31IA^5^2
+ ;;^UTILITY(U,$J,358.3,7537,1,4,0)
+ ;;=3D4^586.
+ ;;^UTILITY(U,$J,358.3,7537,1,5,0)
+ ;;=3D5^Uremia
+ ;;^UTILITY(U,$J,358.3,7537,2)
+ ;;=3DUremia^104733
+ ;;^UTILITY(U,$J,358.3,7538,0)
+ ;;=3D599.0^^65^548^63
+ ;;^UTILITY(U,$J,358.3,7538,1,0)
+ ;;=3D^358.31IA^5^2
+ ;;^UTILITY(U,$J,358.3,7538,1,4,0)
+ ;;=3D4^599.0
+ ;;^UTILITY(U,$J,358.3,7538,1,5,0)
+ ;;=3D5^Urinary Tract Infection
+ ;;^UTILITY(U,$J,358.3,7538,2)
+ ;;=3DUrinary Tract Infection^124436
+ ;;^UTILITY(U,$J,358.3,7539,0)
+ ;;=3D13^1^65^548^64^-Mineral and Electrolyte Abnormalities^1^1
+ ;;^UTILITY(U,$J,358.3,7539,1,0)
+ ;;=3D^358.31IA^5^2
+ ;;^UTILITY(U,$J,358.3,7539,1,4,0)
+ ;;=3D4
+ ;;^UTILITY(U,$J,358.3,7539,1,5,0)
+ ;;=3D5
+ ;;^UTILITY(U,$J,358.3,7540,0)
+ ;;=3D275.42^^65^548^27
+ ;;^UTILITY(U,$J,358.3,7540,1,0)
+ ;;=3D^358.31IA^5^2
+ ;;^UTILITY(U,$J,358.3,7540,1,4,0)
+ ;;=3D4^275.42
+ ;;^UTILITY(U,$J,358.3,7540,1,5,0)
+ ;;=3D5^Hypercalcemia
+ ;;^UTILITY(U,$J,358.3,7540,2)
+ ;;=3DHypercalcemia^59932
+ ;;^UTILITY(U,$J,358.3,7541,0)
+ ;;=3D275.41^^65^548^30
+ ;;^UTILITY(U,$J,358.3,7541,1,0)
+ ;;=3D^358.31IA^5^2
+ ;;^UTILITY(U,$J,358.3,7541,1,4,0)
+ ;;=3D4^275.41
+ ;;^UTILITY(U,$J,358.3,7541,1,5,0)
+ ;;=3D5^Hypocalcemia
+ ;;^UTILITY(U,$J,358.3,7541,2)
+ ;;=3DHypocalcemia^60542
+ ;;^UTILITY(U,$J,358.3,7542,0)
+ ;;=3D276.7^^65^548^28
+ ;;^UTILITY(U,$J,358.3,7542,1,0)
+ ;;=3D^358.31IA^5^2
+ ;;^UTILITY(U,$J,358.3,7542,1,4,0)
+ ;;=3D4^276.7
+ ;;^UTILITY(U,$J,358.3,7542,1,5,0)
+ ;;=3D5^Hyperkalemia/Hyperpotassemia
+ ;;^UTILITY(U,$J,358.3,7542,2)
+ ;;=3DHyperkalemia/Hyperpotassemia^60042
+ ;;^UTILITY(U,$J,358.3,7543,0)
+ ;;=3D276.8^^65^548^31
+ ;;^UTILITY(U,$J,358.3,7543,1,0)
+ ;;=3D^358.31IA^5^2
+ ;;^UTILITY(U,$J,358.3,7543,1,4,0)
+ ;;=3D4^276.8
+ ;;^UTILITY(U,$J,358.3,7543,1,5,0)
+ ;;=3D5^Hypokalemia/Hypopotassemia
+ ;;^UTILITY(U,$J,358.3,7543,2)
+ ;;=3DHypokalemia/Hypopotassemia^60611
+ ;;^UTILITY(U,$J,358.3,7544,0)
+ ;;=3D275.2^^65^548^25
+ ;;^UTILITY(U,$J,358.3,7544,1,0)
+ ;;=3D^358.31IA^5^2
+ ;;^UTILITY(U,$J,358.3,7544,1,4,0)
+ ;;=3D4^275.2
+ ;;^UTILITY(U,$J,358.3,7544,1,5,0)
+ ;;=3D5^Hyper Or Hypomagnesemia
+ ;;^UTILITY(U,$J,358.3,7544,2)
+ ;;=3D^35626
+ ;;^UTILITY(U,$J,358.3,7545,0)
+ ;;=3D276.0^^65^548^29
+ ;;^UTILITY(U,$J,358.3,7545,1,0)
+ ;;=3D^358.31IA^5^2
+ ;;^UTILITY(U,$J,358.3,7545,1,4,0)
+ ;;=3D4^276.0
+ ;;^UTILITY(U,$J,358.3,7545,1,5,0)
+ ;;=3D5^Hypernatremia
+ ;;^UTILITY(U,$J,358.3,7545,2)
+ ;;=3D^60144
+ ;;^UTILITY(U,$J,358.3,7546,0)
+ ;;=3D276.1^^65^548^32
+ ;;^UTILITY(U,$J,358.3,7546,1,0)
+ ;;=3D^358.31IA^5^2
+ ;;^UTILITY(U,$J,358.3,7546,1,4,0)
+ ;;=3D4^276.1
+ ;;^UTILITY(U,$J,358.3,7546,1,5,0)
+ ;;=3D5^Hyponatremia
+ ;;^UTILITY(U,$J,358.3,7546,2)
+ ;;=3DHyponatremia^60722
+ ;;^UTILITY(U,$J,358.3,7547,0)
+ ;;=3D275.3^^65^548^26
+ ;;^UTILITY(U,$J,358.3,7547,1,0)
+ ;;=3D^358.31IA^5^2
+ ;;^UTILITY(U,$J,358.3,7547,1,4,0)
+ ;;=3D4^275.3
+ ;;^UTILITY(U,$J,358.3,7547,1,5,0)
+ ;;=3D5^Hyper Or Hypophosphatemia
+ ;;^UTILITY(U,$J,358.3,7547,2)
+ ;;=3D^93796
+ ;;^UTILITY(U,$J,358.3,7548,0)
+ ;;=3D250.40^^65^548^15
+ ;;^UTILITY(U,$J,358.3,7548,1,0)
+ ;;=3D^358.31IA^5^2
+ ;;^UTILITY(U,$J,358.3,7548,1,4,0)
+ ;;=3D4^250.40
+ ;;^UTILITY(U,$J,358.3,7548,1,5,0)
+ ;;=3D5^DM type II with Nephropathy
+ ;;^UTILITY(U,$J,358.3,7548,2)
+ ;;=3DDM type II with Nephropathy^267837^583.81
+ ;;^UTILITY(U,$J,358.3,7549,0)
+ ;;=3D22^1^65^548^33^-Genitourinary^1
+ ;;^UTILITY(U,$J,358.3,7549,1,0)
+ ;;=3D^358.31IA^5^2
+ ;;^UTILITY(U,$J,358.3,7549,1,4,0)
+ ;;=3D4
+ ;;^UTILITY(U,$J,358.3,7549,1,5,0)
+ ;;=3D5
+ ;;^UTILITY(U,$J,358.3,7550,0)
+ ;;=3D790.93^^65^548^3
+ ;;^UTILITY(U,$J,358.3,7550,1,0)
+ ;;=3D^358.31IA^5^2
+ ;;^UTILITY(U,$J,358.3,7550,1,4,0)
+ ;;=3D4^790.93
+ ;;^UTILITY(U,$J,358.3,7550,1,5,0)
+ ;;=3D5^Abnormal PSA
+ ;;^UTILITY(U,$J,358.3,7550,2)
+ ;;=3DAbnormal PSA^295772
+ ;;^UTILITY(U,$J,358.3,7551,0)
+ ;;=3D627.3^^65^548^5
+ ;;^UTILITY(U,$J,358.3,7551,1,0)
+ ;;=3D^358.31IA^5^2
+ ;;^UTILITY(U,$J,358.3,7551,1,4,0)
+ ;;=3D4^627.3
+ ;;^UTILITY(U,$J,358.3,7551,1,5,0)
+ ;;=3D5^Atrophic Vaginitis
+ ;;^UTILITY(U,$J,358.3,7551,2)
+ ;;=3D^270577
+ ;;^UTILITY(U,$J,358.3,7552,0)
+ ;;=3D607.1^^65^548^8
+ ;;^UTILITY(U,$J,358.3,7552,1,0)
+ ;;=3D^358.31IA^5^2
+ ;;^UTILITY(U,$J,358.3,7552,1,4,0)
+ ;;=3D4^607.1
+ ;;^UTILITY(U,$J,358.3,7552,1,5,0)
+ ;;=3D5^Balanitis
+ ;;^UTILITY(U,$J,358.3,7552,2)
+ ;;=3D^12530
+ ;;^UTILITY(U,$J,358.3,7553,0)
+ ;;=3D596.0^^65^548^9
+ ;;^UTILITY(U,$J,358.3,7553,1,0)
+ ;;=3D^358.31IA^5^2
+ ;;^UTILITY(U,$J,358.3,7553,1,4,0)
+ ;;=3D4^596.0
+ ;;^UTILITY(U,$J,358.3,7553,1,5,0)
+ ;;=3D5^Bladder Neck Obstruction
+ ;;^UTILITY(U,$J,358.3,7553,2)
+ ;;=3D^15144
+ ;;^UTILITY(U,$J,358.3,7554,0)
+ ;;=3D595.0^^65^548^12
+ ;;^UTILITY(U,$J,358.3,7554,1,0)
+ ;;=3D^358.31IA^5^2
+ ;;^UTILITY(U,$J,358.3,7554,1,4,0)
+ ;;=3D4^595.0
+ ;;^UTILITY(U,$J,358.3,7554,1,5,0)
+ ;;=3D5^Cystitis, Acute
+ ;;^UTILITY(U,$J,358.3,7554,2)
+ ;;=3D^259104
+ ;;^UTILITY(U,$J,358.3,7555,0)
+ ;;=3D595.82^^65^548^13
+ ;;^UTILITY(U,$J,358.3,7555,1,0)
+ ;;=3D^358.31IA^5^2
+ ;;^UTILITY(U,$J,358.3,7555,1,4,0)
+ ;;=3D4^595.82
+ ;;^UTILITY(U,$J,358.3,7555,1,5,0)
+ ;;=3D5^Cystitis, Radiation
+ ;;^UTILITY(U,$J,358.3,7555,2)
+ ;;=3D^270391
+ ;;^UTILITY(U,$J,358.3,7556,0)
+ ;;=3D596.8^^65^548^14
+ ;;^UTILITY(U,$J,358.3,7556,1,0)
+ ;;=3D^358.31IA^5^2
+ ;;^UTILITY(U,$J,358.3,7556,1,4,0)
+ ;;=3D4^596.8
+ ;;^UTILITY(U,$J,358.3,7556,1,5,0)
+ ;;=3D5^Cystocele
+ ;;^UTILITY(U,$J,358.3,7556,2)
+ ;;=3D^87989
+ ;;^UTILITY(U,$J,358.3,7557,0)
+ ;;=3D596.59^^65^548^16
+ ;;^UTILITY(U,$J,358.3,7557,1,0)
+ ;;=3D^358.31IA^5^2
+ ;;^UTILITY(U,$J,358.3,7557,1,4,0)
+ ;;=3D4^596.59
+ ;;^UTILITY(U,$J,358.3,7557,1,5,0)
+ ;;=3D5^Detrusor Muscle Insuff
+ ;;^UTILITY(U,$J,358.3,7557,2)
+ ;;=3D^270393
+ ;;^UTILITY(U,$J,358.3,7558,0)
+ ;;=3D788.1^^65^548^17
+ ;;^UTILITY(U,$J,358.3,7558,1,0)
+ ;;=3D^358.31IA^5^2
+ ;;^UTILITY(U,$J,358.3,7558,1,4,0)
+ ;;=3D4^788.1

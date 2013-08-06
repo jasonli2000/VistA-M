@@ -1,5 +1,5 @@
 DVBAB82 ;ALB/DJS - CAPRI DVBA REPORTS ; 01/24/12
- ;;2.7;AMIE;**42,90,100,119,156,149,179,181**;Apr 10, 1995;Build 38
+ ;;2.7;AMIE;**42,90,100,119,156,149,179,181,184**;Apr 10, 1995;Build 10
  ;Per VHA Directive 2004-038, this routine should not be modified.
  Q
  ;
@@ -193,7 +193,7 @@ CIRPT ; Report # 5 - Insufficient Exam Report
  ; DVBAPRTY : Priority of Exam Code
  ;    AO  : Agent Orange
  ;    BDD : Benefits Delivery at Discharge / Quick Start
- ;    DES : DES Claimed Condition by Service Member / Fit for Duty
+ ;   IDES : Integrated Disability Evaluation System
  ;    ALL : All Others (Original Report w/ all codes except the above)
  ;
  N DVBAPRTY,RPTTYPE,BEGDT,ENDDT,RESANS

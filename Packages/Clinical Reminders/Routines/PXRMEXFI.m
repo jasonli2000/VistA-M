@@ -1,5 +1,5 @@
-PXRMEXFI ;SLC/PKR/PJH - Exchange utilities for file entries. ;06/14/2011
- ;;2.0;CLINICAL REMINDERS;**6,12,18**;Feb 04, 2005;Build 152
+PXRMEXFI ;SLC/PKR/PJH - Exchange utilities for file entries. ;05/18/2012
+ ;;2.0;CLINICAL REMINDERS;**6,12,18,24**;Feb 04, 2005;Build 193
  ;==============================================
 DELALL(FILENUM,NAME) ;Delete all file entries named NAME.
  N IEN,IND,LIST,MSG
@@ -160,15 +160,15 @@ CHK ;
  ;
  ;==============================================
 IOKTI(FILENUM,ITEMINFO) ;Check if it is ok to install this item.
+ ;To be installable, items from 801.41 need to be marked as selectable.
+ I FILENUM=801.41 Q $P(ITEMINFO,U,7)
  N FDASTART,FDAEND
  S FDASTART=$P(ITEMINFO,U,2)
  S FDAEND=$P(ITEMINFO,U,3)
- ;If FDSTART=FDAEND then only the .01 was packed and it is not
- ;installable.
- I FDASTART=FDAEND Q 0
- ;
- ;To be installable, items from 801.41 need to be marked as selectable.
- Q $S(FILENUM=801.41:$P(ITEMINFO,U,7),1:1)
+ ;If FDSTART=FDAEND then only the .01 was packed so it may not
+ ;be installable.
+ I FDASTART=FDAEND Q $$IOKTP(FILENUM)
+ Q 1
  ;
  ;==============================================
 IOKTP(FILENUM,IEN) ;Check if it is ok to pack this item.
@@ -215,7 +215,7 @@ IOKTP(FILENUM,IEN) ;Check if it is ok to pack this item.
  I FILENUM=8925.1 D  Q OK
  . N ARY,HSOIEN
  . I '$D(IEN)!($G(IEN)="") S OK=0 Q
- . ;DBIA #5447
+ .;DBIA #5447
  . D OBJBYIEN^TIUCHECK(.ARY,IEN)
  . ;
  . ;If not TIU object and INST is set, assume this is called from a

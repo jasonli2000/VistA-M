@@ -1,6 +1,10 @@
-ORWOR1 ; slc/dcm - PKI RPC functions
- ;;3.0;ORDER ENTRY/RESULTS REPORTING;**132,141,163**;Dec 17, 1997
-SIG(RET,ID,X1,X2,X3,X4,ORX5,X6) ;Store the signature.
+ORWOR1 ; slc/dcm - PKI RPC functions ;02/08/13  09:51
+ ;;3.0;ORDER ENTRY/RESULTS REPORTING;**132,141,163,306**;Dec 17, 1997;Build 43
+ ;
+ ;
+ ;
+ ;
+SIG(RET,ID,X1,X2,X3,X4,ORX5,X6,X7) ;Store the signature.
  ;ID = orifn;action
  ;X1 = Hash
  ;X2 = Length of the array
@@ -8,6 +12,21 @@ SIG(RET,ID,X1,X2,X3,X4,ORX5,X6) ;Store the signature.
  ;X4 = Provider DUZ
  ;ORX5 = Array for the sig
  ;X6 = CRLURL
+ ;X7 = DFN
+ ;
+ N ORHINFO,ORDINFO,OROUT
+ ;gets patient/user specific info used in hash on GUI
+ K ORDFDA
+ D HASHINFO^ORDEA(.ORHINFO,X7,X4)
+ ;get order specific info used in hash on GUI
+ D ORDHINFO^ORDEA(.ORDINFO,+ID,X1,.ORHINFO)
+ D UPDATE^DIE("","ORDFDA","OROUT","ERROR") K ORDFDA
+ S Y1=$$STORESIG^XUSSPKI(X1,X2,.ORX5,X4,X3)
+ I +Y1>0 D
+ . S ORIFN=+ID,ACT=$P(ID,";",2)
+ . S $P(^OR(100,ORIFN,8,+ACT,2),"^",3)=X1
+ S RET=1
+ Q
  N Y1,ORIFN,ACT
  S Y1=$$STORESIG^XUSSPKI(X1,X2,.ORX5,X4,X3)
  I +Y1>0,$L($G(X6)) S Y1=$$CRLURL^XUSSPKI(X6)

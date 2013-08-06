@@ -1,5 +1,5 @@
-PXRMRDI ;SLC/PKR - Routines to support RDI list building. ;09/16/2011
- ;;2.0;CLINICAL REMINDERS;**4,17,18**;Feb 04, 2005;Build 152
+PXRMRDI ;SLC/PKR - Routines to support RDI list building. ;04/25/2012
+ ;;2.0;CLINICAL REMINDERS;**4,17,18,24**;Feb 04, 2005;Build 193
  ;=========================================================
 APPERR(TYPE) ;Handle errors getting appointment data.
  N ECODE,MGIEN,MGROUP,NL,TIME,TO,USER
@@ -126,7 +126,7 @@ PAPPL(DFN,NGET,BDT,EDT,NFOUND,TEST,DATE,DATA,TEXT) ;Multiple type computed
  . S ALLNULL=1
  . I TMP'="" F IND=1:1:$L(TMP,U) I $P(TMP,U,IND)'="" S ALLNULL=0
  . I 'ALLNULL S $P(DATALIST,U,28)=TMP
- . F IND=2:1:$L(DATALIST,U) D
+ . F IND=1:1:$L(DATALIST,U) D
  .. S FIELD=$P(DATALIST,U,IND)
  .. I IND=6 S FIELD=$G(^TMP($J,"SDAMA301",DFN,APPDATE,"C"))
  .. I FIELD="" Q

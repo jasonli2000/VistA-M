@@ -1,5 +1,5 @@
-ORWDXR ;SLC/KCM/JDL - Utilites for Order Actions ;12/16/10 3:50pm
- ;;3.0;ORDER ENTRY/RESULTS REPORTING;**10,85,125,131,134,141,149,187,190,213,243,331**;Dec 17, 1997;Build 30
+ORWDXR ;SLC/KCM/JDL - Utilites for Order Actions ;12/14/12  09:25
+ ;;3.0;ORDER ENTRY/RESULTS REPORTING;**10,85,125,131,134,141,149,187,190,213,243,331,306**;Dec 17, 1997;Build 43
  ;
 ACTDCREA(DCIEN) ; Valid DC Reason
  N X
@@ -76,7 +76,7 @@ RNWFLDS(LST,ORIFN) ; Return fields for renew action
  S PKG=$E($P(^DIC(9.4,PKG,0),U,2),1,2),DG=$P(^ORD(100.98,DG,0),U,3)
  S LST(0)=$S(PKG="OR":999,PKG="PS"&(DG="O RX"):140,PKG="PS"&(DG="UD RX"):130,PKG="PS"&(DG="NV RX"):145,1:0)
  I +LST(0)=140 D
- . S LST(0)=LST(0)_U_U_U_+$$VAL(ORIFN,"REFILLS")_U_$$VAL(ORIFN,"PICKUP")
+ . S LST(0)=LST(0)_U_U_U_+$$VAL(ORIFN,"REFILLS")_U_$$DEFPICK^ORWDPS1("")
  . ;D WPVAL(.LST,ORIFN,"COMMENT")
  I +LST(0)=999 S LST(0)=LST(0)_U_$$VAL(ORIFN,"START")_U_$$VAL(ORIFN,"STOP")
  ; make sure start/stop times are relative times, otherwise use NOW, no Stop

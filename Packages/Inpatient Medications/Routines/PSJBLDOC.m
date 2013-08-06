@@ -1,5 +1,5 @@
 PSJBLDOC ;BIR/MV - API to build ^TMP for prospective and PSJ profile drugs ;03 Aug 98 / 8:42 AM
- ;;5.0;INPATIENT MEDICATIONS ;**181,263,260**;16 DEC 97;Build 94
+ ;;5.0;INPATIENT MEDICATIONS ;**181,263,260,295**;16 DEC 97;Build 1
  ;
  ; Reference to ^PS(52.6 is supported by DBIA# 1231.
  ; Reference to ^PS(52.7 is supported by DBIA# 2173.
@@ -54,7 +54,7 @@ UD ;Get the dispense drugs for the Unit Dose orders.
  S (PSJEDOVR,PSJCLINF,PSJCLNX)=0,PSJCLNX=$P(X,U,9)
  S:$D(^TMP($J,"PSJPRE","CLINIC",+ON,$S(PSJCLCOD=5:"531I",PSJCLCOD=2:"55U",1:"531U"))) PSJCLINF=1
  Q:$P($G(PTYP),";",1)="O"&('$G(PSJCLINF))
- Q:$P(X,U,9)="D"&('PSJCLINF)
+ Q:$P(X,U,9)["D"&('PSJCLINF)
  Q:$P(X,U,9)="E"&('PSJCLINF)
  S PSJORIEN=$P(X,U,21),DDRUG=0
  ;
@@ -105,7 +105,7 @@ IV ;Get the dispense drugs for the IV orders.
  Q:$P(PSJX,U,17)="R"
  S:$D(^TMP($J,"PSJPRE","CLINIC",+ON,"55I")) PSJCLINF=1
  Q:$P($G(PTYP),";",1)="O"&('$G(PSJCLINF))
- Q:$P(PSJX,U,17)="D"&('PSJCLINF)
+ Q:$P(PSJX,U,17)["D"&('PSJCLINF)
  Q:$P(PSJX,U,17)="E"&('PSJCLINF)
  S ON1=0 F  S ON1=$O(^PS(55,DFN,"IV",ON,"AD",ON1)) Q:'ON1  D
  . S PSJX=^PS(55,DFN,"IV",ON,"AD",ON1,0),PSJ0=$$IV0("AD",+PSJX)

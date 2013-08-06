@@ -1,5 +1,5 @@
-ORCMED ;SLC/MKB-Medication actions ;03/19/07
- ;;3.0;ORDER ENTRY/RESULTS REPORTING;**4,7,38,48,94,141,178,190,195,243**;Dec 17, 1997;Build 242
+ORCMED ;SLC/MKB-Medication actions ;01/31/13  11:18
+ ;;3.0;ORDER ENTRY/RESULTS REPORTING;**4,7,38,48,94,141,178,190,195,243,306**;Dec 17, 1997;Build 43
 XFER ; -- transfer to in/outpt meds
  N ORPTLK,ORTYPE,ORXFER,ORSRC,ORCAT,OREVENT,X,ORINPT,ORIDLG,ORODLG,ORIVDLG,ORNMSP,ORCNT,ORI,NMBR,ORIFN,OLDIFN,ORDIALOG,ORDG,ORCHECK,ORQUIT,ORDUZ,ORLOG,FIRST,ORDITM,ORD,ORERR
  S ORPTLK=$$LOCK^ORX2(+ORVP) I 'ORPTLK D  G XFQ ; lock pt chart
@@ -49,8 +49,21 @@ XFQ D EXIT^ORCDPS1 ;X:$D(^ORD(101.41,ORDIALOG,4)) ^(4)
  Q
  ;
 IN ; -- Kill extra values, Reset ID's/DD from Inpt dialog
+ N ORD1,ORDLI,ORDFIN,ORDCNT,ORDORIG,ORDORIGF
  N P F P="START DATE/TIME","NOW" K ORDIALOG($$PTR(P),1)
+ S ORD1=$P(ORDIALOG($$PTR("DOSE"),1),"&",5)
+ S ORDORIG=ORDIALOG($$PTR("INSTRUCTIONS"),1)
  D DOSES("O")
+ S ORDFIN="",ORDCNT=0,ORDORIGF=0
+ ;look in the new instructions list for the original inpatient instructions and the dose
+ S ORDLI=0 F  S ORDLI=$O(ORDIALOG($$PTR("INSTRUCTIONS"),"LIST",ORDLI)) Q:'ORDLI  D
+ .I $P(ORDIALOG($$PTR("INSTRUCTIONS"),"LIST",ORDLI),U)[ORD1 S ORDFIN=$P(ORDIALOG($$PTR("INSTRUCTIONS"),"LIST",ORDLI),U),ORDCNT=ORDCNT+1
+ .I $P(ORDIALOG($$PTR("INSTRUCTIONS"),"LIST",ORDLI),U)=ORDORIG S ORDORIGF=1
+ ;If original instructions was not in the new instructions list then replace the instructions
+ I ORDORIGF=0 D
+ .I ORDCNT=1 S ORDIALOG($$PTR("INSTRUCTIONS"),1)=ORDFIN ;only one item in the list found containing the dose string - set the instructions to the item found
+ .I ORDCNT=0 S ORDIALOG($$PTR("INSTRUCTIONS"),1)="" ;no items in the list found containing the dose string - blank the instructions
+ .I ORDCNT>1 S ORDIALOG($$PTR("INSTRUCTIONS"),1)="" ;more than one item in the list found containing the dose string - blank the instructions
  Q
  ;
 OUT ; -- Kill extra values, Reset ID's/DD from Outpt dialog

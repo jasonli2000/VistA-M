@@ -1,5 +1,5 @@
 DVBCIUTL ;ALB/GTS-AMIE INSUFFICIENT RPT UTILITY RTN ; 11/14/94  9:15 AM
- ;;2.7;AMIE;**13,17,19,149**;Apr 10, 1995;Build 16
+ ;;2.7;AMIE;**13,17,19,149,184**;Apr 10, 1995;Build 10
  ;Per VHA Directive 2004-038, this routine should not be modified.
  ;
  ;** Version Changes
@@ -23,9 +23,8 @@ PRHD(DVBAPRTY) ;priority exam type header info
  N DVBATXT
  S DVBATXT=$S((DVBAPRTY["BDD"):"Benefits Delivery at Discharge",1:"X")
  S:(DVBATXT="X") DVBATXT=$S((DVBAPRTY["QS"):"Quick Start",1:"X")
- S:(DVBATXT="X") DVBATXT=$S((DVBAPRTY["DCS"):"DES Claimed Condition by Service Member",1:"X")
- S:(DVBATXT="X") DVBATXT=$S((DVBAPRTY["DFD"):"DES Fit for Duty",1:"X")
- S:(DVBATXT="X") DVBATXT=$S((DVBAPRTY["AO"):"Agent Orange",1:"Excludes Exam Priorities: AO,BDD,DCS,DFD,QS")
+ S:(DVBATXT="X") DVBATXT=$S((DVBAPRTY["IDES"):"Integrated Disability Evaluation System",1:"X")
+ S:(DVBATXT="X") DVBATXT=$S((DVBAPRTY["AO"):"Agent Orange",1:"Excludes Exam Priorities: AO,BDD,IDES,QS")
  S:(DVBATXT'["Excludes") DVBATXT="Priority of Exam: "_DVBATXT
  Q $G(DVBATXT)
  ;
@@ -156,12 +155,12 @@ XMSEL ;** Select Exams
 EXMPRTY(DVBADIRA) ;** Select Priority of Exam
  N DIR,X,Y,DTOUT,DUOUT,DIRUT,DIROUT
  S DIR(0)="S^AO:Agent Orange;BDD:Benefits Delivery at Discharge / Quick Start;"
- S DIR(0)=DIR(0)_"DES:DES Claimed Condition by Service Member / Fit for Duty;"
+ S DIR(0)=DIR(0)_"IDES:Integrated Disability Evaluation System;"
  S DIR(0)=DIR(0)_"ALL:All Others"
  S DIR("A")=$S($G(DVBADIRA)]"":DVBADIRA,1:"Select Priority of Exam for the Report")
  S DIR("B")="All Others"
  S DIR("T")=DTIME  ;time-out value specified by system
  S DIR("?",1)="Select the priority of exam(s) to report on or ALL for the original report,"
- S DIR("?")="which excludes the AO, BDD and DES exam priorities."
+ S DIR("?")="which excludes the AO, BDD and IDES exam priorities."
  D ^DIR
  Q Y

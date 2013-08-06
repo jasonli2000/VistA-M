@@ -1,5 +1,5 @@
-PXRM ;SLC/PKR - Clinical Reminders entry points. ;04/26/2011
- ;;2.0;CLINICAL REMINDERS;**4,11,12,16,18**;Feb 04, 2005;Build 152
+PXRM ;SLC/PKR - Clinical Reminders entry points. ;10/02/2012
+ ;;2.0;CLINICAL REMINDERS;**4,11,12,16,18,24**;Feb 04, 2005;Build 193
  ;Entry points in this routine are listed in DBIA #2182.
  ;==========================================================
 MAIN(DFN,PXRMITEM,OUTTYPE,DISC) ;Main driver for clinical reminders.
@@ -47,6 +47,16 @@ MAIN(DFN,PXRMITEM,OUTTYPE,DISC) ;Main driver for clinical reminders.
  Q
  ;
  ;==========================================================
+MAINDF(DFN,PXRMITEM,OUTTYPE,EVALDT) ;Alternate entry point that allows
+ ;evaluation date/time as input parameter and saves FIEVAL in
+ ;^TMP("PXRHM,$J,PXRMITEM,"FIEVAL").
+ N DEFARR,FIEVAL
+ D DEF^PXRMLDR(PXRMITEM,.DEFARR)
+ D EVAL(DFN,.DEFARR,OUTTYPE,0,.FIEVAL,EVALDT)
+ M ^TMP("PXRHM",$J,PXRMITEM,"FIEVAL")=FIEVAL
+ Q
+ ;
+ ;==========================================================
 EVAL(DFN,DEFARR,OUTTYPE,NODISC,FIEVAL,DATE) ;Reminder evaluation entry
  ;point. This entry point uses the local array DEFARR for the reminder
  ;definition and returns the Finding Evaluation Array, FIEVAL.
@@ -73,8 +83,8 @@ EVAL(DFN,DEFARR,OUTTYPE,NODISC,FIEVAL,DATE) ;Reminder evaluation entry
  N $ES,$ET
  S $ET="D ERRHDLR^PXRMERRH"
  ;
- ;Initialize the working array.
- K ^TMP(PXRMPID,$J)
+ ;Initialize the ^TMP arrays.
+ K ^TMP("PXRHM",$J,PXRMITEM),^TMP(PXRMPID,$J,PXRMITEM)
  ;
  N DUE,DUEDATE,FREQ,PCLOGIC,RESDATE,RESLOGIC
  ;Make sure the reminder is active.

@@ -1,5 +1,5 @@
 DVBCIRP1 ;ALB/GTS-AMIE INSUFFICIENT 2507 RPT -CONT 1 ; 11/10/94  1:30 PM
- ;;2.7;AMIE;**13,19,27,149**;Apr 10, 1995;Build 16
+ ;;2.7;AMIE;**13,19,27,149,184**;Apr 10, 1995;Build 10
  ;Per VHA Directive 2004-038, this routine should not be modified.
  ;
  ;** Version Changes
@@ -74,8 +74,8 @@ DETAIL ;** Output reason, exam type and exam info
  U IO
  S DVBADTLP=BEGDT
  S DVBAENDL=ENDDT
- S DVBAPRTY=$S(($G(DVBAPRTY)["BDD"):";BDD;QS;",($G(DVBAPRTY)["DES"):";DCS;DFD;",($G(DVBAPRTY)["AO"):";AO;",1:"")
- D:((DVBAPRTY']"")!(DVBAPRTY["AO")) DETHD^DVBCIUTL
+ S DVBAPRTY=$S(($G(DVBAPRTY)["BDD"):";BDD;QS;",($G(DVBAPRTY)["IDES"):";IDES;",($G(DVBAPRTY)["AO"):";AO;",1:"")
+ D:((DVBAPRTY']"")!(DVBAPRTY["AO")!(DVBAPRTY["IDES")) DETHD^DVBCIUTL
  S RSDA=""
  S DVBAPG1=""
  F  S RSDA=$O(DVBAARY("REASON",RSDA)) Q:(RSDA=""!($D(GETOUT)))  DO
@@ -90,17 +90,18 @@ DETAIL ;** Output reason, exam type and exam info
  ...S DVBAPREXM=$$CHKREQ($P(^DVB(396.4,XMDA,0),U,2))
  ...I $P(DVBARQST,U,5)>DVBADTLP,($P(DVBARQST,U,5)<DVBAENDL) D
  ....;Current-As Is (All Others, except new priorities)
- ....D:((DVBAPRTY']"")&((";BDD;QS;DCS;DFD;AO;")'[(";"_DVBAPREXM_";"))) EXMOUT^DVBCIUTL
+ ....D:((DVBAPRTY']"")&((";BDD;QS;IDES;AO;")'[(";"_DVBAPREXM_";"))) EXMOUT^DVBCIUTL
  ....;Report for Specific Priority of Exam(s)
  ....D:((DVBAPRTY]"")&(DVBAPRTY[(";"_DVBAPREXM_";")))
- .....D:(DVBAPREXM="AO") EXMOUT^DVBCIUTL  ;Agent Orange Single Report
- .....;BDD,QS,DCS,DFD require report for each priority code
+ .....D:(DVBAPREXM="AO")!(DVBAPREXM="IDES") EXMOUT^DVBCIUTL  ;Agent Orange or IDES Single Report
+ .....;BDD,QS require report for each priority code
  .....;for performance grab all data then print 2 reports
- .....S:(DVBAPREXM'="AO") ^TMP("DVBAEXAMS",$J,DVBAPREXM,RSDA,TPDA,XMDA)=""
+ .....S:(DVBAPREXM'="AO")&(DVBAPREXM'="IDES") ^TMP("DVBAEXAMS",$J,DVBAPREXM,RSDA,TPDA,XMDA)=""
  I '$D(GETOUT),(IOST?1"C-".E),((DVBAPRTY']"")!(DVBAPRTY["AO")) D CONTMES^DVBCUTL4
- D:((DVBAPRTY]"")&(DVBAPRTY'["AO"))  ;print BDD/DES reports
+ D:((DVBAPRTY]"")&(DVBAPRTY'["AO")&(DVBAPRTY'["IDES"))  ;print BDD reports
  .K DVBAPG1 S DVBAEXMP=DVBAPRTY,RSDA=""
  .F DVBAP=$P(DVBAEXMP,";",2),$P(DVBAEXMP,";",3)  D
+ ..Q:DVBAP=""
  ..S DVBAPRTY=DVBAP
  ..D DETHD^DVBCIUTL S DVBAPG1=""
  ..F  S RSDA=$O(^TMP("DVBAEXAMS",$J,DVBAP,RSDA)) Q:(('+RSDA)!($D(GETOUT)))  D

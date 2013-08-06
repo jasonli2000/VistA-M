@@ -1,9 +1,9 @@
-ORQQPL3 ; ALB/PDR/REV - Problem List RPCs ;11/19/09  10:15
- ;;3.0;ORDER ENTRY/RESULTS REPORTING;**10,148,173,243,280**;Dec 17, 1997;Build 85
+ORQQPL3 ; ALB/PDR,REV,ISL/JER - Problem List RPCs ;08/23/12  15:39
+ ;;3.0;ORDER ENTRY/RESULTS REPORTING;**10,148,173,243,280,306**;Dec 17, 1997;Build 43
  ;
  ;---------------- LIST PATIENT PROBLEMS ------------------------
  ;
-PROBL(ROOT,DFN,CONTEXT)        ;  GET LIST OF PATIENT PROBLEMS
+PROBL(ROOT,DFN,CONTEXT) ;  GET LIST OF PATIENT PROBLEMS
  N DIWL,DIWR,DIWF
  N ST,ORI,ORX
  S (LCNT,NUM)=0
@@ -21,16 +21,14 @@ PROBL(ROOT,DFN,CONTEXT)        ;  GET LIST OF PATIENT PROBLEMS
  Q
  ;
  ;
-LIST(GMPL,GMPDFN,GMPSTAT)       ; -- Returns list of problems for patient GMPDFN
+LIST(GMPL,GMPDFN,GMPSTAT) ; -- Returns list of problems for patient GMPDFN
  ;    in GMPL(#)=ifn^status^description^ICD^onset^last modified^SC^SpExp^Condition^Loc^
  ;                          loc.type^prov^service
  ;     & GMPL(0)=number of problems returned
  ; This is virtually same as LIST^GMPLUTL2 except that it appends the
  ; condition - T)ranscribed or P)ermanent,location,loc type,provider, service.
  ;
- N I,IFN,CNT,GMPL0,GMPL1,SP,ST,NUM,ONSET,ICD,LASTMOD,PRIO,DTREC
- N SC,ORLIST,ORVIEW,GMPARAM,ORTOTAL,LIN,LOC,LT,PROV,SERV,HASCMT
- N SCCOND,AO,IR,ENV,HNC,MST,CV,SHD,ORICD186,INACT
+ N CNT,SP,NUM,ORLIST,ORVIEW,GMPARAM
  Q:$G(GMPDFN)'>0
  S CNT=0,SP=""
  S GMPARAM("QUIET")=1
@@ -38,22 +36,27 @@ LIST(GMPL,GMPDFN,GMPSTAT)       ; -- Returns list of problems for patient GMPDFN
  S ORVIEW("ACT")=GMPSTAT
  S ORVIEW("PROV")=0
  S ORVIEW("VIEW")=""
- S ORICD186=$$PATCH^XPDUTL("ICD*18.0*6")
  ;
  D GETPLIST^GMPLMGR1(.ORLIST,.ORTOTAL,.ORVIEW)
  ;
  F NUM=0:0 S NUM=$O(ORLIST(NUM)) Q:NUM'>0  D
+ . N GMPL0,GMPL1,GMPL800,I,IFN,SCT,ST,ONSET,ICD,LASTMOD,PRIO,DTREC,ICDD
+ . N SC,ORTOTAL,LIN,LOC,LT,PROV,SERV,HASCMT,SCCOND,AO,IR,ENV,HNC,MST,CV,SHD,INACT
  . S IFN=+ORLIST(NUM) Q:IFN'>0
- . S INACT=""
+ . S (ICDD,INACT)=""
  . S GMPL0=$G(^AUPNPROB(IFN,0))
  . S GMPL1=$G(^AUPNPROB(IFN,1))
+ . S GMPL800=$G(^AUPNPROB(IFN,800)),SCT=$P(GMPL800,U)
  . S HASCMT=($D(^AUPNPROB(IFN,11,0))>0)
  . S CNT=CNT+1
- . I +ORICD186 D
- . . S ICD=$$CODEC^ICDCODE(+GMPL0)
- . . I '+$$STATCHK^ICDAPIU(ICD,DT) S INACT="#"
- . E  D
- . . S ICD=$P($G(^ICD9(+GMPL0,0)),U)
+ . N LEX
+ . S ICD=$P($$ICDDX^ICDCODE(+GMPL0),U,2)
+ . I '+$$STATCHK^ICDAPIU(ICD,DT) S INACT="#" I 1
+ . I +$G(SCT),(+$$STATCHK^LEXSRC2(SCT,DT,.LEX)'=1) S INACT="$"
+ . I $D(^AUPNPROB(IFN,803)) D
+ . . N I S I=0
+ . . F  S I=$O(^AUPNPROB(IFN,803,I)) Q:+I'>0  S $P(ICD,"/",(I+1))=$P($G(^AUPNPROB(IFN,803,I,0)),U)
+ . I +SCT'>0,(+ICD>0) S ICDD=$$ICDDESC^GMPLUTL2(ICD,DT)
  . S LASTMOD=$P(GMPL0,U,3)
  . S ST=$P(GMPL0,U,12)
  . S ONSET=$P(GMPL0,U,13)
@@ -80,21 +83,21 @@ LIST(GMPL,GMPDFN,GMPSTAT)       ; -- Returns list of problems for patient GMPDFN
  . S PRIO=$P(GMPL1,U,14)
  . S LIN=IFN_U_ST_U_$$PROBTEXT^GMPLX(IFN)_U_ICD_U_ONSET
  . S LIN=LIN_U_LASTMOD_U_SC_U_SP_U_$P(GMPL1,U,2)
- . S LIN=LIN_U_LOC_U_LT_U_PROV_U_SERV_U_PRIO_U_HASCMT_U_DTREC_U_SCCOND_U_INACT
+ . S LIN=LIN_U_LOC_U_LT_U_PROV_U_SERV_U_PRIO_U_HASCMT_U_DTREC_U_SCCOND_U_INACT_U_ICDD
  . S GMPL(CNT)=LIN
  S GMPL(0)=CNT
  Q
  ;
  ;
- ;------------------------------------- GET LIST OF DELETED PROBLEMS -----------------------------
+ ;------------------------ GET LIST OF DELETED PROBLEMS -----------------------------
  ;
 DELLIST(RETURN,GMPDFN) ; GET LIST OF DELETED PROBLEMS
  ; see GETPLIST^GMPLMGR1 and LIST^GMPUTL2
- N S,IFN,I,L0,L1,ST,TXT,ICD,ONSET,MOD,SC,SP,LOC,LT,PROV,SERV,PRIO,HASCMT,DTREC
- N SCCOND,AO,IR,ENV,HNC,MST,CV,SHD,ORICD186,INACT
+ N S,I
  S I=0,S=""
- S ORICD186=$$PATCH^XPDUTL("ICD*18.0*6")
  F  S S=$O(^AUPNPROB("ACTIVE",GMPDFN,S)) Q:S=""  D
+ . N IFN,L0,L1,ST,TXT,ICD,ONSET,MOD,SC,SP,LOC,LT,PROV,SERV,PRIO,HASCMT,DTREC
+ . N SCCOND,AO,IR,ENV,HNC,MST,CV,SHD,INACT
  . S IFN=""
  . F  S IFN=$O(^AUPNPROB("ACTIVE",+GMPDFN,S,IFN)) Q:IFN=""  D
  .. I $P($G(^AUPNPROB(IFN,1)),U,2)="H" D
@@ -104,11 +107,8 @@ DELLIST(RETURN,GMPDFN) ; GET LIST OF DELETED PROBLEMS
  ... S L1=$G(^AUPNPROB(IFN,1))
  ... S ST=$P(L0,U,12)
  ... S TXT=$$PROBTEXT^GMPLX(IFN)
- ... I +ORICD186 D
- ... . S ICD=$$CODEC^ICDCODE(+L0)
- ... . I '+$$STATCHK^ICDAPIU(ICD,DT) S INACT="#"
- ... E  D
- ... . S ICD=$P($G(^ICD9(+L0,0)),U)
+ ... S ICD=$P($$ICDDX^ICDCODE(+L0),U,2)
+ ... I '+$$STATCHK^ICDAPIU(ICD,DT) S INACT="#"
  ... S ONSET=$P(L0,U,13)
  ... S MOD=$P(L0,U,3)
  ... S SC=$S(+$P(L1,U,10):"SC",$P(L1,U,10)=0:"NSC",1:"")
@@ -154,7 +154,7 @@ CAT(TMP,ORDUZ,CLIN) ; Get user category list
  K @TG
  S (GSEQ,GCNT,LCNT)=0
  ;
- S GMPLSLST=$$GETUSLST(DUZ,CLIN)  ; get approp list for user
+ S GMPLSLST=$$GETUSLST(DUZ,CLIN) ; get approp list for user
  ; Build multiple of category\problems
  ; Iterate categories
  F  S GSEQ=$O(^GMPL(125.1,"C",+GMPLSLST,GSEQ)) Q:GSEQ'>0  D
@@ -177,37 +177,30 @@ GETUSLST(ORDUZ,CLIN) ; GET AN APPROPRIATE CATEGORY LIST FOR THE USER
  ;----------------------- USER PROBLEM LIST --------------------------
  ;
 PROB(TMP,GROUP) ; Get user problem list for given group
- N PSEQ,PCNT,IFN,ITEM,TG,CODE,TEXT,ORICD186
+ N PSEQ,PCNT,IFN,ITEM,TG,CODE,TEXT
  ; S TG=$NAME(^TMP("GMPLMENU",$J)) ; put list in global for testing
  S TG=$NAME(TMP) ; put list in local
  K @TG
  S LCNT=0
- S ORICD186=$$PATCH^XPDUTL("ICD*18.0*6")
  ;
  ; iterate through problems in category
  S (PSEQ,PCNT)=0
  F  S PSEQ=$O(^GMPL(125.12,"C",GROUP,PSEQ)) Q:PSEQ'>0  D
+ . N ORI,ORQUIT S ORQUIT=0
  . S IFN=$O(^GMPL(125.12,"C",GROUP,PSEQ,0)) Q:IFN'>0
  . S ITEM=$G(^GMPL(125.12,IFN,0))
  . S TEXT=$P(ITEM,U,4)
  . ; SEE DD for GMPL(125.12,4 :
  . ; "...code which is to be displayed... generally assumed to be ICD"
  . S CODE=$P(ITEM,U,5)
- . I +ORICD186,'+$$STATCHK^ICDAPIU(CODE,DT) Q
+ . ; if any codes inactive, exclude from list
+ . F ORI=1:1:$L(CODE,"/") I '+$$STATCHK^ICDAPIU($P(CODE,"/",ORI),DT) S ORQUIT=1 Q
+ . I +ORQUIT Q
  . S PCNT=PCNT+1
  . ; RETURN:
  . ; PROBLEM^DISPLAY TEXT^CODE^CODE IFN
- . I +ORICD186 D
- . . S @TG@(PCNT)=$P(ITEM,U,3,5)_U_$$CODEN^ICDCODE(CODE,80)
- . E  D
- . . S @TG@(PCNT)=$P(ITEM,U,3,5)_U_$$ICDCODE(CODE)
+ . S @TG@(PCNT)=$P(ITEM,U,3,5)_U_$$CODEN^ICDCODE($P(CODE,"/"),80)_U_$P(ITEM,U,6,7)
  Q
- ;
-ICDCODE(COD)    ; RETURN INTERNAL ICD FOR EXTERNAL CODE  (obsolete after CSV patches released - RV)
- N CODIEN
- I COD="" Q ""
- S CODIEN=$$CODEN^ICDCODE($P(COD,U),80) ;ICR #3990
- Q CODIEN
  ;
  ;------------------ Filter Providers ---------------------
  ;
@@ -223,7 +216,7 @@ GETRPRV(RETURN,INP) ; GET LIST OF RESPONSIBLE PROVIDERS FROM PRBLM LIST
  S RETURN(0)="-1"_U_"<None recorded>" ; return empty provider
  Q
  ;
- ;---------------------------------------------------- GET FILTERED CLINIC LIST ------------------------
+ ;------------------- GET FILTERED CLINIC LIST ------------------------
  ;
 GETCLIN(RETURN,INP) ; Get FILTERED LIST OF CLINICS
  ; RETURN NAMES FOR LIST OF CLINICS PASSED IN

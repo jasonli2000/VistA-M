@@ -1,5 +1,5 @@
-PXRMMSER ;SLC/PKR,AJB - Computed findings for military service information. ;02/01/2012
- ;;2.0;CLINICAL REMINDERS;**11,12,21**;Feb 04, 2005;Build 152
+PXRMMSER ;SLC/PKR,AJB - Computed findings for military service information. ;06/26/2012
+ ;;2.0;CLINICAL REMINDERS;**11,12,21,24**;Feb 04, 2005;Build 193
  ;
  ;======================================================
 AORANGE(DFN,NGET,BDT,EDT,NFOUND,TEST,DATE,DATA,TEXT) ;This computed
@@ -96,6 +96,7 @@ MSDATA(DFN,NGET,BDT,EDT,NFOUND,TEST,DATE,DATA,TEXT,SEPDTR) ;This computed
  . S SEPDT=MSDATA(IND,"SEPARATION DATE")
  .;Check for separation date required.
  . I SEPDTR,SEPDT="" Q
+ . I SEPDTR,(SEPDT>EDT) Q
  .;If there is no Separation Date use the evaluation date and time.
  . S SEPDTC=$S(SEPDT'="":SEPDT,1:NOW)
  . I $$OVERLAP^PXRMINDX(ENTRYDT,SEPDTC,BDT,EDT)'="O" Q

@@ -1,5 +1,5 @@
-PXRMEXLM ; SLC/PKR/PJH - Clinical Reminder Exchange List Manager routines. ;12/02/2009
- ;;2.0;CLINICAL REMINDERS;**6,12,17**;Feb 04, 2005;Build 102
+PXRMEXLM ;SLC/PKR/PJH - Clinical Reminder Exchange List Manager routines. ;04/19/2012
+ ;;2.0;CLINICAL REMINDERS;**6,12,17,24**;Feb 04, 2005;Build 193
  ;
  ;=====================================================
 CRE ;Create a packed reminder and store it in the repository.
@@ -64,6 +64,7 @@ INIT ;Init
 INITMPG ;Initialized all the ^TMP globals.
  K ^TMP("PXRMEXDH",$J)
  K ^TMP("PXRMEXDGH",$J)
+ K ^TMP("PXRMEXDL",$J)
  K ^TMP("PXRMEXHF",$J)
  K ^TMP("PXRMEXFND",$J)
  K ^TMP("PXRMEXIA",$J)

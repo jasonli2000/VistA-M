@@ -1,5 +1,5 @@
-PSOCAN ;BIR/JMB-Rx discontinue and reinstate ;8/3/06 12:38pm
- ;;7.0;OUTPATIENT PHARMACY;**11,21,24,27,32,37,88,117,131,185,253,251,375,379,390**;DEC 1997;Build 86
+PSOCAN ;BIR/JMB-Rx discontinue and reinstate ; 9/14/12 3:01pm
+ ;;7.0;OUTPATIENT PHARMACY;**11,21,24,27,32,37,88,117,131,185,253,251,375,379,390,413**;DEC 1997;Build 2
  ;External reference to File #55 supported by DBIA 2228
  ;External references L, UL, PSOL, and PSOUL^PSSLOCK supported by DBIA 2789
 START S WARN=0,(DAYS360,SPCANC)=1 D KCAN1^PSOCAN3 W !! S DIR("A")="Discontinue/Reinstate by Rx# or patient name",DIR(0)="SBO^R:RX NUMBER;P:PATIENT NAME"
@@ -20,7 +20,8 @@ NO I '$O(^PSRX("B",Y,0)) W " Rx Not Found!",! G NUM
  E  S PSOCANRD=+$P($G(^PSRX(+$G(IFN),0)),"^",4)
  D:$P($G(^PS(55,PSODFN,0)),"^",6)'=2 EN^PSOHLUP(PSODFN)
 LMNO D CHK S:'$G(DA)&($G(IFN)) DA=IFN
- I DEAD!$P(^PSRX(DA,"STA"),"^")'<13,$P(^("STA"),"^")'=16 S PSINV($P(^PSRX(DA,0),"^"))="" D:$G(PSOWUN) ULP,ULRX G EP1
+ I DEAD S PSINV($P(^PSRX(DA,0),"^"))="" D:$G(PSOWUN) ULP,ULRX G EP1
+ I $P(^PSRX(DA,"STA"),"^")'<13,$P(^("STA"),"^")'=16 S PSINV($P(^PSRX(DA,0),"^"))="" D:$G(PSOWUN) ULP,ULRX G EP1
  I $G(PSODIV),$P($G(^PSRX(DA,2)),"^",9),$P(^(2),"^",9)'=$G(PSOSITE) S RXREC=DA D DIV D:$G(POERR)&(PSPOP) ULP,ULRX Q:$G(POERR)&(PSPOP)  D:$G(PSOWUN)&($G(PSPOP)) ULP,ULRX G:PSPOP NUM
  D ICN^PSODPT(PSODFN)
  N PSTS S PSTS=$S($P(^PSRX(DA,"STA"),"^")=12:1,$P(^PSRX(DA,"STA"),"^")=14:1,$P(^PSRX(DA,"STA"),"^")=15:1,1:0)

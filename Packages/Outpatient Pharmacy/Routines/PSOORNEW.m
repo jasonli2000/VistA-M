@@ -1,5 +1,5 @@
 PSOORNEW ;BIR/SAB - display orders from oerr ;6/19/06 3:53pm
- ;;7.0;OUTPATIENT PHARMACY;**11,23,27,32,55,46,71,90,94,106,131,133,143,237,222,258,206,225,251,386,390**;DEC 1997;Build 86
+ ;;7.0;OUTPATIENT PHARMACY;**11,23,27,32,55,46,71,90,94,106,131,133,143,237,222,258,206,225,251,386,390,391**;DEC 1997;Build 12
  ;^PS(50.7 -2223
  ;^PSDRUG -221
  ;^PS(50.606 -2174
@@ -48,11 +48,14 @@ PT D DOSE2^PSOORFI4
  I $P($G(^PSDRUG(+$G(PSODRUG("IEN")),5)),"^")]"" D
  .S $P(RN," ",79)=" ",IEN=IEN+1
  .S ^TMP("PSOPO",$J,IEN,0)=$E(RN,$L("QTY DSP MSG: "_$P(^PSDRUG(PSODRUG("IEN"),5),"^"))+1,79)_"QTY DSP MSG: "_$P(^PSDRUG(PSODRUG("IEN"),5),"^") K RN
- S IEN=IEN+1,^TMP("PSOPO",$J,IEN,0)="       Provider ordered "_+$P(OR0,"^",11)_" refills"
+ S IEN=IEN+1
+ I $P(OR0,"^",24) S ^TMP("PSOPO",$J,IEN,0)="   Provider ordered: days supply "_+$P(OR0,"^",22)_", quantity "_+$P(OR0,"^",10)_" & refills "_+$P(OR0,"^",11)
+ E  S ^TMP("PSOPO",$J,IEN,0)="       Provider ordered "_+$P(OR0,"^",11)_" refills"
  D:$D(CLOZPAT) PQTY^PSOORFI4
  S IEN=IEN+1,^TMP("PSOPO",$J,IEN,0)="(10)   # of Refills: "_$S($G(PSONEW("# OF REFILLS"))]"":PSONEW("# OF REFILLS"),1:$P(OR0,"^",11))_"               (11)   Routing: "_$S($G(PSONEW("MAIL/WINDOW"))="M":"MAIL",1:"WINDOW")
  S IEN=IEN+1,^TMP("PSOPO",$J,IEN,0)="(12)         Clinic: "_PSORX("CLINIC")
  S IEN=IEN+1,^TMP("PSOPO",$J,IEN,0)="(13)       Provider: "_PSONEW("PROVIDER NAME")
+ D:$P(OR0,"^",24)!((+$G(PSODRUG("DEA"))>1)&(+$G(PSODRUG("DEA"))<6)) PRV^PSOORFI5($G(PSONEW("PROVIDER")),$G(PSODRUG("IEN")),$P(OR0,"^"))
  I $P($G(^VA(200,$S($G(PSONEW("PROVIDER")):PSONEW("PROVIDER"),1:$P(OR0,"^",5)),"PS")),"^",7)&($P($G(^("PS")),"^",8)) D
  .S IEN=IEN+1,PSONEW("COSIGNING PROVIDER")=$S($G(PSONEW("COSIGNING PROVIDER")):PSONEW("COSIGNING PROVIDER"),1:$P(^("PS"),"^",8))
  .S ^TMP("PSOPO",$J,IEN,0)="       Cos-Provider: "_$P(^VA(200,PSONEW("COSIGNING PROVIDER"),0),"^")
@@ -113,7 +116,7 @@ ACP ;
  .W ! K DIR,DIRUT S DIR(0)="52,35O"
  .S:$G(PSORX("METHOD OF PICK-UP"))]"" DIR("B")=PSORX("METHOD OF PICK-UP") D ^DIR I $D(DIRUT) K DIR,DIRUT Q
  .S (PSONEW("METHOD OF PICK-UP"),PSORX("METHOD OF PICK-UP"))=Y K X,Y
- S PSONEW("POE")=1 D EN^PSON52(.PSONEW) G:$G(PSONEW("DFLG")) ABORT D DCORD^PSONEW2
+ S PSONEW("POE")=1 D EN^PSON52(.PSONEW) G:$G(PSONEW("DFLG")) ABORT D DCORD^PSONEW2 D:$G(PKI)=89802020 ALERT^PSOPKIV1
  ;saves drug allergy order chks pso*7*390
  I +$G(^TMP("PSODAOC",$J,1,0)) D
  .I $G(PSORX("DFLG")) K ^TMP("PSODAOC",$J) Q
@@ -127,11 +130,15 @@ KV K DIRUT,DUOUT,DTOUT,DIR
  Q
 REF D REF^PSOORFI4
  Q
-1 N PSOBDR,PSOBDRG S PSOBDRG=1 D 1^PSOORNW2 Q  ;oi
+1 I $P($G(OR0),"^",24) D  Q
+ . W !!,"Digitally Signed Order - Orderable Item cannot be changed",! D PZ
+ N PSOBDR,PSOBDRG S PSOBDRG=1 D 1^PSOORNW2 Q  ;oi
  ;
 4 D INS^PSOORNW2 Q
  ;
-3 D DOSE^PSOORED4(.PSONEW) Q
+3 I $G(LST)["3,",$P(OR0,"^",24) D  Q 
+ . W !!,"Digitally Signed Order - Dose cannot be changed",! D PZ
+ D DOSE^PSOORED4(.PSONEW) Q
  ;
 6 D 4^PSOORNW2 Q  ;idt
  ;
@@ -139,7 +146,9 @@ REF D REF^PSOORFI4
  ;
 5 D 3^PSOORNW2 Q  ;pstat
  ;
-13 D 12^PSOORNW2 Q  ;doc
+13 I $P($G(OR0),"^",24) D  Q
+ . W !!,"Digitally Signed Order - Provider cannot be changed",! D PZ
+ D 12^PSOORNW2 Q  ;doc
  ;
 12 D 11^PSOORNW2 Q  ;cli
  ;
@@ -150,9 +159,11 @@ REF D REF^PSOORFI4
  ;
 9 D 8^PSOORNW2 Q  ;qty
  ;
-8 D 7^PSOORNW2 Q  ;ds
+8 N CPRN S CPRN=+$P($G(OR0),"^",24) D 7^PSOORNW2 Q  ;ds
  ;
-10 D 9^PSOORNW2 Q  ;#rfs
+10 I $P($G(OR0),"^",24) D  Q
+ . W !!,"Digitally Signed Order - Refills cannot be changed",! D PZ
+ D 9^PSOORNW2 Q  ;#rfs
  ;
 14 D 13^PSOORNW2 Q  ;cop
  ;
@@ -164,5 +175,9 @@ DRGMSG ;
  F SG=1:1:$L($P(^PSDRUG(PSODRUG("IEN"),0),"^",10)) S:$L(^TMP("PSOPO",$J,IEN,0)_" "_$P($P(^PSDRUG(PSODRUG("IEN"),0),"^",10)," ",SG))>80 IEN=IEN+1,$P(^TMP("PSOPO",$J,IEN,0)," ",20)=" " D
  .S:$P($P(^PSDRUG(PSODRUG("IEN"),0),"^",10)," ",SG)'="" ^TMP("PSOPO",$J,IEN,0)=$G(^TMP("PSOPO",$J,IEN,0))_" "_$P($P(^PSDRUG(PSODRUG("IEN"),0),"^",10)," ",SG)
  K SG
+ Q
+ ;
+PZ ;
+ N DIR S DIR(0)="E",DIR("A")="Press Return to Continue" D ^DIR W !
  Q
  ;

@@ -1,5 +1,5 @@
-ECEFPAT ;ALB/JAM-Enter Event Capture Data Patient Filer ;11/18/11  13:30
- ;;2.0;EVENT CAPTURE;**25,32,39,42,47,49,54,65,72,95,76,112**;8 May 96;Build 18
+ECEFPAT ;ALB/JAM-Enter Event Capture Data Patient Filer ;11/21/12  16:29
+ ;;2.0;EVENT CAPTURE;**25,32,39,42,47,49,54,65,72,95,76,112,119**;8 May 96;Build 12
  ;
 FILE ;Used by the RPC broker to file patient encounter in file #721
  ;  Uses Supported IA 1995 - allow access to $$CPT^ICPTCOD
@@ -77,6 +77,7 @@ FILE ;Used by the RPC broker to file patient encounter in file #721
  D ^DIE I $D(DTOUT) D RECDEL,MSG Q
  S DA=ECFN,DR="11////"_ECMN_";13////"_ECDUZ_";2////"_ECDT
  ;S ECPXREAS=$G(ECPXREAS) ;112
+ D CVTREAS Q:$G(ECERR)  ;119 Convert reasons from entries in 720.4 to entries in 720.5 before storing.
  S DR=DR_";19////"_$S(+ECCPT:ECCPT,1:"@")_";20////"_ECDX
  S DR=DR_";26////"_$G(EC4)_";27////"_$G(ECID)_";29////"_ECPTSTAT
  S DR=DR_";34////"_$S($G(ECPXREAS)="":"@",1:ECPXREAS) ;112
@@ -198,3 +199,18 @@ VALDATA ;validate data
  I $G(EC4)'="" D CHK^DIE(721,26,,"`"_EC4,.ECRRX) I ECRRX'=EC4 D  Q
  .S ECERR=1,^TMP($J,"ECMSG",1)="0^Invalid Associated Clinic"
  Q
+ ;
+CVTREAS ;119 Section added to convert procedure reason IEN in 720.4 to EC Code Screen/Procedure reason link in file 720.5.
+ N SCREEN,SCREENID,I
+ S SCREEN=ECL_"-"_ECD_"-"_+$G(ECC,0)_"-"_ECP ;creates event code screen
+ S SCREENID=$O(^ECJ("B",SCREEN,0)) I '+SCREENID S ECERR=1,^TMP($J,"ECMSG",1)="0^Invalid Event Code Screen" Q  ;event code screen doesn't exist
+ F I="ECPXREAS","ECPXREA2","ECPXREA3" I $G(@I) S @I=$$GETVAL(SCREENID,@I)
+ Q
+GETVAL(SCREENO,REASNO) ;119 section added to get link from 720.5 or add it if necessary
+ N LINK,DIC,X,Y
+ S LINK=$O(^ECL("AD",SCREENO,REASNO,0))
+ I $G(LINK) Q LINK  ;Entry in 720.5 exists, return IEN
+ S DIC="^ECL(",DIC(0)="",X=REASNO,DIC("DR")=".02////"_SCREENO
+ K DD,DO D FILE^DICN
+ S LINK=$S(+Y:+Y,1:"") ;New IEN or null if not added
+ Q LINK

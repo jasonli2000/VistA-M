@@ -1,5 +1,5 @@
 LRHY4X ;DALOI/HOAK - PHLEBOTOMY TAT ;4/13/1999
- ;;5.2;LAB SERVICE;**405**;Sep 27, 1994;Build 93
+ ;;5.2;LAB SERVICE;**405,417**;Sep 27, 1994;Build 1
  ;
  ;
 START ;
@@ -85,7 +85,8 @@ IN ;
  .  S LRDFN=+^LRO(68,LRAA,1,LRAD,1,LRAN,0)
  .  K LRDPF D PT^LRX
  .  S LRSSN=$P(SSN,"-",3)
- .  S LRAC1=$E($P(^LRO(68,LRAA,0),U),1,2)_" "_$E(LRAD,4,7)_" "_LRAN
+ .  S LRAC1=$G(^LRO(68,LRAA,1,LRAD,1,LRAN,.2))
+ .  I LRAC1="" S LRAC1=$E($P(^LRO(68,LRAA,0),U),1,2)_" "_$E(LRAD,4,7)_" "_LRAN
  .  S LRAANAME=$P(^LRO(68,LRAA,0),U)
  .  ; check specimen not urine
  .  S LRLLOC=$P(^LRO(68,LRAA,1,LRAD,1,LRAN,0),U,7)
@@ -130,11 +131,11 @@ DISP ;
  ..  I LRTAT=7 S LR700=LR700+1
  ..  S LRAC1=$P(LRN,U,6)
  ..  D CHK Q:LRSTOP
- ..  W !,+$E(LRD,1,2),?5,$E(PNM,1,15)," ",LRSSN,?27,"BLD",?32,LRARIVE,?40,LRDRAW,?47,LRTAT
- ..  W ?52,$O(^TMP("LRHYCOLLECTOR",$J,LRSN,0))
+ ..  W !,+$E(LRD,1,2),?4,$E(PNM,1,14)," ",LRSSN,?25,"BLD",?30,LRARIVE,?37,LRDRAW,?44,LRTAT
+ ..  W ?49,$O(^TMP("LRHYCOLLECTOR",$J,LRSN,0))
  ..  I $P(LRN,U,7)=1 W "*"
- ..  W ?59,LRAC1 ;accession
- ..  W ?72,$E($P(LRN,U,8),1,8) ;clinic
+ ..  W ?56,LRAC1 ;accession
+ ..  W ?73,$E($P(LRN,U,8),1,7) ;clinic
  ..  S LRHYCT=LRHYCT+1 S LRTOTAL=LRTOTAL+LRTAT
  ..  S ^TMP("LRHYMEDTAT",$J,LRSN)=LRTAT
  Q:'LRHYCT
@@ -207,9 +208,9 @@ HEAD ;
  S LRSTOP=0
  W @IOF
  W "Date:",$$Y2K^LRX(DT)," ",$$CJ^XLFSTR("PATIENT WAIT TIME",IOM)
- W !,"Time",?5,"Patient Name",?27,"Type",?32,"Arrived"
- W ?40,"Drawn",?47,"TAT",?52,"TECH",?60,"ACCN"
- W ?72,"Clinic"
+ W !,"Time",?5,"Patient Name",?25,"Type",?30,"Arrive"
+ W ?37,"Drawn",?44,"TAT",?49,"TECH",?57,"ACCN"
+ W ?73,"Clinic"
  QUIT
 CHK ;
  Q:LRSTOP

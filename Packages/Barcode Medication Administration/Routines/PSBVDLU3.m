@@ -1,5 +1,5 @@
 PSBVDLU3 ;BIRMINGHAM/TEJ-BCMA VDL UTILITIES 3 ; 27 Aug 2008  9:06 PM
- ;;3.0;BAR CODE MED ADMIN;**13,38,28,50**;Mar 2004;Build 78
+ ;;3.0;BAR CODE MED ADMIN;**13,38,28,50,64**;Mar 2004;Build 14
  ;Per VHA Directive 2004-038 (or future revisions regarding same), this routine should not be modified.
  ;
  ;This routine file has been created to serve as a container
@@ -182,7 +182,7 @@ SCANFAIL(RESULTS,PSBPARAM) ;  TEJ 05/12/2006  BCMA-Managing Scanning Failures (M
  ;
  K RESULTS,PSBSFUID,PSBMEDOI,PSBMEDNM
  S RESULTS(0)=1,RESULTS(1)="-1^Unable to Scan documentation NOT successful!"
- N PSBDAT,PSBDAT1,PSBXON,PSBSCHAD
+ N PSBDAT,PSBDAT1,PSBXON,PSBSCHAD,PSBFILE
  S PSBDAT=PSBPARAM(0) I $D(PSBPARAM(1)) S PSBDAT1=PSBPARAM(1)
  S PSBXON=$P(PSBDAT,"^",2)
  S PSB8=$G(PSBXON)

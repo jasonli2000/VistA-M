@@ -1,5 +1,5 @@
 PSOVER ;BIR/SAB - verify rx's by clerk ;07/03/95
- ;;7.0;OUTPATIENT PHARMACY;**16,21,27,117,131,146,251,375,387,379**;DEC 1997;Build 28
+ ;;7.0;OUTPATIENT PHARMACY;**16,21,27,117,131,146,251,375,387,379,391**;DEC 1997;Build 12
  ;External references L, UL, PSOL, and PSOUL^PSSLOCK supported by DBIA 2789
  ;External reference to ^PS(56 supported by DBIA 2229
  D:'$D(PSOPAR) ^PSOLSET I '$D(PSOPAR) W $C(7),!!,"Pharmacy Division Must be Selected!",! Q
@@ -54,7 +54,7 @@ END K CAN,CLS,DA,DEA1,DEA2,DIC,DIE,DR,DRG,DRGG,DUP,DUPRX,DUPRX0,FLDT,I,ISDT,ISSD
  Q
 DSPL ;
  Q:$P(^PSRX(PSONV,"STA"),"^")=13
- S DA=PSONV I $P($G(^PSRX(DA,"PKI")),"^") N PKI,PKI1,PKIR,PKIE D CER^PSOPKIV1
+ S DA=PSONV
  S PSVFLAG=1 D ^PSOVER1 I $G(PSORX("DFLG")) K PSVFLAG
  Q
 DGDGI ;process drug interaction for non verified rxs
@@ -85,7 +85,10 @@ OERR ;
  I $G(PSOTPBFG) N PSOTPPEN,PSOTPPEX,PSOTPPE9 S PSOTPPEN=$P(PSOLST($P(PSLST,",",ORD)),"^",2),PSOTPPEX=0,PSOTPPE9=1 D VOPN^PSOTPCAN I PSOTPPEX S VALMBCK="" K PSOTPPEN,PSOTPPEX,PSOTPPE9 Q
  K PSOTPPEN,PSOTPPEX,PSOTPPE9,PSORX("DFLG")
  I $G(PSOBEDT) W $C(7),$C(7) S VALMSG="Invalid Action at this time !",VALMBCK="" Q
- I '$D(^XUSEC("PSORPH",DUZ)) S VALMSG="Unauthorized Action!",VALMBCK="" Q
+ I '$D(^PSRX(+$P(PSOLST($P(PSLST,",",ORD)),"^",2),"PKI")),'$D(^XUSEC("PSORPH",DUZ)) S VALMSG="Unauthorized Action!",VALMBCK="" Q
+ I $D(^PSRX(+$P(PSOLST($P(PSLST,",",ORD)),"^",2),"PKI")) N FL S FL=0 D  I FL Q
+ .I $P($G(^PSRX(+$P(PSOLST($P(PSLST,",",ORD)),"^",2),"PKI")),"^"),'$D(^XUSEC("PSDRPH",DUZ)) S VALMSG="Digitally Signed Order - PSDRPH key required",VALMBCK="",FL=1 Q
+ .I $P($G(^PSRX(+$P(PSOLST($P(PSLST,",",ORD)),"^",2),"PKI")),"^",2),'$D(^XUSEC("PSDRPH",DUZ)) S VALMSG="CS Order - PSDRPH key is required",VALMBCK="",FL=1 Q
  S PSOVRXN=$P(PSOLST($P(PSLST,",",ORD)),"^",2),PSOVDFN=$P($G(^PSRX(PSOVRXN,0)),"^",2)
  S PSOPLCK=$$L^PSSLOCK(PSOVDFN,0) I '$G(PSOPLCK) S VALMSG=$S($P($G(PSOPLCK),"^",2)'="":$P($G(PSOPLCK),"^",2)_" is working on this patient.",1:"Another person is editing orders for this patient.") S VALMBCK="" K PSOPLCK Q
  K PSOPLCK D PSOL^PSSLOCK(PSOVRXN) I '$G(PSOMSG) D UL^PSSLOCK(PSOVDFN) S VALMSG=$S($P($G(PSOMSG),"^",2)'="":$P($G(PSOMSG),"^",2),1:"Another person is editing this order.") K PSOMSG S VALMBCK="" Q

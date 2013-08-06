@@ -1,5 +1,5 @@
-PXRMEXIC ;SLC/PKR/PJH - Routines to install repository entry components. ;2/17/2012
- ;;2.0;CLINICAL REMINDERS;**6,12,17,16,18,22**;Feb 04, 2005;Build 160
+PXRMEXIC ;SLC/PKR/PJH - Routines to install repository entry components. ;09/07/2012
+ ;;2.0;CLINICAL REMINDERS;**6,12,17,16,18,22,24**;Feb 04, 2005;Build 193
  ;=================================================
 FILE(PXRMRIEN,SITEIEN,IND120,JND120,ACTION,ATTR,NAMECHG) ;Read and process a
  ;file entry in repository entry PXRMRIEN. IND120 and JND120 are the
@@ -67,7 +67,10 @@ FILE(PXRMRIEN,SITEIEN,IND120,JND120,ACTION,ATTR,NAMECHG) ;Read and process a
  .;
  .;This line is use to convert pre-patch 12 disable text to the new
  .;value of 1 for disable
- . I FILENUM=801.41,FIELD=3,DATA'="",$L(DATA)>1 S DATA=1
+ . I FILENUM=801.41,FIELD=3,DATA'="",$L(DATA)>2 D
+ ..I DATA="DISABLE AND DO NOT SEND MESSAGE" Q
+ ..S DATA="DISABLE AND SEND MESSAGE"
+ .;
  . S FDA(FILENUM,IENS,FIELD)=DATA
  ;
  ;Initialize the edit history.
@@ -95,8 +98,7 @@ FILE(PXRMRIEN,SITEIEN,IND120,JND120,ACTION,ATTR,NAMECHG) ;Read and process a
  ;
  ;Special handling for file 801.41
  I TOPFNUM=801.41 D  Q:PXRMDONE
- . I ACTION="M" D MOU^PXRMEXU5(801.41,SITEIEN,"**",.FDA,.IENROOT,ACTION,.WPTMP)
- . I ACTION="U" D MOU^PXRMEXU5(801.41,SITEIEN,"18*",.FDA,.IENROOT,ACTION,.WPTMP)
+ . I ACTION="M" D MOU^PXRMEXU5(801.41,SITEIEN,"18*",.FDA,.IENROOT,ACTION,.WPTMP)
  . D DLG^PXRMEXU4(.FDA,.NAMECHG)
  ;
  ;Special handling for file 810.9

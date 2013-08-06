@@ -1,13 +1,14 @@
 PSIVORFA ;BIR/MLM-FILE/RETRIEVE ORDERS IN 53.1 ; 8/17/09 9:23am
- ;;5.0;INPATIENT MEDICATIONS;**4,7,18,28,50,71,58,91,80,110,111,134,225,267**;16 DEC 97;Build 158
+ ;;5.0;INPATIENT MEDICATIONS;**4,7,18,28,50,71,58,91,80,110,111,134,225,267,275**;16 DEC 97;Build 157
  ;
  ; Reference to ^PS(51.1 supported by DBIA 2177.
  ; Reference to ^PS(51.2 supported by DBIA 2178.
  ; Reference to ^PS(52.7 supported by DBIA 2173.
  ; Reference to ^PS(52.6 supported by DBIA 1231.
  ;
-GT531(DFN,ON) ; Retrieve order data from 53.1 and place into local array
+GT531(DFN,ON,PSJAPI) ; Retrieve order data from 53.1 and place into local array
  ;
+ ; PSJAPI - If being called from background job, PSJAPI=1.
  NEW PSGOES S PSGOES=1
  F X="CUM","LF","LFA","LF","PRNTON" S P(X)=""
  S Y=$G(^PS(53.1,+ON,0)),P(17)=$P(Y,U,9),P("LOG")=$P(Y,U,16),(P(21),P("21FLG"),PSJORIFN)=$P(Y,U,21)
@@ -38,7 +39,7 @@ GT531(DFN,ON) ; Retrieve order data from 53.1 and place into local array
  .S P("DUR")=$P(ND2P5,"^",2)
  .S P("LIMIT")=$P(ND2P5,"^",4)
  .S P("IVCAT")=$P(ND2P5,"^",5)
- N LONGOPI S LONGOPI=$$GETOPI^PSJBCMA5(DFN,ON)
+ N LONGOPI S LONGOPI=$$GETOPI^PSJBCMA5(DFN,ON,$S($G(PSJAPI):1,1:""))
  Q
 GTDRG ;
  K DRG F X="AD","SOL" S FIL=$S(X="AD":52.6,1:52.7) F Y=0:0 S Y=$O(^PS(53.1,+ON,X,Y)) Q:'Y  D

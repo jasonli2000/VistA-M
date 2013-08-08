@@ -1,5 +1,5 @@
 PSBOHDR ;BIRMINGHAM/EFC - REPORT HEADERS ;5/28/10 2:51pm
- ;;3.0;BAR CODE MED ADMIN;**5,13,42**;Mar 2004;Build 23
+ ;;3.0;BAR CODE MED ADMIN;**5,13,42,74**;Mar 2004;Build 5
  ;
  ; Reference/IA
  ; EN6^GMRVUTL/1120
@@ -65,7 +65,7 @@ PT(DFN,PSBHDR,PSBCONT,PSBDT) ;
  W ?40,$$GET^XPAR("ALL","PSB PATIENT ID LABEL")_":",?51,PSBHDR("SSN")
  W ?75,"DOB:",?82,PSBHDR("DOB")," (",PSBHDR("AGE"),")"
  D:'$G(PSBCONT)
- .W !,"Sex: ",?10,PSBHDR("SEX"),?40,"Ht/Wt:     ",PSBHDR("HEIGHT"),"/",PSBHDR("WEIGHT"),?75,"Ward: ",?82,PSBHDR("WARD")," Rm ",PSBHDR("ROOM")
+ .W !,"Sex: ",?10,PSBHDR("SEX"),?40,"Ht/Wt:     ",PSBHDR("HEIGHT"),"/",PSBHDR("WEIGHT"),?75,"Ward: ",?82,PSBHDR("WARD")," Rm: ",PSBHDR("ROOM") ;added colon to Rm, PSB*3*74
  .W !,"Dx:",?10,PSBHDR("DX"),?40,"Last Mvmt: ",PSBHDR("MVMTLAST"),?75,"Type:  ",PSBHDR("MVMTTYPE")
  .; Reactions/Allergies
  .W !!,"ADRs:"

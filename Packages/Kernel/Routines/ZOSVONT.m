@@ -8,6 +8,7 @@ ACTJ() ;# Active jobs
  S Y=$system.License.LUConsumed() ;Cache 5 up
  Q Y
 AVJ() ;# available jobs
+ Q 99
  N %,AVJ,V,ZOSV,$ET
  S V=+$$VERSION()
  ;Cache 3 and 4

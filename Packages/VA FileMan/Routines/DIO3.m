@@ -1,5 +1,5 @@
 DIO3	;SFISC/GFT-TTLS, SUBTTLS ;22DEC2003
-	;;22.2V1;VA FILEMAN;;Jan 31, 2013
+	;;22.2V2;VA FILEMAN;;Mar 08, 2013
 	;Per VHA Directive 2004-038, this routine should not be modified.
 SUB	;
 	N TYPE,V ;**CCO/NI This whole subroutine re-written for 'TOTAL', 'SUBTOTAL', 'COUNT', SUBCOUNT', ETC.

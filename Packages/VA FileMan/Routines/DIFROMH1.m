@@ -1,5 +1,5 @@
 DIFROMH1	;SFISC/XAK-HELP FOR ANSWERING DIFROM PROMPTS ;03:15 PM  28 Nov 1994
-	;;22.2V1;VA FILEMAN;;Jan 31, 2013
+	;;22.2V2;VA FILEMAN;;Mar 08, 2013
 	;Per VHA Directive 2004-038, this routine should not be modified.
 REP	;CHANGING YOUR FILE NAME
 	W !!?5,"If YES, this will change the existing file name"

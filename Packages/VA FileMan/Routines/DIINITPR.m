@@ -1,5 +1,5 @@
 DIINITPR	; VEN/SMH - Fileman 22.2 Post-Init; 31-JAN-2013
-	;;22.2V1;VA FILEMAN;;Jan 31, 2013
+	;;22.2V2;VA FILEMAN;;Mar 08, 2013
 	;Per VHA Directive 2004-038, this routine should not be modified.
 	;
 	W !!,"Executing the Pre-Init for Fileman 22.2",!!

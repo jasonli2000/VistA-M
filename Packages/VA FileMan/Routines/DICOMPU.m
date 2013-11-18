@@ -1,5 +1,5 @@
 DICOMPU	;GFT/GFT - META-DATA-DICTIONARY LOOKUP;24JAN2013
-	;;22.2V1;VA FILEMAN;;Jan 31, 2013
+	;;22.2V2;VA FILEMAN;;Mar 08, 2013
 	;Per VHA Directive 2004-038, this routine should not be modified.
 EN(Y,J,DICOMP,DICMX)	; Main Entry Point
 	;Y=expression; DICOMP=parameter string; J array by reference, as set up by IJ^DIUTL, or just FILE NUMBER; DICMX defined means multiples allowed

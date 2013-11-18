@@ -1,5 +1,5 @@
 DDS10	;SFISC/MKO-BLOCK SETUP ;21SEP2006
-	;;22.2V1;VA FILEMAN;;Jan 31, 2013
+	;;22.2V2;VA FILEMAN;;Mar 08, 2013
 	;Per VHA Directive 2004-038, this routine should not be modified.
 	;
 SET(DDS1B,DDS1E,DA,DDP,DIE,DL,DDSDA)	;Get values for pointed-to block

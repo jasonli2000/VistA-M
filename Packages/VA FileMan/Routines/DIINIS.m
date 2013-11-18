@@ -1,5 +1,5 @@
-DIINIS	; ; 31-JAN-2013 ; 1/31/13 12:04pm
-	;;22.2V1;VA FILEMAN;;Jan 31, 2013
+DIINIS	; ; 08-MAR-2013 ; 3/8/13 10:40am
+	;;22.2V2;VA FILEMAN;;Mar 08, 2013
 	;Per VHA Directive 2004-038, this routine should not be modified.
 PAC(PKG,VER)	; called from package init (DIFROM7 created this routine)
 	; PKG = $T(IXF) of the INIT routine.

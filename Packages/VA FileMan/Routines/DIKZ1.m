@@ -1,5 +1,5 @@
 DIKZ1	;SFISC/XAK-XREF COMPILER ;1:52 PM  7 Jan 2000
-	;;22.2V1;VA FILEMAN;;Jan 31, 2013
+	;;22.2V2;VA FILEMAN;;Mar 08, 2013
 	;Per VHA Directive 2004-038, this routine should not be modified.
 NEWR	;
 	K ^UTILITY($J) S DRN=""

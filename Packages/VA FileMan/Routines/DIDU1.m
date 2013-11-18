@@ -1,5 +1,5 @@
 DIDU1	;SEA/TOAD-VA FileMan: DD Tools, IENS Check ;10:39 AM  8 Jul 1998
-	;;22.2V1;VA FILEMAN;;Jan 31, 2013
+	;;22.2V2;VA FILEMAN;;Mar 08, 2013
 	;Per VHA Directive 2004-038, this routine should not be modified.
 	;
 IEN(DIENS,DIFLAGS)	;

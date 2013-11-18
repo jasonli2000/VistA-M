@@ -1,5 +1,5 @@
 DDS	;SFISC/MLH,MKO-MAIN ROUTINE ;18JUN2012
-	;;22.2V1;VA FILEMAN;;Jan 31, 2013
+	;;22.2V2;VA FILEMAN;;Mar 08, 2013
 	;Per VHA Directive 2004-038, this routine should not be modified.
 	N DIE,DX,DY,X,Y
 	I '$D(DIFM) N DIFM S DIFM=1 D INIZE^DIEFU

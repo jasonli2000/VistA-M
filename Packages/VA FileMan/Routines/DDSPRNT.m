@@ -1,5 +1,5 @@
 DDSPRNT	;SFISC/MKO-PRINT A FORM ;02:51 PM  18 Nov 1994
-	;;22.2V1;VA FILEMAN;;Jan 31, 2013
+	;;22.2V2;VA FILEMAN;;Mar 08, 2013
 	;Per VHA Directive 2004-038, this routine should not be modified.
 	;
 	I '$D(DIFM) N DIFM S DIFM=1 D INIZE^DIEFU

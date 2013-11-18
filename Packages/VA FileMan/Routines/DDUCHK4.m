@@ -1,5 +1,5 @@
 DDUCHK4	;SFISC/MKO-CHECK INDEXES ON FILE ;6:36 AM  28 Dec 2004
-	;;22.2V1;VA FILEMAN;;Jan 31, 2013
+	;;22.2V2;VA FILEMAN;;Mar 08, 2013
 	;Per VHA Directive 2004-038, this routine should not be modified.
 	;
 INDEX(DDUCFI,DDUCFIX)	;Check and optionally fix structure of Index file entry

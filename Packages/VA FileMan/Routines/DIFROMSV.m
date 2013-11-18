@@ -1,5 +1,5 @@
 DIFROMSV	;SFISC/DCL-DIFROM SERVER UTILITY,PKG REV DATA ;08:40 AM  6 Sep 1994
-	;;22.2V1;VA FILEMAN;;Jan 31, 2013
+	;;22.2V2;VA FILEMAN;;Mar 08, 2013
 	;Per VHA Directive 2004-038, this routine should not be modified.
 	Q
 PRD(DIFRFILE,DIFRPRD)	;Package Revision Data for File

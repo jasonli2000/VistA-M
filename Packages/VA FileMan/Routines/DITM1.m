@@ -1,5 +1,5 @@
 DITM1	;SFISC/JCM(OHPRD)-ASKS SUBFILE FOR COMPARE AND MERGE ;2/24/93  14:00
-	;;22.2V1;VA FILEMAN;;Jan 31, 2013
+	;;22.2V2;VA FILEMAN;;Mar 08, 2013
 	;Per VHA Directive 2004-038, this routine should not be modified.
 	; When subfiles work will need to delete SUB+0 and uncomment SUB+1
 	;--------------------------------------------------------------------

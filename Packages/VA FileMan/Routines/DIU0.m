@@ -1,5 +1,5 @@
 DIU0	;SFISC/XAK-EDIT/DELETE A FILE ;12NOV2008
-	;;22.2V1;VA FILEMAN;;Jan 31, 2013;Build 11
+	;;22.2V2;VA FILEMAN;;Mar 08, 2013;Build 11
 	;Per VHA Directive 2004-038, this routine should not be modified.
 DIPZ	;
 	D PZ,DIEZ Q

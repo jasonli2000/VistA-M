@@ -1,5 +1,5 @@
 DIFROMS4	;SFISC/DCL- DATA FROM DISTRIBUTION ARRAY ;5/24/00  15:22
-	;;22.2V1;VA FILEMAN;;Jan 31, 2013
+	;;22.2V2;VA FILEMAN;;Mar 08, 2013
 	;Per VHA Directive 2004-038, this routine should not be modified.
 	;
 	Q

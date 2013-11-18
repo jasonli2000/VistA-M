@@ -1,5 +1,5 @@
 DIAXGU	;SFISC/DCM-EXTRACT FUNCTIONS ;9/2/94  06:40
-	;;22.2V1;VA FILEMAN;;Jan 31, 2013
+	;;22.2V2;VA FILEMAN;;Mar 08, 2013
 	;Per VHA Directive 2004-038, this routine should not be modified.
 LOOKUP	D SETX G Q:$D(DIAXMSG)!$G(DIAXOUT)
 	D ET

@@ -1,5 +1,5 @@
 DITR	;SFISC/GFT-FIND FLDS TO XRF ;8SEP2011
-	;;22.2V1;VA FILEMAN;;Jan 31, 2013
+	;;22.2V2;VA FILEMAN;;Mar 08, 2013
 	;Per VHA Directive 2004-038, this routine should not be modified.
 	N DITRCNT
 LOOP	S (DFL,DTL)=DFL-1 Q:'$D(DFN(DFL))

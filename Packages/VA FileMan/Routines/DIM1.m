@@ -1,5 +1,5 @@
 DIM1	;SFISC/JFW,GFT,TOAD-FileMan: M Syntax Checker, Exprs ;13DEC2009
-	;;22.2V1;VA FILEMAN;;Jan 31, 2013
+	;;22.2V2;VA FILEMAN;;Mar 08, 2013
 	;Per VHA Directive 2004-038, this routine should not be modified.
 	;
 	Q:%ERR  N %A,%A1 S (%I,%N,%ERR,%(-1,2),%(-1,3))=0

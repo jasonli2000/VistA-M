@@ -1,5 +1,5 @@
 DICF3	;VEN/TOAD,SF/TKW - Lookup: Finder, Part 3 (One Index) ; 1/24/13 3:53pm
-	;;22.2V1;VA FILEMAN;;Jan 31, 2013
+	;;22.2V2;VA FILEMAN;;Mar 08, 2013
 	;Per VHA Directive 2004-038, this routine should not be modified.
 	;
 	;

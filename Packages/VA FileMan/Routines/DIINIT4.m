@@ -1,5 +1,5 @@
-DIINIT4	; ; 31-JAN-2013 ; 1/31/13 12:04pm
-	;;22.2V1;VA FILEMAN;;Jan 31, 2013
+DIINIT4	; ; 08-MAR-2013 ; 3/8/13 10:41am
+	;;22.2V2;VA FILEMAN;;Mar 08, 2013
 	;Per VHA Directive 2004-038, this routine should not be modified.
 	;
 	;

@@ -1,6 +1,5 @@
-DMUDTC00	; VEN/SMH - Unit Test Driver for %DTC Utilities; 31-DEC-2012 ; 1/27/13 3:46pm
-	;;22.2V1;VA FILEMAN;;Jan 31, 2013
-	;Per VHA Directive 2004-038, this routine should not be modified.
+DMUDTC00	; VEN/SMH - Unit Test Driver for %DTC Utilities; 04-MAR-2013
+	;;22.2V2;VA FILEMAN;;Mar 08, 2013
 	;
 	S IO=$PRINCIPAL
 	N DIQUIET S DIQUIET=1
@@ -204,7 +203,7 @@ HELP	; @TEST - Exercise Help, no checks.
 	;
 NOW	; @TEST - Tests NOW^%DTC
 	; Input: None
-	; Output:
+	; Output: 
 	; - %  -> VA FileMan date/time down to the second.
 	; - %H -> $H date/time.
 	; %I(1) -> The numeric value of the month.
@@ -217,7 +216,7 @@ NOW	; @TEST - Tests NOW^%DTC
 	D CHKTF^XTMUNIT($L($P(%,".",2))>2,"Hours and minutes not provided when they should be")
 	D CHKEQ^XTMUNIT(%I(1),+$E(DT,4,5),"Month incorrect")
 	D CHKEQ^XTMUNIT(%I(2),+$E(DT,6,7),"Day incorrect")
-	D CHKEQ^XTMUNIT(%I(3),$E(DT,1,3)+1700,"Year incorrect")
+	D CHKEQ^XTMUNIT(%I(3),$E(DT,1,3),"Year incorrect")
 	D CHKEQ^XTMUNIT(X,DT,"VA Fileman date only incorrect")
 	QUIT
 	;
@@ -299,7 +298,7 @@ YX	; @TEST - Test YX^%DTC
 	D CHKEQ^XTMUNIT(Y,0,"$H of 0 should produce zero date")
 	D CHKEQ^XTMUNIT(X,"","$H of 0 should produced a empty fileman date")
 	D CHKEQ^XTMUNIT(%,0,"$H of 0 should produce zero time")
-	;
+	; 
 	; Invalid input again
 	N %H,Y,X,%
 	S %H="HELLO" D YX^%DTC

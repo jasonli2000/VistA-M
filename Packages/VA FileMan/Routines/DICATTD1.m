@@ -1,5 +1,5 @@
 DICATTD1	;SFISC/GFT- DATE,TIME ;2 FEB 2009
-	;;22.2V1;VA FILEMAN;;Jan 31, 2013;Build 11
+	;;22.2V2;VA FILEMAN;;Mar 08, 2013;Build 11
 	;Per VHA Directive 2004-038, this routine should not be modified.
 	;
 EARLY	;

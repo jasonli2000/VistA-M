@@ -1,12 +1,14 @@
-.. title: OSEHRA VistA-M
+.. title: FOIA VistA M Components
 
-==============
-OSEHRA VistA-M
-==============
+=======================
+FOIA VistA M Components
+=======================
 
 This source tree holds a reference copy of M components for VistA, the
 Veterans Health Information Systems and Technology Architecture.  It
 is maintained by OSEHRA, the Open Source Electronic Health Record Agent.
+
+This version of VistA was released by US DVA via FOIA.
 
 -------
 Purpose

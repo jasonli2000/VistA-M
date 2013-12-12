@@ -1,308 +1,382 @@
-IBDEI0BO ; ; 20-FEB-2013
- ;;3.0;IB ENCOUNTER FORM IMP/EXP;;FEB 20, 2013
+IBDEI0BO ; ; 06-AUG-2013
+ ;;3.0;IB ENCOUNTER FORM IMP/EXP;;AUG 06, 2013
  Q:'DIFQR(358.3)  F I=1:2 S X=$T(Q+I) Q:X=""  S Y=$E($T(Q+I+1),4,999),X=$E(X,4,999) S:$A(Y)=126 I=I+1,Y=$E(Y,2,999)_$E($T(Q+I+1),5,99) S:$A(Y)=61 Y=$E(Y,2,999) X NO E  S @X=Y
 Q Q
- ;;^UTILITY(U,$J,358.3,15535,1,3,0)
- ;;=3^Screen for Addictions Admit
- ;;^UTILITY(U,$J,358.3,15536,0)
- ;;=H0003^^113^962^6^^^^1
- ;;^UTILITY(U,$J,358.3,15536,1,0)
- ;;=^358.31IA^3^2
- ;;^UTILITY(U,$J,358.3,15536,1,2,0)
- ;;=2^H0003
- ;;^UTILITY(U,$J,358.3,15536,1,3,0)
- ;;=3^Alcohol/Drug Scrn;lab analysis
- ;;^UTILITY(U,$J,358.3,15537,0)
- ;;=H0004^^113^962^7^^^^1
- ;;^UTILITY(U,$J,358.3,15537,1,0)
- ;;=^358.31IA^3^2
- ;;^UTILITY(U,$J,358.3,15537,1,2,0)
- ;;=2^H0004
- ;;^UTILITY(U,$J,358.3,15537,1,3,0)
- ;;=3^Individual Counseling per 15 min
- ;;^UTILITY(U,$J,358.3,15538,0)
- ;;=H0005^^113^962^3^^^^1
- ;;^UTILITY(U,$J,358.3,15538,1,0)
- ;;=^358.31IA^3^2
- ;;^UTILITY(U,$J,358.3,15538,1,2,0)
- ;;=2^H0005
- ;;^UTILITY(U,$J,358.3,15538,1,3,0)
- ;;=3^Addictions Group
- ;;^UTILITY(U,$J,358.3,15539,0)
- ;;=H0006^^113^962^5^^^^1
- ;;^UTILITY(U,$J,358.3,15539,1,0)
- ;;=^358.31IA^3^2
- ;;^UTILITY(U,$J,358.3,15539,1,2,0)
- ;;=2^H0006
- ;;^UTILITY(U,$J,358.3,15539,1,3,0)
- ;;=3^Alcohol/Drug Case Management
- ;;^UTILITY(U,$J,358.3,15540,0)
- ;;=H0020^^113^962^8^^^^1
- ;;^UTILITY(U,$J,358.3,15540,1,0)
- ;;=^358.31IA^3^2
- ;;^UTILITY(U,$J,358.3,15540,1,2,0)
- ;;=2^H0020
- ;;^UTILITY(U,$J,358.3,15540,1,3,0)
- ;;=3^Methadone Administration
- ;;^UTILITY(U,$J,358.3,15541,0)
- ;;=H0025^^113^962^2^^^^1
- ;;^UTILITY(U,$J,358.3,15541,1,0)
- ;;=^358.31IA^3^2
- ;;^UTILITY(U,$J,358.3,15541,1,2,0)
- ;;=2^H0025
- ;;^UTILITY(U,$J,358.3,15541,1,3,0)
- ;;=3^Addictions Education Service
- ;;^UTILITY(U,$J,358.3,15542,0)
- ;;=H0030^^113^962^4^^^^1
- ;;^UTILITY(U,$J,358.3,15542,1,0)
- ;;=^358.31IA^3^2
- ;;^UTILITY(U,$J,358.3,15542,1,2,0)
- ;;=2^H0030
- ;;^UTILITY(U,$J,358.3,15542,1,3,0)
- ;;=3^Addictions Hotline Services
- ;;^UTILITY(U,$J,358.3,15543,0)
- ;;=H0046^^113^962^9^^^^1
- ;;^UTILITY(U,$J,358.3,15543,1,0)
- ;;=^358.31IA^3^2
- ;;^UTILITY(U,$J,358.3,15543,1,2,0)
- ;;=2^H0046
- ;;^UTILITY(U,$J,358.3,15543,1,3,0)
- ;;=3^PTSD Group
- ;;^UTILITY(U,$J,358.3,15544,0)
- ;;=10060^^114^963^1
- ;;^UTILITY(U,$J,358.3,15544,1,0)
- ;;=^358.31IA^3^2
- ;;^UTILITY(U,$J,358.3,15544,1,2,0)
- ;;=2^Incision and Drainage of abscess, simple or single
- ;;^UTILITY(U,$J,358.3,15544,1,3,0)
- ;;=3^10060
- ;;^UTILITY(U,$J,358.3,15545,0)
- ;;=10061^^114^963^2
- ;;^UTILITY(U,$J,358.3,15545,1,0)
- ;;=^358.31IA^3^2
- ;;^UTILITY(U,$J,358.3,15545,1,2,0)
- ;;=2^Incision and Drainage of abscess; complicated or multiple
- ;;^UTILITY(U,$J,358.3,15545,1,3,0)
- ;;=3^10061
- ;;^UTILITY(U,$J,358.3,15546,0)
- ;;=10120^^114^963^3
- ;;^UTILITY(U,$J,358.3,15546,1,0)
- ;;=^358.31IA^3^2
- ;;^UTILITY(U,$J,358.3,15546,1,2,0)
- ;;=2^Incision & Removal foreign body, subcutaneous tissues; simple
- ;;^UTILITY(U,$J,358.3,15546,1,3,0)
- ;;=3^10120
- ;;^UTILITY(U,$J,358.3,15547,0)
- ;;=10121^^114^963^4
- ;;^UTILITY(U,$J,358.3,15547,1,0)
- ;;=^358.31IA^3^2
- ;;^UTILITY(U,$J,358.3,15547,1,2,0)
- ;;=2^Incision & Removal foreign body, subcutaneous tissues; complicated
- ;;^UTILITY(U,$J,358.3,15547,1,3,0)
- ;;=3^10121
- ;;^UTILITY(U,$J,358.3,15548,0)
- ;;=10140^^114^963^5
- ;;^UTILITY(U,$J,358.3,15548,1,0)
- ;;=^358.31IA^3^2
- ;;^UTILITY(U,$J,358.3,15548,1,2,0)
- ;;=2^Incision and Drainage of hematoma, seroma or fluid collection
- ;;^UTILITY(U,$J,358.3,15548,1,3,0)
- ;;=3^10140
- ;;^UTILITY(U,$J,358.3,15549,0)
- ;;=10160^^114^963^6
- ;;^UTILITY(U,$J,358.3,15549,1,0)
- ;;=^358.31IA^3^2
- ;;^UTILITY(U,$J,358.3,15549,1,2,0)
- ;;=2^Puncture aspiration of abscess, hemtoma, bulla, or cyst
- ;;^UTILITY(U,$J,358.3,15549,1,3,0)
- ;;=3^10160
- ;;^UTILITY(U,$J,358.3,15550,0)
- ;;=10180^^114^963^7
- ;;^UTILITY(U,$J,358.3,15550,1,0)
- ;;=^358.31IA^3^2
- ;;^UTILITY(U,$J,358.3,15550,1,2,0)
- ;;=2^Incision and Drainage, complex, postoperative wound infection
- ;;^UTILITY(U,$J,358.3,15550,1,3,0)
- ;;=3^10180
- ;;^UTILITY(U,$J,358.3,15551,0)
- ;;=11000^^114^964^1
- ;;^UTILITY(U,$J,358.3,15551,1,0)
- ;;=^358.31IA^3^2
- ;;^UTILITY(U,$J,358.3,15551,1,2,0)
- ;;=2^Debr of extensive eczematous 10%
- ;;^UTILITY(U,$J,358.3,15551,1,3,0)
- ;;=3^11000
- ;;^UTILITY(U,$J,358.3,15552,0)
- ;;=11010^^114^964^3
- ;;^UTILITY(U,$J,358.3,15552,1,0)
- ;;=^358.31IA^3^2
- ;;^UTILITY(U,$J,358.3,15552,1,2,0)
- ;;=2^Debridement including removal of foreign material associated w/open fracture(s) &/or dislocation(s); skin and subcutaneous tissues
- ;;^UTILITY(U,$J,358.3,15552,1,3,0)
- ;;=3^11010
- ;;^UTILITY(U,$J,358.3,15553,0)
- ;;=11011^^114^964^4
- ;;^UTILITY(U,$J,358.3,15553,1,0)
- ;;=^358.31IA^3^2
- ;;^UTILITY(U,$J,358.3,15553,1,2,0)
- ;;=2^Debridement including removal of foreign material associated w/ open FX(s) and/or dislocation(s);skin, subcutaneous tissue, muscle fascia, & muscle
- ;;^UTILITY(U,$J,358.3,15553,1,3,0)
- ;;=3^11011
- ;;^UTILITY(U,$J,358.3,15554,0)
- ;;=11042^^114^964^8
- ;;^UTILITY(U,$J,358.3,15554,1,0)
- ;;=^358.31IA^3^2
- ;;^UTILITY(U,$J,358.3,15554,1,2,0)
- ;;=2^Debridement; Skin & Subcutaneous Tissue
- ;;^UTILITY(U,$J,358.3,15554,1,3,0)
- ;;=3^11042
- ;;^UTILITY(U,$J,358.3,15555,0)
- ;;=11043^^114^964^9
- ;;^UTILITY(U,$J,358.3,15555,1,0)
- ;;=^358.31IA^3^2
- ;;^UTILITY(U,$J,358.3,15555,1,2,0)
- ;;=2^Debridement; Skin, Subcutaneous Tissue & Muscle 
- ;;^UTILITY(U,$J,358.3,15555,1,3,0)
- ;;=3^11043
- ;;^UTILITY(U,$J,358.3,15556,0)
- ;;=11044^^114^964^10
- ;;^UTILITY(U,$J,358.3,15556,1,0)
- ;;=^358.31IA^3^2
- ;;^UTILITY(U,$J,358.3,15556,1,2,0)
- ;;=2^Debridement; Skin, Subcutaneous Tissue, Muscle & Bone
- ;;^UTILITY(U,$J,358.3,15556,1,3,0)
- ;;=3^11044
- ;;^UTILITY(U,$J,358.3,15557,0)
- ;;=11012^^114^964^5^^^^1
- ;;^UTILITY(U,$J,358.3,15557,1,0)
- ;;=^358.31IA^3^2
- ;;^UTILITY(U,$J,358.3,15557,1,2,0)
- ;;=2^Debridement incl. removal of foreign material associate w/ openFx(s) &/or dislocation(s); skin, subcutaneous tissue, muscle fascia, muscle & bone
- ;;^UTILITY(U,$J,358.3,15557,1,3,0)
- ;;=3^11012
- ;;^UTILITY(U,$J,358.3,15558,0)
- ;;=11001^^114^964^2^^^^1
- ;;^UTILITY(U,$J,358.3,15558,1,0)
- ;;=^358.31IA^3^2
- ;;^UTILITY(U,$J,358.3,15558,1,2,0)
- ;;=2^Debr of extensive eczematous;ea addl 10%
- ;;^UTILITY(U,$J,358.3,15558,1,3,0)
- ;;=3^11001
- ;;^UTILITY(U,$J,358.3,15559,0)
- ;;=11300^^114^965^1
- ;;^UTILITY(U,$J,358.3,15559,1,0)
- ;;=^358.31IA^3^2
- ;;^UTILITY(U,$J,358.3,15559,1,2,0)
- ;;=2^Shaving of Epidermal or Dermal Lesions, Single; trunk, arms, legs- 0.5 cm or less
- ;;^UTILITY(U,$J,358.3,15559,1,3,0)
- ;;=3^11300
- ;;^UTILITY(U,$J,358.3,15560,0)
- ;;=11301^^114^965^2
- ;;^UTILITY(U,$J,358.3,15560,1,0)
- ;;=^358.31IA^3^2
- ;;^UTILITY(U,$J,358.3,15560,1,2,0)
- ;;=2^Shaving of Epidermal or Dermal Lesion, Single; trunk, arms or legs- 0.6 to 1.0 cm
- ;;^UTILITY(U,$J,358.3,15560,1,3,0)
- ;;=3^11301
- ;;^UTILITY(U,$J,358.3,15561,0)
- ;;=11302^^114^965^3
- ;;^UTILITY(U,$J,358.3,15561,1,0)
- ;;=^358.31IA^3^2
- ;;^UTILITY(U,$J,358.3,15561,1,2,0)
- ;;=2^Shaving of Epidermal or Dermal Lesion, Single- trunk, arms or legs 1.1 to 2.0 cm
- ;;^UTILITY(U,$J,358.3,15561,1,3,0)
- ;;=3^11302
- ;;^UTILITY(U,$J,358.3,15562,0)
- ;;=11305^^114^965^5
- ;;^UTILITY(U,$J,358.3,15562,1,0)
- ;;=^358.31IA^3^2
- ;;^UTILITY(U,$J,358.3,15562,1,2,0)
- ;;=2^Shaving of Epidermal or Dermal Lesion Single; scalp, neck, hands, feet, genitalia- 0.5 cm or less
- ;;^UTILITY(U,$J,358.3,15562,1,3,0)
- ;;=3^11305
- ;;^UTILITY(U,$J,358.3,15563,0)
- ;;=11306^^114^965^6
- ;;^UTILITY(U,$J,358.3,15563,1,0)
- ;;=^358.31IA^3^2
- ;;^UTILITY(U,$J,358.3,15563,1,2,0)
- ;;=2^Shaving of Epidermal or Dermal Lesion, Single; scalp, neck, hands, feet, genitalia- 0.6 to 1.0 cm 
- ;;^UTILITY(U,$J,358.3,15563,1,3,0)
- ;;=3^11306
- ;;^UTILITY(U,$J,358.3,15564,0)
- ;;=11307^^114^965^7
- ;;^UTILITY(U,$J,358.3,15564,1,0)
- ;;=^358.31IA^3^2
- ;;^UTILITY(U,$J,358.3,15564,1,2,0)
- ;;=2^Shaving of Epidermal or Dermal Lesion, Single; scalp, neck, hands, feet, genitalia- 1.1 to 2.0 cm
- ;;^UTILITY(U,$J,358.3,15564,1,3,0)
- ;;=3^11307
- ;;^UTILITY(U,$J,358.3,15565,0)
- ;;=11308^^114^965^8
- ;;^UTILITY(U,$J,358.3,15565,1,0)
- ;;=^358.31IA^3^2
- ;;^UTILITY(U,$J,358.3,15565,1,2,0)
- ;;=2^Shaving of Epidermal or Dermal Lesion, Single; scalp, neck, hands, feet, genitalia- over 2.0 cm
- ;;^UTILITY(U,$J,358.3,15565,1,3,0)
- ;;=3^11308
- ;;^UTILITY(U,$J,358.3,15566,0)
- ;;=11303^^114^965^4^^^^1
- ;;^UTILITY(U,$J,358.3,15566,1,0)
- ;;=^358.31IA^3^2
- ;;^UTILITY(U,$J,358.3,15566,1,2,0)
- ;;=2^Shaving of Epidermal or Dermal Lesion, Single; trunk, arms or legs- over 2.0 cm
- ;;^UTILITY(U,$J,358.3,15566,1,3,0)
- ;;=3^11303
- ;;^UTILITY(U,$J,358.3,15567,0)
- ;;=11719^^114^966^1^^^^1
- ;;^UTILITY(U,$J,358.3,15567,1,0)
- ;;=^358.31IA^3^2
- ;;^UTILITY(U,$J,358.3,15567,1,2,0)
- ;;=2^Trimming Nondystrophic Nails, any number
- ;;^UTILITY(U,$J,358.3,15567,1,3,0)
- ;;=3^11719
- ;;^UTILITY(U,$J,358.3,15568,0)
- ;;=G0127^^114^966^2^^^^1
- ;;^UTILITY(U,$J,358.3,15568,1,0)
- ;;=^358.31IA^3^2
- ;;^UTILITY(U,$J,358.3,15568,1,2,0)
- ;;=2^Trimming Dystrophic Nails, any number
- ;;^UTILITY(U,$J,358.3,15568,1,3,0)
- ;;=3^G0127
- ;;^UTILITY(U,$J,358.3,15569,0)
- ;;=11720^^114^966^3^^^^1
- ;;^UTILITY(U,$J,358.3,15569,1,0)
- ;;=^358.31IA^3^2
- ;;^UTILITY(U,$J,358.3,15569,1,2,0)
- ;;=2^Debridement of Nail(s)any method(s); 1-5 
- ;;^UTILITY(U,$J,358.3,15569,1,3,0)
- ;;=3^11720
- ;;^UTILITY(U,$J,358.3,15570,0)
- ;;=11721^^114^966^4^^^^1
- ;;^UTILITY(U,$J,358.3,15570,1,0)
- ;;=^358.31IA^3^2
- ;;^UTILITY(U,$J,358.3,15570,1,2,0)
- ;;=2^Debridement of Nails any method; 6 or more
- ;;^UTILITY(U,$J,358.3,15570,1,3,0)
- ;;=3^11721
- ;;^UTILITY(U,$J,358.3,15571,0)
- ;;=11730^^114^966^5^^^^1
- ;;^UTILITY(U,$J,358.3,15571,1,0)
- ;;=^358.31IA^3^2
- ;;^UTILITY(U,$J,358.3,15571,1,2,0)
- ;;=2^Avulsion of Nail Plate,part/comp,single
- ;;^UTILITY(U,$J,358.3,15571,1,3,0)
- ;;=3^11730
- ;;^UTILITY(U,$J,358.3,15572,0)
- ;;=11732^^114^966^6^^^^1
- ;;^UTILITY(U,$J,358.3,15572,1,0)
- ;;=^358.31IA^3^2
- ;;^UTILITY(U,$J,358.3,15572,1,2,0)
- ;;=2^Avulsion of Nail Plate,part/comp,ea addl nail
- ;;^UTILITY(U,$J,358.3,15572,1,3,0)
- ;;=3^11732
- ;;^UTILITY(U,$J,358.3,15573,0)
- ;;=11740^^114^966^7^^^^1
- ;;^UTILITY(U,$J,358.3,15573,1,0)
- ;;=^358.31IA^3^2
- ;;^UTILITY(U,$J,358.3,15573,1,2,0)
- ;;=2^Evacuation Subungual Hematoma
+ ;;^UTILITY(U,$J,358.3,15701,2)
+ ;;=^275259
+ ;;^UTILITY(U,$J,358.3,15702,0)
+ ;;=909.4^^99^864^1
+ ;;^UTILITY(U,$J,358.3,15702,1,0)
+ ;;=^358.31IA^4^2
+ ;;^UTILITY(U,$J,358.3,15702,1,3,0)
+ ;;=3^LATE EFF CERT EXT CAUSE
+ ;;^UTILITY(U,$J,358.3,15702,1,4,0)
+ ;;=4^909.4
+ ;;^UTILITY(U,$J,358.3,15702,2)
+ ;;=^275260
+ ;;^UTILITY(U,$J,358.3,15703,0)
+ ;;=438.40^^99^865^1
+ ;;^UTILITY(U,$J,358.3,15703,1,0)
+ ;;=^358.31IA^4^2
+ ;;^UTILITY(U,$J,358.3,15703,1,3,0)
+ ;;=3^LATE EFF CEREB DIS, MON L/L UN
+ ;;^UTILITY(U,$J,358.3,15703,1,4,0)
+ ;;=4^438.40
+ ;;^UTILITY(U,$J,358.3,15703,2)
+ ;;=^317916
+ ;;^UTILITY(U,$J,358.3,15704,0)
+ ;;=438.0^^99^865^2
+ ;;^UTILITY(U,$J,358.3,15704,1,0)
+ ;;=^358.31IA^4^2
+ ;;^UTILITY(U,$J,358.3,15704,1,3,0)
+ ;;=3^LATE EFF CEREB/VASC, COG DEF
+ ;;^UTILITY(U,$J,358.3,15704,1,4,0)
+ ;;=4^438.0
+ ;;^UTILITY(U,$J,358.3,15704,2)
+ ;;=^317905
+ ;;^UTILITY(U,$J,358.3,15705,0)
+ ;;=438.11^^99^865^3
+ ;;^UTILITY(U,$J,358.3,15705,1,0)
+ ;;=^358.31IA^4^2
+ ;;^UTILITY(U,$J,358.3,15705,1,3,0)
+ ;;=3^LATE EFF CEREB/VASC,APHASIA
+ ;;^UTILITY(U,$J,358.3,15705,1,4,0)
+ ;;=4^438.11
+ ;;^UTILITY(U,$J,358.3,15705,2)
+ ;;=^317907
+ ;;^UTILITY(U,$J,358.3,15706,0)
+ ;;=438.20^^99^865^4
+ ;;^UTILITY(U,$J,358.3,15706,1,0)
+ ;;=^358.31IA^4^2
+ ;;^UTILITY(U,$J,358.3,15706,1,3,0)
+ ;;=3^LATE EFF CEREB/VASC,HEMIPL,UNS
+ ;;^UTILITY(U,$J,358.3,15706,1,4,0)
+ ;;=4^438.20
+ ;;^UTILITY(U,$J,358.3,15706,2)
+ ;;=^317910
+ ;;^UTILITY(U,$J,358.3,15707,0)
+ ;;=438.9^^99^865^5
+ ;;^UTILITY(U,$J,358.3,15707,1,0)
+ ;;=^358.31IA^4^2
+ ;;^UTILITY(U,$J,358.3,15707,1,3,0)
+ ;;=3^UNSPEC LATE EFF CEREBRO DISEAS
+ ;;^UTILITY(U,$J,358.3,15707,1,4,0)
+ ;;=4^438.9
+ ;;^UTILITY(U,$J,358.3,15707,2)
+ ;;=^269757
+ ;;^UTILITY(U,$J,358.3,15708,0)
+ ;;=338.21^^99^866^1
+ ;;^UTILITY(U,$J,358.3,15708,1,0)
+ ;;=^358.31IA^4^2
+ ;;^UTILITY(U,$J,358.3,15708,1,3,0)
+ ;;=3^CHRONC PAIN D/T TRAUMA
+ ;;^UTILITY(U,$J,358.3,15708,1,4,0)
+ ;;=4^338.21
+ ;;^UTILITY(U,$J,358.3,15708,2)
+ ;;=^334074
+ ;;^UTILITY(U,$J,358.3,15709,0)
+ ;;=787.60^^99^866^2
+ ;;^UTILITY(U,$J,358.3,15709,1,0)
+ ;;=^358.31IA^4^2
+ ;;^UTILITY(U,$J,358.3,15709,1,3,0)
+ ;;=3^INCONTINENCE-FECES
+ ;;^UTILITY(U,$J,358.3,15709,1,4,0)
+ ;;=4^787.60
+ ;;^UTILITY(U,$J,358.3,15709,2)
+ ;;=^339670
+ ;;^UTILITY(U,$J,358.3,15710,0)
+ ;;=344.1^^99^866^3
+ ;;^UTILITY(U,$J,358.3,15710,1,0)
+ ;;=^358.31IA^4^2
+ ;;^UTILITY(U,$J,358.3,15710,1,3,0)
+ ;;=3^PARAPLEGIA NOS
+ ;;^UTILITY(U,$J,358.3,15710,1,4,0)
+ ;;=4^344.1
+ ;;^UTILITY(U,$J,358.3,15710,2)
+ ;;=^90028
+ ;;^UTILITY(U,$J,358.3,15711,0)
+ ;;=344.00^^99^866^4
+ ;;^UTILITY(U,$J,358.3,15711,1,0)
+ ;;=^358.31IA^4^2
+ ;;^UTILITY(U,$J,358.3,15711,1,3,0)
+ ;;=3^QUADRIPLEGIA, UNSP
+ ;;^UTILITY(U,$J,358.3,15711,1,4,0)
+ ;;=4^344.00
+ ;;^UTILITY(U,$J,358.3,15711,2)
+ ;;=^101908
+ ;;^UTILITY(U,$J,358.3,15712,0)
+ ;;=788.30^^99^866^8
+ ;;^UTILITY(U,$J,358.3,15712,1,0)
+ ;;=^358.31IA^4^2
+ ;;^UTILITY(U,$J,358.3,15712,1,3,0)
+ ;;=3^URINARY INCONT, UNSPEC
+ ;;^UTILITY(U,$J,358.3,15712,1,4,0)
+ ;;=4^788.30
+ ;;^UTILITY(U,$J,358.3,15712,2)
+ ;;=^124400
+ ;;^UTILITY(U,$J,358.3,15713,0)
+ ;;=782.0^^99^866^5
+ ;;^UTILITY(U,$J,358.3,15713,1,0)
+ ;;=^358.31IA^4^2
+ ;;^UTILITY(U,$J,358.3,15713,1,3,0)
+ ;;=3^SKIN SENSATION DISTURB
+ ;;^UTILITY(U,$J,358.3,15713,1,4,0)
+ ;;=4^782.0
+ ;;^UTILITY(U,$J,358.3,15713,2)
+ ;;=^35757
+ ;;^UTILITY(U,$J,358.3,15714,0)
+ ;;=780.50^^99^866^6
+ ;;^UTILITY(U,$J,358.3,15714,1,0)
+ ;;=^358.31IA^4^2
+ ;;^UTILITY(U,$J,358.3,15714,1,3,0)
+ ;;=3^SLEEP DISTURBANCE NOS
+ ;;^UTILITY(U,$J,358.3,15714,1,4,0)
+ ;;=4^780.50
+ ;;^UTILITY(U,$J,358.3,15714,2)
+ ;;=^111287
+ ;;^UTILITY(U,$J,358.3,15715,0)
+ ;;=781.1^^99^866^7
+ ;;^UTILITY(U,$J,358.3,15715,1,0)
+ ;;=^358.31IA^4^2
+ ;;^UTILITY(U,$J,358.3,15715,1,3,0)
+ ;;=3^SMELL TASTE DISTURB
+ ;;^UTILITY(U,$J,358.3,15715,1,4,0)
+ ;;=4^781.1
+ ;;^UTILITY(U,$J,358.3,15715,2)
+ ;;=^35773
+ ;;^UTILITY(U,$J,358.3,15716,0)
+ ;;=438.11^^99^867^2
+ ;;^UTILITY(U,$J,358.3,15716,1,0)
+ ;;=^358.31IA^4^2
+ ;;^UTILITY(U,$J,358.3,15716,1,3,0)
+ ;;=3^APHASIA, LATE EFFECTS CVD
+ ;;^UTILITY(U,$J,358.3,15716,1,4,0)
+ ;;=4^438.11
+ ;;^UTILITY(U,$J,358.3,15716,2)
+ ;;=^317907
+ ;;^UTILITY(U,$J,358.3,15717,0)
+ ;;=784.3^^99^867^1
+ ;;^UTILITY(U,$J,358.3,15717,1,0)
+ ;;=^358.31IA^4^2
+ ;;^UTILITY(U,$J,358.3,15717,1,3,0)
+ ;;=3^APHASIA, EXCL LATE EFF CVD
+ ;;^UTILITY(U,$J,358.3,15717,1,4,0)
+ ;;=4^784.3
+ ;;^UTILITY(U,$J,358.3,15717,2)
+ ;;=^9453
+ ;;^UTILITY(U,$J,358.3,15718,0)
+ ;;=315.31^^99^867^3
+ ;;^UTILITY(U,$J,358.3,15718,1,0)
+ ;;=^358.31IA^4^2
+ ;;^UTILITY(U,$J,358.3,15718,1,3,0)
+ ;;=3^EXPRESS LANGUAGE DISTURB
+ ;;^UTILITY(U,$J,358.3,15718,1,4,0)
+ ;;=4^315.31
+ ;;^UTILITY(U,$J,358.3,15718,2)
+ ;;=^331958
+ ;;^UTILITY(U,$J,358.3,15719,0)
+ ;;=315.32^^99^867^4
+ ;;^UTILITY(U,$J,358.3,15719,1,0)
+ ;;=^358.31IA^4^2
+ ;;^UTILITY(U,$J,358.3,15719,1,3,0)
+ ;;=3^MIXED RECEP/EXPR LANG DIS
+ ;;^UTILITY(U,$J,358.3,15719,1,4,0)
+ ;;=4^315.32
+ ;;^UTILITY(U,$J,358.3,15719,2)
+ ;;=^1
+ ;;^UTILITY(U,$J,358.3,15720,0)
+ ;;=315.39^^99^867^7
+ ;;^UTILITY(U,$J,358.3,15720,1,0)
+ ;;=^358.31IA^4^2
+ ;;^UTILITY(U,$J,358.3,15720,1,3,0)
+ ;;=3^SPEECH/LANG DISTUR NEC
+ ;;^UTILITY(U,$J,358.3,15720,1,4,0)
+ ;;=4^315.39
+ ;;^UTILITY(U,$J,358.3,15720,2)
+ ;;=^303685
+ ;;^UTILITY(U,$J,358.3,15721,0)
+ ;;=307.0^^99^867^8
+ ;;^UTILITY(U,$J,358.3,15721,1,0)
+ ;;=^358.31IA^4^2
+ ;;^UTILITY(U,$J,358.3,15721,1,3,0)
+ ;;=3^STUTTERING
+ ;;^UTILITY(U,$J,358.3,15721,1,4,0)
+ ;;=4^307.0
+ ;;^UTILITY(U,$J,358.3,15721,2)
+ ;;=^114954
+ ;;^UTILITY(U,$J,358.3,15722,0)
+ ;;=315.00^^99^867^5
+ ;;^UTILITY(U,$J,358.3,15722,1,0)
+ ;;=^358.31IA^4^2
+ ;;^UTILITY(U,$J,358.3,15722,1,3,0)
+ ;;=3^READING DISORDER NOS
+ ;;^UTILITY(U,$J,358.3,15722,1,4,0)
+ ;;=4^315.00
+ ;;^UTILITY(U,$J,358.3,15722,2)
+ ;;=^103218
+ ;;^UTILITY(U,$J,358.3,15723,0)
+ ;;=784.59^^99^867^6
+ ;;^UTILITY(U,$J,358.3,15723,1,0)
+ ;;=^358.31IA^4^2
+ ;;^UTILITY(U,$J,358.3,15723,1,3,0)
+ ;;=3^SPEECH DISTURBANCE NEC
+ ;;^UTILITY(U,$J,358.3,15723,1,4,0)
+ ;;=4^784.59
+ ;;^UTILITY(U,$J,358.3,15723,2)
+ ;;=^338287
+ ;;^UTILITY(U,$J,358.3,15724,0)
+ ;;=784.49^^99^867^9
+ ;;^UTILITY(U,$J,358.3,15724,1,0)
+ ;;=^358.31IA^4^2
+ ;;^UTILITY(U,$J,358.3,15724,1,3,0)
+ ;;=3^VOICE DISTURBANCE NEC
+ ;;^UTILITY(U,$J,358.3,15724,1,4,0)
+ ;;=4^784.49
+ ;;^UTILITY(U,$J,358.3,15724,2)
+ ;;=^338539
+ ;;^UTILITY(U,$J,358.3,15725,0)
+ ;;=388.31^^99^868^7
+ ;;^UTILITY(U,$J,358.3,15725,1,0)
+ ;;=^358.31IA^4^2
+ ;;^UTILITY(U,$J,358.3,15725,1,3,0)
+ ;;=3^TINNITUS
+ ;;^UTILITY(U,$J,358.3,15725,1,4,0)
+ ;;=4^388.31
+ ;;^UTILITY(U,$J,358.3,15725,2)
+ ;;=^269527
+ ;;^UTILITY(U,$J,358.3,15726,0)
+ ;;=389.8^^99^868^1
+ ;;^UTILITY(U,$J,358.3,15726,1,0)
+ ;;=^358.31IA^4^2
+ ;;^UTILITY(U,$J,358.3,15726,1,3,0)
+ ;;=3^HEARING LOSS NEC
+ ;;^UTILITY(U,$J,358.3,15726,1,4,0)
+ ;;=4^389.8
+ ;;^UTILITY(U,$J,358.3,15726,2)
+ ;;=^88057
+ ;;^UTILITY(U,$J,358.3,15727,0)
+ ;;=389.9^^99^868^2
+ ;;^UTILITY(U,$J,358.3,15727,1,0)
+ ;;=^358.31IA^4^2
+ ;;^UTILITY(U,$J,358.3,15727,1,3,0)
+ ;;=3^HEARING LOSS NOS
+ ;;^UTILITY(U,$J,358.3,15727,1,4,0)
+ ;;=4^389.9
+ ;;^UTILITY(U,$J,358.3,15727,2)
+ ;;=^54552
+ ;;^UTILITY(U,$J,358.3,15728,0)
+ ;;=389.20^^99^868^4
+ ;;^UTILITY(U,$J,358.3,15728,1,0)
+ ;;=^358.31IA^4^2
+ ;;^UTILITY(U,$J,358.3,15728,1,3,0)
+ ;;=3^MIXED HEARING LOSS NOS
+ ;;^UTILITY(U,$J,358.3,15728,1,4,0)
+ ;;=4^389.20
+ ;;^UTILITY(U,$J,358.3,15728,2)
+ ;;=^335303
+ ;;^UTILITY(U,$J,358.3,15729,0)
+ ;;=389.10^^99^868^5
+ ;;^UTILITY(U,$J,358.3,15729,1,0)
+ ;;=^358.31IA^4^2
+ ;;^UTILITY(U,$J,358.3,15729,1,3,0)
+ ;;=3^SENSORNEUR HEAR LOSS NOS
+ ;;^UTILITY(U,$J,358.3,15729,1,4,0)
+ ;;=4^389.10
+ ;;^UTILITY(U,$J,358.3,15729,2)
+ ;;=^54610
+ ;;^UTILITY(U,$J,358.3,15730,0)
+ ;;=389.18^^99^868^6
+ ;;^UTILITY(U,$J,358.3,15730,1,0)
+ ;;=^358.31IA^4^2
+ ;;^UTILITY(U,$J,358.3,15730,1,3,0)
+ ;;=3^SENSORNEUR LOSS COMB TYP
+ ;;^UTILITY(U,$J,358.3,15730,1,4,0)
+ ;;=4^389.18
+ ;;^UTILITY(U,$J,358.3,15730,2)
+ ;;=^335328
+ ;;^UTILITY(U,$J,358.3,15731,0)
+ ;;=380.4^^99^868^3
+ ;;^UTILITY(U,$J,358.3,15731,1,0)
+ ;;=^358.31IA^4^2
+ ;;^UTILITY(U,$J,358.3,15731,1,3,0)
+ ;;=3^IMPACTED CERUMEN
+ ;;^UTILITY(U,$J,358.3,15731,1,4,0)
+ ;;=4^380.4
+ ;;^UTILITY(U,$J,358.3,15731,2)
+ ;;=^62061
+ ;;^UTILITY(U,$J,358.3,15732,0)
+ ;;=298.9^^99^869^1
+ ;;^UTILITY(U,$J,358.3,15732,1,0)
+ ;;=^358.31IA^4^2
+ ;;^UTILITY(U,$J,358.3,15732,1,3,0)
+ ;;=3^CONFUSION-PSYCHOSIS NOS
+ ;;^UTILITY(U,$J,358.3,15732,1,4,0)
+ ;;=4^298.9
+ ;;^UTILITY(U,$J,358.3,15732,2)
+ ;;=^259059
+ ;;^UTILITY(U,$J,358.3,15733,0)
+ ;;=780.93^^99^869^2
+ ;;^UTILITY(U,$J,358.3,15733,1,0)
+ ;;=^358.31IA^4^2
+ ;;^UTILITY(U,$J,358.3,15733,1,3,0)
+ ;;=3^MEMORY LOSS
+ ;;^UTILITY(U,$J,358.3,15733,1,4,0)
+ ;;=4^780.93
+ ;;^UTILITY(U,$J,358.3,15733,2)
+ ;;=^329952
+ ;;^UTILITY(U,$J,358.3,15734,0)
+ ;;=310.2^^99^869^4
+ ;;^UTILITY(U,$J,358.3,15734,1,0)
+ ;;=^358.31IA^4^2
+ ;;^UTILITY(U,$J,358.3,15734,1,3,0)
+ ;;=3^POSTCONCUSSION SYNDROME
+ ;;^UTILITY(U,$J,358.3,15734,1,4,0)
+ ;;=4^310.2
+ ;;^UTILITY(U,$J,358.3,15734,2)
+ ;;=^265160
+ ;;^UTILITY(U,$J,358.3,15735,0)
+ ;;=315.2^^99^869^3
+ ;;^UTILITY(U,$J,358.3,15735,1,0)
+ ;;=^358.31IA^4^2
+ ;;^UTILITY(U,$J,358.3,15735,1,3,0)
+ ;;=3^OTH LEARNING DIFFICULTY
+ ;;^UTILITY(U,$J,358.3,15735,1,4,0)
+ ;;=4^315.2
+ ;;^UTILITY(U,$J,358.3,15735,2)
+ ;;=^87867
+ ;;^UTILITY(U,$J,358.3,15736,0)
+ ;;=309.81^^99^870^23
+ ;;^UTILITY(U,$J,358.3,15736,1,0)
+ ;;=^358.31IA^4^2
+ ;;^UTILITY(U,$J,358.3,15736,1,3,0)
+ ;;=3^PTSD
+ ;;^UTILITY(U,$J,358.3,15736,1,4,0)
+ ;;=4^309.81
+ ;;^UTILITY(U,$J,358.3,15736,2)
+ ;;=^114692
+ ;;^UTILITY(U,$J,358.3,15737,0)
+ ;;=296.89^^99^870^11
+ ;;^UTILITY(U,$J,358.3,15737,1,0)
+ ;;=^358.31IA^4^2
+ ;;^UTILITY(U,$J,358.3,15737,1,3,0)
+ ;;=3^BIPOLAR DISORDER NEC
+ ;;^UTILITY(U,$J,358.3,15737,1,4,0)
+ ;;=4^296.89
+ ;;^UTILITY(U,$J,358.3,15737,2)
+ ;;=^331893
+ ;;^UTILITY(U,$J,358.3,15738,0)
+ ;;=301.6^^99^870^12
+ ;;^UTILITY(U,$J,358.3,15738,1,0)
+ ;;=^358.31IA^4^2
+ ;;^UTILITY(U,$J,358.3,15738,1,3,0)
+ ;;=3^DEPENDENT PERSONALITY
+ ;;^UTILITY(U,$J,358.3,15738,1,4,0)
+ ;;=4^301.6
+ ;;^UTILITY(U,$J,358.3,15738,2)
+ ;;=^32860
+ ;;^UTILITY(U,$J,358.3,15739,0)
+ ;;=311.^^99^870^13
+ ;;^UTILITY(U,$J,358.3,15739,1,0)
+ ;;=^358.31IA^4^2
+ ;;^UTILITY(U,$J,358.3,15739,1,3,0)
+ ;;=3^DEPRESSIVE DISORDER NEC

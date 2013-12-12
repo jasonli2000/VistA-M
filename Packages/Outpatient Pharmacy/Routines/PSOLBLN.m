@@ -1,5 +1,5 @@
 PSOLBLN ;BIR/RTR - NEW PRINTS LABEL ;11/18/92
- ;;7.0;OUTPATIENT PHARMACY;**16,36,71,107,110,117,135,233,251,387,379,367**;DEC 1997;Build 62
+ ;;7.0;OUTPATIENT PHARMACY;**16,36,71,107,110,117,135,233,251,387,379,367,383**;DEC 1997;Build 6
  ;External reference to ^PSDRUG supported by DBIA 221
  ;External reference to ^PS(55 supported by DBIA 2228
  ;External reference to ^VA(200 supported by DBIA 224
@@ -15,7 +15,7 @@ PSOLBLN ;BIR/RTR - NEW PRINTS LABEL ;11/18/92
  I $G(VAPA(2))="",$G(VAPA(3))'="" S ADDR(2)=VAPA(3),ADDR(3)=ADDR(4),ADDR(4)="" G ST
  S ADDR(2)=$G(VAPA(2)),ADDR(3)=$G(VAPA(3))
 ST I $P($G(^PSRX(RX,3)),"^",3) S PSOPROV=+$P(^(0),"^",4) S PSOPROV=$S($G(RXP):+$P($G(RXP),"^",17),$G(RXF):+$P($G(^PSRX(RX,1,RXF,0)),"^",17),1:PSOPROV) S:'$G(PSOPROV) PSOPROV=+$P(^PSRX(RX,0),"^",4) D
- .I +$P($G(^VA(200,PSOPROV,"PS")),"^",7) S:'$P($G(PHYS),"/",2) PHYS=$G(PHYS)_"/"_+$P($G(^PSRX(RX,3)),"^",3)
+ .I +$P($G(^VA(200,PSOPROV,"PS")),"^",7) S:$P($G(PHYS),"/",2)="" PHYS=$G(PHYS)_"/"_$P($G(^VA(200,+$P($G(^PSRX(RX,3)),"^",3),0)),"^")
  ;
  S:$G(PSOBLALL) PSOBLRX=RX
  S:$D(RXRP(RX)) REPRINT=1 S:$D(RXPR(RX)) RXP=RXPR(RX)
@@ -77,7 +77,7 @@ L12 W !,$P(PS,"^",2),?54,$S($L($G(COPAYVAR)):$G(COPAYVAR)_"     ",1:""),"Days Su
  ;send a CR for OPTIFIL (P-MT661BC)
  I $G(PSOBARS),$P(PSOPAR,"^",19)'=1 S X="S",X2=PSOINST_"-"_RX S X1=$X W ?54,@PSOBAR1,X2,@PSOBAR0,$C(13) S $X=0 W:IOST["P-MT661BC" !
  E  W !!!
- W !,"FORWARDING SERVICE REQUESTED"
+ W !,"ADDRESS SERVICE REQUESTED"
  ;
  ; Printing FDA Medication Guide (if there's one)
  I $$MGONFILE^PSOFDAUT(RX) D

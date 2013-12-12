@@ -1,378 +1,312 @@
-IBDEI0CN ; ; 20-FEB-2013
- ;;3.0;IB ENCOUNTER FORM IMP/EXP;;FEB 20, 2013
+IBDEI0CN ; ; 06-AUG-2013
+ ;;3.0;IB ENCOUNTER FORM IMP/EXP;;AUG 06, 2013
  Q:'DIFQR(358.3)  F I=1:2 S X=$T(Q+I) Q:X=""  S Y=$E($T(Q+I+1),4,999),X=$E(X,4,999) S:$A(Y)=126 I=I+1,Y=$E(Y,2,999)_$E($T(Q+I+1),5,99) S:$A(Y)=61 Y=$E(Y,2,999) X NO E  S @X=Y
 Q Q
- ;;^UTILITY(U,$J,358.3,16840,2)
- ;;=^340570
- ;;^UTILITY(U,$J,358.3,16841,0)
- ;;=793.19^^125^1067^2
- ;;^UTILITY(U,$J,358.3,16841,1,0)
- ;;=^358.31IA^5^2
- ;;^UTILITY(U,$J,358.3,16841,1,4,0)
- ;;=4^793.19
- ;;^UTILITY(U,$J,358.3,16841,1,5,0)
- ;;=5^Abn Chest Xray,Oth Finding, Lung
- ;;^UTILITY(U,$J,358.3,16841,2)
- ;;=^340571
- ;;^UTILITY(U,$J,358.3,16842,0)
- ;;=795.51^^125^1067^30
- ;;^UTILITY(U,$J,358.3,16842,1,0)
- ;;=^358.31IA^5^2
- ;;^UTILITY(U,$J,358.3,16842,1,4,0)
- ;;=4^795.51
- ;;^UTILITY(U,$J,358.3,16842,1,5,0)
- ;;=5^Pos PPD w/o Active TB
- ;;^UTILITY(U,$J,358.3,16842,2)
- ;;=^340572
- ;;^UTILITY(U,$J,358.3,16843,0)
- ;;=795.52^^125^1067^29
- ;;^UTILITY(U,$J,358.3,16843,1,0)
- ;;=^358.31IA^5^2
- ;;^UTILITY(U,$J,358.3,16843,1,4,0)
- ;;=4^795.52
- ;;^UTILITY(U,$J,358.3,16843,1,5,0)
- ;;=5^Pos GMA Interferon w/o Active TB
- ;;^UTILITY(U,$J,358.3,16843,2)
- ;;=^340573
- ;;^UTILITY(U,$J,358.3,16844,0)
- ;;=376.01^^125^1068^25
- ;;^UTILITY(U,$J,358.3,16844,1,0)
- ;;=^358.31IA^5^2
- ;;^UTILITY(U,$J,358.3,16844,1,4,0)
- ;;=4^376.01
- ;;^UTILITY(U,$J,358.3,16844,1,5,0)
- ;;=5^Orbital Cellulitis
- ;;^UTILITY(U,$J,358.3,16844,2)
- ;;=^259068
- ;;^UTILITY(U,$J,358.3,16845,0)
- ;;=388.70^^125^1068^26
- ;;^UTILITY(U,$J,358.3,16845,1,0)
- ;;=^358.31IA^5^2
- ;;^UTILITY(U,$J,358.3,16845,1,4,0)
- ;;=4^388.70
- ;;^UTILITY(U,$J,358.3,16845,1,5,0)
- ;;=5^Otalgia, Unsp
- ;;^UTILITY(U,$J,358.3,16845,2)
- ;;=^37811
- ;;^UTILITY(U,$J,358.3,16846,0)
- ;;=380.10^^125^1068^27
- ;;^UTILITY(U,$J,358.3,16846,1,0)
- ;;=^358.31IA^5^2
- ;;^UTILITY(U,$J,358.3,16846,1,4,0)
- ;;=4^380.10
- ;;^UTILITY(U,$J,358.3,16846,1,5,0)
- ;;=5^Otitis Externa,Infect
- ;;^UTILITY(U,$J,358.3,16846,2)
- ;;=^62807
- ;;^UTILITY(U,$J,358.3,16847,0)
- ;;=381.01^^125^1068^31
- ;;^UTILITY(U,$J,358.3,16847,1,0)
- ;;=^358.31IA^5^2
- ;;^UTILITY(U,$J,358.3,16847,1,4,0)
- ;;=4^381.01
- ;;^UTILITY(U,$J,358.3,16847,1,5,0)
- ;;=5^Otitis Media, Serous Acute
- ;;^UTILITY(U,$J,358.3,16847,2)
- ;;=^269369
- ;;^UTILITY(U,$J,358.3,16848,0)
- ;;=382.9^^125^1068^28
- ;;^UTILITY(U,$J,358.3,16848,1,0)
- ;;=^358.31IA^5^2
- ;;^UTILITY(U,$J,358.3,16848,1,4,0)
- ;;=4^382.9
- ;;^UTILITY(U,$J,358.3,16848,1,5,0)
- ;;=5^Otitis Med, Other Acute
- ;;^UTILITY(U,$J,358.3,16848,2)
- ;;=^123967
- ;;^UTILITY(U,$J,358.3,16849,0)
- ;;=382.01^^125^1068^30
- ;;^UTILITY(U,$J,358.3,16849,1,0)
- ;;=^358.31IA^5^2
- ;;^UTILITY(U,$J,358.3,16849,1,4,0)
- ;;=4^382.01
- ;;^UTILITY(U,$J,358.3,16849,1,5,0)
- ;;=5^Otitis Media W/Tympanic Membrane Rupture
- ;;^UTILITY(U,$J,358.3,16849,2)
- ;;=^269396
- ;;^UTILITY(U,$J,358.3,16850,0)
- ;;=381.10^^125^1068^29
- ;;^UTILITY(U,$J,358.3,16850,1,0)
- ;;=^358.31IA^5^2
- ;;^UTILITY(U,$J,358.3,16850,1,4,0)
- ;;=4^381.10
- ;;^UTILITY(U,$J,358.3,16850,1,5,0)
- ;;=5^Otitis Med, Serous Chronic
- ;;^UTILITY(U,$J,358.3,16850,2)
- ;;=Otitis Med,serous chroinic^269376
- ;;^UTILITY(U,$J,358.3,16851,0)
- ;;=379.91^^125^1068^32
- ;;^UTILITY(U,$J,358.3,16851,1,0)
- ;;=^358.31IA^5^2
- ;;^UTILITY(U,$J,358.3,16851,1,4,0)
- ;;=4^379.91
- ;;^UTILITY(U,$J,358.3,16851,1,5,0)
- ;;=5^Pain In Or Around Eye
- ;;^UTILITY(U,$J,358.3,16851,2)
- ;;=^89093
- ;;^UTILITY(U,$J,358.3,16852,0)
- ;;=462.^^125^1068^33
- ;;^UTILITY(U,$J,358.3,16852,1,0)
- ;;=^358.31IA^5^2
- ;;^UTILITY(U,$J,358.3,16852,1,4,0)
- ;;=4^462.
- ;;^UTILITY(U,$J,358.3,16852,1,5,0)
- ;;=5^Pharyngitis, Acute
- ;;^UTILITY(U,$J,358.3,16852,2)
- ;;=Pharyngitis, Acute^2653
- ;;^UTILITY(U,$J,358.3,16853,0)
- ;;=460.^^125^1068^21
- ;;^UTILITY(U,$J,358.3,16853,1,0)
- ;;=^358.31IA^5^2
- ;;^UTILITY(U,$J,358.3,16853,1,4,0)
- ;;=4^460.
- ;;^UTILITY(U,$J,358.3,16853,1,5,0)
- ;;=5^Nasopharyngitis, Acute
- ;;^UTILITY(U,$J,358.3,16853,2)
- ;;=^26543
- ;;^UTILITY(U,$J,358.3,16854,0)
- ;;=477.9^^125^1068^3
- ;;^UTILITY(U,$J,358.3,16854,1,0)
- ;;=^358.31IA^5^2
- ;;^UTILITY(U,$J,358.3,16854,1,4,0)
- ;;=4^477.9
- ;;^UTILITY(U,$J,358.3,16854,1,5,0)
- ;;=5^Allergic Rhinitis
- ;;^UTILITY(U,$J,358.3,16854,2)
- ;;=^4955
- ;;^UTILITY(U,$J,358.3,16855,0)
- ;;=473.9^^125^1068^35
- ;;^UTILITY(U,$J,358.3,16855,1,0)
- ;;=^358.31IA^5^2
- ;;^UTILITY(U,$J,358.3,16855,1,4,0)
- ;;=4^473.9
- ;;^UTILITY(U,$J,358.3,16855,1,5,0)
- ;;=5^Sinusitis, Chronic
- ;;^UTILITY(U,$J,358.3,16855,2)
- ;;=^123985
- ;;^UTILITY(U,$J,358.3,16856,0)
- ;;=461.1^^125^1068^36
- ;;^UTILITY(U,$J,358.3,16856,1,0)
- ;;=^358.31IA^5^2
- ;;^UTILITY(U,$J,358.3,16856,1,4,0)
- ;;=4^461.1
- ;;^UTILITY(U,$J,358.3,16856,1,5,0)
- ;;=5^Sinusitis, Frontal Acute
- ;;^UTILITY(U,$J,358.3,16856,2)
- ;;=^269856
- ;;^UTILITY(U,$J,358.3,16857,0)
- ;;=473.1^^125^1068^37
- ;;^UTILITY(U,$J,358.3,16857,1,0)
- ;;=^358.31IA^5^2
- ;;^UTILITY(U,$J,358.3,16857,1,4,0)
- ;;=4^473.1
- ;;^UTILITY(U,$J,358.3,16857,1,5,0)
- ;;=5^Sinusitis, Frontal Chronic
- ;;^UTILITY(U,$J,358.3,16857,2)
- ;;=^24380
- ;;^UTILITY(U,$J,358.3,16858,0)
- ;;=461.0^^125^1068^38
- ;;^UTILITY(U,$J,358.3,16858,1,0)
- ;;=^358.31IA^5^2
- ;;^UTILITY(U,$J,358.3,16858,1,4,0)
- ;;=4^461.0
- ;;^UTILITY(U,$J,358.3,16858,1,5,0)
- ;;=5^Sinusitis, Maxillary Acute
- ;;^UTILITY(U,$J,358.3,16858,2)
- ;;=^269853
- ;;^UTILITY(U,$J,358.3,16859,0)
- ;;=473.0^^125^1068^39
- ;;^UTILITY(U,$J,358.3,16859,1,0)
- ;;=^358.31IA^5^2
- ;;^UTILITY(U,$J,358.3,16859,1,4,0)
- ;;=4^473.0
- ;;^UTILITY(U,$J,358.3,16859,1,5,0)
- ;;=5^Sinusitis, Maxillary Chronic
- ;;^UTILITY(U,$J,358.3,16859,2)
- ;;=^24407
- ;;^UTILITY(U,$J,358.3,16860,0)
- ;;=388.31^^125^1068^41
- ;;^UTILITY(U,$J,358.3,16860,1,0)
- ;;=^358.31IA^5^2
- ;;^UTILITY(U,$J,358.3,16860,1,4,0)
- ;;=4^388.31
- ;;^UTILITY(U,$J,358.3,16860,1,5,0)
- ;;=5^Tinnitus, Subjective
- ;;^UTILITY(U,$J,358.3,16860,2)
- ;;=^269527
- ;;^UTILITY(U,$J,358.3,16861,0)
- ;;=463.^^125^1068^42
- ;;^UTILITY(U,$J,358.3,16861,1,0)
- ;;=^358.31IA^5^2
- ;;^UTILITY(U,$J,358.3,16861,1,4,0)
- ;;=4^463.
- ;;^UTILITY(U,$J,358.3,16861,1,5,0)
- ;;=5^Tonsillitis, Acute
- ;;^UTILITY(U,$J,358.3,16861,2)
- ;;=Tonsillitis, Acute^2695
- ;;^UTILITY(U,$J,358.3,16862,0)
- ;;=465.9^^125^1068^44
- ;;^UTILITY(U,$J,358.3,16862,1,0)
- ;;=^358.31IA^5^2
- ;;^UTILITY(U,$J,358.3,16862,1,4,0)
- ;;=4^465.9
- ;;^UTILITY(U,$J,358.3,16862,1,5,0)
- ;;=5^URI
- ;;^UTILITY(U,$J,358.3,16862,2)
- ;;=^269878
- ;;^UTILITY(U,$J,358.3,16863,0)
- ;;=386.11^^125^1068^4
- ;;^UTILITY(U,$J,358.3,16863,1,0)
- ;;=^358.31IA^5^2
- ;;^UTILITY(U,$J,358.3,16863,1,4,0)
- ;;=4^386.11
- ;;^UTILITY(U,$J,358.3,16863,1,5,0)
- ;;=5^Benign Parxysmal Vertigo
- ;;^UTILITY(U,$J,358.3,16863,2)
- ;;=^269480
- ;;^UTILITY(U,$J,358.3,16864,0)
- ;;=780.4^^125^1068^45
- ;;^UTILITY(U,$J,358.3,16864,1,0)
- ;;=^358.31IA^5^2
- ;;^UTILITY(U,$J,358.3,16864,1,4,0)
- ;;=4^780.4
- ;;^UTILITY(U,$J,358.3,16864,1,5,0)
- ;;=5^Vertigo
- ;;^UTILITY(U,$J,358.3,16864,2)
- ;;=^35946
- ;;^UTILITY(U,$J,358.3,16865,0)
- ;;=784.8^^125^1068^5
- ;;^UTILITY(U,$J,358.3,16865,1,0)
- ;;=^358.31IA^5^2
- ;;^UTILITY(U,$J,358.3,16865,1,4,0)
- ;;=4^784.8
- ;;^UTILITY(U,$J,358.3,16865,1,5,0)
- ;;=5^Bleeding From Throat
- ;;^UTILITY(U,$J,358.3,16865,2)
- ;;=^273371
- ;;^UTILITY(U,$J,358.3,16866,0)
- ;;=373.00^^125^1068^6
- ;;^UTILITY(U,$J,358.3,16866,1,0)
- ;;=^358.31IA^5^2
- ;;^UTILITY(U,$J,358.3,16866,1,4,0)
- ;;=4^373.00
- ;;^UTILITY(U,$J,358.3,16866,1,5,0)
- ;;=5^Blepharitis Nos
- ;;^UTILITY(U,$J,358.3,16866,2)
- ;;=^15271
- ;;^UTILITY(U,$J,358.3,16867,0)
- ;;=528.2^^125^1068^8
- ;;^UTILITY(U,$J,358.3,16867,1,0)
- ;;=^358.31IA^5^2
- ;;^UTILITY(U,$J,358.3,16867,1,4,0)
- ;;=4^528.2
- ;;^UTILITY(U,$J,358.3,16867,1,5,0)
- ;;=5^Canker Sore
- ;;^UTILITY(U,$J,358.3,16867,2)
- ;;=^114480
- ;;^UTILITY(U,$J,358.3,16868,0)
- ;;=112.0^^125^1068^7
- ;;^UTILITY(U,$J,358.3,16868,1,0)
- ;;=^358.31IA^5^2
- ;;^UTILITY(U,$J,358.3,16868,1,4,0)
- ;;=4^112.0
- ;;^UTILITY(U,$J,358.3,16868,1,5,0)
- ;;=5^Candidiasis, Oral
- ;;^UTILITY(U,$J,358.3,16868,2)
- ;;=^18599
- ;;^UTILITY(U,$J,358.3,16869,0)
- ;;=366.9^^125^1068^9
- ;;^UTILITY(U,$J,358.3,16869,1,0)
- ;;=^358.31IA^5^2
- ;;^UTILITY(U,$J,358.3,16869,1,4,0)
- ;;=4^366.9
- ;;^UTILITY(U,$J,358.3,16869,1,5,0)
- ;;=5^Cataract Nos
- ;;^UTILITY(U,$J,358.3,16869,2)
- ;;=^20266
- ;;^UTILITY(U,$J,358.3,16870,0)
- ;;=380.4^^125^1068^10
- ;;^UTILITY(U,$J,358.3,16870,1,0)
- ;;=^358.31IA^5^2
- ;;^UTILITY(U,$J,358.3,16870,1,4,0)
- ;;=4^380.4
- ;;^UTILITY(U,$J,358.3,16870,1,5,0)
- ;;=5^Cerumen Impacton
- ;;^UTILITY(U,$J,358.3,16870,2)
- ;;=^62061
- ;;^UTILITY(U,$J,358.3,16871,0)
- ;;=372.72^^125^1068^12
- ;;^UTILITY(U,$J,358.3,16871,1,0)
- ;;=^358.31IA^5^2
- ;;^UTILITY(U,$J,358.3,16871,1,4,0)
- ;;=4^372.72
- ;;^UTILITY(U,$J,358.3,16871,1,5,0)
- ;;=5^Conjunctival Hemorrhage
- ;;^UTILITY(U,$J,358.3,16871,2)
- ;;=^27538
- ;;^UTILITY(U,$J,358.3,16872,0)
- ;;=372.30^^125^1068^13
- ;;^UTILITY(U,$J,358.3,16872,1,0)
- ;;=^358.31IA^5^2
- ;;^UTILITY(U,$J,358.3,16872,1,4,0)
- ;;=4^372.30
- ;;^UTILITY(U,$J,358.3,16872,1,5,0)
- ;;=5^Conjunctivitis Nos
- ;;^UTILITY(U,$J,358.3,16872,2)
- ;;=^27546
- ;;^UTILITY(U,$J,358.3,16873,0)
- ;;=918.1^^125^1068^14
- ;;^UTILITY(U,$J,358.3,16873,1,0)
- ;;=^358.31IA^5^2
- ;;^UTILITY(U,$J,358.3,16873,1,4,0)
- ;;=4^918.1
- ;;^UTILITY(U,$J,358.3,16873,1,5,0)
- ;;=5^Corneal Abrasion
- ;;^UTILITY(U,$J,358.3,16873,2)
- ;;=^115829
- ;;^UTILITY(U,$J,358.3,16874,0)
- ;;=784.7^^125^1068^22
- ;;^UTILITY(U,$J,358.3,16874,1,0)
- ;;=^358.31IA^5^2
- ;;^UTILITY(U,$J,358.3,16874,1,4,0)
- ;;=4^784.7
- ;;^UTILITY(U,$J,358.3,16874,1,5,0)
- ;;=5^Nosebleed
- ;;^UTILITY(U,$J,358.3,16874,2)
- ;;=Nosebleed^41658
- ;;^UTILITY(U,$J,358.3,16875,0)
- ;;=365.9^^125^1068^16
- ;;^UTILITY(U,$J,358.3,16875,1,0)
- ;;=^358.31IA^5^2
- ;;^UTILITY(U,$J,358.3,16875,1,4,0)
- ;;=4^365.9
- ;;^UTILITY(U,$J,358.3,16875,1,5,0)
- ;;=5^Glaucoma Nos
- ;;^UTILITY(U,$J,358.3,16875,2)
- ;;=^51160
- ;;^UTILITY(U,$J,358.3,16876,0)
- ;;=389.9^^125^1068^17
- ;;^UTILITY(U,$J,358.3,16876,1,0)
- ;;=^358.31IA^5^2
- ;;^UTILITY(U,$J,358.3,16876,1,4,0)
- ;;=4^389.9
- ;;^UTILITY(U,$J,358.3,16876,1,5,0)
- ;;=5^Hearing Loss
- ;;^UTILITY(U,$J,358.3,16876,2)
- ;;=^54552
- ;;^UTILITY(U,$J,358.3,16877,0)
- ;;=465.0^^125^1068^18
- ;;^UTILITY(U,$J,358.3,16877,1,0)
- ;;=^358.31IA^5^2
- ;;^UTILITY(U,$J,358.3,16877,1,4,0)
- ;;=4^465.0
- ;;^UTILITY(U,$J,358.3,16877,1,5,0)
- ;;=5^Laryngopharyng,Itis Acute
- ;;^UTILITY(U,$J,358.3,16877,2)
- ;;=^269876
- ;;^UTILITY(U,$J,358.3,16878,0)
- ;;=386.00^^125^1068^19
+ ;;^UTILITY(U,$J,358.3,17018,0)
+ ;;=28585^^111^953^53^^^^1
+ ;;^UTILITY(U,$J,358.3,17018,1,0)
+ ;;=^358.31IA^3^2
+ ;;^UTILITY(U,$J,358.3,17018,1,2,0)
+ ;;=2^Open Tx of talotarsal joint dislocation, with or w/o internal or external fixation
+ ;;^UTILITY(U,$J,358.3,17018,1,3,0)
+ ;;=3^28585
+ ;;^UTILITY(U,$J,358.3,17019,0)
+ ;;=28600^^111^953^55^^^^1
+ ;;^UTILITY(U,$J,358.3,17019,1,0)
+ ;;=^358.31IA^3^2
+ ;;^UTILITY(U,$J,358.3,17019,1,2,0)
+ ;;=2^Closed Tx of tarsometatarsal joint dislocation; requiring anesthesia
+ ;;^UTILITY(U,$J,358.3,17019,1,3,0)
+ ;;=3^28600
+ ;;^UTILITY(U,$J,358.3,17020,0)
+ ;;=28606^^111^953^56^^^^1
+ ;;^UTILITY(U,$J,358.3,17020,1,0)
+ ;;=^358.31IA^3^2
+ ;;^UTILITY(U,$J,358.3,17020,1,2,0)
+ ;;=2^Perc Fixation Tarsometatarsal Joint Dislocation
+ ;;^UTILITY(U,$J,358.3,17020,1,3,0)
+ ;;=3^28606
+ ;;^UTILITY(U,$J,358.3,17021,0)
+ ;;=28615^^111^953^57^^^^1
+ ;;^UTILITY(U,$J,358.3,17021,1,0)
+ ;;=^358.31IA^3^2
+ ;;^UTILITY(U,$J,358.3,17021,1,2,0)
+ ;;=2^Open Tx of tarsometatarsal joint dislocation, with or w/o internal or external fixation
+ ;;^UTILITY(U,$J,358.3,17021,1,3,0)
+ ;;=3^28615
+ ;;^UTILITY(U,$J,358.3,17022,0)
+ ;;=28630^^111^953^58^^^^1
+ ;;^UTILITY(U,$J,358.3,17022,1,0)
+ ;;=^358.31IA^3^2
+ ;;^UTILITY(U,$J,358.3,17022,1,2,0)
+ ;;=2^Closed Tx of metatarsophalangeal joint dislocation; w/o anesthesia
+ ;;^UTILITY(U,$J,358.3,17022,1,3,0)
+ ;;=3^28630
+ ;;^UTILITY(U,$J,358.3,17023,0)
+ ;;=28635^^111^953^59^^^^1
+ ;;^UTILITY(U,$J,358.3,17023,1,0)
+ ;;=^358.31IA^3^2
+ ;;^UTILITY(U,$J,358.3,17023,1,2,0)
+ ;;=2^Closed Tx of metatarsophalangeal joint dislocation; requiring anesthesia
+ ;;^UTILITY(U,$J,358.3,17023,1,3,0)
+ ;;=3^28635
+ ;;^UTILITY(U,$J,358.3,17024,0)
+ ;;=28636^^111^953^60^^^^1
+ ;;^UTILITY(U,$J,358.3,17024,1,0)
+ ;;=^358.31IA^3^2
+ ;;^UTILITY(U,$J,358.3,17024,1,2,0)
+ ;;=2^Perc Fixation Metatarsophalangeal Joint Dislocation
+ ;;^UTILITY(U,$J,358.3,17024,1,3,0)
+ ;;=3^28636
+ ;;^UTILITY(U,$J,358.3,17025,0)
+ ;;=28645^^111^953^61^^^^1
+ ;;^UTILITY(U,$J,358.3,17025,1,0)
+ ;;=^358.31IA^3^2
+ ;;^UTILITY(U,$J,358.3,17025,1,2,0)
+ ;;=2^Open Tx of metatarsophalangeal joint dislocation, with or w/o internal or external fixation
+ ;;^UTILITY(U,$J,358.3,17025,1,3,0)
+ ;;=3^28645
+ ;;^UTILITY(U,$J,358.3,17026,0)
+ ;;=28660^^111^953^62^^^^1
+ ;;^UTILITY(U,$J,358.3,17026,1,0)
+ ;;=^358.31IA^3^2
+ ;;^UTILITY(U,$J,358.3,17026,1,2,0)
+ ;;=2^Closed Tx of interphalangeal joint dislocation; w/o anesthesia
+ ;;^UTILITY(U,$J,358.3,17026,1,3,0)
+ ;;=3^28660
+ ;;^UTILITY(U,$J,358.3,17027,0)
+ ;;=28665^^111^953^63^^^^1
+ ;;^UTILITY(U,$J,358.3,17027,1,0)
+ ;;=^358.31IA^3^2
+ ;;^UTILITY(U,$J,358.3,17027,1,2,0)
+ ;;=2^Closed Tx of interphalangeal joint dislocation; requiring anesthesia
+ ;;^UTILITY(U,$J,358.3,17027,1,3,0)
+ ;;=3^28665
+ ;;^UTILITY(U,$J,358.3,17028,0)
+ ;;=28666^^111^953^64^^^^1
+ ;;^UTILITY(U,$J,358.3,17028,1,0)
+ ;;=^358.31IA^3^2
+ ;;^UTILITY(U,$J,358.3,17028,1,2,0)
+ ;;=2^Perc Fixation Interphalangeal Joint Dislocation
+ ;;^UTILITY(U,$J,358.3,17028,1,3,0)
+ ;;=3^28666
+ ;;^UTILITY(U,$J,358.3,17029,0)
+ ;;=28675^^111^953^65^^^^1
+ ;;^UTILITY(U,$J,358.3,17029,1,0)
+ ;;=^358.31IA^3^2
+ ;;^UTILITY(U,$J,358.3,17029,1,2,0)
+ ;;=2^Open Tx of interphalangeal joint dislocation, with or without internal or external fixation
+ ;;^UTILITY(U,$J,358.3,17029,1,3,0)
+ ;;=3^28675
+ ;;^UTILITY(U,$J,358.3,17030,0)
+ ;;=27840^^111^953^66^^^^1
+ ;;^UTILITY(U,$J,358.3,17030,1,0)
+ ;;=^358.31IA^3^2
+ ;;^UTILITY(U,$J,358.3,17030,1,2,0)
+ ;;=2^Closed Tx of ankle dislocation; w/o anesthesia
+ ;;^UTILITY(U,$J,358.3,17030,1,3,0)
+ ;;=3^27840
+ ;;^UTILITY(U,$J,358.3,17031,0)
+ ;;=27842^^111^953^67^^^^1
+ ;;^UTILITY(U,$J,358.3,17031,1,0)
+ ;;=^358.31IA^3^2
+ ;;^UTILITY(U,$J,358.3,17031,1,2,0)
+ ;;=2^Closed Tx of ankle dislocation; requiring anesthesia, with or w/o percutaneous skeletal fixation
+ ;;^UTILITY(U,$J,358.3,17031,1,3,0)
+ ;;=3^27842
+ ;;^UTILITY(U,$J,358.3,17032,0)
+ ;;=27846^^111^953^68^^^^1
+ ;;^UTILITY(U,$J,358.3,17032,1,0)
+ ;;=^358.31IA^3^2
+ ;;^UTILITY(U,$J,358.3,17032,1,2,0)
+ ;;=2^Open Tx of ankle dislocation, with or w/o percutaneous skeletal fixation; w/o repair or internal fixation
+ ;;^UTILITY(U,$J,358.3,17032,1,3,0)
+ ;;=3^27846
+ ;;^UTILITY(U,$J,358.3,17033,0)
+ ;;=27848^^111^953^69^^^^1
+ ;;^UTILITY(U,$J,358.3,17033,1,0)
+ ;;=^358.31IA^3^2
+ ;;^UTILITY(U,$J,358.3,17033,1,2,0)
+ ;;=2^Open Tx of ankle dislocation, with or w/o precutaneous skeletalfixation; with repair or internal or external fixation
+ ;;^UTILITY(U,$J,358.3,17033,1,3,0)
+ ;;=3^27848
+ ;;^UTILITY(U,$J,358.3,17034,0)
+ ;;=28750^^111^954^1^^^^1
+ ;;^UTILITY(U,$J,358.3,17034,1,0)
+ ;;=^358.31IA^3^2
+ ;;^UTILITY(U,$J,358.3,17034,1,2,0)
+ ;;=2^Arthrodesis, great toe; metartarsophalangeal joint
+ ;;^UTILITY(U,$J,358.3,17034,1,3,0)
+ ;;=3^28750
+ ;;^UTILITY(U,$J,358.3,17035,0)
+ ;;=28755^^111^954^2^^^^1
+ ;;^UTILITY(U,$J,358.3,17035,1,0)
+ ;;=^358.31IA^3^2
+ ;;^UTILITY(U,$J,358.3,17035,1,2,0)
+ ;;=2^Arthrodesis, great toe; interphlangeal joint
+ ;;^UTILITY(U,$J,358.3,17035,1,3,0)
+ ;;=3^28755
+ ;;^UTILITY(U,$J,358.3,17036,0)
+ ;;=27870^^111^954^3^^^^1
+ ;;^UTILITY(U,$J,358.3,17036,1,0)
+ ;;=^358.31IA^3^2
+ ;;^UTILITY(U,$J,358.3,17036,1,2,0)
+ ;;=2^Arthrodesis, ankle, any method
+ ;;^UTILITY(U,$J,358.3,17036,1,3,0)
+ ;;=3^27870
+ ;;^UTILITY(U,$J,358.3,17037,0)
+ ;;=27871^^111^954^4^^^^1
+ ;;^UTILITY(U,$J,358.3,17037,1,0)
+ ;;=^358.31IA^3^2
+ ;;^UTILITY(U,$J,358.3,17037,1,2,0)
+ ;;=2^Arthrodesis, tibiofibular joint, proximal or distal
+ ;;^UTILITY(U,$J,358.3,17037,1,3,0)
+ ;;=3^27871
+ ;;^UTILITY(U,$J,358.3,17038,0)
+ ;;=29358^^111^955^2^^^^1
+ ;;^UTILITY(U,$J,358.3,17038,1,0)
+ ;;=^358.31IA^3^2
+ ;;^UTILITY(U,$J,358.3,17038,1,2,0)
+ ;;=2^Application Of Long Leg Cast Brace
+ ;;^UTILITY(U,$J,358.3,17038,1,3,0)
+ ;;=3^29358
+ ;;^UTILITY(U,$J,358.3,17039,0)
+ ;;=29405^^111^955^4^^^^1
+ ;;^UTILITY(U,$J,358.3,17039,1,0)
+ ;;=^358.31IA^3^2
+ ;;^UTILITY(U,$J,358.3,17039,1,2,0)
+ ;;=2^Application Of Short Leg Cast
+ ;;^UTILITY(U,$J,358.3,17039,1,3,0)
+ ;;=3^29405
+ ;;^UTILITY(U,$J,358.3,17040,0)
+ ;;=29425^^111^955^5^^^^1
+ ;;^UTILITY(U,$J,358.3,17040,1,0)
+ ;;=^358.31IA^3^2
+ ;;^UTILITY(U,$J,358.3,17040,1,2,0)
+ ;;=2^Application Of Short Leg Cast; Walking Or Ambulatory Type
+ ;;^UTILITY(U,$J,358.3,17040,1,3,0)
+ ;;=3^29425
+ ;;^UTILITY(U,$J,358.3,17041,0)
+ ;;=29440^^111^955^1^^^^1
+ ;;^UTILITY(U,$J,358.3,17041,1,0)
+ ;;=^358.31IA^3^2
+ ;;^UTILITY(U,$J,358.3,17041,1,2,0)
+ ;;=2^Adding Walker to Previous Cast
+ ;;^UTILITY(U,$J,358.3,17041,1,3,0)
+ ;;=3^29440
+ ;;^UTILITY(U,$J,358.3,17042,0)
+ ;;=29445^^111^955^3^^^^1
+ ;;^UTILITY(U,$J,358.3,17042,1,0)
+ ;;=^358.31IA^3^2
+ ;;^UTILITY(U,$J,358.3,17042,1,2,0)
+ ;;=2^Application Of Rigid Total Contact Leg Cast
+ ;;^UTILITY(U,$J,358.3,17042,1,3,0)
+ ;;=3^29445
+ ;;^UTILITY(U,$J,358.3,17043,0)
+ ;;=29515^^111^955^6^^^^1
+ ;;^UTILITY(U,$J,358.3,17043,1,0)
+ ;;=^358.31IA^3^2
+ ;;^UTILITY(U,$J,358.3,17043,1,2,0)
+ ;;=2^Application Of Short Leg Splint (Calf To Foot)
+ ;;^UTILITY(U,$J,358.3,17043,1,3,0)
+ ;;=3^29515
+ ;;^UTILITY(U,$J,358.3,17044,0)
+ ;;=29540^^111^955^10^^^^1
+ ;;^UTILITY(U,$J,358.3,17044,1,0)
+ ;;=^358.31IA^3^2
+ ;;^UTILITY(U,$J,358.3,17044,1,2,0)
+ ;;=2^Strapping ; Ankle
+ ;;^UTILITY(U,$J,358.3,17044,1,3,0)
+ ;;=3^29540
+ ;;^UTILITY(U,$J,358.3,17045,0)
+ ;;=29530^^111^955^11^^^^1
+ ;;^UTILITY(U,$J,358.3,17045,1,0)
+ ;;=^358.31IA^3^2
+ ;;^UTILITY(U,$J,358.3,17045,1,2,0)
+ ;;=2^Strapping; Knee
+ ;;^UTILITY(U,$J,358.3,17045,1,3,0)
+ ;;=3^29530
+ ;;^UTILITY(U,$J,358.3,17046,0)
+ ;;=29550^^111^955^12^^^^1
+ ;;^UTILITY(U,$J,358.3,17046,1,0)
+ ;;=^358.31IA^3^2
+ ;;^UTILITY(U,$J,358.3,17046,1,2,0)
+ ;;=2^Strapping; Toes
+ ;;^UTILITY(U,$J,358.3,17046,1,3,0)
+ ;;=3^29550
+ ;;^UTILITY(U,$J,358.3,17047,0)
+ ;;=29580^^111^955^13^^^^1
+ ;;^UTILITY(U,$J,358.3,17047,1,0)
+ ;;=^358.31IA^3^2
+ ;;^UTILITY(U,$J,358.3,17047,1,2,0)
+ ;;=2^Strapping; Unna Boot
+ ;;^UTILITY(U,$J,358.3,17047,1,3,0)
+ ;;=3^29580
+ ;;^UTILITY(U,$J,358.3,17048,0)
+ ;;=29581^^111^955^8^^^^1
+ ;;^UTILITY(U,$J,358.3,17048,1,0)
+ ;;=^358.31IA^3^2
+ ;;^UTILITY(U,$J,358.3,17048,1,2,0)
+ ;;=2^Multilay Venous Wound Comp System
+ ;;^UTILITY(U,$J,358.3,17048,1,3,0)
+ ;;=3^29581
+ ;;^UTILITY(U,$J,358.3,17049,0)
+ ;;=29582^^111^955^9^^^^1
+ ;;^UTILITY(U,$J,358.3,17049,1,0)
+ ;;=^358.31IA^3^2
+ ;;^UTILITY(U,$J,358.3,17049,1,2,0)
+ ;;=2^Multilay Wnd Comp Syst Thigh,Incl Ft
+ ;;^UTILITY(U,$J,358.3,17049,1,3,0)
+ ;;=3^29582
+ ;;^UTILITY(U,$J,358.3,17050,0)
+ ;;=29700^^111^956^1^^^^1
+ ;;^UTILITY(U,$J,358.3,17050,1,0)
+ ;;=^358.31IA^3^2
+ ;;^UTILITY(U,$J,358.3,17050,1,2,0)
+ ;;=2^Removal or bivalving; gauntlet, boot or body cast
+ ;;^UTILITY(U,$J,358.3,17050,1,3,0)
+ ;;=3^29700
+ ;;^UTILITY(U,$J,358.3,17051,0)
+ ;;=29730^^111^956^2^^^^1
+ ;;^UTILITY(U,$J,358.3,17051,1,0)
+ ;;=^358.31IA^3^2
+ ;;^UTILITY(U,$J,358.3,17051,1,2,0)
+ ;;=2^Windowing of cast
+ ;;^UTILITY(U,$J,358.3,17051,1,3,0)
+ ;;=3^29730
+ ;;^UTILITY(U,$J,358.3,17052,0)
+ ;;=L9900^^111^957^3^^^^1
+ ;;^UTILITY(U,$J,358.3,17052,1,0)
+ ;;=^358.31IA^3^2
+ ;;^UTILITY(U,$J,358.3,17052,1,2,0)
+ ;;=2^Orthotic & prosthetic supply, accessory, &/or service component of another HCPCS L code
+ ;;^UTILITY(U,$J,358.3,17052,1,3,0)
+ ;;=3^L9900
+ ;;^UTILITY(U,$J,358.3,17053,0)
+ ;;=A9150^^111^958^2^^^^1
+ ;;^UTILITY(U,$J,358.3,17053,1,0)
+ ;;=^358.31IA^3^2
+ ;;^UTILITY(U,$J,358.3,17053,1,2,0)
+ ;;=2^Nonprescription drug
+ ;;^UTILITY(U,$J,358.3,17053,1,3,0)
+ ;;=3^A9150
+ ;;^UTILITY(U,$J,358.3,17054,0)
+ ;;=L3332^^111^958^3^^^^1
+ ;;^UTILITY(U,$J,358.3,17054,1,0)
+ ;;=^358.31IA^3^2
+ ;;^UTILITY(U,$J,358.3,17054,1,2,0)
+ ;;=2^Lift, elevation, inside shoe, tapered, up to one-half inch
+ ;;^UTILITY(U,$J,358.3,17054,1,3,0)
+ ;;=3^L3332
+ ;;^UTILITY(U,$J,358.3,17055,0)
+ ;;=L3170^^111^958^4^^^^1
+ ;;^UTILITY(U,$J,358.3,17055,1,0)
+ ;;=^358.31IA^3^2
+ ;;^UTILITY(U,$J,358.3,17055,1,2,0)
+ ;;=2^Foot, plastic heel stabilizer
+ ;;^UTILITY(U,$J,358.3,17055,1,3,0)
+ ;;=3^L3170
+ ;;^UTILITY(U,$J,358.3,17056,0)
+ ;;=A4570^^111^958^6^^^^1
+ ;;^UTILITY(U,$J,358.3,17056,1,0)
+ ;;=^358.31IA^3^2

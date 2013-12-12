@@ -135,7 +135,7 @@ ERR(ERRTXT) ; Set VBECPRMS("ERROR") node with error text and quit
  ; [ Parameter Array Format -->> passed to REQUEST^VBECRPCC(.VBECPRMS) ] 
  ; 
  ; -- general information
- ; VBECPRMS("ADDRESS")="127.0.0.1"
+ ; VBECPRMS("ADDRESS")="127.0.0.1
  ; VBECPRMS("PORT")=19811
  ; VBECPRMS("RPC NAME")="VBECS Order Entry"
  ; VBECPRMS("RPC CONTEXT")="VBECS VISTALINK CONTEXT"

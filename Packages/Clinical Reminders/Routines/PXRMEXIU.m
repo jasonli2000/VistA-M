@@ -1,10 +1,10 @@
-PXRMEXIU ;SLC/PKR/PJH - Utilities for installing repository entries. ;12/08/2011
- ;;2.0;CLINICAL REMINDERS;**4,6,12,17,18**;Feb 04, 2005;Build 152
+PXRMEXIU ;SLC/PKR/PJH - Utilities for installing repository entries. ;04/19/2012
+ ;;2.0;CLINICAL REMINDERS;**4,6,12,17,18,24**;Feb 04, 2005;Build 193
  ;===============================================
 DEF(FDA,NAMECHG) ;Check the reminder definition to make sure the related
  ;reminder exists and all the findings exist.
  N ABBR,ALIST,IEN,IENS,FILENUM,FINDING,LRD,OFINDING,PT01
- N RRG,SPONSOR,TEXT,VERSN
+ N RNAME,RRG,SPONSOR,TEXT,VERSN
  S IENS=$O(FDA(811.9,""))
  ;Related reminder guideline field 1.4.
  I $D(FDA(811.9,IENS,1.4)) D
@@ -46,8 +46,9 @@ DEF(FDA,NAMECHG) ;Check the reminder definition to make sure the related
  ;
  ;Linked reminder dialog field 51.
  S LRD=$G(FDA(811.9,IENS,51))
- S IEN=$S(LRD="":0,1:+$O(^PXRMD(801.41,"B",LRD,"")))
- I IEN=0 K FDA(811.9,IENS,51)
+ S RNAME=$G(FDA(811.9,IENS,.01))
+ I LRD'="",RNAME'="" S ^TMP("PXRMEXDL",$J,LRD,RNAME)=""
+ K FDA(811.9,IENS,51)
  ;
  ;Search the finding multiple for replacements and missing findings.
  D SFMVPI(.FDA,.NAMECHG,811.902)
@@ -187,7 +188,7 @@ SFMVPI(FDA,NAMECHG,SFN) ;Search a variable pointer list for items that do not
  .. D BMES^XPDUTL(.TEXT)
  .. S ACTION=$$GETACT^PXRMEXIU("DPQ",.DIR)
  .. I ACTION="Q" K FDA Q
- .. I ACTION="D" K FDA(SFN,IENS) Q 
+ .. I ACTION="D" K FDA(SFN,IENS) Q
  .. S DIC=FILENUM
  .. S ROOT=$P($$ROOT^DILFD(FILENUM),U,2)
  .. S DIC("S")="S YY=Y_"";""_ROOT I $$VFINDING^PXRMINTR(YY)"
@@ -229,13 +230,11 @@ TIUOBJ(FDA) ;Resolve the name of the health summary object.
  . I '$D(XPDNM) D EN^DDIOL(.TEXT)
  . I $D(XPDNM) D BMES^XPDUTL(.TEXT)
  S FDA(8925.1,IENS,9)="S X=$$TIU^GMTSOBJ(DFN,"_HSOBJIEN_")"
- S FDA(8925.1,IENS,99)=$H
  Q
  ;
  ;===============================================
 VDLGFIND(ABBR,IEN,ALIST) ;Determine if the finding item associated with a
- ;reminder dialog is active. Returns a 1 if it is active otherwise
- ;returns a 0.
+ ;reminder dialog is active returns a 1 if it is inactive returns a 0.
  N FILENUM
  S FILENUM=$P(ALIST(ABBR),U,1)
  Q $$FILESCR^PXRMDLG6(IEN,FILENUM)

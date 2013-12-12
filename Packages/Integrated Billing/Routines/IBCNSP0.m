@@ -1,5 +1,5 @@
 IBCNSP0 ;ALB/AAS - INSURANCE MANAGEMENT - EXPANDED POLICY ;05-MAR-1993
- ;;2.0;INTEGRATED BILLING;**28,43,52,85,93,103,137,229,251,363,371,399,438**;21-MAR-94;Build 52
+ ;;2.0;INTEGRATED BILLING;**28,43,52,85,93,103,137,229,251,363,371,399,438,458**;21-MAR-94;Build 4
  ;;Per VHA Directive 2004-038, this routine should not be modified.
  ;
  ;
@@ -12,20 +12,20 @@ CONTACT ; -- Insurance Contact Information
  S START=$O(^TMP("IBCNSVP",$J,""),-1)-8
  S IB1ST("CONTACT")=START
  S OFFSET=42
- N IBTRC,IBTRCD,IBTCOD
+ N IBTRC,IBTRCD,IBTCOD,IBCREFN
  S IBTCOD=$O(^IBE(356.11,"ACODE",85,0))
  ;
- S IBTRC=0,IBTRCD=""
+ S IBTRC=0,IBTRCD="",IBCREFN=""
  F  S IBTRC=$O(^IBT(356.2,"D",DFN,IBTRC)) Q:'IBTRC  D
  .Q:$P($G(^IBT(356.2,+IBTRC,1)),"^",5)'=IBCDFN  ; must be same policy
  .Q:$P($G(^IBT(356.2,+IBTRC,0)),"^",4)'=IBTCOD  ; must be ins. ver. type
- .S IBTRCD=$G(^IBT(356.2,+IBTRC,0))
+ .S IBTRCD=$G(^IBT(356.2,+IBTRC,0)),IBCREFN=$P($G(^IBT(356.2,+IBTRC,2)),U,1)
  ;
  D SET(START,OFFSET," Insurance Contact (last) ",IORVON,IORVOFF)
  D SET(START+1,OFFSET," Person Contacted: "_$$EXPAND^IBTRE(356.2,.06,$P(IBTRCD,"^",6)))
  D SET(START+2,OFFSET,"Method of Contact: "_$$EXPAND^IBTRE(356.2,.17,$P(IBTRCD,"^",17)))
  D SET(START+3,OFFSET,"  Contact's Phone: "_$$EXPAND^IBTRE(356.2,.07,$P(IBTRCD,"^",7)))
- D SET(START+4,OFFSET,"    Call Ref. No.: "_$$EXPAND^IBTRE(356.2,.09,$P(IBTRCD,"^",9)))
+ D SET(START+4,OFFSET,"    Call Ref. No.: "_$E(IBCREFN,1,19)_$S($L(IBCREFN)>19:"*",1:""))
  D SET(START+5,OFFSET,"     Contact Date: "_$$EXPAND^IBTRE(356.2,.01,$P(IBTRCD,"^")))
  ; no blank lines here because the User Information section is on the
  ; left and it is bigger than this section

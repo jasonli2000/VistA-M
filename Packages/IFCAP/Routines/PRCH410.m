@@ -1,5 +1,5 @@
 PRCH410 ;WISC/KMB/DXH/DGL - CREATE 2237 FROM PURCHASE CARD ORDER ; 4/4/00 7:56am
- ;;5.1;IFCAP;**123**;Oct 20, 2000;Build 6
+ ;;5.1;IFCAP;**123,171**;Oct 20, 2000;Build 3
  ;Per VHA Directive 2004-038, this routine should not be modified.
  ;
  ; prcsip is package-wide variable for inv pt that may or may not be
@@ -73,8 +73,10 @@ REC ;create skeleton 410 record
  D EN1^PRCSUT3 Q:'$D(X)  Q:$G(X)="#"&($G(PRCRMPR)=1)  S X1=X D EN2^PRCSUT3 Q:$G(DA)=""  Q:'$D(X1)  S CDA=DA
  K X,T(2) QUIT
 ESIG ;put ESIG on record, update due-ins
+ N PRCHOBL     ;PRC*171 D.O. auto obligate flags
  S NET=$P($G(^PRC(442,PODA,0)),"^",15) L +^PRCS(410,DA):15 Q:'$T  F I=1,8 S $P(^PRCS(410,DA,4),"^",I)=NET
- I $D(PRCHDELV) S $P(^PRCS(410,DA,4),"^",3)=NET,$P(^PRCS(410,DA,4),"^",4)=$P(^PRCS(410,DA,1),"^")
+ I $D(PRCHDELV) D SWCHK   ;PRC*171 D.O. auto obligate check for EDI and All/Delivery flags on
+ I $D(PRCHDELV),PRCHOBL=1 S $P(^PRCS(410,DA,4),"^",3)=NET,$P(^PRCS(410,DA,4),"^",4)=$P(^PRCS(410,DA,1),"^")   ;PRC*171 auto obligate sets for D.O. flag sets
  S:'$D(PRC("CP")) ZIP=$P(^PRC(442,PODA,0),"^",3),PRC("CP")=$P(ZIP," ") Q:PRC("CP")=""
  S BAL=$P($G(^PRC(420,PRC("SITE"),1,+PRC("CP"),4,PRC("FY"),0)),"^",PRC("QTR")+1)
  L -^PRCS(410,DA)
@@ -83,7 +85,7 @@ ESIG ;put ESIG on record, update due-ins
  S:'$D(PRC("CP")) ZIP=$P(^PRC(442,PODA,0),"^",3),PRC("CP")=$P(ZIP," ") Q:PRC("CP")=""
  D:'$D(PRC("FY")) FY^PRCH442
  N KTEMP S KTEMP=X
- S AA=PRC("SITE")_"^"_+PRC("CP")_"^"_PRC("FY")_"^"_PRC("QTR")_"^"_NET D EBAL^PRCSEZ(AA,"C") D:$G(PRCHDELV)'="" EBAL^PRCSEZ(AA,"O")
+ S AA=PRC("SITE")_"^"_+PRC("CP")_"^"_PRC("FY")_"^"_PRC("QTR")_"^"_NET D EBAL^PRCSEZ(AA,"C") I $D(PRCHDELV),PRCHOBL=1 D EBAL^PRCSEZ(AA,"O")   ;PRC*171 auto obligate sets for D.O. flag sets
  S X=KTEMP
  S BAL=$P($G(^PRC(420,PRC("SITE"),1,+PRC("CP"),4,PRC("FY"),0)),"^",PRC("QTR")+1)
  W !,"Cost of this request: $",$J(X,0,2),!,"Current Control Point Balance: $",$J(BAL,0,2),!
@@ -101,3 +103,14 @@ ESIG ;put ESIG on record, update due-ins
  S BAL=$P($G(^PRC(420,PRC("SITE"),1,+PRC("CP"),4,PRC("FY"),0)),"^",PRC("QTR")+1)
  S DA=CDA,DIK="^PRC(443," D ^DIK K DIK
  K BAL,ZIP,PRCSN,X,MESSAGE QUIT
+SWCHK ;CHECK EDI AND ALL/DEL FLAGS FOR DELIVERY ORDERS    ;PRC*171 D.O. auto obligate check for EDI and All/Delivery flags on
+ N PRCHFUND,PRCEDICK,PRCVEND
+ S PRCHOBL=0
+ S PRCVEND=$P($G(^PRC(442,PODA,1)),U) S:PRCVEND'="" PRCEDICK=$P($G(^PRC(440,PRCVEND,3)),U,2)
+ S PRCHFUND=$P(^PRC(442,PODA,0),U,3) Q:PRCHFUND=""  S PRCHFUND=+$P(PRCHFUND," ")
+ I $P($G(^PRC(442,PODA,23)),U,11)="D"!$D(PRCHDELV) D
+ . I $P($G(^PRC(420,PRC("SITE"),3)),U,2)="",$P($G(^PRC(420,PRC("SITE"),1,PRCHFUND,6)),U,2)="" S PRCHOBL=0
+ . I $P(^PRC(442,PODA,0),U,2)=26 S PRCHOBL=1
+ I '$G(PRCHOBL) D
+ . I ($P($G(^PRC(420,PRC("SITE"),1,PRCHFUND,6)),U)="Y")!($P($G(^PRC(420,PRC("SITE"),3)),U)="Y"),PRCEDICK="Y" S PRCHOBL=1
+ Q

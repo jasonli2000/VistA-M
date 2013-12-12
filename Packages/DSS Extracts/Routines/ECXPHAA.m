@@ -1,5 +1,5 @@
-ECXPHAA ;ALB/JRC Pharmacy DSS Extract UDP/IVP Source Audit Report ; 11/2/06 8:54am
- ;;3.0;DSS EXTRACTS;**92**;Dec 22, 1997;Build 30
+ECXPHAA ;ALB/JRC Pharmacy DSS Extract UDP/IVP Source Audit Report ; 1/8/13 2:42pm
+ ;;3.0;DSS EXTRACTS;**92,142**;Dec 22, 1997;Build 3
  ;
 EN ;entry point from option
  N SCRNARR,STOP,REPORT,DIVISION,SDATE,EDATE,X,TMP
@@ -107,7 +107,8 @@ GETIDATA ;Get data from pharmacy IVP intermediate files
  F  S DATE=$O(^ECX(FILE,"A",DATE)) Q:'DATE!(DATE>EDATE)  D  Q:STOP
  .S DFN=0 F  S DFN=$O(^ECX(FILE,"A",DATE,DFN)) Q:'DFN  D  Q:STOP
  ..;Filter out test patients or bad records
- ..S ERROR=0 D PAT^ECXNUT(DFN) Q:ERROR
+ ..;patch 142--corrected to not display test patients
+ ..S ERROR=$$PAT^ECXNUT(DFN) Q:ERROR
  ..S ON=0 F  S ON=$O(^ECX(FILE,"A",DATE,DFN,ON)) Q:'ON  D  Q:STOP
  ...S DA=0 F  S DA=$O(^ECX(FILE,"A",DATE,DFN,ON,DA)) Q:'DA!(STOP)  D  Q:STOP
  ....I $D(^ECX(728.113,DA,0)) S EC=^(0) D  Q:STOP
@@ -139,7 +140,8 @@ GETUDATA ;Get unit dose data from intermediate file 728.904
  .S RECORD=0 F  S RECORD=$O(^ECX(FILE,"A",DATE,RECORD)) Q:'RECORD  D  Q:STOP
  ..S DATA=$G(^ECX(FILE,RECORD,0)),DFN=$P(DATA,U,2)
  ..;Filter out test patients or bad records
- ..S ERROR=0 D PAT^ECXNUT(DFN) Q:ERROR
+ ..;patch 142-corrected to not display test patients
+ ..S ERROR=$$PAT^ECXNUT(DFN) Q:ERROR
  ..S ON=$P(DATA,U,10),WARD=$P(DATA,U,6)
  ..S DIVISION=$$GETDIV^ECXDEPT($P($G(^DIC(42,+WARD,0)),U,11))
  ..S FACILITY=$P($G(^DIC(42,+WARD,0)),U,11)

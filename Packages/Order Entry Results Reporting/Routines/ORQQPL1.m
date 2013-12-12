@@ -1,5 +1,5 @@
-ORQQPL1 ; ALB/PDR/REV - PROBLEM LIST FOR CPRS GUI ;11/19/09  10:06
- ;;3.0;ORDER ENTRY/RESULTS REPORTING;**10,85,148,173,203,206,249,243,280**;Dec 17, 1997;Build 85
+ORQQPL1 ; ALB/PDR,REV,ISL/JER - PROBLEM LIST FOR CPRS GUI ;02/05/13  16:49
+ ;;3.0;ORDER ENTRY/RESULTS REPORTING;**10,85,148,173,203,206,249,243,280,306**;Dec 17, 1997;Build 43
  ;
  ;------------------------- GET PROBLEM FROM LEXICON -------------------
  ;
@@ -54,6 +54,11 @@ LEXSRCH(LIST,FROM,N,VIEW,ORDATE) ; Get candidate Problems from LEX file
  K ^TMP("LEXSCH",$J)
  Q
  ;
+SORT(LEX) ; Sort terms alphabetically
+ N ORI S ORI=0
+ F  S ORI=$O(LEX("LIST",ORI)) Q:+ORI'>0  S LEX("ALPHA",$E($P(LEX("LIST",ORI),U,2),1,255),ORI)=""
+ Q
+ ;
 ICDREC(COD) ;
  N CODIEN
  I COD="" Q ""
@@ -91,15 +96,15 @@ LOADFLDS(RETURN,NAM,TYP,I) ; LOAD FIELDS FOR TYPE OF ARRAY
  . S I=I+1
  Q
  ;
-EDSAVE(RETURN,GMPIFN,GMPROV,GMPVAMC,UT,EDARRAY) ; SAVE EDITED RES
+EDSAVE(RETURN,GMPIFN,GMPROV,GMPVAMC,UT,EDARRAY,GMPSRCH) ; SAVE EDITED RES
  ; RETURN - boolean, 1 success, 0 failure
  ; EDARRAY - array used for indirect sets of GMPORIG() and GMPFLDS()
  ;
  N GMPFLD,GMPORIG,S,GMPLUSER
+ S GMPSRCH=$G(GMPSRCH)
  S RETURN=1 ; initialize for success
  I UT S GMPLUSER=1
  ;
- ;S GMPLUSER=1
  S S=""
  F  S S=$O(EDARRAY(S)) Q:S=""  D
  . S @EDARRAY(S)
@@ -119,23 +124,23 @@ UPDATE(ORRETURN,UPDARRAY) ; UPDATE A PROBLEM RECORD
  ; or addition of multiple comments.
  ; Use initially just for status updates.
  ;
- N S,GMPL,GMPORIG ; last 2 vars created in nested call
+ N S,GMPL,GMPORIG,ORARRAY ; last 2 vars created in nested call
  S S=""
  F  S S=$O(UPDARRAY(S)) Q:S=""  D
  . S @UPDARRAY(S)
  D UPDATE^GMPLUTL(.ORARRAY,.ORRETURN)
- K ORARRAY
  ; broker wont pick up root node RETURN
  S ORRETURN(1)=ORRETURN(0) ; error text
  S ORRETURN(0)=ORRETURN ; gmpdfn
  I ORRETURN(0)=""  S ORRETURN=1 ; insurance ? need
  Q
  ;
-ADDSAVE(RETURN,GMPDFN,GMPROV,GMPVAMC,ADDARRAY) ; SAVE NEW RECORD
+ADDSAVE(RETURN,GMPDFN,GMPROV,GMPVAMC,ADDARRAY,GMPSRCH) ; SAVE NEW RECORD
  ; RETURN - Problem IFN if success, 0 otherwise
  ; ADDARRAY - array used for indirect sets of  GMPFLDS()
  ;
  N DA,GMPFLD,GMPORIG,S
+ S GMPSRCH=$G(GMPSRCH)
  S RETURN=0 ;
  L +^AUPNPROB(0):10
  Q:'$T  ; bail out if no lock
@@ -156,12 +161,12 @@ INITUSER(RETURN,ORDUZ) ; INITIALIZE FOR NEW USER
  ; taken from INIT^GMPLMGR
  ; leave GMPLUSER on symbol table - is evaluated in EDITSAVE
  ;
- N X,PV,CTXT,GMPLPROV
- S GMPLUSER=$$CLINUSER(DUZ)
+ N X,PV,CTXT,GMPLPROV,ORENT
+ S GMPLUSER=$$CLINUSER(ORDUZ)
  S CTXT=$$GET^XPAR("ALL","ORCH CONTEXT PROBLEMS",1)
  S X=$G(^GMPL(125.99,1,0)) ; IN1+6^GMPLMGR
  S RETURN(0)=GMPLUSER ;  problem list user, or other user
- S RETURN(1)=$$VIEW^GMPLX1(DUZ) ; GMPLVIEW("VIEW") - users default view
+ S RETURN(1)=$$VIEW^GMPLX1(ORDUZ) ; GMPLVIEW("VIEW") - users default view
  S RETURN(2)=+$P(X,U,2) ; verify transcribed problems
  S RETURN(3)=+$P(X,U,3) ; prompt for chart copy
  S RETURN(4)=+$P(X,U,4) ; use lexicon
@@ -171,10 +176,10 @@ INITUSER(RETURN,ORDUZ) ; INITIALIZE FOR NEW USER
  I +GMPLPROV>0,$D(^VA(200,GMPLPROV)) D
  . S RETURN(7)=GMPLPROV_U_$P(^VA(200,GMPLPROV,0),U)
  E  S RETURN(7)="0^All"
- S RETURN(8)=$$SERVICE^GMPLX1(DUZ) ; user's service/section
+ S RETURN(8)=$$SERVICE^GMPLX1(ORDUZ) ; user's service/section
  ; Guessing from what I see in the data that $$VIEW^GMPLX1 actually returns a composite
  ; of default view (in/out patient)/(c1/c2... if out patient i.e. GMPLVIEW("CLIN")) or
- ;                                 /(s1/s2... if in patient i.e. GMPLVIEW("SERV"))
+ ;                                                      /(s1/s2... if in patient i.e. GMPLVIEW("SERV"))
  ; Going with this assumption for now:
  I $L(RETURN(1),"/")>1 D
  . S PV=RETURN(1)
@@ -185,6 +190,8 @@ INITUSER(RETURN,ORDUZ) ; INITIALIZE FOR NEW USER
  S RETURN(10)=$G(GMPLVIEW("CLIN")) ; ??? Where from - see tech doc
  S RETURN(11)=""
  S RETURN(12)=+$P($G(CTXT),";",4)    ; should comments display?
+ S ORENT="ALL^SRV.`"_+$$SERVICE^GMPLX1(ORDUZ,1)
+ S RETURN(13)=+$$GET^XPAR(ORENT,"ORQQPL SUPPRESS CODES",1) ; suppress codes?
  K GMPLVIEW
  Q
  ;
@@ -251,4 +258,22 @@ DUP(Y,DFN,TERM,TEXT) ;Check for duplicate problem
  S Y=$$DUPL^GMPLX(DFN,TERM,TEXT) Q:+Y=0
  I $P(^AUPNPROB(Y,1),U,2)="H" S Y=0 Q
  S Y=Y_U_$P(^AUPNPROB(Y,0),U,12)
+ Q
+GETDX(CODE,SYS,ORDT) ; Get ICD associated with SNOMED CT or VHAT Code
+ N LEX,ORI,ORY S ORY="",ORDT=$G(ORDT,DT)
+ I SYS["VHAT" S ORY=$$GETASSN^LEXTRAN1(CODE,"VHAT2ICD") I 1
+ E  S ORY=$$GETASSN^LEXTRAN1(CODE,"SCT2ICD")
+ I $S(+ORY'>0:1,+$P(ORY,U,2)'>0:1,+LEX'>0:1,1:0) S ORY=799.9 G GETDXX
+ S ORI=0,ORY=""
+ F  S ORI=$O(LEX(ORI)) Q:+ORI'>0  D
+ . N ICD
+ . S ICD=$O(LEX(ORI,""))
+ . I +$$STATCHK^ICDAPIU(ICD,ORDT)'>0 S ICD=""
+ . I ICD]"" S ORY=$S(ORY'="":ORY_"/",1:"")_ICD
+ I (ORY]""),(ORY'[".") S ORY=ORY_"."
+GETDXX Q ORY
+TEST ; test invocation
+ N LIST,I S I=""
+ D LEXSRCH(.LIST,"diabetes with neuro",10,"GMPL",DT)
+ F  S I=$O(LIST(I)) Q:+I'>0  W !,LIST(I)
  Q

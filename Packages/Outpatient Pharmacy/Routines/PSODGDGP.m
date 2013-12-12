@@ -1,5 +1,5 @@
 PSODGDGP ;BIR/SAB - drug drug interaction checker ;4/14/93
- ;;7.0;OUTPATIENT PHARMACY;**251,387,379**;DEC 1997;Build 28
+ ;;7.0;OUTPATIENT PHARMACY;**251,387,379,391**;DEC 1997;Build 13
  ;External reference to ^PSDRUG supported by DBIA 221
  ;External references PSOUL^PSSLOCK supported by DBIA 2789
  ;External references to ^ORRDI1 supported by DBIA 4659
@@ -27,20 +27,43 @@ TECH ;add tech entry to RX VERIFY file (#52.4); called from new order/copy/renew
  S $P(^PS(52.4,PSOXIRXN,0),"^",8)=1,$P(^PS(52.4,PSOXIRXN,0),"^",9)=^TMP("PSOSER",$J,0),$P(^PS(52.4,PSOXIRXN,0),"^",10)=^TMP("PSODGI",$J,0)
  Q
 TECH2(PSOXIRXN,PSODFN,DUZ,PSOX) ;
+ I $D(PSOX("NOPSDRPH")) G T3
  Q:$D(^XUSEC("PSORPH",DUZ))
+T3           ;
+ ; The only time PSOX("NOPSDRPH) key is defined equal to 1 is for controlled substances and the user doesn't hold
+ ; the PSDRPH key.
  N PSODWARN,PSOSIGNIF,PSOINTSV,PSOTLBL S (PSODWARN,PSOSIGNIF,PSOTLBL,PSOINTSV)=0
- S:$$DS^PSSDSAPI&(+$G(^TMP("PSODOSF",$J,0))) PSODWARN=1  ;dosing drug warning
+ S:$$DS^PSSDSAPI&(+$G(^TMP("PSODOSF",$J,0))) PSODWARN=1 ;dosing drug warning
  I $D(^TMP("PSOSER",$J,0)) S PSOINTSV=$G(^TMP("PSOSER",$J,0)) S:PSOINTSV[1 PSODWARN=1 S:PSOINTSV[2 PSOSIGNIF=1 ;critical and significant drug interaction drug warnings
- I '$G(PSORX("VERIFY")),'PSODWARN&($G(PSOSIGNIF)) D  Q PSOTLBL  ;don't set 52.4 when  verification is off and only signficiant interation
- .S $P(^PSRX(PSOXIRXN,"DRI"),"^")=^TMP("PSOSER",$J,0),$P(^PSRX(PSOXIRXN,"DRI"),"^",2)=^TMP("PSODGI",$J,0) S:'$P(PSOPAR,"^",2) PSOTLBL=1
- I $G(PSODWARN)!($G(PSORX("VERIFY"))) D
+ ;
+ ; When verification is OFF and there's a significant drug interaction or the user doesn't hold the PSDRPH key,
+ ; set file 52 "DRI" node for the signficant drug interactions but don't quit. When the verification switch is off, the bottle label and the tech warning 
+ ; a tech warning label and the bottle label must print when signficant interactions are present. However if the
+ ; the PSOX("NOPSDRPH") variable is defined, no labels are allowed to print and processing should continue.
+ ;
+ I '$G(PSORX("VERIFY")),'PSODWARN&($G(PSOSIGNIF)) D  Q:'$D(PSOX("NOPSDRPH")) PSOTLBL  ;don't set 52.4 when verification is off and only signficiant interation
+ .S $P(^PSRX(PSOXIRXN,"DRI"),"^")=^TMP("PSOSER",$J,0)
+ .S $P(^PSRX(PSOXIRXN,"DRI"),"^",2)=^TMP("PSODGI",$J,0)
+ .I '$P(PSOPAR,"^",2) S PSOTLBL=1
+ ;
+ ; If verification is ON, set file 52.4. If there are critical drug interactions or dose warnings, the fields to 
+ ; indicate these must be set and a tech warning label should print. If the PSOX("NOPSDRPH") variable is present,
+ ; file 52.4 should be set (along with any drug interaction and dose warning data) and the technician warning label
+ ; should print (PSOTLBL=2)
+ ;
+ I ($D(PSOX("NOPSDRPH")))!($G(PSODWARN))!($G(PSORX("VERIFY"))) D
  .K DIC,DLAYGO,DINUM,DIADD,X,DD,DO S DIC="^PS(52.4,",DLAYGO=52.4,DINUM=PSOXIRXN,DIC(0)="ML",X=PSOXIRXN
  .D FILE^DICN K DD,DO,DIC,DLAYGO,DINUM S ^PS(52.4,PSOXIRXN,0)=PSOXIRXN_"^"_PSODFN_"^"_DUZ_"^"_"^"_$E(PSOX("LOGIN DATE"),1,7)_"^"_PSOXIRXN_"^"_PSOX("STOP DATE")
- .Q:PSOINTSV'[1&('PSODWARN)
+ .I '$D(PSOX("NOPSDRPH")) Q:PSOINTSV'[1&('PSODWARN)
  .D TECH
+ ;
  I $D(^PS(52.4,PSOXIRXN)) K DIK,DA S DIK="^PS(52.4,",DA=PSOX("IRXN") D IX^DIK K DIK,DA
  I '$G(PSORX("VERIFY")) S:(PSOX("STATUS")=4!$G(PSODWARN)) PSOTLBL=1 ;verification off, dose warn or drug interaction, print technician warning label
  I $G(PSORX("VERIFY")) S PSOTLBL=$S('$G(PSODWARN)&('$G(PSOSIGNIF)):2,'$G(PSODWARN)&($G(PSOSIGNIF)):2,$G(PSODWARN):1,1:0)
+ ;
+ ; If the PSOX("NOPSDRPH") variable is present and regardless of the verification switch, labels cannot be 
+ ; printed (i.e. PSOTLBL=2)
+ I ($D(PSOX("NOPSDRPH"))) S PSOTLBL=2
  Q PSOTLBL
  ;
 BLD I $D(^XUSEC("PSORPH",DUZ)) S PSORX("PHARM")=DUZ D PHARM Q

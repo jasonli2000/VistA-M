@@ -1,5 +1,5 @@
-PXRMICHK ;SLC/PKR - Integrity checking routines. ;11/09/2011
- ;;2.0;CLINICAL REMINDERS;**18**;Feb 04, 2005;Build 152
+PXRMICHK ;SLC/PKR - Integrity checking routines. ;04/24/2012
+ ;;2.0;CLINICAL REMINDERS;**18,24**;Feb 04, 2005;Build 193
  ;
  ;======================================================
 CCRLOGIC(COHOK,RESOK,DEFARR) ;Check cohort and resolution logic.
@@ -219,12 +219,15 @@ DEF(IEN) ;Definition integrity check.
  I USAGE["L",COHOK S COHOK=$$LCOHORTC(.DEFARR)
  I 'COHOK S OK=0
  ;
- ;Check resolution structure and dependencies.
- S LOGSTR=$G(DEFARR(35))
- S NFI=+$P($G(DEFARR(36)),U,1)
- S FLIST=$P($G(DEFARR(36)),U,2)
- S RESOK=$$LOGCHECK(NFI,FLIST,LOGSTR,"Resolution",.DEFARR)
- I 'RESOK S OK=0
+ ;Check resolution structure and dependencies. Resolution logic is
+ ;not needed for "L" type reminders.
+ I USAGE["L" S RESOK=1
+ I USAGE'["L" D
+ . S LOGSTR=$G(DEFARR(35))
+ . S NFI=+$P($G(DEFARR(36)),U,1)
+ . S FLIST=$P($G(DEFARR(36)),U,2)
+ . S RESOK=$$LOGCHECK(NFI,FLIST,LOGSTR,"Resolution",.DEFARR)
+ . I 'RESOK S OK=0
  ;
  ;Make other checks for bad cohort and resolution logic; these are
  ;all just warnings.
@@ -257,7 +260,7 @@ DEF(IEN) ;Definition integrity check.
  ;======================================================
 LCOHORTC(DEFARR) ;Check list type reminder cohort logic for special
  ;requirements.
- N IND,MAXAGE,MINAGE,NL,OK,PCLOG,TEXT
+ N IND,FREQ,MAXAGE,MINAGE,NL,OK,PCLOG,TEXT
  S (OK,NL)=1
  S PCLOG=DEFARR(31)
  ;The cohort logic cannot start with a logical not.
@@ -271,13 +274,18 @@ LCOHORTC(DEFARR) ;Check list type reminder cohort logic for special
  . S OK=0
  I PCLOG["AGE" D
  .;Make sure a baseline age range is defined.
- . S IND=0 F  S IND=$O(DEFARR(7,IND)) Q:(IND="")  Q:(DEFARR(7,IND,0)'="")
- . S MINAGE=$S(IND="":0,1:+$P($G(DEFARR(7,IND,3)),U,1))
- . S MAXAGE=$S(IND="":0,1:+$P($G(DEFARR(7,IND,3)),U,2))
- . I (MINAGE=0),(MAXAGE=0) D
+ . I '$D(DEFARR(7)) D  Q
  .. S NL=NL+1
  .. S TEXT(NL)="The cohort logic contains AGE but no baseline age range is defined.\\"
  .. S OK=0
+ . S IND=0 F  S IND=$O(DEFARR(7,IND)) Q:(IND="")  D
+ .. S MINAGE=+$P(DEFARR(7,IND,0),U,2)
+ .. S MAXAGE=+$P(DEFARR(7,IND,0),U,3)
+ .. I (MINAGE=0),(MAXAGE=0) D
+ ... S FREQ=$P(DEFARR(7,IND,0),U,1)
+ ... S NL=NL+1
+ ... S TEXT(NL)="The cohort logic contains AGE but baseline frequency "_FREQ_" does not define an age range.\\"
+ ... S OK=0
  I PCLOG["SEX" D
  . I $P(DEFARR(0),U,9)="" D
  .. S NL=NL+1

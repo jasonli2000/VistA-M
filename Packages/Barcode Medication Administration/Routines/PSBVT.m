@@ -1,5 +1,5 @@
 PSBVT ;BIRMINGHAM/EFC-BCMA ORDER VARIABLES UTILITY ;4/10/12 1:00pm
- ;;3.0;BAR CODE MED ADMIN;**6,3,38,68**;Mar 2004;Build 26
+ ;;3.0;BAR CODE MED ADMIN;**6,3,38,68,74**;Mar 2004;Build 5
  ;Per VHA Directive 2004-038, this routine should not be modified.
  ;
  ; Reference/IA
@@ -104,6 +104,7 @@ PSJ1(PSBPAR1,PSBPAR2) ; set the variables for an individual order
  S PSBMR=$P(PSBSCRT,U,3)  ; med rt IEN -> ^PS(51.2)
  I $G(PSBMR)'="" S PSBMR=$P(PSBSCRT,U,13)  ;med rt
  S PSBMRAB=$P(PSBSCRT,U,4)  ;med rt abbr
+ S PSBMRIEN=+$P($G(^TMP("PSB",$J,"PSBORDA",1,0)),U,4) ;med rt ien added in PSB*3*74
  S PSBNJECT=+$G(^TMP("PSB",$J,"PSBORDA",1,0))  ;Inj site
  S PSBIVPSH=+$P($G(^TMP("PSB",$J,"PSBORDA",1,0)),U,2)  ;IV PUSH
  S PSBSM=$P(PSBSCRT,U,5)  ; self med

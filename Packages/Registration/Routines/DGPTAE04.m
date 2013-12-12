@@ -1,5 +1,5 @@
-DGPTAE04 ;ALB/MTC/ADL - 401 Edit Checks Cont ; 13 NOV 92
- ;;5.3;Registration;**510,744**;Aug 13, 1993;Build 5
+DGPTAE04 ;ALB/MTC/ADL - 401 Edit Checks Cont ; 5/2/13 10:03am
+ ;;5.3;Registration;**510,744,870**;Aug 13, 1993;Build 5
  ;;ADL;Updated for CSV Project;;Mar 24, 2003
  ;
 TRAN ;-- verify transplant status
@@ -39,10 +39,12 @@ CHKOPC ;
  S DGPTOC=(@("DGPTSO"_DGPTL3)),DGPTOC=$P(DGPTOC," ",1) Q:DGPTOC=""
  S DGPTERC=410+DGPTL3
  S DGPTOC=$E(DGPTOC_"       ",1,2)_"."_$E(DGPTOC,3,7)
- I $D(^ICD0("AB",DGPTOC)) S DGPTERC=0 D GEN Q
+ ;changing xref to BA and allow changes for ICD10 codes Patch870
+ I $D(^ICD0("BA",(DGPTOC_" "))) S DGPTERC=0 D GEN Q
  Q
 GEN ;
- S DGPTOPP=$O(^ICD0("AB",DGPTOC,0)) I DGPTOPP="" S DGPTERC=451 Q
+ ;changing xref to BA for ICD10 codes patch 870
+ S DGPTOPP=$O(^ICD0("BA",(DGPTOC_" "),0)) I DGPTOPP="" S DGPTERC=451 Q
  S DGPTTMP=$$ICDOP^ICDCODE(DGPTOPP,$S($G(DGPTSDD)'="":DGPTSDD,1:DT))  ;use date of surgery from rec if it exists, else today
  ; DG*744 - check against discharge date
  ;I DGPTTMP=-1!('$P(DGPTTMP,U,10)) S DGPTERC=451 Q

@@ -1,5 +1,5 @@
 LRHYAFT ;DALOI/HOAK - HOWDY MAIN DRIVER WITH PPOC ADDON ;08/28/2005  ;12/13/10 11:19am
- ;;5.2;LAB SERVICE;**405**;Sep 27, 1994;Build 93
+ ;;5.2;LAB SERVICE;**405,417**;Sep 27, 1994;Build 1
  ;
  ; TAKEN FROM LRHY0
 PICK ;
@@ -150,9 +150,9 @@ PX ;
  ..  S LRXCNT(CNT)=LRX_U_LRY
  ..  S X=62,Y=5
  ..  S LRAD=$G(LRY1)
- ..  W !,CNT,")",$P(LRLBL(LRX,LRY),U,6)
+ ..  W !,CNT,") ",$P(LRLBL(LRX,LRY),U,6)
  ..  I '$G(LRAD) S LRAD=DT
- ..  W $P(^LAB(62,$P(^LRO(68,LRX,1,LRAD,1,LRY,5,1,0),U,2),0),U,3)
+ ..  W ?21,$P(^LAB(62,$P(^LRO(68,LRX,1,LRAD,1,LRY,5,1,0),U,2),0),U,3)
  S LRX=0
  S LRX=0
  S DY=5
@@ -182,7 +182,7 @@ QQQ ;
  .  S LRAD=DT
  .  I $P(^LRO(68,LRX,0),U,3)="Y" S LRAD=$E(DT,1,3)_"0000"
  .  I $P(^LRO(68,LRX,0),U,3)="M" S LRAD=$E(DT,1,5)_"00"
- .  W !,"Sending to print: ",$P($G(^LRO(68,LRX,1,LRAD,1,LRY,.3)),U) W !,"  ",$P(^LAB(62,$P(^LRO(68,LRX,1,LRAD,1,LRY,5,1,0),U,2),0),U,3)
+ .  W !,"Sending to print: ",$P($G(^LRO(68,LRX,1,LRAD,1,LRY,.3)),U),"  ",$P(^LAB(62,$P(^LRO(68,LRX,1,LRAD,1,LRY,5,1,0),U,2),0),U,3)
  .  S LRORD=$G(^LRO(68,LRX,1,LRAD,1,LRY,.1))
  .  I $P($G(LRXCNT(I)),U,2)="" QUIT
  .  S LRLBL(LRX,$P(LRXCNT(I),U,2))=LABCNT(I)_$G(LRORD)
@@ -195,11 +195,12 @@ QQQ ;
  .  S LRAD=DT
  .  I $P(^LRO(68,LRX,0),U,3)="M" S LRAD=$E(DT,1,5)_"00"
  .  I $P(^LRO(68,LRX,0),U,3)="Y" S LRAD=$E(DT,1,3)_"0000"
- .  W !,"Sending to print: ",$P($G(^LRO(68,LRX,1,LRAD,1,LRY,.3)),U) W !,"  ",$P(^LAB(62,$P(^LRO(68,LRX,1,LRAD,1,LRY,5,1,0),U,2),0),U,3)
+ .  W !,"Sending to print: ",$P($G(^LRO(68,LRX,1,LRAD,1,LRY,.3)),U),"  ",$P(^LAB(62,$P(^LRO(68,LRX,1,LRAD,1,LRY,5,1,0),U,2),0),U,3)
  .  S LR3UID=$P($G(^LRO(68,LRX,1,LRAD,1,LRY,.3)),U)
  .  S LRORD=$G(^LRO(68,LRX,1,LRAD,1,LRY,.1))
  .  S LRLBL(LRX,$P(LRXCNT(LRS),U,2))=LABCNT(LRS)_$G(LRORD)
  .  W !,"REMOVING ",LR3UID H 2
+ .  D BCE^LRHYPH0
  .  S LRSCAN=$G(LRLABTIM)
  .  K ^XTMP("LRHY LABELS",LRDFN,LRLABTIM,LR3UID)
  H 4

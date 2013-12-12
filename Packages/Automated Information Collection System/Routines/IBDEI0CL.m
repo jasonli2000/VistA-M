@@ -1,368 +1,308 @@
-IBDEI0CL ; ; 20-FEB-2013
- ;;3.0;IB ENCOUNTER FORM IMP/EXP;;FEB 20, 2013
+IBDEI0CL ; ; 06-AUG-2013
+ ;;3.0;IB ENCOUNTER FORM IMP/EXP;;AUG 06, 2013
  Q:'DIFQR(358.3)  F I=1:2 S X=$T(Q+I) Q:X=""  S Y=$E($T(Q+I+1),4,999),X=$E(X,4,999) S:$A(Y)=126 I=I+1,Y=$E(Y,2,999)_$E($T(Q+I+1),5,99) S:$A(Y)=61 Y=$E(Y,2,999) X NO E  S @X=Y
 Q Q
- ;;^UTILITY(U,$J,358.3,16767,1,4,0)
- ;;=4^250.00
- ;;^UTILITY(U,$J,358.3,16767,1,5,0)
- ;;=5^DM Type II Dm W/O Complications
- ;;^UTILITY(U,$J,358.3,16767,2)
- ;;=^33605
- ;;^UTILITY(U,$J,358.3,16768,0)
- ;;=250.40^^125^1066^5
- ;;^UTILITY(U,$J,358.3,16768,1,0)
- ;;=^358.31IA^5^2
- ;;^UTILITY(U,$J,358.3,16768,1,4,0)
- ;;=4^250.40
- ;;^UTILITY(U,$J,358.3,16768,1,5,0)
- ;;=5^DM Type II Dm with Nephropathy
- ;;^UTILITY(U,$J,358.3,16768,2)
- ;;=^267837^583.81
- ;;^UTILITY(U,$J,358.3,16769,0)
- ;;=250.50^^125^1066^8
- ;;^UTILITY(U,$J,358.3,16769,1,0)
- ;;=^358.31IA^5^2
- ;;^UTILITY(U,$J,358.3,16769,1,4,0)
- ;;=4^250.50
- ;;^UTILITY(U,$J,358.3,16769,1,5,0)
- ;;=5^DM Type II w/ PDR
- ;;^UTILITY(U,$J,358.3,16769,2)
- ;;=DM Type II w/ PDR^267839^362.02
- ;;^UTILITY(U,$J,358.3,16770,0)
- ;;=250.60^^125^1066^6
- ;;^UTILITY(U,$J,358.3,16770,1,0)
- ;;=^358.31IA^5^2
- ;;^UTILITY(U,$J,358.3,16770,1,4,0)
- ;;=4^250.60
- ;;^UTILITY(U,$J,358.3,16770,1,5,0)
- ;;=5^DM Type II Dm with Neuropathy
- ;;^UTILITY(U,$J,358.3,16770,2)
- ;;=^267841^357.2
- ;;^UTILITY(U,$J,358.3,16771,0)
- ;;=250.70^^125^1066^7
- ;;^UTILITY(U,$J,358.3,16771,1,0)
- ;;=^358.31IA^5^2
- ;;^UTILITY(U,$J,358.3,16771,1,4,0)
- ;;=4^250.70
- ;;^UTILITY(U,$J,358.3,16771,1,5,0)
- ;;=5^DM Type II Dm with Peripheral Vasc Dis
- ;;^UTILITY(U,$J,358.3,16771,2)
- ;;=^267843^443.81
- ;;^UTILITY(U,$J,358.3,16772,0)
- ;;=250.01^^125^1066^3
- ;;^UTILITY(U,$J,358.3,16772,1,0)
- ;;=^358.31IA^5^2
- ;;^UTILITY(U,$J,358.3,16772,1,4,0)
- ;;=4^250.01
- ;;^UTILITY(U,$J,358.3,16772,1,5,0)
- ;;=5^DM Type I DM W/O Complications
- ;;^UTILITY(U,$J,358.3,16772,2)
- ;;=^33586
- ;;^UTILITY(U,$J,358.3,16773,0)
- ;;=272.0^^125^1066^20
- ;;^UTILITY(U,$J,358.3,16773,1,0)
- ;;=^358.31IA^5^2
- ;;^UTILITY(U,$J,358.3,16773,1,4,0)
- ;;=4^272.0
- ;;^UTILITY(U,$J,358.3,16773,1,5,0)
- ;;=5^Hypercholesterolemia, Pure
- ;;^UTILITY(U,$J,358.3,16773,2)
- ;;=Hypercholesterolemia, Pure^59973
- ;;^UTILITY(U,$J,358.3,16774,0)
- ;;=272.1^^125^1066^25
- ;;^UTILITY(U,$J,358.3,16774,1,0)
- ;;=^358.31IA^5^2
- ;;^UTILITY(U,$J,358.3,16774,1,4,0)
- ;;=4^272.1
- ;;^UTILITY(U,$J,358.3,16774,1,5,0)
- ;;=5^Hypertriglyceridemia, Pure
- ;;^UTILITY(U,$J,358.3,16774,2)
- ;;=Hypertriglyceridemia, Pure^101303
- ;;^UTILITY(U,$J,358.3,16775,0)
- ;;=272.2^^125^1066^22
- ;;^UTILITY(U,$J,358.3,16775,1,0)
- ;;=^358.31IA^5^2
- ;;^UTILITY(U,$J,358.3,16775,1,4,0)
- ;;=4^272.2
- ;;^UTILITY(U,$J,358.3,16775,1,5,0)
- ;;=5^Hyperlipidemia, Mixed
- ;;^UTILITY(U,$J,358.3,16775,2)
- ;;=^78424
- ;;^UTILITY(U,$J,358.3,16776,0)
- ;;=275.42^^125^1066^19
- ;;^UTILITY(U,$J,358.3,16776,1,0)
- ;;=^358.31IA^5^2
- ;;^UTILITY(U,$J,358.3,16776,1,4,0)
- ;;=4^275.42
- ;;^UTILITY(U,$J,358.3,16776,1,5,0)
- ;;=5^Hypercalcemia
- ;;^UTILITY(U,$J,358.3,16776,2)
- ;;=^59932
- ;;^UTILITY(U,$J,358.3,16777,0)
- ;;=275.41^^125^1066^26
- ;;^UTILITY(U,$J,358.3,16777,1,0)
- ;;=^358.31IA^5^2
- ;;^UTILITY(U,$J,358.3,16777,1,4,0)
- ;;=4^275.41
- ;;^UTILITY(U,$J,358.3,16777,1,5,0)
- ;;=5^Hypocalcemia
- ;;^UTILITY(U,$J,358.3,16777,2)
- ;;=^60542
- ;;^UTILITY(U,$J,358.3,16778,0)
- ;;=276.7^^125^1066^21
- ;;^UTILITY(U,$J,358.3,16778,1,0)
- ;;=^358.31IA^5^2
- ;;^UTILITY(U,$J,358.3,16778,1,4,0)
- ;;=4^276.7
- ;;^UTILITY(U,$J,358.3,16778,1,5,0)
- ;;=5^Hyperkalemia
- ;;^UTILITY(U,$J,358.3,16778,2)
- ;;=^60042
- ;;^UTILITY(U,$J,358.3,16779,0)
- ;;=275.2^^125^1066^17
- ;;^UTILITY(U,$J,358.3,16779,1,0)
- ;;=^358.31IA^5^2
- ;;^UTILITY(U,$J,358.3,16779,1,4,0)
- ;;=4^275.2
- ;;^UTILITY(U,$J,358.3,16779,1,5,0)
- ;;=5^Hyper Or Hypomagnesemia
- ;;^UTILITY(U,$J,358.3,16779,2)
- ;;=^35626
- ;;^UTILITY(U,$J,358.3,16780,0)
- ;;=276.0^^125^1066^23
- ;;^UTILITY(U,$J,358.3,16780,1,0)
- ;;=^358.31IA^5^2
- ;;^UTILITY(U,$J,358.3,16780,1,4,0)
- ;;=4^276.0
- ;;^UTILITY(U,$J,358.3,16780,1,5,0)
- ;;=5^Hypernatremia
- ;;^UTILITY(U,$J,358.3,16780,2)
- ;;=^60144
- ;;^UTILITY(U,$J,358.3,16781,0)
- ;;=276.1^^125^1066^29
- ;;^UTILITY(U,$J,358.3,16781,1,0)
- ;;=^358.31IA^5^2
- ;;^UTILITY(U,$J,358.3,16781,1,4,0)
- ;;=4^276.1
- ;;^UTILITY(U,$J,358.3,16781,1,5,0)
- ;;=5^Hyponatremia
- ;;^UTILITY(U,$J,358.3,16781,2)
- ;;=Hyponatremia^60722
- ;;^UTILITY(U,$J,358.3,16782,0)
- ;;=275.3^^125^1066^18
- ;;^UTILITY(U,$J,358.3,16782,1,0)
- ;;=^358.31IA^5^2
- ;;^UTILITY(U,$J,358.3,16782,1,4,0)
- ;;=4^275.3
- ;;^UTILITY(U,$J,358.3,16782,1,5,0)
- ;;=5^Hyper Or Hypophosphatemia
- ;;^UTILITY(U,$J,358.3,16782,2)
- ;;=^93796
- ;;^UTILITY(U,$J,358.3,16783,0)
- ;;=240.0^^125^1066^13
- ;;^UTILITY(U,$J,358.3,16783,1,0)
- ;;=^358.31IA^5^2
- ;;^UTILITY(U,$J,358.3,16783,1,4,0)
- ;;=4^240.0
- ;;^UTILITY(U,$J,358.3,16783,1,5,0)
- ;;=5^Goiter, Simple
- ;;^UTILITY(U,$J,358.3,16783,2)
- ;;=^259806
- ;;^UTILITY(U,$J,358.3,16784,0)
- ;;=241.1^^125^1066^12
- ;;^UTILITY(U,$J,358.3,16784,1,0)
- ;;=^358.31IA^5^2
- ;;^UTILITY(U,$J,358.3,16784,1,4,0)
- ;;=4^241.1
- ;;^UTILITY(U,$J,358.3,16784,1,5,0)
- ;;=5^Goiter, Nontox, Multinod
- ;;^UTILITY(U,$J,358.3,16784,2)
- ;;=^267790
- ;;^UTILITY(U,$J,358.3,16785,0)
- ;;=241.0^^125^1066^44
- ;;^UTILITY(U,$J,358.3,16785,1,0)
- ;;=^358.31IA^5^2
- ;;^UTILITY(U,$J,358.3,16785,1,4,0)
- ;;=4^241.0
- ;;^UTILITY(U,$J,358.3,16785,1,5,0)
- ;;=5^Thyroid Nodule, Nontoxic
- ;;^UTILITY(U,$J,358.3,16785,2)
- ;;=^83865
- ;;^UTILITY(U,$J,358.3,16786,0)
- ;;=242.00^^125^1066^14
- ;;^UTILITY(U,$J,358.3,16786,1,0)
- ;;=^358.31IA^5^2
- ;;^UTILITY(U,$J,358.3,16786,1,4,0)
- ;;=4^242.00
- ;;^UTILITY(U,$J,358.3,16786,1,5,0)
- ;;=5^Graves' Disease
- ;;^UTILITY(U,$J,358.3,16786,2)
- ;;=^267793
- ;;^UTILITY(U,$J,358.3,16787,0)
- ;;=242.01^^125^1066^11
- ;;^UTILITY(U,$J,358.3,16787,1,0)
- ;;=^358.31IA^5^2
- ;;^UTILITY(U,$J,358.3,16787,1,4,0)
- ;;=4^242.01
- ;;^UTILITY(U,$J,358.3,16787,1,5,0)
- ;;=5^Goiter Diff Tox W Strm
- ;;^UTILITY(U,$J,358.3,16787,2)
- ;;=^267794
- ;;^UTILITY(U,$J,358.3,16788,0)
- ;;=252.1^^125^1066^30
- ;;^UTILITY(U,$J,358.3,16788,1,0)
- ;;=^358.31IA^5^2
- ;;^UTILITY(U,$J,358.3,16788,1,4,0)
- ;;=4^252.1
- ;;^UTILITY(U,$J,358.3,16788,1,5,0)
- ;;=5^Hypoparathyroidism
- ;;^UTILITY(U,$J,358.3,16788,2)
- ;;=^60635
- ;;^UTILITY(U,$J,358.3,16789,0)
- ;;=242.90^^125^1066^24
- ;;^UTILITY(U,$J,358.3,16789,1,0)
- ;;=^358.31IA^5^2
- ;;^UTILITY(U,$J,358.3,16789,1,4,0)
- ;;=4^242.90
- ;;^UTILITY(U,$J,358.3,16789,1,5,0)
- ;;=5^Hyperthyroid w/o Goiter Or Strm
- ;;^UTILITY(U,$J,358.3,16789,2)
- ;;=^267811
- ;;^UTILITY(U,$J,358.3,16790,0)
- ;;=242.91^^125^1066^35
- ;;^UTILITY(U,$J,358.3,16790,1,0)
- ;;=^358.31IA^5^2
- ;;^UTILITY(U,$J,358.3,16790,1,4,0)
- ;;=4^242.91
- ;;^UTILITY(U,$J,358.3,16790,1,5,0)
- ;;=5^Hyprthy W/O Goit W Strm
- ;;^UTILITY(U,$J,358.3,16790,2)
- ;;=^267812
- ;;^UTILITY(U,$J,358.3,16791,0)
- ;;=244.0^^125^1066^33
- ;;^UTILITY(U,$J,358.3,16791,1,0)
- ;;=^358.31IA^5^2
- ;;^UTILITY(U,$J,358.3,16791,1,4,0)
- ;;=4^244.0
- ;;^UTILITY(U,$J,358.3,16791,1,5,0)
- ;;=5^Hypothyroid, Postsurgical
- ;;^UTILITY(U,$J,358.3,16791,2)
- ;;=^267814
- ;;^UTILITY(U,$J,358.3,16792,0)
- ;;=244.2^^125^1066^32
- ;;^UTILITY(U,$J,358.3,16792,1,0)
- ;;=^358.31IA^5^2
- ;;^UTILITY(U,$J,358.3,16792,1,4,0)
- ;;=4^244.2
- ;;^UTILITY(U,$J,358.3,16792,1,5,0)
- ;;=5^Hypothyroid Due To Iodine Rx
- ;;^UTILITY(U,$J,358.3,16792,2)
- ;;=^267817
- ;;^UTILITY(U,$J,358.3,16793,0)
- ;;=244.9^^125^1066^34
- ;;^UTILITY(U,$J,358.3,16793,1,0)
- ;;=^358.31IA^5^2
- ;;^UTILITY(U,$J,358.3,16793,1,4,0)
- ;;=4^244.9
- ;;^UTILITY(U,$J,358.3,16793,1,5,0)
- ;;=5^Hypothyroid, Unspec Cause
- ;;^UTILITY(U,$J,358.3,16793,2)
- ;;=^123752
- ;;^UTILITY(U,$J,358.3,16794,0)
- ;;=245.0^^125^1066^45
- ;;^UTILITY(U,$J,358.3,16794,1,0)
- ;;=^358.31IA^5^2
- ;;^UTILITY(U,$J,358.3,16794,1,4,0)
- ;;=4^245.0
- ;;^UTILITY(U,$J,358.3,16794,1,5,0)
- ;;=5^Thyroiditis, Acute
- ;;^UTILITY(U,$J,358.3,16794,2)
- ;;=^2692
- ;;^UTILITY(U,$J,358.3,16795,0)
- ;;=245.1^^125^1066^46
- ;;^UTILITY(U,$J,358.3,16795,1,0)
- ;;=^358.31IA^5^2
- ;;^UTILITY(U,$J,358.3,16795,1,4,0)
- ;;=4^245.1
- ;;^UTILITY(U,$J,358.3,16795,1,5,0)
- ;;=5^Thyroiditis, Subacute
- ;;^UTILITY(U,$J,358.3,16795,2)
- ;;=^119376
- ;;^UTILITY(U,$J,358.3,16796,0)
- ;;=733.01^^125^1066^42
- ;;^UTILITY(U,$J,358.3,16796,1,0)
- ;;=^358.31IA^5^2
- ;;^UTILITY(U,$J,358.3,16796,1,4,0)
- ;;=4^733.01
- ;;^UTILITY(U,$J,358.3,16796,1,5,0)
- ;;=5^Osteoporosis, Senile
- ;;^UTILITY(U,$J,358.3,16796,2)
- ;;=Osteoporosis, Senile^87188
- ;;^UTILITY(U,$J,358.3,16797,0)
- ;;=733.02^^125^1066^41
- ;;^UTILITY(U,$J,358.3,16797,1,0)
- ;;=^358.31IA^5^2
- ;;^UTILITY(U,$J,358.3,16797,1,4,0)
- ;;=4^733.02
- ;;^UTILITY(U,$J,358.3,16797,1,5,0)
- ;;=5^Osteoporosis, Idiopathic
- ;;^UTILITY(U,$J,358.3,16797,2)
- ;;=Osteoporosis, Idiopathic^272692
- ;;^UTILITY(U,$J,358.3,16798,0)
- ;;=268.2^^125^1066^38
- ;;^UTILITY(U,$J,358.3,16798,1,0)
- ;;=^358.31IA^5^2
- ;;^UTILITY(U,$J,358.3,16798,1,4,0)
- ;;=4^268.2
- ;;^UTILITY(U,$J,358.3,16798,1,5,0)
- ;;=5^Osteomalacia
- ;;^UTILITY(U,$J,358.3,16798,2)
- ;;=Osteomalacia^87103
- ;;^UTILITY(U,$J,358.3,16799,0)
- ;;=733.90^^125^1066^39
- ;;^UTILITY(U,$J,358.3,16799,1,0)
- ;;=^358.31IA^5^2
- ;;^UTILITY(U,$J,358.3,16799,1,4,0)
- ;;=4^733.90
- ;;^UTILITY(U,$J,358.3,16799,1,5,0)
- ;;=5^Osteopenia
- ;;^UTILITY(U,$J,358.3,16799,2)
- ;;=Osteopenia^35593
- ;;^UTILITY(U,$J,358.3,16800,0)
- ;;=275.49^^125^1066^43
- ;;^UTILITY(U,$J,358.3,16800,1,0)
- ;;=^358.31IA^5^2
- ;;^UTILITY(U,$J,358.3,16800,1,4,0)
- ;;=4^275.49
- ;;^UTILITY(U,$J,358.3,16800,1,5,0)
- ;;=5^Pseudohypoparathyroidism
- ;;^UTILITY(U,$J,358.3,16800,2)
- ;;=Pseudohypparathyroidism^317904
- ;;^UTILITY(U,$J,358.3,16801,0)
- ;;=266.2^^125^1066^47
- ;;^UTILITY(U,$J,358.3,16801,1,0)
- ;;=^358.31IA^5^2
- ;;^UTILITY(U,$J,358.3,16801,1,4,0)
- ;;=4^266.2
- ;;^UTILITY(U,$J,358.3,16801,1,5,0)
- ;;=5^Vitamin B12 Deficiency
- ;;^UTILITY(U,$J,358.3,16801,2)
- ;;=Vitamin B12 Deficiency^87347
- ;;^UTILITY(U,$J,358.3,16802,0)
- ;;=268.9^^125^1066^49
- ;;^UTILITY(U,$J,358.3,16802,1,0)
- ;;=^358.31IA^5^2
- ;;^UTILITY(U,$J,358.3,16802,1,4,0)
- ;;=4^268.9
- ;;^UTILITY(U,$J,358.3,16802,1,5,0)
- ;;=5^Vitamin D Deficiency
- ;;^UTILITY(U,$J,358.3,16802,2)
- ;;=Vitamin D Deficiency^126968
- ;;^UTILITY(U,$J,358.3,16803,0)
- ;;=266.1^^125^1066^48
- ;;^UTILITY(U,$J,358.3,16803,1,0)
- ;;=^358.31IA^5^2
- ;;^UTILITY(U,$J,358.3,16803,1,4,0)
- ;;=4^266.1
- ;;^UTILITY(U,$J,358.3,16803,1,5,0)
- ;;=5^Vitamin B6 Deficiency
+ ;;^UTILITY(U,$J,358.3,16946,0)
+ ;;=28160^^111^951^29^^^^1
+ ;;^UTILITY(U,$J,358.3,16946,1,0)
+ ;;=^358.31IA^3^2
+ ;;^UTILITY(U,$J,358.3,16946,1,2,0)
+ ;;=2^Hemiphalangectomy or interphalangeal joint excision, toe, proximal end of phalanx, each
+ ;;^UTILITY(U,$J,358.3,16946,1,3,0)
+ ;;=3^28160
+ ;;^UTILITY(U,$J,358.3,16947,0)
+ ;;=64774^^111^951^30^^^^1
+ ;;^UTILITY(U,$J,358.3,16947,1,0)
+ ;;=^358.31IA^3^2
+ ;;^UTILITY(U,$J,358.3,16947,1,2,0)
+ ;;=2^Excision of neuroma; cutaneous nerve, surgically identifiable
+ ;;^UTILITY(U,$J,358.3,16947,1,3,0)
+ ;;=3^64774
+ ;;^UTILITY(U,$J,358.3,16948,0)
+ ;;=64776^^111^951^31^^^^1
+ ;;^UTILITY(U,$J,358.3,16948,1,0)
+ ;;=^358.31IA^3^2
+ ;;^UTILITY(U,$J,358.3,16948,1,2,0)
+ ;;=2^Excision of neuroma; digital nerve, one or both, same digit
+ ;;^UTILITY(U,$J,358.3,16948,1,3,0)
+ ;;=3^64776
+ ;;^UTILITY(U,$J,358.3,16949,0)
+ ;;=64778^^111^951^32^^^^1
+ ;;^UTILITY(U,$J,358.3,16949,1,0)
+ ;;=^358.31IA^3^2
+ ;;^UTILITY(U,$J,358.3,16949,1,2,0)
+ ;;=2^Excision of neuroma; digital nerve, each additional digit (list separately in addition to code for primary procedure)
+ ;;^UTILITY(U,$J,358.3,16949,1,3,0)
+ ;;=3^64778
+ ;;^UTILITY(U,$J,358.3,16950,0)
+ ;;=64782^^111^951^33^^^^1
+ ;;^UTILITY(U,$J,358.3,16950,1,0)
+ ;;=^358.31IA^3^2
+ ;;^UTILITY(U,$J,358.3,16950,1,2,0)
+ ;;=2^Excision of neuroma; hand or foot, except digital nerve
+ ;;^UTILITY(U,$J,358.3,16950,1,3,0)
+ ;;=3^64782
+ ;;^UTILITY(U,$J,358.3,16951,0)
+ ;;=64783^^111^951^34^^^^1
+ ;;^UTILITY(U,$J,358.3,16951,1,0)
+ ;;=^358.31IA^3^2
+ ;;^UTILITY(U,$J,358.3,16951,1,2,0)
+ ;;=2^Excision of neuroma; hand or foot, each additional nerve, except same digit
+ ;;^UTILITY(U,$J,358.3,16951,1,3,0)
+ ;;=3^64783
+ ;;^UTILITY(U,$J,358.3,16952,0)
+ ;;=29999^^111^952^11^^^^1
+ ;;^UTILITY(U,$J,358.3,16952,1,0)
+ ;;=^358.31IA^3^2
+ ;;^UTILITY(U,$J,358.3,16952,1,2,0)
+ ;;=2^Unlisted procedure, arthroscopy
+ ;;^UTILITY(U,$J,358.3,16952,1,3,0)
+ ;;=3^29999
+ ;;^UTILITY(U,$J,358.3,16953,0)
+ ;;=29893^^111^952^3^^^^1
+ ;;^UTILITY(U,$J,358.3,16953,1,0)
+ ;;=^358.31IA^3^2
+ ;;^UTILITY(U,$J,358.3,16953,1,2,0)
+ ;;=2^Endoscopic plantar fasciotomy
+ ;;^UTILITY(U,$J,358.3,16953,1,3,0)
+ ;;=3^29893
+ ;;^UTILITY(U,$J,358.3,16954,0)
+ ;;=29894^^111^952^4^^^^1
+ ;;^UTILITY(U,$J,358.3,16954,1,0)
+ ;;=^358.31IA^3^2
+ ;;^UTILITY(U,$J,358.3,16954,1,2,0)
+ ;;=2^Arthroscopy, ankle, surgical; w/removalof loose body or foreign body
+ ;;^UTILITY(U,$J,358.3,16954,1,3,0)
+ ;;=3^29894
+ ;;^UTILITY(U,$J,358.3,16955,0)
+ ;;=29897^^111^952^5^^^^1
+ ;;^UTILITY(U,$J,358.3,16955,1,0)
+ ;;=^358.31IA^3^2
+ ;;^UTILITY(U,$J,358.3,16955,1,2,0)
+ ;;=2^Arthroscopy, ankle, surgical; debridement, limited
+ ;;^UTILITY(U,$J,358.3,16955,1,3,0)
+ ;;=3^29897
+ ;;^UTILITY(U,$J,358.3,16956,0)
+ ;;=29898^^111^952^6^^^^1
+ ;;^UTILITY(U,$J,358.3,16956,1,0)
+ ;;=^358.31IA^3^2
+ ;;^UTILITY(U,$J,358.3,16956,1,2,0)
+ ;;=2^Arthroscopy, ankle, surgical; debridement, extensive
+ ;;^UTILITY(U,$J,358.3,16956,1,3,0)
+ ;;=3^29898
+ ;;^UTILITY(U,$J,358.3,16957,0)
+ ;;=20220^^111^952^1^^^^1
+ ;;^UTILITY(U,$J,358.3,16957,1,0)
+ ;;=^358.31IA^3^2
+ ;;^UTILITY(U,$J,358.3,16957,1,2,0)
+ ;;=2^Biopsy, bone, trocar, or needle; superficial
+ ;;^UTILITY(U,$J,358.3,16957,1,3,0)
+ ;;=3^20220
+ ;;^UTILITY(U,$J,358.3,16958,0)
+ ;;=20650^^111^952^2^^^^1
+ ;;^UTILITY(U,$J,358.3,16958,1,0)
+ ;;=^358.31IA^3^2
+ ;;^UTILITY(U,$J,358.3,16958,1,2,0)
+ ;;=2^Insertion of wire or pin with application of skeletal traction, including removal
+ ;;^UTILITY(U,$J,358.3,16958,1,3,0)
+ ;;=3^20650
+ ;;^UTILITY(U,$J,358.3,16959,0)
+ ;;=64726^^111^952^12^^^^1
+ ;;^UTILITY(U,$J,358.3,16959,1,0)
+ ;;=^358.31IA^3^2
+ ;;^UTILITY(U,$J,358.3,16959,1,2,0)
+ ;;=2^Decompression; plantar digital nerve
+ ;;^UTILITY(U,$J,358.3,16959,1,3,0)
+ ;;=3^64726
+ ;;^UTILITY(U,$J,358.3,16960,0)
+ ;;=64999^^111^952^13^^^^1
+ ;;^UTILITY(U,$J,358.3,16960,1,0)
+ ;;=^358.31IA^3^2
+ ;;^UTILITY(U,$J,358.3,16960,1,2,0)
+ ;;=2^Unlisted procedure, nervous system
+ ;;^UTILITY(U,$J,358.3,16960,1,3,0)
+ ;;=3^64999
+ ;;^UTILITY(U,$J,358.3,16961,0)
+ ;;=93922^^111^952^14^^^^1
+ ;;^UTILITY(U,$J,358.3,16961,1,0)
+ ;;=^358.31IA^3^2
+ ;;^UTILITY(U,$J,358.3,16961,1,2,0)
+ ;;=2^Non-invasive physiologic studies of upper or lower extremity arteries, single level, bilateral
+ ;;^UTILITY(U,$J,358.3,16961,1,3,0)
+ ;;=3^93922
+ ;;^UTILITY(U,$J,358.3,16962,0)
+ ;;=29904^^111^952^7^^^^1
+ ;;^UTILITY(U,$J,358.3,16962,1,0)
+ ;;=^358.31IA^3^2
+ ;;^UTILITY(U,$J,358.3,16962,1,2,0)
+ ;;=2^Arthroscopy,subtalar jt,w/rem of foreign body
+ ;;^UTILITY(U,$J,358.3,16962,1,3,0)
+ ;;=3^29904
+ ;;^UTILITY(U,$J,358.3,16963,0)
+ ;;=29905^^111^952^8^^^^1
+ ;;^UTILITY(U,$J,358.3,16963,1,0)
+ ;;=^358.31IA^3^2
+ ;;^UTILITY(U,$J,358.3,16963,1,2,0)
+ ;;=2^Arthroscopy,subtalar jt,w/ Synovectomy
+ ;;^UTILITY(U,$J,358.3,16963,1,3,0)
+ ;;=3^29905
+ ;;^UTILITY(U,$J,358.3,16964,0)
+ ;;=29906^^111^952^9^^^^1
+ ;;^UTILITY(U,$J,358.3,16964,1,0)
+ ;;=^358.31IA^3^2
+ ;;^UTILITY(U,$J,358.3,16964,1,2,0)
+ ;;=2^Arthroscopy, subtalar jt,w/ debridement
+ ;;^UTILITY(U,$J,358.3,16964,1,3,0)
+ ;;=3^29906
+ ;;^UTILITY(U,$J,358.3,16965,0)
+ ;;=29907^^111^952^10^^^^1
+ ;;^UTILITY(U,$J,358.3,16965,1,0)
+ ;;=^358.31IA^3^2
+ ;;^UTILITY(U,$J,358.3,16965,1,2,0)
+ ;;=2^Arthroscopy,subtalar w/ fusion
+ ;;^UTILITY(U,$J,358.3,16965,1,3,0)
+ ;;=3^29907
+ ;;^UTILITY(U,$J,358.3,16966,0)
+ ;;=28400^^111^953^1^^^^1
+ ;;^UTILITY(U,$J,358.3,16966,1,0)
+ ;;=^358.31IA^3^2
+ ;;^UTILITY(U,$J,358.3,16966,1,2,0)
+ ;;=2^Closed TX of calcaneal fracture; without manipulation
+ ;;^UTILITY(U,$J,358.3,16966,1,3,0)
+ ;;=3^28400
+ ;;^UTILITY(U,$J,358.3,16967,0)
+ ;;=28405^^111^953^2^^^^1
+ ;;^UTILITY(U,$J,358.3,16967,1,0)
+ ;;=^358.31IA^3^2
+ ;;^UTILITY(U,$J,358.3,16967,1,2,0)
+ ;;=2^Closed TX of calcaneal fracture; with manipulation
+ ;;^UTILITY(U,$J,358.3,16967,1,3,0)
+ ;;=3^28405
+ ;;^UTILITY(U,$J,358.3,16968,0)
+ ;;=28406^^111^953^3^^^^1
+ ;;^UTILITY(U,$J,358.3,16968,1,0)
+ ;;=^358.31IA^3^2
+ ;;^UTILITY(U,$J,358.3,16968,1,2,0)
+ ;;=2^Perc Fixation of Calcaneous Fx
+ ;;^UTILITY(U,$J,358.3,16968,1,3,0)
+ ;;=3^28406
+ ;;^UTILITY(U,$J,358.3,16969,0)
+ ;;=28415^^111^953^4^^^^1
+ ;;^UTILITY(U,$J,358.3,16969,1,0)
+ ;;=^358.31IA^3^2
+ ;;^UTILITY(U,$J,358.3,16969,1,2,0)
+ ;;=2^Open TX of calcaneal fracture, with or without internal or external fixation;
+ ;;^UTILITY(U,$J,358.3,16969,1,3,0)
+ ;;=3^28415
+ ;;^UTILITY(U,$J,358.3,16970,0)
+ ;;=28420^^111^953^5^^^^1
+ ;;^UTILITY(U,$J,358.3,16970,1,0)
+ ;;=^358.31IA^3^2
+ ;;^UTILITY(U,$J,358.3,16970,1,2,0)
+ ;;=2^Open TX of calcaneal fracture, with or without internal or external fixation; with primary iliac or other autogenous bone graft
+ ;;^UTILITY(U,$J,358.3,16970,1,3,0)
+ ;;=3^28420
+ ;;^UTILITY(U,$J,358.3,16971,0)
+ ;;=28430^^111^953^6^^^^1
+ ;;^UTILITY(U,$J,358.3,16971,1,0)
+ ;;=^358.31IA^3^2
+ ;;^UTILITY(U,$J,358.3,16971,1,2,0)
+ ;;=2^Closed TX of talus fracture; without manipulation 
+ ;;^UTILITY(U,$J,358.3,16971,1,3,0)
+ ;;=3^28430
+ ;;^UTILITY(U,$J,358.3,16972,0)
+ ;;=28435^^111^953^7^^^^1
+ ;;^UTILITY(U,$J,358.3,16972,1,0)
+ ;;=^358.31IA^3^2
+ ;;^UTILITY(U,$J,358.3,16972,1,2,0)
+ ;;=2^Closed TX of talus fracture; with manipulation 
+ ;;^UTILITY(U,$J,358.3,16972,1,3,0)
+ ;;=3^28435
+ ;;^UTILITY(U,$J,358.3,16973,0)
+ ;;=28436^^111^953^8^^^^1
+ ;;^UTILITY(U,$J,358.3,16973,1,0)
+ ;;=^358.31IA^3^2
+ ;;^UTILITY(U,$J,358.3,16973,1,2,0)
+ ;;=2^Perc Fixation Talus Fx
+ ;;^UTILITY(U,$J,358.3,16973,1,3,0)
+ ;;=3^28436
+ ;;^UTILITY(U,$J,358.3,16974,0)
+ ;;=28445^^111^953^9^^^^1
+ ;;^UTILITY(U,$J,358.3,16974,1,0)
+ ;;=^358.31IA^3^2
+ ;;^UTILITY(U,$J,358.3,16974,1,2,0)
+ ;;=2^Open/Closed TX of Talus FX,w/internal fixation
+ ;;^UTILITY(U,$J,358.3,16974,1,3,0)
+ ;;=3^28445
+ ;;^UTILITY(U,$J,358.3,16975,0)
+ ;;=28450^^111^953^10^^^^1
+ ;;^UTILITY(U,$J,358.3,16975,1,0)
+ ;;=^358.31IA^3^2
+ ;;^UTILITY(U,$J,358.3,16975,1,2,0)
+ ;;=2^TX of tarsal bone fracture; without manipulation, each 
+ ;;^UTILITY(U,$J,358.3,16975,1,3,0)
+ ;;=3^28450
+ ;;^UTILITY(U,$J,358.3,16976,0)
+ ;;=28455^^111^953^11^^^^1
+ ;;^UTILITY(U,$J,358.3,16976,1,0)
+ ;;=^358.31IA^3^2
+ ;;^UTILITY(U,$J,358.3,16976,1,2,0)
+ ;;=2^TX of tarsal bone fracture; with manipulation, each
+ ;;^UTILITY(U,$J,358.3,16976,1,3,0)
+ ;;=3^28455
+ ;;^UTILITY(U,$J,358.3,16977,0)
+ ;;=28456^^111^953^12^^^^1
+ ;;^UTILITY(U,$J,358.3,16977,1,0)
+ ;;=^358.31IA^3^2
+ ;;^UTILITY(U,$J,358.3,16977,1,2,0)
+ ;;=2^Perc Fixation Tarsal Fx
+ ;;^UTILITY(U,$J,358.3,16977,1,3,0)
+ ;;=3^28456
+ ;;^UTILITY(U,$J,358.3,16978,0)
+ ;;=28465^^111^953^13^^^^1
+ ;;^UTILITY(U,$J,358.3,16978,1,0)
+ ;;=^358.31IA^3^2
+ ;;^UTILITY(U,$J,358.3,16978,1,2,0)
+ ;;=2^Open/Closed TX of tarsal FX,w/ internal fixation
+ ;;^UTILITY(U,$J,358.3,16978,1,3,0)
+ ;;=3^28465
+ ;;^UTILITY(U,$J,358.3,16979,0)
+ ;;=28470^^111^953^14^^^^1
+ ;;^UTILITY(U,$J,358.3,16979,1,0)
+ ;;=^358.31IA^3^2
+ ;;^UTILITY(U,$J,358.3,16979,1,2,0)
+ ;;=2^Closed TX of metatarsal fracture; without manipulation, eachnt of me
+ ;;^UTILITY(U,$J,358.3,16979,1,3,0)
+ ;;=3^28470
+ ;;^UTILITY(U,$J,358.3,16980,0)
+ ;;=28475^^111^953^15^^^^1
+ ;;^UTILITY(U,$J,358.3,16980,1,0)
+ ;;=^358.31IA^3^2
+ ;;^UTILITY(U,$J,358.3,16980,1,2,0)
+ ;;=2^Closed TX of metatarsal fracture; with manipulation, each
+ ;;^UTILITY(U,$J,358.3,16980,1,3,0)
+ ;;=3^28475
+ ;;^UTILITY(U,$J,358.3,16981,0)
+ ;;=28476^^111^953^16^^^^1
+ ;;^UTILITY(U,$J,358.3,16981,1,0)
+ ;;=^358.31IA^3^2
+ ;;^UTILITY(U,$J,358.3,16981,1,2,0)
+ ;;=2^Perc Fixation Metatarsal Fx
+ ;;^UTILITY(U,$J,358.3,16981,1,3,0)
+ ;;=3^28476
+ ;;^UTILITY(U,$J,358.3,16982,0)
+ ;;=28485^^111^953^17^^^^1
+ ;;^UTILITY(U,$J,358.3,16982,1,0)
+ ;;=^358.31IA^3^2
+ ;;^UTILITY(U,$J,358.3,16982,1,2,0)
+ ;;=2^Open/Closed TX of Metatarsal FX,w/internal fixation
+ ;;^UTILITY(U,$J,358.3,16982,1,3,0)
+ ;;=3^28485
+ ;;^UTILITY(U,$J,358.3,16983,0)
+ ;;=28490^^111^953^18^^^^1
+ ;;^UTILITY(U,$J,358.3,16983,1,0)
+ ;;=^358.31IA^3^2
+ ;;^UTILITY(U,$J,358.3,16983,1,2,0)
+ ;;=2^Closed TX of fracture great toe, phalanx or phalanges; without manipulation
+ ;;^UTILITY(U,$J,358.3,16983,1,3,0)
+ ;;=3^28490

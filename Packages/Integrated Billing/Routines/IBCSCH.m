@@ -1,5 +1,5 @@
 IBCSCH ;ALB/MJB - MCCR HELP ROUTINE ;03 JUN 88 15:25
- ;;2.0;INTEGRATED BILLING;**52,80,106,124,138,51,148,137,161,245,232,287,348,349,374,371,395,400,432,447**;21-MAR-94;Build 80
+ ;;2.0;INTEGRATED BILLING;**52,80,106,124,138,51,148,137,161,245,232,287,348,349,374,371,395,400,432,447,458**;21-MAR-94;Build 4
  ;;Per VHA Directive 2004-038, this routine should not be modified.
  ;
  ;MAP TO DGCRSCH
@@ -19,6 +19,7 @@ IBCSCH ;ALB/MJB - MCCR HELP ROUTINE ;03 JUN 88 15:25
  . I $G(IBSCNNZ)="?MRA",$$MCRONBIL^IBEFUNC(IBIFN),$T(SCR^IBCEMVU)'="" S IBQ=1 D SCR^IBCEMVU(IBIFN) Q
  . I $G(IBSCNNZ)="?ID" S IBQ=1 D DISPID^IBCEF74(IBIFN) Q
  . I $G(IBSCNNZ)="?RX" S IBQ=1 D DISPRX^IBCSCH1(IBIFN) Q
+ . I $G(IBSCNNZ)="?RNB" S IBQ=1 D EDITRNB^IBCSCH1(IBIFN) Q
  . Q
  ;
  S IBH("HELP")="" D ^IBCSCU,H^IBCSCU K IBH("HELP") W !,"Enter '^' to stop the display ",$S(IBV:"",1:"and edit "),"of data,"
@@ -40,6 +41,7 @@ M W "  Special help screens:"
  I $$MCRONBIL^IBEFUNC(IBIFN) W !?5,"Enter '?MRA' to view Medicare Remittance Advice EOB's on file."
  W !,?5,"Enter '?ID' to view all IDs to be electronically transmitted on this claim."
  W !,?5,"Enter '?RX' to view all prescriptions on this claim."
+ W !,?5,"Enter '?RNB' to enter an RNB for bill associated Claims Tracking entries."
  ;
  D S W ! F I=$Y:1:20 W !
  S Z="PRESS <RETURN> KEY" X IBWW W " to RETURN to SCREEN ",+IBSR

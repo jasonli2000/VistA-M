@@ -1,362 +1,384 @@
-IBDEI079 ; ; 20-FEB-2013
- ;;3.0;IB ENCOUNTER FORM IMP/EXP;;FEB 20, 2013
+IBDEI079 ; ; 06-AUG-2013
+ ;;3.0;IB ENCOUNTER FORM IMP/EXP;;AUG 06, 2013
  Q:'DIFQR(358.3)  F I=1:2 S X=$T(Q+I) Q:X=""  S Y=$E($T(Q+I+1),4,999),X=$E(X,4,999) S:$A(Y)=126 I=I+1,Y=$E(Y,2,999)_$E($T(Q+I+1),5,99) S:$A(Y)=61 Y=$E(Y,2,999) X NO E  S @X=Y
 Q Q
  ;;^UTILITY(U,$J,358.3,9541,2)
- ;;=^268988
+ ;;=^177367
  ;;^UTILITY(U,$J,358.3,9542,0)
- ;;=370.34^^77^657^38
+ ;;=V52.0^^65^545^6
  ;;^UTILITY(U,$J,358.3,9542,1,0)
  ;;=^358.31IA^4^2
  ;;^UTILITY(U,$J,358.3,9542,1,3,0)
- ;;=3^Keratitis, Exposure
+ ;;=3^Fitting Artificial Arm
  ;;^UTILITY(U,$J,358.3,9542,1,4,0)
- ;;=4^370.34
+ ;;=4^V52.0
  ;;^UTILITY(U,$J,358.3,9542,2)
- ;;=Exposure Keratoconjunctivitis^268932
+ ;;=^295496
  ;;^UTILITY(U,$J,358.3,9543,0)
- ;;=370.21^^77^657^40
+ ;;=V52.1^^65^545^7
  ;;^UTILITY(U,$J,358.3,9543,1,0)
  ;;=^358.31IA^4^2
  ;;^UTILITY(U,$J,358.3,9543,1,3,0)
- ;;=3^Keratitis, Punctate
+ ;;=3^Fitting Artificial Leg
  ;;^UTILITY(U,$J,358.3,9543,1,4,0)
- ;;=4^370.21
+ ;;=4^V52.1
  ;;^UTILITY(U,$J,358.3,9543,2)
- ;;=Keratitis, Punctate^268920
+ ;;=^295497
  ;;^UTILITY(U,$J,358.3,9544,0)
- ;;=054.42^^77^657^36
+ ;;=V53.7^^65^545^5
  ;;^UTILITY(U,$J,358.3,9544,1,0)
  ;;=^358.31IA^4^2
  ;;^UTILITY(U,$J,358.3,9544,1,3,0)
- ;;=3^Keratitis, Dendritic (HSV)
+ ;;=3^Fit Orthopedic Devices
  ;;^UTILITY(U,$J,358.3,9544,1,4,0)
- ;;=4^054.42
+ ;;=4^V53.7
  ;;^UTILITY(U,$J,358.3,9544,2)
- ;;=Dendritic Keratitis^66763
+ ;;=^295510
  ;;^UTILITY(U,$J,358.3,9545,0)
- ;;=370.62^^77^657^54
+ ;;=V52.9^^65^545^8
  ;;^UTILITY(U,$J,358.3,9545,1,0)
  ;;=^358.31IA^4^2
  ;;^UTILITY(U,$J,358.3,9545,1,3,0)
- ;;=3^Pannus
+ ;;=3^Fitting Prosthesis Nos
  ;;^UTILITY(U,$J,358.3,9545,1,4,0)
- ;;=4^370.62
+ ;;=4^V52.9
  ;;^UTILITY(U,$J,358.3,9545,2)
- ;;=^268949
+ ;;=^295502
  ;;^UTILITY(U,$J,358.3,9546,0)
- ;;=053.21^^77^657^44
+ ;;=V57.9^^65^545^16
  ;;^UTILITY(U,$J,358.3,9546,1,0)
  ;;=^358.31IA^4^2
  ;;^UTILITY(U,$J,358.3,9546,1,3,0)
- ;;=3^Keratoconjunctivits, H Zoster
+ ;;=3^Rehabilitation Proc Nos
  ;;^UTILITY(U,$J,358.3,9546,1,4,0)
- ;;=4^053.21
+ ;;=4^V57.9
  ;;^UTILITY(U,$J,358.3,9546,2)
- ;;=Herp Zost Keratoconjunctivitis^266553
+ ;;=^19769
  ;;^UTILITY(U,$J,358.3,9547,0)
- ;;=V42.5^^77^657^19
+ ;;=V54.89^^65^545^13
  ;;^UTILITY(U,$J,358.3,9547,1,0)
  ;;=^358.31IA^4^2
  ;;^UTILITY(U,$J,358.3,9547,1,3,0)
- ;;=3^Corneal Transplant
+ ;;=3^Other Ortho Aftercare
  ;;^UTILITY(U,$J,358.3,9547,1,4,0)
- ;;=4^V42.5
+ ;;=4^V54.89
  ;;^UTILITY(U,$J,358.3,9547,2)
- ;;=Corneal Transplant^174117
+ ;;=Other Ortho Aftercare^1
  ;;^UTILITY(U,$J,358.3,9548,0)
- ;;=996.51^^77^657^62
+ ;;=V52.8^^65^545^9
  ;;^UTILITY(U,$J,358.3,9548,1,0)
  ;;=^358.31IA^4^2
  ;;^UTILITY(U,$J,358.3,9548,1,3,0)
- ;;=3^Reject/Failure, Corneal Transp
+ ;;=3^Fitting/Adj Oth Spec Prosth Device
  ;;^UTILITY(U,$J,358.3,9548,1,4,0)
- ;;=4^996.51
+ ;;=4^V52.8
  ;;^UTILITY(U,$J,358.3,9548,2)
- ;;=Rejection/Failure, Corneal Transplant^276277^V42.5
+ ;;=^295501
  ;;^UTILITY(U,$J,358.3,9549,0)
- ;;=918.1^^77^657^1
+ ;;=V45.89^^65^545^12
  ;;^UTILITY(U,$J,358.3,9549,1,0)
  ;;=^358.31IA^4^2
  ;;^UTILITY(U,$J,358.3,9549,1,3,0)
- ;;=3^Abrasion, Cornea
+ ;;=3^Oth Post-Procedural States
  ;;^UTILITY(U,$J,358.3,9549,1,4,0)
- ;;=4^918.1
+ ;;=4^V45.89
  ;;^UTILITY(U,$J,358.3,9549,2)
- ;;=Corneal Abrasion^115829
+ ;;=^276679
  ;;^UTILITY(U,$J,358.3,9550,0)
- ;;=370.49^^77^657^43
+ ;;=V53.8^^65^545^1
  ;;^UTILITY(U,$J,358.3,9550,1,0)
  ;;=^358.31IA^4^2
  ;;^UTILITY(U,$J,358.3,9550,1,3,0)
- ;;=3^Keratoconjunctivitis, Other
+ ;;=3^Adjustment Of Wheelchair
  ;;^UTILITY(U,$J,358.3,9550,1,4,0)
- ;;=4^370.49
+ ;;=4^V53.8
  ;;^UTILITY(U,$J,358.3,9550,2)
- ;;=^87674
+ ;;=^295511
  ;;^UTILITY(U,$J,358.3,9551,0)
- ;;=371.41^^77^657^5
+ ;;=V65.19^^65^545^14
  ;;^UTILITY(U,$J,358.3,9551,1,0)
  ;;=^358.31IA^4^2
  ;;^UTILITY(U,$J,358.3,9551,1,3,0)
- ;;=3^Arcus, Corneal
+ ;;=3^Other Person Consult for Another
  ;;^UTILITY(U,$J,358.3,9551,1,4,0)
- ;;=4^371.41
+ ;;=4^V65.19
  ;;^UTILITY(U,$J,358.3,9551,2)
- ;;=Corneal Arcus^109206
+ ;;=^329985
  ;;^UTILITY(U,$J,358.3,9552,0)
- ;;=371.10^^77^657^67
+ ;;=V57.1^^65^545^15
  ;;^UTILITY(U,$J,358.3,9552,1,0)
  ;;=^358.31IA^4^2
  ;;^UTILITY(U,$J,358.3,9552,1,3,0)
- ;;=3^Toxic Keratopathy, Due to med
+ ;;=3^Physical Therapy NEC
  ;;^UTILITY(U,$J,358.3,9552,1,4,0)
- ;;=4^371.10
+ ;;=4^V57.1
  ;;^UTILITY(U,$J,358.3,9552,2)
- ;;=Toxic Keratopathy, Due to med^276846
+ ;;=^19764
  ;;^UTILITY(U,$J,358.3,9553,0)
- ;;=370.60^^77^657^50
+ ;;=V57.21^^65^545^3
  ;;^UTILITY(U,$J,358.3,9553,1,0)
  ;;=^358.31IA^4^2
  ;;^UTILITY(U,$J,358.3,9553,1,3,0)
- ;;=3^Neovascularization, Corneal
+ ;;=3^Encounter-Occ Therapy
  ;;^UTILITY(U,$J,358.3,9553,1,4,0)
- ;;=4^370.60
+ ;;=4^V57.21
  ;;^UTILITY(U,$J,358.3,9553,2)
- ;;=Corneal Neovascularization^184274
+ ;;=^19761
  ;;^UTILITY(U,$J,358.3,9554,0)
- ;;=371.20^^77^657^22
+ ;;=V57.22^^65^545^4
  ;;^UTILITY(U,$J,358.3,9554,1,0)
  ;;=^358.31IA^4^2
  ;;^UTILITY(U,$J,358.3,9554,1,3,0)
- ;;=3^Edema, Cornea
+ ;;=3^Encounter-Voc Therapy
  ;;^UTILITY(U,$J,358.3,9554,1,4,0)
- ;;=4^371.20
+ ;;=4^V57.22
  ;;^UTILITY(U,$J,358.3,9554,2)
- ;;=Edema, Cornea^28394
+ ;;=^303457
  ;;^UTILITY(U,$J,358.3,9555,0)
- ;;=371.00^^77^657^51
+ ;;=V57.81^^65^545^11
  ;;^UTILITY(U,$J,358.3,9555,1,0)
  ;;=^358.31IA^4^2
  ;;^UTILITY(U,$J,358.3,9555,1,3,0)
- ;;=3^Opacity, Corneal
+ ;;=3^Orthotic Training
  ;;^UTILITY(U,$J,358.3,9555,1,4,0)
- ;;=4^371.00
+ ;;=4^V57.81
  ;;^UTILITY(U,$J,358.3,9555,2)
- ;;=Corneal Opacity^28398
+ ;;=^295527
  ;;^UTILITY(U,$J,358.3,9556,0)
- ;;=371.43^^77^657^6
+ ;;=V49.76^^65^546^2
  ;;^UTILITY(U,$J,358.3,9556,1,0)
  ;;=^358.31IA^4^2
  ;;^UTILITY(U,$J,358.3,9556,1,3,0)
- ;;=3^Band Keratopathy
+ ;;=3^Above Knee Amputat Status
  ;;^UTILITY(U,$J,358.3,9556,1,4,0)
- ;;=4^371.43
+ ;;=4^V49.76
  ;;^UTILITY(U,$J,358.3,9556,2)
- ;;=Band Keratopathy^268979
+ ;;=^303444
  ;;^UTILITY(U,$J,358.3,9557,0)
- ;;=710.2^^77^657^64
+ ;;=V49.74^^65^546^3
  ;;^UTILITY(U,$J,358.3,9557,1,0)
  ;;=^358.31IA^4^2
  ;;^UTILITY(U,$J,358.3,9557,1,3,0)
- ;;=3^Sjogren's Disease
+ ;;=3^Ankle Amputat Status
  ;;^UTILITY(U,$J,358.3,9557,1,4,0)
- ;;=4^710.2
+ ;;=4^V49.74
  ;;^UTILITY(U,$J,358.3,9557,2)
- ;;=Sjogren's Disease^192145
+ ;;=^303442
  ;;^UTILITY(U,$J,358.3,9558,0)
- ;;=374.20^^77^657^47
+ ;;=V49.75^^65^546^5
  ;;^UTILITY(U,$J,358.3,9558,1,0)
  ;;=^358.31IA^4^2
  ;;^UTILITY(U,$J,358.3,9558,1,3,0)
- ;;=3^Lagophthalmos
+ ;;=3^Below Knee Amputat Status
  ;;^UTILITY(U,$J,358.3,9558,1,4,0)
- ;;=4^374.20
+ ;;=4^V49.75
  ;;^UTILITY(U,$J,358.3,9558,2)
- ;;=Lagophthalmos^265452
+ ;;=^303443
  ;;^UTILITY(U,$J,358.3,9559,0)
- ;;=372.72^^77^657^28
+ ;;=V49.73^^65^546^6
  ;;^UTILITY(U,$J,358.3,9559,1,0)
  ;;=^358.31IA^4^2
  ;;^UTILITY(U,$J,358.3,9559,1,3,0)
- ;;=3^Hemorrhage, Conjunctival
+ ;;=3^Foot Amputat Status
  ;;^UTILITY(U,$J,358.3,9559,1,4,0)
- ;;=4^372.72
+ ;;=4^V49.73
  ;;^UTILITY(U,$J,358.3,9559,2)
- ;;=Hemorrhage, Conjunctival^27538
+ ;;=^303441
  ;;^UTILITY(U,$J,358.3,9560,0)
- ;;=372.00^^77^657^13
+ ;;=V49.70^^65^546^10
  ;;^UTILITY(U,$J,358.3,9560,1,0)
  ;;=^358.31IA^4^2
  ;;^UTILITY(U,$J,358.3,9560,1,3,0)
- ;;=3^Conjunctivitis, Acute
+ ;;=3^Lower Limb Amputat Status
  ;;^UTILITY(U,$J,358.3,9560,1,4,0)
- ;;=4^372.00
+ ;;=4^V49.70
  ;;^UTILITY(U,$J,358.3,9560,2)
- ;;=Conjunctivitis, Acute^269000
+ ;;=^303438
  ;;^UTILITY(U,$J,358.3,9561,0)
- ;;=372.05^^77^657^14
+ ;;=V49.71^^65^546^7
  ;;^UTILITY(U,$J,358.3,9561,1,0)
  ;;=^358.31IA^4^2
  ;;^UTILITY(U,$J,358.3,9561,1,3,0)
- ;;=3^Conjunctivitis, Atopic Acute
+ ;;=3^Great Toe Amputat Status
  ;;^UTILITY(U,$J,358.3,9561,1,4,0)
- ;;=4^372.05
+ ;;=4^V49.71
  ;;^UTILITY(U,$J,358.3,9561,2)
- ;;=Conjuntivitis, Atopic, Acute^2605
+ ;;=^303439
  ;;^UTILITY(U,$J,358.3,9562,0)
- ;;=372.14^^77^657^18
+ ;;=V49.72^^65^546^12
  ;;^UTILITY(U,$J,358.3,9562,1,0)
  ;;=^358.31IA^4^2
  ;;^UTILITY(U,$J,358.3,9562,1,3,0)
- ;;=3^Conjuntivitis, Allergic, Chronic
+ ;;=3^Oth Toe(S) Amputat Status
  ;;^UTILITY(U,$J,358.3,9562,1,4,0)
- ;;=4^372.14
+ ;;=4^V49.72
  ;;^UTILITY(U,$J,358.3,9562,2)
- ;;=Conjunctivitis, Allergic, Chr^87396
+ ;;=^303440
  ;;^UTILITY(U,$J,358.3,9563,0)
- ;;=372.03^^77^657^12
+ ;;=V49.60^^65^546^15
  ;;^UTILITY(U,$J,358.3,9563,1,0)
  ;;=^358.31IA^4^2
  ;;^UTILITY(U,$J,358.3,9563,1,3,0)
- ;;=3^Conjuncitivitis, Mucopurulent
+ ;;=3^Upper Limb Amputat Status
  ;;^UTILITY(U,$J,358.3,9563,1,4,0)
- ;;=4^372.03
+ ;;=4^V49.60
  ;;^UTILITY(U,$J,358.3,9563,2)
- ;;=Conjuncitivitis, Mucopurulent^87718
+ ;;=^303427
  ;;^UTILITY(U,$J,358.3,9564,0)
- ;;=372.10^^77^657^15
+ ;;=V49.61^^65^546^14
  ;;^UTILITY(U,$J,358.3,9564,1,0)
  ;;=^358.31IA^4^2
  ;;^UTILITY(U,$J,358.3,9564,1,3,0)
- ;;=3^Conjunctivitis, Chronic
+ ;;=3^Thumb Amput Status
  ;;^UTILITY(U,$J,358.3,9564,1,4,0)
- ;;=4^372.10
+ ;;=4^V49.61
  ;;^UTILITY(U,$J,358.3,9564,2)
- ;;=Conjunctivitis, Chronic^269008
+ ;;=^303428
  ;;^UTILITY(U,$J,358.3,9565,0)
- ;;=077.8^^77^657^16
+ ;;=V49.62^^65^546^11
  ;;^UTILITY(U,$J,358.3,9565,1,0)
  ;;=^358.31IA^4^2
  ;;^UTILITY(U,$J,358.3,9565,1,3,0)
- ;;=3^Conjunctivitis, Viral
+ ;;=3^Oth Finger(s) Amput Status
  ;;^UTILITY(U,$J,358.3,9565,1,4,0)
- ;;=4^077.8
+ ;;=4^V49.62
  ;;^UTILITY(U,$J,358.3,9565,2)
- ;;=Conjunctivitis, Viral^88239
+ ;;=^303429
  ;;^UTILITY(U,$J,358.3,9566,0)
- ;;=372.54^^77^657^11
+ ;;=V49.63^^65^546^8
  ;;^UTILITY(U,$J,358.3,9566,1,0)
  ;;=^358.31IA^4^2
  ;;^UTILITY(U,$J,358.3,9566,1,3,0)
- ;;=3^Concretions, Conjunctival
+ ;;=3^Hand Amput Status
  ;;^UTILITY(U,$J,358.3,9566,1,4,0)
- ;;=4^372.54
+ ;;=4^V49.63
  ;;^UTILITY(U,$J,358.3,9566,2)
- ;;=...Concretions, Conjunctival^269038
+ ;;=^303430
  ;;^UTILITY(U,$J,358.3,9567,0)
- ;;=930.9^^77^657^26
+ ;;=V49.64^^65^546^16
  ;;^UTILITY(U,$J,358.3,9567,1,0)
  ;;=^358.31IA^4^2
  ;;^UTILITY(U,$J,358.3,9567,1,3,0)
- ;;=3^Foreign Body, External Eye
+ ;;=3^Wrist Amput Status
  ;;^UTILITY(U,$J,358.3,9567,1,4,0)
- ;;=4^930.9
+ ;;=4^V49.64
  ;;^UTILITY(U,$J,358.3,9567,2)
- ;;=Foreign Body, External Eye^275489
+ ;;=^303431
  ;;^UTILITY(U,$J,358.3,9568,0)
- ;;=372.51^^77^657^57
+ ;;=V49.65^^65^546^4
  ;;^UTILITY(U,$J,358.3,9568,1,0)
  ;;=^358.31IA^4^2
  ;;^UTILITY(U,$J,358.3,9568,1,3,0)
- ;;=3^Pinguecula
+ ;;=3^Below Elbow Amput Status
  ;;^UTILITY(U,$J,358.3,9568,1,4,0)
- ;;=4^372.51
+ ;;=4^V49.65
  ;;^UTILITY(U,$J,358.3,9568,2)
- ;;=Pinguecula^265525
+ ;;=^303432
  ;;^UTILITY(U,$J,358.3,9569,0)
- ;;=379.00^^77^657^23
+ ;;=V49.66^^65^546^1
  ;;^UTILITY(U,$J,358.3,9569,1,0)
  ;;=^358.31IA^4^2
  ;;^UTILITY(U,$J,358.3,9569,1,3,0)
- ;;=3^Episcleritis
+ ;;=3^Above Elbow Amput Status
  ;;^UTILITY(U,$J,358.3,9569,1,4,0)
- ;;=4^379.00
+ ;;=4^V49.66
  ;;^UTILITY(U,$J,358.3,9569,2)
- ;;=...^108564
+ ;;=^303433
  ;;^UTILITY(U,$J,358.3,9570,0)
- ;;=372.20^^77^657^9
+ ;;=V49.67^^65^546^13
  ;;^UTILITY(U,$J,358.3,9570,1,0)
  ;;=^358.31IA^4^2
  ;;^UTILITY(U,$J,358.3,9570,1,3,0)
- ;;=3^Blepharoconjunctivitis
+ ;;=3^Shoulder Amput Status
  ;;^UTILITY(U,$J,358.3,9570,1,4,0)
- ;;=4^372.20
+ ;;=4^V49.67
  ;;^UTILITY(U,$J,358.3,9570,2)
- ;;=Blepharoconjunctivitis^15277
+ ;;=^303434
  ;;^UTILITY(U,$J,358.3,9571,0)
- ;;=372.40^^77^657^59
+ ;;=V49.77^^65^546^9
  ;;^UTILITY(U,$J,358.3,9571,1,0)
  ;;=^358.31IA^4^2
  ;;^UTILITY(U,$J,358.3,9571,1,3,0)
- ;;=3^Pterygium
+ ;;=3^Hip Amput Status
  ;;^UTILITY(U,$J,358.3,9571,1,4,0)
- ;;=4^372.40
+ ;;=4^V49.77
  ;;^UTILITY(U,$J,358.3,9571,2)
- ;;=Pterygium^100819
+ ;;=^303445
  ;;^UTILITY(U,$J,358.3,9572,0)
- ;;=694.4^^77^657^56
+ ;;=784.3^^65^547^1
  ;;^UTILITY(U,$J,358.3,9572,1,0)
  ;;=^358.31IA^4^2
  ;;^UTILITY(U,$J,358.3,9572,1,3,0)
- ;;=3^Pemphigus
+ ;;=3^Aphasia
  ;;^UTILITY(U,$J,358.3,9572,1,4,0)
- ;;=4^694.4
+ ;;=4^784.3
  ;;^UTILITY(U,$J,358.3,9572,2)
- ;;=Pemphigus^91124
+ ;;=^9453
  ;;^UTILITY(U,$J,358.3,9573,0)
- ;;=224.3^^77^657^8
+ ;;=334.3^^65^547^2
  ;;^UTILITY(U,$J,358.3,9573,1,0)
  ;;=^358.31IA^4^2
  ;;^UTILITY(U,$J,358.3,9573,1,3,0)
- ;;=3^Benign Neoplasm Conjunctiva
+ ;;=3^Cerebellar Ataxia Nec
  ;;^UTILITY(U,$J,358.3,9573,1,4,0)
- ;;=4^224.3
+ ;;=4^334.3
  ;;^UTILITY(U,$J,358.3,9573,2)
- ;;=Benign Neoplasm Conjunctiva^267673
+ ;;=^87376
  ;;^UTILITY(U,$J,358.3,9574,0)
- ;;=370.40^^77^657^41
+ ;;=438.11^^65^547^4
  ;;^UTILITY(U,$J,358.3,9574,1,0)
  ;;=^358.31IA^4^2
  ;;^UTILITY(U,$J,358.3,9574,1,3,0)
- ;;=3^Keratoconjunctivitis
+ ;;=3^Late Eff Cereb/Vasc,Aphasia
  ;;^UTILITY(U,$J,358.3,9574,1,4,0)
- ;;=4^370.40
+ ;;=4^438.11
  ;;^UTILITY(U,$J,358.3,9574,2)
- ;;=^66777
+ ;;=^317907
  ;;^UTILITY(U,$J,358.3,9575,0)
- ;;=694.5^^77^657^55
+ ;;=438.0^^65^547^3
  ;;^UTILITY(U,$J,358.3,9575,1,0)
  ;;=^358.31IA^4^2
  ;;^UTILITY(U,$J,358.3,9575,1,3,0)
- ;;=3^Pemphigoid
+ ;;=3^Late Eff Cereb/Vasc, Cog Def
  ;;^UTILITY(U,$J,358.3,9575,1,4,0)
- ;;=4^694.5
+ ;;=4^438.0
  ;;^UTILITY(U,$J,358.3,9575,2)
- ;;=Pemphigoid^91108
+ ;;=^317905
  ;;^UTILITY(U,$J,358.3,9576,0)
- ;;=364.10^^77^657^32
+ ;;=438.20^^65^547^8
  ;;^UTILITY(U,$J,358.3,9576,1,0)
  ;;=^358.31IA^4^2
  ;;^UTILITY(U,$J,358.3,9576,1,3,0)
- ;;=3^Iridocyclitis, Chronic
+ ;;=3^Late Eff Cereb/Vasc,Hemipl,Uns
  ;;^UTILITY(U,$J,358.3,9576,1,4,0)
- ;;=4^364.10
+ ;;=4^438.20
  ;;^UTILITY(U,$J,358.3,9576,2)
- ;;=Iridocyclitis, Chronic^24398
+ ;;=^317910
  ;;^UTILITY(U,$J,358.3,9577,0)
- ;;=054.44^^77^657^33
+ ;;=438.40^^65^547^12
  ;;^UTILITY(U,$J,358.3,9577,1,0)
  ;;=^358.31IA^4^2
  ;;^UTILITY(U,$J,358.3,9577,1,3,0)
- ;;=3^Iridocyclitis, H Simplex
+ ;;=3^Monoplegia of LL, Side NOS
+ ;;^UTILITY(U,$J,358.3,9577,1,4,0)
+ ;;=4^438.40
+ ;;^UTILITY(U,$J,358.3,9577,2)
+ ;;=^317916
+ ;;^UTILITY(U,$J,358.3,9578,0)
+ ;;=438.9^^65^547^16
+ ;;^UTILITY(U,$J,358.3,9578,1,0)
+ ;;=^358.31IA^4^2
+ ;;^UTILITY(U,$J,358.3,9578,1,3,0)
+ ;;=3^Unspec Late Eff Cerebro Disease
+ ;;^UTILITY(U,$J,358.3,9578,1,4,0)
+ ;;=4^438.9
+ ;;^UTILITY(U,$J,358.3,9578,2)
+ ;;=^269757
+ ;;^UTILITY(U,$J,358.3,9579,0)
+ ;;=907.0^^65^547^9
+ ;;^UTILITY(U,$J,358.3,9579,1,0)
+ ;;=^358.31IA^4^2
+ ;;^UTILITY(U,$J,358.3,9579,1,3,0)
+ ;;=3^Lt Eff Intracranial Inj w/o skull frac
+ ;;^UTILITY(U,$J,358.3,9579,1,4,0)
+ ;;=4^907.0

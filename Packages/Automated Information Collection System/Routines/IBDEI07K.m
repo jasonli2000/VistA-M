@@ -1,360 +1,356 @@
-IBDEI07K ; ; 20-FEB-2013
- ;;3.0;IB ENCOUNTER FORM IMP/EXP;;FEB 20, 2013
+IBDEI07K ; ; 06-AUG-2013
+ ;;3.0;IB ENCOUNTER FORM IMP/EXP;;AUG 06, 2013
  Q:'DIFQR(358.3)  F I=1:2 S X=$T(Q+I) Q:X=""  S Y=$E($T(Q+I+1),4,999),X=$E(X,4,999) S:$A(Y)=126 I=I+1,Y=$E(Y,2,999)_$E($T(Q+I+1),5,99) S:$A(Y)=61 Y=$E(Y,2,999) X NO E  S @X=Y
 Q Q
- ;;^UTILITY(U,$J,358.3,9944,2)
- ;;=Keratitis, Punctate^268920
- ;;^UTILITY(U,$J,358.3,9945,0)
- ;;=054.42^^79^673^36
- ;;^UTILITY(U,$J,358.3,9945,1,0)
- ;;=^358.31IA^4^2
- ;;^UTILITY(U,$J,358.3,9945,1,3,0)
- ;;=3^Keratitis, Dendritic (HSV)
- ;;^UTILITY(U,$J,358.3,9945,1,4,0)
- ;;=4^054.42
- ;;^UTILITY(U,$J,358.3,9945,2)
- ;;=Dendritic Keratitis^66763
- ;;^UTILITY(U,$J,358.3,9946,0)
- ;;=370.62^^79^673^54
- ;;^UTILITY(U,$J,358.3,9946,1,0)
- ;;=^358.31IA^4^2
- ;;^UTILITY(U,$J,358.3,9946,1,3,0)
- ;;=3^Pannus
- ;;^UTILITY(U,$J,358.3,9946,1,4,0)
- ;;=4^370.62
- ;;^UTILITY(U,$J,358.3,9946,2)
- ;;=^268949
- ;;^UTILITY(U,$J,358.3,9947,0)
- ;;=053.21^^79^673^44
- ;;^UTILITY(U,$J,358.3,9947,1,0)
- ;;=^358.31IA^4^2
- ;;^UTILITY(U,$J,358.3,9947,1,3,0)
- ;;=3^Keratoconjunctivits, H Zoster
- ;;^UTILITY(U,$J,358.3,9947,1,4,0)
- ;;=4^053.21
- ;;^UTILITY(U,$J,358.3,9947,2)
- ;;=Herp Zost Keratoconjunctivitis^266553
- ;;^UTILITY(U,$J,358.3,9948,0)
- ;;=V42.5^^79^673^19
- ;;^UTILITY(U,$J,358.3,9948,1,0)
- ;;=^358.31IA^4^2
- ;;^UTILITY(U,$J,358.3,9948,1,3,0)
- ;;=3^Corneal Transplant
- ;;^UTILITY(U,$J,358.3,9948,1,4,0)
- ;;=4^V42.5
- ;;^UTILITY(U,$J,358.3,9948,2)
- ;;=Corneal Transplant^174117
- ;;^UTILITY(U,$J,358.3,9949,0)
- ;;=996.51^^79^673^62
- ;;^UTILITY(U,$J,358.3,9949,1,0)
- ;;=^358.31IA^4^2
- ;;^UTILITY(U,$J,358.3,9949,1,3,0)
- ;;=3^Reject/Failure, Corneal Transp
- ;;^UTILITY(U,$J,358.3,9949,1,4,0)
- ;;=4^996.51
- ;;^UTILITY(U,$J,358.3,9949,2)
- ;;=Rejection/Failure, Corneal Transplant^276277^V42.5
- ;;^UTILITY(U,$J,358.3,9950,0)
- ;;=918.1^^79^673^1
- ;;^UTILITY(U,$J,358.3,9950,1,0)
- ;;=^358.31IA^4^2
- ;;^UTILITY(U,$J,358.3,9950,1,3,0)
- ;;=3^Abrasion, Cornea
- ;;^UTILITY(U,$J,358.3,9950,1,4,0)
- ;;=4^918.1
- ;;^UTILITY(U,$J,358.3,9950,2)
- ;;=Corneal Abrasion^115829
- ;;^UTILITY(U,$J,358.3,9951,0)
- ;;=370.49^^79^673^43
- ;;^UTILITY(U,$J,358.3,9951,1,0)
- ;;=^358.31IA^4^2
- ;;^UTILITY(U,$J,358.3,9951,1,3,0)
- ;;=3^Keratoconjunctivitis, Other
- ;;^UTILITY(U,$J,358.3,9951,1,4,0)
- ;;=4^370.49
- ;;^UTILITY(U,$J,358.3,9951,2)
- ;;=^87674
- ;;^UTILITY(U,$J,358.3,9952,0)
- ;;=371.41^^79^673^5
- ;;^UTILITY(U,$J,358.3,9952,1,0)
- ;;=^358.31IA^4^2
- ;;^UTILITY(U,$J,358.3,9952,1,3,0)
- ;;=3^Arcus, Corneal
- ;;^UTILITY(U,$J,358.3,9952,1,4,0)
- ;;=4^371.41
- ;;^UTILITY(U,$J,358.3,9952,2)
- ;;=Corneal Arcus^109206
- ;;^UTILITY(U,$J,358.3,9953,0)
- ;;=371.10^^79^673^67
- ;;^UTILITY(U,$J,358.3,9953,1,0)
- ;;=^358.31IA^4^2
- ;;^UTILITY(U,$J,358.3,9953,1,3,0)
- ;;=3^Toxic Keratopathy, Due to med
- ;;^UTILITY(U,$J,358.3,9953,1,4,0)
- ;;=4^371.10
- ;;^UTILITY(U,$J,358.3,9953,2)
- ;;=Toxic Keratopathy, Due to med^276846
- ;;^UTILITY(U,$J,358.3,9954,0)
- ;;=370.60^^79^673^50
- ;;^UTILITY(U,$J,358.3,9954,1,0)
- ;;=^358.31IA^4^2
- ;;^UTILITY(U,$J,358.3,9954,1,3,0)
- ;;=3^Neovascularization, Corneal
- ;;^UTILITY(U,$J,358.3,9954,1,4,0)
- ;;=4^370.60
- ;;^UTILITY(U,$J,358.3,9954,2)
- ;;=Corneal Neovascularization^184274
- ;;^UTILITY(U,$J,358.3,9955,0)
- ;;=371.20^^79^673^22
- ;;^UTILITY(U,$J,358.3,9955,1,0)
- ;;=^358.31IA^4^2
- ;;^UTILITY(U,$J,358.3,9955,1,3,0)
- ;;=3^Edema, Cornea
- ;;^UTILITY(U,$J,358.3,9955,1,4,0)
- ;;=4^371.20
- ;;^UTILITY(U,$J,358.3,9955,2)
- ;;=Edema, Cornea^28394
- ;;^UTILITY(U,$J,358.3,9956,0)
- ;;=371.00^^79^673^51
- ;;^UTILITY(U,$J,358.3,9956,1,0)
- ;;=^358.31IA^4^2
- ;;^UTILITY(U,$J,358.3,9956,1,3,0)
- ;;=3^Opacity, Corneal
- ;;^UTILITY(U,$J,358.3,9956,1,4,0)
- ;;=4^371.00
- ;;^UTILITY(U,$J,358.3,9956,2)
- ;;=Corneal Opacity^28398
- ;;^UTILITY(U,$J,358.3,9957,0)
- ;;=371.43^^79^673^6
- ;;^UTILITY(U,$J,358.3,9957,1,0)
- ;;=^358.31IA^4^2
- ;;^UTILITY(U,$J,358.3,9957,1,3,0)
- ;;=3^Band Keratopathy
- ;;^UTILITY(U,$J,358.3,9957,1,4,0)
- ;;=4^371.43
- ;;^UTILITY(U,$J,358.3,9957,2)
- ;;=Band Keratopathy^268979
- ;;^UTILITY(U,$J,358.3,9958,0)
- ;;=710.2^^79^673^64
- ;;^UTILITY(U,$J,358.3,9958,1,0)
- ;;=^358.31IA^4^2
- ;;^UTILITY(U,$J,358.3,9958,1,3,0)
- ;;=3^Sjogren's Disease
- ;;^UTILITY(U,$J,358.3,9958,1,4,0)
- ;;=4^710.2
- ;;^UTILITY(U,$J,358.3,9958,2)
- ;;=Sjogren's Disease^192145
  ;;^UTILITY(U,$J,358.3,9959,0)
- ;;=374.20^^79^673^47
+ ;;=97533^^67^579^17^^^^1
  ;;^UTILITY(U,$J,358.3,9959,1,0)
- ;;=^358.31IA^4^2
+ ;;=^358.31IA^3^2
+ ;;^UTILITY(U,$J,358.3,9959,1,2,0)
+ ;;=2^97533
  ;;^UTILITY(U,$J,358.3,9959,1,3,0)
- ;;=3^Lagophthalmos
- ;;^UTILITY(U,$J,358.3,9959,1,4,0)
- ;;=4^374.20
- ;;^UTILITY(U,$J,358.3,9959,2)
- ;;=Lagophthalmos^265452
+ ;;=3^Sensory Integrat per 15 min
  ;;^UTILITY(U,$J,358.3,9960,0)
- ;;=372.72^^79^673^28
+ ;;=97535^^67^579^1^^^^1
  ;;^UTILITY(U,$J,358.3,9960,1,0)
- ;;=^358.31IA^4^2
+ ;;=^358.31IA^3^2
+ ;;^UTILITY(U,$J,358.3,9960,1,2,0)
+ ;;=2^97535
  ;;^UTILITY(U,$J,358.3,9960,1,3,0)
- ;;=3^Hemorrhage, Conjunctival
- ;;^UTILITY(U,$J,358.3,9960,1,4,0)
- ;;=4^372.72
- ;;^UTILITY(U,$J,358.3,9960,2)
- ;;=Hemorrhage, Conjunctival^27538
+ ;;=3^ADL Train per 15 min
  ;;^UTILITY(U,$J,358.3,9961,0)
- ;;=372.00^^79^673^13
+ ;;=H0004^^67^579^19^^^^1
  ;;^UTILITY(U,$J,358.3,9961,1,0)
- ;;=^358.31IA^4^2
+ ;;=^358.31IA^3^2
+ ;;^UTILITY(U,$J,358.3,9961,1,2,0)
+ ;;=2^H0004
  ;;^UTILITY(U,$J,358.3,9961,1,3,0)
- ;;=3^Conjunctivitis, Acute
- ;;^UTILITY(U,$J,358.3,9961,1,4,0)
- ;;=4^372.00
- ;;^UTILITY(U,$J,358.3,9961,2)
- ;;=Conjunctivitis, Acute^269000
+ ;;=3^Subs Abuse Ind Counseling,per 15 min
  ;;^UTILITY(U,$J,358.3,9962,0)
- ;;=372.05^^79^673^14
+ ;;=H0046^^67^579^11^^^^1
  ;;^UTILITY(U,$J,358.3,9962,1,0)
- ;;=^358.31IA^4^2
+ ;;=^358.31IA^3^2
+ ;;^UTILITY(U,$J,358.3,9962,1,2,0)
+ ;;=2^H0046
  ;;^UTILITY(U,$J,358.3,9962,1,3,0)
- ;;=3^Conjunctivitis, Atopic Acute
- ;;^UTILITY(U,$J,358.3,9962,1,4,0)
- ;;=4^372.05
- ;;^UTILITY(U,$J,358.3,9962,2)
- ;;=Conjuntivitis, Atopic, Acute^2605
+ ;;=3^PTSD Group
  ;;^UTILITY(U,$J,358.3,9963,0)
- ;;=372.14^^79^673^18
+ ;;=96119^^67^579^8^^^^1
  ;;^UTILITY(U,$J,358.3,9963,1,0)
- ;;=^358.31IA^4^2
+ ;;=^358.31IA^3^2
+ ;;^UTILITY(U,$J,358.3,9963,1,2,0)
+ ;;=2^96119
  ;;^UTILITY(U,$J,358.3,9963,1,3,0)
- ;;=3^Conjuntivitis, Allergic, Chronic
- ;;^UTILITY(U,$J,358.3,9963,1,4,0)
- ;;=4^372.14
- ;;^UTILITY(U,$J,358.3,9963,2)
- ;;=Conjunctivitis, Allergic, Chr^87396
+ ;;=3^Neuropsych Test by tech,per hr
  ;;^UTILITY(U,$J,358.3,9964,0)
- ;;=372.03^^79^673^12
+ ;;=96102^^67^579^14^^^^1
  ;;^UTILITY(U,$J,358.3,9964,1,0)
- ;;=^358.31IA^4^2
+ ;;=^358.31IA^3^2
+ ;;^UTILITY(U,$J,358.3,9964,1,2,0)
+ ;;=2^96102
  ;;^UTILITY(U,$J,358.3,9964,1,3,0)
- ;;=3^Conjuncitivitis, Mucopurulent
- ;;^UTILITY(U,$J,358.3,9964,1,4,0)
- ;;=4^372.03
- ;;^UTILITY(U,$J,358.3,9964,2)
- ;;=Conjuncitivitis, Mucopurulent^87718
+ ;;=3^Psych Test by Tech,per hr
  ;;^UTILITY(U,$J,358.3,9965,0)
- ;;=372.10^^79^673^15
+ ;;=96103^^67^579^15^^^^1
  ;;^UTILITY(U,$J,358.3,9965,1,0)
- ;;=^358.31IA^4^2
+ ;;=^358.31IA^3^2
+ ;;^UTILITY(U,$J,358.3,9965,1,2,0)
+ ;;=2^96103
  ;;^UTILITY(U,$J,358.3,9965,1,3,0)
- ;;=3^Conjunctivitis, Chronic
- ;;^UTILITY(U,$J,358.3,9965,1,4,0)
- ;;=4^372.10
- ;;^UTILITY(U,$J,358.3,9965,2)
- ;;=Conjunctivitis, Chronic^269008
+ ;;=3^Psych Test by computer
  ;;^UTILITY(U,$J,358.3,9966,0)
- ;;=077.8^^79^673^16
+ ;;=96120^^67^579^9^^^^1
  ;;^UTILITY(U,$J,358.3,9966,1,0)
- ;;=^358.31IA^4^2
+ ;;=^358.31IA^3^2
+ ;;^UTILITY(U,$J,358.3,9966,1,2,0)
+ ;;=2^96120
  ;;^UTILITY(U,$J,358.3,9966,1,3,0)
- ;;=3^Conjunctivitis, Viral
- ;;^UTILITY(U,$J,358.3,9966,1,4,0)
- ;;=4^077.8
- ;;^UTILITY(U,$J,358.3,9966,2)
- ;;=Conjunctivitis, Viral^88239
+ ;;=3^Neuropsych Tst Admin w/Comp
  ;;^UTILITY(U,$J,358.3,9967,0)
- ;;=372.54^^79^673^11
+ ;;=96125^^67^579^18^^^^1
  ;;^UTILITY(U,$J,358.3,9967,1,0)
- ;;=^358.31IA^4^2
+ ;;=^358.31IA^3^2
+ ;;^UTILITY(U,$J,358.3,9967,1,2,0)
+ ;;=2^96125
  ;;^UTILITY(U,$J,358.3,9967,1,3,0)
- ;;=3^Concretions, Conjunctival
- ;;^UTILITY(U,$J,358.3,9967,1,4,0)
- ;;=4^372.54
- ;;^UTILITY(U,$J,358.3,9967,2)
- ;;=...Concretions, Conjunctival^269038
+ ;;=3^Stan Cog Perf Tst, per hr
  ;;^UTILITY(U,$J,358.3,9968,0)
- ;;=930.9^^79^673^26
+ ;;=Q3014^^67^579^20^^^^1
  ;;^UTILITY(U,$J,358.3,9968,1,0)
- ;;=^358.31IA^4^2
+ ;;=^358.31IA^3^2
+ ;;^UTILITY(U,$J,358.3,9968,1,2,0)
+ ;;=2^Q3014
  ;;^UTILITY(U,$J,358.3,9968,1,3,0)
- ;;=3^Foreign Body, External Eye
- ;;^UTILITY(U,$J,358.3,9968,1,4,0)
- ;;=4^930.9
- ;;^UTILITY(U,$J,358.3,9968,2)
- ;;=Foreign Body, External Eye^275489
+ ;;=3^Telehealth Facility Fee
  ;;^UTILITY(U,$J,358.3,9969,0)
- ;;=372.51^^79^673^57
+ ;;=90887^^67^579^4^^^^1
  ;;^UTILITY(U,$J,358.3,9969,1,0)
- ;;=^358.31IA^4^2
+ ;;=^358.31IA^3^2
+ ;;^UTILITY(U,$J,358.3,9969,1,2,0)
+ ;;=2^90887
  ;;^UTILITY(U,$J,358.3,9969,1,3,0)
- ;;=3^Pinguecula
- ;;^UTILITY(U,$J,358.3,9969,1,4,0)
- ;;=4^372.51
- ;;^UTILITY(U,$J,358.3,9969,2)
- ;;=Pinguecula^265525
+ ;;=3^Consultation w/Family
  ;;^UTILITY(U,$J,358.3,9970,0)
- ;;=379.00^^79^673^23
+ ;;=90885^^67^579^13^^^^1
  ;;^UTILITY(U,$J,358.3,9970,1,0)
- ;;=^358.31IA^4^2
+ ;;=^358.31IA^3^2
+ ;;^UTILITY(U,$J,358.3,9970,1,2,0)
+ ;;=2^90885
  ;;^UTILITY(U,$J,358.3,9970,1,3,0)
- ;;=3^Episcleritis
- ;;^UTILITY(U,$J,358.3,9970,1,4,0)
- ;;=4^379.00
- ;;^UTILITY(U,$J,358.3,9970,2)
- ;;=...^108564
+ ;;=3^Psych Eval of Records
  ;;^UTILITY(U,$J,358.3,9971,0)
- ;;=372.20^^79^673^9
+ ;;=90889^^67^579^12^^^^1
  ;;^UTILITY(U,$J,358.3,9971,1,0)
- ;;=^358.31IA^4^2
+ ;;=^358.31IA^3^2
+ ;;^UTILITY(U,$J,358.3,9971,1,2,0)
+ ;;=2^90889
  ;;^UTILITY(U,$J,358.3,9971,1,3,0)
- ;;=3^Blepharoconjunctivitis
- ;;^UTILITY(U,$J,358.3,9971,1,4,0)
- ;;=4^372.20
- ;;^UTILITY(U,$J,358.3,9971,2)
- ;;=Blepharoconjunctivitis^15277
+ ;;=3^Preparation of Report
  ;;^UTILITY(U,$J,358.3,9972,0)
- ;;=372.40^^79^673^59
+ ;;=96118^^67^579^10^^^^1
  ;;^UTILITY(U,$J,358.3,9972,1,0)
- ;;=^358.31IA^4^2
+ ;;=^358.31IA^3^2
+ ;;^UTILITY(U,$J,358.3,9972,1,2,0)
+ ;;=2^96118
  ;;^UTILITY(U,$J,358.3,9972,1,3,0)
- ;;=3^Pterygium
- ;;^UTILITY(U,$J,358.3,9972,1,4,0)
- ;;=4^372.40
- ;;^UTILITY(U,$J,358.3,9972,2)
- ;;=Pterygium^100819
+ ;;=3^Neuropsych Tst/Hr of Psychologist/MD Time
  ;;^UTILITY(U,$J,358.3,9973,0)
- ;;=694.4^^79^673^56
+ ;;=97150^^67^579^5^^^^1
  ;;^UTILITY(U,$J,358.3,9973,1,0)
- ;;=^358.31IA^4^2
+ ;;=^358.31IA^3^2
+ ;;^UTILITY(U,$J,358.3,9973,1,2,0)
+ ;;=2^97150
  ;;^UTILITY(U,$J,358.3,9973,1,3,0)
- ;;=3^Pemphigus
- ;;^UTILITY(U,$J,358.3,9973,1,4,0)
- ;;=4^694.4
- ;;^UTILITY(U,$J,358.3,9973,2)
- ;;=Pemphigus^91124
+ ;;=3^Group Therapeutic Procedures
  ;;^UTILITY(U,$J,358.3,9974,0)
- ;;=224.3^^79^673^8
+ ;;=97530^^67^579^21^^^^1
  ;;^UTILITY(U,$J,358.3,9974,1,0)
- ;;=^358.31IA^4^2
+ ;;=^358.31IA^3^2
+ ;;^UTILITY(U,$J,358.3,9974,1,2,0)
+ ;;=2^97530
  ;;^UTILITY(U,$J,358.3,9974,1,3,0)
- ;;=3^Benign Neoplasm Conjunctiva
- ;;^UTILITY(U,$J,358.3,9974,1,4,0)
- ;;=4^224.3
- ;;^UTILITY(U,$J,358.3,9974,2)
- ;;=Benign Neoplasm Conjunctiva^267673
+ ;;=3^Therapeutic Activ,Dir Prov Contact,ea 15 min
  ;;^UTILITY(U,$J,358.3,9975,0)
- ;;=370.40^^79^673^41
+ ;;=G0177^^67^579^22^^^^1
  ;;^UTILITY(U,$J,358.3,9975,1,0)
- ;;=^358.31IA^4^2
+ ;;=^358.31IA^3^2
+ ;;^UTILITY(U,$J,358.3,9975,1,2,0)
+ ;;=2^G0177
  ;;^UTILITY(U,$J,358.3,9975,1,3,0)
- ;;=3^Keratoconjunctivitis
- ;;^UTILITY(U,$J,358.3,9975,1,4,0)
- ;;=4^370.40
- ;;^UTILITY(U,$J,358.3,9975,2)
- ;;=^66777
+ ;;=3^Train/Ed for Disability > 44 Min
  ;;^UTILITY(U,$J,358.3,9976,0)
- ;;=694.5^^79^673^55
+ ;;=H0038^^67^579^16^^^^1
  ;;^UTILITY(U,$J,358.3,9976,1,0)
- ;;=^358.31IA^4^2
+ ;;=^358.31IA^3^2
+ ;;^UTILITY(U,$J,358.3,9976,1,2,0)
+ ;;=2^H0038
  ;;^UTILITY(U,$J,358.3,9976,1,3,0)
- ;;=3^Pemphigoid
- ;;^UTILITY(U,$J,358.3,9976,1,4,0)
- ;;=4^694.5
- ;;^UTILITY(U,$J,358.3,9976,2)
- ;;=Pemphigoid^91108
+ ;;=3^Self-Help/Peer Svc per 15 Min
  ;;^UTILITY(U,$J,358.3,9977,0)
- ;;=364.10^^79^673^32
+ ;;=90899^^67^579^6^^^^1
  ;;^UTILITY(U,$J,358.3,9977,1,0)
- ;;=^358.31IA^4^2
+ ;;=^358.31IA^3^2
+ ;;^UTILITY(U,$J,358.3,9977,1,2,0)
+ ;;=2^90899
  ;;^UTILITY(U,$J,358.3,9977,1,3,0)
- ;;=3^Iridocyclitis, Chronic
- ;;^UTILITY(U,$J,358.3,9977,1,4,0)
- ;;=4^364.10
- ;;^UTILITY(U,$J,358.3,9977,2)
- ;;=Iridocyclitis, Chronic^24398
+ ;;=3^NOS Psych Service
  ;;^UTILITY(U,$J,358.3,9978,0)
- ;;=054.44^^79^673^33
+ ;;=96116^^67^579^7^^^^1
  ;;^UTILITY(U,$J,358.3,9978,1,0)
- ;;=^358.31IA^4^2
+ ;;=^358.31IA^3^2
+ ;;^UTILITY(U,$J,358.3,9978,1,2,0)
+ ;;=2^96116
  ;;^UTILITY(U,$J,358.3,9978,1,3,0)
- ;;=3^Iridocyclitis, H Simplex
- ;;^UTILITY(U,$J,358.3,9978,1,4,0)
- ;;=4^054.44
- ;;^UTILITY(U,$J,358.3,9978,2)
- ;;=Iridocyclitis, H Simplex^266565
+ ;;=3^Neurobehavioral Status Exam
  ;;^UTILITY(U,$J,358.3,9979,0)
- ;;=053.22^^79^673^34
+ ;;=96150^^67^580^1^^^^1
  ;;^UTILITY(U,$J,358.3,9979,1,0)
- ;;=^358.31IA^4^2
+ ;;=^358.31IA^3^2
+ ;;^UTILITY(U,$J,358.3,9979,1,2,0)
+ ;;=2^96150
  ;;^UTILITY(U,$J,358.3,9979,1,3,0)
- ;;=3^Iridocyclitis, H Zoster
- ;;^UTILITY(U,$J,358.3,9979,1,4,0)
- ;;=4^053.22
- ;;^UTILITY(U,$J,358.3,9979,2)
- ;;=Iridocyclitis, H Zoster^266554
+ ;;=3^Behavior Assess,Initial,ea 15min
  ;;^UTILITY(U,$J,358.3,9980,0)
- ;;=364.42^^79^673^63
+ ;;=96151^^67^580^2^^^^1
  ;;^UTILITY(U,$J,358.3,9980,1,0)
- ;;=^358.31IA^4^2
+ ;;=^358.31IA^3^2
+ ;;^UTILITY(U,$J,358.3,9980,1,2,0)
+ ;;=2^96151
+ ;;^UTILITY(U,$J,358.3,9980,1,3,0)
+ ;;=3^Behavior Reassessment,ea 15min
+ ;;^UTILITY(U,$J,358.3,9981,0)
+ ;;=96152^^67^580^3^^^^1
+ ;;^UTILITY(U,$J,358.3,9981,1,0)
+ ;;=^358.31IA^3^2
+ ;;^UTILITY(U,$J,358.3,9981,1,2,0)
+ ;;=2^96152
+ ;;^UTILITY(U,$J,358.3,9981,1,3,0)
+ ;;=3^Behavior Intervention,Ind,ea 15min
+ ;;^UTILITY(U,$J,358.3,9982,0)
+ ;;=96153^^67^580^4^^^^1
+ ;;^UTILITY(U,$J,358.3,9982,1,0)
+ ;;=^358.31IA^3^2
+ ;;^UTILITY(U,$J,358.3,9982,1,2,0)
+ ;;=2^96153
+ ;;^UTILITY(U,$J,358.3,9982,1,3,0)
+ ;;=3^Behavior Intervention,Grp,ea 15min
+ ;;^UTILITY(U,$J,358.3,9983,0)
+ ;;=96154^^67^580^5^^^^1
+ ;;^UTILITY(U,$J,358.3,9983,1,0)
+ ;;=^358.31IA^3^2
+ ;;^UTILITY(U,$J,358.3,9983,1,2,0)
+ ;;=2^96154
+ ;;^UTILITY(U,$J,358.3,9983,1,3,0)
+ ;;=3^Behav Intervent,Fam w/Pt,ea 15min
+ ;;^UTILITY(U,$J,358.3,9984,0)
+ ;;=96155^^67^580^6^^^^1
+ ;;^UTILITY(U,$J,358.3,9984,1,0)
+ ;;=^358.31IA^3^2
+ ;;^UTILITY(U,$J,358.3,9984,1,2,0)
+ ;;=2^96155
+ ;;^UTILITY(U,$J,358.3,9984,1,3,0)
+ ;;=3^Behav Intervent,Fam w/o Pt,ea 15min
+ ;;^UTILITY(U,$J,358.3,9985,0)
+ ;;=99367^^67^581^1^^^^1
+ ;;^UTILITY(U,$J,358.3,9985,1,0)
+ ;;=^358.31IA^3^2
+ ;;^UTILITY(U,$J,358.3,9985,1,2,0)
+ ;;=2^99367
+ ;;^UTILITY(U,$J,358.3,9985,1,3,0)
+ ;;=3^Team Conf w/o Pt By Phys>29min
+ ;;^UTILITY(U,$J,358.3,9986,0)
+ ;;=99368^^67^581^2^^^^1
+ ;;^UTILITY(U,$J,358.3,9986,1,0)
+ ;;=^358.31IA^3^2
+ ;;^UTILITY(U,$J,358.3,9986,1,2,0)
+ ;;=2^99368
+ ;;^UTILITY(U,$J,358.3,9986,1,3,0)
+ ;;=3^Team Conf w/o Pt by HC Pro>29min
+ ;;^UTILITY(U,$J,358.3,9987,0)
+ ;;=90785^^67^582^1^^^^1
+ ;;^UTILITY(U,$J,358.3,9987,1,0)
+ ;;=^358.31IA^3^2
+ ;;^UTILITY(U,$J,358.3,9987,1,2,0)
+ ;;=2^90785
+ ;;^UTILITY(U,$J,358.3,9987,1,3,0)
+ ;;=3^Interactive Complexity,Add-On
+ ;;^UTILITY(U,$J,358.3,9988,0)
+ ;;=H0001^^67^583^1^^^^1
+ ;;^UTILITY(U,$J,358.3,9988,1,0)
+ ;;=^358.31IA^3^2
+ ;;^UTILITY(U,$J,358.3,9988,1,2,0)
+ ;;=2^H0001
+ ;;^UTILITY(U,$J,358.3,9988,1,3,0)
+ ;;=3^Addictions Assessment
+ ;;^UTILITY(U,$J,358.3,9989,0)
+ ;;=H0002^^67^583^10^^^^1
+ ;;^UTILITY(U,$J,358.3,9989,1,0)
+ ;;=^358.31IA^3^2
+ ;;^UTILITY(U,$J,358.3,9989,1,2,0)
+ ;;=2^H0002
+ ;;^UTILITY(U,$J,358.3,9989,1,3,0)
+ ;;=3^Screen for Addictions Admit
+ ;;^UTILITY(U,$J,358.3,9990,0)
+ ;;=H0003^^67^583^6^^^^1
+ ;;^UTILITY(U,$J,358.3,9990,1,0)
+ ;;=^358.31IA^3^2
+ ;;^UTILITY(U,$J,358.3,9990,1,2,0)
+ ;;=2^H0003
+ ;;^UTILITY(U,$J,358.3,9990,1,3,0)
+ ;;=3^Alcohol/Drug Scrn;lab analysis
+ ;;^UTILITY(U,$J,358.3,9991,0)
+ ;;=H0004^^67^583^7^^^^1
+ ;;^UTILITY(U,$J,358.3,9991,1,0)
+ ;;=^358.31IA^3^2
+ ;;^UTILITY(U,$J,358.3,9991,1,2,0)
+ ;;=2^H0004
+ ;;^UTILITY(U,$J,358.3,9991,1,3,0)
+ ;;=3^Individual Counseling per 15 min
+ ;;^UTILITY(U,$J,358.3,9992,0)
+ ;;=H0005^^67^583^3^^^^1
+ ;;^UTILITY(U,$J,358.3,9992,1,0)
+ ;;=^358.31IA^3^2
+ ;;^UTILITY(U,$J,358.3,9992,1,2,0)
+ ;;=2^H0005
+ ;;^UTILITY(U,$J,358.3,9992,1,3,0)
+ ;;=3^Addictions Group
+ ;;^UTILITY(U,$J,358.3,9993,0)
+ ;;=H0006^^67^583^5^^^^1
+ ;;^UTILITY(U,$J,358.3,9993,1,0)
+ ;;=^358.31IA^3^2
+ ;;^UTILITY(U,$J,358.3,9993,1,2,0)
+ ;;=2^H0006
+ ;;^UTILITY(U,$J,358.3,9993,1,3,0)
+ ;;=3^Alcohol/Drug Case Management
+ ;;^UTILITY(U,$J,358.3,9994,0)
+ ;;=H0020^^67^583^8^^^^1
+ ;;^UTILITY(U,$J,358.3,9994,1,0)
+ ;;=^358.31IA^3^2
+ ;;^UTILITY(U,$J,358.3,9994,1,2,0)
+ ;;=2^H0020
+ ;;^UTILITY(U,$J,358.3,9994,1,3,0)
+ ;;=3^Methadone Administration
+ ;;^UTILITY(U,$J,358.3,9995,0)
+ ;;=H0025^^67^583^2^^^^1
+ ;;^UTILITY(U,$J,358.3,9995,1,0)
+ ;;=^358.31IA^3^2
+ ;;^UTILITY(U,$J,358.3,9995,1,2,0)
+ ;;=2^H0025
+ ;;^UTILITY(U,$J,358.3,9995,1,3,0)
+ ;;=3^Addictions Education Service
+ ;;^UTILITY(U,$J,358.3,9996,0)
+ ;;=H0030^^67^583^4^^^^1
+ ;;^UTILITY(U,$J,358.3,9996,1,0)
+ ;;=^358.31IA^3^2
+ ;;^UTILITY(U,$J,358.3,9996,1,2,0)
+ ;;=2^H0030
+ ;;^UTILITY(U,$J,358.3,9996,1,3,0)
+ ;;=3^Addictions Hotline Services
+ ;;^UTILITY(U,$J,358.3,9997,0)
+ ;;=H0046^^67^583^9^^^^1
+ ;;^UTILITY(U,$J,358.3,9997,1,0)
+ ;;=^358.31IA^3^2
+ ;;^UTILITY(U,$J,358.3,9997,1,2,0)
+ ;;=2^H0046
+ ;;^UTILITY(U,$J,358.3,9997,1,3,0)
+ ;;=3^PTSD Group
+ ;;^UTILITY(U,$J,358.3,9998,0)
+ ;;=90791^^67^584^1^^^^1
+ ;;^UTILITY(U,$J,358.3,9998,1,0)
+ ;;=^358.31IA^3^2
+ ;;^UTILITY(U,$J,358.3,9998,1,2,0)
+ ;;=2^90791
+ ;;^UTILITY(U,$J,358.3,9998,1,3,0)
+ ;;=3^Psychiatric Diagnostic Evaluation
+ ;;^UTILITY(U,$J,358.3,9999,0)
+ ;;=90792^^67^584^2^^^^1
+ ;;^UTILITY(U,$J,358.3,9999,1,0)
+ ;;=^358.31IA^3^2
+ ;;^UTILITY(U,$J,358.3,9999,1,2,0)
+ ;;=2^90792
+ ;;^UTILITY(U,$J,358.3,9999,1,3,0)
+ ;;=3^Psych Diag Eval w/ Med Svcs
+ ;;^UTILITY(U,$J,358.3,10000,0)
+ ;;=284.9^^68^585^6
+ ;;^UTILITY(U,$J,358.3,10000,1,0)
+ ;;=^358.31IA^8^2
+ ;;^UTILITY(U,$J,358.3,10000,1,1,0)
+ ;;=1^284.9
+ ;;^UTILITY(U,$J,358.3,10000,1,8,0)
+ ;;=8^Aplastic Anemia,unspec
+ ;;^UTILITY(U,$J,358.3,10000,2)
+ ;;=^7020
+ ;;^UTILITY(U,$J,358.3,10001,0)
+ ;;=282.9^^68^585^12
+ ;;^UTILITY(U,$J,358.3,10001,1,0)
+ ;;=^358.31IA^8^2
+ ;;^UTILITY(U,$J,358.3,10001,1,1,0)
+ ;;=1^282.9
+ ;;^UTILITY(U,$J,358.3,10001,1,8,0)
+ ;;=8^Hemolytic Anemia,Hered
+ ;;^UTILITY(U,$J,358.3,10001,2)
+ ;;=^56578
+ ;;^UTILITY(U,$J,358.3,10002,0)
+ ;;=283.9^^68^585^10
+ ;;^UTILITY(U,$J,358.3,10002,1,0)
+ ;;=^358.31IA^8^2

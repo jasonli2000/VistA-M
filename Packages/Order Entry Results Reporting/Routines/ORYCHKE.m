@@ -1,5 +1,5 @@
-ORYCHKE ;SLC/DAN Environmental check for installations ;8/10/008  13:18
- ;;3.0;ORDER ENTRY/RESULTS REPORTING;**296**;Dec 17, 1997;Build 19
+ORYCHKE ;SLC/DAN Environmental check for installations ;08/30/11  14:28
+ ;;3.0;ORDER ENTRY/RESULTS REPORTING;**280,306**;Dec 17, 1997;Build 43
  ;This routine will check to see if the user is in a production account
  ;if they are then the user will not be allowed to install this
  ;patch/build/bundle

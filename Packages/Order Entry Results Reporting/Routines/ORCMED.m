@@ -1,5 +1,5 @@
-ORCMED ;SLC/MKB-Medication actions ;03/19/07
- ;;3.0;ORDER ENTRY/RESULTS REPORTING;**4,7,38,48,94,141,178,190,195,243**;Dec 17, 1997;Build 242
+ORCMED ;SLC/MKB-Medication actions ;09/17/13  12:31
+ ;;3.0;ORDER ENTRY/RESULTS REPORTING;**4,7,38,48,94,141,178,190,195,243,306,371,380**;Dec 17, 1997;Build 2
 XFER ; -- transfer to in/outpt meds
  N ORPTLK,ORTYPE,ORXFER,ORSRC,ORCAT,OREVENT,X,ORINPT,ORIDLG,ORODLG,ORIVDLG,ORNMSP,ORCNT,ORI,NMBR,ORIFN,OLDIFN,ORDIALOG,ORDG,ORCHECK,ORQUIT,ORDUZ,ORLOG,FIRST,ORDITM,ORD,ORERR
  S ORPTLK=$$LOCK^ORX2(+ORVP) I 'ORPTLK D  G XFQ ; lock pt chart
@@ -49,11 +49,27 @@ XFQ D EXIT^ORCDPS1 ;X:$D(^ORD(101.41,ORDIALOG,4)) ^(4)
  Q
  ;
 IN ; -- Kill extra values, Reset ID's/DD from Inpt dialog
+ N ORD1,ORDLI,ORDFIN,ORDCNT,ORDORIG,ORDORIGF
  N P F P="START DATE/TIME","NOW" K ORDIALOG($$PTR(P),1)
+ S ORD1=$P($G(ORDIALOG($$PTR("DOSE"),1)),"&",5)
+ S ORDORIG=ORDIALOG($$PTR("INSTRUCTIONS"),1)
  D DOSES("O")
+ Q:'$L(ORD1)
+ S ORDFIN="",ORDCNT=0,ORDORIGF=0
+ ;look in the new instructions list for the original inpatient instructions and the dose
+ S ORDLI=0 F  S ORDLI=$O(ORDIALOG($$PTR("INSTRUCTIONS"),"LIST",ORDLI)) Q:'ORDLI  D
+ .I $P(ORDIALOG($$PTR("INSTRUCTIONS"),"LIST",ORDLI),U)=ORDORIG S ORDORIGF=1
+ ;If original instructions was not in the new instructions list then replace the instructions
+ I ORDORIGF=0 D
+ .I ORDCNT=1 S ORDIALOG($$PTR("INSTRUCTIONS"),1)=ORDFIN ;only one item in the list found containing the dose string - set the instructions to the item found
+ .I ORDCNT=0 S ORDIALOG($$PTR("INSTRUCTIONS"),1)="" ;no items in the list found containing the dose string - blank the instructions
+ .I ORDCNT>1 S ORDIALOG($$PTR("INSTRUCTIONS"),1)="" ;more than one item in the list found containing the dose string - blank the instructions
  Q
  ;
 OUT ; -- Kill extra values, Reset ID's/DD from Outpt dialog
+ N ORD1,ORDLI,ORDFIN,ORDCNT,ORDORIG,ORDORIGF
+ S ORD1=$P($G(ORDIALOG($$PTR("DOSE"),1)),"&",5)
+ S ORDORIG=ORDIALOG($$PTR("INSTRUCTIONS"),1)
  N P I '$O(ORDIALOG($$PTR("INSTRUCTIONS"),0)) D  ;old sig in comments
  . N WP S WP=$$PTR("WORD PROCESSING 1") K ^TMP("ORSIG",$J)
  . M ^TMP("ORSIG",$J)=^TMP("ORWORD",$J,WP,1)
@@ -61,6 +77,16 @@ OUT ; -- Kill extra values, Reset ID's/DD from Outpt dialog
  F P="PATIENT INSTRUCTIONS","START DATE/TIME","DAYS SUPPLY","QUANTITY","REFILLS","ROUTING","SERVICE CONNECTED" K ORDIALOG($$PTR(P),1)
  I $G(ORDIALOG($$PTR("URGENCY"),1))=99 K ORDIALOG($$PTR("URGENCY"),1)
  D DOSES("I")
+ Q:'$L(ORD1)
+ S ORDFIN="",ORDCNT=0,ORDORIGF=0
+ ;look in the new instructions list for the original inpatient instructions and the dose
+ S ORDLI=0 F  S ORDLI=$O(ORDIALOG($$PTR("INSTRUCTIONS"),"LIST",ORDLI)) Q:'ORDLI  D
+ .I $P(ORDIALOG($$PTR("INSTRUCTIONS"),"LIST",ORDLI),U)=ORDORIG S ORDORIGF=1
+ ;If original instructions was not in the new instructions list then replace the instructions
+ I ORDORIGF=0 D
+ .I ORDCNT=1 S ORDIALOG($$PTR("INSTRUCTIONS"),1)=ORDFIN ;only one item in the list found containing the dose string - set the instructions to the item found
+ .I ORDCNT=0 S ORDIALOG($$PTR("INSTRUCTIONS"),1)="" ;no items in the list found containing the dose string - blank the instructions
+ .I ORDCNT>1 S ORDIALOG($$PTR("INSTRUCTIONS"),1)="" ;more than one item in the list found containing the dose string - blank the instructions
  Q
  ;
 DOSES(TYPE)     ; -- Convert doses to new TYPE, reset ID strings

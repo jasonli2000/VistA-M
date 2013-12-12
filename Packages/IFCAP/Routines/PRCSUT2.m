@@ -1,5 +1,5 @@
 PRCSUT2 ;WISC/SAW/CTB/DXH - TRANSACTION UTILITY ; 9/15/2010
-V ;;5.1;IFCAP;**13,135,148**;Oct 20, 2000;Build 5
+V ;;5.1;IFCAP;**13,135,148,150**;Oct 20, 2000;Build 24
  ;;Per VHA Directive 2004-038, this routine should not be modified.
  ; assigns a permanent transaction number to an existing transaction
  ; if the existing transaction is temporary, it is converted to 
@@ -68,7 +68,9 @@ CK1 ; set new txn name into old (original) ien
  K ^PRCS(410,"K",+T3,ODA) S $P(^PRCS(410,ODA,6),"^",4)=""
  S PRC("OCP")=$P(^PRCS(410,ODA,3),U)
  ; if old txn name is non-numeric (temp txn), force new site & CP into record at old ien
- I '+T2 S DA=ODA,DIE="^PRCS(410,",DR=".5///"_PRC("SITE")_";S X=X;15///"_PRC("CP") D ^DIE G EN
+ ;PRC*5.1*150 add x-ref kill for old txn non-numeric name
+ I '+T2 S DA=ODA,DIE="^PRCS(410,",DR=".5///"_PRC("SITE")_";S X=X;15///"_PRC("CP") D ^DIE D  G EN
+ . K ^PRCS(410,"B",T2,ODA)
  ; else: cancel txn at old ien; force old site & CP info into new ien
  ;(Shortened comment and added cancel flag with patch 182
  S DIE="^PRCS(410,",DR=".5///"_+T2_";S X=X;15///"_T3

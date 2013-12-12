@@ -1,8 +1,10 @@
 PSBOML ;BIRMINGHAM/EFC-MEDICATION LOG ;Mar 2004
- ;;3.0;BAR CODE MED ADMIN;**3,11,50**;Mar 2004;Build 78
+ ;;3.0;BAR CODE MED ADMIN;**3,11,50,54**;Mar 2004;Build 40
+ ;Per VHA Directive 2004-038 (or future revisions regarding same), this routine should not be modified.
  ;
  ; Reference/IA
  ; ^DPT/10035
+ ; SENDMSG^XMXAPI/2729
  ;
  ;
 EN ; Begin printing
@@ -56,14 +58,26 @@ LINE(PSBIEN) ; Displays the med log entry in PSBIEN
  I 'PSBAUDF,$P(^PSB(53.79,PSBIEN,0),U,9)="N" Q ""
  D CLEAN^PSBVT
  D PSJ1^PSBVT(DFN,X)
+ I $G(PSBSCRT)="-1" D  ;send email to BCMA UKNOWN ACTIONS group if order given in BCMA does not have a corresponding # 55 file entry
+ .N XMDUZ,XMSUB,XMTEXT,XMY,PSBERR,PSBPARAM,PSBMG
+ .S XMSUB="Order given in BCMA does not exist in Pharmacy Patient file"
+ .S XMDUZ=DUZ
+ .S XMTEXT="PSBERR"
+ .S PSBMG=$$GET^XPAR("DIV","PSB MG ADMIN ERROR",,"E"),PSBMG="G."_PSBMG
+ .S XMY(PSBMG)=""
+ .S PSBERR(1)="Order #"_$G(PSBIEN)_" given in BCMA no longer has"
+ .S PSBERR(2)="a corresponding entry in the Pharmacy Patient (#55) file."
+ .S PSBERR(3)="Please submit a remedy ticket for this issue."
+ .D SENDMSG^XMXAPI(XMDUZ,XMSUB,XMTEXT,.XMY)
+ .Q
  I PSBDFN="-1" W !,"Error: Inpatient Meds API Failure!" Q ""
  M PSBX=^PSB(53.79,PSBIEN)
  S Y=$P(PSBX(0),U,4)+.0000001
  W !,$E(Y,4,5),"/",$E(Y,6,7),"/",$E(Y,2,3)
  W " ",$E(Y,9,10),":",$E(Y,11,12)
  S Y=$$GET1^DIQ(53.79,PSBIEN_",",.08)
- S Y=Y_" ["_PSBDOSE_PSBIFR_" "_PSBSCH
- S Y=Y_" "_PSBMRAB
+ S Y=Y_" ["_$G(PSBDOSE)_$G(PSBIFR)_" "_$G(PSBSCH)
+ S Y=Y_" "_$G(PSBMRAB)
  S:$P($G(^PSB(53.79,PSBIEN,.1)),U,6)]"" Y=Y_" Inj Site: "_$P(^(.1),U,6)
  S Y=Y_"]"
  W $$WRAP^PSBO(16,32,Y)
@@ -72,11 +86,11 @@ LINE(PSBIEN) ; Displays the med log entry in PSBIEN
  S PSBASTUS=$S(X="G":"Given",X="H":"Held",X="R":"Refused",X="I":"Infusing",X="C":"Completed",X="S":"Stopped",X="N":"Not Given",X="RM":"Removed",X="M":"Missing dose",1:"Status Unknown")
  S Y=$P(PSBX(0),U,6)+.0000001
  S Y=$E(Y,4,5)_"/"_$E(Y,6,7)_"/"_$E(Y,2,3)_" "_$E(Y,9,10)_":"_$E(Y,11,12)
- S Y=Y_" "_PSBASTUS
+ S Y=Y_" "_$G(PSBASTUS)
  W $$WRAP^PSBO(57,15,Y)
  W:$P(PSBX(.1),U)["V" ?75,"Bag ID #",$$GET1^DIQ(53.79,PSBIEN,"IV UNIQUE ID")
  W:$P(PSBX(.1),U)["V" ?107,"NA",?115,"NA",?120,"NA"
- W !,$TR($$FMTE^XLFDT(PSBOST,2),"@"," ")_">"
+ W !,$TR($$FMTE^XLFDT($G(PSBOST),2),"@"," ")_">"
  F PSBZ=.5,.6,.7 S PSBDHIT=0 F PSBY=0:0 S PSBY=$O(PSBX(PSBZ,PSBY)) Q:'PSBY  D
  .W:$X>75 !
  .S PSBDD=$S(PSBZ=.5:53.795,PSBZ=.6:53.796,1:53.797)
@@ -103,7 +117,7 @@ LINE(PSBIEN) ; Displays the med log entry in PSBIEN
  ..W " ",$E(Y,9,10),":",$E(Y,11,12)
  ..W ?46,$$GET1^DIQ(53.793,PSBY_","_PSBIEN_",","ENTERED BY:INITIAL")
  ..W $$WRAP^PSBO(52,70,$P(PSBX(.3,PSBY,0),U,1))
- W !,$TR($$FMTE^XLFDT(PSBOSP,2),"@"," ")_"<"
+ W !,$TR($$FMTE^XLFDT($G(PSBOSP),2),"@"," ")_"<"
  D:PSBAUDF
  .W !?16,"Audits: ",?30 I '$O(PSBX(.9,0)) W "<No Audits>" Q
  .F PSBY=0:0 S PSBY=$O(PSBX(.9,PSBY)) Q:'PSBY  D

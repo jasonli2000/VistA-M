@@ -120,4 +120,4 @@ DSMONE(LEX) ; Return one DSM code for an expression
 ADR(LEX) ; Mailing Address
  N DIC,DTOUT,DUOUT,X,Y S DIC="^DIC(4.2,",DIC(0)="M",(LEX,X)="FO-SLC.DOMAIN.EXT" D ^DIC Q:+Y>0 LEX
  S DIC="^DIC(4.2,",DIC(0)="M",(LEX,X)="ISC-SLC.DOMAIN.EXT" D ^DIC Q:+Y>0 LEX
- Q "ISC-SLC.domain.ext"
+ Q "ISC-SLC.DOMAIN.EXT"

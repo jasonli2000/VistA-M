@@ -1,276 +1,358 @@
-IBDEI0BU ; ; 20-FEB-2013
- ;;3.0;IB ENCOUNTER FORM IMP/EXP;;FEB 20, 2013
+IBDEI0BU ; ; 06-AUG-2013
+ ;;3.0;IB ENCOUNTER FORM IMP/EXP;;AUG 06, 2013
  Q:'DIFQR(358.3)  F I=1:2 S X=$T(Q+I) Q:X=""  S Y=$E($T(Q+I+1),4,999),X=$E(X,4,999) S:$A(Y)=126 I=I+1,Y=$E(Y,2,999)_$E($T(Q+I+1),5,99) S:$A(Y)=61 Y=$E(Y,2,999) X NO E  S @X=Y
 Q Q
- ;;^UTILITY(U,$J,358.3,15761,1,2,0)
- ;;=2^Closed TX of fracture, phalanx or phalanges, other than great toe; without manipulation, each
- ;;^UTILITY(U,$J,358.3,15761,1,3,0)
- ;;=3^28510
- ;;^UTILITY(U,$J,358.3,15762,0)
- ;;=28515^^114^980^23^^^^1
- ;;^UTILITY(U,$J,358.3,15762,1,0)
+ ;;^UTILITY(U,$J,358.3,15934,1,2,0)
+ ;;=2^Motor/Sens Nerv Conduct-ea limb w/F-wv
+ ;;^UTILITY(U,$J,358.3,15934,1,3,0)
+ ;;=3^95905
+ ;;^UTILITY(U,$J,358.3,15935,0)
+ ;;=95937^^102^882^27^^^^1
+ ;;^UTILITY(U,$J,358.3,15935,1,0)
  ;;=^358.31IA^3^2
- ;;^UTILITY(U,$J,358.3,15762,1,2,0)
- ;;=2^Closed TX of fracture, phalanx or phalanges, other than great toe; with manipulation, each
- ;;^UTILITY(U,$J,358.3,15762,1,3,0)
- ;;=3^28515
- ;;^UTILITY(U,$J,358.3,15763,0)
- ;;=28525^^114^980^24^^^^1
- ;;^UTILITY(U,$J,358.3,15763,1,0)
+ ;;^UTILITY(U,$J,358.3,15935,1,2,0)
+ ;;=2^Neuromuscular Junction Test
+ ;;^UTILITY(U,$J,358.3,15935,1,3,0)
+ ;;=3^95937
+ ;;^UTILITY(U,$J,358.3,15936,0)
+ ;;=95907^^102^882^20^^^^1
+ ;;^UTILITY(U,$J,358.3,15936,1,0)
  ;;=^358.31IA^3^2
- ;;^UTILITY(U,$J,358.3,15763,1,2,0)
- ;;=2^Open TX of fracture, phalanx or phalanges, other than great toe, with or without internal or external fixation, each
- ;;^UTILITY(U,$J,358.3,15763,1,3,0)
- ;;=3^28525
- ;;^UTILITY(U,$J,358.3,15764,0)
- ;;=28530^^114^980^25^^^^1
- ;;^UTILITY(U,$J,358.3,15764,1,0)
+ ;;^UTILITY(U,$J,358.3,15936,1,2,0)
+ ;;=2^Nerve conduction studies; 1-2 studies
+ ;;^UTILITY(U,$J,358.3,15936,1,3,0)
+ ;;=3^95907
+ ;;^UTILITY(U,$J,358.3,15937,0)
+ ;;=95908^^102^882^21^^^^1
+ ;;^UTILITY(U,$J,358.3,15937,1,0)
  ;;=^358.31IA^3^2
- ;;^UTILITY(U,$J,358.3,15764,1,2,0)
- ;;=2^Closed TX of sesamiod fracture 
- ;;^UTILITY(U,$J,358.3,15764,1,3,0)
- ;;=3^28530
- ;;^UTILITY(U,$J,358.3,15765,0)
- ;;=28531^^114^980^26^^^^1
- ;;^UTILITY(U,$J,358.3,15765,1,0)
+ ;;^UTILITY(U,$J,358.3,15937,1,2,0)
+ ;;=2^Nerve conduction studies; 3-4 studies
+ ;;^UTILITY(U,$J,358.3,15937,1,3,0)
+ ;;=3^95908
+ ;;^UTILITY(U,$J,358.3,15938,0)
+ ;;=95909^^102^882^22^^^^1
+ ;;^UTILITY(U,$J,358.3,15938,1,0)
  ;;=^358.31IA^3^2
- ;;^UTILITY(U,$J,358.3,15765,1,2,0)
- ;;=2^Open TX of sesamiod fracture, with or without internal fixation
- ;;^UTILITY(U,$J,358.3,15765,1,3,0)
- ;;=3^28531
- ;;^UTILITY(U,$J,358.3,15766,0)
- ;;=27760^^114^980^27^^^^1
- ;;^UTILITY(U,$J,358.3,15766,1,0)
+ ;;^UTILITY(U,$J,358.3,15938,1,2,0)
+ ;;=2^Nerve conduction studies; 5-6 studies
+ ;;^UTILITY(U,$J,358.3,15938,1,3,0)
+ ;;=3^95909
+ ;;^UTILITY(U,$J,358.3,15939,0)
+ ;;=95910^^102^882^23^^^^1
+ ;;^UTILITY(U,$J,358.3,15939,1,0)
  ;;=^358.31IA^3^2
- ;;^UTILITY(U,$J,358.3,15766,1,2,0)
- ;;=2^Closed TX of medial malleolus fracture; without manipulation 
- ;;^UTILITY(U,$J,358.3,15766,1,3,0)
- ;;=3^27760
- ;;^UTILITY(U,$J,358.3,15767,0)
- ;;=27762^^114^980^28^^^^1
- ;;^UTILITY(U,$J,358.3,15767,1,0)
+ ;;^UTILITY(U,$J,358.3,15939,1,2,0)
+ ;;=2^Nerve conduction studies; 7-8 studies
+ ;;^UTILITY(U,$J,358.3,15939,1,3,0)
+ ;;=3^95910
+ ;;^UTILITY(U,$J,358.3,15940,0)
+ ;;=95911^^102^882^24^^^^1
+ ;;^UTILITY(U,$J,358.3,15940,1,0)
  ;;=^358.31IA^3^2
- ;;^UTILITY(U,$J,358.3,15767,1,2,0)
- ;;=2^Closed TX of medial malleolus fracture; with manipulation, with or without skin or skeletal traction
- ;;^UTILITY(U,$J,358.3,15767,1,3,0)
- ;;=3^27762
- ;;^UTILITY(U,$J,358.3,15768,0)
- ;;=27766^^114^980^29^^^^1
- ;;^UTILITY(U,$J,358.3,15768,1,0)
+ ;;^UTILITY(U,$J,358.3,15940,1,2,0)
+ ;;=2^Nerve conduction studies; 9-10 studies
+ ;;^UTILITY(U,$J,358.3,15940,1,3,0)
+ ;;=3^95911
+ ;;^UTILITY(U,$J,358.3,15941,0)
+ ;;=95912^^102^882^25^^^^1
+ ;;^UTILITY(U,$J,358.3,15941,1,0)
  ;;=^358.31IA^3^2
- ;;^UTILITY(U,$J,358.3,15768,1,2,0)
- ;;=2^Open/Closed TX of medial matteolus FX,w/ internal fixation
- ;;^UTILITY(U,$J,358.3,15768,1,3,0)
- ;;=3^27766
- ;;^UTILITY(U,$J,358.3,15769,0)
- ;;=27786^^114^980^30^^^^1
- ;;^UTILITY(U,$J,358.3,15769,1,0)
+ ;;^UTILITY(U,$J,358.3,15941,1,2,0)
+ ;;=2^Nerve conduction studies; 11-12 studies
+ ;;^UTILITY(U,$J,358.3,15941,1,3,0)
+ ;;=3^95912
+ ;;^UTILITY(U,$J,358.3,15942,0)
+ ;;=95913^^102^882^26^^^^1
+ ;;^UTILITY(U,$J,358.3,15942,1,0)
  ;;=^358.31IA^3^2
- ;;^UTILITY(U,$J,358.3,15769,1,2,0)
- ;;=2^Closed TX of distal fibular fracture (lateral malleolus); without manipulation
- ;;^UTILITY(U,$J,358.3,15769,1,3,0)
- ;;=3^27786
- ;;^UTILITY(U,$J,358.3,15770,0)
- ;;=27788^^114^980^31^^^^1
- ;;^UTILITY(U,$J,358.3,15770,1,0)
+ ;;^UTILITY(U,$J,358.3,15942,1,2,0)
+ ;;=2^Nerve conduction studies;13 or > studies
+ ;;^UTILITY(U,$J,358.3,15942,1,3,0)
+ ;;=3^95913
+ ;;^UTILITY(U,$J,358.3,15943,0)
+ ;;=99366^^102^883^1^^^^1
+ ;;^UTILITY(U,$J,358.3,15943,1,0)
  ;;=^358.31IA^3^2
- ;;^UTILITY(U,$J,358.3,15770,1,2,0)
- ;;=2^Closed TX of distal fibular (lateral malleolus); with manipulation
- ;;^UTILITY(U,$J,358.3,15770,1,3,0)
- ;;=3^27788
- ;;^UTILITY(U,$J,358.3,15771,0)
- ;;=27792^^114^980^32^^^^1
- ;;^UTILITY(U,$J,358.3,15771,1,0)
+ ;;^UTILITY(U,$J,358.3,15943,1,2,0)
+ ;;=2^Interdisc Team Conf HCP w/pt-fam >30min
+ ;;^UTILITY(U,$J,358.3,15943,1,3,0)
+ ;;=3^99366
+ ;;^UTILITY(U,$J,358.3,15944,0)
+ ;;=99368^^102^883^2^^^^1
+ ;;^UTILITY(U,$J,358.3,15944,1,0)
  ;;=^358.31IA^3^2
- ;;^UTILITY(U,$J,358.3,15771,1,2,0)
- ;;=2^Open TX of distal fibular fracture (lateral malleolus), with or without internal or external fixation
- ;;^UTILITY(U,$J,358.3,15771,1,3,0)
- ;;=3^27792
- ;;^UTILITY(U,$J,358.3,15772,0)
- ;;=27808^^114^980^33^^^^1
- ;;^UTILITY(U,$J,358.3,15772,1,0)
+ ;;^UTILITY(U,$J,358.3,15944,1,2,0)
+ ;;=2^Interdis Team Conf HCP w/o pt/fam >30min
+ ;;^UTILITY(U,$J,358.3,15944,1,3,0)
+ ;;=3^99368
+ ;;^UTILITY(U,$J,358.3,15945,0)
+ ;;=99234^^102^884^1^^^^1
+ ;;^UTILITY(U,$J,358.3,15945,1,0)
  ;;=^358.31IA^3^2
- ;;^UTILITY(U,$J,358.3,15772,1,2,0)
- ;;=2^Closed TX of bimalleolar ankle fracture, (including Potts); without manipulation
- ;;^UTILITY(U,$J,358.3,15772,1,3,0)
- ;;=3^27808
- ;;^UTILITY(U,$J,358.3,15773,0)
- ;;=27810^^114^980^34^^^^1
- ;;^UTILITY(U,$J,358.3,15773,1,0)
+ ;;^UTILITY(U,$J,358.3,15945,1,2,0)
+ ;;=2^Observ-Detail,Low Complexity
+ ;;^UTILITY(U,$J,358.3,15945,1,3,0)
+ ;;=3^99234
+ ;;^UTILITY(U,$J,358.3,15946,0)
+ ;;=99235^^102^884^2^^^^1
+ ;;^UTILITY(U,$J,358.3,15946,1,0)
  ;;=^358.31IA^3^2
- ;;^UTILITY(U,$J,358.3,15773,1,2,0)
- ;;=2^Closed TX of bimalleolar ankle fracture, (including Potts); with manipulation
- ;;^UTILITY(U,$J,358.3,15773,1,3,0)
- ;;=3^27810
- ;;^UTILITY(U,$J,358.3,15774,0)
- ;;=27814^^114^980^35^^^^1
- ;;^UTILITY(U,$J,358.3,15774,1,0)
+ ;;^UTILITY(U,$J,358.3,15946,1,2,0)
+ ;;=2^Observ-Comp,High Complex
+ ;;^UTILITY(U,$J,358.3,15946,1,3,0)
+ ;;=3^99235
+ ;;^UTILITY(U,$J,358.3,15947,0)
+ ;;=99236^^102^884^3^^^^1
+ ;;^UTILITY(U,$J,358.3,15947,1,0)
  ;;=^358.31IA^3^2
- ;;^UTILITY(U,$J,358.3,15774,1,2,0)
- ;;=2^Open TX of bimalleolar ankle fracture, with or without internal or external fixation
- ;;^UTILITY(U,$J,358.3,15774,1,3,0)
- ;;=3^27814
- ;;^UTILITY(U,$J,358.3,15775,0)
- ;;=27816^^114^980^36^^^^1
- ;;^UTILITY(U,$J,358.3,15775,1,0)
- ;;=^358.31IA^3^2
- ;;^UTILITY(U,$J,358.3,15775,1,2,0)
- ;;=2^Closed TX of trimalleolar ankle fracture; without manipulation
- ;;^UTILITY(U,$J,358.3,15775,1,3,0)
- ;;=3^27816
- ;;^UTILITY(U,$J,358.3,15776,0)
- ;;=27818^^114^980^37^^^^1
- ;;^UTILITY(U,$J,358.3,15776,1,0)
- ;;=^358.31IA^3^2
- ;;^UTILITY(U,$J,358.3,15776,1,2,0)
- ;;=2^Closed TX of trimalleolar ankle fracture; with manipulation
- ;;^UTILITY(U,$J,358.3,15776,1,3,0)
- ;;=3^27818
- ;;^UTILITY(U,$J,358.3,15777,0)
- ;;=27822^^114^980^38^^^^1
- ;;^UTILITY(U,$J,358.3,15777,1,0)
- ;;=^358.31IA^3^2
- ;;^UTILITY(U,$J,358.3,15777,1,2,0)
- ;;=2^Open Tx of trimalleolar ankle fracture, with or w/o internal or external fixation of, medial and/or lateral malleolus; w/o fixation of posterior lip
- ;;^UTILITY(U,$J,358.3,15777,1,3,0)
- ;;=3^27822
- ;;^UTILITY(U,$J,358.3,15778,0)
- ;;=27823^^114^980^39^^^^1
- ;;^UTILITY(U,$J,358.3,15778,1,0)
- ;;=^358.31IA^3^2
- ;;^UTILITY(U,$J,358.3,15778,1,2,0)
- ;;=2^Open Tx of trimalleolar ankle fracture, with or w/o internal or external fixation, medial and/or lateral malleolus; with fixation of posterior lip  
- ;;^UTILITY(U,$J,358.3,15778,1,3,0)
- ;;=3^27823
- ;;^UTILITY(U,$J,358.3,15779,0)
- ;;=27824^^114^980^40^^^^1
- ;;^UTILITY(U,$J,358.3,15779,1,0)
- ;;=^358.31IA^3^2
- ;;^UTILITY(U,$J,358.3,15779,1,2,0)
- ;;=2^Closed Tx of fracture of weight bearing articular portion of distal tibia, with or w/o anesthesia; w/o manipulation 
- ;;^UTILITY(U,$J,358.3,15779,1,3,0)
- ;;=3^27824
- ;;^UTILITY(U,$J,358.3,15780,0)
- ;;=27825^^114^980^41^^^^1
- ;;^UTILITY(U,$J,358.3,15780,1,0)
- ;;=^358.31IA^3^2
- ;;^UTILITY(U,$J,358.3,15780,1,2,0)
- ;;=2^Closed Tx of fracture of weight bearing articular portion of distal tibia, with or w/o anesthesia; with skeletal traction &/or requiring manipulation
- ;;^UTILITY(U,$J,358.3,15780,1,3,0)
- ;;=3^27825
- ;;^UTILITY(U,$J,358.3,15781,0)
- ;;=27826^^114^980^42^^^^1
- ;;^UTILITY(U,$J,358.3,15781,1,0)
- ;;=^358.31IA^3^2
- ;;^UTILITY(U,$J,358.3,15781,1,2,0)
- ;;=2^Open Tx of fracture of weight bearing articular surface/portion of distal tibia, w/ internal or external fixation; of fibula only
- ;;^UTILITY(U,$J,358.3,15781,1,3,0)
- ;;=3^27826
- ;;^UTILITY(U,$J,358.3,15782,0)
- ;;=27827^^114^980^43^^^^1
- ;;^UTILITY(U,$J,358.3,15782,1,0)
- ;;=^358.31IA^3^2
- ;;^UTILITY(U,$J,358.3,15782,1,2,0)
- ;;=2^Open Tx of fracture of weight bearing articular surface/portion of distal tibia, w/ internal or external fixation; of tibia only
- ;;^UTILITY(U,$J,358.3,15782,1,3,0)
- ;;=3^27827
- ;;^UTILITY(U,$J,358.3,15783,0)
- ;;=27828^^114^980^44^^^^1
- ;;^UTILITY(U,$J,358.3,15783,1,0)
- ;;=^358.31IA^3^2
- ;;^UTILITY(U,$J,358.3,15783,1,2,0)
- ;;=2^Open Tx of fracture of weight bearing articular surface/portionof distal tibia, w/ internal or external fixation; of both tibia & fibula
- ;;^UTILITY(U,$J,358.3,15783,1,3,0)
- ;;=3^27828
- ;;^UTILITY(U,$J,358.3,15784,0)
- ;;=27829^^114^980^45^^^^1
- ;;^UTILITY(U,$J,358.3,15784,1,0)
- ;;=^358.31IA^3^2
- ;;^UTILITY(U,$J,358.3,15784,1,2,0)
- ;;=2^Open Tx of distal tibiofibular joint disruption, with or w/o internal or external fixation
- ;;^UTILITY(U,$J,358.3,15784,1,3,0)
- ;;=3^27829
- ;;^UTILITY(U,$J,358.3,15785,0)
- ;;=28540^^114^980^46^^^^1
- ;;^UTILITY(U,$J,358.3,15785,1,0)
- ;;=^358.31IA^3^2
- ;;^UTILITY(U,$J,358.3,15785,1,2,0)
- ;;=2^Closed Tx of tarsal bone dislocation, other than talotarsal; w/o anesthesia
- ;;^UTILITY(U,$J,358.3,15785,1,3,0)
- ;;=3^28540
- ;;^UTILITY(U,$J,358.3,15786,0)
- ;;=28545^^114^980^47^^^^1
- ;;^UTILITY(U,$J,358.3,15786,1,0)
- ;;=^358.31IA^3^2
- ;;^UTILITY(U,$J,358.3,15786,1,2,0)
- ;;=2^Closed Tx of tarsal bone dislocation, other than talotarsal; requiring anesthesia
- ;;^UTILITY(U,$J,358.3,15786,1,3,0)
- ;;=3^28545
- ;;^UTILITY(U,$J,358.3,15787,0)
- ;;=28546^^114^980^48^^^^1
- ;;^UTILITY(U,$J,358.3,15787,1,0)
- ;;=^358.31IA^3^2
- ;;^UTILITY(U,$J,358.3,15787,1,2,0)
- ;;=2^Perc Fixation Tarsal Bone Dislocation
- ;;^UTILITY(U,$J,358.3,15787,1,3,0)
- ;;=3^28546
- ;;^UTILITY(U,$J,358.3,15788,0)
- ;;=28555^^114^980^49^^^^1
- ;;^UTILITY(U,$J,358.3,15788,1,0)
- ;;=^358.31IA^3^2
- ;;^UTILITY(U,$J,358.3,15788,1,2,0)
- ;;=2^Open TX of tarsal bone disloc,w/ internal fixation
- ;;^UTILITY(U,$J,358.3,15788,1,3,0)
- ;;=3^28555
- ;;^UTILITY(U,$J,358.3,15789,0)
- ;;=28570^^114^980^50^^^^1
- ;;^UTILITY(U,$J,358.3,15789,1,0)
- ;;=^358.31IA^3^2
- ;;^UTILITY(U,$J,358.3,15789,1,2,0)
- ;;=2^Closed Tx of talotarsal joint dislocation; w/o anesthesia
- ;;^UTILITY(U,$J,358.3,15789,1,3,0)
- ;;=3^28570
- ;;^UTILITY(U,$J,358.3,15790,0)
- ;;=28575^^114^980^51^^^^1
- ;;^UTILITY(U,$J,358.3,15790,1,0)
- ;;=^358.31IA^3^2
- ;;^UTILITY(U,$J,358.3,15790,1,2,0)
- ;;=2^Closed Tx of talotarsal joint dislocation; requiring anesthesia
- ;;^UTILITY(U,$J,358.3,15790,1,3,0)
- ;;=3^28575
- ;;^UTILITY(U,$J,358.3,15791,0)
- ;;=28576^^114^980^52^^^^1
- ;;^UTILITY(U,$J,358.3,15791,1,0)
- ;;=^358.31IA^3^2
- ;;^UTILITY(U,$J,358.3,15791,1,2,0)
- ;;=2^Perc Fixation Talotarsal Joint Dislocation
- ;;^UTILITY(U,$J,358.3,15791,1,3,0)
- ;;=3^28576
- ;;^UTILITY(U,$J,358.3,15792,0)
- ;;=28585^^114^980^53^^^^1
- ;;^UTILITY(U,$J,358.3,15792,1,0)
- ;;=^358.31IA^3^2
- ;;^UTILITY(U,$J,358.3,15792,1,2,0)
- ;;=2^Open Tx of talotarsal joint dislocation, with or w/o internal or external fixation
- ;;^UTILITY(U,$J,358.3,15792,1,3,0)
- ;;=3^28585
- ;;^UTILITY(U,$J,358.3,15793,0)
- ;;=28600^^114^980^55^^^^1
- ;;^UTILITY(U,$J,358.3,15793,1,0)
- ;;=^358.31IA^3^2
- ;;^UTILITY(U,$J,358.3,15793,1,2,0)
- ;;=2^Closed Tx of tarsometatarsal joint dislocation; requiring anesthesia
- ;;^UTILITY(U,$J,358.3,15793,1,3,0)
- ;;=3^28600
- ;;^UTILITY(U,$J,358.3,15794,0)
- ;;=28606^^114^980^56^^^^1
- ;;^UTILITY(U,$J,358.3,15794,1,0)
- ;;=^358.31IA^3^2
- ;;^UTILITY(U,$J,358.3,15794,1,2,0)
- ;;=2^Perc Fixation Tarsometatarsal Joint Dislocation
- ;;^UTILITY(U,$J,358.3,15794,1,3,0)
- ;;=3^28606
- ;;^UTILITY(U,$J,358.3,15795,0)
- ;;=28615^^114^980^57^^^^1
- ;;^UTILITY(U,$J,358.3,15795,1,0)
- ;;=^358.31IA^3^2
+ ;;^UTILITY(U,$J,358.3,15947,1,2,0)
+ ;;=2^Observ-Comp,Mod Complex
+ ;;^UTILITY(U,$J,358.3,15947,1,3,0)
+ ;;=3^99236
+ ;;^UTILITY(U,$J,358.3,15948,0)
+ ;;=V15.52^^103^885^10
+ ;;^UTILITY(U,$J,358.3,15948,1,0)
+ ;;=^358.31IA^4^2
+ ;;^UTILITY(U,$J,358.3,15948,1,3,0)
+ ;;=3^HX TRAUMATC BRAIN INJURY
+ ;;^UTILITY(U,$J,358.3,15948,1,4,0)
+ ;;=4^V15.52
+ ;;^UTILITY(U,$J,358.3,15948,2)
+ ;;=^338495
+ ;;^UTILITY(U,$J,358.3,15949,0)
+ ;;=V80.01^^103^885^11
+ ;;^UTILITY(U,$J,358.3,15949,1,0)
+ ;;=^358.31IA^4^2
+ ;;^UTILITY(U,$J,358.3,15949,1,3,0)
+ ;;=3^SCREEN FOR TBI
+ ;;^UTILITY(U,$J,358.3,15949,1,4,0)
+ ;;=4^V80.01
+ ;;^UTILITY(U,$J,358.3,15949,2)
+ ;;=^338517
+ ;;^UTILITY(U,$J,358.3,15950,0)
+ ;;=850.0^^103^885^7
+ ;;^UTILITY(U,$J,358.3,15950,1,0)
+ ;;=^358.31IA^4^2
+ ;;^UTILITY(U,$J,358.3,15950,1,3,0)
+ ;;=3^CONCUSSION W/O LOSS OF CONSCIOUSNESS
+ ;;^UTILITY(U,$J,358.3,15950,1,4,0)
+ ;;=4^850.0
+ ;;^UTILITY(U,$J,358.3,15950,2)
+ ;;=^274540
+ ;;^UTILITY(U,$J,358.3,15951,0)
+ ;;=850.11^^103^885^3
+ ;;^UTILITY(U,$J,358.3,15951,1,0)
+ ;;=^358.31IA^4^2
+ ;;^UTILITY(U,$J,358.3,15951,1,3,0)
+ ;;=3^CONCUS-BRIEF LOC <31 MN
+ ;;^UTILITY(U,$J,358.3,15951,1,4,0)
+ ;;=4^850.11
+ ;;^UTILITY(U,$J,358.3,15951,2)
+ ;;=^329958
+ ;;^UTILITY(U,$J,358.3,15952,0)
+ ;;=850.12^^103^885^2
+ ;;^UTILITY(U,$J,358.3,15952,1,0)
+ ;;=^358.31IA^4^2
+ ;;^UTILITY(U,$J,358.3,15952,1,3,0)
+ ;;=3^CONCUS-BRIEF LOC 31-59 MN
+ ;;^UTILITY(U,$J,358.3,15952,1,4,0)
+ ;;=4^850.12
+ ;;^UTILITY(U,$J,358.3,15952,2)
+ ;;=^329959
+ ;;^UTILITY(U,$J,358.3,15953,0)
+ ;;=850.2^^103^885^8
+ ;;^UTILITY(U,$J,358.3,15953,1,0)
+ ;;=^358.31IA^4^2
+ ;;^UTILITY(U,$J,358.3,15953,1,3,0)
+ ;;=3^CONCUSSION-MODERATE LOC
+ ;;^UTILITY(U,$J,358.3,15953,1,4,0)
+ ;;=4^850.2
+ ;;^UTILITY(U,$J,358.3,15953,2)
+ ;;=^274542
+ ;;^UTILITY(U,$J,358.3,15954,0)
+ ;;=850.3^^103^885^9
+ ;;^UTILITY(U,$J,358.3,15954,1,0)
+ ;;=^358.31IA^4^2
+ ;;^UTILITY(U,$J,358.3,15954,1,3,0)
+ ;;=3^CONCUSSION-PROLONG LOC
+ ;;^UTILITY(U,$J,358.3,15954,1,4,0)
+ ;;=4^850.3
+ ;;^UTILITY(U,$J,358.3,15954,2)
+ ;;=^274543
+ ;;^UTILITY(U,$J,358.3,15955,0)
+ ;;=850.4^^103^885^4
+ ;;^UTILITY(U,$J,358.3,15955,1,0)
+ ;;=^358.31IA^4^2
+ ;;^UTILITY(U,$J,358.3,15955,1,3,0)
+ ;;=3^CONCUS-PROLONG LOC W/O RTN TO PRE-EXIST
+ ;;^UTILITY(U,$J,358.3,15955,1,4,0)
+ ;;=4^850.4
+ ;;^UTILITY(U,$J,358.3,15955,2)
+ ;;=^274544
+ ;;^UTILITY(U,$J,358.3,15956,0)
+ ;;=850.5^^103^885^6
+ ;;^UTILITY(U,$J,358.3,15956,1,0)
+ ;;=^358.31IA^4^2
+ ;;^UTILITY(U,$J,358.3,15956,1,3,0)
+ ;;=3^CONCUSSION W LOS TIME NOS
+ ;;^UTILITY(U,$J,358.3,15956,1,4,0)
+ ;;=4^850.5
+ ;;^UTILITY(U,$J,358.3,15956,2)
+ ;;=^274545
+ ;;^UTILITY(U,$J,358.3,15957,0)
+ ;;=850.9^^103^885^5
+ ;;^UTILITY(U,$J,358.3,15957,1,0)
+ ;;=^358.31IA^4^2
+ ;;^UTILITY(U,$J,358.3,15957,1,3,0)
+ ;;=3^CONCUSSION NOS
+ ;;^UTILITY(U,$J,358.3,15957,1,4,0)
+ ;;=4^850.9
+ ;;^UTILITY(U,$J,358.3,15957,2)
+ ;;=^186748
+ ;;^UTILITY(U,$J,358.3,15958,0)
+ ;;=854.00^^103^885^1
+ ;;^UTILITY(U,$J,358.3,15958,1,0)
+ ;;=^358.31IA^4^2
+ ;;^UTILITY(U,$J,358.3,15958,1,3,0)
+ ;;=3^TBI NEC-NOS w/o Opn Wnd/LOC NOS
+ ;;^UTILITY(U,$J,358.3,15958,1,4,0)
+ ;;=4^854.00
+ ;;^UTILITY(U,$J,358.3,15958,2)
+ ;;=^64996
+ ;;^UTILITY(U,$J,358.3,15959,0)
+ ;;=854.01^^103^885^16
+ ;;^UTILITY(U,$J,358.3,15959,1,0)
+ ;;=^358.31IA^4^2
+ ;;^UTILITY(U,$J,358.3,15959,1,3,0)
+ ;;=3^TBI NEC-NOS w/o Opn Wnd/LOC - None
+ ;;^UTILITY(U,$J,358.3,15959,1,4,0)
+ ;;=4^854.01
+ ;;^UTILITY(U,$J,358.3,15959,2)
+ ;;=^274712
+ ;;^UTILITY(U,$J,358.3,15960,0)
+ ;;=854.02^^103^885^13
+ ;;^UTILITY(U,$J,358.3,15960,1,0)
+ ;;=^358.31IA^4^2
+ ;;^UTILITY(U,$J,358.3,15960,1,3,0)
+ ;;=3^TBI NEC-NOS W/O OPN WND/LOC BRIEF
+ ;;^UTILITY(U,$J,358.3,15960,1,4,0)
+ ;;=4^854.02
+ ;;^UTILITY(U,$J,358.3,15960,2)
+ ;;=^274713
+ ;;^UTILITY(U,$J,358.3,15961,0)
+ ;;=854.03^^103^885^15
+ ;;^UTILITY(U,$J,358.3,15961,1,0)
+ ;;=^358.31IA^4^2
+ ;;^UTILITY(U,$J,358.3,15961,1,3,0)
+ ;;=3^TBI NEC-NOS W/O OPN WND/LOC MOD
+ ;;^UTILITY(U,$J,358.3,15961,1,4,0)
+ ;;=4^854.03
+ ;;^UTILITY(U,$J,358.3,15961,2)
+ ;;=^274714
+ ;;^UTILITY(U,$J,358.3,15962,0)
+ ;;=854.04^^103^885^17
+ ;;^UTILITY(U,$J,358.3,15962,1,0)
+ ;;=^358.31IA^4^2
+ ;;^UTILITY(U,$J,358.3,15962,1,3,0)
+ ;;=3^TBI NEC-NOS W/O OPN WND/LOC PROLONG
+ ;;^UTILITY(U,$J,358.3,15962,1,4,0)
+ ;;=4^854.04
+ ;;^UTILITY(U,$J,358.3,15962,2)
+ ;;=^274715
+ ;;^UTILITY(U,$J,358.3,15963,0)
+ ;;=854.05^^103^885^14
+ ;;^UTILITY(U,$J,358.3,15963,1,0)
+ ;;=^358.31IA^4^2
+ ;;^UTILITY(U,$J,358.3,15963,1,3,0)
+ ;;=3^TBI NEC-NOS W/O OPN WND/LOC DEEP
+ ;;^UTILITY(U,$J,358.3,15963,1,4,0)
+ ;;=4^854.05
+ ;;^UTILITY(U,$J,358.3,15963,2)
+ ;;=^274716
+ ;;^UTILITY(U,$J,358.3,15964,0)
+ ;;=854.06^^103^885^18
+ ;;^UTILITY(U,$J,358.3,15964,1,0)
+ ;;=^358.31IA^4^2
+ ;;^UTILITY(U,$J,358.3,15964,1,3,0)
+ ;;=3^TBI NEC-NOS W/O OPN WND/LOC TIME NOS
+ ;;^UTILITY(U,$J,358.3,15964,1,4,0)
+ ;;=4^854.06
+ ;;^UTILITY(U,$J,358.3,15964,2)
+ ;;=^274717
+ ;;^UTILITY(U,$J,358.3,15965,0)
+ ;;=854.09^^103^885^12
+ ;;^UTILITY(U,$J,358.3,15965,1,0)
+ ;;=^358.31IA^4^2
+ ;;^UTILITY(U,$J,358.3,15965,1,3,0)
+ ;;=3^TBI NEC-NOS W/O OPN WND W/ CONCUSSION
+ ;;^UTILITY(U,$J,358.3,15965,1,4,0)
+ ;;=4^854.09
+ ;;^UTILITY(U,$J,358.3,15965,2)
+ ;;=^274718
+ ;;^UTILITY(U,$J,358.3,15966,0)
+ ;;=V57.0^^104^886^2
+ ;;^UTILITY(U,$J,358.3,15966,1,0)
+ ;;=^358.31IA^4^2
+ ;;^UTILITY(U,$J,358.3,15966,1,3,0)
+ ;;=3^Breathing Exercises
+ ;;^UTILITY(U,$J,358.3,15966,1,4,0)
+ ;;=4^V57.0
+ ;;^UTILITY(U,$J,358.3,15966,2)
+ ;;=^19759
+ ;;^UTILITY(U,$J,358.3,15967,0)
+ ;;=V52.0^^104^886^6
+ ;;^UTILITY(U,$J,358.3,15967,1,0)
+ ;;=^358.31IA^4^2
+ ;;^UTILITY(U,$J,358.3,15967,1,3,0)
+ ;;=3^Fitting Artificial Arm
+ ;;^UTILITY(U,$J,358.3,15967,1,4,0)
+ ;;=4^V52.0
+ ;;^UTILITY(U,$J,358.3,15967,2)
+ ;;=^295496
+ ;;^UTILITY(U,$J,358.3,15968,0)
+ ;;=V52.1^^104^886^7
+ ;;^UTILITY(U,$J,358.3,15968,1,0)
+ ;;=^358.31IA^4^2
+ ;;^UTILITY(U,$J,358.3,15968,1,3,0)
+ ;;=3^Fitting Artificial Leg
+ ;;^UTILITY(U,$J,358.3,15968,1,4,0)
+ ;;=4^V52.1
+ ;;^UTILITY(U,$J,358.3,15968,2)
+ ;;=^295497
+ ;;^UTILITY(U,$J,358.3,15969,0)
+ ;;=V53.7^^104^886^5
+ ;;^UTILITY(U,$J,358.3,15969,1,0)
+ ;;=^358.31IA^4^2
+ ;;^UTILITY(U,$J,358.3,15969,1,3,0)
+ ;;=3^Fit Orthopedic Devices
+ ;;^UTILITY(U,$J,358.3,15969,1,4,0)
+ ;;=4^V53.7
+ ;;^UTILITY(U,$J,358.3,15969,2)
+ ;;=^295510
+ ;;^UTILITY(U,$J,358.3,15970,0)
+ ;;=V57.81^^104^886^11
+ ;;^UTILITY(U,$J,358.3,15970,1,0)
+ ;;=^358.31IA^4^2
+ ;;^UTILITY(U,$J,358.3,15970,1,3,0)
+ ;;=3^Orthotic Training
+ ;;^UTILITY(U,$J,358.3,15970,1,4,0)
+ ;;=4^V57.81
+ ;;^UTILITY(U,$J,358.3,15970,2)
+ ;;=^295527
+ ;;^UTILITY(U,$J,358.3,15971,0)
+ ;;=V52.9^^104^886^8
+ ;;^UTILITY(U,$J,358.3,15971,1,0)
+ ;;=^358.31IA^4^2
+ ;;^UTILITY(U,$J,358.3,15971,1,3,0)
+ ;;=3^Fitting Prosthesis Nos
+ ;;^UTILITY(U,$J,358.3,15971,1,4,0)
+ ;;=4^V52.9
+ ;;^UTILITY(U,$J,358.3,15971,2)
+ ;;=^295502
+ ;;^UTILITY(U,$J,358.3,15972,0)
+ ;;=V57.9^^104^886^14
+ ;;^UTILITY(U,$J,358.3,15972,1,0)
+ ;;=^358.31IA^4^2
+ ;;^UTILITY(U,$J,358.3,15972,1,3,0)
+ ;;=3^Rehabilitation Proc Nos

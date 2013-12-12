@@ -1,5 +1,5 @@
-PSORXVW ;BHAM ISC/SAB - listman view of a prescription ; 6/7/12 7:00pm
- ;;7.0;OUTPATIENT PHARMACY;**14,35,46,96,103,88,117,131,146,156,185,210,148,233,260,264,281,359,385,400**;DEC 1997;Build 3
+PSORXVW ;BHAM ISC/SAB - listman view of a prescription ;5/25/05 2:10pm
+ ;;7.0;OUTPATIENT PHARMACY;**14,35,46,96,103,88,117,131,146,156,185,210,148,233,260,264,281,359,385,400,391**;DEC 1997;Build 13
  ;External reference to File ^PS(55 supported by DBIA 2228
  ;External reference to ^PS(50.7 supported by DBIA 2223
  ;External reference ^PSDRUG( supported by DBIA 221
@@ -94,6 +94,7 @@ PTST S $P(RN," ",25)=" ",PTST=$S($G(^PS(53,+$P(RX0,"^",3),0))]"":$P($G(^PS(53,+$
  .S ^TMP("PSOAL",$J,IEN,0)=$E(RN,$L("QTY DSP MSG: "_$P(^PSDRUG($P(RX0,"^",6),5),"^"))+1,79)_"QTY DSP MSG: "_$P(^PSDRUG($P(RX0,"^",6),5),"^") K RN
  S IEN=IEN+1,^TMP("PSOAL",$J,IEN,0)="        # of Refills: "_$P(RX0,"^",9)_$S($L($P(RX0,"^",9))=1:" ",1:"")_"                       Remaining: "_REFL
  S IEN=IEN+1,^TMP("PSOAL",$J,IEN,0)="            Provider: "_$S($D(^VA(200,$P(RX0,"^",4),0)):$P(^VA(200,$P(RX0,"^",4),0),"^"),1:"UNKNOWN")
+ N DEAV S DEAV=+$P($G(^PSDRUG(+$P(RX0,"^",6),0)),"^",3) I DEAV>1,DEAV<6 D PRV K DEAV
  I $P(RX3,"^",3) S IEN=IEN+1,^TMP("PSOAL",$J,IEN,0)="        Cos-Provider: "_$P(^VA(200,$P(RX3,"^",3),0),"^")
  S IEN=IEN+1,^TMP("PSOAL",$J,IEN,0)="             Routing: "_$S($P(RX0,"^",11)="W":"Window",1:"Mail")
  S IEN=IEN+1,^TMP("PSOAL",$J,IEN,0)="              Copies: "_$S($P(RX0,"^",18):$P(RX0,"^",18),1:1)
@@ -123,3 +124,17 @@ KILL K ^TMP("PSOAL",$J),PSOAL,IEN,^TMP("PSOHDR",$J) I $G(PS)="VIEW" K DA
  K LBL,I,RFDATE,%H,%I,RN,RFT,%,%I,DFN,GMRA,GMRAL,HDR,POERR,PTST,REFL,RF,RLD,RX3
  K RXN,RXOR,SG,VA,VADM,VAERR,VALMBCK,VAPA,X,DIC,REA,ZD,PSOHD,PSOBCK,PSODFN,QUIT
  Q
+ ;
+PRV       ;
+ N DETN,DEA,LBL,VADD,SPC,ORN S ORN=$P(^PSRX(RXN,"OR1"),"^",2)
+ S DEA=$$DEA^XUSER(0,$P(RX0,"^",4))
+ S LBL=$S(DEA["-":"  VA#: ",1:" DEA#: ")
+ S $P(SPC," ",(28-$L(DEA)))=" "
+ I $$DETOX^PSSOPKI($P(RX0,"^",6)) S DETN=$$DETOX^XUSER($P(RX0,"^",4))
+ I (DEA'="")!($G(DETN)'="") S IEN=IEN+1,$E(^TMP("PSOAL",$J,IEN,0),16)=LBL_DEA_$S($G(DETN)]"":SPC_"DETOX#: "_$G(DETN),1:"")
+ D PRVAD^PSOPKIV2
+ I $G(VADD(1))]"" D
+ .S IEN=IEN+1,^TMP("PSOAL",$J,IEN,0)="        Site Address: "_VADD(1)
+ .S:VADD(2)]"" IEN=IEN+1,^TMP("PSOAL",$J,IEN,0)="                      "_VADD(2) S:VADD(3)]"" IEN=IEN+1,^TMP("PSOAL",$J,IEN,0)="                      "_VADD(3)
+ Q
+ ;

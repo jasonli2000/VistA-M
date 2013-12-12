@@ -1,5 +1,5 @@
 TIUR ; SLC/JER - Integrated Document Review ;11/01/03
- ;;1.0;TEXT INTEGRATION UTILITIES;**74,79,58,100,113,112,207,224**;Jun 20, 1997;Build 7
+ ;;1.0;TEXT INTEGRATION UTILITIES;**74,79,58,100,113,112,207,224,272**;Jun 20, 1997;Build 5
  ; 11/30/00 Moved PUTLIST & ADDELMNT to TIUR1
 MAKELIST(TIUCLASS,TIUCHVW) ; Get Search Criteria
  N DIRUT,DTOUT,DUOUT,TIUI,SCREEN,STATUS,TIUTYP,TIUSTAT,TIUEDFLT,TIUDCL
@@ -8,7 +8,9 @@ MAKELIST(TIUCLASS,TIUCHVW) ; Get Search Criteria
  D INITRR^TIULRR(0)
  ;  TIURPN used in Order Entry 2.5, OR OE/RR MENU CLIN:
  I +$G(ORVP),(+$G(TIUCHVW)'>0) D EN^TIURPN(TIUCLASS,+ORVP) Q
-STATUS S STATUS=$$STAT
+STATUS ;
+ ; Kill status to clear out the variable when "^" is used to backup
+ K STATUS S STATUS=$$STAT
  ;VMP/ELR changed status ck from <0 TO <1 to account for entering an *  p224
  I +STATUS<1 S VALMQUIT=1 Q
  S TIUI=0

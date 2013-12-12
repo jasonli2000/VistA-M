@@ -1,370 +1,386 @@
-IBDEI06X ; ; 20-FEB-2013
- ;;3.0;IB ENCOUNTER FORM IMP/EXP;;FEB 20, 2013
+IBDEI06X ; ; 06-AUG-2013
+ ;;3.0;IB ENCOUNTER FORM IMP/EXP;;AUG 06, 2013
  Q:'DIFQR(358.3)  F I=1:2 S X=$T(Q+I) Q:X=""  S Y=$E($T(Q+I+1),4,999),X=$E(X,4,999) S:$A(Y)=126 I=I+1,Y=$E(Y,2,999)_$E($T(Q+I+1),5,99) S:$A(Y)=61 Y=$E(Y,2,999) X NO E  S @X=Y
 Q Q
- ;;^UTILITY(U,$J,358.3,9075,0)
- ;;=V15.89^^74^636^55
- ;;^UTILITY(U,$J,358.3,9075,1,0)
- ;;=^358.31IA^5^2
- ;;^UTILITY(U,$J,358.3,9075,1,4,0)
- ;;=4^V15.89
- ;;^UTILITY(U,$J,358.3,9075,1,5,0)
- ;;=5^Personal H/O Exposure To Persian Gulf Region
- ;;^UTILITY(U,$J,358.3,9075,2)
- ;;=^295291
- ;;^UTILITY(U,$J,358.3,9076,0)
- ;;=V11.3^^74^636^48
- ;;^UTILITY(U,$J,358.3,9076,1,0)
- ;;=^358.31IA^5^2
- ;;^UTILITY(U,$J,358.3,9076,1,4,0)
- ;;=4^V11.3
- ;;^UTILITY(U,$J,358.3,9076,1,5,0)
- ;;=5^Personal H/O Alcoholism
- ;;^UTILITY(U,$J,358.3,9076,2)
- ;;=^295252
- ;;^UTILITY(U,$J,358.3,9077,0)
- ;;=V15.07^^74^636^49
- ;;^UTILITY(U,$J,358.3,9077,1,0)
- ;;=^358.31IA^5^2
- ;;^UTILITY(U,$J,358.3,9077,1,4,0)
- ;;=4^V15.07
- ;;^UTILITY(U,$J,358.3,9077,1,5,0)
- ;;=5^Personal H/O Allerlgy To Latex
- ;;^UTILITY(U,$J,358.3,9077,2)
- ;;=^322043
- ;;^UTILITY(U,$J,358.3,9078,0)
- ;;=V13.4^^74^636^50
- ;;^UTILITY(U,$J,358.3,9078,1,0)
- ;;=^358.31IA^5^2
- ;;^UTILITY(U,$J,358.3,9078,1,4,0)
- ;;=4^V13.4
- ;;^UTILITY(U,$J,358.3,9078,1,5,0)
- ;;=5^Personal H/O Arthritis
- ;;^UTILITY(U,$J,358.3,9078,2)
- ;;=^295267
- ;;^UTILITY(U,$J,358.3,9079,0)
- ;;=V12.72^^74^636^51
  ;;^UTILITY(U,$J,358.3,9079,1,0)
  ;;=^358.31IA^5^2
  ;;^UTILITY(U,$J,358.3,9079,1,4,0)
- ;;=4^V12.72
+ ;;=4^042.
  ;;^UTILITY(U,$J,358.3,9079,1,5,0)
- ;;=5^Personal H/O Colon Polyps
+ ;;=5^HIV Disease (symptomatic)
  ;;^UTILITY(U,$J,358.3,9079,2)
- ;;=^303401
+ ;;=HIV Disease (symptomatic)^266500
  ;;^UTILITY(U,$J,358.3,9080,0)
- ;;=V12.59^^74^636^52
+ ;;=464.00^^62^523^2
  ;;^UTILITY(U,$J,358.3,9080,1,0)
  ;;=^358.31IA^5^2
  ;;^UTILITY(U,$J,358.3,9080,1,4,0)
- ;;=4^V12.59
+ ;;=4^464.00
  ;;^UTILITY(U,$J,358.3,9080,1,5,0)
- ;;=5^Personal H/O Congestive Heart Failure
+ ;;=5^Acute Laryngitis
  ;;^UTILITY(U,$J,358.3,9080,2)
- ;;=^303399
+ ;;=Acute Laryngitis^323469
  ;;^UTILITY(U,$J,358.3,9081,0)
- ;;=V45.81^^74^636^53
+ ;;=790.6^^62^523^1
  ;;^UTILITY(U,$J,358.3,9081,1,0)
  ;;=^358.31IA^5^2
  ;;^UTILITY(U,$J,358.3,9081,1,4,0)
- ;;=4^V45.81
+ ;;=4^790.6
  ;;^UTILITY(U,$J,358.3,9081,1,5,0)
- ;;=5^Personal H/O Coronary Bypass
+ ;;=5^Abnormal LFT's
  ;;^UTILITY(U,$J,358.3,9081,2)
- ;;=^97129
+ ;;=^87228
  ;;^UTILITY(U,$J,358.3,9082,0)
- ;;=V15.84^^74^636^54
+ ;;=780.60^^62^523^20
  ;;^UTILITY(U,$J,358.3,9082,1,0)
  ;;=^358.31IA^5^2
  ;;^UTILITY(U,$J,358.3,9082,1,4,0)
- ;;=4^V15.84
+ ;;=4^780.60
  ;;^UTILITY(U,$J,358.3,9082,1,5,0)
- ;;=5^Personal H/O Exposure To Asbestos
+ ;;=5^Fever
  ;;^UTILITY(U,$J,358.3,9082,2)
- ;;=^303406
+ ;;=^336764
  ;;^UTILITY(U,$J,358.3,9083,0)
- ;;=V15.85^^74^636^60
+ ;;=795.51^^62^523^52
  ;;^UTILITY(U,$J,358.3,9083,1,0)
  ;;=^358.31IA^5^2
  ;;^UTILITY(U,$J,358.3,9083,1,4,0)
- ;;=4^V15.85
+ ;;=4^795.51
  ;;^UTILITY(U,$J,358.3,9083,1,5,0)
- ;;=5^Personal H/O Potentially Hazardous Body Fluids
+ ;;=5^Pos PPD w/o Active TB
  ;;^UTILITY(U,$J,358.3,9083,2)
- ;;=^303407
+ ;;=^340572
  ;;^UTILITY(U,$J,358.3,9084,0)
- ;;=V10.72^^74^636^56
+ ;;=682.0^^62^524^6
  ;;^UTILITY(U,$J,358.3,9084,1,0)
  ;;=^358.31IA^5^2
  ;;^UTILITY(U,$J,358.3,9084,1,4,0)
- ;;=4^V10.72
+ ;;=4^682.0
  ;;^UTILITY(U,$J,358.3,9084,1,5,0)
- ;;=5^Personal H/O Hodgkin'S Disease
+ ;;=5^Cellulitis Of Face
  ;;^UTILITY(U,$J,358.3,9084,2)
- ;;=^295237
+ ;;=^271888
  ;;^UTILITY(U,$J,358.3,9085,0)
- ;;=V15.3^^74^636^57
+ ;;=681.00^^62^524^7
  ;;^UTILITY(U,$J,358.3,9085,1,0)
  ;;=^358.31IA^5^2
  ;;^UTILITY(U,$J,358.3,9085,1,4,0)
- ;;=4^V15.3
+ ;;=4^681.00
  ;;^UTILITY(U,$J,358.3,9085,1,5,0)
- ;;=5^Personal H/O Irradiation
+ ;;=5^Cellulitis Of Finger Nos
  ;;^UTILITY(U,$J,358.3,9085,2)
- ;;=^295285
+ ;;=^271883
  ;;^UTILITY(U,$J,358.3,9086,0)
- ;;=V10.61^^74^636^32
+ ;;=682.7^^62^524^8
  ;;^UTILITY(U,$J,358.3,9086,1,0)
  ;;=^358.31IA^5^2
  ;;^UTILITY(U,$J,358.3,9086,1,4,0)
- ;;=4^V10.61
+ ;;=4^682.7
  ;;^UTILITY(U,$J,358.3,9086,1,5,0)
- ;;=5^Hx Of Lymphoid Leukemia
+ ;;=5^Cellulitis Of Foot
  ;;^UTILITY(U,$J,358.3,9086,2)
- ;;=Hx of Lymphoid Leukemia^295232
+ ;;=^271895
  ;;^UTILITY(U,$J,358.3,9087,0)
- ;;=V12.03^^74^636^33
+ ;;=682.4^^62^524^9
  ;;^UTILITY(U,$J,358.3,9087,1,0)
  ;;=^358.31IA^5^2
  ;;^UTILITY(U,$J,358.3,9087,1,4,0)
- ;;=4^V12.03
+ ;;=4^682.4
  ;;^UTILITY(U,$J,358.3,9087,1,5,0)
- ;;=5^Hx Of Malaria
+ ;;=5^Cellulitis Of Hand
  ;;^UTILITY(U,$J,358.3,9087,2)
- ;;=Hx of Malaria^303395
+ ;;=^271892
  ;;^UTILITY(U,$J,358.3,9088,0)
- ;;=V10.82^^74^636^34
+ ;;=682.6^^62^524^10
  ;;^UTILITY(U,$J,358.3,9088,1,0)
  ;;=^358.31IA^5^2
  ;;^UTILITY(U,$J,358.3,9088,1,4,0)
- ;;=4^V10.82
+ ;;=4^682.6
  ;;^UTILITY(U,$J,358.3,9088,1,5,0)
- ;;=5^Hx Of Malignant Melanoma
+ ;;=5^Cellulitis Of Leg
  ;;^UTILITY(U,$J,358.3,9088,2)
- ;;=Hx of Malignant Melanoma^295240
+ ;;=^271894
  ;;^UTILITY(U,$J,358.3,9089,0)
- ;;=V10.62^^74^636^36
+ ;;=682.1^^62^524^11
  ;;^UTILITY(U,$J,358.3,9089,1,0)
  ;;=^358.31IA^5^2
  ;;^UTILITY(U,$J,358.3,9089,1,4,0)
- ;;=4^V10.62
+ ;;=4^682.1
  ;;^UTILITY(U,$J,358.3,9089,1,5,0)
- ;;=5^Hx Of Myeloid Leukemia
+ ;;=5^Cellulitis Of Neck
  ;;^UTILITY(U,$J,358.3,9089,2)
- ;;=Hx of Myeloid Leukemia^295233
+ ;;=^271889
  ;;^UTILITY(U,$J,358.3,9090,0)
- ;;=V10.63^^74^636^35
+ ;;=376.01^^62^524^12
  ;;^UTILITY(U,$J,358.3,9090,1,0)
  ;;=^358.31IA^5^2
  ;;^UTILITY(U,$J,358.3,9090,1,4,0)
- ;;=4^V10.63
+ ;;=4^376.01
  ;;^UTILITY(U,$J,358.3,9090,1,5,0)
- ;;=5^Hx Of Monocytic Leukemia
+ ;;=5^Cellulitis Of Orbit
  ;;^UTILITY(U,$J,358.3,9090,2)
- ;;=Hx of Monocytic Leukemia^295234
+ ;;=^259068
  ;;^UTILITY(U,$J,358.3,9091,0)
- ;;=V11.2^^74^636^30
+ ;;=681.10^^62^524^13
  ;;^UTILITY(U,$J,358.3,9091,1,0)
  ;;=^358.31IA^5^2
  ;;^UTILITY(U,$J,358.3,9091,1,4,0)
- ;;=4^V11.2
+ ;;=4^681.10
  ;;^UTILITY(U,$J,358.3,9091,1,5,0)
- ;;=5^Hx Of Dysthymia
+ ;;=5^Cellulitis Of Toe
  ;;^UTILITY(U,$J,358.3,9091,2)
- ;;=Hx of Dysthymia^295251
+ ;;=^271885
  ;;^UTILITY(U,$J,358.3,9092,0)
- ;;=V15.81^^74^636^46
+ ;;=682.2^^62^524^14
  ;;^UTILITY(U,$J,358.3,9092,1,0)
  ;;=^358.31IA^5^2
  ;;^UTILITY(U,$J,358.3,9092,1,4,0)
- ;;=4^V15.81
+ ;;=4^682.2
  ;;^UTILITY(U,$J,358.3,9092,1,5,0)
- ;;=5^Noncompliance With Medical Treatment
+ ;;=5^Cellulitis Of Trunk
  ;;^UTILITY(U,$J,358.3,9092,2)
- ;;=^295290
+ ;;=^271890
  ;;^UTILITY(U,$J,358.3,9093,0)
- ;;=V10.43^^74^636^37
+ ;;=691.8^^62^524^18
  ;;^UTILITY(U,$J,358.3,9093,1,0)
  ;;=^358.31IA^5^2
  ;;^UTILITY(U,$J,358.3,9093,1,4,0)
- ;;=4^V10.43
+ ;;=4^691.8
  ;;^UTILITY(U,$J,358.3,9093,1,5,0)
- ;;=5^Hx Of Ovarian Ca
+ ;;=5^Dermatitis, Atopic
  ;;^UTILITY(U,$J,358.3,9093,2)
- ;;=Hx of Ovarian CA^295221
+ ;;=^87342
  ;;^UTILITY(U,$J,358.3,9094,0)
- ;;=V12.71^^74^636^38
+ ;;=692.9^^62^524^28
  ;;^UTILITY(U,$J,358.3,9094,1,0)
  ;;=^358.31IA^5^2
  ;;^UTILITY(U,$J,358.3,9094,1,4,0)
- ;;=4^V12.71
+ ;;=4^692.9
  ;;^UTILITY(U,$J,358.3,9094,1,5,0)
- ;;=5^Hx Of Peptic Ulcer Disease
+ ;;=5^Eczema, Allergic
  ;;^UTILITY(U,$J,358.3,9094,2)
- ;;=^303400
+ ;;=^27800
  ;;^UTILITY(U,$J,358.3,9095,0)
- ;;=V10.46^^74^636^39
+ ;;=693.0^^62^524^24
  ;;^UTILITY(U,$J,358.3,9095,1,0)
  ;;=^358.31IA^5^2
  ;;^UTILITY(U,$J,358.3,9095,1,4,0)
- ;;=4^V10.46
+ ;;=4^693.0
  ;;^UTILITY(U,$J,358.3,9095,1,5,0)
- ;;=5^Hx Of Prostate Cancer
+ ;;=5^Drug Dermatitis Nos
  ;;^UTILITY(U,$J,358.3,9095,2)
- ;;=Hx of Prostate Cancer^295224
+ ;;=^33042
  ;;^UTILITY(U,$J,358.3,9096,0)
- ;;=V11.0^^74^636^40
+ ;;=459.81^^62^524^19
  ;;^UTILITY(U,$J,358.3,9096,1,0)
  ;;=^358.31IA^5^2
  ;;^UTILITY(U,$J,358.3,9096,1,4,0)
- ;;=4^V11.0
+ ;;=4^459.81
  ;;^UTILITY(U,$J,358.3,9096,1,5,0)
- ;;=5^Hx Of Schizophrenia
+ ;;=5^Dermatitis, Stasis
  ;;^UTILITY(U,$J,358.3,9096,2)
- ;;=Hx of Schizophrenia^295249
+ ;;=^125826
  ;;^UTILITY(U,$J,358.3,9097,0)
- ;;=V10.83^^74^636^41
+ ;;=110.0^^62^524^61
  ;;^UTILITY(U,$J,358.3,9097,1,0)
  ;;=^358.31IA^5^2
  ;;^UTILITY(U,$J,358.3,9097,1,4,0)
- ;;=4^V10.83
+ ;;=4^110.0
  ;;^UTILITY(U,$J,358.3,9097,1,5,0)
- ;;=5^Hx Of Skin Cancer (Non-Melanoma)
+ ;;=5^Tinea Versicolor
  ;;^UTILITY(U,$J,358.3,9097,2)
- ;;=^295241
+ ;;=^33176
  ;;^UTILITY(U,$J,358.3,9098,0)
- ;;=V15.1^^74^636^42
+ ;;=110.5^^62^524^21
  ;;^UTILITY(U,$J,358.3,9098,1,0)
  ;;=^358.31IA^5^2
  ;;^UTILITY(U,$J,358.3,9098,1,4,0)
- ;;=4^V15.1
+ ;;=4^110.5
  ;;^UTILITY(U,$J,358.3,9098,1,5,0)
- ;;=5^Hx Of Surgery To Heart And Great Vessels
+ ;;=5^Dermatophytosis Of Body
  ;;^UTILITY(U,$J,358.3,9098,2)
- ;;=^295283
+ ;;=^33179
  ;;^UTILITY(U,$J,358.3,9099,0)
- ;;=V15.82^^74^636^44
+ ;;=110.6^^62^524^23
  ;;^UTILITY(U,$J,358.3,9099,1,0)
  ;;=^358.31IA^5^2
  ;;^UTILITY(U,$J,358.3,9099,1,4,0)
- ;;=4^V15.82
+ ;;=4^110.6
  ;;^UTILITY(U,$J,358.3,9099,1,5,0)
- ;;=5^Hx Of Tobacco Use (Not Current)
+ ;;=5^Dermatophytosis, Deep
  ;;^UTILITY(U,$J,358.3,9099,2)
- ;;=Hx of Tobacco Use (not current)^303405
+ ;;=^266861
  ;;^UTILITY(U,$J,358.3,9100,0)
- ;;=V12.01^^74^636^43
+ ;;=110.4^^62^524^22
  ;;^UTILITY(U,$J,358.3,9100,1,0)
  ;;=^358.31IA^5^2
  ;;^UTILITY(U,$J,358.3,9100,1,4,0)
- ;;=4^V12.01
+ ;;=4^110.4
  ;;^UTILITY(U,$J,358.3,9100,1,5,0)
- ;;=5^Hx Of TB
+ ;;=5^Dermatophytosis Of Foot
  ;;^UTILITY(U,$J,358.3,9100,2)
- ;;=Hx of TB^303393
+ ;;=^33168
  ;;^UTILITY(U,$J,358.3,9101,0)
- ;;=V13.01^^74^636^31
+ ;;=110.3^^62^524^60
  ;;^UTILITY(U,$J,358.3,9101,1,0)
  ;;=^358.31IA^5^2
  ;;^UTILITY(U,$J,358.3,9101,1,4,0)
- ;;=4^V13.01
+ ;;=4^110.3
  ;;^UTILITY(U,$J,358.3,9101,1,5,0)
- ;;=5^Hx Of Kidney Stones
+ ;;=5^Tinea Cruris
  ;;^UTILITY(U,$J,358.3,9101,2)
- ;;=Hx of Kidney Stones^303403
+ ;;=^33171
  ;;^UTILITY(U,$J,358.3,9102,0)
- ;;=V12.51^^74^636^45
+ ;;=110.1^^62^524^37
  ;;^UTILITY(U,$J,358.3,9102,1,0)
  ;;=^358.31IA^5^2
  ;;^UTILITY(U,$J,358.3,9102,1,4,0)
- ;;=4^V12.51
+ ;;=4^110.1
  ;;^UTILITY(U,$J,358.3,9102,1,5,0)
- ;;=5^Hx Of Venous Thrombosis And Embolism
+ ;;=5^Onychomycosis Finger Or Toe
  ;;^UTILITY(U,$J,358.3,9102,2)
- ;;=^303397
+ ;;=^33173
  ;;^UTILITY(U,$J,358.3,9103,0)
- ;;=V17.89^^74^636^3
+ ;;=707.13^^62^524^63
  ;;^UTILITY(U,$J,358.3,9103,1,0)
  ;;=^358.31IA^5^2
  ;;^UTILITY(U,$J,358.3,9103,1,4,0)
- ;;=4^V17.89
+ ;;=4^707.13
  ;;^UTILITY(U,$J,358.3,9103,1,5,0)
- ;;=5^Fam Hx Musculosk Dis
+ ;;=5^Ulcer of Ankle
  ;;^UTILITY(U,$J,358.3,9103,2)
- ;;=^332861
+ ;;=Ulcer of Ankle, non-diabetic^322145
  ;;^UTILITY(U,$J,358.3,9104,0)
- ;;=V12.54^^74^636^29
+ ;;=707.12^^62^524^64
  ;;^UTILITY(U,$J,358.3,9104,1,0)
  ;;=^358.31IA^5^2
  ;;^UTILITY(U,$J,358.3,9104,1,4,0)
- ;;=4^V12.54
+ ;;=4^707.12
  ;;^UTILITY(U,$J,358.3,9104,1,5,0)
- ;;=5^HX of TIA
+ ;;=5^Ulcer of Calf
  ;;^UTILITY(U,$J,358.3,9104,2)
- ;;=^335309
+ ;;=Ulcer of Calf, non-diabetic^322144
  ;;^UTILITY(U,$J,358.3,9105,0)
- ;;=V12.54^^74^636^28
+ ;;=707.15^^62^524^65
  ;;^UTILITY(U,$J,358.3,9105,1,0)
  ;;=^358.31IA^5^2
  ;;^UTILITY(U,$J,358.3,9105,1,4,0)
- ;;=4^V12.54
+ ;;=4^707.15
  ;;^UTILITY(U,$J,358.3,9105,1,5,0)
- ;;=5^HX of Stroke w/o Residuals
+ ;;=5^Ulcer of Foot
  ;;^UTILITY(U,$J,358.3,9105,2)
- ;;=^335309
+ ;;=Ulcer of Foot, non-diabetic^322148
  ;;^UTILITY(U,$J,358.3,9106,0)
- ;;=V15.88^^74^636^26
+ ;;=707.14^^62^524^66
  ;;^UTILITY(U,$J,358.3,9106,1,0)
  ;;=^358.31IA^5^2
  ;;^UTILITY(U,$J,358.3,9106,1,4,0)
- ;;=4^V15.88
+ ;;=4^707.14
  ;;^UTILITY(U,$J,358.3,9106,1,5,0)
- ;;=5^HX of Falls
+ ;;=5^Ulcer of Heel/Midfoot
  ;;^UTILITY(U,$J,358.3,9106,2)
- ;;=^332859
+ ;;=Ulcer of Heel/Midfoot, non-d-diabetic^322146
  ;;^UTILITY(U,$J,358.3,9107,0)
- ;;=V13.59^^74^636^27
+ ;;=707.10^^62^524^62
  ;;^UTILITY(U,$J,358.3,9107,1,0)
  ;;=^358.31IA^5^2
  ;;^UTILITY(U,$J,358.3,9107,1,4,0)
- ;;=4^V13.59
+ ;;=4^707.10
  ;;^UTILITY(U,$J,358.3,9107,1,5,0)
- ;;=5^HX of Musculoskletl Dis NEC
+ ;;=5^Ulcer Lower Extremity
  ;;^UTILITY(U,$J,358.3,9107,2)
- ;;=^295268
+ ;;=Ulcer, LE, non-diabetic^322142
  ;;^UTILITY(U,$J,358.3,9108,0)
- ;;=V12.04^^74^636^58
+ ;;=707.11^^62^524^67
  ;;^UTILITY(U,$J,358.3,9108,1,0)
  ;;=^358.31IA^5^2
  ;;^UTILITY(U,$J,358.3,9108,1,4,0)
- ;;=4^V12.04
+ ;;=4^707.11
  ;;^UTILITY(U,$J,358.3,9108,1,5,0)
- ;;=5^Personal H/O MRSA infection
+ ;;=5^Ulcer of Thigh
  ;;^UTILITY(U,$J,358.3,9108,2)
- ;;=^336780
+ ;;=Ulcer of Thigh, non-diabetic^322143
  ;;^UTILITY(U,$J,358.3,9109,0)
- ;;=V62.22^^74^636^61
+ ;;=695.3^^62^524^52
  ;;^UTILITY(U,$J,358.3,9109,1,0)
  ;;=^358.31IA^5^2
  ;;^UTILITY(U,$J,358.3,9109,1,4,0)
- ;;=4^V62.22
+ ;;=4^695.3
  ;;^UTILITY(U,$J,358.3,9109,1,5,0)
- ;;=5^Personal H/O Retrn Military Deploy
+ ;;=5^Rosacea
  ;;^UTILITY(U,$J,358.3,9109,2)
- ;;=^336807
+ ;;=^107114
  ;;^UTILITY(U,$J,358.3,9110,0)
- ;;=V13.51^^74^636^59
+ ;;=706.1^^62^524^1
  ;;^UTILITY(U,$J,358.3,9110,1,0)
  ;;=^358.31IA^5^2
  ;;^UTILITY(U,$J,358.3,9110,1,4,0)
- ;;=4^V13.51
+ ;;=4^706.1
  ;;^UTILITY(U,$J,358.3,9110,1,5,0)
- ;;=5^Personal H/O Pathological FX
+ ;;=5^Acne Vulgaris
  ;;^UTILITY(U,$J,358.3,9110,2)
- ;;=^336781
+ ;;=^87239
  ;;^UTILITY(U,$J,358.3,9111,0)
- ;;=V15.51^^74^636^63
+ ;;=702.0^^62^524^2
  ;;^UTILITY(U,$J,358.3,9111,1,0)
  ;;=^358.31IA^5^2
  ;;^UTILITY(U,$J,358.3,9111,1,4,0)
- ;;=4^V15.51
+ ;;=4^702.0
+ ;;^UTILITY(U,$J,358.3,9111,1,5,0)
+ ;;=5^Actinic Keratosis
+ ;;^UTILITY(U,$J,358.3,9111,2)
+ ;;=^66900
+ ;;^UTILITY(U,$J,358.3,9112,0)
+ ;;=704.00^^62^524^3
+ ;;^UTILITY(U,$J,358.3,9112,1,0)
+ ;;=^358.31IA^5^2
+ ;;^UTILITY(U,$J,358.3,9112,1,4,0)
+ ;;=4^704.00
+ ;;^UTILITY(U,$J,358.3,9112,1,5,0)
+ ;;=5^Alopecia Nos
+ ;;^UTILITY(U,$J,358.3,9112,2)
+ ;;=^5078
+ ;;^UTILITY(U,$J,358.3,9113,0)
+ ;;=680.9^^62^524^5
+ ;;^UTILITY(U,$J,358.3,9113,1,0)
+ ;;=^358.31IA^5^2
+ ;;^UTILITY(U,$J,358.3,9113,1,4,0)
+ ;;=4^680.9
+ ;;^UTILITY(U,$J,358.3,9113,1,5,0)
+ ;;=5^Carbuncle/Furuncle
+ ;;^UTILITY(U,$J,358.3,9113,2)
+ ;;=^19191
+ ;;^UTILITY(U,$J,358.3,9114,0)
+ ;;=680.5^^62^524^4
+ ;;^UTILITY(U,$J,358.3,9114,1,0)
+ ;;=^358.31IA^5^2
+ ;;^UTILITY(U,$J,358.3,9114,1,4,0)
+ ;;=4^680.5
+ ;;^UTILITY(U,$J,358.3,9114,1,5,0)
+ ;;=5^Carbuncle Of Buttock
+ ;;^UTILITY(U,$J,358.3,9114,2)
+ ;;=^271878
+ ;;^UTILITY(U,$J,358.3,9115,0)
+ ;;=709.9^^62^524^59
+ ;;^UTILITY(U,$J,358.3,9115,1,0)
+ ;;=^358.31IA^5^2
+ ;;^UTILITY(U,$J,358.3,9115,1,4,0)
+ ;;=4^709.9
+ ;;^UTILITY(U,$J,358.3,9115,1,5,0)
+ ;;=5^Skin Lesion, Unsp
+ ;;^UTILITY(U,$J,358.3,9115,2)
+ ;;=^111083
+ ;;^UTILITY(U,$J,358.3,9116,0)
+ ;;=078.11^^62^524^15
+ ;;^UTILITY(U,$J,358.3,9116,1,0)
+ ;;=^358.31IA^5^2
+ ;;^UTILITY(U,$J,358.3,9116,1,4,0)
+ ;;=4^078.11
+ ;;^UTILITY(U,$J,358.3,9116,1,5,0)
+ ;;=5^Condyloma Acuminatum
+ ;;^UTILITY(U,$J,358.3,9116,2)
+ ;;=^295788
+ ;;^UTILITY(U,$J,358.3,9117,0)
+ ;;=700.^^62^524^16
+ ;;^UTILITY(U,$J,358.3,9117,1,0)
+ ;;=^358.31IA^5^2

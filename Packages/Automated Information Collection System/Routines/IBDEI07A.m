@@ -1,362 +1,384 @@
-IBDEI07A ; ; 20-FEB-2013
- ;;3.0;IB ENCOUNTER FORM IMP/EXP;;FEB 20, 2013
+IBDEI07A ; ; 06-AUG-2013
+ ;;3.0;IB ENCOUNTER FORM IMP/EXP;;AUG 06, 2013
  Q:'DIFQR(358.3)  F I=1:2 S X=$T(Q+I) Q:X=""  S Y=$E($T(Q+I+1),4,999),X=$E(X,4,999) S:$A(Y)=126 I=I+1,Y=$E(Y,2,999)_$E($T(Q+I+1),5,99) S:$A(Y)=61 Y=$E(Y,2,999) X NO E  S @X=Y
 Q Q
- ;;^UTILITY(U,$J,358.3,9577,1,4,0)
- ;;=4^054.44
- ;;^UTILITY(U,$J,358.3,9577,2)
- ;;=Iridocyclitis, H Simplex^266565
- ;;^UTILITY(U,$J,358.3,9578,0)
- ;;=053.22^^77^657^34
- ;;^UTILITY(U,$J,358.3,9578,1,0)
- ;;=^358.31IA^4^2
- ;;^UTILITY(U,$J,358.3,9578,1,3,0)
- ;;=3^Iridocyclitis, H Zoster
- ;;^UTILITY(U,$J,358.3,9578,1,4,0)
- ;;=4^053.22
- ;;^UTILITY(U,$J,358.3,9578,2)
- ;;=Iridocyclitis, H Zoster^266554
- ;;^UTILITY(U,$J,358.3,9579,0)
- ;;=364.42^^77^657^63
- ;;^UTILITY(U,$J,358.3,9579,1,0)
- ;;=^358.31IA^4^2
- ;;^UTILITY(U,$J,358.3,9579,1,3,0)
- ;;=3^Rubeosis Iridis
- ;;^UTILITY(U,$J,358.3,9579,1,4,0)
- ;;=4^364.42
  ;;^UTILITY(U,$J,358.3,9579,2)
- ;;=Rubeosis Iridis^268716
+ ;;=^68489
  ;;^UTILITY(U,$J,358.3,9580,0)
- ;;=364.77^^77^657^2
+ ;;=340.^^65^547^13
  ;;^UTILITY(U,$J,358.3,9580,1,0)
  ;;=^358.31IA^4^2
  ;;^UTILITY(U,$J,358.3,9580,1,3,0)
- ;;=3^Angle Recession, Iris
+ ;;=3^Multiple Sclerosis
  ;;^UTILITY(U,$J,358.3,9580,1,4,0)
- ;;=4^364.77
+ ;;=4^340.
  ;;^UTILITY(U,$J,358.3,9580,2)
- ;;=Angle Recession, Iris^268743
+ ;;=^79761
  ;;^UTILITY(U,$J,358.3,9581,0)
- ;;=364.59^^77^657^35
+ ;;=332.0^^65^547^15
  ;;^UTILITY(U,$J,358.3,9581,1,0)
  ;;=^358.31IA^4^2
  ;;^UTILITY(U,$J,358.3,9581,1,3,0)
- ;;=3^Iris Atrophy
+ ;;=3^Paralysis Agitans
  ;;^UTILITY(U,$J,358.3,9581,1,4,0)
- ;;=4^364.59
+ ;;=4^332.0
  ;;^UTILITY(U,$J,358.3,9581,2)
- ;;=Iris Atrophy^268731
+ ;;=^304847
  ;;^UTILITY(U,$J,358.3,9582,0)
- ;;=224.0^^77^657^7
+ ;;=780.39^^65^547^14
  ;;^UTILITY(U,$J,358.3,9582,1,0)
  ;;=^358.31IA^4^2
  ;;^UTILITY(U,$J,358.3,9582,1,3,0)
- ;;=3^Benign Neopl of Iris
+ ;;=3^Other Convulsions
  ;;^UTILITY(U,$J,358.3,9582,1,4,0)
- ;;=4^224.0
+ ;;=4^780.39
  ;;^UTILITY(U,$J,358.3,9582,2)
- ;;=^267670
+ ;;=^28162
  ;;^UTILITY(U,$J,358.3,9583,0)
- ;;=364.72^^77^657^4
+ ;;=438.12^^65^547^5
  ;;^UTILITY(U,$J,358.3,9583,1,0)
  ;;=^358.31IA^4^2
  ;;^UTILITY(U,$J,358.3,9583,1,3,0)
- ;;=3^Anterior Synechiae
+ ;;=3^Late Eff Cereb/Vasc,Dysphasia
  ;;^UTILITY(U,$J,358.3,9583,1,4,0)
- ;;=4^364.72
+ ;;=4^438.12
  ;;^UTILITY(U,$J,358.3,9583,2)
- ;;=Anterior Synechiae^265517
+ ;;=^317908
  ;;^UTILITY(U,$J,358.3,9584,0)
- ;;=364.71^^77^657^58
+ ;;=438.21^^65^547^6
  ;;^UTILITY(U,$J,358.3,9584,1,0)
  ;;=^358.31IA^4^2
  ;;^UTILITY(U,$J,358.3,9584,1,3,0)
- ;;=3^Posterior Synechiae
+ ;;=3^Late Eff Cereb/Vasc,Hemipl,Dom
  ;;^UTILITY(U,$J,358.3,9584,1,4,0)
- ;;=4^364.71
+ ;;=4^438.21
  ;;^UTILITY(U,$J,358.3,9584,2)
- ;;=Posterior Synechiae^265519
+ ;;=^317911
  ;;^UTILITY(U,$J,358.3,9585,0)
- ;;=364.00^^77^657^31
+ ;;=438.22^^65^547^7
  ;;^UTILITY(U,$J,358.3,9585,1,0)
  ;;=^358.31IA^4^2
  ;;^UTILITY(U,$J,358.3,9585,1,3,0)
- ;;=3^Iridocyclitis, Acute
+ ;;=3^Late Eff Cereb/Vasc,Hemipl,NonDom
  ;;^UTILITY(U,$J,358.3,9585,1,4,0)
- ;;=4^364.00
+ ;;=4^438.22
  ;;^UTILITY(U,$J,358.3,9585,2)
- ;;=Iridocyclitis, Acute^268703
+ ;;=^317912
  ;;^UTILITY(U,$J,358.3,9586,0)
- ;;=379.40^^77^657^60
+ ;;=438.41^^65^547^10
  ;;^UTILITY(U,$J,358.3,9586,1,0)
  ;;=^358.31IA^4^2
  ;;^UTILITY(U,$J,358.3,9586,1,3,0)
- ;;=3^Pupil, Abnormal function
+ ;;=3^Monoplegia of LL, Dom Side
  ;;^UTILITY(U,$J,358.3,9586,1,4,0)
- ;;=4^379.40
+ ;;=4^438.41
  ;;^UTILITY(U,$J,358.3,9586,2)
- ;;=Pupil, Abnormal function^101288
+ ;;=^317917
  ;;^UTILITY(U,$J,358.3,9587,0)
- ;;=190.0^^77^657^49
+ ;;=438.42^^65^547^11
  ;;^UTILITY(U,$J,358.3,9587,1,0)
  ;;=^358.31IA^4^2
  ;;^UTILITY(U,$J,358.3,9587,1,3,0)
- ;;=3^Malig Neopl of Iris
+ ;;=3^Monoplegia of LL, NonDom Side
  ;;^UTILITY(U,$J,358.3,9587,1,4,0)
- ;;=4^190.0
+ ;;=4^438.42
  ;;^UTILITY(U,$J,358.3,9587,2)
- ;;=Malig Neopl of Iris^267271
+ ;;=^317918
  ;;^UTILITY(U,$J,358.3,9588,0)
- ;;=190.3^^77^657^48
+ ;;=427.31^^65^548^3
  ;;^UTILITY(U,$J,358.3,9588,1,0)
  ;;=^358.31IA^4^2
  ;;^UTILITY(U,$J,358.3,9588,1,3,0)
- ;;=3^Malig Neopl Conjunctiva
+ ;;=3^Atrial Fibrillation
  ;;^UTILITY(U,$J,358.3,9588,1,4,0)
- ;;=4^190.3
+ ;;=4^427.31
  ;;^UTILITY(U,$J,358.3,9588,2)
- ;;=Malig Neopl Conjunctiva^267274
+ ;;=^11378
  ;;^UTILITY(U,$J,358.3,9589,0)
- ;;=364.41^^77^657^29
+ ;;=V45.81^^65^548^2
  ;;^UTILITY(U,$J,358.3,9589,1,0)
  ;;=^358.31IA^4^2
  ;;^UTILITY(U,$J,358.3,9589,1,3,0)
- ;;=3^Hyphema
+ ;;=3^Aortocoronary Bypass
  ;;^UTILITY(U,$J,358.3,9589,1,4,0)
- ;;=4^364.41
+ ;;=4^V45.81
  ;;^UTILITY(U,$J,358.3,9589,2)
- ;;=Hyphema^60498
+ ;;=^97129
  ;;^UTILITY(U,$J,358.3,9590,0)
- ;;=364.05^^77^657^30
+ ;;=414.00^^65^548^9
  ;;^UTILITY(U,$J,358.3,9590,1,0)
  ;;=^358.31IA^4^2
  ;;^UTILITY(U,$J,358.3,9590,1,3,0)
- ;;=3^Hypopyon
+ ;;=3^Cor Atheroscl Unsp Typ-Ves
  ;;^UTILITY(U,$J,358.3,9590,1,4,0)
- ;;=4^364.05
+ ;;=4^414.00
  ;;^UTILITY(U,$J,358.3,9590,2)
- ;;=Hypopion^60720
+ ;;=^28512
  ;;^UTILITY(U,$J,358.3,9591,0)
- ;;=365.02^^77^657^3
+ ;;=414.01^^65^548^8
  ;;^UTILITY(U,$J,358.3,9591,1,0)
  ;;=^358.31IA^4^2
  ;;^UTILITY(U,$J,358.3,9591,1,3,0)
- ;;=3^Angle, Narrow
+ ;;=3^Cor Atheroscl Native Coronary Artery
  ;;^UTILITY(U,$J,358.3,9591,1,4,0)
- ;;=4^365.02
+ ;;=4^414.01
  ;;^UTILITY(U,$J,358.3,9591,2)
- ;;=Angle, Narrow^268748
+ ;;=^303281
  ;;^UTILITY(U,$J,358.3,9592,0)
- ;;=372.63^^77^657^65
+ ;;=425.4^^65^548^17
  ;;^UTILITY(U,$J,358.3,9592,1,0)
  ;;=^358.31IA^4^2
  ;;^UTILITY(U,$J,358.3,9592,1,3,0)
- ;;=3^Symblepharon
+ ;;=3^Primary Cardiomyopathy NEC
  ;;^UTILITY(U,$J,358.3,9592,1,4,0)
- ;;=4^372.63
+ ;;=4^425.4
  ;;^UTILITY(U,$J,358.3,9592,2)
- ;;=Symblepharon^265885
+ ;;=^87808
  ;;^UTILITY(U,$J,358.3,9593,0)
- ;;=372.75^^77^657^20
+ ;;=428.0^^65^548^7
  ;;^UTILITY(U,$J,358.3,9593,1,0)
  ;;=^358.31IA^4^2
  ;;^UTILITY(U,$J,358.3,9593,1,3,0)
- ;;=3^Cysts, Conjunctival
+ ;;=3^Congestive Heart Failure
  ;;^UTILITY(U,$J,358.3,9593,1,4,0)
- ;;=4^372.75
+ ;;=4^428.0
  ;;^UTILITY(U,$J,358.3,9593,2)
- ;;=Cysts, Conjunctival^269049
+ ;;=^54758
  ;;^UTILITY(U,$J,358.3,9594,0)
- ;;=364.81^^77^657^24
+ ;;=496.^^65^548^5
  ;;^UTILITY(U,$J,358.3,9594,1,0)
  ;;=^358.31IA^4^2
  ;;^UTILITY(U,$J,358.3,9594,1,3,0)
- ;;=3^Floppy Iris Syndrome
+ ;;=3^Chr Airway Obstruct Nec
  ;;^UTILITY(U,$J,358.3,9594,1,4,0)
- ;;=4^364.81
+ ;;=4^496.
  ;;^UTILITY(U,$J,358.3,9594,2)
- ;;=^335254
+ ;;=^24355
  ;;^UTILITY(U,$J,358.3,9595,0)
- ;;=372.06^^77^657^17
+ ;;=491.21^^65^548^13
  ;;^UTILITY(U,$J,358.3,9595,1,0)
  ;;=^358.31IA^4^2
  ;;^UTILITY(U,$J,358.3,9595,1,3,0)
- ;;=3^Conjunctivitis,Chemical Acute
+ ;;=3^Ob Ch Bronchitis W Exacerb
  ;;^UTILITY(U,$J,358.3,9595,1,4,0)
- ;;=4^372.06
+ ;;=4^491.21
  ;;^UTILITY(U,$J,358.3,9595,2)
- ;;=^338237
+ ;;=^269954
  ;;^UTILITY(U,$J,358.3,9596,0)
- ;;=379.31^^77^658^1
+ ;;=493.20^^65^548^6
  ;;^UTILITY(U,$J,358.3,9596,1,0)
  ;;=^358.31IA^4^2
  ;;^UTILITY(U,$J,358.3,9596,1,3,0)
- ;;=3^Aphakia
+ ;;=3^Chr Obs Asthma W/O Stat Asth/A
  ;;^UTILITY(U,$J,358.3,9596,1,4,0)
- ;;=4^379.31
+ ;;=4^493.20
  ;;^UTILITY(U,$J,358.3,9596,2)
- ;;=^9445
+ ;;=^269964
  ;;^UTILITY(U,$J,358.3,9597,0)
- ;;=366.15^^77^658^3
+ ;;=491.20^^65^548^14
  ;;^UTILITY(U,$J,358.3,9597,1,0)
  ;;=^358.31IA^4^2
  ;;^UTILITY(U,$J,358.3,9597,1,3,0)
- ;;=3^Cataract, Cortical
+ ;;=3^Ob Ch Bronchitis W/O Exacerb
  ;;^UTILITY(U,$J,358.3,9597,1,4,0)
- ;;=4^366.15
+ ;;=4^491.20
  ;;^UTILITY(U,$J,358.3,9597,2)
- ;;=Cortical Senile Cataract^268797
+ ;;=^269953
  ;;^UTILITY(U,$J,358.3,9598,0)
- ;;=366.16^^77^658^5
+ ;;=492.8^^65^548^10
  ;;^UTILITY(U,$J,358.3,9598,1,0)
  ;;=^358.31IA^4^2
  ;;^UTILITY(U,$J,358.3,9598,1,3,0)
- ;;=3^Cataract, Nuclear Sclerosis
+ ;;=3^Emphysema Nec
  ;;^UTILITY(U,$J,358.3,9598,1,4,0)
- ;;=4^366.16
+ ;;=4^492.8
  ;;^UTILITY(U,$J,358.3,9598,2)
- ;;=366.16^268800
+ ;;=^87569
  ;;^UTILITY(U,$J,358.3,9599,0)
- ;;=366.14^^77^658^6
+ ;;=V17.3^^65^548^12
  ;;^UTILITY(U,$J,358.3,9599,1,0)
  ;;=^358.31IA^4^2
  ;;^UTILITY(U,$J,358.3,9599,1,3,0)
- ;;=3^Cataract, PSC/Post Subcapsular
+ ;;=3^Fam Hx-Ischem Heart Dis
  ;;^UTILITY(U,$J,358.3,9599,1,4,0)
- ;;=4^366.14
+ ;;=4^V17.3
  ;;^UTILITY(U,$J,358.3,9599,2)
- ;;=Post Subcapsular Senile Cataract^268796
+ ;;=^295305
  ;;^UTILITY(U,$J,358.3,9600,0)
- ;;=V43.1^^77^658^16
+ ;;=410.92^^65^548^1
  ;;^UTILITY(U,$J,358.3,9600,1,0)
  ;;=^358.31IA^4^2
  ;;^UTILITY(U,$J,358.3,9600,1,3,0)
- ;;=3^Pseudophakia
+ ;;=3^AMI NOS, Subsequent
  ;;^UTILITY(U,$J,358.3,9600,1,4,0)
- ;;=4^V43.1
+ ;;=4^410.92
  ;;^UTILITY(U,$J,358.3,9600,2)
- ;;=^69114^V45.61
+ ;;=^269675
  ;;^UTILITY(U,$J,358.3,9601,0)
- ;;=366.20^^77^658^11
+ ;;=412.^^65^548^15
  ;;^UTILITY(U,$J,358.3,9601,1,0)
  ;;=^358.31IA^4^2
  ;;^UTILITY(U,$J,358.3,9601,1,3,0)
- ;;=3^Cataract, Traumatic
+ ;;=3^Old Myocardial Infarction
  ;;^UTILITY(U,$J,358.3,9601,1,4,0)
- ;;=4^366.20
+ ;;=4^412.
  ;;^UTILITY(U,$J,358.3,9601,2)
- ;;=Traumatic Cataract, NOS^268802
+ ;;=^259884
  ;;^UTILITY(U,$J,358.3,9602,0)
- ;;=366.52^^77^658^7
+ ;;=V45.01^^65^548^4
  ;;^UTILITY(U,$J,358.3,9602,1,0)
  ;;=^358.31IA^4^2
  ;;^UTILITY(U,$J,358.3,9602,1,3,0)
- ;;=3^Cataract, Post Capsular-not obscuring vision
+ ;;=3^Cardiac Pacemaker In Situ
  ;;^UTILITY(U,$J,358.3,9602,1,4,0)
- ;;=4^366.52
+ ;;=4^V45.01
  ;;^UTILITY(U,$J,358.3,9602,2)
- ;;=Posterior Capsular Fibrosis Not Obscuring Vision^268822
+ ;;=^303419
  ;;^UTILITY(U,$J,358.3,9603,0)
- ;;=366.53^^77^658^8
+ ;;=519.9^^65^548^18
  ;;^UTILITY(U,$J,358.3,9603,1,0)
  ;;=^358.31IA^4^2
  ;;^UTILITY(U,$J,358.3,9603,1,3,0)
- ;;=3^Cataract, Post Capsular-obscuring vision
+ ;;=3^Resp System Disease Nos
  ;;^UTILITY(U,$J,358.3,9603,1,4,0)
- ;;=4^366.53
+ ;;=4^519.9
  ;;^UTILITY(U,$J,358.3,9603,2)
- ;;=Post Capsular Fibrosis, Obscuring Vision^268823
+ ;;=^105137
  ;;^UTILITY(U,$J,358.3,9604,0)
- ;;=366.11^^77^658^9
+ ;;=V17.49^^65^548^11
  ;;^UTILITY(U,$J,358.3,9604,1,0)
  ;;=^358.31IA^4^2
  ;;^UTILITY(U,$J,358.3,9604,1,3,0)
- ;;=3^Cataract, Pseudoexfoliation
+ ;;=3^Fam Hx-Cardiovas Dis Nec
  ;;^UTILITY(U,$J,358.3,9604,1,4,0)
- ;;=4^366.11
+ ;;=4^V17.49
  ;;^UTILITY(U,$J,358.3,9604,2)
- ;;=Pseudoexfoliation^265538
+ ;;=^295306
  ;;^UTILITY(U,$J,358.3,9605,0)
- ;;=366.17^^77^658^4
+ ;;=V45.82^^65^548^16
  ;;^UTILITY(U,$J,358.3,9605,1,0)
  ;;=^358.31IA^4^2
  ;;^UTILITY(U,$J,358.3,9605,1,3,0)
- ;;=3^Cataract, Mature
+ ;;=3^PTCA Status
  ;;^UTILITY(U,$J,358.3,9605,1,4,0)
- ;;=4^366.17
+ ;;=4^V45.82
  ;;^UTILITY(U,$J,358.3,9605,2)
- ;;=Mature Cataract^265530
+ ;;=^303425
  ;;^UTILITY(U,$J,358.3,9606,0)
- ;;=366.45^^77^658^10
+ ;;=996.77^^65^549^1
  ;;^UTILITY(U,$J,358.3,9606,1,0)
  ;;=^358.31IA^4^2
  ;;^UTILITY(U,$J,358.3,9606,1,3,0)
- ;;=3^Cataract, Toxic
+ ;;=3^Comp-Internal Joint Pros
  ;;^UTILITY(U,$J,358.3,9606,1,4,0)
- ;;=4^366.45
+ ;;=4^996.77
  ;;^UTILITY(U,$J,358.3,9606,2)
- ;;=Toxic Cataract^268819
+ ;;=^276300
  ;;^UTILITY(U,$J,358.3,9607,0)
- ;;=362.53^^77^658^14
+ ;;=996.78^^65^549^2
  ;;^UTILITY(U,$J,358.3,9607,1,0)
  ;;=^358.31IA^4^2
  ;;^UTILITY(U,$J,358.3,9607,1,3,0)
- ;;=3^Cystoid Macular Edema (CME)
+ ;;=3^Comp-Oth Int Ortho Device
  ;;^UTILITY(U,$J,358.3,9607,1,4,0)
- ;;=4^362.53
+ ;;=4^996.78
  ;;^UTILITY(U,$J,358.3,9607,2)
- ;;=^268638^996.79
+ ;;=^276301
  ;;^UTILITY(U,$J,358.3,9608,0)
- ;;=743.30^^77^658^2
+ ;;=905.3^^65^550^1
  ;;^UTILITY(U,$J,358.3,9608,1,0)
  ;;=^358.31IA^4^2
  ;;^UTILITY(U,$J,358.3,9608,1,3,0)
- ;;=3^Cataract, Congenital
+ ;;=3^Late Eff Femoral Neck Fx
  ;;^UTILITY(U,$J,358.3,9608,1,4,0)
- ;;=4^743.30
+ ;;=4^905.3
  ;;^UTILITY(U,$J,358.3,9608,2)
- ;;=Congenital Cataract^27422
+ ;;=^275217
  ;;^UTILITY(U,$J,358.3,9609,0)
- ;;=996.53^^77^658^13
+ ;;=905.4^^65^550^4
  ;;^UTILITY(U,$J,358.3,9609,1,0)
  ;;=^358.31IA^4^2
  ;;^UTILITY(U,$J,358.3,9609,1,3,0)
- ;;=3^Complication of Lens Implant 
+ ;;=3^Late Effect Leg Fx
  ;;^UTILITY(U,$J,358.3,9609,1,4,0)
- ;;=4^996.53
+ ;;=4^905.4
  ;;^UTILITY(U,$J,358.3,9609,2)
- ;;=Complication of Lens Implant (dislocation)^276279
+ ;;=^275218
  ;;^UTILITY(U,$J,358.3,9610,0)
- ;;=366.9^^77^658^12
+ ;;=905.1^^65^550^2
  ;;^UTILITY(U,$J,358.3,9610,1,0)
  ;;=^358.31IA^4^2
  ;;^UTILITY(U,$J,358.3,9610,1,3,0)
- ;;=3^Cataract, Unspecified
+ ;;=3^Late Eff Spine/Trunk Fx
  ;;^UTILITY(U,$J,358.3,9610,1,4,0)
- ;;=4^366.9
+ ;;=4^905.1
  ;;^UTILITY(U,$J,358.3,9610,2)
- ;;=^20266
+ ;;=^275215
  ;;^UTILITY(U,$J,358.3,9611,0)
- ;;=996.69^^77^658^15
+ ;;=905.2^^65^550^3
  ;;^UTILITY(U,$J,358.3,9611,1,0)
  ;;=^358.31IA^4^2
  ;;^UTILITY(U,$J,358.3,9611,1,3,0)
- ;;=3^Post Op Endophthalmitis
+ ;;=3^Late Effect Arm Fx
  ;;^UTILITY(U,$J,358.3,9611,1,4,0)
- ;;=4^996.69
+ ;;=4^905.2
  ;;^UTILITY(U,$J,358.3,9611,2)
- ;;=Post Op Endophthalmitis^276291
+ ;;=^275216
  ;;^UTILITY(U,$J,358.3,9612,0)
- ;;=362.36^^77^659^5
+ ;;=303.90^^65^551^1
  ;;^UTILITY(U,$J,358.3,9612,1,0)
  ;;=^358.31IA^4^2
  ;;^UTILITY(U,$J,358.3,9612,1,3,0)
- ;;=3^Brvo/Branch Retinal Vein Occlusion
+ ;;=3^Alcohol Dependence NEC/NOS
  ;;^UTILITY(U,$J,358.3,9612,1,4,0)
- ;;=4^362.36
+ ;;=4^303.90
  ;;^UTILITY(U,$J,358.3,9612,2)
- ;;=Branch Retina Vein Occlusion^268626
+ ;;=^4648
  ;;^UTILITY(U,$J,358.3,9613,0)
- ;;=362.31^^77^659^12
+ ;;=296.40^^65^551^2
  ;;^UTILITY(U,$J,358.3,9613,1,0)
  ;;=^358.31IA^4^2
+ ;;^UTILITY(U,$J,358.3,9613,1,3,0)
+ ;;=3^Bipolar I Disorder, Manic Episode NOS
+ ;;^UTILITY(U,$J,358.3,9613,1,4,0)
+ ;;=4^296.40
+ ;;^UTILITY(U,$J,358.3,9613,2)
+ ;;=^268123
+ ;;^UTILITY(U,$J,358.3,9614,0)
+ ;;=290.0^^65^551^10
+ ;;^UTILITY(U,$J,358.3,9614,1,0)
+ ;;=^358.31IA^4^2
+ ;;^UTILITY(U,$J,358.3,9614,1,3,0)
+ ;;=3^Senile Dementia Uncomp
+ ;;^UTILITY(U,$J,358.3,9614,1,4,0)
+ ;;=4^290.0
+ ;;^UTILITY(U,$J,358.3,9614,2)
+ ;;=^31703
+ ;;^UTILITY(U,$J,358.3,9615,0)
+ ;;=294.8^^65^551^7
+ ;;^UTILITY(U,$J,358.3,9615,1,0)
+ ;;=^358.31IA^4^2
+ ;;^UTILITY(U,$J,358.3,9615,1,3,0)
+ ;;=3^Organic Brain Synd Nec
+ ;;^UTILITY(U,$J,358.3,9615,1,4,0)
+ ;;=4^294.8
+ ;;^UTILITY(U,$J,358.3,9615,2)
+ ;;=^268044
+ ;;^UTILITY(U,$J,358.3,9616,0)
+ ;;=304.90^^65^551^6
+ ;;^UTILITY(U,$J,358.3,9616,1,0)
+ ;;=^358.31IA^4^2
+ ;;^UTILITY(U,$J,358.3,9616,1,3,0)
+ ;;=3^Drug Dependence NOS
+ ;;^UTILITY(U,$J,358.3,9616,1,4,0)
+ ;;=4^304.90
+ ;;^UTILITY(U,$J,358.3,9616,2)
+ ;;=^36870
+ ;;^UTILITY(U,$J,358.3,9617,0)
+ ;;=311.^^65^551^5
+ ;;^UTILITY(U,$J,358.3,9617,1,0)
+ ;;=^358.31IA^4^2
+ ;;^UTILITY(U,$J,358.3,9617,1,3,0)
+ ;;=3^Depressive Disorder Nec
+ ;;^UTILITY(U,$J,358.3,9617,1,4,0)
+ ;;=4^311.

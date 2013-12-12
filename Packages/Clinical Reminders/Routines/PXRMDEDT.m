@@ -1,5 +1,5 @@
-PXRMDEDT ; SLC/PJH - Edit PXRM reminder dialog. ;03/01/2010
- ;;2.0;CLINICAL REMINDERS;**4,6,12,17,16**;Feb 04, 2005;Build 119
+PXRMDEDT ; SLC/PJH - Edit PXRM reminder dialog. ;08/02/2012
+ ;;2.0;CLINICAL REMINDERS;**4,6,12,17,16,24**;Feb 04, 2005;Build 193
  ;
  ;Used by protocol PXRM SELECTION ADD/PXRM GENERAL ADD
  ;
@@ -284,7 +284,7 @@ LOCK(DA) ;Lock the record
  I 'OK Q 0
  ;
  L +^PXRMD(801.41,DA):0 I  Q 1
- E  W !!,?5,"Another user is editing this file, try later" H 2 Q 0
+ E  W !!,?5,"Another user is editing this entry, try later." H 2 Q 0
  ;
 PROMPT(IEN) ;
  N DIE,DR

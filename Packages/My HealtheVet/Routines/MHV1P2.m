@@ -86,7 +86,7 @@ UPDLINK() ; Update Logical Link
  I $P($$PARAM^HLCS2,U,3)="P" D
  . S FDA(870,IEN,.08)="MHV.DOMAIN.EXT"
  . S FDA(870,IEN,4.5)=1
- . S FDA(870,IEN,400.01)="127.0.0.1"
+ . S FDA(870,IEN,400.01)="127.0.0.1
  . S FDA(870,IEN,400.02)=5410
  . Q
  E  D

@@ -1,352 +1,296 @@
-IBDEI0CK ; ; 20-FEB-2013
- ;;3.0;IB ENCOUNTER FORM IMP/EXP;;FEB 20, 2013
+IBDEI0CK ; ; 06-AUG-2013
+ ;;3.0;IB ENCOUNTER FORM IMP/EXP;;AUG 06, 2013
  Q:'DIFQR(358.3)  F I=1:2 S X=$T(Q+I) Q:X=""  S Y=$E($T(Q+I+1),4,999),X=$E(X,4,999) S:$A(Y)=126 I=I+1,Y=$E(Y,2,999)_$E($T(Q+I+1),5,99) S:$A(Y)=61 Y=$E(Y,2,999) X NO E  S @X=Y
 Q Q
- ;;^UTILITY(U,$J,358.3,16732,1,5,0)
- ;;=5^Hypertension, Essential
- ;;^UTILITY(U,$J,358.3,16732,2)
- ;;=^186630
- ;;^UTILITY(U,$J,358.3,16733,0)
- ;;=272.0^^125^1065^53
- ;;^UTILITY(U,$J,358.3,16733,1,0)
- ;;=^358.31IA^5^2
- ;;^UTILITY(U,$J,358.3,16733,1,4,0)
- ;;=4^272.0
- ;;^UTILITY(U,$J,358.3,16733,1,5,0)
- ;;=5^Hypercholesterolemia, Pure
- ;;^UTILITY(U,$J,358.3,16733,2)
- ;;=^59973
- ;;^UTILITY(U,$J,358.3,16734,0)
- ;;=272.1^^125^1065^56
- ;;^UTILITY(U,$J,358.3,16734,1,0)
- ;;=^358.31IA^5^2
- ;;^UTILITY(U,$J,358.3,16734,1,4,0)
- ;;=4^272.1
- ;;^UTILITY(U,$J,358.3,16734,1,5,0)
- ;;=5^Hypertriglyceridemia
- ;;^UTILITY(U,$J,358.3,16734,2)
- ;;=Hypertriglyceridemia^101303
- ;;^UTILITY(U,$J,358.3,16735,0)
- ;;=272.2^^125^1065^59
- ;;^UTILITY(U,$J,358.3,16735,1,0)
- ;;=^358.31IA^5^2
- ;;^UTILITY(U,$J,358.3,16735,1,4,0)
- ;;=4^272.2
- ;;^UTILITY(U,$J,358.3,16735,1,5,0)
- ;;=5^Mixed Hyperlipidemia
- ;;^UTILITY(U,$J,358.3,16735,2)
- ;;=^78424
- ;;^UTILITY(U,$J,358.3,16736,0)
- ;;=396.0^^125^1065^11
- ;;^UTILITY(U,$J,358.3,16736,1,0)
- ;;=^358.31IA^5^2
- ;;^UTILITY(U,$J,358.3,16736,1,4,0)
- ;;=4^396.0
- ;;^UTILITY(U,$J,358.3,16736,1,5,0)
- ;;=5^Aortic and Mitral Stenosis
- ;;^UTILITY(U,$J,358.3,16736,2)
- ;;=Aortic and Mitral Stenosis^269580
- ;;^UTILITY(U,$J,358.3,16737,0)
- ;;=414.02^^125^1065^16
- ;;^UTILITY(U,$J,358.3,16737,1,0)
- ;;=^358.31IA^5^2
- ;;^UTILITY(U,$J,358.3,16737,1,4,0)
- ;;=4^414.02
- ;;^UTILITY(U,$J,358.3,16737,1,5,0)
- ;;=5^CAD, Occlusion of Venous Graft
- ;;^UTILITY(U,$J,358.3,16737,2)
- ;;=CAD, Occlusion of Venous Graft^303282
- ;;^UTILITY(U,$J,358.3,16738,0)
- ;;=459.10^^125^1065^69
- ;;^UTILITY(U,$J,358.3,16738,1,0)
- ;;=^358.31IA^5^2
- ;;^UTILITY(U,$J,358.3,16738,1,4,0)
- ;;=4^459.10
- ;;^UTILITY(U,$J,358.3,16738,1,5,0)
- ;;=5^Post Phlebotic Syndrome
- ;;^UTILITY(U,$J,358.3,16738,2)
- ;;=Post Phlebotic Syndrome^328597
- ;;^UTILITY(U,$J,358.3,16739,0)
- ;;=428.20^^125^1065^49
- ;;^UTILITY(U,$J,358.3,16739,1,0)
- ;;=^358.31IA^5^2
- ;;^UTILITY(U,$J,358.3,16739,1,4,0)
- ;;=4^428.20
- ;;^UTILITY(U,$J,358.3,16739,1,5,0)
- ;;=5^Heart Failure, Systolic, Unspec
- ;;^UTILITY(U,$J,358.3,16739,2)
- ;;=Heart Failure, Systolic^328594
- ;;^UTILITY(U,$J,358.3,16740,0)
- ;;=428.21^^125^1065^41
- ;;^UTILITY(U,$J,358.3,16740,1,0)
- ;;=^358.31IA^5^2
- ;;^UTILITY(U,$J,358.3,16740,1,4,0)
- ;;=4^428.21
- ;;^UTILITY(U,$J,358.3,16740,1,5,0)
- ;;=5^Heart Failure, Acute Systolic
- ;;^UTILITY(U,$J,358.3,16740,2)
- ;;=Heart Failure, Acute Systolic^328494
- ;;^UTILITY(U,$J,358.3,16741,0)
- ;;=428.22^^125^1065^43
- ;;^UTILITY(U,$J,358.3,16741,1,0)
- ;;=^358.31IA^5^2
- ;;^UTILITY(U,$J,358.3,16741,1,4,0)
- ;;=4^428.22
- ;;^UTILITY(U,$J,358.3,16741,1,5,0)
- ;;=5^Heart Failure, Chronic Systolic
- ;;^UTILITY(U,$J,358.3,16741,2)
- ;;=Heart Failure, Chronic Systolic^328495
- ;;^UTILITY(U,$J,358.3,16742,0)
- ;;=428.23^^125^1065^48
- ;;^UTILITY(U,$J,358.3,16742,1,0)
- ;;=^358.31IA^5^2
- ;;^UTILITY(U,$J,358.3,16742,1,4,0)
- ;;=4^428.23
- ;;^UTILITY(U,$J,358.3,16742,1,5,0)
- ;;=5^Heart Failure, Systolic, Acute on Chronic
- ;;^UTILITY(U,$J,358.3,16742,2)
- ;;=Heart Failure, Systolic, Acute on Chronic^328496
- ;;^UTILITY(U,$J,358.3,16743,0)
- ;;=428.30^^125^1065^44
- ;;^UTILITY(U,$J,358.3,16743,1,0)
- ;;=^358.31IA^5^2
- ;;^UTILITY(U,$J,358.3,16743,1,4,0)
- ;;=4^428.30
- ;;^UTILITY(U,$J,358.3,16743,1,5,0)
- ;;=5^Heart Failure, Diastolic
- ;;^UTILITY(U,$J,358.3,16743,2)
- ;;=Heart Failure, Diastolic^328595
- ;;^UTILITY(U,$J,358.3,16744,0)
- ;;=428.31^^125^1065^40
- ;;^UTILITY(U,$J,358.3,16744,1,0)
- ;;=^358.31IA^5^2
- ;;^UTILITY(U,$J,358.3,16744,1,4,0)
- ;;=4^428.31
- ;;^UTILITY(U,$J,358.3,16744,1,5,0)
- ;;=5^Heart Failure, Acute Diastolic
- ;;^UTILITY(U,$J,358.3,16744,2)
- ;;=Heart Failure, Acute Diastolic^328497
- ;;^UTILITY(U,$J,358.3,16745,0)
- ;;=428.32^^125^1065^42
- ;;^UTILITY(U,$J,358.3,16745,1,0)
- ;;=^358.31IA^5^2
- ;;^UTILITY(U,$J,358.3,16745,1,4,0)
- ;;=4^428.32
- ;;^UTILITY(U,$J,358.3,16745,1,5,0)
- ;;=5^Heart Failure, Chronic Diastolic
- ;;^UTILITY(U,$J,358.3,16745,2)
- ;;=Heart Failure, Chronic Diastolic^328498
- ;;^UTILITY(U,$J,358.3,16746,0)
- ;;=428.33^^125^1065^46
- ;;^UTILITY(U,$J,358.3,16746,1,0)
- ;;=^358.31IA^5^2
- ;;^UTILITY(U,$J,358.3,16746,1,4,0)
- ;;=4^428.33
- ;;^UTILITY(U,$J,358.3,16746,1,5,0)
- ;;=5^Heart Failure, Diastolic, Acute on Chronic
- ;;^UTILITY(U,$J,358.3,16746,2)
- ;;=Heart Failure, Diastolic, Acute on Chronic^328499
- ;;^UTILITY(U,$J,358.3,16747,0)
- ;;=428.40^^125^1065^45
- ;;^UTILITY(U,$J,358.3,16747,1,0)
- ;;=^358.31IA^5^2
- ;;^UTILITY(U,$J,358.3,16747,1,4,0)
- ;;=4^428.40
- ;;^UTILITY(U,$J,358.3,16747,1,5,0)
- ;;=5^Heart Failure, Diastolic& Systolic
- ;;^UTILITY(U,$J,358.3,16747,2)
- ;;=Heart Failure, Systolic and Diastolic^328596
- ;;^UTILITY(U,$J,358.3,16748,0)
- ;;=428.41^^125^1065^47
- ;;^UTILITY(U,$J,358.3,16748,1,0)
- ;;=^358.31IA^5^2
- ;;^UTILITY(U,$J,358.3,16748,1,4,0)
- ;;=4^428.41
- ;;^UTILITY(U,$J,358.3,16748,1,5,0)
- ;;=5^Heart Failure, Systolic & Diastolic, Acute
- ;;^UTILITY(U,$J,358.3,16748,2)
- ;;=Heart Failure, Systolic & Diastolic, Acute^328500
- ;;^UTILITY(U,$J,358.3,16749,0)
- ;;=428.42^^125^1065^51
- ;;^UTILITY(U,$J,358.3,16749,1,0)
- ;;=^358.31IA^5^2
- ;;^UTILITY(U,$J,358.3,16749,1,4,0)
- ;;=4^428.42
- ;;^UTILITY(U,$J,358.3,16749,1,5,0)
- ;;=5^Heart Failure,Systolic&Diastolic,Chronic
- ;;^UTILITY(U,$J,358.3,16749,2)
- ;;=^328501
- ;;^UTILITY(U,$J,358.3,16750,0)
- ;;=428.43^^125^1065^50
- ;;^UTILITY(U,$J,358.3,16750,1,0)
- ;;=^358.31IA^5^2
- ;;^UTILITY(U,$J,358.3,16750,1,4,0)
- ;;=4^428.43
- ;;^UTILITY(U,$J,358.3,16750,1,5,0)
- ;;=5^Heart Failure,Systolic&Diastolic
- ;;^UTILITY(U,$J,358.3,16750,2)
- ;;=^328502
- ;;^UTILITY(U,$J,358.3,16751,0)
- ;;=396.3^^125^1065^10
- ;;^UTILITY(U,$J,358.3,16751,1,0)
- ;;=^358.31IA^5^2
- ;;^UTILITY(U,$J,358.3,16751,1,4,0)
- ;;=4^396.3
- ;;^UTILITY(U,$J,358.3,16751,1,5,0)
- ;;=5^Aortic and Mitral Insufficiency
- ;;^UTILITY(U,$J,358.3,16751,2)
- ;;=Aortic and Mitral Insufficiency^269583
- ;;^UTILITY(U,$J,358.3,16752,0)
- ;;=429.9^^125^1065^26
- ;;^UTILITY(U,$J,358.3,16752,1,0)
- ;;=^358.31IA^5^2
- ;;^UTILITY(U,$J,358.3,16752,1,4,0)
- ;;=4^429.9
- ;;^UTILITY(U,$J,358.3,16752,1,5,0)
- ;;=5^Diastolic Dysfunction
- ;;^UTILITY(U,$J,358.3,16752,2)
- ;;=^54741
- ;;^UTILITY(U,$J,358.3,16753,0)
- ;;=453.79^^125^1065^25
- ;;^UTILITY(U,$J,358.3,16753,1,0)
- ;;=^358.31IA^5^2
- ;;^UTILITY(U,$J,358.3,16753,1,4,0)
- ;;=4^453.79
- ;;^UTILITY(U,$J,358.3,16753,1,5,0)
- ;;=5^Chr Venous Emblsm Oth Spec Veins
- ;;^UTILITY(U,$J,358.3,16753,2)
- ;;=^338251
- ;;^UTILITY(U,$J,358.3,16754,0)
- ;;=453.89^^125^1065^1
- ;;^UTILITY(U,$J,358.3,16754,1,0)
- ;;=^358.31IA^5^2
- ;;^UTILITY(U,$J,358.3,16754,1,4,0)
- ;;=4^453.89
- ;;^UTILITY(U,$J,358.3,16754,1,5,0)
- ;;=5^AC Venous Emblsm Oth Spec Veins
- ;;^UTILITY(U,$J,358.3,16754,2)
- ;;=^338259
- ;;^UTILITY(U,$J,358.3,16755,0)
- ;;=454.0^^125^1065^78
- ;;^UTILITY(U,$J,358.3,16755,1,0)
- ;;=^358.31IA^5^2
- ;;^UTILITY(U,$J,358.3,16755,1,4,0)
- ;;=4^454.0
- ;;^UTILITY(U,$J,358.3,16755,1,5,0)
- ;;=5^Varicose Veins
- ;;^UTILITY(U,$J,358.3,16755,2)
- ;;=^125410
- ;;^UTILITY(U,$J,358.3,16756,0)
- ;;=454.2^^125^1065^79
- ;;^UTILITY(U,$J,358.3,16756,1,0)
- ;;=^358.31IA^5^2
- ;;^UTILITY(U,$J,358.3,16756,1,4,0)
- ;;=4^454.2
- ;;^UTILITY(U,$J,358.3,16756,1,5,0)
- ;;=5^Varicose Veins w/Ulcer&Inflam
- ;;^UTILITY(U,$J,358.3,16756,2)
- ;;=^269821
- ;;^UTILITY(U,$J,358.3,16757,0)
- ;;=271.3^^125^1066^10
- ;;^UTILITY(U,$J,358.3,16757,1,0)
- ;;=^358.31IA^5^2
- ;;^UTILITY(U,$J,358.3,16757,1,4,0)
- ;;=4^271.3
- ;;^UTILITY(U,$J,358.3,16757,1,5,0)
- ;;=5^Glucose Intolerance
- ;;^UTILITY(U,$J,358.3,16757,2)
- ;;=^64790
- ;;^UTILITY(U,$J,358.3,16758,0)
- ;;=611.1^^125^1066^15
- ;;^UTILITY(U,$J,358.3,16758,1,0)
- ;;=^358.31IA^5^2
- ;;^UTILITY(U,$J,358.3,16758,1,4,0)
- ;;=4^611.1
- ;;^UTILITY(U,$J,358.3,16758,1,5,0)
- ;;=5^Gynecomastia
- ;;^UTILITY(U,$J,358.3,16758,2)
- ;;=^60454
- ;;^UTILITY(U,$J,358.3,16759,0)
- ;;=704.1^^125^1066^16
- ;;^UTILITY(U,$J,358.3,16759,1,0)
- ;;=^358.31IA^5^2
- ;;^UTILITY(U,$J,358.3,16759,1,4,0)
- ;;=4^704.1
- ;;^UTILITY(U,$J,358.3,16759,1,5,0)
- ;;=5^Hirsutism
- ;;^UTILITY(U,$J,358.3,16759,2)
- ;;=^57407
- ;;^UTILITY(U,$J,358.3,16760,0)
- ;;=251.2^^125^1066^27
- ;;^UTILITY(U,$J,358.3,16760,1,0)
- ;;=^358.31IA^5^2
- ;;^UTILITY(U,$J,358.3,16760,1,4,0)
- ;;=4^251.2
- ;;^UTILITY(U,$J,358.3,16760,1,5,0)
- ;;=5^Hypoglycemia Nos
- ;;^UTILITY(U,$J,358.3,16760,2)
- ;;=^60580
- ;;^UTILITY(U,$J,358.3,16761,0)
- ;;=257.2^^125^1066^28
- ;;^UTILITY(U,$J,358.3,16761,1,0)
- ;;=^358.31IA^5^2
- ;;^UTILITY(U,$J,358.3,16761,1,4,0)
- ;;=4^257.2
- ;;^UTILITY(U,$J,358.3,16761,1,5,0)
- ;;=5^Hypogonadism,Male
- ;;^UTILITY(U,$J,358.3,16761,2)
- ;;=^88213
- ;;^UTILITY(U,$J,358.3,16762,0)
- ;;=253.2^^125^1066^31
- ;;^UTILITY(U,$J,358.3,16762,1,0)
- ;;=^358.31IA^5^2
- ;;^UTILITY(U,$J,358.3,16762,1,4,0)
- ;;=4^253.2
- ;;^UTILITY(U,$J,358.3,16762,1,5,0)
- ;;=5^Hypopituitarism
- ;;^UTILITY(U,$J,358.3,16762,2)
- ;;=^60686
- ;;^UTILITY(U,$J,358.3,16763,0)
- ;;=733.00^^125^1066^40
- ;;^UTILITY(U,$J,358.3,16763,1,0)
- ;;=^358.31IA^5^2
- ;;^UTILITY(U,$J,358.3,16763,1,4,0)
- ;;=4^733.00
- ;;^UTILITY(U,$J,358.3,16763,1,5,0)
- ;;=5^Osteoporosis Nos
- ;;^UTILITY(U,$J,358.3,16763,2)
- ;;=^87159
- ;;^UTILITY(U,$J,358.3,16764,0)
- ;;=278.00^^125^1066^37
- ;;^UTILITY(U,$J,358.3,16764,1,0)
- ;;=^358.31IA^5^2
- ;;^UTILITY(U,$J,358.3,16764,1,4,0)
- ;;=4^278.00
- ;;^UTILITY(U,$J,358.3,16764,1,5,0)
- ;;=5^Obesity
- ;;^UTILITY(U,$J,358.3,16764,2)
- ;;=^84823
- ;;^UTILITY(U,$J,358.3,16765,0)
- ;;=278.01^^125^1066^36
- ;;^UTILITY(U,$J,358.3,16765,1,0)
- ;;=^358.31IA^5^2
- ;;^UTILITY(U,$J,358.3,16765,1,4,0)
- ;;=4^278.01
- ;;^UTILITY(U,$J,358.3,16765,1,5,0)
- ;;=5^Morbid Obesity
- ;;^UTILITY(U,$J,358.3,16765,2)
- ;;=^84844
- ;;^UTILITY(U,$J,358.3,16766,0)
- ;;=250.80^^125^1066^9
- ;;^UTILITY(U,$J,358.3,16766,1,0)
- ;;=^358.31IA^5^2
- ;;^UTILITY(U,$J,358.3,16766,1,4,0)
- ;;=4^250.80
- ;;^UTILITY(U,$J,358.3,16766,1,5,0)
- ;;=5^DM Type II with LE Ulcer
- ;;^UTILITY(U,$J,358.3,16766,2)
- ;;=DM Type II with LE Ulcer^267846^707.10
- ;;^UTILITY(U,$J,358.3,16767,0)
- ;;=250.00^^125^1066^4
- ;;^UTILITY(U,$J,358.3,16767,1,0)
- ;;=^358.31IA^5^2
+ ;;^UTILITY(U,$J,358.3,16909,1,2,0)
+ ;;=2^Incision and Drainage below fascia, with/without tendon sheath involvement, foot; multiple areas 
+ ;;^UTILITY(U,$J,358.3,16909,1,3,0)
+ ;;=3^28003
+ ;;^UTILITY(U,$J,358.3,16910,0)
+ ;;=28008^^111^950^4^^^^1
+ ;;^UTILITY(U,$J,358.3,16910,1,0)
+ ;;=^358.31IA^3^2
+ ;;^UTILITY(U,$J,358.3,16910,1,2,0)
+ ;;=2^Fasciotomy, foot and/or toe
+ ;;^UTILITY(U,$J,358.3,16910,1,3,0)
+ ;;=3^28008
+ ;;^UTILITY(U,$J,358.3,16911,0)
+ ;;=28010^^111^950^5^^^^1
+ ;;^UTILITY(U,$J,358.3,16911,1,0)
+ ;;=^358.31IA^3^2
+ ;;^UTILITY(U,$J,358.3,16911,1,2,0)
+ ;;=2^Tenotomy, percutaneous, toe; single tendon
+ ;;^UTILITY(U,$J,358.3,16911,1,3,0)
+ ;;=3^28010
+ ;;^UTILITY(U,$J,358.3,16912,0)
+ ;;=28011^^111^950^6^^^^1
+ ;;^UTILITY(U,$J,358.3,16912,1,0)
+ ;;=^358.31IA^3^2
+ ;;^UTILITY(U,$J,358.3,16912,1,2,0)
+ ;;=2^Tenotomy, percutaneous, toe; multiple tendons
+ ;;^UTILITY(U,$J,358.3,16912,1,3,0)
+ ;;=3^28011
+ ;;^UTILITY(U,$J,358.3,16913,0)
+ ;;=28020^^111^950^7^^^^1
+ ;;^UTILITY(U,$J,358.3,16913,1,0)
+ ;;=^358.31IA^3^2
+ ;;^UTILITY(U,$J,358.3,16913,1,2,0)
+ ;;=2^Arthrotomy, including exploration, drainage, or removal of loose or foreign body; intertarsal or tarsometatarsal joint
+ ;;^UTILITY(U,$J,358.3,16913,1,3,0)
+ ;;=3^28020
+ ;;^UTILITY(U,$J,358.3,16914,0)
+ ;;=28022^^111^950^8^^^^1
+ ;;^UTILITY(U,$J,358.3,16914,1,0)
+ ;;=^358.31IA^3^2
+ ;;^UTILITY(U,$J,358.3,16914,1,2,0)
+ ;;=2^Arthrotomy, including exploration, drainage, or removal of loose or foreign body; metatarsophalangeal joint 
+ ;;^UTILITY(U,$J,358.3,16914,1,3,0)
+ ;;=3^28022
+ ;;^UTILITY(U,$J,358.3,16915,0)
+ ;;=28024^^111^950^9^^^^1
+ ;;^UTILITY(U,$J,358.3,16915,1,0)
+ ;;=^358.31IA^3^2
+ ;;^UTILITY(U,$J,358.3,16915,1,2,0)
+ ;;=2^Arthrotomy, including exploration, drainage, or removal of loose or foreign body; interphalangeal joint
+ ;;^UTILITY(U,$J,358.3,16915,1,3,0)
+ ;;=3^28024
+ ;;^UTILITY(U,$J,358.3,16916,0)
+ ;;=28035^^111^950^11^^^^1
+ ;;^UTILITY(U,$J,358.3,16916,1,0)
+ ;;=^358.31IA^3^2
+ ;;^UTILITY(U,$J,358.3,16916,1,2,0)
+ ;;=2^Release, tarsal tunnel
+ ;;^UTILITY(U,$J,358.3,16916,1,3,0)
+ ;;=3^28035
+ ;;^UTILITY(U,$J,358.3,16917,0)
+ ;;=28055^^111^950^10^^^^1
+ ;;^UTILITY(U,$J,358.3,16917,1,0)
+ ;;=^358.31IA^3^2
+ ;;^UTILITY(U,$J,358.3,16917,1,2,0)
+ ;;=2^Neurectomy, Foot
+ ;;^UTILITY(U,$J,358.3,16917,1,3,0)
+ ;;=3^28055
+ ;;^UTILITY(U,$J,358.3,16918,0)
+ ;;=28043^^111^951^1^^^^1
+ ;;^UTILITY(U,$J,358.3,16918,1,0)
+ ;;=^358.31IA^3^2
+ ;;^UTILITY(U,$J,358.3,16918,1,2,0)
+ ;;=2^Excision Tumor-Foot,SQ Tissue >1.5cm
+ ;;^UTILITY(U,$J,358.3,16918,1,3,0)
+ ;;=3^28043
+ ;;^UTILITY(U,$J,358.3,16919,0)
+ ;;=28045^^111^951^2^^^^1
+ ;;^UTILITY(U,$J,358.3,16919,1,0)
+ ;;=^358.31IA^3^2
+ ;;^UTILITY(U,$J,358.3,16919,1,2,0)
+ ;;=2^Excision Tumor-Foot,Deep Subfascial >1.5cm
+ ;;^UTILITY(U,$J,358.3,16919,1,3,0)
+ ;;=3^28045
+ ;;^UTILITY(U,$J,358.3,16920,0)
+ ;;=28050^^111^951^3^^^^1
+ ;;^UTILITY(U,$J,358.3,16920,1,0)
+ ;;=^358.31IA^3^2
+ ;;^UTILITY(U,$J,358.3,16920,1,2,0)
+ ;;=2^Arthrotomy with biopsy; intertarsal or tarsometatarsal joint 
+ ;;^UTILITY(U,$J,358.3,16920,1,3,0)
+ ;;=3^28050
+ ;;^UTILITY(U,$J,358.3,16921,0)
+ ;;=28052^^111^951^4^^^^1
+ ;;^UTILITY(U,$J,358.3,16921,1,0)
+ ;;=^358.31IA^3^2
+ ;;^UTILITY(U,$J,358.3,16921,1,2,0)
+ ;;=2^Arthrotomy with biopsy; metatarsophalangeal joint 
+ ;;^UTILITY(U,$J,358.3,16921,1,3,0)
+ ;;=3^28052
+ ;;^UTILITY(U,$J,358.3,16922,0)
+ ;;=28054^^111^951^5^^^^1
+ ;;^UTILITY(U,$J,358.3,16922,1,0)
+ ;;=^358.31IA^3^2
+ ;;^UTILITY(U,$J,358.3,16922,1,2,0)
+ ;;=2^Arthrotomy with biopsy; interphalangeal joint
+ ;;^UTILITY(U,$J,358.3,16922,1,3,0)
+ ;;=3^28054
+ ;;^UTILITY(U,$J,358.3,16923,0)
+ ;;=28060^^111^951^6^^^^1
+ ;;^UTILITY(U,$J,358.3,16923,1,0)
+ ;;=^358.31IA^3^2
+ ;;^UTILITY(U,$J,358.3,16923,1,2,0)
+ ;;=2^Fasciectomy, plantar fascia; partial 
+ ;;^UTILITY(U,$J,358.3,16923,1,3,0)
+ ;;=3^28060
+ ;;^UTILITY(U,$J,358.3,16924,0)
+ ;;=28062^^111^951^7^^^^1
+ ;;^UTILITY(U,$J,358.3,16924,1,0)
+ ;;=^358.31IA^3^2
+ ;;^UTILITY(U,$J,358.3,16924,1,2,0)
+ ;;=2^Fasciectomy, plantar fascia; radical
+ ;;^UTILITY(U,$J,358.3,16924,1,3,0)
+ ;;=3^28062
+ ;;^UTILITY(U,$J,358.3,16925,0)
+ ;;=28080^^111^951^8^^^^1
+ ;;^UTILITY(U,$J,358.3,16925,1,0)
+ ;;=^358.31IA^3^2
+ ;;^UTILITY(U,$J,358.3,16925,1,2,0)
+ ;;=2^Excision, interdigital (Morton) neuroma, single, each
+ ;;^UTILITY(U,$J,358.3,16925,1,3,0)
+ ;;=3^28080
+ ;;^UTILITY(U,$J,358.3,16926,0)
+ ;;=28090^^111^951^9^^^^1
+ ;;^UTILITY(U,$J,358.3,16926,1,0)
+ ;;=^358.31IA^3^2
+ ;;^UTILITY(U,$J,358.3,16926,1,2,0)
+ ;;=2^Excision of lesion, tendon, tendon sheath, or capsule; foot
+ ;;^UTILITY(U,$J,358.3,16926,1,3,0)
+ ;;=3^28090
+ ;;^UTILITY(U,$J,358.3,16927,0)
+ ;;=28092^^111^951^10^^^^1
+ ;;^UTILITY(U,$J,358.3,16927,1,0)
+ ;;=^358.31IA^3^2
+ ;;^UTILITY(U,$J,358.3,16927,1,2,0)
+ ;;=2^Excision of lesion, tendon, tendon sheath, or capsule; toe(s), each
+ ;;^UTILITY(U,$J,358.3,16927,1,3,0)
+ ;;=3^28092
+ ;;^UTILITY(U,$J,358.3,16928,0)
+ ;;=28100^^111^951^11^^^^1
+ ;;^UTILITY(U,$J,358.3,16928,1,0)
+ ;;=^358.31IA^3^2
+ ;;^UTILITY(U,$J,358.3,16928,1,2,0)
+ ;;=2^Excision or Curettage of bone cyst or benign tumor, talus or calcaneus
+ ;;^UTILITY(U,$J,358.3,16928,1,3,0)
+ ;;=3^28100
+ ;;^UTILITY(U,$J,358.3,16929,0)
+ ;;=28102^^111^951^12^^^^1
+ ;;^UTILITY(U,$J,358.3,16929,1,0)
+ ;;=^358.31IA^3^2
+ ;;^UTILITY(U,$J,358.3,16929,1,2,0)
+ ;;=2^Excision or Curettage of bone cyst or benign tumor, talus or calcaneus; with iliac or other autograft (includes obtaining graft)
+ ;;^UTILITY(U,$J,358.3,16929,1,3,0)
+ ;;=3^28102
+ ;;^UTILITY(U,$J,358.3,16930,0)
+ ;;=28103^^111^951^13^^^^1
+ ;;^UTILITY(U,$J,358.3,16930,1,0)
+ ;;=^358.31IA^3^2
+ ;;^UTILITY(U,$J,358.3,16930,1,2,0)
+ ;;=2^Excision or Curettage of bone cyst or benign tumor, talus or calcaneus; with allograft
+ ;;^UTILITY(U,$J,358.3,16930,1,3,0)
+ ;;=3^28103
+ ;;^UTILITY(U,$J,358.3,16931,0)
+ ;;=28104^^111^951^14^^^^1
+ ;;^UTILITY(U,$J,358.3,16931,1,0)
+ ;;=^358.31IA^3^2
+ ;;^UTILITY(U,$J,358.3,16931,1,2,0)
+ ;;=2^Excision or Curettage of bone cyst or benign tumor, tarsal or metatarsal, except talus or calcaneus 
+ ;;^UTILITY(U,$J,358.3,16931,1,3,0)
+ ;;=3^28104
+ ;;^UTILITY(U,$J,358.3,16932,0)
+ ;;=28106^^111^951^15^^^^1
+ ;;^UTILITY(U,$J,358.3,16932,1,0)
+ ;;=^358.31IA^3^2
+ ;;^UTILITY(U,$J,358.3,16932,1,2,0)
+ ;;=2^Excision or Curettage of bone cyst or benign tumor, tarsal or metatarsal, except talus or calcaneus; with iliac or other autograft
+ ;;^UTILITY(U,$J,358.3,16932,1,3,0)
+ ;;=3^28106
+ ;;^UTILITY(U,$J,358.3,16933,0)
+ ;;=28107^^111^951^16^^^^1
+ ;;^UTILITY(U,$J,358.3,16933,1,0)
+ ;;=^358.31IA^3^2
+ ;;^UTILITY(U,$J,358.3,16933,1,2,0)
+ ;;=2^Excision or Curettage of bone cyst of benign tumor, tarsal or metatarsal, except talus or calcaneus; with allograft
+ ;;^UTILITY(U,$J,358.3,16933,1,3,0)
+ ;;=3^28107
+ ;;^UTILITY(U,$J,358.3,16934,0)
+ ;;=28108^^111^951^17^^^^1
+ ;;^UTILITY(U,$J,358.3,16934,1,0)
+ ;;=^358.31IA^3^2
+ ;;^UTILITY(U,$J,358.3,16934,1,2,0)
+ ;;=2^Excision or Curettage of bone cyst or benign tumor, phalanges of foot
+ ;;^UTILITY(U,$J,358.3,16934,1,3,0)
+ ;;=3^28108
+ ;;^UTILITY(U,$J,358.3,16935,0)
+ ;;=28110^^111^951^18^^^^1
+ ;;^UTILITY(U,$J,358.3,16935,1,0)
+ ;;=^358.31IA^3^2
+ ;;^UTILITY(U,$J,358.3,16935,1,2,0)
+ ;;=2^Ostectomy, partial excision, fifth metararsal head
+ ;;^UTILITY(U,$J,358.3,16935,1,3,0)
+ ;;=3^28110
+ ;;^UTILITY(U,$J,358.3,16936,0)
+ ;;=28111^^111^951^19^^^^1
+ ;;^UTILITY(U,$J,358.3,16936,1,0)
+ ;;=^358.31IA^3^2
+ ;;^UTILITY(U,$J,358.3,16936,1,2,0)
+ ;;=2^Ostectomy, complete excision; 1st metatarsal head
+ ;;^UTILITY(U,$J,358.3,16936,1,3,0)
+ ;;=3^28111
+ ;;^UTILITY(U,$J,358.3,16937,0)
+ ;;=28112^^111^951^20^^^^1
+ ;;^UTILITY(U,$J,358.3,16937,1,0)
+ ;;=^358.31IA^3^2
+ ;;^UTILITY(U,$J,358.3,16937,1,2,0)
+ ;;=2^Ostectomy, complete excision; other metatarsal head (2nd, 3rd, 4th)
+ ;;^UTILITY(U,$J,358.3,16937,1,3,0)
+ ;;=3^28112
+ ;;^UTILITY(U,$J,358.3,16938,0)
+ ;;=28113^^111^951^21^^^^1
+ ;;^UTILITY(U,$J,358.3,16938,1,0)
+ ;;=^358.31IA^3^2
+ ;;^UTILITY(U,$J,358.3,16938,1,2,0)
+ ;;=2^Ostectomy, complete excision; 5th metatarsal head
+ ;;^UTILITY(U,$J,358.3,16938,1,3,0)
+ ;;=3^28113
+ ;;^UTILITY(U,$J,358.3,16939,0)
+ ;;=28114^^111^951^22^^^^1
+ ;;^UTILITY(U,$J,358.3,16939,1,0)
+ ;;=^358.31IA^3^2
+ ;;^UTILITY(U,$J,358.3,16939,1,2,0)
+ ;;=2^Ostectomy, complete excision; all metatarsal heads, with partial proximal phalangectomy, excluding first metatarsal 
+ ;;^UTILITY(U,$J,358.3,16939,1,3,0)
+ ;;=3^28114
+ ;;^UTILITY(U,$J,358.3,16940,0)
+ ;;=28140^^111^951^23^^^^1
+ ;;^UTILITY(U,$J,358.3,16940,1,0)
+ ;;=^358.31IA^3^2
+ ;;^UTILITY(U,$J,358.3,16940,1,2,0)
+ ;;=2^Metatarsectomy
+ ;;^UTILITY(U,$J,358.3,16940,1,3,0)
+ ;;=3^28140
+ ;;^UTILITY(U,$J,358.3,16941,0)
+ ;;=28119^^111^951^24^^^^1
+ ;;^UTILITY(U,$J,358.3,16941,1,0)
+ ;;=^358.31IA^3^2
+ ;;^UTILITY(U,$J,358.3,16941,1,2,0)
+ ;;=2^Ostectomy, calcaneus; for spur, with or without plantar fascial release
+ ;;^UTILITY(U,$J,358.3,16941,1,3,0)
+ ;;=3^28119
+ ;;^UTILITY(U,$J,358.3,16942,0)
+ ;;=28120^^111^951^25^^^^1
+ ;;^UTILITY(U,$J,358.3,16942,1,0)
+ ;;=^358.31IA^3^2
+ ;;^UTILITY(U,$J,358.3,16942,1,2,0)
+ ;;=2^Partial excision bone; talus or calcaneus
+ ;;^UTILITY(U,$J,358.3,16942,1,3,0)
+ ;;=3^28120
+ ;;^UTILITY(U,$J,358.3,16943,0)
+ ;;=28122^^111^951^26^^^^1
+ ;;^UTILITY(U,$J,358.3,16943,1,0)
+ ;;=^358.31IA^3^2
+ ;;^UTILITY(U,$J,358.3,16943,1,2,0)
+ ;;=2^Partial excision bone; tarsal or metatarsal bone, except talus or calcaneus
+ ;;^UTILITY(U,$J,358.3,16943,1,3,0)
+ ;;=3^28122
+ ;;^UTILITY(U,$J,358.3,16944,0)
+ ;;=28124^^111^951^27^^^^1
+ ;;^UTILITY(U,$J,358.3,16944,1,0)
+ ;;=^358.31IA^3^2
+ ;;^UTILITY(U,$J,358.3,16944,1,2,0)
+ ;;=2^Partial excision bone; phalanx of toe
+ ;;^UTILITY(U,$J,358.3,16944,1,3,0)
+ ;;=3^28124
+ ;;^UTILITY(U,$J,358.3,16945,0)
+ ;;=28153^^111^951^28^^^^1
+ ;;^UTILITY(U,$J,358.3,16945,1,0)
+ ;;=^358.31IA^3^2
+ ;;^UTILITY(U,$J,358.3,16945,1,2,0)
+ ;;=2^Resection, condyle(s), distal end of phalanx, each toe
+ ;;^UTILITY(U,$J,358.3,16945,1,3,0)
+ ;;=3^28153

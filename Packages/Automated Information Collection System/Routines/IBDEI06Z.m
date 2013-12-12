@@ -1,378 +1,374 @@
-IBDEI06Z ; ; 20-FEB-2013
- ;;3.0;IB ENCOUNTER FORM IMP/EXP;;FEB 20, 2013
+IBDEI06Z ; ; 06-AUG-2013
+ ;;3.0;IB ENCOUNTER FORM IMP/EXP;;AUG 06, 2013
  Q:'DIFQR(358.3)  F I=1:2 S X=$T(Q+I) Q:X=""  S Y=$E($T(Q+I+1),4,999),X=$E(X,4,999) S:$A(Y)=126 I=I+1,Y=$E(Y,2,999)_$E($T(Q+I+1),5,99) S:$A(Y)=61 Y=$E(Y,2,999) X NO E  S @X=Y
 Q Q
- ;;^UTILITY(U,$J,358.3,9149,1,5,0)
- ;;=5^Seizures
- ;;^UTILITY(U,$J,358.3,9149,2)
- ;;=Seizures^28162
- ;;^UTILITY(U,$J,358.3,9150,0)
- ;;=780.4^^74^639^61
- ;;^UTILITY(U,$J,358.3,9150,1,0)
- ;;=^358.31IA^5^2
- ;;^UTILITY(U,$J,358.3,9150,1,4,0)
- ;;=4^780.4
- ;;^UTILITY(U,$J,358.3,9150,1,5,0)
- ;;=5^Dizziness And Giddiness
- ;;^UTILITY(U,$J,358.3,9150,2)
- ;;=^35946
- ;;^UTILITY(U,$J,358.3,9151,0)
- ;;=782.3^^74^639^72
- ;;^UTILITY(U,$J,358.3,9151,1,0)
- ;;=^358.31IA^5^2
- ;;^UTILITY(U,$J,358.3,9151,1,4,0)
- ;;=4^782.3
- ;;^UTILITY(U,$J,358.3,9151,1,5,0)
- ;;=5^Edema
- ;;^UTILITY(U,$J,358.3,9151,2)
- ;;=Edema^38340
- ;;^UTILITY(U,$J,358.3,9152,0)
- ;;=457.1^^74^639^73
- ;;^UTILITY(U,$J,358.3,9152,1,0)
- ;;=^358.31IA^5^2
- ;;^UTILITY(U,$J,358.3,9152,1,4,0)
- ;;=4^457.1
- ;;^UTILITY(U,$J,358.3,9152,1,5,0)
- ;;=5^Edema Due To Lymphatic Obstruction
- ;;^UTILITY(U,$J,358.3,9152,2)
- ;;=   ^87693
- ;;^UTILITY(U,$J,358.3,9153,0)
- ;;=459.2^^74^639^74
- ;;^UTILITY(U,$J,358.3,9153,1,0)
- ;;=^358.31IA^5^2
- ;;^UTILITY(U,$J,358.3,9153,1,4,0)
- ;;=4^459.2
- ;;^UTILITY(U,$J,358.3,9153,1,5,0)
- ;;=5^Edema Due To Venous Obstruction 
- ;;^UTILITY(U,$J,358.3,9153,2)
- ;;=^269850
- ;;^UTILITY(U,$J,358.3,9154,0)
- ;;=780.79^^74^639^117
- ;;^UTILITY(U,$J,358.3,9154,1,0)
- ;;=^358.31IA^5^2
- ;;^UTILITY(U,$J,358.3,9154,1,4,0)
- ;;=4^780.79
- ;;^UTILITY(U,$J,358.3,9154,1,5,0)
- ;;=5^Malaise
- ;;^UTILITY(U,$J,358.3,9154,2)
- ;;=Malaise^73344
- ;;^UTILITY(U,$J,358.3,9155,0)
- ;;=783.3^^74^639^79
- ;;^UTILITY(U,$J,358.3,9155,1,0)
- ;;=^358.31IA^5^2
- ;;^UTILITY(U,$J,358.3,9155,1,4,0)
- ;;=4^783.3
- ;;^UTILITY(U,$J,358.3,9155,1,5,0)
- ;;=5^Feeding Problem Of The Elderly
- ;;^UTILITY(U,$J,358.3,9155,2)
- ;;=   ^273364
- ;;^UTILITY(U,$J,358.3,9156,0)
- ;;=780.1^^74^639^87
- ;;^UTILITY(U,$J,358.3,9156,1,0)
- ;;=^358.31IA^5^2
  ;;^UTILITY(U,$J,358.3,9156,1,4,0)
- ;;=4^780.1
+ ;;=4^V16.1
  ;;^UTILITY(U,$J,358.3,9156,1,5,0)
- ;;=5^Hallucinations
+ ;;=5^Family h/o Cancer of Lung
  ;;^UTILITY(U,$J,358.3,9156,2)
- ;;=Hallucinations^53738
+ ;;=^295293
  ;;^UTILITY(U,$J,358.3,9157,0)
- ;;=780.8^^74^639^97
+ ;;=V19.6^^62^525^2
  ;;^UTILITY(U,$J,358.3,9157,1,0)
  ;;=^358.31IA^5^2
  ;;^UTILITY(U,$J,358.3,9157,1,4,0)
- ;;=4^780.8
+ ;;=4^V19.6
  ;;^UTILITY(U,$J,358.3,9157,1,5,0)
- ;;=5^Hyperhidrosis
+ ;;=5^Family h/o Allergic Disorder
  ;;^UTILITY(U,$J,358.3,9157,2)
- ;;=Hyperhidrosis^60030
+ ;;=^295326
  ;;^UTILITY(U,$J,358.3,9158,0)
- ;;=307.41^^74^639^109
+ ;;=V18.2^^62^525^3
  ;;^UTILITY(U,$J,358.3,9158,1,0)
  ;;=^358.31IA^5^2
  ;;^UTILITY(U,$J,358.3,9158,1,4,0)
- ;;=4^307.41
+ ;;=4^V18.2
  ;;^UTILITY(U,$J,358.3,9158,1,5,0)
- ;;=5^Insomnia, Nonorganic, Transient
+ ;;=5^Family h/o Anemia
  ;;^UTILITY(U,$J,358.3,9158,2)
- ;;=^268285
+ ;;=^295313
  ;;^UTILITY(U,$J,358.3,9159,0)
- ;;=780.52^^74^639^110
+ ;;=V17.5^^62^525^5
  ;;^UTILITY(U,$J,358.3,9159,1,0)
  ;;=^358.31IA^5^2
  ;;^UTILITY(U,$J,358.3,9159,1,4,0)
- ;;=4^780.52
+ ;;=4^V17.5
  ;;^UTILITY(U,$J,358.3,9159,1,5,0)
- ;;=5^Insomnia, Organic
+ ;;=5^Family h/o Asthma
  ;;^UTILITY(U,$J,358.3,9159,2)
- ;;=Insomnia, Organic^87662
+ ;;=^295307
  ;;^UTILITY(U,$J,358.3,9160,0)
- ;;=302.71^^74^639^113
+ ;;=V17.7^^62^525^4
  ;;^UTILITY(U,$J,358.3,9160,1,0)
  ;;=^358.31IA^5^2
  ;;^UTILITY(U,$J,358.3,9160,1,4,0)
- ;;=4^302.71
+ ;;=4^V17.7
  ;;^UTILITY(U,$J,358.3,9160,1,5,0)
- ;;=5^Loss Of Libido
+ ;;=5^Family h/o Arthritis
  ;;^UTILITY(U,$J,358.3,9160,2)
- ;;=^268178
+ ;;=^295309
  ;;^UTILITY(U,$J,358.3,9161,0)
- ;;=785.6^^74^639^116
+ ;;=V19.0^^62^525^6
  ;;^UTILITY(U,$J,358.3,9161,1,0)
  ;;=^358.31IA^5^2
  ;;^UTILITY(U,$J,358.3,9161,1,4,0)
- ;;=4^785.6
+ ;;=4^V19.0
  ;;^UTILITY(U,$J,358.3,9161,1,5,0)
- ;;=5^Lymphadenopathy
+ ;;=5^Family h/o Blindness
  ;;^UTILITY(U,$J,358.3,9161,2)
- ;;=Lymphadenopathy^72368
+ ;;=^295320
  ;;^UTILITY(U,$J,358.3,9162,0)
- ;;=728.85^^74^639^122
+ ;;=V16.3^^62^525^7
  ;;^UTILITY(U,$J,358.3,9162,1,0)
  ;;=^358.31IA^5^2
  ;;^UTILITY(U,$J,358.3,9162,1,4,0)
- ;;=4^728.85
+ ;;=4^V16.3
  ;;^UTILITY(U,$J,358.3,9162,1,5,0)
- ;;=5^Muscle Spasm
+ ;;=5^Family h/o Cancer of Breast
  ;;^UTILITY(U,$J,358.3,9162,2)
- ;;=Muscle Spasm^112558
+ ;;=^295295
  ;;^UTILITY(U,$J,358.3,9163,0)
- ;;=782.0^^74^639^59
+ ;;=V16.41^^62^525^10
  ;;^UTILITY(U,$J,358.3,9163,1,0)
  ;;=^358.31IA^5^2
  ;;^UTILITY(U,$J,358.3,9163,1,4,0)
- ;;=4^782.0
+ ;;=4^V16.41
  ;;^UTILITY(U,$J,358.3,9163,1,5,0)
- ;;=5^Disturbance Of Skin Sensation
+ ;;=5^Family h/o Cancer of Ovary
  ;;^UTILITY(U,$J,358.3,9163,2)
- ;;=Disturbance of Skin Sensation^35757
+ ;;=^317951
  ;;^UTILITY(U,$J,358.3,9164,0)
- ;;=278.00^^74^639^127
+ ;;=V16.42^^62^525^11
  ;;^UTILITY(U,$J,358.3,9164,1,0)
  ;;=^358.31IA^5^2
  ;;^UTILITY(U,$J,358.3,9164,1,4,0)
- ;;=4^278.00
+ ;;=4^V16.42
  ;;^UTILITY(U,$J,358.3,9164,1,5,0)
- ;;=5^Obesity
+ ;;=5^Family h/o Cancer of Prostate
  ;;^UTILITY(U,$J,358.3,9164,2)
- ;;=Obesity^84823
+ ;;=^317952
  ;;^UTILITY(U,$J,358.3,9165,0)
- ;;=278.01^^74^639^128
+ ;;=V16.43^^62^525^12
  ;;^UTILITY(U,$J,358.3,9165,1,0)
  ;;=^358.31IA^5^2
  ;;^UTILITY(U,$J,358.3,9165,1,4,0)
- ;;=4^278.01
+ ;;=4^V16.43
  ;;^UTILITY(U,$J,358.3,9165,1,5,0)
- ;;=5^Obesity, Morbid
+ ;;=5^Family h/o Cancer of Testis
  ;;^UTILITY(U,$J,358.3,9165,2)
- ;;=Obesity, Morbid^84844
+ ;;=^317953
  ;;^UTILITY(U,$J,358.3,9166,0)
- ;;=783.5^^74^639^137
+ ;;=V19.5^^62^525^13
  ;;^UTILITY(U,$J,358.3,9166,1,0)
  ;;=^358.31IA^5^2
  ;;^UTILITY(U,$J,358.3,9166,1,4,0)
- ;;=4^783.5
+ ;;=4^V19.5
  ;;^UTILITY(U,$J,358.3,9166,1,5,0)
- ;;=5^Polydipsia
+ ;;=5^Family h/o Congenital Anomalies
  ;;^UTILITY(U,$J,358.3,9166,2)
- ;;=Polydipsia^186699
+ ;;=^295325
  ;;^UTILITY(U,$J,358.3,9167,0)
- ;;=783.6^^74^639^138
+ ;;=V19.2^^62^525^14
  ;;^UTILITY(U,$J,358.3,9167,1,0)
  ;;=^358.31IA^5^2
  ;;^UTILITY(U,$J,358.3,9167,1,4,0)
- ;;=4^783.6
+ ;;=4^V19.2
  ;;^UTILITY(U,$J,358.3,9167,1,5,0)
- ;;=5^Polyphagia
+ ;;=5^Family h/o Deafness Or Hearing Loss
  ;;^UTILITY(U,$J,358.3,9167,2)
- ;;=Polyphagia^60236
+ ;;=^295322
  ;;^UTILITY(U,$J,358.3,9168,0)
- ;;=780.2^^74^639^156
+ ;;=V17.3^^62^525^16
  ;;^UTILITY(U,$J,358.3,9168,1,0)
  ;;=^358.31IA^5^2
  ;;^UTILITY(U,$J,358.3,9168,1,4,0)
- ;;=4^780.2
+ ;;=4^V17.3
  ;;^UTILITY(U,$J,358.3,9168,1,5,0)
- ;;=5^Syncope And Collapse
+ ;;=5^Family h/o Ischemic Heart Dis
  ;;^UTILITY(U,$J,358.3,9168,2)
- ;;=^116707
+ ;;=^295305
  ;;^UTILITY(U,$J,358.3,9169,0)
- ;;=783.1^^74^639^171
+ ;;=V16.6^^62^525^17
  ;;^UTILITY(U,$J,358.3,9169,1,0)
  ;;=^358.31IA^5^2
  ;;^UTILITY(U,$J,358.3,9169,1,4,0)
- ;;=4^783.1
+ ;;=4^V16.6
  ;;^UTILITY(U,$J,358.3,9169,1,5,0)
- ;;=5^Weight Gain, Abnormal
+ ;;=5^Family h/o Leukemia
  ;;^UTILITY(U,$J,358.3,9169,2)
- ;;=^998
+ ;;=^295298
  ;;^UTILITY(U,$J,358.3,9170,0)
- ;;=783.21^^74^639^172
+ ;;=V18.61^^62^525^19
  ;;^UTILITY(U,$J,358.3,9170,1,0)
  ;;=^358.31IA^5^2
  ;;^UTILITY(U,$J,358.3,9170,1,4,0)
- ;;=4^783.21
+ ;;=4^V18.61
  ;;^UTILITY(U,$J,358.3,9170,1,5,0)
- ;;=5^Weight Loss, Abnormal
+ ;;=5^Family h/o Polycystic Kidney
  ;;^UTILITY(U,$J,358.3,9170,2)
- ;;=^322005
+ ;;=^321531
  ;;^UTILITY(U,$J,358.3,9171,0)
- ;;=796.2^^74^639^41
+ ;;=V17.0^^62^525^20
  ;;^UTILITY(U,$J,358.3,9171,1,0)
  ;;=^358.31IA^5^2
  ;;^UTILITY(U,$J,358.3,9171,1,4,0)
- ;;=4^796.2
+ ;;=4^V17.0
  ;;^UTILITY(U,$J,358.3,9171,1,5,0)
- ;;=5^Blood Pressure Elevated, W/O Htn
+ ;;=5^Family h/o Psychiatric Condition
  ;;^UTILITY(U,$J,358.3,9171,2)
- ;;=^273464
+ ;;=^295302
  ;;^UTILITY(U,$J,358.3,9172,0)
- ;;=790.92^^74^639^19
+ ;;=V19.4^^62^525^21
  ;;^UTILITY(U,$J,358.3,9172,1,0)
  ;;=^358.31IA^5^2
  ;;^UTILITY(U,$J,358.3,9172,1,4,0)
- ;;=4^790.92
+ ;;=4^V19.4
  ;;^UTILITY(U,$J,358.3,9172,1,5,0)
- ;;=5^Abnorm Coagulation Profile
+ ;;=5^Family h/o Skin Condition
  ;;^UTILITY(U,$J,358.3,9172,2)
- ;;=Abnorm Coagulation Profile^295771
+ ;;=^295324
  ;;^UTILITY(U,$J,358.3,9173,0)
- ;;=794.31^^74^639^20
+ ;;=V17.1^^62^525^22
  ;;^UTILITY(U,$J,358.3,9173,1,0)
  ;;=^358.31IA^5^2
  ;;^UTILITY(U,$J,358.3,9173,1,4,0)
- ;;=4^794.31
+ ;;=4^V17.1
  ;;^UTILITY(U,$J,358.3,9173,1,5,0)
- ;;=5^Abnormal Ekg
+ ;;=5^Family h/o Stroke (Cerebrovascular)
  ;;^UTILITY(U,$J,358.3,9173,2)
- ;;=Abnormal EKG^83844
+ ;;=^295303
  ;;^UTILITY(U,$J,358.3,9174,0)
- ;;=790.1^^74^639^76
+ ;;=V16.8^^62^525^18
  ;;^UTILITY(U,$J,358.3,9174,1,0)
  ;;=^358.31IA^5^2
  ;;^UTILITY(U,$J,358.3,9174,1,4,0)
- ;;=4^790.1
+ ;;=4^V16.8
  ;;^UTILITY(U,$J,358.3,9174,1,5,0)
- ;;=5^Elevated Sedimentation Rate
+ ;;=5^Family h/o Other Specified Cancer
  ;;^UTILITY(U,$J,358.3,9174,2)
- ;;=Elevated Sedimentation Rate^39339
+ ;;=^295300
  ;;^UTILITY(U,$J,358.3,9175,0)
- ;;=790.93^^74^639^75
+ ;;=V11.1^^62^525^41
  ;;^UTILITY(U,$J,358.3,9175,1,0)
  ;;=^358.31IA^5^2
  ;;^UTILITY(U,$J,358.3,9175,1,4,0)
- ;;=4^790.93
+ ;;=4^V11.1
  ;;^UTILITY(U,$J,358.3,9175,1,5,0)
- ;;=5^Elevated Psa
+ ;;=5^Personal h/o Affective Disorder
  ;;^UTILITY(U,$J,358.3,9175,2)
- ;;=Elevated PSA^295772
+ ;;=^295250
  ;;^UTILITY(U,$J,358.3,9176,0)
- ;;=791.0^^74^639^142
+ ;;=V15.89^^62^525^49
  ;;^UTILITY(U,$J,358.3,9176,1,0)
  ;;=^358.31IA^5^2
  ;;^UTILITY(U,$J,358.3,9176,1,4,0)
- ;;=4^791.0
+ ;;=4^V15.89
  ;;^UTILITY(U,$J,358.3,9176,1,5,0)
- ;;=5^Proteinuria
+ ;;=5^Personal h/o Exposure To Persian Gulf Region
  ;;^UTILITY(U,$J,358.3,9176,2)
- ;;=Proteinuria^99873
+ ;;=^295291
  ;;^UTILITY(U,$J,358.3,9177,0)
- ;;=791.9^^74^639^25
+ ;;=V11.3^^62^525^42
  ;;^UTILITY(U,$J,358.3,9177,1,0)
  ;;=^358.31IA^5^2
  ;;^UTILITY(U,$J,358.3,9177,1,4,0)
- ;;=4^791.9
+ ;;=4^V11.3
  ;;^UTILITY(U,$J,358.3,9177,1,5,0)
- ;;=5^Abnormal Ua
+ ;;=5^Personal h/o Alcoholism
  ;;^UTILITY(U,$J,358.3,9177,2)
- ;;=Abnormal UA^273408
+ ;;=^295252
  ;;^UTILITY(U,$J,358.3,9178,0)
- ;;=789.01^^74^639^17
+ ;;=V15.07^^62^525^43
  ;;^UTILITY(U,$J,358.3,9178,1,0)
  ;;=^358.31IA^5^2
  ;;^UTILITY(U,$J,358.3,9178,1,4,0)
- ;;=4^789.01
+ ;;=4^V15.07
  ;;^UTILITY(U,$J,358.3,9178,1,5,0)
- ;;=5^Abdominal Pain, Ruq
+ ;;=5^Personal h/o Allerlgy to Latex
  ;;^UTILITY(U,$J,358.3,9178,2)
- ;;=^303318
+ ;;=^322043
  ;;^UTILITY(U,$J,358.3,9179,0)
- ;;=789.02^^74^639^14
+ ;;=V13.4^^62^525^44
  ;;^UTILITY(U,$J,358.3,9179,1,0)
  ;;=^358.31IA^5^2
  ;;^UTILITY(U,$J,358.3,9179,1,4,0)
- ;;=4^789.02
+ ;;=4^V13.4
  ;;^UTILITY(U,$J,358.3,9179,1,5,0)
- ;;=5^Abdominal Pain, Luq
+ ;;=5^Personal h/o Arthritis
  ;;^UTILITY(U,$J,358.3,9179,2)
- ;;=^303319
+ ;;=^295267
  ;;^UTILITY(U,$J,358.3,9180,0)
- ;;=789.03^^74^639^16
+ ;;=V12.72^^62^525^45
  ;;^UTILITY(U,$J,358.3,9180,1,0)
  ;;=^358.31IA^5^2
  ;;^UTILITY(U,$J,358.3,9180,1,4,0)
- ;;=4^789.03
+ ;;=4^V12.72
  ;;^UTILITY(U,$J,358.3,9180,1,5,0)
- ;;=5^Abdominal Pain, Rlq
+ ;;=5^Personal h/o Colon Polyps
  ;;^UTILITY(U,$J,358.3,9180,2)
- ;;=^303320
+ ;;=^303401
  ;;^UTILITY(U,$J,358.3,9181,0)
- ;;=789.04^^74^639^13
+ ;;=V12.59^^62^525^46
  ;;^UTILITY(U,$J,358.3,9181,1,0)
  ;;=^358.31IA^5^2
  ;;^UTILITY(U,$J,358.3,9181,1,4,0)
- ;;=4^789.04
+ ;;=4^V12.59
  ;;^UTILITY(U,$J,358.3,9181,1,5,0)
- ;;=5^Abdominal Pain, Llq
+ ;;=5^Personal h/o Congestive Heart Failure
  ;;^UTILITY(U,$J,358.3,9181,2)
- ;;=^303321
+ ;;=^303399
  ;;^UTILITY(U,$J,358.3,9182,0)
- ;;=789.06^^74^639^12
+ ;;=V45.81^^62^525^47
  ;;^UTILITY(U,$J,358.3,9182,1,0)
  ;;=^358.31IA^5^2
  ;;^UTILITY(U,$J,358.3,9182,1,4,0)
- ;;=4^789.06
+ ;;=4^V45.81
  ;;^UTILITY(U,$J,358.3,9182,1,5,0)
- ;;=5^Abdominal Pain, Epigastric
+ ;;=5^Personal h/o Coronary Bypass
  ;;^UTILITY(U,$J,358.3,9182,2)
- ;;=^303323
+ ;;=^97129
  ;;^UTILITY(U,$J,358.3,9183,0)
- ;;=789.05^^74^639^15
+ ;;=V15.84^^62^525^48
  ;;^UTILITY(U,$J,358.3,9183,1,0)
  ;;=^358.31IA^5^2
  ;;^UTILITY(U,$J,358.3,9183,1,4,0)
- ;;=4^789.05
+ ;;=4^V15.84
  ;;^UTILITY(U,$J,358.3,9183,1,5,0)
- ;;=5^Abdominal Pain, Periumbilical
+ ;;=5^Personal h/o Exposure To Asbestos
  ;;^UTILITY(U,$J,358.3,9183,2)
- ;;=^303322
+ ;;=^303406
  ;;^UTILITY(U,$J,358.3,9184,0)
- ;;=789.40^^74^639^18
+ ;;=V15.85^^62^525^53
  ;;^UTILITY(U,$J,358.3,9184,1,0)
  ;;=^358.31IA^5^2
  ;;^UTILITY(U,$J,358.3,9184,1,4,0)
- ;;=4^789.40
+ ;;=4^V15.85
  ;;^UTILITY(U,$J,358.3,9184,1,5,0)
- ;;=5^Abdominal Rigidity, Unsp Site
+ ;;=5^Personal h/o Potentially Hazardous Body Fluids
  ;;^UTILITY(U,$J,358.3,9184,2)
- ;;=^273393
+ ;;=^303407
  ;;^UTILITY(U,$J,358.3,9185,0)
- ;;=789.1^^74^639^92
+ ;;=V10.72^^62^525^51
  ;;^UTILITY(U,$J,358.3,9185,1,0)
  ;;=^358.31IA^5^2
  ;;^UTILITY(U,$J,358.3,9185,1,4,0)
- ;;=4^789.1
+ ;;=4^V10.72
  ;;^UTILITY(U,$J,358.3,9185,1,5,0)
- ;;=5^Hepatomegaly
+ ;;=5^Personal h/o Hodgkin's Disease
  ;;^UTILITY(U,$J,358.3,9185,2)
- ;;=Hepatomegaly^56494
+ ;;=^295237
  ;;^UTILITY(U,$J,358.3,9186,0)
- ;;=789.30^^74^639^11
+ ;;=V15.3^^62^525^52
  ;;^UTILITY(U,$J,358.3,9186,1,0)
  ;;=^358.31IA^5^2
  ;;^UTILITY(U,$J,358.3,9186,1,4,0)
- ;;=4^789.30
+ ;;=4^V15.3
  ;;^UTILITY(U,$J,358.3,9186,1,5,0)
- ;;=5^Abdominal Mass/Lump
+ ;;=5^Personal h/o Irradiation
  ;;^UTILITY(U,$J,358.3,9186,2)
- ;;=Abdominal Mass/Lump^917
+ ;;=^295285
+ ;;^UTILITY(U,$J,358.3,9187,0)
+ ;;=V10.61^^62^525^26
+ ;;^UTILITY(U,$J,358.3,9187,1,0)
+ ;;=^358.31IA^5^2
+ ;;^UTILITY(U,$J,358.3,9187,1,4,0)
+ ;;=4^V10.61
+ ;;^UTILITY(U,$J,358.3,9187,1,5,0)
+ ;;=5^Hx of Lymphoid Leukemia
+ ;;^UTILITY(U,$J,358.3,9187,2)
+ ;;=Hx of Lymphoid Leukemia^295232
+ ;;^UTILITY(U,$J,358.3,9188,0)
+ ;;=V12.03^^62^525^27
+ ;;^UTILITY(U,$J,358.3,9188,1,0)
+ ;;=^358.31IA^5^2
+ ;;^UTILITY(U,$J,358.3,9188,1,4,0)
+ ;;=4^V12.03
+ ;;^UTILITY(U,$J,358.3,9188,1,5,0)
+ ;;=5^Hx of Malaria
+ ;;^UTILITY(U,$J,358.3,9188,2)
+ ;;=Hx of Malaria^303395
+ ;;^UTILITY(U,$J,358.3,9189,0)
+ ;;=V10.82^^62^525^28
+ ;;^UTILITY(U,$J,358.3,9189,1,0)
+ ;;=^358.31IA^5^2
+ ;;^UTILITY(U,$J,358.3,9189,1,4,0)
+ ;;=4^V10.82
+ ;;^UTILITY(U,$J,358.3,9189,1,5,0)
+ ;;=5^Hx of Malignant Melanoma
+ ;;^UTILITY(U,$J,358.3,9189,2)
+ ;;=Hx of Malignant Melanoma^295240
+ ;;^UTILITY(U,$J,358.3,9190,0)
+ ;;=V10.62^^62^525^30
+ ;;^UTILITY(U,$J,358.3,9190,1,0)
+ ;;=^358.31IA^5^2
+ ;;^UTILITY(U,$J,358.3,9190,1,4,0)
+ ;;=4^V10.62
+ ;;^UTILITY(U,$J,358.3,9190,1,5,0)
+ ;;=5^Hx of Myeloid Leukemia
+ ;;^UTILITY(U,$J,358.3,9190,2)
+ ;;=Hx of Myeloid Leukemia^295233
+ ;;^UTILITY(U,$J,358.3,9191,0)
+ ;;=V10.63^^62^525^29
+ ;;^UTILITY(U,$J,358.3,9191,1,0)
+ ;;=^358.31IA^5^2
+ ;;^UTILITY(U,$J,358.3,9191,1,4,0)
+ ;;=4^V10.63
+ ;;^UTILITY(U,$J,358.3,9191,1,5,0)
+ ;;=5^Hx of Monocytic Leukemia
+ ;;^UTILITY(U,$J,358.3,9191,2)
+ ;;=Hx of Monocytic Leukemia^295234
+ ;;^UTILITY(U,$J,358.3,9192,0)
+ ;;=V11.2^^62^525^24
+ ;;^UTILITY(U,$J,358.3,9192,1,0)
+ ;;=^358.31IA^5^2
+ ;;^UTILITY(U,$J,358.3,9192,1,4,0)
+ ;;=4^V11.2
+ ;;^UTILITY(U,$J,358.3,9192,1,5,0)
+ ;;=5^Hx of Dysthymia
+ ;;^UTILITY(U,$J,358.3,9192,2)
+ ;;=Hx of Dysthymia^295251
+ ;;^UTILITY(U,$J,358.3,9193,0)
+ ;;=V15.81^^62^525^40
+ ;;^UTILITY(U,$J,358.3,9193,1,0)
+ ;;=^358.31IA^5^2

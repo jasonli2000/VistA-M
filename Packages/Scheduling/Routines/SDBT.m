@@ -1,4 +1,4 @@
-SDBT ; GENERATED FROM 'SDB' INPUT TEMPLATE(#485), FILE 44;12/14/10
+SDBT ; GENERATED FROM 'SDB' INPUT TEMPLATE(#485), FILE 44;09/30/13
  D DE G BEGIN
 DE S DIE="^SC(",DIC=DIE,DP=44,DL=1,DIEL=0,DU="" K DG,DE,DB Q:$O(^SC(DA,""))=""
  I $D(^(0)) S %Z=^(0) S %=$P(%Z,U,1) S:%]"" DE(1)=% S %=$P(%Z,U,2) S:%]"" DE(2)=% S %=$P(%Z,U,7) S:%]"" DE(12)=% S %=$P(%Z,U,8) S:%]"" DE(4)=% S %=$P(%Z,U,11) S:%]"" DE(42)=% S %=$P(%Z,U,15) S:%]"" DE(10)=% S %=$P(%Z,U,17) S:%]"" DE(5)=%
@@ -11,7 +11,7 @@ DE S DIE="^SC(",DIC=DIE,DP=44,DL=1,DIEL=0,DU="" K DG,DE,DB Q:$O(^SC(DA,""))=""
  I $D(^("RAD")) S %Z=^("RAD") S %=$P(%Z,U,1) S:%]"" DE(16)=%
  I $D(^("SDP")) S %Z=^("SDP") S %=$P(%Z,U,1) S:%]"" DE(27)=% S %=$P(%Z,U,2) S:%]"" DE(28)=% S %=$P(%Z,U,3) S:%]"" DE(33)=% S %=$P(%Z,U,4) S:%]"" DE(34)=%
  I $D(^("SDPROT")) S %Z=^("SDPROT") S %=$P(%Z,U,1) S:%]"" DE(37)=%
- I $D(^("SL")) S %Z=^("SL") S %=$P(%Z,U,3) S:%]"" DE(30)=% S %=$P(%Z,U,5) S:%]"" DE(43)=% S %=$P(%Z,U,7) S:%]"" DE(44)=% S %=$P(%Z,U,8) S:%]"" DE(35)=%
+ I $D(^("SL")) S %Z=^("SL") S %=$P(%Z,U,3) S:%]"" DE(30)=% S %=$P(%Z,U,5) S:%]"" DE(43)=% S %=$P(%Z,U,8) S:%]"" DE(35)=%
  K %Z Q
  ;
 W W !?DL+DL-2,DLB_": "
@@ -142,14 +142,20 @@ X7 Q
 9 D:$D(DG)>9 F^DIE17,DE S Y=U,DQ=9 D X9 D:$D(DIEFIRE)#2 FIREREC^DIE17 G A:$D(Y)[0,A:Y=U S X=Y,DIC(0)="F",DW=DQ G OUT^DIE17
 X9 S:$S('$D(^DG(43,1,"GL")):1,$D(^DG(43,1,"GL"))&('$P(^DG(43,1,"GL"),"^",2)):1,1:0) Y="@10"
  Q
-10 S DW="0;15",DV="P40.8'",DU="",DLB="DIVISION",DIFLD=3.5
+10 S DW="0;15",DV="P40.8'a",DU="",DLB="DIVISION",DIFLD=3.5
+ S DE(DW)="C10^SDBT"
  S DU="DG(40.8,"
  S X=+$O(^DG(40.8,0)),X=$S($D(^(X,0)):$P(^(0),"^"),1:"")
  S Y=X
  G Y
+C10 G C10S:$D(DE(10))[0 K DB
+ S X=DE(10),DIIX=2_U_DIFLD D AUDIT^DIET
+C10S S X="" G:DG(DQ)=X C10F1 K DB
+ I $D(DE(10))'[0!(^DD(DP,DIFLD,"AUDIT")'="e") S X=DG(DQ),DIIX=3_U_DIFLD D AUDIT^DIET
+C10F1 Q
 X10 Q
 11 S DQ=12 ;@10
-12 S DW="0;7",DV="R*P40.7'Xa",DU="",DLB="STOP CODE NUMBER",DIFLD=8
+12 D:$D(DG)>9 F^DIE17,DE S DQ=12,DW="0;7",DV="R*P40.7'Xa",DU="",DLB="STOP CODE NUMBER",DIFLD=8
  S DE(DW)="C12^SDBT",DE(DW,"INDEX")=1
  S DU="DIC(40.7,"
  G RE
@@ -380,9 +386,4 @@ X42 K:$L(X)>25!($L(X)<1) X
 X43 S DIC("S")="I $P(^(0),""^"",3)=""C"",'$G(^(""OOS""))" D ^DIC K DIC S DIC=DIE,X=+Y K:Y<0 X
  Q
  ;
-44 S DW="SL;7",DV="RNJ4,0",DU="",DLB="OVERBOOKS/DAY MAXIMUM",DIFLD=1918
- G RE
-X44 K:+X'=X!(X>9999)!(X<0)!(X?.E1"."1N.N) X
- Q
- ;
-45 D:$D(DG)>9 F^DIE17 G ^SDBT4
+44 D:$D(DG)>9 F^DIE17 G ^SDBT4

@@ -1,5 +1,5 @@
-LRAPRES ;DALOI/STAFF - AP ESIG RELEASE REPORT ;11/20/09  12:40
- ;;5.2;LAB SERVICE;**259,295,317,315,350**;Sep 27, 1994;Build 230
+LRAPRES ;DALOI/STAFF - AP ESIG RELEASE REPORT ;06/18/13  13:41
+ ;;5.2;LAB SERVICE;**259,295,317,315,350,427**;Sep 27, 1994;Build 33
  ;
  ;
  ; Reference to NEW^TIUPNAPI supported by IA #1911
@@ -305,7 +305,7 @@ RELEASE ; Release the report
  I "CYSP"[LRSS,LRCAPA D WKLD
  ;
  ; Check if supported subscript, released and LEDI accession and send results back to submitting facility.
- I LRSS?1(1"SP",1"CY",1"EM"),$$GET1^DIQ(LRSF,LRIENS,.11,"I") D LEDI^LRVR0
+ I LRSS?1(1"SP",1"CY",1"EM"),$$GET1^DIQ(LRSF,LRI_","_LRDFN_",",.11,"I") D LEDI^LRVR0
  ;
  ;I LRCAPA,"SPCYEM"[LRSS,LRD(1)'="","MBA"[LRD(1) D C1^LRAPSWK
  Q

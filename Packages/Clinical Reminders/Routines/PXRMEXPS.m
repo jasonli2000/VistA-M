@@ -1,5 +1,5 @@
-PXRMEXPS ; SLC/PKR - Packing save routines. ;10/28/2011
- ;;2.0;CLINICAL REMINDERS;**12,16,18,22**;Feb 04, 2005;Build 160
+PXRMEXPS ; SLC/PKR - Packing save routines. ;08/23/2012
+ ;;2.0;CLINICAL REMINDERS;**12,16,18,22,24**;Feb 04, 2005;Build 193
  ;==========================================
 ADD(FILENUM,IEN,PACKLIST,NF) ;
  S NF=+$O(PACKLIST(FILENUM,"IEN"),-1)+1
@@ -9,7 +9,7 @@ ADD(FILENUM,IEN,PACKLIST,NF) ;
  ;
  ;==========================================
 CHKCF(ROOT,TOPIEN,GBL,PACKLIST) ;
- N IEN,NAME,NUM,PARM
+ N IEN,NAME,NUM,PARM,RIEN,ROUTINE
  S IEN=""
  F  S IEN=$O(@ROOT@(TOPIEN,20,"E",GBL,IEN)) Q:IEN=""  D
  . I $P($G(^PXRMD(811.4,IEN,0)),U,1)'="VA-REMINDER DEFINITION" Q

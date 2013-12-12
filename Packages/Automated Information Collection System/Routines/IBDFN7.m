@@ -1,5 +1,5 @@
-IBDFN7 ;ALB/CJM - ENCOUNTER FORM - validate logic for data ;MAY 10,1995
- ;;3.0;AUTOMATED INFO COLLECTION SYS;**38,51**;APR 24, 1997
+IBDFN7 ;ALB/CJM - ENCOUNTER FORM - validate logic for data ; 2/7/13 3:25am
+ ;;3.0;AUTOMATED INFO COLLECTION SYS;**38,51,64**;APR 24, 1997;Build 5
  ;
 TESTCPT ;does X point to a valid CPT4 code? Kills X if not.
  ;
@@ -16,11 +16,13 @@ TESTCPT ;does X point to a valid CPT4 code? Kills X if not.
 TESTICD ; -- does X point to a valid ICD9 code? Kills X if not.
  ; -- input the icd code in X
  ;
- N CODE,STATUS
+ N CODE,STATUS,IBDZ
  I $G(X)="" K X S Y="" Q
- S:$E(X,$L(X))'=" " X=X_" " ; use ba xref, add space to end for lookup.
- S X=$O(^ICD9("BA",X,0)) I 'X K X S Y="" Q
- I '$D(^ICD9(X,0)) K X S Y="" Q
+ ;S:$E(X,$L(X))'=" " X=X_" " ; use ba xref, add space to end for lookup.
+ ;S X=$O(^ICD9("BA",X,0)) I 'X K X S Y="" Q
+ ;I '$D(^ICD9(X,0)) K X S Y="" Q
+ ; API #3990 - Retrieve ICD9 code related data
+ S IBDZ=+($$CODEN^ICDCODE(X,80)) S:IBDZ>0 X=IBDZ I IBDZ'>0 K X S Y="" Q
  ;;I $P($G(^ICD9(X,0)),"^",9) S Y=$P(^ICD9(X,0),"^",3) K X
  S CODE=$$ICDDX^ICDCODE(X)
  S STATUS=$P(CODE,U,10) I STATUS'=1 S Y=$P(CODE,U,4) K X

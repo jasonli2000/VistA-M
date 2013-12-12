@@ -1,5 +1,5 @@
-ECXRAD ;ALB/JAP,BIR/PDW,PTD-Extract for Radiology ;6/28/12  11:08
- ;;3.0;DSS EXTRACTS;**11,8,13,16,24,33,39,46,71,84,92,105,120,127,136**;Dec 22, 1997;Build 28
+ECXRAD ;ALB/JAP,BIR/PDW,PTD-Extract for Radiology ;5/20/13  14:19
+ ;;3.0;DSS EXTRACTS;**11,8,13,16,24,33,39,46,71,84,92,105,120,127,136,144**;Dec 22, 1997;Build 9
 BEG ;entry point from option
  D SETUP I ECFILE="" Q
  D ^ECXTRAC,^ECXKILL
@@ -17,6 +17,7 @@ START ;start rad extract
  ;
 GET ;get data
  N ECXIEN,X,SUB,TYPE,ECDOCPC,ECXIS,ECXISPC,ECXPRCL,ECXCSC,ECXUSRTN,ECXCM,ECSTAT ;136
+ N ECXESC,ECXECL,ECXCLST,VISIT,ECXVIST,ECXERR ;144
  S ^TMP("ECL",$J,ECXDFN)=""
  ;with dfn get all exams within date range
  S ECXMDT=ECSD-.1
@@ -28,6 +29,7 @@ GET ;get data
  .K ECXPAT S OK=$$PAT^ECXUTL3(ECXDFN,$P(ECXMDT,"."),"1;3",.ECXPAT)
  .Q:'OK
  .S ECXPNM=ECXPAT("NAME"),ECXSSN=ECXPAT("SSN"),ECXMPI=ECXPAT("MPI")
+ .S ECXCLST=ECXPAT("CL STAT") ;144
  .;get emergency response indicator (FEMA)
  .S ECXERI=ECXPAT("ERI")
  .S X=$$PRIMARY^ECXUTL2(ECXDFN,$P(ECXMDT,"."),ECPROF)
@@ -59,6 +61,9 @@ GET ;get data
  ..S ECCN=0
  ..F  S ECCN=$O(^RADPT(ECXDFN,"DT",ECXMDA,"P",ECCN)) Q:ECCN'>0  D
  ...S ECCA=^RADPT(ECXDFN,"DT",ECXMDA,"P",ECCN,0)
+ ...S (ECXESC,ECXECL)="" ;144
+ ...S VISIT=$P(ECCA,U,27) ;144
+ ...I VISIT D VISIT^ECXSCX1(ECXDFN,VISIT,.ECXVIST,.ECXERR) I 'ECXERR S ECXESC=$G(ECXVIST("ENCSC")),ECXECL=$G(ECXVIST("ENCCL")) ;144
  ...S ECXCM=$P(ECCA,U,26) S ECXCM=$S("^0^1^2^3^"[("^"_ECXCM_"^"):ECXCM,1:"") ;136 - Get Credit Method and validate that it's a number between 0 and 3 otherwise set it to null
  ...S ECXW=$P(ECCA,U,6),ECXW=$P($G(^DIC(42,+ECXW,44)),U)
  ...S:ECXW="" ECXW=$P(ECCA,U,8)
@@ -113,6 +118,8 @@ FILE ;file record
  ;reting radiologist ECXIS^interpreting radiologist pc ECXISPC^princi-
  ;pal clinic ECXPRCL^clinc stop code ECXCSC^emergency response indicator
  ;(FEMA) ECXERI^assoc pc provider npi^interpreting rad npi^pc provider npi^req physician npi^Patient Category (PATCAT) ECXPATCAT^Credit Method ECXCM
+ ;NODE2
+ ;Encounter SC ECXESC^Camp Lejeune Status ECXCLST^Encounter Camp Lejeune ECXECL
  ;
  ;convert specialty to PTF Code for transmission
  N ECXDATA,ECXTSC
@@ -133,8 +140,9 @@ FILE ;file record
  I ECXLOGIC>2006 S ECODE1=ECODE1_U_ECXERI
  I ECXLOGIC>2007 S ECODE1=ECODE1_U_ECASNPI_U_ECISNPI_U_ECPTNPI_U_ECDOCNPI
  I ECXLOGIC>2010 S ECODE1=ECODE1_U_ECXPATCAT ;127 PATCAT
- I ECXLOGIC>2012 S ECODE1=ECODE1_U_ECXCM ;136 Credit Method
- S ^ECX(ECFILE,EC7,0)=ECODE,^ECX(ECFILE,EC7,1)=ECODE1,ECRN=ECRN+1
+ I ECXLOGIC>2012 S ECODE1=ECODE1_U_ECXCM_U ;136 Credit Method 144 End of node needs an ^
+ I ECXLOGIC>2013 S ECODE2=ECXESC_U_ECXCLST_U_ECXECL ;144
+ S ^ECX(ECFILE,EC7,0)=ECODE,^ECX(ECFILE,EC7,1)=ECODE1,^ECX(ECFILE,EC7,2)=$G(ECODE2),ECRN=ECRN+1 ;144
  S DA=EC7,DIK="^ECX("_ECFILE_"," D IX1^DIK K DIK,DA
  I $D(ZTQUEUED),$$S^%ZTLOAD S QFLG=1
  Q

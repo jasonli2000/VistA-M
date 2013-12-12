@@ -1,5 +1,5 @@
-GMTSPXU1 ; SLC/SBW - PCE Utilities sub-routines ; 03/24/2004 [8/24/04 8:28am]
- ;;2.7;Health Summary;**10,37,71**;Oct 20, 1995
+GMTSPXU1 ; SLC/SBW,TC - PCE Utilities sub-routines ;09/09/11  12:47
+ ;;2.7;Health Summary;**10,37,71,86**;Oct 20, 1995;Build 55
  ;
  ; External References
  ;   DBIA  3390  $$ICDDX^ICDCODE
@@ -8,7 +8,7 @@ GMTSPXU1 ; SLC/SBW - PCE Utilities sub-routines ; 03/24/2004 [8/24/04 8:28am]
  ;   DBIA  1995  $$CPT^ICPTCOD
  ;   DBIA 10026  ^DIR
  ;   DBIA 10011  ^DIWP
- ;                       
+ ;
 GETICDDX(GMTSICD,GMTSICF,GMMOD) ; Entry point to get ICD9 data
  N REC,CODE,NAME,DESC,ICDX,ICDI,ICDA
  S GMTSICD=$G(GMTSICD),GMTSICF=$G(GMTSICF),GMMOD=$G(GMMOD)
@@ -23,12 +23,12 @@ GETICDDX(GMTSICD,GMTSICF,GMMOD) ; Entry point to get ICD9 data
  S CODE=REC(80,GMTSICD,.01,"I")
  S NAME=REC(80,GMTSICD,3,"E")
  S DESC=REC(80,GMTSICD,10,"E")
- S:GMTSICF="L"!(GMTSICF="") GMTSICD=CODE_"-"_DESC
- S:GMTSICF="S" GMTSICD=CODE_"-"_NAME
- S:GMTSICF="C" GMTSICD=CODE
- S:GMTSICF="T" GMTSICD=DESC
+ S:GMTSICF="L"!(GMTSICF["LONG TEXT")!(GMTSICF="") GMTSICD=CODE_"-"_DESC
+ S:GMTSICF="S"!(GMTSICF["SHORT TEXT") GMTSICD=CODE_"-"_NAME
+ S:GMTSICF="C"!(GMTSICF["CODE ONLY") GMTSICD=CODE
+ S:GMTSICF="T"!(GMTSICF["TEXT ONLY") GMTSICD=DESC
  I $G(GMMOD)]"" S GMMOD=$P(GMMOD,","),GMTSICD=GMMOD_" "_GMTSICD
- S:GMTSICF="N" GMTSICD=""
+ S:GMTSICF="N"!(GMTSICF["NONE") GMTSICD=""
  Q
  ;
 GETICDOP(GMTSICD,GMTSICF,GMMOD) ; Entry point to get ICD0 data
@@ -82,10 +82,10 @@ ORDERPRO(GMPROV,GMLEN) ; Re-order and format providers for visit
  . S GMCNT=GMCNT+1
  . S GMPROV(GMCNT)=$E($P(GMNODE,U),1,GMLEN-4)_$S(GMP="P"!(GMP="S"):" ("_GMP_")",1:"")
  Q
- ;                              
+ ;
  ; The following code segments are called from "ROUTINE" type
  ; Menu Options to display items in a file
- ;                           
+ ;
 LM ;   Entry Point - for GMTS Measurement Panel
  S GMTSLST="^GMT(142.7," G DSPLST
  ;

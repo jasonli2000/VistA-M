@@ -1,5 +1,5 @@
-IBDFN4 ;ALB/CJM - ENCOUNTER FORM - (entry points for selection routines);5/21/93
- ;;3.0;AUTOMATED INFO COLLECTION SYS;**38,51**;APR 24, 1997
+IBDFN4 ;ALB/CJM - ENCOUNTER FORM - (entry points for selection routines);5/21/93 ; 3/13/13 10:19am
+ ;;3.0;AUTOMATED INFO COLLECTION SYS;**38,51,64**;APR 24, 1997;Build 5
  ;
 CPT ;select ambulatory procedures
  N NAME,CODE,SCREEN,IBDESCR,IBDESCLG,QUIT
@@ -32,14 +32,15 @@ CPTSCRN ;This code is probably not called, but will modify to be safe.
  Q
  ;
 ICD9 ;select ICD-9 codes
- N IBDX,CODE,SCREEN,IBDESCR,QUIT
+ N IBDX,CODE,SCREEN,IBDESCR,QUIT,IBDXX,IBDARRY
  S QUIT=0
  ;;I $D(@IBARY@("SCREEN")) S SCREEN=$G(@IBARY@("SCREEN"))
  ;;E  D ICD9SCRN Q:QUIT
  S SCREEN="I $P($$ICDDX^ICDCODE(Y),U,10)=1" ;List only active codes
- S DIC=80,DIC(0)="AEMQZI",DIC("S")=SCREEN
- I $D(^ICD9) D ^DIC K DIC I +Y>0 D
- .S CODE=$P(Y(0),U),IBDX=$P(Y(0),U,3),IBDESCR=$P($G(^ICD9(+Y,1)),"^")
+ S DIC=80,DIC(0)="AEMQI",DIC("S")=SCREEN
+ ; API #3990 - Retrieve IDC9 code related data
+ D ^DIC K DIC I +Y>0 D
+ .S CODE=$P(Y,U,2),IBDX=$P($$ICDDX^ICDCODE(CODE,,,1),U,4),IBDXX=$$ICDD^ICDCODE(CODE,"IBDARRY"),IBDESCR=IBDARRY(1)
  .S @IBARY=CODE_"^"_IBDX_"^"_IBDESCR
  E  K @IBARY ;kill if either file doesn't exist or nothing chosen - this is how to let the encounter form utilities know nothing was selected
  Q

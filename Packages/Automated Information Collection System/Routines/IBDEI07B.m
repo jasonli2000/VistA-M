@@ -1,354 +1,386 @@
-IBDEI07B ; ; 20-FEB-2013
- ;;3.0;IB ENCOUNTER FORM IMP/EXP;;FEB 20, 2013
+IBDEI07B ; ; 06-AUG-2013
+ ;;3.0;IB ENCOUNTER FORM IMP/EXP;;AUG 06, 2013
  Q:'DIFQR(358.3)  F I=1:2 S X=$T(Q+I) Q:X=""  S Y=$E($T(Q+I+1),4,999),X=$E(X,4,999) S:$A(Y)=126 I=I+1,Y=$E(Y,2,999)_$E($T(Q+I+1),5,99) S:$A(Y)=61 Y=$E(Y,2,999) X NO E  S @X=Y
 Q Q
- ;;^UTILITY(U,$J,358.3,9613,1,3,0)
- ;;=3^Crao/Central Retinal Artery Occlusion
- ;;^UTILITY(U,$J,358.3,9613,1,4,0)
- ;;=4^362.31
- ;;^UTILITY(U,$J,358.3,9613,2)
- ;;=Central Retinal Artery Occulusion^21255
- ;;^UTILITY(U,$J,358.3,9614,0)
- ;;=362.35^^77^659^13
- ;;^UTILITY(U,$J,358.3,9614,1,0)
- ;;=^358.31IA^4^2
- ;;^UTILITY(U,$J,358.3,9614,1,3,0)
- ;;=3^Crvo/Central Retinal Vein Occlusion
- ;;^UTILITY(U,$J,358.3,9614,1,4,0)
- ;;=4^362.35
- ;;^UTILITY(U,$J,358.3,9614,2)
- ;;=Central Retinal Vein Occlusion^268624
- ;;^UTILITY(U,$J,358.3,9615,0)
- ;;=362.41^^77^659^6
- ;;^UTILITY(U,$J,358.3,9615,1,0)
- ;;=^358.31IA^4^2
- ;;^UTILITY(U,$J,358.3,9615,1,3,0)
- ;;=3^Central Serous Retinopathy (Csr)
- ;;^UTILITY(U,$J,358.3,9615,1,4,0)
- ;;=4^362.41
- ;;^UTILITY(U,$J,358.3,9615,2)
- ;;=Central Serous Retinopathy^265870
- ;;^UTILITY(U,$J,358.3,9616,0)
- ;;=224.6^^77^659^10
- ;;^UTILITY(U,$J,358.3,9616,1,0)
- ;;=^358.31IA^4^2
- ;;^UTILITY(U,$J,358.3,9616,1,3,0)
- ;;=3^Choroidal Nevus
- ;;^UTILITY(U,$J,358.3,9616,1,4,0)
- ;;=4^224.6
- ;;^UTILITY(U,$J,358.3,9616,2)
- ;;=Choroidal Nevus^267676
- ;;^UTILITY(U,$J,358.3,9617,0)
- ;;=362.53^^77^659^16
- ;;^UTILITY(U,$J,358.3,9617,1,0)
- ;;=^358.31IA^4^2
- ;;^UTILITY(U,$J,358.3,9617,1,3,0)
- ;;=3^Cystoid Macular Degeneration/Edema (Cme)
- ;;^UTILITY(U,$J,358.3,9617,1,4,0)
- ;;=4^362.53
  ;;^UTILITY(U,$J,358.3,9617,2)
- ;;=Cystoid Macular Degeneration/Edema^268638
+ ;;=^35603
  ;;^UTILITY(U,$J,358.3,9618,0)
- ;;=361.32^^77^659^26
+ ;;=295.30^^65^551^8
  ;;^UTILITY(U,$J,358.3,9618,1,0)
  ;;=^358.31IA^4^2
  ;;^UTILITY(U,$J,358.3,9618,1,3,0)
- ;;=3^Horseshoe Tear
+ ;;=3^Paranoid Schizo-Unspec
  ;;^UTILITY(U,$J,358.3,9618,1,4,0)
- ;;=4^361.32
+ ;;=4^295.30
  ;;^UTILITY(U,$J,358.3,9618,2)
- ;;=^268606
+ ;;=^108330
  ;;^UTILITY(U,$J,358.3,9619,0)
- ;;=362.63^^77^659^28
+ ;;=295.90^^65^551^9
  ;;^UTILITY(U,$J,358.3,9619,1,0)
  ;;=^358.31IA^4^2
  ;;^UTILITY(U,$J,358.3,9619,1,3,0)
- ;;=3^Lattice Degeneration
+ ;;=3^Schizophrenia Nos-Unspec
  ;;^UTILITY(U,$J,358.3,9619,1,4,0)
- ;;=4^362.63
+ ;;=4^295.90
  ;;^UTILITY(U,$J,358.3,9619,2)
- ;;=^268644
+ ;;=^108287
  ;;^UTILITY(U,$J,358.3,9620,0)
- ;;=362.54^^77^659^30
+ ;;=294.20^^65^551^4
  ;;^UTILITY(U,$J,358.3,9620,1,0)
  ;;=^358.31IA^4^2
  ;;^UTILITY(U,$J,358.3,9620,1,3,0)
- ;;=3^Macular Hole
+ ;;=3^Dementia w/o behv disturb NOS
  ;;^UTILITY(U,$J,358.3,9620,1,4,0)
- ;;=4^362.54
+ ;;=4^294.20
  ;;^UTILITY(U,$J,358.3,9620,2)
- ;;=^268639
+ ;;=^340607
  ;;^UTILITY(U,$J,358.3,9621,0)
- ;;=362.56^^77^659^31
+ ;;=294.21^^65^551^3
  ;;^UTILITY(U,$J,358.3,9621,1,0)
  ;;=^358.31IA^4^2
  ;;^UTILITY(U,$J,358.3,9621,1,3,0)
- ;;=3^Macular Pucker/Epiretinal Membrane (Erm)
+ ;;=3^Dementia w/ behv disturb NOS
  ;;^UTILITY(U,$J,358.3,9621,1,4,0)
- ;;=4^362.56
+ ;;=4^294.21
  ;;^UTILITY(U,$J,358.3,9621,2)
- ;;=Macular Puckering^268641
+ ;;=^340505
  ;;^UTILITY(U,$J,358.3,9622,0)
- ;;=361.10^^77^659^49
+ ;;=726.0^^65^552^2
  ;;^UTILITY(U,$J,358.3,9622,1,0)
  ;;=^358.31IA^4^2
  ;;^UTILITY(U,$J,358.3,9622,1,3,0)
- ;;=3^Retinoschisis
+ ;;=3^Adhesive Capsulit Shlder
  ;;^UTILITY(U,$J,358.3,9622,1,4,0)
- ;;=4^361.10
+ ;;=4^726.0
  ;;^UTILITY(U,$J,358.3,9622,2)
- ;;=^265856
+ ;;=^272520
  ;;^UTILITY(U,$J,358.3,9623,0)
- ;;=362.16^^77^659^48
+ ;;=716.99^^65^552^3
  ;;^UTILITY(U,$J,358.3,9623,1,0)
  ;;=^358.31IA^4^2
  ;;^UTILITY(U,$J,358.3,9623,1,3,0)
- ;;=3^Retinal/Subretinal Neovascularization
+ ;;=3^Arthropathy Nos-Mult
  ;;^UTILITY(U,$J,358.3,9623,1,4,0)
- ;;=4^362.16
+ ;;=4^716.99
  ;;^UTILITY(U,$J,358.3,9623,2)
- ;;=Subretinal Neovascularization^105601
+ ;;=^272256
  ;;^UTILITY(U,$J,358.3,9624,0)
- ;;=362.11^^77^659^27
+ ;;=716.98^^65^552^4
  ;;^UTILITY(U,$J,358.3,9624,1,0)
  ;;=^358.31IA^4^2
  ;;^UTILITY(U,$J,358.3,9624,1,3,0)
- ;;=3^Hypertensive Retinopathy
+ ;;=3^Arthropathy Nos-Oth Site
  ;;^UTILITY(U,$J,358.3,9624,1,4,0)
- ;;=4^362.11
+ ;;=4^716.98
  ;;^UTILITY(U,$J,358.3,9624,2)
- ;;=Hypertensive Retinopathy^265209
+ ;;=^272255
  ;;^UTILITY(U,$J,358.3,9625,0)
- ;;=363.30^^77^659^7
+ ;;=714.0^^65^552^32
  ;;^UTILITY(U,$J,358.3,9625,1,0)
  ;;=^358.31IA^4^2
  ;;^UTILITY(U,$J,358.3,9625,1,3,0)
- ;;=3^Chorioretinal Scar
+ ;;=3^Rheumatoid Arthritis
  ;;^UTILITY(U,$J,358.3,9625,1,4,0)
- ;;=4^363.30
+ ;;=4^714.0
  ;;^UTILITY(U,$J,358.3,9625,2)
- ;;=Chorioretinal Scar^23910
+ ;;=^10473
  ;;^UTILITY(U,$J,358.3,9626,0)
- ;;=361.31^^77^659^39
+ ;;=716.90^^65^552^5
  ;;^UTILITY(U,$J,358.3,9626,1,0)
  ;;=^358.31IA^4^2
  ;;^UTILITY(U,$J,358.3,9626,1,3,0)
- ;;=3^Peripheral Retinal Hole
+ ;;=3^Arthropathy Nos-Unspec
  ;;^UTILITY(U,$J,358.3,9626,1,4,0)
- ;;=4^361.31
+ ;;=4^716.90
  ;;^UTILITY(U,$J,358.3,9626,2)
- ;;=Peripheral Retinal Hole^268605
+ ;;=^66343
  ;;^UTILITY(U,$J,358.3,9627,0)
- ;;=362.51^^77^659^1
+ ;;=726.71^^65^552^1
  ;;^UTILITY(U,$J,358.3,9627,1,0)
  ;;=^358.31IA^4^2
  ;;^UTILITY(U,$J,358.3,9627,1,3,0)
- ;;=3^Age Macular Degeneration, Dry (Armd)
+ ;;=3^Achilles Tendinitis
  ;;^UTILITY(U,$J,358.3,9627,1,4,0)
- ;;=4^362.51
+ ;;=4^726.71
  ;;^UTILITY(U,$J,358.3,9627,2)
- ;;=^268636
+ ;;=^272550
  ;;^UTILITY(U,$J,358.3,9628,0)
- ;;=362.52^^77^659^2
+ ;;=727.3^^65^552^7
  ;;^UTILITY(U,$J,358.3,9628,1,0)
  ;;=^358.31IA^4^2
  ;;^UTILITY(U,$J,358.3,9628,1,3,0)
- ;;=3^Age Macular Degeneration, Wet (Armd)
+ ;;=3^Bursitis Nec
  ;;^UTILITY(U,$J,358.3,9628,1,4,0)
- ;;=4^362.52
+ ;;=4^727.3
  ;;^UTILITY(U,$J,358.3,9628,2)
- ;;=Macular Degeneration, Wet^268637
+ ;;=^87364
  ;;^UTILITY(U,$J,358.3,9629,0)
- ;;=362.32^^77^659^4
+ ;;=726.5^^65^552^12
  ;;^UTILITY(U,$J,358.3,9629,1,0)
  ;;=^358.31IA^4^2
  ;;^UTILITY(U,$J,358.3,9629,1,3,0)
- ;;=3^Brao/Branch Retinal Artery Occlusion
+ ;;=3^Enthesopathy Of Hip
  ;;^UTILITY(U,$J,358.3,9629,1,4,0)
- ;;=4^362.32
+ ;;=4^726.5
  ;;^UTILITY(U,$J,358.3,9629,2)
- ;;=ARTERIAL BRANCH OCCLUSION^16756
+ ;;=^272537
  ;;^UTILITY(U,$J,358.3,9630,0)
- ;;=362.15^^77^659^54
+ ;;=728.6^^65^552^10
  ;;^UTILITY(U,$J,358.3,9630,1,0)
  ;;=^358.31IA^4^2
  ;;^UTILITY(U,$J,358.3,9630,1,3,0)
- ;;=3^Telangiectasia
+ ;;=3^Contracted Palmar Fascia
  ;;^UTILITY(U,$J,358.3,9630,1,4,0)
- ;;=4^362.15
+ ;;=4^728.6
  ;;^UTILITY(U,$J,358.3,9630,2)
- ;;=Retinal Telangiectasia^268616
+ ;;=^28077
  ;;^UTILITY(U,$J,358.3,9631,0)
- ;;=362.60^^77^659^18
+ ;;=728.85^^65^552^36
  ;;^UTILITY(U,$J,358.3,9631,1,0)
  ;;=^358.31IA^4^2
  ;;^UTILITY(U,$J,358.3,9631,1,3,0)
- ;;=3^Degeneration, Periph, Retina
+ ;;=3^Spasm Of Muscle
  ;;^UTILITY(U,$J,358.3,9631,1,4,0)
- ;;=4^362.60
+ ;;=4^728.85
  ;;^UTILITY(U,$J,358.3,9631,2)
- ;;=Peripheral Retinal Degeneration^92193
+ ;;=^112558
  ;;^UTILITY(U,$J,358.3,9632,0)
- ;;=362.81^^77^659^45
+ ;;=727.81^^65^552^11
  ;;^UTILITY(U,$J,358.3,9632,1,0)
  ;;=^358.31IA^4^2
  ;;^UTILITY(U,$J,358.3,9632,1,3,0)
- ;;=3^Retinal Hemorrhage
+ ;;=3^Contracture Of Tendon
  ;;^UTILITY(U,$J,358.3,9632,1,4,0)
- ;;=4^362.81
+ ;;=4^727.81
  ;;^UTILITY(U,$J,358.3,9632,2)
- ;;=Retinal Hemorrhage^105587
+ ;;=^272586
  ;;^UTILITY(U,$J,358.3,9633,0)
- ;;=190.6^^77^659^35
+ ;;=717.7^^65^552^9
  ;;^UTILITY(U,$J,358.3,9633,1,0)
  ;;=^358.31IA^4^2
  ;;^UTILITY(U,$J,358.3,9633,1,3,0)
- ;;=3^Neoplams, Benign Of Choroid
+ ;;=3^Chondromalacia Patellae
  ;;^UTILITY(U,$J,358.3,9633,1,4,0)
- ;;=4^190.6
+ ;;=4^717.7
  ;;^UTILITY(U,$J,358.3,9633,2)
- ;;=Malig Neoplasm of Choroid (Primary)^267276
+ ;;=^23780
  ;;^UTILITY(U,$J,358.3,9634,0)
- ;;=362.33^^77^659^25
+ ;;=717.9^^65^552^15
  ;;^UTILITY(U,$J,358.3,9634,1,0)
  ;;=^358.31IA^4^2
  ;;^UTILITY(U,$J,358.3,9634,1,3,0)
- ;;=3^Hollenhorst Plaque
+ ;;=3^Int Derangement Knee Nos
  ;;^UTILITY(U,$J,358.3,9634,1,4,0)
- ;;=4^362.33
+ ;;=4^717.9
  ;;^UTILITY(U,$J,358.3,9634,2)
- ;;=Hollenhorst Plaque^268620
+ ;;=^272277
  ;;^UTILITY(U,$J,358.3,9635,0)
- ;;=361.00^^77^659^44
+ ;;=718.86^^65^552^17
  ;;^UTILITY(U,$J,358.3,9635,1,0)
  ;;=^358.31IA^4^2
  ;;^UTILITY(U,$J,358.3,9635,1,3,0)
- ;;=3^Retinal Detachment, Unspecified
+ ;;=3^Jt Derangement Nec-L/Leg
  ;;^UTILITY(U,$J,358.3,9635,1,4,0)
- ;;=4^361.00
+ ;;=4^718.86
  ;;^UTILITY(U,$J,358.3,9635,2)
- ;;=Retinal Detachment, Unspecified^268585
+ ;;=^272345
  ;;^UTILITY(U,$J,358.3,9636,0)
- ;;=361.01^^77^659^41
+ ;;=718.81^^65^552^18
  ;;^UTILITY(U,$J,358.3,9636,1,0)
  ;;=^358.31IA^4^2
  ;;^UTILITY(U,$J,358.3,9636,1,3,0)
- ;;=3^Recent Retinal Detachment, Partial
+ ;;=3^Jt Derangement NEC-Shlder
  ;;^UTILITY(U,$J,358.3,9636,1,4,0)
- ;;=4^361.01
+ ;;=4^718.81
  ;;^UTILITY(U,$J,358.3,9636,2)
- ;;=Recent Retinal Detachment, Partial^268586
+ ;;=^272340
  ;;^UTILITY(U,$J,358.3,9637,0)
- ;;=361.05^^77^659^42
+ ;;=727.04^^65^552^31
  ;;^UTILITY(U,$J,358.3,9637,1,0)
  ;;=^358.31IA^4^2
  ;;^UTILITY(U,$J,358.3,9637,1,3,0)
- ;;=3^Recent Retinal Detachment, Total
+ ;;=3^Radial Styloid Tenosynov
  ;;^UTILITY(U,$J,358.3,9637,1,4,0)
- ;;=4^361.05
+ ;;=4^727.04
  ;;^UTILITY(U,$J,358.3,9637,2)
- ;;=Recent Retinal Detachment, Total^268590
+ ;;=^272561
  ;;^UTILITY(U,$J,358.3,9638,0)
- ;;=361.06^^77^659^37
+ ;;=719.00^^65^552^16
  ;;^UTILITY(U,$J,358.3,9638,1,0)
  ;;=^358.31IA^4^2
  ;;^UTILITY(U,$J,358.3,9638,1,3,0)
- ;;=3^Old Retinal Detachment, Partial
+ ;;=3^Joint Effusion-Unspec
  ;;^UTILITY(U,$J,358.3,9638,1,4,0)
- ;;=4^361.06
+ ;;=4^719.00
  ;;^UTILITY(U,$J,358.3,9638,2)
- ;;=Old Retinal Detachment, Part^268591
+ ;;=^38674
  ;;^UTILITY(U,$J,358.3,9639,0)
- ;;=361.07^^77^659^38
+ ;;=726.32^^65^552^19
  ;;^UTILITY(U,$J,358.3,9639,1,0)
  ;;=^358.31IA^4^2
  ;;^UTILITY(U,$J,358.3,9639,1,3,0)
- ;;=3^Old Retinal Detacment, Total
+ ;;=3^Lateral Epicondylitis
  ;;^UTILITY(U,$J,358.3,9639,1,4,0)
- ;;=4^361.07
+ ;;=4^726.32
  ;;^UTILITY(U,$J,358.3,9639,2)
- ;;=Old Retinal Detacment, Total^268592
+ ;;=^117801
  ;;^UTILITY(U,$J,358.3,9640,0)
- ;;=362.57^^77^659^23
+ ;;=726.31^^65^552^20
  ;;^UTILITY(U,$J,358.3,9640,1,0)
  ;;=^358.31IA^4^2
  ;;^UTILITY(U,$J,358.3,9640,1,3,0)
- ;;=3^Drusen
+ ;;=3^Medial Epicondylitis
  ;;^UTILITY(U,$J,358.3,9640,1,4,0)
- ;;=4^362.57
+ ;;=4^726.31
  ;;^UTILITY(U,$J,358.3,9640,2)
- ;;=Drusen^105561
+ ;;=^272532
  ;;^UTILITY(U,$J,358.3,9641,0)
- ;;=362.55^^77^659^55
+ ;;=727.63^^65^552^34
  ;;^UTILITY(U,$J,358.3,9641,1,0)
  ;;=^358.31IA^4^2
  ;;^UTILITY(U,$J,358.3,9641,1,3,0)
- ;;=3^Toxic Maculopathy
+ ;;=3^Rupt Exten Tendon Hand
  ;;^UTILITY(U,$J,358.3,9641,1,4,0)
- ;;=4^362.55
+ ;;=4^727.63
  ;;^UTILITY(U,$J,358.3,9641,2)
- ;;=Toxic Maculopathy^268640
+ ;;=^272579
  ;;^UTILITY(U,$J,358.3,9642,0)
- ;;=363.31^^77^659^53
+ ;;=728.71^^65^552^30
  ;;^UTILITY(U,$J,358.3,9642,1,0)
  ;;=^358.31IA^4^2
  ;;^UTILITY(U,$J,358.3,9642,1,3,0)
- ;;=3^Solar Retinopathy
+ ;;=3^Plantar Fibromatosis
  ;;^UTILITY(U,$J,358.3,9642,1,4,0)
- ;;=4^363.31
+ ;;=4^728.71
  ;;^UTILITY(U,$J,358.3,9642,2)
- ;;=Solar Retinopathy^265207
+ ;;=^272598
  ;;^UTILITY(U,$J,358.3,9643,0)
- ;;=363.32^^77^659^32
+ ;;=727.64^^65^552^35
  ;;^UTILITY(U,$J,358.3,9643,1,0)
  ;;=^358.31IA^4^2
  ;;^UTILITY(U,$J,358.3,9643,1,3,0)
- ;;=3^Macular Scars
+ ;;=3^Rupt Flexor Tendon Hand
  ;;^UTILITY(U,$J,358.3,9643,1,4,0)
- ;;=4^363.32
+ ;;=4^727.64
  ;;^UTILITY(U,$J,358.3,9643,2)
- ;;=Macular Scars^268680
+ ;;=^272580
  ;;^UTILITY(U,$J,358.3,9644,0)
- ;;=362.83^^77^659^29
+ ;;=736.81^^65^552^38
  ;;^UTILITY(U,$J,358.3,9644,1,0)
  ;;=^358.31IA^4^2
  ;;^UTILITY(U,$J,358.3,9644,1,3,0)
- ;;=3^Macular Edema (Csme)
+ ;;=3^Unequal Leg Length
  ;;^UTILITY(U,$J,358.3,9644,1,4,0)
- ;;=4^362.83
+ ;;=4^736.81
  ;;^UTILITY(U,$J,358.3,9644,2)
- ;;=Macular Edema (CSME)^89576
+ ;;=^68758
  ;;^UTILITY(U,$J,358.3,9645,0)
- ;;=362.84^^77^659^46
+ ;;=728.9^^65^552^21
  ;;^UTILITY(U,$J,358.3,9645,1,0)
  ;;=^358.31IA^4^2
  ;;^UTILITY(U,$J,358.3,9645,1,3,0)
- ;;=3^Retinal Ischemia
+ ;;=3^Muscle/Ligament Dis Nos
  ;;^UTILITY(U,$J,358.3,9645,1,4,0)
- ;;=4^362.84
+ ;;=4^728.9
  ;;^UTILITY(U,$J,358.3,9645,2)
- ;;=Retinal Ischemia^276868
+ ;;=^123859
  ;;^UTILITY(U,$J,358.3,9646,0)
- ;;=363.20^^77^659^8
+ ;;=729.2^^65^552^22
  ;;^UTILITY(U,$J,358.3,9646,1,0)
  ;;=^358.31IA^4^2
  ;;^UTILITY(U,$J,358.3,9646,1,3,0)
- ;;=3^Chorioretinitis
+ ;;=3^Neuralgia/Neuritis Nos
  ;;^UTILITY(U,$J,358.3,9646,1,4,0)
- ;;=4^363.20
+ ;;=4^729.2
  ;;^UTILITY(U,$J,358.3,9646,2)
- ;;=Chorioretinitis^23913
+ ;;=^82605
  ;;^UTILITY(U,$J,358.3,9647,0)
- ;;=115.92^^77^659^24
+ ;;=715.97^^65^552^23
  ;;^UTILITY(U,$J,358.3,9647,1,0)
  ;;=^358.31IA^4^2
  ;;^UTILITY(U,$J,358.3,9647,1,3,0)
- ;;=3^Histoplamosis (Pohs)
+ ;;=3^Osteoarthrosis NOS-Ankle
  ;;^UTILITY(U,$J,358.3,9647,1,4,0)
- ;;=4^115.92
+ ;;=4^715.97
  ;;^UTILITY(U,$J,358.3,9647,2)
- ;;=Histoplamosis Retinitis^266905
+ ;;=^272168
  ;;^UTILITY(U,$J,358.3,9648,0)
- ;;=363.70^^77^659^9
+ ;;=715.94^^65^552^24
  ;;^UTILITY(U,$J,358.3,9648,1,0)
  ;;=^358.31IA^4^2
+ ;;^UTILITY(U,$J,358.3,9648,1,3,0)
+ ;;=3^Osteoarthrosis NOS-Hand
+ ;;^UTILITY(U,$J,358.3,9648,1,4,0)
+ ;;=4^715.94
+ ;;^UTILITY(U,$J,358.3,9648,2)
+ ;;=^272165
+ ;;^UTILITY(U,$J,358.3,9649,0)
+ ;;=715.96^^65^552^25
+ ;;^UTILITY(U,$J,358.3,9649,1,0)
+ ;;=^358.31IA^4^2
+ ;;^UTILITY(U,$J,358.3,9649,1,3,0)
+ ;;=3^Osteoarthrosis NOS-L/Leg
+ ;;^UTILITY(U,$J,358.3,9649,1,4,0)
+ ;;=4^715.96
+ ;;^UTILITY(U,$J,358.3,9649,2)
+ ;;=^272167
+ ;;^UTILITY(U,$J,358.3,9650,0)
+ ;;=715.91^^65^552^26
+ ;;^UTILITY(U,$J,358.3,9650,1,0)
+ ;;=^358.31IA^4^2
+ ;;^UTILITY(U,$J,358.3,9650,1,3,0)
+ ;;=3^Osteoarthrosis NOS-Shlder
+ ;;^UTILITY(U,$J,358.3,9650,1,4,0)
+ ;;=4^715.91
+ ;;^UTILITY(U,$J,358.3,9650,2)
+ ;;=^272162
+ ;;^UTILITY(U,$J,358.3,9651,0)
+ ;;=715.00^^65^552^14
+ ;;^UTILITY(U,$J,358.3,9651,1,0)
+ ;;=^358.31IA^4^2
+ ;;^UTILITY(U,$J,358.3,9651,1,3,0)
+ ;;=3^General Osteoarthrosis
+ ;;^UTILITY(U,$J,358.3,9651,1,4,0)
+ ;;=4^715.00
+ ;;^UTILITY(U,$J,358.3,9651,2)
+ ;;=^272125
+ ;;^UTILITY(U,$J,358.3,9652,0)
+ ;;=733.00^^65^552^27
+ ;;^UTILITY(U,$J,358.3,9652,1,0)
+ ;;=^358.31IA^4^2
+ ;;^UTILITY(U,$J,358.3,9652,1,3,0)
+ ;;=3^Osteoporosis Nos
+ ;;^UTILITY(U,$J,358.3,9652,1,4,0)
+ ;;=4^733.00
+ ;;^UTILITY(U,$J,358.3,9652,2)
+ ;;=^87159
+ ;;^UTILITY(U,$J,358.3,9653,0)
+ ;;=734.^^65^552^13
+ ;;^UTILITY(U,$J,358.3,9653,1,0)
+ ;;=^358.31IA^4^2
+ ;;^UTILITY(U,$J,358.3,9653,1,3,0)
+ ;;=3^Flat Foot
+ ;;^UTILITY(U,$J,358.3,9653,1,4,0)
+ ;;=4^734.
+ ;;^UTILITY(U,$J,358.3,9653,2)
+ ;;=^46756
+ ;;^UTILITY(U,$J,358.3,9654,0)
+ ;;=726.10^^65^552^33
+ ;;^UTILITY(U,$J,358.3,9654,1,0)
+ ;;=^358.31IA^4^2
+ ;;^UTILITY(U,$J,358.3,9654,1,3,0)
+ ;;=3^Rotator Cuff Synd Nos
+ ;;^UTILITY(U,$J,358.3,9654,1,4,0)
+ ;;=4^726.10
+ ;;^UTILITY(U,$J,358.3,9654,2)
+ ;;=^272523
+ ;;^UTILITY(U,$J,358.3,9655,0)
+ ;;=726.64^^65^552^29
+ ;;^UTILITY(U,$J,358.3,9655,1,0)
+ ;;=^358.31IA^4^2
+ ;;^UTILITY(U,$J,358.3,9655,1,3,0)
+ ;;=3^Patellar Tendinitis
+ ;;^UTILITY(U,$J,358.3,9655,1,4,0)
+ ;;=4^726.64
+ ;;^UTILITY(U,$J,358.3,9655,2)
+ ;;=^272545

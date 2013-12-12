@@ -1,5 +1,5 @@
-MAGDRPCA ;WOIFO/PMK/MLS/SG/JSL/SAF - Imaging RPCs for Importer ; 02 Nov 2009 8:47 AM
- ;;3.0;IMAGING;**53,123**;Mar 19, 2002;Build 67;Jul 24, 2012
+MAGDRPCA ;WOIFO/PMK/MLS/SG/DAC/JSL - Imaging RPCs for Importer ; 28 Feb 2012 4:01 PM
+ ;;3.0;IMAGING;**53,123,118**;Mar 19, 2002;Build 4525;May 01, 2013
  ;; Per VHA Directive 2004-038, this routine should not be modified.
  ;; +---------------------------------------------------------------+
  ;; | Property of the US Government.                                |
@@ -181,13 +181,14 @@ DELETE(OUT,IMAGEUID,MACHID,FILEPATH) ; RPC = MAG DICOM IMPORTER DELETE
  ;
  ; DIV           IEN of a record in the INSTITUTION file (#4)
  ;
-PROC(ARRAY,DIV) ;
+PROC(ARRAY,DIV,FILTER) ;
  N IMAGTYPE      ; IEN of the imaging type (file #79.2)
  N INACTDAT      ; Inactivation date of the procedure
  N OMLDAT        ; Outside imaging location data (file #2006.5759)
  N OMLIEN        ; IEN in OUTSIDE IMAGING LOCATION file (#2006.5759)
  N RADPROC       ; Radiology procedure data (file #71)
  N TODAY         ; today's date in Fileman format
+ N PROCTYPE      ; Type of procedure
  ;
  N BUF,ERROR,IEN,Z
  K ARRAY
@@ -228,7 +229,9 @@ PROC(ARRAY,DIV) ;
  . Q:$P(OMLDAT,U,4)'=DIV  ; Has to be in the same Division
  . ;--- Prepare the procedure descriptor
  . S BUF=$P(RADPROC,U)_U_IEN      ; Procedure Name and IEN
- . S $P(BUF,U,3)=$P(RADPROC,U,6)  ; Type of Procedure
+ . S PROCTYPE=$P(RADPROC,U,6)     ; Type of Procedure
+ . I $G(FILTER)=1,(PROCTYPE="B")!(PROCTYPE="P") Q
+ . S $P(BUF,U,3)=PROCTYPE         ; Type of Procedure
  . S $P(BUF,U,4)=$P(RADPROC,U,9)  ; CPT Code (file #81)
  . S $P(BUF,U,5)=IMAGTYPE         ; Type of Imaging (file #79.2)
  . S INACTDAT=$P($G(^RAMIS(71,IEN,"I")),U)

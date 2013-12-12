@@ -1,5 +1,5 @@
-ORWPCE3 ; SLC/KCM/REV/JM - Get a PCE encounter for a TIU document;11/21/03 ;11/30/09  13:55
- ;;3.0;ORDER ENTRY/RESULTS REPORTING;**10,85,116,190,280**;Dec 17, 1997;Build 85
+ORWPCE3 ; SLC/KCM/REV/JM/TC - Get a PCE encounter for a TIU document ;04/17/13  08:38
+ ;;3.0;ORDER ENTRY/RESULTS REPORTING;**10,85,116,190,280,306,371**;Dec 17, 1997;Build 9
  Q
 PCE4NOTE(LST,IEN,DFN,VSITSTR) ; Return encounter for an associated note
  ; LST(1)=HDR^AllowEdit^CPTRequired^VStr^Author^hasCPT
@@ -56,12 +56,12 @@ PCE4NOTE(LST,IEN,DFN,VSITSTR) ; Return encounter for an associated note
  . S LST(ILST)="PRV"_U_CODE_"^^^"_NARR_"^"_PRIM
  S IPOV=0 F  S IPOV=$O(^TMP("PXKENC",$J,VISIT,"POV",IPOV)) Q:'IPOV  D
  . S X0=^TMP("PXKENC",$J,VISIT,"POV",IPOV,0),X802=$G(^(802)),X811=$G(^(811))
- . S CODE=$P(X0,U)
- . S:CODE CODE=$P(^ICD9(CODE,0),U)
+ . S CODE=$P(X0,U),NARR=$P(X0,U,4)
+ . I CODE D
+ . . S CODE=$P($$ICDDX^ICDCODE(CODE),U,2)
+ . . S NARR=$$SETNARR(NARR,CODE)
  . S CAT=$P(X802,U)
  . S:CAT CAT=$P(^AUTNPOV(CAT,0),U)
- . S NARR=$P(X0,U,4)
- . S:NARR NARR=$P(^AUTNPOV(NARR,0),U)
  . S PRIM=($P(X0,U,12)="P")
  . S PRV=$P(X12,U,4)
  . S ILST=ILST+1
@@ -192,3 +192,26 @@ PCE4NOTE(LST,IEN,DFN,VSITSTR) ; Return encounter for an associated note
  .. S ILST=ILST+1
  .. S LST(ILST)="COM"_U_ICOM_U_X811
  Q
+GETDXTXT(ORY,NARR,CODE) ; RPC to resolve Dx Text for PCE view
+ S ORY=$$SETNARR(NARR,CODE)
+ Q
+SETNARR(NARR,CODE) ; Set narrative string
+ N I
+ I (NARR?1.N),($P($G(^AUTNPOV(+NARR,0)),U)]"") S NARR=$P($G(^AUTNPOV(+NARR,0)),U)
+ ;S:(ICDD]"")&($$UP^XLFSTR(NARR)'[$$UP^XLFSTR(ICDD)) NARR=$P(NARR," (")_" - "_ICDD_" - "_$S(NARR[" (":" (",1:"")_$P(NARR," (",2)
+ ;S:NARR'[CODE NARR=$S(NARR["(SCT":$P(NARR,")")_", ",1:NARR_" (")_"ICD-9-CM "_CODE_")"
+ I NARR["(SNOMED CT" S NARR=$P(NARR,"(")_"(SCT"_$P($P(NARR,")"),"(SNOMED CT",2)_")"
+ E  I NARR["SNOMED CT" S NARR=$P(NARR,"SNOMED CT")_"(SCT"_$P($P(NARR,":"),"SNOMED CT",2)_")"
+ I CODE["/" F I=1:1:$L(CODE,"/") D
+ . N ICDC,ICDD S ICDC=$P(CODE,"/",I),ICDD=$$ICDDESC(ICDC)
+ . S:(NARR'[ICDC)!((ICDD]"")&($$UP^XLFSTR(NARR)'[$$UP^XLFSTR(ICDD))) NARR=NARR_" - "_ICDD_" (ICD-9-CM "_ICDC_")"
+ E  D
+ . N ICDD S ICDD=$$ICDDESC(CODE)
+ . S:(NARR'[CODE)!((ICDD]"")&($$UP^XLFSTR(NARR)'[$$UP^XLFSTR(ICDD))) NARR=NARR_" - "_ICDD_" (ICD-9-CM "_CODE_")"
+ Q NARR
+ICDDESC(ORCODE,ORDT) ; Get description for ICD9 Code
+ N ICDD,ORY,ICDY S ORY="",ORDT=$G(ORDT,DT)
+ S ICDY=$$ICDD^ICDCODE(ORCODE,"ICDD",ORDT)
+ I 'ICDY G ICDDESQ
+ S ORY=$$SENTENCE^XLFSTR($G(ICDD(1)))
+ICDDESQ Q ORY

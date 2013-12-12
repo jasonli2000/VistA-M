@@ -1,6 +1,6 @@
 IBCSCH1 ;ALB/MRL - BILLING HELPS (CONTINUED) ; 01 JUN 88 12:00
- ;;2.0;INTEGRATED BILLING;**106,125,51,245,266,395**;21-MAR-94;Build 3
- ;;Per VHA Directive 10-93-142, this routine should not be modified.
+ ;;2.0;INTEGRATED BILLING;**106,125,51,245,266,395,458**;21-MAR-94;Build 4
+ ;;Per VHA Directive 2004-038, this routine should not be modified.
  ;
  ;MAP TO DGCRSCH1
  ;
@@ -101,3 +101,13 @@ DISPRX(IBIFN) ; display prescriptions
  ;
  Q
  ;
+EDITRNB(IBIFN) ; add/edit RNB and Comments for CT entries associated with bill,  ?RNB Help function
+ ; sets IBNOCANC indicating bill not cancelled, function sets it to number of associated CT entries
+ N IBNOCANC S IBNOCANC=0 I '$G(IBIFN) Q
+ W @IOF,!,"Reason Not Billable for Claims Tracking Entries associated with this Bill:",!,$TR($J(" ",74)," ","-")
+ W !!,"Episodes not fully billed may have a Reason Not Billable entered on the Claims",!,"Tracking entry.  Only enter an RNB if the episode is not fully billed.",!
+ ;
+ D ^IBCC1 I '$G(IBNOCANC) W !!,"No associated Claims Tracking entries found.",!!
+ ;
+ D PAUSE(19)
+ Q

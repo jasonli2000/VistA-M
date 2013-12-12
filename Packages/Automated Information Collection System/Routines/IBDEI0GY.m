@@ -1,352 +1,132 @@
-IBDEI0GY ; ; 20-FEB-2013
- ;;3.0;IB ENCOUNTER FORM IMP/EXP;;FEB 20, 2013
- Q:'DIFQR(358.3)  F I=1:2 S X=$T(Q+I) Q:X=""  S Y=$E($T(Q+I+1),4,999),X=$E(X,4,999) S:$A(Y)=126 I=I+1,Y=$E(Y,2,999)_$E($T(Q+I+1),5,99) S:$A(Y)=61 Y=$E(Y,2,999) X NO E  S @X=Y
+IBDEI0GY ; ; 06-AUG-2013
+ ;;3.0;IB ENCOUNTER FORM IMP/EXP;;AUG 06, 2013
+ Q:'DIFQ(358.6)  F I=1:2 S X=$T(Q+I) Q:X=""  S Y=$E($T(Q+I+1),4,999),X=$E(X,4,999) S:$A(Y)=126 I=I+1,Y=$E(Y,2,999)_$E($T(Q+I+1),5,99) S:$A(Y)=61 Y=$E(Y,2,999) X NO E  S @X=Y
 Q Q
- ;;^UTILITY(U,$J,358.3,22840,1,1,0)
- ;;=1^Problem Focused
- ;;^UTILITY(U,$J,358.3,22840,1,2,0)
- ;;=2^99241
- ;;^UTILITY(U,$J,358.3,22841,0)
- ;;=99242^^181^1538^2
- ;;^UTILITY(U,$J,358.3,22841,1,0)
- ;;=^358.31IA^2^2
- ;;^UTILITY(U,$J,358.3,22841,1,1,0)
- ;;=1^Expanded Problem Focus
- ;;^UTILITY(U,$J,358.3,22841,1,2,0)
- ;;=2^99242
- ;;^UTILITY(U,$J,358.3,22842,0)
- ;;=99243^^181^1538^3
- ;;^UTILITY(U,$J,358.3,22842,1,0)
- ;;=^358.31IA^2^2
- ;;^UTILITY(U,$J,358.3,22842,1,1,0)
- ;;=1^Detailed
- ;;^UTILITY(U,$J,358.3,22842,1,2,0)
- ;;=2^99243
- ;;^UTILITY(U,$J,358.3,22843,0)
- ;;=99244^^181^1538^4
- ;;^UTILITY(U,$J,358.3,22843,1,0)
- ;;=^358.31IA^2^2
- ;;^UTILITY(U,$J,358.3,22843,1,1,0)
- ;;=1^Comprehensive, Moderate
- ;;^UTILITY(U,$J,358.3,22843,1,2,0)
- ;;=2^99244
- ;;^UTILITY(U,$J,358.3,22844,0)
- ;;=99245^^181^1538^5
- ;;^UTILITY(U,$J,358.3,22844,1,0)
- ;;=^358.31IA^2^2
- ;;^UTILITY(U,$J,358.3,22844,1,1,0)
- ;;=1^Comprehensive, High
- ;;^UTILITY(U,$J,358.3,22844,1,2,0)
- ;;=2^99245
- ;;^UTILITY(U,$J,358.3,22845,0)
- ;;=99024^^181^1539^1
- ;;^UTILITY(U,$J,358.3,22845,1,0)
- ;;=^358.31IA^2^2
- ;;^UTILITY(U,$J,358.3,22845,1,1,0)
- ;;=1^Post Op F/U Visit (Global)
- ;;^UTILITY(U,$J,358.3,22845,1,2,0)
- ;;=2^99024
- ;;^UTILITY(U,$J,358.3,22846,0)
- ;;=38240^^182^1540^1^^^^1
- ;;^UTILITY(U,$J,358.3,22846,1,0)
- ;;=^358.31IA^4^2
- ;;^UTILITY(U,$J,358.3,22846,1,2,0)
- ;;=2^BN MARROW/STM TRANSPLT ALLO
- ;;^UTILITY(U,$J,358.3,22846,1,4,0)
- ;;=4^38240
- ;;^UTILITY(U,$J,358.3,22847,0)
- ;;=38241^^182^1540^2^^^^1
- ;;^UTILITY(U,$J,358.3,22847,1,0)
- ;;=^358.31IA^4^2
- ;;^UTILITY(U,$J,358.3,22847,1,2,0)
- ;;=2^BN MARROW/STM TRANSPLT AUTO
- ;;^UTILITY(U,$J,358.3,22847,1,4,0)
- ;;=4^38241
- ;;^UTILITY(U,$J,358.3,22848,0)
- ;;=38242^^182^1540^6^^^^1
- ;;^UTILITY(U,$J,358.3,22848,1,0)
- ;;=^358.31IA^4^2
- ;;^UTILITY(U,$J,358.3,22848,1,2,0)
- ;;=2^LYMPHOCYTE INFUSE TRANSPLANT
- ;;^UTILITY(U,$J,358.3,22848,1,4,0)
- ;;=4^38242
- ;;^UTILITY(U,$J,358.3,22849,0)
- ;;=38230^^182^1540^3^^^^1
- ;;^UTILITY(U,$J,358.3,22849,1,0)
- ;;=^358.31IA^4^2
- ;;^UTILITY(U,$J,358.3,22849,1,2,0)
- ;;=2^BONE MARROW HARVEST ALLOGEN
- ;;^UTILITY(U,$J,358.3,22849,1,4,0)
- ;;=4^38230
- ;;^UTILITY(U,$J,358.3,22850,0)
- ;;=38205^^182^1540^4^^^^1
- ;;^UTILITY(U,$J,358.3,22850,1,0)
- ;;=^358.31IA^4^2
- ;;^UTILITY(U,$J,358.3,22850,1,2,0)
- ;;=2^HARVEST ALLOGENEIC STEM CELL
- ;;^UTILITY(U,$J,358.3,22850,1,4,0)
- ;;=4^38205
- ;;^UTILITY(U,$J,358.3,22851,0)
- ;;=38206^^182^1540^5^^^^1
- ;;^UTILITY(U,$J,358.3,22851,1,0)
- ;;=^358.31IA^4^2
- ;;^UTILITY(U,$J,358.3,22851,1,2,0)
- ;;=2^HARVEST AUTO STEM CELLS
- ;;^UTILITY(U,$J,358.3,22851,1,4,0)
- ;;=4^38206
- ;;^UTILITY(U,$J,358.3,22852,0)
- ;;=33945^^182^1541^2^^^^1
- ;;^UTILITY(U,$J,358.3,22852,1,0)
- ;;=^358.31IA^4^2
- ;;^UTILITY(U,$J,358.3,22852,1,2,0)
- ;;=2^TRANSPLANTATION OF HEART
- ;;^UTILITY(U,$J,358.3,22852,1,4,0)
- ;;=4^33945
- ;;^UTILITY(U,$J,358.3,22853,0)
- ;;=33944^^182^1541^1^^^^1
- ;;^UTILITY(U,$J,358.3,22853,1,0)
- ;;=^358.31IA^4^2
- ;;^UTILITY(U,$J,358.3,22853,1,2,0)
- ;;=2^PREPARE DONOR HEART
- ;;^UTILITY(U,$J,358.3,22853,1,4,0)
- ;;=4^33944
- ;;^UTILITY(U,$J,358.3,22854,0)
- ;;=33935^^182^1542^2^^^^1
- ;;^UTILITY(U,$J,358.3,22854,1,0)
- ;;=^358.31IA^4^2
- ;;^UTILITY(U,$J,358.3,22854,1,2,0)
- ;;=2^TRANSPLANTATION HEART/LUNG
- ;;^UTILITY(U,$J,358.3,22854,1,4,0)
- ;;=4^33935
- ;;^UTILITY(U,$J,358.3,22855,0)
- ;;=33933^^182^1542^1^^^^1
- ;;^UTILITY(U,$J,358.3,22855,1,0)
- ;;=^358.31IA^4^2
- ;;^UTILITY(U,$J,358.3,22855,1,2,0)
- ;;=2^PREPARE DONOR HEART/LUNG
- ;;^UTILITY(U,$J,358.3,22855,1,4,0)
- ;;=4^33933
- ;;^UTILITY(U,$J,358.3,22856,0)
- ;;=47135^^182^1543^6^^^^1
- ;;^UTILITY(U,$J,358.3,22856,1,0)
- ;;=^358.31IA^4^2
- ;;^UTILITY(U,$J,358.3,22856,1,2,0)
- ;;=2^TRANSPLANT ORTHOTOPIC
- ;;^UTILITY(U,$J,358.3,22856,1,4,0)
- ;;=4^47135
- ;;^UTILITY(U,$J,358.3,22857,0)
- ;;=47136^^182^1543^7^^^^1
- ;;^UTILITY(U,$J,358.3,22857,1,0)
- ;;=^358.31IA^4^2
- ;;^UTILITY(U,$J,358.3,22857,1,2,0)
- ;;=2^TRANSPLANT HETEROTOPIC
- ;;^UTILITY(U,$J,358.3,22857,1,4,0)
- ;;=4^47136
- ;;^UTILITY(U,$J,358.3,22858,0)
- ;;=47143^^182^1543^3^^^^1
- ;;^UTILITY(U,$J,358.3,22858,1,0)
- ;;=^358.31IA^4^2
- ;;^UTILITY(U,$J,358.3,22858,1,2,0)
- ;;=2^PREP DONOR LIVER WHOLE
- ;;^UTILITY(U,$J,358.3,22858,1,4,0)
- ;;=4^47143
- ;;^UTILITY(U,$J,358.3,22859,0)
- ;;=47144^^182^1543^1^^^^1
- ;;^UTILITY(U,$J,358.3,22859,1,0)
- ;;=^358.31IA^4^2
- ;;^UTILITY(U,$J,358.3,22859,1,2,0)
- ;;=2^PREP DONOR LIVER 3-SEGMENT
- ;;^UTILITY(U,$J,358.3,22859,1,4,0)
- ;;=4^47144
- ;;^UTILITY(U,$J,358.3,22860,0)
- ;;=47145^^182^1543^2^^^^1
- ;;^UTILITY(U,$J,358.3,22860,1,0)
- ;;=^358.31IA^4^2
- ;;^UTILITY(U,$J,358.3,22860,1,2,0)
- ;;=2^PREP DONOR LIVER LOBE SPLIT
- ;;^UTILITY(U,$J,358.3,22860,1,4,0)
- ;;=4^47145
- ;;^UTILITY(U,$J,358.3,22861,0)
- ;;=47146^^182^1543^5^^^^1
- ;;^UTILITY(U,$J,358.3,22861,1,0)
- ;;=^358.31IA^4^2
- ;;^UTILITY(U,$J,358.3,22861,1,2,0)
- ;;=2^PREP DONOR LIVER/VENOUS
- ;;^UTILITY(U,$J,358.3,22861,1,4,0)
- ;;=4^47146
- ;;^UTILITY(U,$J,358.3,22862,0)
- ;;=47147^^182^1543^4^^^^1
- ;;^UTILITY(U,$J,358.3,22862,1,0)
- ;;=^358.31IA^4^2
- ;;^UTILITY(U,$J,358.3,22862,1,2,0)
- ;;=2^PREP DONOR LIVER/ARTERIAL
- ;;^UTILITY(U,$J,358.3,22862,1,4,0)
- ;;=4^47147
- ;;^UTILITY(U,$J,358.3,22863,0)
- ;;=32851^^182^1544^3^^^^1
- ;;^UTILITY(U,$J,358.3,22863,1,0)
- ;;=^358.31IA^4^2
- ;;^UTILITY(U,$J,358.3,22863,1,2,0)
- ;;=2^LUNG TRANSPLANT SINGLE
- ;;^UTILITY(U,$J,358.3,22863,1,4,0)
- ;;=4^32851
- ;;^UTILITY(U,$J,358.3,22864,0)
- ;;=32852^^182^1544^4^^^^1
- ;;^UTILITY(U,$J,358.3,22864,1,0)
- ;;=^358.31IA^4^2
- ;;^UTILITY(U,$J,358.3,22864,1,2,0)
- ;;=2^LUNG TRANSPLANT WITH BYPASS
- ;;^UTILITY(U,$J,358.3,22864,1,4,0)
- ;;=4^32852
- ;;^UTILITY(U,$J,358.3,22865,0)
- ;;=32853^^182^1544^2^^^^1
- ;;^UTILITY(U,$J,358.3,22865,1,0)
- ;;=^358.31IA^4^2
- ;;^UTILITY(U,$J,358.3,22865,1,2,0)
- ;;=2^LUNG TRANSPLANT DOUBLE
- ;;^UTILITY(U,$J,358.3,22865,1,4,0)
- ;;=4^32853
- ;;^UTILITY(U,$J,358.3,22866,0)
- ;;=32855^^182^1544^6^^^^1
- ;;^UTILITY(U,$J,358.3,22866,1,0)
- ;;=^358.31IA^4^2
- ;;^UTILITY(U,$J,358.3,22866,1,2,0)
- ;;=2^PREPARE DONOR LUNG SINGLE
- ;;^UTILITY(U,$J,358.3,22866,1,4,0)
- ;;=4^32855
- ;;^UTILITY(U,$J,358.3,22867,0)
- ;;=32856^^182^1544^5^^^^1
- ;;^UTILITY(U,$J,358.3,22867,1,0)
- ;;=^358.31IA^4^2
- ;;^UTILITY(U,$J,358.3,22867,1,2,0)
- ;;=2^PREPARE DONOR LUNG DOUBLE
- ;;^UTILITY(U,$J,358.3,22867,1,4,0)
- ;;=4^32856
- ;;^UTILITY(U,$J,358.3,22868,0)
- ;;=32850^^182^1544^1^^^^1
- ;;^UTILITY(U,$J,358.3,22868,1,0)
- ;;=^358.31IA^4^2
- ;;^UTILITY(U,$J,358.3,22868,1,2,0)
- ;;=2^DONOR PNEUMONECTOMY
- ;;^UTILITY(U,$J,358.3,22868,1,4,0)
- ;;=4^32850
- ;;^UTILITY(U,$J,358.3,22869,0)
- ;;=48554^^182^1545^6^^^^1
- ;;^UTILITY(U,$J,358.3,22869,1,0)
- ;;=^358.31IA^4^2
- ;;^UTILITY(U,$J,358.3,22869,1,2,0)
- ;;=2^TRANSPL ALLOGRAFT PANCREAS
- ;;^UTILITY(U,$J,358.3,22869,1,4,0)
- ;;=4^48554
- ;;^UTILITY(U,$J,358.3,22870,0)
- ;;=48556^^182^1545^5^^^^1
- ;;^UTILITY(U,$J,358.3,22870,1,0)
- ;;=^358.31IA^4^2
- ;;^UTILITY(U,$J,358.3,22870,1,2,0)
- ;;=2^REMOVAL ALLOGRAFT PANCREAS
- ;;^UTILITY(U,$J,358.3,22870,1,4,0)
- ;;=4^48556
- ;;^UTILITY(U,$J,358.3,22871,0)
- ;;=48160^^182^1545^2^^^^1
- ;;^UTILITY(U,$J,358.3,22871,1,0)
- ;;=^358.31IA^4^2
- ;;^UTILITY(U,$J,358.3,22871,1,2,0)
- ;;=2^PANCREAS REMV W/AUTO TRANSPLANT
- ;;^UTILITY(U,$J,358.3,22871,1,4,0)
- ;;=4^48160
- ;;^UTILITY(U,$J,358.3,22872,0)
- ;;=48550^^182^1545^1^^^^1
- ;;^UTILITY(U,$J,358.3,22872,1,0)
- ;;=^358.31IA^4^2
- ;;^UTILITY(U,$J,358.3,22872,1,2,0)
- ;;=2^DONOR PANCREATECTOMY
- ;;^UTILITY(U,$J,358.3,22872,1,4,0)
- ;;=4^48550
- ;;^UTILITY(U,$J,358.3,22873,0)
- ;;=48551^^182^1545^3^^^^1
- ;;^UTILITY(U,$J,358.3,22873,1,0)
- ;;=^358.31IA^4^2
- ;;^UTILITY(U,$J,358.3,22873,1,2,0)
- ;;=2^PREP DONOR PANCREAS
- ;;^UTILITY(U,$J,358.3,22873,1,4,0)
- ;;=4^48551
- ;;^UTILITY(U,$J,358.3,22874,0)
- ;;=48552^^182^1545^4^^^^1
- ;;^UTILITY(U,$J,358.3,22874,1,0)
- ;;=^358.31IA^4^2
- ;;^UTILITY(U,$J,358.3,22874,1,2,0)
- ;;=2^PREP DONOR PANCREAS/VENOUS
- ;;^UTILITY(U,$J,358.3,22874,1,4,0)
- ;;=4^48552
- ;;^UTILITY(U,$J,358.3,22875,0)
- ;;=50360^^182^1546^13^^^^1
- ;;^UTILITY(U,$J,358.3,22875,1,0)
- ;;=^358.31IA^4^2
- ;;^UTILITY(U,$J,358.3,22875,1,2,0)
- ;;=2^TRANSPLANTATION OF KIDNEY
- ;;^UTILITY(U,$J,358.3,22875,1,4,0)
- ;;=4^50360
- ;;^UTILITY(U,$J,358.3,22876,0)
- ;;=50365^^182^1546^1^^^^1
- ;;^UTILITY(U,$J,358.3,22876,1,0)
- ;;=^358.31IA^4^2
- ;;^UTILITY(U,$J,358.3,22876,1,2,0)
- ;;=2^KIDNEY TRANS W/RECP NEPHRECTOMY
- ;;^UTILITY(U,$J,358.3,22876,1,4,0)
- ;;=4^50365
- ;;^UTILITY(U,$J,358.3,22877,0)
- ;;=50380^^182^1546^8^^^^1
- ;;^UTILITY(U,$J,358.3,22877,1,0)
- ;;=^358.31IA^4^2
- ;;^UTILITY(U,$J,358.3,22877,1,2,0)
- ;;=2^REIMPLANTATION OF KIDNEY
- ;;^UTILITY(U,$J,358.3,22877,1,4,0)
- ;;=4^50380
- ;;^UTILITY(U,$J,358.3,22878,0)
- ;;=50300^^182^1546^11^^^^1
- ;;^UTILITY(U,$J,358.3,22878,1,0)
- ;;=^358.31IA^4^2
- ;;^UTILITY(U,$J,358.3,22878,1,2,0)
- ;;=2^REMOVE CADAVER DONOR KIDNEY
- ;;^UTILITY(U,$J,358.3,22878,1,4,0)
- ;;=4^50300
- ;;^UTILITY(U,$J,358.3,22879,0)
- ;;=50320^^182^1546^12^^^^1
- ;;^UTILITY(U,$J,358.3,22879,1,0)
- ;;=^358.31IA^4^2
- ;;^UTILITY(U,$J,358.3,22879,1,2,0)
- ;;=2^REMOVE KIDNEY LIVING DONOR
- ;;^UTILITY(U,$J,358.3,22879,1,4,0)
- ;;=4^50320
- ;;^UTILITY(U,$J,358.3,22880,0)
- ;;=50547^^182^1546^2^^^^1
- ;;^UTILITY(U,$J,358.3,22880,1,0)
- ;;=^358.31IA^4^2
- ;;^UTILITY(U,$J,358.3,22880,1,2,0)
- ;;=2^LAPARO REMOVAL DONOR KIDNEY
- ;;^UTILITY(U,$J,358.3,22880,1,4,0)
- ;;=4^50547
- ;;^UTILITY(U,$J,358.3,22881,0)
- ;;=50340^^182^1546^10^^^^1
- ;;^UTILITY(U,$J,358.3,22881,1,0)
- ;;=^358.31IA^4^2
- ;;^UTILITY(U,$J,358.3,22881,1,2,0)
- ;;=2^REMOVAL OF KIDNEY
- ;;^UTILITY(U,$J,358.3,22881,1,4,0)
- ;;=4^50340
- ;;^UTILITY(U,$J,358.3,22882,0)
- ;;=50370^^182^1546^9^^^^1
- ;;^UTILITY(U,$J,358.3,22882,1,0)
- ;;=^358.31IA^4^2
- ;;^UTILITY(U,$J,358.3,22882,1,2,0)
- ;;=2^REM TRANSPLANT KIDNEY ALLOGRAFT
- ;;^UTILITY(U,$J,358.3,22882,1,4,0)
- ;;=4^50370
- ;;^UTILITY(U,$J,358.3,22883,0)
- ;;=50323^^182^1546^3^^^^1
- ;;^UTILITY(U,$J,358.3,22883,1,0)
- ;;=^358.31IA^4^2
- ;;^UTILITY(U,$J,358.3,22883,1,2,0)
- ;;=2^PREP CADAVER RENAL ALLOGRAFT
- ;;^UTILITY(U,$J,358.3,22883,1,4,0)
- ;;=4^50323
+ ;;^DIC(358.6,0,"GL")
+ ;;=^IBE(358.6,
+ ;;^DIC("B","IMP/EXP PACKAGE INTERFACE",358.6)
+ ;;=
+ ;;^DIC(358.6,"%D",0)
+ ;;=^^1^1^2950927^^^^
+ ;;^DIC(358.6,"%D",1,0)
+ ;;=This file is used as a workspace by the import/export utility.
+ ;;^DIC(358.6,"%D",2,0)
+ ;;=Import/Export Utility as a temporary staging area for data from that file
+ ;;^DIC(358.6,"%D",3,0)
+ ;;=that is being imported or exported.
+ ;;^DIC(358.6,"%D",4,0)
+ ;;= 
+ ;;^DIC(358.6,"%D",5,0)
+ ;;=This file contains a description of all of the interfaces with other packages.
+ ;;^DIC(358.6,"%D",6,0)
+ ;;=The form will invoke the proper interface routines by doing a lookup on
+ ;;^DIC(358.6,"%D",7,0)
+ ;;=this file and then invoking the routine by indirection. The INPUT VARIABLE
+ ;;^DIC(358.6,"%D",8,0)
+ ;;=fields are for documentation purposes and to verify that the proper
+ ;;^DIC(358.6,"%D",9,0)
+ ;;=variables are defined. Data will be exchanged between the encounter form
+ ;;^DIC(358.6,"%D",10,0)
+ ;;=utilities and other packages by putting the data in a predefined location.
+ ;;^DIC(358.6,"%D",11,0)
+ ;;=The first part of the subscript is always be ^TMP("IB",$J,"INTERFACES".
+ ;;^DIC(358.6,"%D",12,0)
+ ;;=For output routines, but not selection routines, the fourth subscript is
+ ;;^DIC(358.6,"%D",13,0)
+ ;;=be the patient DFN. The next subscript is the name of the Package
+ ;;^DIC(358.6,"%D",14,0)
+ ;;=Interface. For single valued data and record valued data there is no
+ ;;^DIC(358.6,"%D",15,0)
+ ;;=additional subscript. For interfaces returning a list there is one
+ ;;^DIC(358.6,"%D",16,0)
+ ;;=additional subscript level, the number of the item on the list. For
+ ;;^DIC(358.6,"%D",17,0)
+ ;;=word processing type data the data will be in FM word-processing format,
+ ;;^DIC(358.6,"%D",18,0)
+ ;;=i.e., the final subscripts will be ...1,0),...2,0),...3,0), etc.
+ ;;^DIC(358.6,"%D",19,0)
+ ;;=these items of data can have its own entry in the Package Interface file,
+ ;;^DIC(358.6,"%D",20,0)
+ ;;=but by using the same entry point there is a savings because all of the
+ ;;^DIC(358.6,"%D",21,0)
+ ;;=data on that node can be obtained at once. The routines that invoke the
+ ;;^DIC(358.6,"%D",22,0)
+ ;;=entry point keep track of the entry points already invoked so they are
+ ;;^DIC(358.6,"%D",23,0)
+ ;;=not repeated.
+ ;;^DD(358.6,0)
+ ;;=FIELD^^21^76
+ ;;^DD(358.6,0,"DDA")
+ ;;=N
+ ;;^DD(358.6,0,"DT")
+ ;;=3000124
+ ;;^DD(358.6,0,"ID",.06)
+ ;;=W ""
+ ;;^DD(358.6,0,"ID","WRITE")
+ ;;=N IBDWNAM S IBDWNAM=$E($P(^(0),U),1,40) D EN^DDIOL(IBDWNAM,"","!?0")
+ ;;^DD(358.6,0,"ID","WRITE1")
+ ;;=N IBDWTYPE S IBDWTYPE=$S($P(^(0),"^",6)=1:"INPUT",$P(^(0),"^",6)=2:"OUTPUT",$P(^(0),"^",6)=3:"SELECTION",1:"REPORT")_$S($P(^(0),U,6)=3&'$P(^(0),"^",13):"  ** NOT SCANNABLE **",1:"") D EN^DDIOL("TYPE="_IBDWTYPE,"","?45")
+ ;;^DD(358.6,0,"IX","B",358.6,.01)
+ ;;=
+ ;;^DD(358.6,0,"IX","C",358.6,.04)
+ ;;=
+ ;;^DD(358.6,0,"IX","D",358.6,3)
+ ;;=
+ ;;^DD(358.6,0,"IX","E",358.6,.01)
+ ;;=
+ ;;^DD(358.6,0,"NM","IMP/EXP PACKAGE INTERFACE")
+ ;;=
+ ;;^DD(358.6,0,"PT",358.2,.11)
+ ;;=
+ ;;^DD(358.6,0,"PT",358.5,.03)
+ ;;=
+ ;;^DD(358.6,0,"PT",358.6,.13)
+ ;;=
+ ;;^DD(358.6,0,"PT",358.93,.06)
+ ;;=
+ ;;^DD(358.6,0,"VRPK")
+ ;;=IBD
+ ;;^DD(358.6,.01,0)
+ ;;=NAME^RF^^0;1^K:X[""""!($A(X)=45) X I $D(X) K:$L(X)>40!($L(X)<3)!'(X'?1P.E) X
+ ;;^DD(358.6,.01,1,0)
+ ;;=^.1
+ ;;^DD(358.6,.01,1,1,0)
+ ;;=358.6^B
+ ;;^DD(358.6,.01,1,1,1)
+ ;;=S ^IBE(358.6,"B",$E(X,1,30),DA)=""
+ ;;^DD(358.6,.01,1,1,2)
+ ;;=K ^IBE(358.6,"B",$E(X,1,30),DA)
+ ;;^DD(358.6,.01,1,2,0)
+ ;;=358.6^E^MUMPS
+ ;;^DD(358.6,.01,1,2,1)
+ ;;=S ^IBE(358.6,"E",$E(X,$F(X," "),40),DA)=""
+ ;;^DD(358.6,.01,1,2,2)
+ ;;=K ^IBE(358.6,"E",$E(X,$F(X," "),40),DA)
+ ;;^DD(358.6,.01,1,2,"%D",0)
+ ;;=^^4^4^2940224^
+ ;;^DD(358.6,.01,1,2,"%D",1,0)
+ ;;= 
+ ;;^DD(358.6,.01,1,2,"%D",2,0)
+ ;;=For package interfaces that are output routines the name has the custodial
+ ;;^DD(358.6,.01,1,2,"%D",3,0)
+ ;;=package's name space as a prefix. This cross-reference removes that
+ ;;^DD(358.6,.01,1,2,"%D",4,0)
+ ;;=prefix. It is used to improve the display of output routines for the user.
+ ;;^DD(358.6,.01,1,2,"DT")
+ ;;=2930409
+ ;;^DD(358.6,.01,3)
+ ;;=Answer must be 3-40 characters in length. All entries with Action Type other than PRINT REPORT must be be prefixed with the namespace of the package that is responsible for the data.
+ ;;^DD(358.6,.01,21,0)
+ ;;=^^3^3^2950412^^^^
+ ;;^DD(358.6,.01,21,1,0)
+ ;;= 
+ ;;^DD(358.6,.01,21,2,0)
+ ;;=The name of the Package Interface. For interfaces returning data the name
+ ;;^DD(358.6,.01,21,3,0)
+ ;;=should be preceded with the namespace of the package.
+ ;;^DD(358.6,.01,23,0)
+ ;;=^^1^1^2950412^
+ ;;^DD(358.6,.01,23,1,0)
+ ;;= 
+ ;;^DD(358.6,.01,"DT")
+ ;;=2930409

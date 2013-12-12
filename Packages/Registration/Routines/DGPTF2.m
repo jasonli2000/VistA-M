@@ -1,5 +1,5 @@
 DGPTF2 ;ALB/JDS - PTF CORRECTIONS ; MAR 16, 2005
- ;;5.3;Registration;**37,342,643**;Aug 13, 1993
+ ;;5.3;Registration;**37,342,643,861**;Aug 13, 1993;Build 29
 EN Q:'$D(^UTILITY("DG",$J))  S Q=0,DG2=""
  F DG9=101,401,501,701,601,"HEADER" D @DG9 F I1=0:0 S I1=$O(^UTILITY("DG",$J,DG9,I1)) Q:I1'>0!(Q)  S DG45="",DGJ=^(I1) F J=2:1 S K=$P(DGJ,U,J) Q:'K  D SET Q:Q  I '$P(DGJ,U,J+1) D @($S(DG9=401!(DG9=501)!(DG9=601):"D5",1:"DO1")) Q:Q
 Q D DO:'Q K DG9,I1,DR,DG45,DG2,DGJ,Q,M,L,^UTILITY("DG",$J) Q
@@ -61,6 +61,8 @@ CLS I $D(^DGM("PT",DFN)) W !!,"Not all messages have been cleared up for this pa
  F I=0,.11,.52,.321,.32,.36,57,.3 S:$D(^DPT(DFN,I)) ^DGP(45.84,PTF,$S(I=0:10,1:I))=^DPT(DFN,I)
  S $P(^DGP(45.84,PTF,0),U,6)=DRG
  W !,"****** PTF CLOSED OUT ******" D HANG^DGPTUTL
+ ;DG*5.3*861 Added the following statement to restore the value for DGREL
+ I '$G(DGREL) S DGREL=$S($D(^XUSEC("DG PTFREL",DUZ)):1,1:0)
  I DGREL S (DGN,DGST)=1 G EN1
  K DGRTY,DGRTY0 G Q^DGPTF
 EN1 K DGRTY,DGRTY0 G EN1^DGPTF4

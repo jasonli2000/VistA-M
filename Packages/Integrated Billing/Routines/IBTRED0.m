@@ -1,6 +1,6 @@
 IBTRED0 ;ALB/AAS - EXPAND/EDIT CLAIMS TRACKING ENTRY - CONT. ;01-JUL-1993
- ;;2.0;INTEGRATED BILLING;**160,210,317,276**;21-MAR-94
- ;;Per VHA Directive 10-93-142, this routine should not be modified.
+ ;;2.0;INTEGRATED BILLING;**160,210,317,276,458**;21-MAR-94;Build 4
+ ;;Per VHA Directive 2004-038, this routine should not be modified.
  ;
 % I '$G(IBTRN)!($G(IORVON)="") G ^IBTRED
  D CLIN,BILL,PRE
@@ -81,7 +81,7 @@ PRE ; -- pre-certification region
  ;S START=15,OFFSET=45
  S START=1,OFFSET=45
  D SET^IBCNSP(START,OFFSET," Treatment Authorization Info ",IORVON,IORVOFF)
- D SET^IBCNSP(START+1,OFFSET,"Authorization #: "_$$PRECRT^IBTRC1(IBTRN))
+ D SET^IBCNSP(START+1,OFFSET,"Authorization #: "_$$PRECRT^IBTRC1(IBTRN,18))
  D SET^IBCNSP(START+2,OFFSET,"      No. Days Approved: "_$J($$DAY^IBTRE(IBTRN),3))
  D SET^IBCNSP(START+3,OFFSET,"Second Opinion Required: "_$$EXPAND^IBTRE(356,.14,$P(IBTRND,"^",14)))
  D SET^IBCNSP(START+4,OFFSET,"Second Opinion Obtained: "_$$EXPAND^IBTRE(356,.15,$P(IBTRND,"^",15)))

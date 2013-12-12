@@ -1,6 +1,6 @@
 IBTRDD ;ALB/AAS - CLAIMS TRACKING, EXPANDED APPEALS - DENIALS ; 02-JUL-1993
- ;;Version 2.0 ; INTEGRATED BILLING ;; 21-MAR-94
- ;;Per VHA Directive 10-93-142, this routine should not be modified.
+ ;;2.0;INTEGRATED BILLING;**458**;21-MAR-94;Build 4
+ ;;Per VHA Directive 2004-038, this routine should not be modified.
  ;
 % ;
 EN ; -- main entry point for IBT EXPAND/EDIT DENIALS
@@ -11,8 +11,9 @@ EN ; -- main entry point for IBT EXPAND/EDIT DENIALS
  Q
  ;
 HDR ; -- header code
- D PID^VADPT
- S VALMHDR(1)="Expanded Appeal/Denial for: "_$$PT^IBTUTL1(DFN)_"  ROI: "_$$EXPAND^IBTRE(356,.31,+$P($G(^IBT(356,+$G(IBTRN),0)),"^",31))
+ D PID^VADPT N IBXR
+ S VALMHDR(1)="Expanded Appeal/Denial for: "_$$PT^IBTUTL1(DFN)
+ S IBXR=$$ROIEVT^IBTRR1(IBTRN) I IBXR'="" S VALMHDR(1)=VALMHDR(1)_$J(" ",(60-$L(VALMHDR(1))))_"ROI: "_IBXR
  S VALMHDR(2)="                       for: "_$$EXPAND^IBTRE(356,.18,$P(IBTRND,"^",18))_" on "_$$DAT1^IBOUTL($P(IBTRND,"^",6),2)
  Q
  ;

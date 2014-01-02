@@ -4812,7 +4812,7 @@ ZWR
 ^DI(.84,34208,2,1,0)="A network response will go to all message recipients on the mail"
 ^DI(.84,34208,2,2,0)="system of the sender."
 ^DI(.84,34208,2,3,0)=""
-^DI(.84,34208,2,4,0)="For example, if the sender's address ends in '@FORUM.MED.VA.GOV',"
+^DI(.84,34208,2,4,0)="For example, if the sender's address ends in '@DOMAIN.EXT',"
 ^DI(.84,34208,2,5,0)="and the message had 500 recipients on FORUM, then a response sent"
 ^DI(.84,34208,2,6,0)="across the network would be delivered to all of the FORUM recipients."
 ^DI(.84,34208,2,7,0)="The response would not be sent to any other remote sites."

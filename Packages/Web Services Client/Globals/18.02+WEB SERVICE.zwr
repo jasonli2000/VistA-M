@@ -42,7 +42,7 @@ ZWR
 ^XOB(18.02,2,300,30,0)="    </binding>"
 ^XOB(18.02,2,300,31,0)="    <service name=""PSIMWebService"">"
 ^XOB(18.02,2,300,32,0)="        <port name=""PSIMWebServicePort"" binding=""tns:PSIMWebServicePort"">"
-^XOB(18.02,2,300,33,0)="            <soap:address location=""http://vhabaydev203f.vha.med.va.gov:8110/psim_webservice/PSIMWebService"" />"
+^XOB(18.02,2,300,33,0)="            <soap:address location=""http://vhabaydev203f.vha.domain.ext:8110/psim_webservice/PSIMWebService"" />"
 ^XOB(18.02,2,300,34,0)="        </port>"
 ^XOB(18.02,2,300,35,0)="    </service>"
 ^XOB(18.02,2,300,36,0)="</definitions>"

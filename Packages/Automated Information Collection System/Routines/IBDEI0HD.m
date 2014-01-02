@@ -1,230 +1,338 @@
-IBDEI0HD ; ; 06-AUG-2013
- ;;3.0;IB ENCOUNTER FORM IMP/EXP;;AUG 06, 2013
- F I=1:2 S X=$T(Q+I) Q:X=""  S Y=$E($T(Q+I+1),4,999),X=$E(X,4,999) S:$A(Y)=126 I=I+1,Y=$E(Y,2,999)_$E($T(Q+I+1),5,99) S:$A(Y)=61 Y=$E(Y,2,999) X NO E  S @X=Y
+IBDEI0HD ; ; 18-NOV-2013
+ ;;3.0;IB ENCOUNTER FORM IMP/EXP;;NOV 18, 2013
+ Q:'DIFQR(358.3)  F I=1:2 S X=$T(Q+I) Q:X=""  S Y=$E($T(Q+I+1),4,999),X=$E(X,4,999) S:$A(Y)=126 I=I+1,Y=$E(Y,2,999)_$E($T(Q+I+1),5,99) S:$A(Y)=61 Y=$E(Y,2,999) X NO E  S @X=Y
 Q Q
- ;;^UTILITY(U,$J,"OR",207,0)
- ;;=207^IBDE^^OE/RR-CLEVELAND
- ;;^UTILITY(U,$J,"PKG",207,0)
- ;;=IB ENCOUNTER FORM IMP/EXP^IBDE^The import/export utilities for encounter forms.
- ;;^UTILITY(U,$J,"PKG",207,4,0)
- ;;=^9.44PA^14^14
- ;;^UTILITY(U,$J,"PKG",207,4,1,0)
- ;;=358
- ;;^UTILITY(U,$J,"PKG",207,4,1,1,0)
- ;;=^9.45A^1^1
- ;;^UTILITY(U,$J,"PKG",207,4,1,1,1,0)
- ;;=NAME
- ;;^UTILITY(U,$J,"PKG",207,4,1,1,"B","NAME",1)
- ;;=
- ;;^UTILITY(U,$J,"PKG",207,4,1,222)
- ;;=n^n^^y^^^y^o^y
- ;;^UTILITY(U,$J,"PKG",207,4,2,0)
- ;;=358.1
- ;;^UTILITY(U,$J,"PKG",207,4,2,1,0)
- ;;=^9.45A^1^1
- ;;^UTILITY(U,$J,"PKG",207,4,2,1,1,0)
- ;;=NAME
- ;;^UTILITY(U,$J,"PKG",207,4,2,1,"B","NAME",1)
- ;;=
- ;;^UTILITY(U,$J,"PKG",207,4,2,222)
- ;;=y^y^^n^^^y^o^y
- ;;^UTILITY(U,$J,"PKG",207,4,3,0)
- ;;=358.2
- ;;^UTILITY(U,$J,"PKG",207,4,3,1,0)
- ;;=^9.45A^1^1
- ;;^UTILITY(U,$J,"PKG",207,4,3,1,1,0)
- ;;=NAME
- ;;^UTILITY(U,$J,"PKG",207,4,3,1,"B","NAME",1)
- ;;=
- ;;^UTILITY(U,$J,"PKG",207,4,3,222)
- ;;=y^n^^y^^^y^o^n
- ;;^UTILITY(U,$J,"PKG",207,4,4,0)
- ;;=358.3
- ;;^UTILITY(U,$J,"PKG",207,4,4,1,0)
- ;;=^9.45A^2^2
- ;;^UTILITY(U,$J,"PKG",207,4,4,1,1,0)
- ;;=SELECTION ID
- ;;^UTILITY(U,$J,"PKG",207,4,4,1,2,0)
- ;;=SELECTION ID
- ;;^UTILITY(U,$J,"PKG",207,4,4,1,"B","SELECTION ID",1)
- ;;=
- ;;^UTILITY(U,$J,"PKG",207,4,4,1,"B","SELECTION ID",2)
- ;;=
- ;;^UTILITY(U,$J,"PKG",207,4,4,222)
- ;;=y^n^^y^^^y^o^y
- ;;^UTILITY(U,$J,"PKG",207,4,5,0)
- ;;=358.4
- ;;^UTILITY(U,$J,"PKG",207,4,5,1,0)
- ;;=^9.45A^1^1
- ;;^UTILITY(U,$J,"PKG",207,4,5,1,1,0)
- ;;=HEADER
- ;;^UTILITY(U,$J,"PKG",207,4,5,1,"B","HEADER",1)
- ;;=
- ;;^UTILITY(U,$J,"PKG",207,4,5,222)
- ;;=y^n^^y^^^y^o^y
- ;;^UTILITY(U,$J,"PKG",207,4,6,0)
- ;;=358.5
- ;;^UTILITY(U,$J,"PKG",207,4,6,1,0)
- ;;=^9.45A^1^1
- ;;^UTILITY(U,$J,"PKG",207,4,6,1,1,0)
- ;;=NAME
- ;;^UTILITY(U,$J,"PKG",207,4,6,1,"B","NAME",1)
- ;;=
- ;;^UTILITY(U,$J,"PKG",207,4,6,222)
- ;;=y^y^^y^^^y^o^y
- ;;^UTILITY(U,$J,"PKG",207,4,7,0)
- ;;=358.6
- ;;^UTILITY(U,$J,"PKG",207,4,7,1,0)
- ;;=^9.45A^1^1
- ;;^UTILITY(U,$J,"PKG",207,4,7,1,1,0)
- ;;=NAME
- ;;^UTILITY(U,$J,"PKG",207,4,7,1,"B","NAME",1)
- ;;=
- ;;^UTILITY(U,$J,"PKG",207,4,7,222)
- ;;=n^n^^y^^^y^o^y
- ;;^UTILITY(U,$J,"PKG",207,4,8,0)
- ;;=358.7
- ;;^UTILITY(U,$J,"PKG",207,4,8,1,0)
- ;;=^9.45A^1^1
- ;;^UTILITY(U,$J,"PKG",207,4,8,1,1,0)
- ;;=NAME
- ;;^UTILITY(U,$J,"PKG",207,4,8,1,"B","NAME",1)
- ;;=
- ;;^UTILITY(U,$J,"PKG",207,4,8,222)
- ;;=n^n^^n^^^n^o^n
- ;;^UTILITY(U,$J,"PKG",207,4,9,0)
- ;;=358.8
- ;;^UTILITY(U,$J,"PKG",207,4,9,1,0)
- ;;=^9.45A^1^1
- ;;^UTILITY(U,$J,"PKG",207,4,9,1,1,0)
- ;;=NAME
- ;;^UTILITY(U,$J,"PKG",207,4,9,1,"B","NAME",1)
- ;;=
- ;;^UTILITY(U,$J,"PKG",207,4,9,222)
- ;;=n^n^^n^^^y^o^n
- ;;^UTILITY(U,$J,"PKG",207,4,10,0)
- ;;=358.91
- ;;^UTILITY(U,$J,"PKG",207,4,10,1,0)
- ;;=^9.45A^1^1
- ;;^UTILITY(U,$J,"PKG",207,4,10,1,1,0)
- ;;=NAME
- ;;^UTILITY(U,$J,"PKG",207,4,10,1,"B","NAME",1)
- ;;=
- ;;^UTILITY(U,$J,"PKG",207,4,10,222)
- ;;=n^n^^n^^^y^o^n
- ;;^UTILITY(U,$J,"PKG",207,4,11,0)
- ;;=358.94
- ;;^UTILITY(U,$J,"PKG",207,4,11,1,0)
- ;;=^9.45A^1^1
- ;;^UTILITY(U,$J,"PKG",207,4,11,1,1,0)
- ;;=NAME
- ;;^UTILITY(U,$J,"PKG",207,4,11,1,"B","NAME",1)
- ;;=
- ;;^UTILITY(U,$J,"PKG",207,4,11,222)
- ;;=n^y^^n^^^y^o^n
- ;;^UTILITY(U,$J,"PKG",207,4,12,0)
- ;;=358.93
- ;;^UTILITY(U,$J,"PKG",207,4,12,1,0)
- ;;=^9.45A^1^1
- ;;^UTILITY(U,$J,"PKG",207,4,12,1,1,0)
- ;;=NAME
- ;;^UTILITY(U,$J,"PKG",207,4,12,1,"B","NAME",1)
- ;;=
- ;;^UTILITY(U,$J,"PKG",207,4,12,222)
- ;;=n^n^^n^^^y^o^n
- ;;^UTILITY(U,$J,"PKG",207,4,13,0)
- ;;=358.99
- ;;^UTILITY(U,$J,"PKG",207,4,13,1,0)
- ;;=^9.45A^1^1
- ;;^UTILITY(U,$J,"PKG",207,4,13,1,1,0)
- ;;=DHCP DATA TYPE
- ;;^UTILITY(U,$J,"PKG",207,4,13,1,"B","DHCP DATA TYPE",1)
- ;;=
- ;;^UTILITY(U,$J,"PKG",207,4,13,222)
- ;;=n^y^^n^^^y^o^n
- ;;^UTILITY(U,$J,"PKG",207,4,14,0)
- ;;=358.98
- ;;^UTILITY(U,$J,"PKG",207,4,14,1,0)
- ;;=^9.45A^1^1
- ;;^UTILITY(U,$J,"PKG",207,4,14,1,1,0)
- ;;=NAME
- ;;^UTILITY(U,$J,"PKG",207,4,14,1,"B","NAME",1)
- ;;=
- ;;^UTILITY(U,$J,"PKG",207,4,14,222)
- ;;=n^n^^n^^^y^o^n
- ;;^UTILITY(U,$J,"PKG",207,4,"B",358,1)
- ;;=
- ;;^UTILITY(U,$J,"PKG",207,4,"B",358.1,2)
- ;;=
- ;;^UTILITY(U,$J,"PKG",207,4,"B",358.2,3)
- ;;=
- ;;^UTILITY(U,$J,"PKG",207,4,"B",358.3,4)
- ;;=
- ;;^UTILITY(U,$J,"PKG",207,4,"B",358.4,5)
- ;;=
- ;;^UTILITY(U,$J,"PKG",207,4,"B",358.5,6)
- ;;=
- ;;^UTILITY(U,$J,"PKG",207,4,"B",358.6,7)
- ;;=
- ;;^UTILITY(U,$J,"PKG",207,4,"B",358.7,8)
- ;;=
- ;;^UTILITY(U,$J,"PKG",207,4,"B",358.8,9)
- ;;=
- ;;^UTILITY(U,$J,"PKG",207,4,"B",358.91,10)
- ;;=
- ;;^UTILITY(U,$J,"PKG",207,4,"B",358.93,12)
- ;;=
- ;;^UTILITY(U,$J,"PKG",207,4,"B",358.94,11)
- ;;=
- ;;^UTILITY(U,$J,"PKG",207,4,"B",358.98,14)
- ;;=
- ;;^UTILITY(U,$J,"PKG",207,4,"B",358.99,13)
- ;;=
- ;;^UTILITY(U,$J,"PKG",207,5)
- ;;=ALBANY
- ;;^UTILITY(U,$J,"PKG",207,11)
- ;;=358^358.99
- ;;^UTILITY(U,$J,"PKG",207,22,0)
- ;;=^9.49I^2^2
- ;;^UTILITY(U,$J,"PKG",207,22,1,0)
- ;;=2.1^2960403^2980601
- ;;^UTILITY(U,$J,"PKG",207,22,2,0)
- ;;=3.0^3130806^3130710
- ;;^UTILITY(U,$J,"PKG",207,22,"B",2.1,1)
- ;;=
- ;;^UTILITY(U,$J,"PKG",207,22,"B","3.0",2)
- ;;=
- ;;^UTILITY(U,$J,"PKG",207,"INI")
- ;;=IBDE2^
- ;;^UTILITY(U,$J,"PKG",207,"INIT")
- ;;=IBDEPT^
- ;;^UTILITY(U,$J,"PKG",207,"PRE")
- ;;=IBDEPRE^
- ;;^UTILITY(U,$J,"SBF",358,358)
- ;;=
- ;;^UTILITY(U,$J,"SBF",358.1,358.1)
- ;;=
- ;;^UTILITY(U,$J,"SBF",358.2,358.2)
- ;;=
- ;;^UTILITY(U,$J,"SBF",358.3,358.3)
- ;;=
- ;;^UTILITY(U,$J,"SBF",358.4,358.4)
- ;;=
- ;;^UTILITY(U,$J,"SBF",358.5,358.5)
- ;;=
- ;;^UTILITY(U,$J,"SBF",358.6,358.6)
- ;;=
- ;;^UTILITY(U,$J,"SBF",358.7,358.7)
- ;;=
- ;;^UTILITY(U,$J,"SBF",358.8,358.8)
- ;;=
- ;;^UTILITY(U,$J,"SBF",358.91,358.91)
- ;;=
- ;;^UTILITY(U,$J,"SBF",358.93,358.93)
- ;;=
- ;;^UTILITY(U,$J,"SBF",358.94,358.94)
- ;;=
- ;;^UTILITY(U,$J,"SBF",358.98,358.98)
- ;;=
- ;;^UTILITY(U,$J,"SBF",358.99,358.99)
- ;;=
+ ;;^UTILITY(U,$J,358.3,23335,0)
+ ;;=97002^^145^1315^5^^^^1
+ ;;^UTILITY(U,$J,358.3,23335,1,0)
+ ;;=^358.31IA^3^2
+ ;;^UTILITY(U,$J,358.3,23335,1,2,0)
+ ;;=2^Pt Re-Evaluation
+ ;;^UTILITY(U,$J,358.3,23335,1,3,0)
+ ;;=3^97002
+ ;;^UTILITY(U,$J,358.3,23336,0)
+ ;;=97003^^145^1315^1^^^^1
+ ;;^UTILITY(U,$J,358.3,23336,1,0)
+ ;;=^358.31IA^3^2
+ ;;^UTILITY(U,$J,358.3,23336,1,2,0)
+ ;;=2^Ot Evaluation
+ ;;^UTILITY(U,$J,358.3,23336,1,3,0)
+ ;;=3^97003
+ ;;^UTILITY(U,$J,358.3,23337,0)
+ ;;=97004^^145^1315^2^^^^1
+ ;;^UTILITY(U,$J,358.3,23337,1,0)
+ ;;=^358.31IA^3^2
+ ;;^UTILITY(U,$J,358.3,23337,1,2,0)
+ ;;=2^Ot Re-Evaluation
+ ;;^UTILITY(U,$J,358.3,23337,1,3,0)
+ ;;=3^97004
+ ;;^UTILITY(U,$J,358.3,23338,0)
+ ;;=97750^^145^1315^3^^^^1
+ ;;^UTILITY(U,$J,358.3,23338,1,0)
+ ;;=^358.31IA^3^2
+ ;;^UTILITY(U,$J,358.3,23338,1,2,0)
+ ;;=2^Physical Performance Test (KT Eval)
+ ;;^UTILITY(U,$J,358.3,23338,1,3,0)
+ ;;=3^97750
+ ;;^UTILITY(U,$J,358.3,23339,0)
+ ;;=97597^^145^1316^1^^^^1
+ ;;^UTILITY(U,$J,358.3,23339,1,0)
+ ;;=^358.31IA^3^2
+ ;;^UTILITY(U,$J,358.3,23339,1,2,0)
+ ;;=2^Active Wound Care/20 Cm Or <
+ ;;^UTILITY(U,$J,358.3,23339,1,3,0)
+ ;;=3^97597
+ ;;^UTILITY(U,$J,358.3,23340,0)
+ ;;=97598^^145^1316^2^^^^1
+ ;;^UTILITY(U,$J,358.3,23340,1,0)
+ ;;=^358.31IA^3^2
+ ;;^UTILITY(U,$J,358.3,23340,1,2,0)
+ ;;=2^Active Wound Care ea addl 20 Cm (add on)
+ ;;^UTILITY(U,$J,358.3,23340,1,3,0)
+ ;;=3^97598
+ ;;^UTILITY(U,$J,358.3,23341,0)
+ ;;=97605^^145^1316^6^^^^1
+ ;;^UTILITY(U,$J,358.3,23341,1,0)
+ ;;=^358.31IA^3^2
+ ;;^UTILITY(U,$J,358.3,23341,1,2,0)
+ ;;=2^Neg Press Wound Tx </= 50 Cm
+ ;;^UTILITY(U,$J,358.3,23341,1,3,0)
+ ;;=3^97605
+ ;;^UTILITY(U,$J,358.3,23342,0)
+ ;;=97606^^145^1316^7^^^^1
+ ;;^UTILITY(U,$J,358.3,23342,1,0)
+ ;;=^358.31IA^3^2
+ ;;^UTILITY(U,$J,358.3,23342,1,2,0)
+ ;;=2^Neg Press Wound Tx, > 50 Cm
+ ;;^UTILITY(U,$J,358.3,23342,1,3,0)
+ ;;=3^97606
+ ;;^UTILITY(U,$J,358.3,23343,0)
+ ;;=97602^^145^1316^8^^^^1
+ ;;^UTILITY(U,$J,358.3,23343,1,0)
+ ;;=^358.31IA^3^2
+ ;;^UTILITY(U,$J,358.3,23343,1,2,0)
+ ;;=2^Removal devitalized tissue w/o anesth
+ ;;^UTILITY(U,$J,358.3,23343,1,3,0)
+ ;;=3^97602
+ ;;^UTILITY(U,$J,358.3,23344,0)
+ ;;=G0281^^145^1316^4^^^^1
+ ;;^UTILITY(U,$J,358.3,23344,1,0)
+ ;;=^358.31IA^3^2
+ ;;^UTILITY(U,$J,358.3,23344,1,2,0)
+ ;;=2^Electrical Stimulation,Wound Care
+ ;;^UTILITY(U,$J,358.3,23344,1,3,0)
+ ;;=3^G0281
+ ;;^UTILITY(U,$J,358.3,23345,0)
+ ;;=G0283^^145^1316^3^^^^1
+ ;;^UTILITY(U,$J,358.3,23345,1,0)
+ ;;=^358.31IA^3^2
+ ;;^UTILITY(U,$J,358.3,23345,1,2,0)
+ ;;=2^Electrical Stimulation,Oth than Wnd Care
+ ;;^UTILITY(U,$J,358.3,23345,1,3,0)
+ ;;=3^G0283
+ ;;^UTILITY(U,$J,358.3,23346,0)
+ ;;=G0329^^145^1316^5^^^^1
+ ;;^UTILITY(U,$J,358.3,23346,1,0)
+ ;;=^358.31IA^3^2
+ ;;^UTILITY(U,$J,358.3,23346,1,2,0)
+ ;;=2^Electromagnetic Therapy,Wound Care
+ ;;^UTILITY(U,$J,358.3,23346,1,3,0)
+ ;;=3^G0329
+ ;;^UTILITY(U,$J,358.3,23347,0)
+ ;;=93797^^145^1317^2^^^^1
+ ;;^UTILITY(U,$J,358.3,23347,1,0)
+ ;;=^358.31IA^3^2
+ ;;^UTILITY(U,$J,358.3,23347,1,2,0)
+ ;;=2^Cardiac Rehab w/o Contin ECG Monitor
+ ;;^UTILITY(U,$J,358.3,23347,1,3,0)
+ ;;=3^93797
+ ;;^UTILITY(U,$J,358.3,23348,0)
+ ;;=93798^^145^1317^1^^^^1
+ ;;^UTILITY(U,$J,358.3,23348,1,0)
+ ;;=^358.31IA^3^2
+ ;;^UTILITY(U,$J,358.3,23348,1,2,0)
+ ;;=2^Cardiac Rehab w/Contin ECG Monitor
+ ;;^UTILITY(U,$J,358.3,23348,1,3,0)
+ ;;=3^93798
+ ;;^UTILITY(U,$J,358.3,23349,0)
+ ;;=98960^^145^1318^3^^^^1
+ ;;^UTILITY(U,$J,358.3,23349,1,0)
+ ;;=^358.31IA^3^2
+ ;;^UTILITY(U,$J,358.3,23349,1,2,0)
+ ;;=2^Ed/Train Self-Mgmt nonphy;1 pt ea 30min
+ ;;^UTILITY(U,$J,358.3,23349,1,3,0)
+ ;;=3^98960
+ ;;^UTILITY(U,$J,358.3,23350,0)
+ ;;=98961^^145^1318^1^^^^1
+ ;;^UTILITY(U,$J,358.3,23350,1,0)
+ ;;=^358.31IA^3^2
+ ;;^UTILITY(U,$J,358.3,23350,1,2,0)
+ ;;=2^Ed/Train Self-Mgmt HCP;2-4 pts ea 30min
+ ;;^UTILITY(U,$J,358.3,23350,1,3,0)
+ ;;=3^98961
+ ;;^UTILITY(U,$J,358.3,23351,0)
+ ;;=98962^^145^1318^2^^^^1
+ ;;^UTILITY(U,$J,358.3,23351,1,0)
+ ;;=^358.31IA^3^2
+ ;;^UTILITY(U,$J,358.3,23351,1,2,0)
+ ;;=2^Ed/Train Self-Mgmt HCP;5-8 pts ea 30min
+ ;;^UTILITY(U,$J,358.3,23351,1,3,0)
+ ;;=3^98962
+ ;;^UTILITY(U,$J,358.3,23352,0)
+ ;;=98969^^145^1318^4^^^^1
+ ;;^UTILITY(U,$J,358.3,23352,1,0)
+ ;;=^358.31IA^3^2
+ ;;^UTILITY(U,$J,358.3,23352,1,2,0)
+ ;;=2^Online assess/mgmt svc by HCP;est pt
+ ;;^UTILITY(U,$J,358.3,23352,1,3,0)
+ ;;=3^98969
+ ;;^UTILITY(U,$J,358.3,23353,0)
+ ;;=G0151^^145^1319^5^^^^1
+ ;;^UTILITY(U,$J,358.3,23353,1,0)
+ ;;=^358.31IA^3^2
+ ;;^UTILITY(U,$J,358.3,23353,1,2,0)
+ ;;=2^PT in home/hospice,ea 15min
+ ;;^UTILITY(U,$J,358.3,23353,1,3,0)
+ ;;=3^G0151
+ ;;^UTILITY(U,$J,358.3,23354,0)
+ ;;=G0152^^145^1319^2^^^^1
+ ;;^UTILITY(U,$J,358.3,23354,1,0)
+ ;;=^358.31IA^3^2
+ ;;^UTILITY(U,$J,358.3,23354,1,2,0)
+ ;;=2^OT in home/hospice,ea 15min
+ ;;^UTILITY(U,$J,358.3,23354,1,3,0)
+ ;;=3^G0152
+ ;;^UTILITY(U,$J,358.3,23355,0)
+ ;;=G0157^^145^1319^6^^^^1
+ ;;^UTILITY(U,$J,358.3,23355,1,0)
+ ;;=^358.31IA^3^2
+ ;;^UTILITY(U,$J,358.3,23355,1,2,0)
+ ;;=2^PTA in home/hospice,ea 15min
+ ;;^UTILITY(U,$J,358.3,23355,1,3,0)
+ ;;=3^G0157
+ ;;^UTILITY(U,$J,358.3,23356,0)
+ ;;=G0158^^145^1319^3^^^^1
+ ;;^UTILITY(U,$J,358.3,23356,1,0)
+ ;;=^358.31IA^3^2
+ ;;^UTILITY(U,$J,358.3,23356,1,2,0)
+ ;;=2^OTA in home/hospice,ea 15min
+ ;;^UTILITY(U,$J,358.3,23356,1,3,0)
+ ;;=3^G0158
+ ;;^UTILITY(U,$J,358.3,23357,0)
+ ;;=G0159^^145^1319^4^^^^1
+ ;;^UTILITY(U,$J,358.3,23357,1,0)
+ ;;=^358.31IA^3^2
+ ;;^UTILITY(U,$J,358.3,23357,1,2,0)
+ ;;=2^PT Maint in home,ea 15min
+ ;;^UTILITY(U,$J,358.3,23357,1,3,0)
+ ;;=3^G0159
+ ;;^UTILITY(U,$J,358.3,23358,0)
+ ;;=G0160^^145^1319^1^^^^1
+ ;;^UTILITY(U,$J,358.3,23358,1,0)
+ ;;=^358.31IA^3^2
+ ;;^UTILITY(U,$J,358.3,23358,1,2,0)
+ ;;=2^OT Maint in home,ea 15min
+ ;;^UTILITY(U,$J,358.3,23358,1,3,0)
+ ;;=3^G0160
+ ;;^UTILITY(U,$J,358.3,23359,0)
+ ;;=95860^^145^1320^4^^^^1
+ ;;^UTILITY(U,$J,358.3,23359,1,0)
+ ;;=^358.31IA^3^2
+ ;;^UTILITY(U,$J,358.3,23359,1,2,0)
+ ;;=2^Muscle Test (EMG),1 Limb
+ ;;^UTILITY(U,$J,358.3,23359,1,3,0)
+ ;;=3^95860
+ ;;^UTILITY(U,$J,358.3,23360,0)
+ ;;=95863^^145^1320^6^^^^1
+ ;;^UTILITY(U,$J,358.3,23360,1,0)
+ ;;=^358.31IA^3^2
+ ;;^UTILITY(U,$J,358.3,23360,1,2,0)
+ ;;=2^Muscle Test (EMG),3 Limbs
+ ;;^UTILITY(U,$J,358.3,23360,1,3,0)
+ ;;=3^95863
+ ;;^UTILITY(U,$J,358.3,23361,0)
+ ;;=95864^^145^1320^7^^^^1
+ ;;^UTILITY(U,$J,358.3,23361,1,0)
+ ;;=^358.31IA^3^2
+ ;;^UTILITY(U,$J,358.3,23361,1,2,0)
+ ;;=2^Muscle Test (EMG),4 Limbs
+ ;;^UTILITY(U,$J,358.3,23361,1,3,0)
+ ;;=3^95864
+ ;;^UTILITY(U,$J,358.3,23362,0)
+ ;;=95867^^145^1320^8^^^^1
+ ;;^UTILITY(U,$J,358.3,23362,1,0)
+ ;;=^358.31IA^3^2
+ ;;^UTILITY(U,$J,358.3,23362,1,2,0)
+ ;;=2^Muscle Test (EMG),Cran Ner Mus-Unilat
+ ;;^UTILITY(U,$J,358.3,23362,1,3,0)
+ ;;=3^95867
+ ;;^UTILITY(U,$J,358.3,23363,0)
+ ;;=95868^^145^1320^9^^^^1
+ ;;^UTILITY(U,$J,358.3,23363,1,0)
+ ;;=^358.31IA^3^2
+ ;;^UTILITY(U,$J,358.3,23363,1,2,0)
+ ;;=2^Muscle Test (EMG),Head or Neck
+ ;;^UTILITY(U,$J,358.3,23363,1,3,0)
+ ;;=3^95868
+ ;;^UTILITY(U,$J,358.3,23364,0)
+ ;;=95870^^145^1320^10^^^^1
+ ;;^UTILITY(U,$J,358.3,23364,1,0)
+ ;;=^358.31IA^3^2
+ ;;^UTILITY(U,$J,358.3,23364,1,2,0)
+ ;;=2^Muscle Test (EMG),Thor Paraspinal
+ ;;^UTILITY(U,$J,358.3,23364,1,3,0)
+ ;;=3^95870
+ ;;^UTILITY(U,$J,358.3,23365,0)
+ ;;=95861^^145^1320^5^^^^1
+ ;;^UTILITY(U,$J,358.3,23365,1,0)
+ ;;=^358.31IA^3^2
+ ;;^UTILITY(U,$J,358.3,23365,1,2,0)
+ ;;=2^Muscle Test (EMG),2 Limbs
+ ;;^UTILITY(U,$J,358.3,23365,1,3,0)
+ ;;=3^95861
+ ;;^UTILITY(U,$J,358.3,23366,0)
+ ;;=95885^^145^1320^13^^^^1
+ ;;^UTILITY(U,$J,358.3,23366,1,0)
+ ;;=^358.31IA^3^2
+ ;;^UTILITY(U,$J,358.3,23366,1,2,0)
+ ;;=2^Needle EM,ea ext;Limited
+ ;;^UTILITY(U,$J,358.3,23366,1,3,0)
+ ;;=3^95885
+ ;;^UTILITY(U,$J,358.3,23367,0)
+ ;;=95886^^145^1320^12^^^^1
+ ;;^UTILITY(U,$J,358.3,23367,1,0)
+ ;;=^358.31IA^3^2
+ ;;^UTILITY(U,$J,358.3,23367,1,2,0)
+ ;;=2^Needle EM,ea ext;Complete,5>Muscles
+ ;;^UTILITY(U,$J,358.3,23367,1,3,0)
+ ;;=3^95886
+ ;;^UTILITY(U,$J,358.3,23368,0)
+ ;;=95887^^145^1320^11^^^^1
+ ;;^UTILITY(U,$J,358.3,23368,1,0)
+ ;;=^358.31IA^3^2
+ ;;^UTILITY(U,$J,358.3,23368,1,2,0)
+ ;;=2^Needle EM,Non-Ext,w/Nerve Conduction
+ ;;^UTILITY(U,$J,358.3,23368,1,3,0)
+ ;;=3^95887
+ ;;^UTILITY(U,$J,358.3,23369,0)
+ ;;=95905^^145^1320^14^^^^1
+ ;;^UTILITY(U,$J,358.3,23369,1,0)
+ ;;=^358.31IA^3^2
+ ;;^UTILITY(U,$J,358.3,23369,1,2,0)
+ ;;=2^Motor/Sens Nerv Conduct-ea limb s/F-wv
+ ;;^UTILITY(U,$J,358.3,23369,1,3,0)
+ ;;=3^95905
+ ;;^UTILITY(U,$J,358.3,23370,0)
+ ;;=95907^^145^1320^15^^^^1
+ ;;^UTILITY(U,$J,358.3,23370,1,0)
+ ;;=^358.31IA^3^2
+ ;;^UTILITY(U,$J,358.3,23370,1,2,0)
+ ;;=2^Nerve conduction studies; 1-2 studies
+ ;;^UTILITY(U,$J,358.3,23370,1,3,0)
+ ;;=3^95907
+ ;;^UTILITY(U,$J,358.3,23371,0)
+ ;;=95908^^145^1320^16^^^^1
+ ;;^UTILITY(U,$J,358.3,23371,1,0)
+ ;;=^358.31IA^3^2
+ ;;^UTILITY(U,$J,358.3,23371,1,2,0)
+ ;;=2^Nerve conduction studies; 3-4 studies
+ ;;^UTILITY(U,$J,358.3,23371,1,3,0)
+ ;;=3^95908
+ ;;^UTILITY(U,$J,358.3,23372,0)
+ ;;=95909^^145^1320^17^^^^1
+ ;;^UTILITY(U,$J,358.3,23372,1,0)
+ ;;=^358.31IA^3^2
+ ;;^UTILITY(U,$J,358.3,23372,1,2,0)
+ ;;=2^Nerve conduction studies; 5-6 studies
+ ;;^UTILITY(U,$J,358.3,23372,1,3,0)
+ ;;=3^95909
+ ;;^UTILITY(U,$J,358.3,23373,0)
+ ;;=95910^^145^1320^18^^^^1
+ ;;^UTILITY(U,$J,358.3,23373,1,0)
+ ;;=^358.31IA^3^2
+ ;;^UTILITY(U,$J,358.3,23373,1,2,0)
+ ;;=2^Nerve conduction studies; 7-8 studies
+ ;;^UTILITY(U,$J,358.3,23373,1,3,0)
+ ;;=3^95910
+ ;;^UTILITY(U,$J,358.3,23374,0)
+ ;;=95911^^145^1320^19^^^^1
+ ;;^UTILITY(U,$J,358.3,23374,1,0)
+ ;;=^358.31IA^3^2
+ ;;^UTILITY(U,$J,358.3,23374,1,2,0)
+ ;;=2^Nerve conduction studies; 9-10 studies
+ ;;^UTILITY(U,$J,358.3,23374,1,3,0)
+ ;;=3^95911
+ ;;^UTILITY(U,$J,358.3,23375,0)
+ ;;=95912^^145^1320^20^^^^1
+ ;;^UTILITY(U,$J,358.3,23375,1,0)
+ ;;=^358.31IA^3^2
+ ;;^UTILITY(U,$J,358.3,23375,1,2,0)
+ ;;=2^Nerve conduction studies; 11-12 studies
+ ;;^UTILITY(U,$J,358.3,23375,1,3,0)
+ ;;=3^95912
+ ;;^UTILITY(U,$J,358.3,23376,0)
+ ;;=95913^^145^1320^21^^^^1
+ ;;^UTILITY(U,$J,358.3,23376,1,0)
+ ;;=^358.31IA^3^2
+ ;;^UTILITY(U,$J,358.3,23376,1,2,0)
+ ;;=2^Nerve conduction studies;13 or > studies

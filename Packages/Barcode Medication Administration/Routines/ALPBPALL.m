@@ -1,5 +1,5 @@
 ALPBPALL ;OIFO-DALLAS MW,SED,KC-PRINT 3-DAY MAR BCMA BACLUP REPORT FOR ALL WARDS ;01/01/03
- ;;3.0;BAR CODE MED ADMIN;**8,29,48,59**;Mar 2004;Build 15
+ ;;3.0;BAR CODE MED ADMIN;**8,29,48,59**;Mar 2004;Build 20
  ;;Per VHA Directive 2004-038, this routine should not be modified.
  ;
  ; based on original code by FD@NJHCS, May 2002
@@ -16,14 +16,14 @@ ALPBPALL ;OIFO-DALLAS MW,SED,KC-PRINT 3-DAY MAR BCMA BACLUP REPORT FOR ALL WARDS
  S ALPBOTYP=Y
  ;
  ;added in PSB*3*59 to benefit users located at the long term care and domiciliary sites
- ; include patients without active medications?...  
- I ALPBOTYP="A" S ALPBWOMED=""
- I ALPBOTYP="C" D
+ ;include patients without active medications?...  
+ S ALPBWOMED=""
+ I ALPBOTYP="C" D  Q:ALPBWOMED=""
  .S DIR(0)="SA^Y:YES;N:NO"
  .S DIR("A")="Include Patients Without Active Medications? "
  .S DIR("B")="YES"
  .S DIR("?",1)="[Y]es=include patients without active medication orders,"
- .S DIR("?",2)="[N]o=do not include patients without active medication orders."
+ .S DIR("?")="[N]o=do not include patients without active medication orders."
  .W ! D ^DIR K DIR
  .I $D(DIRUT) K ALPBOTYP,DIRUT,DTOUT,X,Y Q
  .S ALPBWOMED=Y
@@ -149,9 +149,9 @@ DQ ; output entry point...
  ..S ALPBPG=0
  ..;notification message displays one line below header info if patient has no med orders when the report is generated
  ..I ALPBNOMEDS2 D
- ...W !!,"No Active Medication Orders were reported to the Contingency at the time the MAR was printed "
- ...;additional blank lines added to seperate footer from header and allow room for notes
- ...F  Q:$Y>=(IOSL-6)  W !
+ ...W !!,"No Active Medication Orders were reported to the Contingency at the time the MAR was printed ",!!!
+ ...;additional blank lines added to separate footer from header and allow room for notes
+ ...I $E(IOST)="P" F  Q:$Y>=(IOSL-6)  W !
  ..; print footer at end of this patient's record...
  ..D FOOT^ALPBFRMU
  ..;Print a blank page between patient (this was removed by PSB*3*59 - the BCMA Workgroup agreed to condense the report)

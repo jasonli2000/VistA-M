@@ -1,8 +1,12 @@
 ACKQUTL7 ;HCIOFO/BH-Template Inquire - A&SP Patient/Visit ; 04/01/99 
- ;;3.0;QUASAR;**8**;Feb 11, 2000
- ;Per VHA Directive 10-93-142, this routine SHOULD NOT be modified.
+ ;;3.0;QUASAR;**8,22**;Feb 11, 2000;Build 5
+ ;Per VHA Directive 2004-038, this routine SHOULD NOT be modified.
  ;
+ ;Reference/IA
  ;
+ ;$$ICDDX^ICDCODE - 3990
+ ;
+ ; 
 INP ;  PRINT INPATIENT INFO
  W !,"WARD: ",ACK(6),?20,"ROOM/BED: ",ACK(7),?40,"TREATING SPEC:"
  W $E(ACK(8),1,25)
@@ -55,10 +59,10 @@ DIHEAD ;
 ICDSORT ;
  S ACKI=0 F  S ACKI=$O(^ACK(509850.2,DFN,1,ACKI)) Q:'ACKI  D
  . S ACKDC=^ACK(509850.2,DFN,1,ACKI,0),ACKDD=$P(ACKDC,U,2)
- . D GETS^DIQ(80,+ACKDC_",",".01;2","E","ACKTGT","ACKMSG")
- . S ACKDN=ACKTGT(80,+ACKDC_",",.01,"E")
- . S ACKICD(ACKDN)=ACKDN_U_ACKTGT(80,+ACKDC_",",2,"E")_U_$$DIAGTXT^ACKQUTL8(+ACKDC,ACKDD)_U_ACKDD
- K ACKTGT,ACKMSG
+ . ;ACKQ*3.0*22 updated api
+ . N ACKTGT S ACKTGT=$$ICDDX^ICDCODE(+ACKDC)
+ . S ACKDN=$P(ACKTGT,U,2)
+ . S ACKICD(ACKDN)=ACKDN_U_$P(ACKTGT,U,3)_U_$$DIAGTXT^ACKQUTL8(+ACKDC,ACKDD)_U_ACKDD
  Q
  ;
 TPLTE ;  Display Visit Clinic and Division

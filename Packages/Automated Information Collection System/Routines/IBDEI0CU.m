@@ -1,358 +1,360 @@
-IBDEI0CU ; ; 06-AUG-2013
- ;;3.0;IB ENCOUNTER FORM IMP/EXP;;AUG 06, 2013
+IBDEI0CU ; ; 18-NOV-2013
+ ;;3.0;IB ENCOUNTER FORM IMP/EXP;;NOV 18, 2013
  Q:'DIFQR(358.3)  F I=1:2 S X=$T(Q+I) Q:X=""  S Y=$E($T(Q+I+1),4,999),X=$E(X,4,999) S:$A(Y)=126 I=I+1,Y=$E(Y,2,999)_$E($T(Q+I+1),5,99) S:$A(Y)=61 Y=$E(Y,2,999) X NO E  S @X=Y
 Q Q
- ;;^UTILITY(U,$J,358.3,17274,1,0)
+ ;;^UTILITY(U,$J,358.3,17138,1,2,0)
+ ;;=2^296.64
+ ;;^UTILITY(U,$J,358.3,17138,1,5,0)
+ ;;=5^Bipolar Mixed, Sev W/Psychosis
+ ;;^UTILITY(U,$J,358.3,17138,2)
+ ;;=^303630
+ ;;^UTILITY(U,$J,358.3,17139,0)
+ ;;=296.65^^103^949^22
+ ;;^UTILITY(U,$J,358.3,17139,1,0)
  ;;=^358.31IA^5^2
- ;;^UTILITY(U,$J,358.3,17274,1,3,0)
- ;;=3^754.70
- ;;^UTILITY(U,$J,358.3,17274,1,5,0)
- ;;=5^Metatarsal deformity; Congenital
- ;;^UTILITY(U,$J,358.3,17274,2)
- ;;=^25440
- ;;^UTILITY(U,$J,358.3,17275,0)
- ;;=726.70^^113^975^5
- ;;^UTILITY(U,$J,358.3,17275,1,0)
+ ;;^UTILITY(U,$J,358.3,17139,1,2,0)
+ ;;=2^296.65
+ ;;^UTILITY(U,$J,358.3,17139,1,5,0)
+ ;;=5^Bipolar Mixed, Part Remiss
+ ;;^UTILITY(U,$J,358.3,17139,2)
+ ;;=Bipolar Mixed, Part Remiss^303631
+ ;;^UTILITY(U,$J,358.3,17140,0)
+ ;;=296.66^^103^949^18
+ ;;^UTILITY(U,$J,358.3,17140,1,0)
  ;;=^358.31IA^5^2
- ;;^UTILITY(U,$J,358.3,17275,1,3,0)
- ;;=3^726.70
- ;;^UTILITY(U,$J,358.3,17275,1,5,0)
- ;;=5^Metatarsalgia
- ;;^UTILITY(U,$J,358.3,17275,2)
- ;;=^272548
- ;;^UTILITY(U,$J,358.3,17276,0)
- ;;=355.6^^113^975^10
- ;;^UTILITY(U,$J,358.3,17276,1,0)
+ ;;^UTILITY(U,$J,358.3,17140,1,2,0)
+ ;;=2^296.66
+ ;;^UTILITY(U,$J,358.3,17140,1,5,0)
+ ;;=5^Bipolar Mixed, Full Remiss
+ ;;^UTILITY(U,$J,358.3,17140,2)
+ ;;=^303632
+ ;;^UTILITY(U,$J,358.3,17141,0)
+ ;;=296.7^^103^949^9
+ ;;^UTILITY(U,$J,358.3,17141,1,0)
  ;;=^358.31IA^5^2
- ;;^UTILITY(U,$J,358.3,17276,1,3,0)
- ;;=3^355.6
- ;;^UTILITY(U,$J,358.3,17276,1,5,0)
- ;;=5^Morton's metatarsalgia, neuralgia, or neuroma
- ;;^UTILITY(U,$J,358.3,17276,2)
- ;;=               ^268517
- ;;^UTILITY(U,$J,358.3,17277,0)
- ;;=736.79^^113^975^7
- ;;^UTILITY(U,$J,358.3,17277,1,0)
+ ;;^UTILITY(U,$J,358.3,17141,1,2,0)
+ ;;=2^296.7
+ ;;^UTILITY(U,$J,358.3,17141,1,5,0)
+ ;;=5^Bipolar I Disorder, NOS
+ ;;^UTILITY(U,$J,358.3,17141,2)
+ ;;=^303633
+ ;;^UTILITY(U,$J,358.3,17142,0)
+ ;;=296.80^^103^949^8
+ ;;^UTILITY(U,$J,358.3,17142,1,0)
  ;;=^358.31IA^5^2
- ;;^UTILITY(U,$J,358.3,17277,1,3,0)
- ;;=3^736.79
- ;;^UTILITY(U,$J,358.3,17277,1,5,0)
- ;;=5^Metatarsal adductus/varus; Acquired
- ;;^UTILITY(U,$J,358.3,17277,2)
- ;;=^272742
- ;;^UTILITY(U,$J,358.3,17278,0)
- ;;=754.53^^113^975^8
- ;;^UTILITY(U,$J,358.3,17278,1,0)
+ ;;^UTILITY(U,$J,358.3,17142,1,2,0)
+ ;;=2^296.80
+ ;;^UTILITY(U,$J,358.3,17142,1,5,0)
+ ;;=5^Bipolar Disorder,NOS
+ ;;^UTILITY(U,$J,358.3,17142,2)
+ ;;=^331892
+ ;;^UTILITY(U,$J,358.3,17143,0)
+ ;;=296.89^^103^949^10
+ ;;^UTILITY(U,$J,358.3,17143,1,0)
  ;;=^358.31IA^5^2
- ;;^UTILITY(U,$J,358.3,17278,1,3,0)
- ;;=3^754.53
- ;;^UTILITY(U,$J,358.3,17278,1,5,0)
- ;;=5^Metatarsal adductus/varus; Congenital
- ;;^UTILITY(U,$J,358.3,17278,2)
- ;;=^273007
- ;;^UTILITY(U,$J,358.3,17279,0)
- ;;=355.8^^113^975^9
- ;;^UTILITY(U,$J,358.3,17279,1,0)
+ ;;^UTILITY(U,$J,358.3,17143,1,2,0)
+ ;;=2^296.89
+ ;;^UTILITY(U,$J,358.3,17143,1,5,0)
+ ;;=5^Bipolar II Disorder,NOS
+ ;;^UTILITY(U,$J,358.3,17143,2)
+ ;;=^331893
+ ;;^UTILITY(U,$J,358.3,17144,0)
+ ;;=297.0^^103^950^3
+ ;;^UTILITY(U,$J,358.3,17144,1,0)
  ;;=^358.31IA^5^2
- ;;^UTILITY(U,$J,358.3,17279,1,3,0)
- ;;=3^355.8
- ;;^UTILITY(U,$J,358.3,17279,1,5,0)
- ;;=5^Mononeuritis of lower limb, unspecified
- ;;^UTILITY(U,$J,358.3,17279,2)
- ;;=^268511
- ;;^UTILITY(U,$J,358.3,17280,0)
- ;;=729.1^^113^975^11
- ;;^UTILITY(U,$J,358.3,17280,1,0)
+ ;;^UTILITY(U,$J,358.3,17144,1,2,0)
+ ;;=2^297.0
+ ;;^UTILITY(U,$J,358.3,17144,1,5,0)
+ ;;=5^Paranoid State, Simple
+ ;;^UTILITY(U,$J,358.3,17144,2)
+ ;;=^268149
+ ;;^UTILITY(U,$J,358.3,17145,0)
+ ;;=298.9^^103^950^4
+ ;;^UTILITY(U,$J,358.3,17145,1,0)
  ;;=^358.31IA^5^2
- ;;^UTILITY(U,$J,358.3,17280,1,3,0)
- ;;=3^729.1
- ;;^UTILITY(U,$J,358.3,17280,1,5,0)
- ;;=5^Myalgia and myositis, unspecified
- ;;^UTILITY(U,$J,358.3,17280,2)
- ;;=^80160
- ;;^UTILITY(U,$J,358.3,17281,0)
- ;;=355.71^^113^976^4
- ;;^UTILITY(U,$J,358.3,17281,1,0)
+ ;;^UTILITY(U,$J,358.3,17145,1,2,0)
+ ;;=2^298.9
+ ;;^UTILITY(U,$J,358.3,17145,1,5,0)
+ ;;=5^Psychosis, NOS
+ ;;^UTILITY(U,$J,358.3,17145,2)
+ ;;=^259059
+ ;;^UTILITY(U,$J,358.3,17146,0)
+ ;;=298.8^^103^950^5
+ ;;^UTILITY(U,$J,358.3,17146,1,0)
  ;;=^358.31IA^5^2
- ;;^UTILITY(U,$J,358.3,17281,1,3,0)
- ;;=3^355.71
- ;;^UTILITY(U,$J,358.3,17281,1,5,0)
- ;;=5^Nerve entrapment, lower limb
- ;;^UTILITY(U,$J,358.3,17281,2)
- ;;=^295729
- ;;^UTILITY(U,$J,358.3,17282,0)
- ;;=216.7^^113^976^2
- ;;^UTILITY(U,$J,358.3,17282,1,0)
+ ;;^UTILITY(U,$J,358.3,17146,1,2,0)
+ ;;=2^298.8
+ ;;^UTILITY(U,$J,358.3,17146,1,5,0)
+ ;;=5^Psychosis, Reactive
+ ;;^UTILITY(U,$J,358.3,17146,2)
+ ;;=^87326
+ ;;^UTILITY(U,$J,358.3,17147,0)
+ ;;=297.9^^103^950^2
+ ;;^UTILITY(U,$J,358.3,17147,1,0)
  ;;=^358.31IA^5^2
- ;;^UTILITY(U,$J,358.3,17282,1,3,0)
- ;;=3^216.7
- ;;^UTILITY(U,$J,358.3,17282,1,5,0)
- ;;=5^Neoplasm, skin of lower limb, including hip; Benign
- ;;^UTILITY(U,$J,358.3,17282,2)
- ;;=^267636
- ;;^UTILITY(U,$J,358.3,17283,0)
- ;;=239.2^^113^976^3
- ;;^UTILITY(U,$J,358.3,17283,1,0)
+ ;;^UTILITY(U,$J,358.3,17147,1,2,0)
+ ;;=2^297.9
+ ;;^UTILITY(U,$J,358.3,17147,1,5,0)
+ ;;=5^Paranoia
+ ;;^UTILITY(U,$J,358.3,17147,2)
+ ;;=^123970
+ ;;^UTILITY(U,$J,358.3,17148,0)
+ ;;=297.1^^103^950^1
+ ;;^UTILITY(U,$J,358.3,17148,1,0)
  ;;=^358.31IA^5^2
- ;;^UTILITY(U,$J,358.3,17283,1,3,0)
- ;;=3^239.2
- ;;^UTILITY(U,$J,358.3,17283,1,5,0)
- ;;=5^Neoplasm, skin, bone and soft tissue; Unspecified
- ;;^UTILITY(U,$J,358.3,17283,2)
- ;;=^267783
- ;;^UTILITY(U,$J,358.3,17284,0)
- ;;=356.9^^113^976^7
- ;;^UTILITY(U,$J,358.3,17284,1,0)
+ ;;^UTILITY(U,$J,358.3,17148,1,2,0)
+ ;;=2^297.1
+ ;;^UTILITY(U,$J,358.3,17148,1,5,0)
+ ;;=5^Delusional Disorder
+ ;;^UTILITY(U,$J,358.3,17148,2)
+ ;;=^331896
+ ;;^UTILITY(U,$J,358.3,17149,0)
+ ;;=301.7^^103^951^1
+ ;;^UTILITY(U,$J,358.3,17149,1,0)
  ;;=^358.31IA^5^2
- ;;^UTILITY(U,$J,358.3,17284,1,3,0)
- ;;=3^356.9
- ;;^UTILITY(U,$J,358.3,17284,1,5,0)
- ;;=5^Neuropathy, peripheral, Hereditary; Unspecified
- ;;^UTILITY(U,$J,358.3,17284,2)
- ;;=^123931
- ;;^UTILITY(U,$J,358.3,17285,0)
- ;;=355.8^^113^976^8
- ;;^UTILITY(U,$J,358.3,17285,1,0)
+ ;;^UTILITY(U,$J,358.3,17149,1,2,0)
+ ;;=2^301.7
+ ;;^UTILITY(U,$J,358.3,17149,1,5,0)
+ ;;=5^Antisocial Personality Dis
+ ;;^UTILITY(U,$J,358.3,17149,2)
+ ;;=Antisocial Personality Dis^9066
+ ;;^UTILITY(U,$J,358.3,17150,0)
+ ;;=301.82^^103^951^2
+ ;;^UTILITY(U,$J,358.3,17150,1,0)
  ;;=^358.31IA^5^2
- ;;^UTILITY(U,$J,358.3,17285,1,3,0)
- ;;=3^355.8
- ;;^UTILITY(U,$J,358.3,17285,1,5,0)
- ;;=5^Neuropathy, peripheral, lower limb; Unspecified
- ;;^UTILITY(U,$J,358.3,17285,2)
- ;;=^268511
- ;;^UTILITY(U,$J,358.3,17286,0)
- ;;=356.2^^113^976^5
- ;;^UTILITY(U,$J,358.3,17286,1,0)
+ ;;^UTILITY(U,$J,358.3,17150,1,2,0)
+ ;;=2^301.82
+ ;;^UTILITY(U,$J,358.3,17150,1,5,0)
+ ;;=5^Avoidant Personality Disorder
+ ;;^UTILITY(U,$J,358.3,17150,2)
+ ;;=Avoidant Personality Disorder^265347
+ ;;^UTILITY(U,$J,358.3,17151,0)
+ ;;=301.83^^103^951^3
+ ;;^UTILITY(U,$J,358.3,17151,1,0)
  ;;=^358.31IA^5^2
- ;;^UTILITY(U,$J,358.3,17286,1,3,0)
- ;;=3^356.2
- ;;^UTILITY(U,$J,358.3,17286,1,5,0)
- ;;=5^Neuropathy, Hereditary sensory
- ;;^UTILITY(U,$J,358.3,17286,2)
- ;;=^56583
- ;;^UTILITY(U,$J,358.3,17287,0)
- ;;=714.0^^113^976^9
- ;;^UTILITY(U,$J,358.3,17287,1,0)
+ ;;^UTILITY(U,$J,358.3,17151,1,2,0)
+ ;;=2^301.83
+ ;;^UTILITY(U,$J,358.3,17151,1,5,0)
+ ;;=5^Borderline Personality Disorder
+ ;;^UTILITY(U,$J,358.3,17151,2)
+ ;;=Borderline Personality Disorder^16372
+ ;;^UTILITY(U,$J,358.3,17152,0)
+ ;;=301.6^^103^951^6
+ ;;^UTILITY(U,$J,358.3,17152,1,0)
  ;;=^358.31IA^5^2
- ;;^UTILITY(U,$J,358.3,17287,1,3,0)
- ;;=3^714.0
- ;;^UTILITY(U,$J,358.3,17287,1,5,0)
- ;;=5^Nodules, rheumatoid arthritis
- ;;^UTILITY(U,$J,358.3,17287,2)
- ;;=^10473
- ;;^UTILITY(U,$J,358.3,17288,0)
- ;;=733.82^^113^976^10
- ;;^UTILITY(U,$J,358.3,17288,1,0)
+ ;;^UTILITY(U,$J,358.3,17152,1,2,0)
+ ;;=2^301.6
+ ;;^UTILITY(U,$J,358.3,17152,1,5,0)
+ ;;=5^Dependent Personality Disorder
+ ;;^UTILITY(U,$J,358.3,17152,2)
+ ;;=Dependent Personality Disorder^32860
+ ;;^UTILITY(U,$J,358.3,17153,0)
+ ;;=301.50^^103^951^8
+ ;;^UTILITY(U,$J,358.3,17153,1,0)
  ;;=^358.31IA^5^2
- ;;^UTILITY(U,$J,358.3,17288,1,3,0)
- ;;=3^733.82
- ;;^UTILITY(U,$J,358.3,17288,1,5,0)
- ;;=5^Nonunion of fracture
- ;;^UTILITY(U,$J,358.3,17288,2)
- ;;=^83875
- ;;^UTILITY(U,$J,358.3,17289,0)
- ;;=173.70^^113^976^1
- ;;^UTILITY(U,$J,358.3,17289,1,0)
+ ;;^UTILITY(U,$J,358.3,17153,1,2,0)
+ ;;=2^301.50
+ ;;^UTILITY(U,$J,358.3,17153,1,5,0)
+ ;;=5^Histrionic Personality Disorder
+ ;;^UTILITY(U,$J,358.3,17153,2)
+ ;;=Histrionic Personality Disorder^57763
+ ;;^UTILITY(U,$J,358.3,17154,0)
+ ;;=301.81^^103^951^11
+ ;;^UTILITY(U,$J,358.3,17154,1,0)
  ;;=^358.31IA^5^2
- ;;^UTILITY(U,$J,358.3,17289,1,3,0)
- ;;=3^173.70
- ;;^UTILITY(U,$J,358.3,17289,1,5,0)
- ;;=5^Neoplasm, Skin Lower Limb
- ;;^UTILITY(U,$J,358.3,17289,2)
- ;;=^340603
- ;;^UTILITY(U,$J,358.3,17290,0)
- ;;=356.8^^113^976^6
- ;;^UTILITY(U,$J,358.3,17290,1,0)
+ ;;^UTILITY(U,$J,358.3,17154,1,2,0)
+ ;;=2^301.81
+ ;;^UTILITY(U,$J,358.3,17154,1,5,0)
+ ;;=5^Narcissistic Personality Disorder
+ ;;^UTILITY(U,$J,358.3,17154,2)
+ ;;=Narcissistic Personality Disorder^265353
+ ;;^UTILITY(U,$J,358.3,17155,0)
+ ;;=301.0^^103^951^12
+ ;;^UTILITY(U,$J,358.3,17155,1,0)
  ;;=^358.31IA^5^2
- ;;^UTILITY(U,$J,358.3,17290,1,3,0)
- ;;=3^356.8
- ;;^UTILITY(U,$J,358.3,17290,1,5,0)
- ;;=5^Neuropathy, Idiopathic Perip,Oth Spec
- ;;^UTILITY(U,$J,358.3,17290,2)
- ;;=^268525
- ;;^UTILITY(U,$J,358.3,17291,0)
- ;;=703.0^^113^977^1
- ;;^UTILITY(U,$J,358.3,17291,1,0)
+ ;;^UTILITY(U,$J,358.3,17155,1,2,0)
+ ;;=2^301.0
+ ;;^UTILITY(U,$J,358.3,17155,1,5,0)
+ ;;=5^Paranoid Personality Disorder
+ ;;^UTILITY(U,$J,358.3,17155,2)
+ ;;=Paranoid Personality Disorder^89982
+ ;;^UTILITY(U,$J,358.3,17156,0)
+ ;;=301.9^^103^951^16
+ ;;^UTILITY(U,$J,358.3,17156,1,0)
  ;;=^358.31IA^5^2
- ;;^UTILITY(U,$J,358.3,17291,1,3,0)
- ;;=3^703.0
- ;;^UTILITY(U,$J,358.3,17291,1,5,0)
- ;;=5^Onychocryptosis (Ingrown toe nail)
- ;;^UTILITY(U,$J,358.3,17291,2)
- ;;=^81221
- ;;^UTILITY(U,$J,358.3,17292,0)
- ;;=757.5^^113^977^2
- ;;^UTILITY(U,$J,358.3,17292,1,0)
+ ;;^UTILITY(U,$J,358.3,17156,1,2,0)
+ ;;=2^301.9
+ ;;^UTILITY(U,$J,358.3,17156,1,5,0)
+ ;;=5^Unspecified Personality Disorder
+ ;;^UTILITY(U,$J,358.3,17156,2)
+ ;;=Unspecified Personality Disorder^92451
+ ;;^UTILITY(U,$J,358.3,17157,0)
+ ;;=301.20^^103^951^14
+ ;;^UTILITY(U,$J,358.3,17157,1,0)
  ;;=^358.31IA^5^2
- ;;^UTILITY(U,$J,358.3,17292,1,3,0)
- ;;=3^757.5
- ;;^UTILITY(U,$J,358.3,17292,1,5,0)
- ;;=5^Onchodystrophy/Onycholysis; Congenital
- ;;^UTILITY(U,$J,358.3,17292,2)
- ;;=^273090
- ;;^UTILITY(U,$J,358.3,17293,0)
- ;;=703.8^^113^977^3
- ;;^UTILITY(U,$J,358.3,17293,1,0)
+ ;;^UTILITY(U,$J,358.3,17157,1,2,0)
+ ;;=2^301.20
+ ;;^UTILITY(U,$J,358.3,17157,1,5,0)
+ ;;=5^Schizoid Personality Disorder
+ ;;^UTILITY(U,$J,358.3,17157,2)
+ ;;=^108271
+ ;;^UTILITY(U,$J,358.3,17158,0)
+ ;;=301.22^^103^951^15
+ ;;^UTILITY(U,$J,358.3,17158,1,0)
  ;;=^358.31IA^5^2
- ;;^UTILITY(U,$J,358.3,17293,1,3,0)
- ;;=3^703.8
- ;;^UTILITY(U,$J,358.3,17293,1,5,0)
- ;;=5^Onchodystrophy/Onycholysis; Acquired
- ;;^UTILITY(U,$J,358.3,17293,2)
- ;;=^271926
- ;;^UTILITY(U,$J,358.3,17294,0)
- ;;=110.1^^113^977^4
- ;;^UTILITY(U,$J,358.3,17294,1,0)
+ ;;^UTILITY(U,$J,358.3,17158,1,2,0)
+ ;;=2^301.22
+ ;;^UTILITY(U,$J,358.3,17158,1,5,0)
+ ;;=5^Schizotypal Personality Disorder
+ ;;^UTILITY(U,$J,358.3,17158,2)
+ ;;=Schizotypal Personality Disorder^108367
+ ;;^UTILITY(U,$J,358.3,17159,0)
+ ;;=301.4^^103^951^4
+ ;;^UTILITY(U,$J,358.3,17159,1,0)
  ;;=^358.31IA^5^2
- ;;^UTILITY(U,$J,358.3,17294,1,3,0)
- ;;=3^110.1
- ;;^UTILITY(U,$J,358.3,17294,1,5,0)
- ;;=5^Onychomycosis
- ;;^UTILITY(U,$J,358.3,17294,2)
- ;;=^33173
- ;;^UTILITY(U,$J,358.3,17295,0)
- ;;=715.37^^113^977^6
- ;;^UTILITY(U,$J,358.3,17295,1,0)
+ ;;^UTILITY(U,$J,358.3,17159,1,2,0)
+ ;;=2^301.4
+ ;;^UTILITY(U,$J,358.3,17159,1,5,0)
+ ;;=5^Compulsive Personality Disorder
+ ;;^UTILITY(U,$J,358.3,17159,2)
+ ;;=Compulsive Personality Disorder^27122
+ ;;^UTILITY(U,$J,358.3,17160,0)
+ ;;=301.84^^103^951^13
+ ;;^UTILITY(U,$J,358.3,17160,1,0)
  ;;=^358.31IA^5^2
- ;;^UTILITY(U,$J,358.3,17295,1,3,0)
- ;;=3^715.37
- ;;^UTILITY(U,$J,358.3,17295,1,5,0)
- ;;=5^Osteoarthrosis, localized, not specified whether primary or secondary; ankle/foot/toe
- ;;^UTILITY(U,$J,358.3,17295,2)
- ;;=^272156
- ;;^UTILITY(U,$J,358.3,17296,0)
- ;;=715.90^^113^977^7
- ;;^UTILITY(U,$J,358.3,17296,1,0)
+ ;;^UTILITY(U,$J,358.3,17160,1,2,0)
+ ;;=2^301.84
+ ;;^UTILITY(U,$J,358.3,17160,1,5,0)
+ ;;=5^Passive-Aggressive Personality Dis
+ ;;^UTILITY(U,$J,358.3,17160,2)
+ ;;=Passive-Aggressive Personality Dis^90602
+ ;;^UTILITY(U,$J,358.3,17161,0)
+ ;;=301.11^^103^951^9
+ ;;^UTILITY(U,$J,358.3,17161,1,0)
  ;;=^358.31IA^5^2
- ;;^UTILITY(U,$J,358.3,17296,1,3,0)
- ;;=3^715.90
- ;;^UTILITY(U,$J,358.3,17296,1,5,0)
- ;;=5^Osteoarthrosis, unspecified whether generalized or localized
- ;;^UTILITY(U,$J,358.3,17296,2)
- ;;=^272161
- ;;^UTILITY(U,$J,358.3,17297,0)
- ;;=730.07^^113^977^8
- ;;^UTILITY(U,$J,358.3,17297,1,0)
+ ;;^UTILITY(U,$J,358.3,17161,1,2,0)
+ ;;=2^301.11
+ ;;^UTILITY(U,$J,358.3,17161,1,5,0)
+ ;;=5^Hypomanic Personality D/O,Chr
+ ;;^UTILITY(U,$J,358.3,17161,2)
+ ;;=^268171
+ ;;^UTILITY(U,$J,358.3,17162,0)
+ ;;=301.12^^103^951^7
+ ;;^UTILITY(U,$J,358.3,17162,1,0)
  ;;=^358.31IA^5^2
- ;;^UTILITY(U,$J,358.3,17297,1,3,0)
- ;;=3^730.07
- ;;^UTILITY(U,$J,358.3,17297,1,5,0)
- ;;=5^Osteomyelitis, Acute; ankle/foot/toe
- ;;^UTILITY(U,$J,358.3,17297,2)
- ;;=^272619
- ;;^UTILITY(U,$J,358.3,17298,0)
- ;;=730.17^^113^977^9
- ;;^UTILITY(U,$J,358.3,17298,1,0)
+ ;;^UTILITY(U,$J,358.3,17162,1,2,0)
+ ;;=2^301.12
+ ;;^UTILITY(U,$J,358.3,17162,1,5,0)
+ ;;=5^Depressive Personality D/O,Chr
+ ;;^UTILITY(U,$J,358.3,17162,2)
+ ;;=^268173
+ ;;^UTILITY(U,$J,358.3,17163,0)
+ ;;=301.13^^103^951^5
+ ;;^UTILITY(U,$J,358.3,17163,1,0)
  ;;=^358.31IA^5^2
- ;;^UTILITY(U,$J,358.3,17298,1,3,0)
- ;;=3^730.17
- ;;^UTILITY(U,$J,358.3,17298,1,5,0)
- ;;=5^Osteomyelitis, Chronic; ankle/foot/toe
- ;;^UTILITY(U,$J,358.3,17298,2)
- ;;=^272628
- ;;^UTILITY(U,$J,358.3,17299,0)
- ;;=730.27^^113^977^10
- ;;^UTILITY(U,$J,358.3,17299,1,0)
+ ;;^UTILITY(U,$J,358.3,17163,1,2,0)
+ ;;=2^301.13
+ ;;^UTILITY(U,$J,358.3,17163,1,5,0)
+ ;;=5^Cyclothymic Disorder
+ ;;^UTILITY(U,$J,358.3,17163,2)
+ ;;=^30028
+ ;;^UTILITY(U,$J,358.3,17164,0)
+ ;;=301.21^^103^951^10
+ ;;^UTILITY(U,$J,358.3,17164,1,0)
  ;;=^358.31IA^5^2
- ;;^UTILITY(U,$J,358.3,17299,1,3,0)
- ;;=3^730.27
- ;;^UTILITY(U,$J,358.3,17299,1,5,0)
- ;;=5^Osteomyelitis, Unspecified; ankle/foot/toe
- ;;^UTILITY(U,$J,358.3,17299,2)
- ;;=^272637
- ;;^UTILITY(U,$J,358.3,17300,0)
- ;;=732.5^^113^977^11
- ;;^UTILITY(U,$J,358.3,17300,1,0)
+ ;;^UTILITY(U,$J,358.3,17164,1,2,0)
+ ;;=2^301.21
+ ;;^UTILITY(U,$J,358.3,17164,1,5,0)
+ ;;=5^Introverted Personality
+ ;;^UTILITY(U,$J,358.3,17164,2)
+ ;;=^268174
+ ;;^UTILITY(U,$J,358.3,17165,0)
+ ;;=302.2^^103^952^7
+ ;;^UTILITY(U,$J,358.3,17165,1,0)
  ;;=^358.31IA^5^2
- ;;^UTILITY(U,$J,358.3,17300,1,3,0)
- ;;=3^732.5
- ;;^UTILITY(U,$J,358.3,17300,1,5,0)
- ;;=5^Osteochondrosis/Apophysitis, Juvenile; foot
- ;;^UTILITY(U,$J,358.3,17300,2)
- ;;=^272687
- ;;^UTILITY(U,$J,358.3,17301,0)
- ;;=V54.89^^113^977^5
- ;;^UTILITY(U,$J,358.3,17301,1,0)
+ ;;^UTILITY(U,$J,358.3,17165,1,2,0)
+ ;;=2^302.2
+ ;;^UTILITY(U,$J,358.3,17165,1,5,0)
+ ;;=5^Pedophilia
+ ;;^UTILITY(U,$J,358.3,17165,2)
+ ;;=^91008
+ ;;^UTILITY(U,$J,358.3,17166,0)
+ ;;=302.4^^103^952^2
+ ;;^UTILITY(U,$J,358.3,17166,1,0)
  ;;=^358.31IA^5^2
- ;;^UTILITY(U,$J,358.3,17301,1,3,0)
- ;;=3^V54.89
- ;;^UTILITY(U,$J,358.3,17301,1,5,0)
- ;;=5^Removal of External Fix Device
- ;;^UTILITY(U,$J,358.3,17301,2)
- ;;=Removal of External Fix Device^328685
- ;;^UTILITY(U,$J,358.3,17302,0)
- ;;=681.11^^113^978^24
- ;;^UTILITY(U,$J,358.3,17302,1,0)
+ ;;^UTILITY(U,$J,358.3,17166,1,2,0)
+ ;;=2^302.4
+ ;;^UTILITY(U,$J,358.3,17166,1,5,0)
+ ;;=5^Exhibitionism
+ ;;^UTILITY(U,$J,358.3,17166,2)
+ ;;=^43610
+ ;;^UTILITY(U,$J,358.3,17167,0)
+ ;;=302.72^^103^952^6
+ ;;^UTILITY(U,$J,358.3,17167,1,0)
  ;;=^358.31IA^5^2
- ;;^UTILITY(U,$J,358.3,17302,1,3,0)
- ;;=3^681.11
- ;;^UTILITY(U,$J,358.3,17302,1,5,0)
- ;;=5^Paronychia/Onychia
- ;;^UTILITY(U,$J,358.3,17302,2)
- ;;=Paronychia/Onychia^271886
- ;;^UTILITY(U,$J,358.3,17303,0)
- ;;=730.07^^113^978^25
- ;;^UTILITY(U,$J,358.3,17303,1,0)
+ ;;^UTILITY(U,$J,358.3,17167,1,2,0)
+ ;;=2^302.72
+ ;;^UTILITY(U,$J,358.3,17167,1,5,0)
+ ;;=5^Inhibited Sex Excite
+ ;;^UTILITY(U,$J,358.3,17167,2)
+ ;;=^100632
+ ;;^UTILITY(U,$J,358.3,17168,0)
+ ;;=302.73^^103^952^4
+ ;;^UTILITY(U,$J,358.3,17168,1,0)
  ;;=^358.31IA^5^2
- ;;^UTILITY(U,$J,358.3,17303,1,3,0)
- ;;=3^730.07
- ;;^UTILITY(U,$J,358.3,17303,1,5,0)
- ;;=5^Periosteotis
- ;;^UTILITY(U,$J,358.3,17303,2)
- ;;=Periostiitis^272619
- ;;^UTILITY(U,$J,358.3,17304,0)
- ;;=736.73^^113^978^26
- ;;^UTILITY(U,$J,358.3,17304,1,0)
+ ;;^UTILITY(U,$J,358.3,17168,1,2,0)
+ ;;=2^302.73
+ ;;^UTILITY(U,$J,358.3,17168,1,5,0)
+ ;;=5^Inhibited Female Orgasm
+ ;;^UTILITY(U,$J,358.3,17168,2)
+ ;;=^100628
+ ;;^UTILITY(U,$J,358.3,17169,0)
+ ;;=302.74^^103^952^5
+ ;;^UTILITY(U,$J,358.3,17169,1,0)
  ;;=^358.31IA^5^2
- ;;^UTILITY(U,$J,358.3,17304,1,3,0)
- ;;=3^736.73
- ;;^UTILITY(U,$J,358.3,17304,1,5,0)
- ;;=5^Pes Cavus
- ;;^UTILITY(U,$J,358.3,17304,2)
- ;;=Pes Cavus^272745
- ;;^UTILITY(U,$J,358.3,17305,0)
- ;;=754.61^^113^978^27
- ;;^UTILITY(U,$J,358.3,17305,1,0)
+ ;;^UTILITY(U,$J,358.3,17169,1,2,0)
+ ;;=2^302.74
+ ;;^UTILITY(U,$J,358.3,17169,1,5,0)
+ ;;=5^Inhibited Male Orgasm
+ ;;^UTILITY(U,$J,358.3,17169,2)
+ ;;=^100630
+ ;;^UTILITY(U,$J,358.3,17170,0)
+ ;;=302.75^^103^952^8
+ ;;^UTILITY(U,$J,358.3,17170,1,0)
  ;;=^358.31IA^5^2
- ;;^UTILITY(U,$J,358.3,17305,1,3,0)
- ;;=3^754.61
- ;;^UTILITY(U,$J,358.3,17305,1,5,0)
- ;;=5^Pes Planovalgus (Congenital)
- ;;^UTILITY(U,$J,358.3,17305,2)
- ;;=^273010
- ;;^UTILITY(U,$J,358.3,17306,0)
- ;;=734.^^113^978^28
- ;;^UTILITY(U,$J,358.3,17306,1,0)
+ ;;^UTILITY(U,$J,358.3,17170,1,2,0)
+ ;;=2^302.75
+ ;;^UTILITY(U,$J,358.3,17170,1,5,0)
+ ;;=5^Premature Ejaculation
+ ;;^UTILITY(U,$J,358.3,17170,2)
+ ;;=^100637
+ ;;^UTILITY(U,$J,358.3,17171,0)
+ ;;=302.85^^103^952^3
+ ;;^UTILITY(U,$J,358.3,17171,1,0)
  ;;=^358.31IA^5^2
- ;;^UTILITY(U,$J,358.3,17306,1,3,0)
- ;;=3^734.
- ;;^UTILITY(U,$J,358.3,17306,1,5,0)
- ;;=5^Pes Planus
- ;;^UTILITY(U,$J,358.3,17306,2)
- ;;=Pes Planus^46756
- ;;^UTILITY(U,$J,358.3,17307,0)
- ;;=451.11^^113^978^29
- ;;^UTILITY(U,$J,358.3,17307,1,0)
+ ;;^UTILITY(U,$J,358.3,17171,1,2,0)
+ ;;=2^302.85
+ ;;^UTILITY(U,$J,358.3,17171,1,5,0)
+ ;;=5^Gender Ident Disorder
+ ;;^UTILITY(U,$J,358.3,17171,2)
+ ;;=^268180
+ ;;^UTILITY(U,$J,358.3,17172,0)
+ ;;=302.0^^103^952^1
+ ;;^UTILITY(U,$J,358.3,17172,1,0)
  ;;=^358.31IA^5^2
- ;;^UTILITY(U,$J,358.3,17307,1,3,0)
- ;;=3^451.11
- ;;^UTILITY(U,$J,358.3,17307,1,5,0)
- ;;=5^Phlebitis, Deep
- ;;^UTILITY(U,$J,358.3,17307,2)
- ;;=^269811
- ;;^UTILITY(U,$J,358.3,17308,0)
- ;;=451.0^^113^978^30
- ;;^UTILITY(U,$J,358.3,17308,1,0)
+ ;;^UTILITY(U,$J,358.3,17172,1,2,0)
+ ;;=2^302.0
+ ;;^UTILITY(U,$J,358.3,17172,1,5,0)
+ ;;=5^Ego-Dystonic Sexual Orient
+ ;;^UTILITY(U,$J,358.3,17172,2)
+ ;;=^331922
+ ;;^UTILITY(U,$J,358.3,17173,0)
+ ;;=302.1^^103^952^14
+ ;;^UTILITY(U,$J,358.3,17173,1,0)
  ;;=^358.31IA^5^2
- ;;^UTILITY(U,$J,358.3,17308,1,3,0)
- ;;=3^451.0
- ;;^UTILITY(U,$J,358.3,17308,1,5,0)
- ;;=5^Phlebitis, Superficial
- ;;^UTILITY(U,$J,358.3,17308,2)
- ;;=^269809
- ;;^UTILITY(U,$J,358.3,17309,0)
- ;;=728.71^^113^978^31
- ;;^UTILITY(U,$J,358.3,17309,1,0)
- ;;=^358.31IA^5^2
- ;;^UTILITY(U,$J,358.3,17309,1,3,0)
- ;;=3^728.71
+ ;;^UTILITY(U,$J,358.3,17173,1,2,0)
+ ;;=2^302.1
+ ;;^UTILITY(U,$J,358.3,17173,1,5,0)
+ ;;=5^Zoophilia
+ ;;^UTILITY(U,$J,358.3,17173,2)
+ ;;=^265356

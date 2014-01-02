@@ -1,3 +1,3 @@
-FBCTAU2 ; ;08/29/12
+FBCTAU2 ; ;12/12/13
  S X=DG(DQ),DIC=DIE
- S ^FBAAA("AA",X,$P(^FBAAA(DA(1),1,DA,0),U,1),DA(1),DA)=""
+ S ^FBAAA("ACV",$E(X,1,30),DA(1),DA)=""

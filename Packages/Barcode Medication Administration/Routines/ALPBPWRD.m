@@ -1,5 +1,5 @@
 ALPBPWRD ;OIFO-DALLAS MW,SED,KC-PRINT 3-DAY MAR BCMA BCBU REPORT FOR A SELECTED WARD ;01/01/03
- ;;3.0;BAR CODE MED ADMIN;**8,37,48,59**;Mar 2004;Build 15
+ ;;3.0;BAR CODE MED ADMIN;**8,37,48,59**;Mar 2004;Build 20
  ;;Per VHA Directive 2004-038, this routine should not be modified.
  ; 
  ; NOTE: this routine is designed for hard-copy output.
@@ -45,12 +45,12 @@ ALPBPWRD ;OIFO-DALLAS MW,SED,KC-PRINT 3-DAY MAR BCMA BCBU REPORT FOR A SELECTED 
  .;added in PSB*3*59 to benefit users located at the long term care and domiciliary sites.
  .;include patients without active medications?...
  .S ALPBWOMD=""
- .I ALPBOTYP="C" D
+ .I ALPBOTYP="C" D  Q:ALPBWOMD=""
  ..S DIR(0)="SA^Y:YES;N:NO"
  ..S DIR("A")="Include Patients Without Active Medications? "
  ..S DIR("B")="YES"
  ..S DIR("?",1)="[Y]es=include patients without active medication orders,"
- ..S DIR("?",2)="[N]o=do not include patients without active medication orders."
+ ..S DIR("?")="[N]o=do not include patients without active medication orders."
  ..W ! D ^DIR K DIR
  ..I $D(DIRUT) K ALPBOTYP,DIRUT,DTOUT,X,Y Q
  ..S ALPBWOMD=Y
@@ -166,7 +166,7 @@ DQ ; output entry point...
  ..I ALPBPTN="BCBU" S ALPBPTN=$O(^TMP($J,ALPBPTN)) ;SKIP "BCBU" SUBSCRIBE
  ..I ALPBPTN="" Q  ;PSB*3*37 Stop null subscript when "BCBU" is the last entry in ^TMP
  ..S ALPBIEN=^TMP($J,ALPBPTN) S ALPRM=$P($G(^ALPB(53.7,ALPBIEN,0)),"^",6),ALPBD=$P($G(^ALPB(53.7,ALPBIEN,0)),"^",7)
- ..S:ALPBD="" ALPBD="NONE" S:ALPRM="" ALPRM="NONE" ;INCASE NO ROOM AND BED YET
+ ..S:$TR(ALPBD,"""","")="" ALPBD="NONE" S:$TR(ALPRM,"""","")="" ALPRM="NONE" ;INCASE NO ROOM AND BED YET
  ..S ^TMP($J,"BCBU",ALPRM,ALPRM,ALPBD,ALPBPTN)=ALPBIEN
  .S ALPRM1="" F  S ALPRM1=$O(^TMP($J,"BCBU",ALPRM1)) Q:ALPRM1=""  D
  ..S ALPRM="" F  S ALPRM=$O(^TMP($J,"BCBU",ALPRM1,ALPRM)) Q:ALPRM=""  D
@@ -205,9 +205,9 @@ PRT S ALPBPDAT(0)=$G(^ALPB(53.7,ALPBIEN,0))
  I $Y+10>IOSL D PAGE
  ;notification message displays one line below header info if patient has no med orders when the report is generated
  I ALPBNOMDS D
- .W !!,"No Active Medication Orders were reported to the Contingency at the time the MAR was printed "
- .;additional blank lines added to seperate footer from header and allow room for notes
- .F  Q:$Y>=(IOSL-6)  W !
+ .W !!,"No Active Medication Orders were reported to the Contingency at the time the MAR was printed ",!!!
+ .;additional blank lines added to separate footer from header and allow room for notes
+ .I $E(IOST)="P" F  Q:$Y>=(IOSL-6)  W !
  ;
  D FOOT^ALPBFRMU
  ;Print a blank page between patient (this was removed by PSB*3*59 - the BCMA Workgroup agreed to condense the report)

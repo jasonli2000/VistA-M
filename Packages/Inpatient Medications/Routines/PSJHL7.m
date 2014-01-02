@@ -1,5 +1,5 @@
 PSJHL7 ;BIR/LDT-ACTIONS ON HL7 MESSAGES FROM OE/RR (CONT) ;29 AUG 96 / 11:18 AM
- ;;5.0;INPATIENT MEDICATIONS;**42,47,50,70,82,110,127,133,275**;16 DEC 97;Build 157
+ ;;5.0;INPATIENT MEDICATIONS;**42,47,50,70,82,110,127,133,275,279**;16 DEC 97;Build 150
  ;
  ; Reference to ^PS(50.7 is supported by DBIA# 2180.
  ; Reference to ^PS(51.1 is supported by DBIA# 2177.
@@ -62,7 +62,8 @@ PUT531 ; Move data in local variables to 53.1
  S $P(ND(0),U,14,16)=P("LOG")_U_PSJHLDFN_U_P("LOG"),$P(ND(0),U,21)=P(21),$P(ND(0),U,24,26)=$G(P("RES"))_U_P("PON")
  S ND(2)=P(9)_U_U_U_U_P(11)_U_P(15),$P(ND(4),U,7,9)=+P("CLRK")_U_U_P("REN")
  S ND(8)=P(4)_U_P(23)_U_P("SYRS")_U_P(5)_U_P(8)_"^^"_P(7),ND(9)=$S($L(P("REM")_P("OPI")):P("REM")_U_P("OPI"),1:"")
- F X=0,2,4,8,9 S ^PS(53.1,+NEWORDER,X)=ND(X)
+ S ND(17)="" I $G(P(8))["@",($P($G(P(8)),"@",2)?1.N) S ND(17)=$P(P(8),"@",2)
+ F X=0,2,4,8,9,17 S ^PS(53.1,+NEWORDER,X)=ND(X)
  S:+P("PD") ^PS(53.1,+NEWORDER,.2)=+P("PD")_U_P("DO")
  S $P(^PS(53.1,+NEWORDER,.2),"^",3,4)=ORDCON_U_PRIORITY
  ;I $G(PRNTON) I $$UP^XLFSTR($G(PSGSCH))="NOW" S PRNTON=""

@@ -1,5 +1,5 @@
 PSJAC ;BIR/CML3-INPATIENT INFORMATION ;28 Apr 98 / 9:02 AM
- ;;5.0;INPATIENT MEDICATIONS;**8,10,50,127,181,275**;16 DEC 97;Build 157
+ ;;5.0;INPATIENT MEDICATIONS;**8,10,50,127,181,275,279**;16 DEC 97;Build 150
  ;
  ; Reference to ^PS(55 is supported by DBIA# 2191.
  ;
@@ -36,12 +36,12 @@ CNV ;
  ;
 WP ; ward parameters
  G:$D(PSJACNWP) DONE S PSJSYSW0="",PSJSYSW=0 I $G(PSJPWD) S PSJSYSW=+$O(^PS(59.6,"B",PSJPWD,0)) I PSJSYSW S PSJSYSW0=$G(^PS(59.6,PSJSYSW,0))
- ;S PSJSYSL="",X=$P(PSJSYSU,";",3)>1 S PSJSYSL=$P(PSJSYSW0,"^",X*4+12) G:$D(PSJACND) DONE
  S PSJSYSL="",X=$P(PSJSYSU,";",3)>1 S PSJSYSL=$S(X=0:$P(PSJSYSW0,"^",12),1:$P(PSJSYSW0,"^",16)) G:$D(PSJACND) DONE
- ;S PSJDCEXP=$$RECDCEXP^PSJP()
  I PSJSYSL D
  .S:X X='$P($G(PSJSYSP0),"^",10) S IOP=$S($P($G(PSJSYSP0),"^",13)]"":$P($G(PSJSYSP0),"^",13),$P(PSJSYSW0,"^",19+X)]"":$P(PSJSYSW0,"^",19+X),1:"") I IOP]"" D
  ..S IOP="`"_IOP K %ZIS S %ZIS="NQ" D ^%ZIS S:'POP $P(PSJSYSL,"^",2,3)=ION_"^"_IO D HOME^%ZIS
+ ;
+ D CLINIC
  ;
 DONE ;
  I PSJACPF<10 K VADM,VAIN,VAIP
@@ -57,3 +57,15 @@ HTWT(DFN) ; Get patient's height and weight from Vitals.
  Q
 PSJAC2(PSJY2K)     ;
  D PSJAC Q
+ Q
+ACTCLIN(PSGP,PSGORD) ; Don't allow active clinic orders to be copied. If Pending order, allow CLINIC^PSJOE to reject based on order status.
+ N CLIN,CLNODE S CLIN=0
+ I $G(PSGORD)["P"!($G(PSGORD)=+$G(PSGORD)) S CLIN=0
+ I $G(PSGORD)["U" S CLNODE=$G(^PS(55,PSGP,5,+PSGORD,8)) I CLNODE&($P(CLNODE,"^",2)) S CLIN=1
+ I $G(PSGORD)["V" S CLNODE=$G(^PS(55,PSGP,"IV",+PSGORD,"DSS")) I CLNODE&($P(CLNODE,"^",2)) S CLIN=1
+ I $G(CLIN) W !!,"You cannot copy this CLINIC Order." D PAUSE^VALM1 Q 1
+ Q 0
+ ;
+CLINIC ; clinic parameters
+ N CL,CLIEN,CLNAM S CL=0 F  S CL=$O(^PS(53.46,CL)) Q:'CL  S CLIEN=$G(^(CL,0)) I CLIEN S PSJSYSW0("CLINIC",+CLIEN,0)=CLIEN I $D(^PS(53.46,CL,1)) S PSJSYSW0("CLINIC",+CLIEN,1)=^(1)
+ Q

@@ -1,5 +1,5 @@
 PSIVORFA ;BIR/MLM-FILE/RETRIEVE ORDERS IN 53.1 ; 8/17/09 9:23am
- ;;5.0;INPATIENT MEDICATIONS;**4,7,18,28,50,71,58,91,80,110,111,134,225,267,275**;16 DEC 97;Build 157
+ ;;5.0;INPATIENT MEDICATIONS;**4,7,18,28,50,71,58,91,80,110,111,134,225,267,275,279**;16 DEC 97;Build 150
  ;
  ; Reference to ^PS(51.1 supported by DBIA 2177.
  ; Reference to ^PS(51.2 supported by DBIA 2178.
@@ -30,6 +30,11 @@ GT531(DFN,ON,PSJAPI) ; Retrieve order data from 53.1 and place into local array
  . I $O(^PS(51.1,"APPSJ",P(9),0)) D DIC^PSGORS0 Q
  . I '$O(^PS(51.1,"APPSJ",P(9),0)) N NOECH,PSGSCH S NOECH=1 D EN^PSIVSP
  S Y=$G(^PS(53.1,+ON,8)),P(4)=$P(Y,U),P(23)=$P(Y,U,2),P("SYRS")=$P(Y,U,3),P(5)=$P(Y,U,4),P(8)=$P(Y,U,5),P(7)=$P(Y,U,7),P("IVRM")=$P(Y,U,8)
+ I ($G(^PS(53.1,+ON,17))?1.N) S P("NUMLBL")=$G(^(17))
+ I '$G(P("NUMLBL")) S P("NUMLBL")=$P($G(P(8)),"@",2)
+ N PSJABBIN S PSJABBIN=$P(P(8),"@") I PSJABBIN]"" D
+ .Q:(P(8)?1"INFUSE OVER "1.N1" MINUTES")
+ .D EXPINF^PSIVEDT1(.PSJABBIN,1) S P(8)=PSJABBIN_$S($G(P("NUMLBL"))?1.N:"@"_P("NUMLBL"),1:"")
  S P(4)=$S(P(4)'="":P(4),$G(PSIVTYPE):PSIVTYPE,1:"")
  S:'P("IVRM")&($D(PSIVSN)) P("IVRM")=+PSIVSN S Y=$G(^PS(59.5,+P("IVRM"),0)),$P(P("IVRM"),U,2)=$P(Y,U),Y=$G(^PS(53.1,+ON,9)),P("REM")=$P(Y,U),P("OPI")=$P(Y,U,2,3)
  S P("DTYP")=$S(P(4)="":0,P(4)="P"!(P(23)="P")!(P(5)):1,P(4)="H":2,1:3)
@@ -62,6 +67,7 @@ PUT531 ; Move data in local variables to 53.1
  .I $G(IVLIMIT) S $P(^PS(53.1,+ON,2.5),"^",4)=DUR K IVLIMIT Q
  .S $P(^PS(53.1,+ON,2.5),"^",2)=DUR
  F X=0,2,4,8,9 S ^PS(53.1,+ON,X)=ND(X)
+ I $G(P("NUMLBL"))?1.N!($G(P("NUMLBL"))="") S $P(^PS(53.1,+ON,17),"^")=$G(P("NUMLBL"))
  S PSIVCAT=$$IVCAT^PSJHLU(DFN,ON,.P) S:PSIVCAT]"" $P(^PS(53.1,+ON,2.5),"^",5)=PSIVCAT K PSIVCAT
  S:'+$G(^PS(53.1,+ON,.2)) $P(^(.2),U,1,3)=+P("PD")_U_P("DO")_U_$G(P("NAT"))
  F DRGT="AD","SOL" D:$D(DRG(DRGT)) PTD531

@@ -1,13 +1,13 @@
-IBDEI002 ; ; 06-AUG-2013
- ;;3.0;IB ENCOUNTER FORM IMP/EXP;;AUG 06, 2013
+IBDEI002 ; ; 18-NOV-2013
+ ;;3.0;IB ENCOUNTER FORM IMP/EXP;;NOV 18, 2013
  Q:'DIFQR(358)  F I=1:2 S X=$T(Q+I) Q:X=""  S Y=$E($T(Q+I+1),4,999),X=$E(X,4,999) S:$A(Y)=126 I=I+1,Y=$E(Y,2,999)_$E($T(Q+I+1),5,99) S:$A(Y)=61 Y=$E(Y,2,999) X NO E  S @X=Y
 Q Q
  ;;^UTILITY(U,$J,358)
  ;;=^IBE(358,
  ;;^UTILITY(U,$J,358,0)
- ;;=IMP/EXP ENCOUNTER FORM^358I^53^53
+ ;;=IMP/EXP ENCOUNTER FORM^358I^61^61
  ;;^UTILITY(U,$J,358,1,0)
- ;;=NATIONAL ADDICTION FY13-Q4^1^National Addiction form July 2013^1^0^1^1^^133^80^3^1^^1^p^1^2.1
+ ;;=NATIONAL ADDICTION FY14-Q1^1^National Addiction form September 2013^1^0^1^1^^133^80^3^1^^1^p^1^2.1
  ;;^UTILITY(U,$J,358,1,2,0)
  ;;=^358.02I^2^2
  ;;^UTILITY(U,$J,358,1,2,1,0)
@@ -15,11 +15,25 @@ Q Q
  ;;^UTILITY(U,$J,358,1,2,2,0)
  ;;=2^1
  ;;^UTILITY(U,$J,358,2,0)
- ;;=NATIONAL ADHC FY13-Q4^2^National Adult Day Health Care July 2013^1^0^1^1^^133^80^1^1^^1^p^1^3
+ ;;=NATIONAL ADHC FY14-Q1^2^National Adult Day Health Care October 2013^1^0^1^1^^133^80^1^1^^1^p^1^3
  ;;^UTILITY(U,$J,358,3,0)
- ;;=NATIONAL ANESTHESIA FY13-Q4^0^National Anesthesia July 2013^1^0^1^1^^133^80^2^1^^1^p^1^2.1
+ ;;=NATIONAL ALLERGY FY14-Q1^1^National Allergy Clinic October 2013^1^0^1^1^^133^80^2^1^^1^p^1^2.1
+ ;;^UTILITY(U,$J,358,3,2,0)
+ ;;=^358.02I^6^6
+ ;;^UTILITY(U,$J,358,3,2,1,0)
+ ;;=1^1
+ ;;^UTILITY(U,$J,358,3,2,2,0)
+ ;;=2^1
+ ;;^UTILITY(U,$J,358,3,2,3,0)
+ ;;=3^1
+ ;;^UTILITY(U,$J,358,3,2,4,0)
+ ;;=2^1
+ ;;^UTILITY(U,$J,358,3,2,5,0)
+ ;;=4^1
+ ;;^UTILITY(U,$J,358,3,2,6,0)
+ ;;=5^1
  ;;^UTILITY(U,$J,358,4,0)
- ;;=NATIONAL AUDIO FY13-Q4^1^National Audiology July 2013^1^0^1^1^^133^80^3^1^^1^p^1
+ ;;=NATIONAL AUDIO FY14-Q1^1^National Audiology October 2013^1^0^1^1^^133^80^3^1^^1^p^1
  ;;^UTILITY(U,$J,358,4,2,0)
  ;;=^358.02I^3^3
  ;;^UTILITY(U,$J,358,4,2,1,0)
@@ -29,37 +43,33 @@ Q Q
  ;;^UTILITY(U,$J,358,4,2,3,0)
  ;;=3^1
  ;;^UTILITY(U,$J,358,5,0)
- ;;=NATIONAL BLIND REHAB FY13-Q4^0^National Blind Rehab Service Encounter form-Updated July 2013^1^0^0^1^^133^80^2^1^^1^p^1
+ ;;=NATIONAL BLIND REHAB FY14-Q1^0^National Blind Rehab Service Encounter form-Updated October 2013^1^0^0^1^^133^80^2^1^^1^p^1
  ;;^UTILITY(U,$J,358,5,2,0)
  ;;=^358.02I^1^1
  ;;^UTILITY(U,$J,358,5,2,1,0)
  ;;=1^1
  ;;^UTILITY(U,$J,358,6,0)
- ;;=NATIONAL CARD CATH FY13-Q4^1^National Cardiac Cath/Interventional Rad July 2013^1^0^1^1^^133^80^4^1^^1^p^1^3
+ ;;=NATIONAL CARD CATH FY14-Q1^1^National Cardiac Cath/Interventional Rad November 2013^1^0^1^1^^133^80^4^1^^1^p^1^3
  ;;^UTILITY(U,$J,358,7,0)
- ;;=NATIONAL CARDIOLOGY FY13-Q4^1^National Cardiology/EKG/Echo July 2013^1^0^1^1^^133^80^3^1^^1^p^1^3
+ ;;=NATIONAL CARDIOLOGY FY14-Q1^1^National Cardiology/EKG/Echo November 2013^1^0^1^1^^133^80^3^1^^1^p^1^3
  ;;^UTILITY(U,$J,358,8,0)
- ;;=NATIONAL CHEMO INFUSN FY13-Q4^0^National Chemotherapy Infusion July 2013^1^0^1^1^^133^80^4^1^^1^p^1^3
- ;;^UTILITY(U,$J,358,8,2,0)
- ;;=^358.02I^2^2
- ;;^UTILITY(U,$J,358,8,2,1,0)
- ;;=1^1
- ;;^UTILITY(U,$J,358,8,2,2,0)
- ;;=2^1
+ ;;=NATL CCHT SWS FY14-Q1^0^National CCHT Social Work Services August 2013^1^0^^1^^133^80^4^1^^1^p^1^3
  ;;^UTILITY(U,$J,358,9,0)
- ;;=NATIONAL CHIROPRACTIC FY13-Q4^2^National Chiropractic June 2013^1^0^1^1^^133^80^2^1^^1^p^1^3
+ ;;=NATIONAL CHEMO INFUSN FY14-Q1^0^National Chemotherapy Infusion October 2013^1^0^1^1^^133^80^4^1^^1^p^1^3
  ;;^UTILITY(U,$J,358,9,2,0)
- ;;=^358.02I^1^1
+ ;;=^358.02I^2^2
  ;;^UTILITY(U,$J,358,9,2,1,0)
  ;;=1^1
+ ;;^UTILITY(U,$J,358,9,2,2,0)
+ ;;=2^1
  ;;^UTILITY(U,$J,358,10,0)
- ;;=NATIONAL C&P FY13-Q4^2^NATIONAL COMPENSATION AND PENSION-July 2013^1^0^1^1^^133^80^1^1^^1^p^1^2.1
+ ;;=NATIONAL CHIROPRACTIC FY14-Q1^2^National Chiropractic October 2013^1^0^1^1^^133^80^2^1^^1^p^1^3
  ;;^UTILITY(U,$J,358,10,2,0)
  ;;=^358.02I^1^1
  ;;^UTILITY(U,$J,358,10,2,1,0)
  ;;=1^1
  ;;^UTILITY(U,$J,358,11,0)
- ;;=NATIONAL CRITICAL CARE FY13-Q4^1^National Critical Care Form July 2013^1^0^1^1^^133^80^8^1^^1^p^1^2.1
+ ;;=NATIONAL CRITICAL CARE FY14-Q1^1^National Critical Care Form October 2013^1^0^1^1^^133^80^8^1^^1^p^1^2.1
  ;;^UTILITY(U,$J,358,11,2,0)
  ;;=^358.02I^6^6
  ;;^UTILITY(U,$J,358,11,2,1,0)
@@ -75,115 +85,111 @@ Q Q
  ;;^UTILITY(U,$J,358,11,2,6,0)
  ;;=5^1
  ;;^UTILITY(U,$J,358,12,0)
- ;;=NATIONAL DERMATOLOGY FY13-Q4^0^National Derm Form-May 2013^1^0^^1^^133^80^6^1^^1^p^1^3
+ ;;=NATIONAL DAY SURGERY FY14-Q1^0^National Minor Procedures November 2013^1^0^1^1^^133^80^5^1^^1^p^1^2.1
+ ;;^UTILITY(U,$J,358,12,2,0)
+ ;;=^358.02I^1^1
+ ;;^UTILITY(U,$J,358,12,2,1,0)
+ ;;=3^1
  ;;^UTILITY(U,$J,358,13,0)
- ;;=NATIONAL DIABETES FY13-Q4^2^NATIONAL DIABETES-July 2013^1^0^1^1^^133^80^2^1^^1^p^1^3
- ;;^UTILITY(U,$J,358,13,2,0)
- ;;=^358.02I^2^2
- ;;^UTILITY(U,$J,358,13,2,1,0)
- ;;=1^1
- ;;^UTILITY(U,$J,358,13,2,2,0)
- ;;=2^1
+ ;;=NATIONAL DERMATOLOGY FY14-Q1^0^National Derm Form-October 2013^1^0^^1^^133^80^6^1^^1^p^1^3
  ;;^UTILITY(U,$J,358,14,0)
- ;;=NATIONAL EMP HEALTH FY13-Q4^1^National Employee Health July 2013^1^0^1^1^^133^80^2^1^^1^p^1^2.1
+ ;;=NATIONAL DIALYSIS FY14-Q1^2^National Dialysis November 2013^1^0^1^1^^133^80^3^1^^1^p^1^3
  ;;^UTILITY(U,$J,358,14,2,0)
- ;;=^358.02I^6^6
+ ;;=^358.02I^2^2
  ;;^UTILITY(U,$J,358,14,2,1,0)
  ;;=1^1
  ;;^UTILITY(U,$J,358,14,2,2,0)
  ;;=2^1
- ;;^UTILITY(U,$J,358,14,2,3,0)
- ;;=3^1
- ;;^UTILITY(U,$J,358,14,2,4,0)
- ;;=2^1
- ;;^UTILITY(U,$J,358,14,2,5,0)
- ;;=4^1
- ;;^UTILITY(U,$J,358,14,2,6,0)
- ;;=5^1
  ;;^UTILITY(U,$J,358,15,0)
- ;;=NATIONAL ENDOCRINOLOGY FY13-Q4^0^National Endocrinology July 2013^1^0^1^1^^133^80^1^1^^1^p^1^2.1
- ;;^UTILITY(U,$J,358,16,0)
- ;;=NATIONAL ED FY13-Q4^1^National Emergency Dept Form July 2013^1^0^1^1^^133^80^10^1^^1^p^1^2.1
- ;;^UTILITY(U,$J,358,16,2,0)
+ ;;=NATIONAL E-CONSULT FY14-Q1^1^National E-Consult Form September 2013^1^0^1^1^^133^80^9^1^^1^p^1^2.1
+ ;;^UTILITY(U,$J,358,15,2,0)
  ;;=^358.02I^6^6
+ ;;^UTILITY(U,$J,358,15,2,1,0)
+ ;;=1^1
+ ;;^UTILITY(U,$J,358,15,2,2,0)
+ ;;=2^1
+ ;;^UTILITY(U,$J,358,15,2,3,0)
+ ;;=3^1
+ ;;^UTILITY(U,$J,358,15,2,4,0)
+ ;;=2^1
+ ;;^UTILITY(U,$J,358,15,2,5,0)
+ ;;=4^1
+ ;;^UTILITY(U,$J,358,15,2,6,0)
+ ;;=5^1
+ ;;^UTILITY(U,$J,358,16,0)
+ ;;=NATIONAL ENT FY14-Q1^2^NATIONAL ENT-REVIEWED/REVISED September 2013^1^0^1^1^^133^80^3^1^^1^p^1^2.1
+ ;;^UTILITY(U,$J,358,16,2,0)
+ ;;=^358.02I^2^2
  ;;^UTILITY(U,$J,358,16,2,1,0)
  ;;=1^1
  ;;^UTILITY(U,$J,358,16,2,2,0)
  ;;=2^1
- ;;^UTILITY(U,$J,358,16,2,3,0)
- ;;=3^1
- ;;^UTILITY(U,$J,358,16,2,4,0)
- ;;=2^1
- ;;^UTILITY(U,$J,358,16,2,5,0)
- ;;=4^1
- ;;^UTILITY(U,$J,358,16,2,6,0)
- ;;=5^1
  ;;^UTILITY(U,$J,358,17,0)
- ;;=NATIONAL EYE FY13-Q4^1^National Eye May 2013^1^0^1^1^^133^80^7^1^^1^p^1^2.1
+ ;;=NATIONAL ECOE E&M FY14-Q1^2^NATIONAL EPILEPSY CENTER OF EXCELLENCE OFFICE VISITS October 2013^1^0^0^1^^133^80^2^1^^1^p^1^2.1
  ;;^UTILITY(U,$J,358,17,2,0)
- ;;=^358.02I^4^4
+ ;;=^358.02I^1^1
  ;;^UTILITY(U,$J,358,17,2,1,0)
  ;;=1^1
- ;;^UTILITY(U,$J,358,17,2,2,0)
- ;;=2^1
- ;;^UTILITY(U,$J,358,17,2,3,0)
- ;;=3^1
- ;;^UTILITY(U,$J,358,17,2,4,0)
- ;;=4^1
  ;;^UTILITY(U,$J,358,18,0)
- ;;=NATIONAL EYE TECH FY13-Q4^1^National Eye Technician May 2013^1^0^1^1^^133^80^6^1^^1^p^1^2.1
+ ;;=NATIONAL ECOE E-CON FY14-Q1^2^NATIONAL EPILEPSY CENTER OF EXCELLENCE E-CONSULTS September 2013^1^0^0^1^^133^80^1^1^^1^p^1^2.1
  ;;^UTILITY(U,$J,358,18,2,0)
- ;;=^358.02I^4^4
+ ;;=^358.02I^1^1
  ;;^UTILITY(U,$J,358,18,2,1,0)
  ;;=1^1
- ;;^UTILITY(U,$J,358,18,2,2,0)
- ;;=2^1
- ;;^UTILITY(U,$J,358,18,2,3,0)
- ;;=3^1
- ;;^UTILITY(U,$J,358,18,2,4,0)
- ;;=4^1
  ;;^UTILITY(U,$J,358,19,0)
- ;;=NATIONAL GERIATRICS FY13-Q4^2^National Geriatric Care August 2013^1^0^1^1^^133^80^2^1^^1^p^1^3
+ ;;=NATIONAL ECOE PROC FY14-Q1^2^NATIONAL EPILEPSY CENTER OF EXCELLENCE PROCEDURES September 2013^1^0^0^1^^133^80^2^1^^1^p^1^2.1
  ;;^UTILITY(U,$J,358,19,2,0)
- ;;=^358.02I^2^2
+ ;;=^358.02I^1^1
  ;;^UTILITY(U,$J,358,19,2,1,0)
  ;;=1^1
- ;;^UTILITY(U,$J,358,19,2,2,0)
- ;;=2^1
  ;;^UTILITY(U,$J,358,20,0)
- ;;=NATIONAL GI FY13-Q4^0^National GI form May 2013^1^0^^1^^133^80^2^1^^1^p^1^3
+ ;;=NATIONAL ECOE TELE FY14-Q1^2^NATIONAL EPILEPSY CENTER OF EXCELLENCE TELEPHONE September 2013^1^0^0^1^^133^80^1^1^^1^p^1^2.1
+ ;;^UTILITY(U,$J,358,20,2,0)
+ ;;=^358.02I^1^1
+ ;;^UTILITY(U,$J,358,20,2,1,0)
+ ;;=1^1
  ;;^UTILITY(U,$J,358,21,0)
- ;;=NATL HBPC CLIN FY13-Q4^1^National HBPC Clinician July 2013^1^0^1^1^^133^80^9^1^^1^p^1^2.1
+ ;;=NATIONAL ED FY14-Q1^1^National Emergency Dept Form October 2013^1^0^1^1^^133^80^10^1^^1^p^1^2.1
  ;;^UTILITY(U,$J,358,21,2,0)
- ;;=^358.02I^4^4
+ ;;=^358.02I^6^6
  ;;^UTILITY(U,$J,358,21,2,1,0)
  ;;=1^1
  ;;^UTILITY(U,$J,358,21,2,2,0)
  ;;=2^1
  ;;^UTILITY(U,$J,358,21,2,3,0)
- ;;=4^1
+ ;;=3^1
  ;;^UTILITY(U,$J,358,21,2,4,0)
+ ;;=2^1
+ ;;^UTILITY(U,$J,358,21,2,5,0)
  ;;=4^1
+ ;;^UTILITY(U,$J,358,21,2,6,0)
+ ;;=5^1
  ;;^UTILITY(U,$J,358,22,0)
- ;;=NATIONAL HBPC PT/OT FY13-Q4^2^National HBPC Rehab PT/OT July 2013^1^0^1^1^^133^80^2^1^^1^p^1^3
+ ;;=NATIONAL EYE FY14-Q1^1^National Eye August 2013^1^0^1^1^^133^80^7^1^^1^p^1^2.1
  ;;^UTILITY(U,$J,358,22,2,0)
- ;;=^358.02I^3^3
+ ;;=^358.02I^4^4
  ;;^UTILITY(U,$J,358,22,2,1,0)
  ;;=1^1
  ;;^UTILITY(U,$J,358,22,2,2,0)
  ;;=2^1
  ;;^UTILITY(U,$J,358,22,2,3,0)
  ;;=3^1
+ ;;^UTILITY(U,$J,358,22,2,4,0)
+ ;;=4^1
  ;;^UTILITY(U,$J,358,23,0)
- ;;=NATL HBPC PSYCHOLOGIST FY13-Q4^0^National HBPC Psychologist July 2013^1^0^1^1^^133^80^3^1^^1^p^1^3
+ ;;=NATIONAL EYE TECH FY14-Q1^1^National Eye Technician September 2013^1^0^1^1^^133^80^6^1^^1^p^1^2.1
  ;;^UTILITY(U,$J,358,23,2,0)
- ;;=^358.02I^2^2
+ ;;=^358.02I^4^4
  ;;^UTILITY(U,$J,358,23,2,1,0)
  ;;=1^1
  ;;^UTILITY(U,$J,358,23,2,2,0)
  ;;=2^1
+ ;;^UTILITY(U,$J,358,23,2,3,0)
+ ;;=3^1
+ ;;^UTILITY(U,$J,358,23,2,4,0)
+ ;;=4^1
  ;;^UTILITY(U,$J,358,24,0)
- ;;=NATIONAL HEMATOLOGY FY13-Q4^0^National Hematology May 2013^1^0^0^1^^133^80^3^1^^1^p^1^3
+ ;;=NATIONAL GERIATRICS FY14-Q1^2^National Geriatric Care August 2013^1^0^1^1^^133^80^2^1^^1^p^1^3
  ;;^UTILITY(U,$J,358,24,2,0)
  ;;=^358.02I^2^2
  ;;^UTILITY(U,$J,358,24,2,1,0)
@@ -191,138 +197,114 @@ Q Q
  ;;^UTILITY(U,$J,358,24,2,2,0)
  ;;=2^1
  ;;^UTILITY(U,$J,358,25,0)
- ;;=NATIONAL IR FY13-Q4^0^NATIONAL INTERVENTIONAL RADIOLOGY July 2013^1^0^1^1^^133^80^4^1^^1^p^1^2.1
+ ;;=NATIONAL GI FY14-Q1^0^National GI form September 2013^1^0^^1^^133^80^2^1^^1^p^1^3
  ;;^UTILITY(U,$J,358,26,0)
- ;;=NATL LOW VISION-OPTOM FY13-Q4^1^National Low Vision Optometry July 2013^1^0^1^1^^133^80^2^1^^1^p^1
+ ;;=NATL HBPC CLIN FY14-Q1^1^National HBPC Clinician September 2013^1^0^1^1^^133^80^8^1^^1^p^1^2.1
  ;;^UTILITY(U,$J,358,26,2,0)
- ;;=^358.02I^3^3
+ ;;=^358.02I^4^4
  ;;^UTILITY(U,$J,358,26,2,1,0)
  ;;=1^1
  ;;^UTILITY(U,$J,358,26,2,2,0)
- ;;=3^1
- ;;^UTILITY(U,$J,358,26,2,3,0)
  ;;=2^1
+ ;;^UTILITY(U,$J,358,26,2,3,0)
+ ;;=4^1
+ ;;^UTILITY(U,$J,358,26,2,4,0)
+ ;;=4^1
  ;;^UTILITY(U,$J,358,27,0)
- ;;=NATL MED FOSTER HOME FY13-Q4^1^National Medical Foster Home-July 2013^1^0^1^1^^133^80^9^1^^1^p^1^2.1
+ ;;=NATL HBPC NURSING FY14-Q1^1^NATIONAL HBPC NURSING OCTOBER 2013^1^0^1^1^^133^80^2^1^^1^p^1^2.1
  ;;^UTILITY(U,$J,358,27,2,0)
- ;;=^358.02I^6^6
+ ;;=^358.02I^4^4
  ;;^UTILITY(U,$J,358,27,2,1,0)
  ;;=1^1
  ;;^UTILITY(U,$J,358,27,2,2,0)
  ;;=2^1
  ;;^UTILITY(U,$J,358,27,2,3,0)
- ;;=3^1
- ;;^UTILITY(U,$J,358,27,2,4,0)
- ;;=2^1
- ;;^UTILITY(U,$J,358,27,2,5,0)
  ;;=4^1
- ;;^UTILITY(U,$J,358,27,2,6,0)
- ;;=5^1
+ ;;^UTILITY(U,$J,358,27,2,4,0)
+ ;;=4^1
  ;;^UTILITY(U,$J,358,28,0)
- ;;=NATIONAL MEDICINE FY13-Q4^1^National Medicine Form July 2013^1^0^1^1^^133^80^9^1^^1^p^1^2.1
+ ;;=NATL HBPC PT/OT FY14-Q1^2^National HBPC Rehab Therapy October 2013^1^0^1^1^^133^80^2^1^^1^p^1^3
  ;;^UTILITY(U,$J,358,28,2,0)
- ;;=^358.02I^6^6
+ ;;=^358.02I^3^3
  ;;^UTILITY(U,$J,358,28,2,1,0)
  ;;=1^1
  ;;^UTILITY(U,$J,358,28,2,2,0)
  ;;=2^1
  ;;^UTILITY(U,$J,358,28,2,3,0)
  ;;=3^1
- ;;^UTILITY(U,$J,358,28,2,4,0)
- ;;=2^1
- ;;^UTILITY(U,$J,358,28,2,5,0)
- ;;=4^1
- ;;^UTILITY(U,$J,358,28,2,6,0)
- ;;=5^1
  ;;^UTILITY(U,$J,358,29,0)
- ;;=NATL NURSING CLINIC FY13-Q4^1^National Nursing Clinic EEF-July 2013^1^0^1^1^^133^80^3^1^^1^p^1^2.1
+ ;;=NATL HBPC PSYCHOLOGIST FY14-Q1^0^National HBPC Psychologist September 2013^1^0^1^1^^133^80^3^1^^1^p^1^3
  ;;^UTILITY(U,$J,358,29,2,0)
- ;;=^358.02I^4^4
+ ;;=^358.02I^2^2
  ;;^UTILITY(U,$J,358,29,2,1,0)
  ;;=1^1
  ;;^UTILITY(U,$J,358,29,2,2,0)
  ;;=2^1
- ;;^UTILITY(U,$J,358,29,2,3,0)
- ;;=4^1
- ;;^UTILITY(U,$J,358,29,2,4,0)
- ;;=4^1
  ;;^UTILITY(U,$J,358,30,0)
- ;;=NATIONAL OB/GYN FY13-Q4^2^NATIONAL OB/GYN July 2013^1^0^1^1^^133^80^3^1^^1^p^1^3
+ ;;=NATIONAL HEPATOLOGY FY14-Q1^0^National Hepatology November 2013^1^0^^1^^133^80^3^1^^1^p^1^3
  ;;^UTILITY(U,$J,358,31,0)
- ;;=NATIONAL ONCOLOGY FY13-Q4^0^National Oncology July 2013^1^0^1^1^^133^80^4^1^^1^p^1^3
- ;;^UTILITY(U,$J,358,31,2,0)
- ;;=^358.02I^2^2
- ;;^UTILITY(U,$J,358,31,2,1,0)
- ;;=1^1
- ;;^UTILITY(U,$J,358,31,2,2,0)
- ;;=2^1
+ ;;=NATL HOSP/PALL INPT FY14-Q1^2^NATIONAL INPATIENT HOSPICE AND PALLIATIVE CARE November 2013^1^0^1^1^^133^80^2^1^^1^p^1^3
  ;;^UTILITY(U,$J,358,32,0)
- ;;=NATIONAL ORTHOPEDICS FY13-Q4^0^National Orthopedics May 2013^1^0^1^1^^133^80^5^1^^1^p^1^2.1
- ;;^UTILITY(U,$J,358,32,2,0)
- ;;=^358.02I^6^6
- ;;^UTILITY(U,$J,358,32,2,1,0)
- ;;=1^1
- ;;^UTILITY(U,$J,358,32,2,2,0)
- ;;=2^1
- ;;^UTILITY(U,$J,358,32,2,3,0)
- ;;=3^1
- ;;^UTILITY(U,$J,358,32,2,4,0)
- ;;=4^1
- ;;^UTILITY(U,$J,358,32,2,5,0)
- ;;=5^1
- ;;^UTILITY(U,$J,358,32,2,6,0)
- ;;=5^1
+ ;;=NATL HOSP/PALL OTPT FY14-Q1^2^NATIONAL HOSPICE AND PALLIATIVE CARE September 2013^1^0^1^1^^133^80^2^1^^1^p^1^3
  ;;^UTILITY(U,$J,358,33,0)
- ;;=NATIONAL PAIN FY13-Q4^0^National Pain July 2013^1^0^1^1^^133^80^2^1^^1^p^1^2.1
+ ;;=NATIONAL IR FY14-Q1^0^NATIONAL INTERVENTIONAL RADIOLOGY September 2013^1^0^1^1^^133^80^4^1^^1^p^1^2.1
  ;;^UTILITY(U,$J,358,34,0)
- ;;=NATL PHYSIATRIST INPT FY13-Q4^2^National Inpatient Rehab Physiatrist July 2013^1^0^1^1^^133^80^3^1^^1^p^1^3
+ ;;=NATL MED FOSTER HOME FY14-Q1^1^National Medical Foster Home-November 2013^1^0^1^1^^133^80^8^1^^1^p^1^2.1
  ;;^UTILITY(U,$J,358,34,2,0)
- ;;=^358.02I^3^3
+ ;;=^358.02I^6^6
  ;;^UTILITY(U,$J,358,34,2,1,0)
  ;;=1^1
  ;;^UTILITY(U,$J,358,34,2,2,0)
  ;;=2^1
  ;;^UTILITY(U,$J,358,34,2,3,0)
  ;;=3^1
+ ;;^UTILITY(U,$J,358,34,2,4,0)
+ ;;=2^1
+ ;;^UTILITY(U,$J,358,34,2,5,0)
+ ;;=4^1
+ ;;^UTILITY(U,$J,358,34,2,6,0)
+ ;;=5^1
  ;;^UTILITY(U,$J,358,35,0)
- ;;=NATL PHYSIATRIST OTPT FY13-Q4^2^National Rehab Physiatrist Outpatient July 2013^1^0^1^1^^133^80^3^1^^1^p^1^3
+ ;;=NATIONAL MEDICINE FY14-Q1^1^National Medicine Form October 2013^1^0^1^1^^133^80^9^1^^1^p^1^2.1
  ;;^UTILITY(U,$J,358,35,2,0)
- ;;=^358.02I^3^3
+ ;;=^358.02I^6^6
  ;;^UTILITY(U,$J,358,35,2,1,0)
  ;;=1^1
  ;;^UTILITY(U,$J,358,35,2,2,0)
  ;;=2^1
  ;;^UTILITY(U,$J,358,35,2,3,0)
  ;;=3^1
+ ;;^UTILITY(U,$J,358,35,2,4,0)
+ ;;=2^1
+ ;;^UTILITY(U,$J,358,35,2,5,0)
+ ;;=4^1
+ ;;^UTILITY(U,$J,358,35,2,6,0)
+ ;;=5^1
  ;;^UTILITY(U,$J,358,36,0)
- ;;=NATIONAL PLASTIC SURG FY13-Q4^2^National Plastic Surgery FY13-Q4^1^0^1^1^^133^80^2^1^^1^p^1^3
+ ;;=NATL MH PSYCHIATRIST FY14-Q1^0^National Mental Health Psychiatrist September 2013^1^0^1^1^^133^80^4^1^^1^p^1^3
+ ;;^UTILITY(U,$J,358,36,2,0)
+ ;;=^358.02I^2^2
+ ;;^UTILITY(U,$J,358,36,2,1,0)
+ ;;=1^1
+ ;;^UTILITY(U,$J,358,36,2,2,0)
+ ;;=2^1
  ;;^UTILITY(U,$J,358,37,0)
- ;;=NATIONAL POD NAIL NURS FY13-Q4^0^National Podiatry Nail Clinic Nursing July 2013^1^0^1^1^^133^80^1^1^^1^p^1^3
+ ;;=NATL MH PSYCHOLOGIST FY14-Q1^0^National Mental Health Psychologist September 2013^1^0^1^1^^133^80^3^1^^1^p^1^3
  ;;^UTILITY(U,$J,358,37,2,0)
- ;;=^358.02I^6^6
+ ;;=^358.02I^2^2
  ;;^UTILITY(U,$J,358,37,2,1,0)
  ;;=1^1
  ;;^UTILITY(U,$J,358,37,2,2,0)
  ;;=2^1
- ;;^UTILITY(U,$J,358,37,2,3,0)
- ;;=3^1
- ;;^UTILITY(U,$J,358,37,2,4,0)
- ;;=4^1
- ;;^UTILITY(U,$J,358,37,2,5,0)
- ;;=5^1
- ;;^UTILITY(U,$J,358,37,2,6,0)
- ;;=6^1
  ;;^UTILITY(U,$J,358,38,0)
- ;;=NATIONAL PODIATRY FY13-Q4^0^National Podiatry July 2013^1^0^1^1^^133^80^5^1^^1^p^1^3
+ ;;=NATIONAL MH MHICM FY14-Q1^1^National MH Intensive Program September 2013^1^0^1^1^^133^80^4^1^^1^p^1^3
  ;;^UTILITY(U,$J,358,38,2,0)
- ;;=^358.02I^6^6
+ ;;=^358.02I^3^3
  ;;^UTILITY(U,$J,358,38,2,1,0)
  ;;=1^1
  ;;^UTILITY(U,$J,358,38,2,2,0)
  ;;=2^1
  ;;^UTILITY(U,$J,358,38,2,3,0)
  ;;=3^1
- ;;^UTILITY(U,$J,358,38,2,4,0)
- ;;=4^1
- ;;^UTILITY(U,$J,358,38,2,5,0)
- ;;=5^1
+ ;;^UTILITY(U,$J,358,39,0)
+ ;;=NATIONAL MH NURSE FY14-Q1^0^National Mental Health Nurse October 2013^1^0^1^1^^133^80^3^1^^1^p^1^3

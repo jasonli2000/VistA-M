@@ -1,15 +1,18 @@
-FBCH78 ;AISC/DMK - SETS UP 7078/AUTHORIZATION FOR CONTRACT HOSPITAL ;7/14/2009
- ;;3.5;FEE BASIS;**43,103,108**;JAN 30, 1995;Build 115
+FBCH78 ;AISC/DMK-SETS UP 7078/AUTHORIZATION FOR CONTRACT HOSPITAL ;08/07/02
+ ;;3.5;FEE BASIS;**43,103,108,146**;JAN 30, 1995;Build 57
  ;;Per VHA Directive 2004-038, this routine should not be modified.
  S DIC("S")="I $P(^(0),U,15)=3&($P(^(0),U,12)=""Y"")" D ASKV^FBCHREQ G END:$E(X)="^"!($E(X)="")!('$D(FBDA))
  I $P(^FBAA(162.2,FBDA,0),"^",17)]"" W !!,*7,"There already is a 7078 set up for this request.",!,"The number is ",$P(^FB7078($P(^FBAA(162.2,FBDA,0),"^",17),0),"^")," .",! G END
 EN S FBVEN=$P(^FBAA(162.2,FBDA,0),"^",2)_";FBAAV(",FBVET=$P(^(0),"^",4),FBFRDT=$P(^(0),"^",5),FBFRDT=FBFRDT\1,FBDOA=$S($P(^(0),"^",19):$P(^(0),"^",19)\1,1:""),FBDXS=$P(^(0),"^",6)
  ;FB*3.5*103 ;added FBRP
  S FBRP=$P($G(^FBAA(162.2,FBDA,2)),"^") K DA
- W !! S %DT="APEX",%DT("A")="AUTHORIZATION TO DATE: " D ^%DT K %DT G END:X="^" S FBTODT=$S(X="":"",1:Y)
+ D NBCHK
+ I NEWB=1 W !! S %DT="APEX",%DT("A")="AUTHORIZATION TO DATE: ",%DT("B")=$$DATX^FBAAUTL(FBDOB7) S DOB7=%DT("B") D ^%DT K %DT G END:X="^" S FBTODT=$S(X="":"",1:Y) D DTCHK1 I DTFG=1 G EN
+ I NEWB'=1 W !! S %DT="APEX",%DT("A")="AUTHORIZATION TO DATE: " D ^%DT K %DT G END:X="^" S FBTODT=$S(X="":"",1:Y)
  I FBTODT]"",FBFRDT>FBTODT W !!,*7,?5,"Authorization To Date must be after Authorization From Date!",! G EN
  W !! S %DT="APEX",%DT("A")="DATE OF DISCHARGE: ",%DT("B")=$$DATX^FBAAUTL(FBTODT) D ^%DT K %DT G END:X="^" S FBDOD=$S(X="":"",1:Y)
- I FBDOD]"",FBTODT>FBDOD W !!,*7,?5,"Date of Discharge must not be earlier than the Authorization To Date!",! G EN
+ I NEWB'=1 I FBDOD]"",FBTODT>FBDOD W !!,*7,?5,"Date of Discharge must not be earlier than the Authorization To Date!",! G EN
+ I FBDOD]"",FBDOB>FBDOD W !!,*7,?5,"Date of Discharge must not be earlier than the Date of Birth!",! G EN
  S DIR(0)="162.4,5",DIR("A")="ADMITTING AUTHORITY" D ^DIR K DIR
  G END:$D(DIRUT) S FBADMIT=+Y
  S DIR(0)="162.4,6" D ^DIR K DIR
@@ -69,7 +72,7 @@ SHOW W !! S DA=FBAA78,DR="0;1",DIC="^FB7078(" D EN^DIQ
  ;
  ;FB*3.5*103 ;added FBRP
 END K D,DA,DIC,DIE,DIR,DLAYGO,DR,FBDA,FB7078,FBAA78,FBPT,FBTYPE,FBVEN,FBZ,FBVET,FBFRDT,FBTODT,J,S,POP,X,Y,DFN,FBCHOB,FBCOMM,FBDFN,FBEST,FBI,FBLENT,FBMENT,FBNAME,FBSEQ,FBSSN,FBSW,I,K,PRC,VAL,FB,FBFLG,ZZ,FBPSA,FBSITE,FB78,FBOUT
- K FBDCHG,FBPUR,FBPDIS,FBADMIT,FBDXS,A,D0,D1,X1,DIRUT,DTOUT,DUOUT,FBDOA,FBDOD,FBPOP,FBZZ,ZZZ,PRCSCPAN,FBRP,FBCNTRA,PRCS
+ K FBDCHG,FBPUR,FBPDIS,FBADMIT,FBDXS,A,D0,D1,X1,DIRUT,DTOUT,DUOUT,FBDOA,FBDOD,FBPOP,FBZZ,ZZZ,PRCSCPAN,FBRP,FBCNTRA,PRCS,FBDOB,FBDOB7
  Q
 PROB W !!,"The reference number did not get set up with the",!,"IFCAP software. Contact your package coordinator." G END
 NOGOOD S DIR(0)="Y",DIR("A")="Obligation number selected is invalid or you are not a control point user in the IFCAP package!  Try again",DIR("B")="YES" D ^DIR K DIR G END:$D(DIRUT)!'Y,7078
@@ -115,6 +118,21 @@ REFNPI(IEN200,IEN162P4,CHKAUTH) ;FB*3.5*103
  I +NPI<1!($P(NPI,U,3)="Inactive") Q ""
  Q +NPI
  ;
+NBCHK ;Newborn Enhancement check FB*3.5*146
+ N DOB,NOW
+ S NEWB=0,FBDOB7=0,FBDOB=0
+ S DOB=$P(^DPT(FBDFN,0),"^",3)
+ D NOW^%DTC S NOW=X
+ I $$FMDIFF^XLFDT(NOW,DOB,1)>365 Q 
+ S FBDOB=$$F2H^XLFDT(DOB),FBDOB=$$H2F^XLFDT(FBDOB)
+ S NEWB=1,FBDOB7=$$F2H^XLFDT(DOB)+7,FBDOB7=$$H2F^XLFDT(FBDOB7) Q
+ Q
+ ; 
+DTCHK1 ;
+ S DTFG=0
+ I FBTODT]"",FBTODT>FBDOB7 W !!,*7,?5,"Patient is a newborn. Authorization To Date must not be more than 7 days after the Date of Birth",! S DTFG=1 Q
+ I FBTODT]"",FBTODT<FBDOB W !!,*7,?5,"Patient is a newborn. Authorization To Date must not be before the Date of Birth",! S DTFG=1 Q
+ Q
 DEL S DA=FBAA78,DIK="^FB7078(" D ^DIK K DIK S DA=$O(^FBAA(162.2,"AM",+FBAA78,0)) I DA S DIE="^FBAA(162.2,",DR="16///@" D ^DIE
  Q
 CN7078(FBDA) ; VA FORM 10-7078 Contract

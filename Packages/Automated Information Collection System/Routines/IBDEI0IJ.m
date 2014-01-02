@@ -1,132 +1,380 @@
-IBDEI0IJ ; ; 20-FEB-2013
- ;;3.0;IB ENCOUNTER FORM IMP/EXP;;FEB 20, 2013
- Q:'DIFQ(358.6)  F I=1:2 S X=$T(Q+I) Q:X=""  S Y=$E($T(Q+I+1),4,999),X=$E(X,4,999) S:$A(Y)=126 I=I+1,Y=$E(Y,2,999)_$E($T(Q+I+1),5,99) S:$A(Y)=61 Y=$E(Y,2,999) X NO E  S @X=Y
+IBDEI0IJ ; ; 18-NOV-2013
+ ;;3.0;IB ENCOUNTER FORM IMP/EXP;;NOV 18, 2013
+ Q:'DIFQR(358.3)  F I=1:2 S X=$T(Q+I) Q:X=""  S Y=$E($T(Q+I+1),4,999),X=$E(X,4,999) S:$A(Y)=126 I=I+1,Y=$E(Y,2,999)_$E($T(Q+I+1),5,99) S:$A(Y)=61 Y=$E(Y,2,999) X NO E  S @X=Y
 Q Q
- ;;^DIC(358.6,0,"GL")
- ;;=^IBE(358.6,
- ;;^DIC("B","IMP/EXP PACKAGE INTERFACE",358.6)
- ;;=
- ;;^DIC(358.6,"%D",0)
- ;;=^^1^1^2950927^^^^
- ;;^DIC(358.6,"%D",1,0)
- ;;=This file is used as a workspace by the import/export utility.
- ;;^DIC(358.6,"%D",2,0)
- ;;=Import/Export Utility as a temporary staging area for data from that file
- ;;^DIC(358.6,"%D",3,0)
- ;;=that is being imported or exported.
- ;;^DIC(358.6,"%D",4,0)
- ;;= 
- ;;^DIC(358.6,"%D",5,0)
- ;;=This file contains a description of all of the interfaces with other packages.
- ;;^DIC(358.6,"%D",6,0)
- ;;=The form will invoke the proper interface routines by doing a lookup on
- ;;^DIC(358.6,"%D",7,0)
- ;;=this file and then invoking the routine by indirection. The INPUT VARIABLE
- ;;^DIC(358.6,"%D",8,0)
- ;;=fields are for documentation purposes and to verify that the proper
- ;;^DIC(358.6,"%D",9,0)
- ;;=variables are defined. Data will be exchanged between the encounter form
- ;;^DIC(358.6,"%D",10,0)
- ;;=utilities and other packages by putting the data in a predefined location.
- ;;^DIC(358.6,"%D",11,0)
- ;;=The first part of the subscript is always be ^TMP("IB",$J,"INTERFACES".
- ;;^DIC(358.6,"%D",12,0)
- ;;=For output routines, but not selection routines, the fourth subscript is
- ;;^DIC(358.6,"%D",13,0)
- ;;=be the patient DFN. The next subscript is the name of the Package
- ;;^DIC(358.6,"%D",14,0)
- ;;=Interface. For single valued data and record valued data there is no
- ;;^DIC(358.6,"%D",15,0)
- ;;=additional subscript. For interfaces returning a list there is one
- ;;^DIC(358.6,"%D",16,0)
- ;;=additional subscript level, the number of the item on the list. For
- ;;^DIC(358.6,"%D",17,0)
- ;;=word processing type data the data will be in FM word-processing format,
- ;;^DIC(358.6,"%D",18,0)
- ;;=i.e., the final subscripts will be ...1,0),...2,0),...3,0), etc.
- ;;^DIC(358.6,"%D",19,0)
- ;;=these items of data can have its own entry in the Package Interface file,
- ;;^DIC(358.6,"%D",20,0)
- ;;=but by using the same entry point there is a savings because all of the
- ;;^DIC(358.6,"%D",21,0)
- ;;=data on that node can be obtained at once. The routines that invoke the
- ;;^DIC(358.6,"%D",22,0)
- ;;=entry point keep track of the entry points already invoked so they are
- ;;^DIC(358.6,"%D",23,0)
- ;;=not repeated.
- ;;^DD(358.6,0)
- ;;=FIELD^^21^76
- ;;^DD(358.6,0,"DDA")
- ;;=N
- ;;^DD(358.6,0,"DT")
- ;;=3000124
- ;;^DD(358.6,0,"ID",.06)
- ;;=W ""
- ;;^DD(358.6,0,"ID","WRITE")
- ;;=N IBDWNAM S IBDWNAM=$E($P(^(0),U),1,40) D EN^DDIOL(IBDWNAM,"","!?0")
- ;;^DD(358.6,0,"ID","WRITE1")
- ;;=N IBDWTYPE S IBDWTYPE=$S($P(^(0),"^",6)=1:"INPUT",$P(^(0),"^",6)=2:"OUTPUT",$P(^(0),"^",6)=3:"SELECTION",1:"REPORT")_$S($P(^(0),U,6)=3&'$P(^(0),"^",13):"  ** NOT SCANNABLE **",1:"") D EN^DDIOL("TYPE="_IBDWTYPE,"","?45")
- ;;^DD(358.6,0,"IX","B",358.6,.01)
- ;;=
- ;;^DD(358.6,0,"IX","C",358.6,.04)
- ;;=
- ;;^DD(358.6,0,"IX","D",358.6,3)
- ;;=
- ;;^DD(358.6,0,"IX","E",358.6,.01)
- ;;=
- ;;^DD(358.6,0,"NM","IMP/EXP PACKAGE INTERFACE")
- ;;=
- ;;^DD(358.6,0,"PT",358.2,.11)
- ;;=
- ;;^DD(358.6,0,"PT",358.5,.03)
- ;;=
- ;;^DD(358.6,0,"PT",358.6,.13)
- ;;=
- ;;^DD(358.6,0,"PT",358.93,.06)
- ;;=
- ;;^DD(358.6,0,"VRPK")
- ;;=IBD
- ;;^DD(358.6,.01,0)
- ;;=NAME^RF^^0;1^K:X[""""!($A(X)=45) X I $D(X) K:$L(X)>40!($L(X)<3)!'(X'?1P.E) X
- ;;^DD(358.6,.01,1,0)
- ;;=^.1
- ;;^DD(358.6,.01,1,1,0)
- ;;=358.6^B
- ;;^DD(358.6,.01,1,1,1)
- ;;=S ^IBE(358.6,"B",$E(X,1,30),DA)=""
- ;;^DD(358.6,.01,1,1,2)
- ;;=K ^IBE(358.6,"B",$E(X,1,30),DA)
- ;;^DD(358.6,.01,1,2,0)
- ;;=358.6^E^MUMPS
- ;;^DD(358.6,.01,1,2,1)
- ;;=S ^IBE(358.6,"E",$E(X,$F(X," "),40),DA)=""
- ;;^DD(358.6,.01,1,2,2)
- ;;=K ^IBE(358.6,"E",$E(X,$F(X," "),40),DA)
- ;;^DD(358.6,.01,1,2,"%D",0)
- ;;=^^4^4^2940224^
- ;;^DD(358.6,.01,1,2,"%D",1,0)
- ;;= 
- ;;^DD(358.6,.01,1,2,"%D",2,0)
- ;;=For package interfaces that are output routines the name has the custodial
- ;;^DD(358.6,.01,1,2,"%D",3,0)
- ;;=package's name space as a prefix. This cross-reference removes that
- ;;^DD(358.6,.01,1,2,"%D",4,0)
- ;;=prefix. It is used to improve the display of output routines for the user.
- ;;^DD(358.6,.01,1,2,"DT")
- ;;=2930409
- ;;^DD(358.6,.01,3)
- ;;=Answer must be 3-40 characters in length. All entries with Action Type other than PRINT REPORT must be be prefixed with the namespace of the package that is responsible for the data.
- ;;^DD(358.6,.01,21,0)
- ;;=^^3^3^2950412^^^^
- ;;^DD(358.6,.01,21,1,0)
- ;;= 
- ;;^DD(358.6,.01,21,2,0)
- ;;=The name of the Package Interface. For interfaces returning data the name
- ;;^DD(358.6,.01,21,3,0)
- ;;=should be preceded with the namespace of the package.
- ;;^DD(358.6,.01,23,0)
- ;;=^^1^1^2950412^
- ;;^DD(358.6,.01,23,1,0)
- ;;= 
- ;;^DD(358.6,.01,"DT")
- ;;=2930409
+ ;;^UTILITY(U,$J,358.3,24935,0)
+ ;;=216.2^^161^1472^2
+ ;;^UTILITY(U,$J,358.3,24935,1,0)
+ ;;=^358.31IA^5^2
+ ;;^UTILITY(U,$J,358.3,24935,1,2,0)
+ ;;=2^216.2
+ ;;^UTILITY(U,$J,358.3,24935,1,5,0)
+ ;;=5^Benign Neo Skin Ear
+ ;;^UTILITY(U,$J,358.3,24935,2)
+ ;;=^267631
+ ;;^UTILITY(U,$J,358.3,24936,0)
+ ;;=216.1^^161^1472^3
+ ;;^UTILITY(U,$J,358.3,24936,1,0)
+ ;;=^358.31IA^5^2
+ ;;^UTILITY(U,$J,358.3,24936,1,2,0)
+ ;;=2^216.1
+ ;;^UTILITY(U,$J,358.3,24936,1,5,0)
+ ;;=5^Benign Neo Skin Eyelid
+ ;;^UTILITY(U,$J,358.3,24936,2)
+ ;;=^267630
+ ;;^UTILITY(U,$J,358.3,24937,0)
+ ;;=216.3^^161^1472^8
+ ;;^UTILITY(U,$J,358.3,24937,1,0)
+ ;;=^358.31IA^5^2
+ ;;^UTILITY(U,$J,358.3,24937,1,2,0)
+ ;;=2^216.3
+ ;;^UTILITY(U,$J,358.3,24937,1,5,0)
+ ;;=5^Benign Neo Skin Temple
+ ;;^UTILITY(U,$J,358.3,24937,2)
+ ;;=^267632
+ ;;^UTILITY(U,$J,358.3,24938,0)
+ ;;=216.7^^161^1472^4
+ ;;^UTILITY(U,$J,358.3,24938,1,0)
+ ;;=^358.31IA^5^2
+ ;;^UTILITY(U,$J,358.3,24938,1,2,0)
+ ;;=2^216.7
+ ;;^UTILITY(U,$J,358.3,24938,1,5,0)
+ ;;=5^Benign Neo Skin Leg
+ ;;^UTILITY(U,$J,358.3,24938,2)
+ ;;=^267636
+ ;;^UTILITY(U,$J,358.3,24939,0)
+ ;;=216.0^^161^1472^5
+ ;;^UTILITY(U,$J,358.3,24939,1,0)
+ ;;=^358.31IA^5^2
+ ;;^UTILITY(U,$J,358.3,24939,1,2,0)
+ ;;=2^216.0
+ ;;^UTILITY(U,$J,358.3,24939,1,5,0)
+ ;;=5^Benign Neo Skin Lip
+ ;;^UTILITY(U,$J,358.3,24939,2)
+ ;;=^267629
+ ;;^UTILITY(U,$J,358.3,24940,0)
+ ;;=216.4^^161^1472^6
+ ;;^UTILITY(U,$J,358.3,24940,1,0)
+ ;;=^358.31IA^5^2
+ ;;^UTILITY(U,$J,358.3,24940,1,2,0)
+ ;;=2^216.4
+ ;;^UTILITY(U,$J,358.3,24940,1,5,0)
+ ;;=5^Benign Neo Skin Scalp
+ ;;^UTILITY(U,$J,358.3,24940,2)
+ ;;=^267633
+ ;;^UTILITY(U,$J,358.3,24941,0)
+ ;;=216.8^^161^1472^7
+ ;;^UTILITY(U,$J,358.3,24941,1,0)
+ ;;=^358.31IA^5^2
+ ;;^UTILITY(U,$J,358.3,24941,1,2,0)
+ ;;=2^216.8
+ ;;^UTILITY(U,$J,358.3,24941,1,5,0)
+ ;;=5^Benign Neo Skin Specified Site, Not Listed
+ ;;^UTILITY(U,$J,358.3,24941,2)
+ ;;=^267637
+ ;;^UTILITY(U,$J,358.3,24942,0)
+ ;;=232.6^^161^1473^3
+ ;;^UTILITY(U,$J,358.3,24942,1,0)
+ ;;=^358.31IA^5^2
+ ;;^UTILITY(U,$J,358.3,24942,1,2,0)
+ ;;=2^232.6
+ ;;^UTILITY(U,$J,358.3,24942,1,5,0)
+ ;;=5^Ca In Situ Skin Arm
+ ;;^UTILITY(U,$J,358.3,24942,2)
+ ;;=^267731
+ ;;^UTILITY(U,$J,358.3,24943,0)
+ ;;=232.5^^161^1473^8
+ ;;^UTILITY(U,$J,358.3,24943,1,0)
+ ;;=^358.31IA^5^2
+ ;;^UTILITY(U,$J,358.3,24943,1,2,0)
+ ;;=2^232.5
+ ;;^UTILITY(U,$J,358.3,24943,1,5,0)
+ ;;=5^Ca In Situ Skin Trunk
+ ;;^UTILITY(U,$J,358.3,24943,2)
+ ;;=^267730
+ ;;^UTILITY(U,$J,358.3,24944,0)
+ ;;=232.2^^161^1473^4
+ ;;^UTILITY(U,$J,358.3,24944,1,0)
+ ;;=^358.31IA^5^2
+ ;;^UTILITY(U,$J,358.3,24944,1,2,0)
+ ;;=2^232.2
+ ;;^UTILITY(U,$J,358.3,24944,1,5,0)
+ ;;=5^Ca In Situ Skin Ear
+ ;;^UTILITY(U,$J,358.3,24944,2)
+ ;;=^267727
+ ;;^UTILITY(U,$J,358.3,24945,0)
+ ;;=232.1^^161^1473^1
+ ;;^UTILITY(U,$J,358.3,24945,1,0)
+ ;;=^358.31IA^5^2
+ ;;^UTILITY(U,$J,358.3,24945,1,2,0)
+ ;;=2^232.1
+ ;;^UTILITY(U,$J,358.3,24945,1,5,0)
+ ;;=5^Ca In Situ Eyelid
+ ;;^UTILITY(U,$J,358.3,24945,2)
+ ;;=^267726
+ ;;^UTILITY(U,$J,358.3,24946,0)
+ ;;=232.3^^161^1473^7
+ ;;^UTILITY(U,$J,358.3,24946,1,0)
+ ;;=^358.31IA^5^2
+ ;;^UTILITY(U,$J,358.3,24946,1,2,0)
+ ;;=2^232.3
+ ;;^UTILITY(U,$J,358.3,24946,1,5,0)
+ ;;=5^Ca In Situ Skin Temple
+ ;;^UTILITY(U,$J,358.3,24946,2)
+ ;;=^267728
+ ;;^UTILITY(U,$J,358.3,24947,0)
+ ;;=232.7^^161^1473^5
+ ;;^UTILITY(U,$J,358.3,24947,1,0)
+ ;;=^358.31IA^5^2
+ ;;^UTILITY(U,$J,358.3,24947,1,2,0)
+ ;;=2^232.7
+ ;;^UTILITY(U,$J,358.3,24947,1,5,0)
+ ;;=5^Ca In Situ Skin Leg
+ ;;^UTILITY(U,$J,358.3,24947,2)
+ ;;=^267732
+ ;;^UTILITY(U,$J,358.3,24948,0)
+ ;;=232.0^^161^1473^6
+ ;;^UTILITY(U,$J,358.3,24948,1,0)
+ ;;=^358.31IA^5^2
+ ;;^UTILITY(U,$J,358.3,24948,1,2,0)
+ ;;=2^232.0
+ ;;^UTILITY(U,$J,358.3,24948,1,5,0)
+ ;;=5^Ca In Situ Skin Lip
+ ;;^UTILITY(U,$J,358.3,24948,2)
+ ;;=^267725
+ ;;^UTILITY(U,$J,358.3,24949,0)
+ ;;=232.4^^161^1473^2
+ ;;^UTILITY(U,$J,358.3,24949,1,0)
+ ;;=^358.31IA^5^2
+ ;;^UTILITY(U,$J,358.3,24949,1,2,0)
+ ;;=2^232.4
+ ;;^UTILITY(U,$J,358.3,24949,1,5,0)
+ ;;=5^Ca In Situ Scalp
+ ;;^UTILITY(U,$J,358.3,24949,2)
+ ;;=^267729
+ ;;^UTILITY(U,$J,358.3,24950,0)
+ ;;=232.8^^161^1473^9
+ ;;^UTILITY(U,$J,358.3,24950,1,0)
+ ;;=^358.31IA^5^2
+ ;;^UTILITY(U,$J,358.3,24950,1,2,0)
+ ;;=2^232.8
+ ;;^UTILITY(U,$J,358.3,24950,1,5,0)
+ ;;=5^Ca In Situ Skin,Specified Site, Not Listed
+ ;;^UTILITY(U,$J,358.3,24950,2)
+ ;;=^267733
+ ;;^UTILITY(U,$J,358.3,24951,0)
+ ;;=198.2^^161^1474^1
+ ;;^UTILITY(U,$J,358.3,24951,1,0)
+ ;;=^358.31IA^5^2
+ ;;^UTILITY(U,$J,358.3,24951,1,2,0)
+ ;;=2^198.2
+ ;;^UTILITY(U,$J,358.3,24951,1,5,0)
+ ;;=5^Secondary Skin Cancer
+ ;;^UTILITY(U,$J,358.3,24951,2)
+ ;;=^267333
+ ;;^UTILITY(U,$J,358.3,24952,0)
+ ;;=238.2^^161^1474^3
+ ;;^UTILITY(U,$J,358.3,24952,1,0)
+ ;;=^358.31IA^5^2
+ ;;^UTILITY(U,$J,358.3,24952,1,2,0)
+ ;;=2^238.2
+ ;;^UTILITY(U,$J,358.3,24952,1,5,0)
+ ;;=5^Uncertain Behavior Neo Skin
+ ;;^UTILITY(U,$J,358.3,24952,2)
+ ;;=^267777
+ ;;^UTILITY(U,$J,358.3,24953,0)
+ ;;=239.2^^161^1474^4
+ ;;^UTILITY(U,$J,358.3,24953,1,0)
+ ;;=^358.31IA^5^2
+ ;;^UTILITY(U,$J,358.3,24953,1,2,0)
+ ;;=2^239.2
+ ;;^UTILITY(U,$J,358.3,24953,1,5,0)
+ ;;=5^Unspecified Neoplasm
+ ;;^UTILITY(U,$J,358.3,24953,2)
+ ;;=^267783
+ ;;^UTILITY(U,$J,358.3,24954,0)
+ ;;=V76.43^^161^1474^2
+ ;;^UTILITY(U,$J,358.3,24954,1,0)
+ ;;=^358.31IA^5^2
+ ;;^UTILITY(U,$J,358.3,24954,1,2,0)
+ ;;=2^V76.43
+ ;;^UTILITY(U,$J,358.3,24954,1,5,0)
+ ;;=5^Screening for malignant neoplasm
+ ;;^UTILITY(U,$J,358.3,24954,2)
+ ;;=^295657
+ ;;^UTILITY(U,$J,358.3,24955,0)
+ ;;=691.8^^161^1475^1
+ ;;^UTILITY(U,$J,358.3,24955,1,0)
+ ;;=^358.31IA^5^2
+ ;;^UTILITY(U,$J,358.3,24955,1,2,0)
+ ;;=2^691.8
+ ;;^UTILITY(U,$J,358.3,24955,1,5,0)
+ ;;=5^Prurigo Nodularis
+ ;;^UTILITY(U,$J,358.3,24955,2)
+ ;;=^87342
+ ;;^UTILITY(U,$J,358.3,24956,0)
+ ;;=698.4^^161^1475^5
+ ;;^UTILITY(U,$J,358.3,24956,1,0)
+ ;;=^358.31IA^5^2
+ ;;^UTILITY(U,$J,358.3,24956,1,2,0)
+ ;;=2^698.4
+ ;;^UTILITY(U,$J,358.3,24956,1,5,0)
+ ;;=5^Prurigo Nodularis
+ ;;^UTILITY(U,$J,358.3,24956,2)
+ ;;=^186786
+ ;;^UTILITY(U,$J,358.3,24957,0)
+ ;;=698.3^^161^1475^3
+ ;;^UTILITY(U,$J,358.3,24957,1,0)
+ ;;=^358.31IA^5^2
+ ;;^UTILITY(U,$J,358.3,24957,1,2,0)
+ ;;=2^698.3
+ ;;^UTILITY(U,$J,358.3,24957,1,5,0)
+ ;;=5^Neurodermatitis
+ ;;^UTILITY(U,$J,358.3,24957,2)
+ ;;=^70705
+ ;;^UTILITY(U,$J,358.3,24958,0)
+ ;;=132.1^^161^1476^1
+ ;;^UTILITY(U,$J,358.3,24958,1,0)
+ ;;=^358.31IA^5^2
+ ;;^UTILITY(U,$J,358.3,24958,1,2,0)
+ ;;=2^132.1
+ ;;^UTILITY(U,$J,358.3,24958,1,5,0)
+ ;;=5^Pediculosis, Body
+ ;;^UTILITY(U,$J,358.3,24958,2)
+ ;;=^266961
+ ;;^UTILITY(U,$J,358.3,24959,0)
+ ;;=132.0^^161^1476^2
+ ;;^UTILITY(U,$J,358.3,24959,1,0)
+ ;;=^358.31IA^5^2
+ ;;^UTILITY(U,$J,358.3,24959,1,2,0)
+ ;;=2^132.0
+ ;;^UTILITY(U,$J,358.3,24959,1,5,0)
+ ;;=5^Pediculosis, Head
+ ;;^UTILITY(U,$J,358.3,24959,2)
+ ;;=^266960
+ ;;^UTILITY(U,$J,358.3,24960,0)
+ ;;=132.2^^161^1476^3
+ ;;^UTILITY(U,$J,358.3,24960,1,0)
+ ;;=^358.31IA^5^2
+ ;;^UTILITY(U,$J,358.3,24960,1,2,0)
+ ;;=2^132.2
+ ;;^UTILITY(U,$J,358.3,24960,1,5,0)
+ ;;=5^Pediculosis, Pubic
+ ;;^UTILITY(U,$J,358.3,24960,2)
+ ;;=^266962
+ ;;^UTILITY(U,$J,358.3,24961,0)
+ ;;=696.3^^161^1477^1
+ ;;^UTILITY(U,$J,358.3,24961,1,0)
+ ;;=^358.31IA^5^2
+ ;;^UTILITY(U,$J,358.3,24961,1,2,0)
+ ;;=2^696.3
+ ;;^UTILITY(U,$J,358.3,24961,1,5,0)
+ ;;=5^Pityriasis Rosea
+ ;;^UTILITY(U,$J,358.3,24961,2)
+ ;;=^94726
+ ;;^UTILITY(U,$J,358.3,24962,0)
+ ;;=696.4^^161^1477^2
+ ;;^UTILITY(U,$J,358.3,24962,1,0)
+ ;;=^358.31IA^5^2
+ ;;^UTILITY(U,$J,358.3,24962,1,2,0)
+ ;;=2^696.4
+ ;;^UTILITY(U,$J,358.3,24962,1,5,0)
+ ;;=5^Pityriasis Rubra Pilaris
+ ;;^UTILITY(U,$J,358.3,24962,2)
+ ;;=^94729
+ ;;^UTILITY(U,$J,358.3,24963,0)
+ ;;=698.0^^161^1478^2
+ ;;^UTILITY(U,$J,358.3,24963,1,0)
+ ;;=^358.31IA^5^2
+ ;;^UTILITY(U,$J,358.3,24963,1,2,0)
+ ;;=2^698.0
+ ;;^UTILITY(U,$J,358.3,24963,1,5,0)
+ ;;=5^Pruritus Ani
+ ;;^UTILITY(U,$J,358.3,24963,2)
+ ;;=^100061
+ ;;^UTILITY(U,$J,358.3,24964,0)
+ ;;=698.1^^161^1478^3
+ ;;^UTILITY(U,$J,358.3,24964,1,0)
+ ;;=^358.31IA^5^2
+ ;;^UTILITY(U,$J,358.3,24964,1,2,0)
+ ;;=2^698.1
+ ;;^UTILITY(U,$J,358.3,24964,1,5,0)
+ ;;=5^Pruritus Vulvae
+ ;;^UTILITY(U,$J,358.3,24964,2)
+ ;;=^100071
+ ;;^UTILITY(U,$J,358.3,24965,0)
+ ;;=698.9^^161^1478^1
+ ;;^UTILITY(U,$J,358.3,24965,1,0)
+ ;;=^358.31IA^5^2
+ ;;^UTILITY(U,$J,358.3,24965,1,2,0)
+ ;;=2^698.9
+ ;;^UTILITY(U,$J,358.3,24965,1,5,0)
+ ;;=5^Pruritic Disorder Unspecified
+ ;;^UTILITY(U,$J,358.3,24965,2)
+ ;;=^123977
+ ;;^UTILITY(U,$J,358.3,24966,0)
+ ;;=696.1^^161^1479^1
+ ;;^UTILITY(U,$J,358.3,24966,1,0)
+ ;;=^358.31IA^5^2
+ ;;^UTILITY(U,$J,358.3,24966,1,2,0)
+ ;;=2^696.1
+ ;;^UTILITY(U,$J,358.3,24966,1,5,0)
+ ;;=5^Psoriasis
+ ;;^UTILITY(U,$J,358.3,24966,2)
+ ;;=^87816
+ ;;^UTILITY(U,$J,358.3,24967,0)
+ ;;=696.2^^161^1479^2
+ ;;^UTILITY(U,$J,358.3,24967,1,0)
+ ;;=^358.31IA^5^2
+ ;;^UTILITY(U,$J,358.3,24967,1,2,0)
+ ;;=2^696.2
+ ;;^UTILITY(U,$J,358.3,24967,1,5,0)
+ ;;=5^Parapsoriasis
+ ;;^UTILITY(U,$J,358.3,24967,2)
+ ;;=^90056
+ ;;^UTILITY(U,$J,358.3,24968,0)
+ ;;=454.1^^161^1480^1
+ ;;^UTILITY(U,$J,358.3,24968,1,0)
+ ;;=^358.31IA^5^2
+ ;;^UTILITY(U,$J,358.3,24968,1,2,0)
+ ;;=2^454.1
+ ;;^UTILITY(U,$J,358.3,24968,1,5,0)
+ ;;=5^Statis Dermatitis
+ ;;^UTILITY(U,$J,358.3,24968,2)
+ ;;=^125435
+ ;;^UTILITY(U,$J,358.3,24969,0)
+ ;;=459.81^^161^1480^8
+ ;;^UTILITY(U,$J,358.3,24969,1,0)
+ ;;=^358.31IA^5^2
+ ;;^UTILITY(U,$J,358.3,24969,1,2,0)
+ ;;=2^459.81
+ ;;^UTILITY(U,$J,358.3,24969,1,5,0)
+ ;;=5^Venous Stasis
+ ;;^UTILITY(U,$J,358.3,24969,2)
+ ;;=^125826
+ ;;^UTILITY(U,$J,358.3,24970,0)
+ ;;=707.9^^161^1481^1
+ ;;^UTILITY(U,$J,358.3,24970,1,0)
+ ;;=^358.31IA^5^2
+ ;;^UTILITY(U,$J,358.3,24970,1,2,0)
+ ;;=2^707.9
+ ;;^UTILITY(U,$J,358.3,24970,1,5,0)
+ ;;=5^Chronic Skin Ulcer 
+ ;;^UTILITY(U,$J,358.3,24970,2)
+ ;;=^24439
+ ;;^UTILITY(U,$J,358.3,24971,0)
+ ;;=707.00^^161^1481^2
+ ;;^UTILITY(U,$J,358.3,24971,1,0)
+ ;;=^358.31IA^5^2
+ ;;^UTILITY(U,$J,358.3,24971,1,2,0)
+ ;;=2^707.00
+ ;;^UTILITY(U,$J,358.3,24971,1,5,0)
+ ;;=5^Decubitus Ulcer
+ ;;^UTILITY(U,$J,358.3,24971,2)
+ ;;=Decubitus Ulcer^331556
+ ;;^UTILITY(U,$J,358.3,24972,0)
+ ;;=707.13^^161^1482^1
+ ;;^UTILITY(U,$J,358.3,24972,1,0)
+ ;;=^358.31IA^5^2
+ ;;^UTILITY(U,$J,358.3,24972,1,2,0)
+ ;;=2^707.13

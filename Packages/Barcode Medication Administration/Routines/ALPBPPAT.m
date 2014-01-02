@@ -1,5 +1,5 @@
 ALPBPPAT ;OIFO-DALLAS MW,SED,KC-PRINT 3-DAY MAR BCBU BACKUP REPORT FOR A SELECTED PATIENT ;01/01/03
- ;;3.0;BAR CODE MED ADMIN;**8,48,59**;Mar 2004;Build 15
+ ;;3.0;BAR CODE MED ADMIN;**8,48,59**;Mar 2004;Build 20
  ;;Per VHA Directive 2004-038, this routine should not be modified.
  ; 
  ; NOTE: this routine is designed for hard-copy output. 
@@ -137,9 +137,9 @@ DQ ; output entry point...
  ; 
  ;notification message displays one line below header info if patient has no med orders when the report is generated
  I ALPBNOMEDS1 D
- .W !!,"No Active Medication Orders were reported to the Contingency at the time the MAR was printed "
- .;additional blank lines added to seperate footer from header and allow room for notes
- .F  Q:$Y>=(IOSL-6)  W !
+ .W !!,"No Active Medication Orders were reported to the Contingency at the time the MAR was printed ",!!!
+ .;additional blank lines added to separate footer from header and allow room for notes
+ .I $E(IOST)="P" F  Q:$Y>=(IOSL-6)  W !
  ;
  ; print footer at end of this patient's record...
  D FOOT^ALPBFRMU

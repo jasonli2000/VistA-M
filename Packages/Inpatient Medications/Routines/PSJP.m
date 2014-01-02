@@ -1,5 +1,5 @@
 PSJP ;BIR/CML3-INPATIENT LOOK-UP ; 15 Apr 98 / 9:05 AM
- ;;5.0;INPATIENT MEDICATIONS ;**10,53,60,181,273,267,275**;16 DEC 97;Build 157
+ ;;5.0;INPATIENT MEDICATIONS ;**10,53,60,181,273,267,275,279**;16 DEC 97;Build 150
  ;
  ; Reference to ^PS(55 is supported by DBIA 2191
  ; Reference to ^PS(59.7 is supported by DBIA 2181
@@ -66,7 +66,7 @@ RECDCEXP() ;
  ;P1 = Number of hours defined in 59.6 or 59.7.  Set to 24 if no value set in either file.
  ;P2 = Date.time from Now - P1 hours
  ;
- NEW PSJDCEXP,PSJWD,PSJWD1,PSJSYS,X,%
+ NEW PSJDCEXP,PSJWD,PSJWD1,PSJSYS,X,%,PSJLPDAY
  S PSJWD1=$S(+$G(PSJPWD):PSJPWD,+$G(VAIN(4)):+VAIN(4),1:0)
  S:PSJWD1 X=$O(^PS(59.6,"B",PSJWD1,0))
  S:+$G(X) PSJWD=$P($G(^PS(59.6,X,0)),U,33)
@@ -74,6 +74,8 @@ RECDCEXP() ;
  S PSJDCEXP=$S($G(PSJWD):PSJWD,PSJSYS:PSJSYS,1:24)
  D NOW^%DTC
  S X=$$FMADD^XLFDT(%,0,-PSJDCEXP,0,0)
+ ; If Long Profile, use last admission date if it's older than recently dc'd/expired parameter
+ I $G(PSJOL)="L"&($G(PSJPAD)) S PSJLPDAY=$$FMDIFF^XLFDT(%,+$G(PSJPAD),1)*24 I PSJLPDAY>0&(PSJLPDAY>PSJDCEXP) S PSJDCEXP=+$G(PSJPAD),X=PSJLPDAY
  Q PSJDCEXP_U_X
  ;
 CLORCHK(PSJPTIEN) ; Return patient does (1) or does not (0) have any clinic orders.

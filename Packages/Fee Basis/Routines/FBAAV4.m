@@ -1,5 +1,5 @@
 FBAAV4 ;AISC/GRR-ELECTRONICALLY TRANSMIT PATIENT MRA'S ;12/16/2003
- ;;3.5;FEE BASIS;**13,34,37,70**;JAN 30, 1995
+ ;;3.5;FEE BASIS;**13,34,37,70,146**;JAN 30, 1995;Build 57
  ;;Per VHA Directive 10-93-142, this routine should not be modified.
  ;D STATION^FBAAUTL,HD^FBAAUTL Q:$D(FB("ERROR"))
  S FBTXT=0,ZMCNT=1 ;FBTXT , ZMCNT 
@@ -74,7 +74,7 @@ GOT ;patient MRA portion of the message
  ;TREATMENT TYPE CODE (SHORT TERM,HOME NURSING,I.D. CARD,STATE HOME)
  S FBTT=$P(Y(0),"^",13),FBTT=$S(FBTT]"":FBTT,1:1)
  ;
- S FBRECT=$S(FBTT=4:"7",FBTT=2:"S",$G(POV)>29&($G(POV)<50):"C",1:2)
+ S FBRECT=$S(FBTT=4:"7",FBTT=2:"S",$G(POV)>28&($G(POV)<50):"C",1:2)
  ;formatting FORM and TO dates
  S FBFR=$E(FBFR,4,7)_$E(FBFR,2,3),FBTO=$E(FBTO,4,7)_$E(FBTO,2,3)
  ;flag that the authorization From Date is being changed by this 

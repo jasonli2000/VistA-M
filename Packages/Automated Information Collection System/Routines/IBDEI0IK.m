@@ -1,258 +1,382 @@
-IBDEI0IK ; ; 20-FEB-2013
- ;;3.0;IB ENCOUNTER FORM IMP/EXP;;FEB 20, 2013
- Q:'DIFQR(358.6)  F I=1:2 S X=$T(Q+I) Q:X=""  S Y=$E($T(Q+I+1),4,999),X=$E(X,4,999) S:$A(Y)=126 I=I+1,Y=$E(Y,2,999)_$E($T(Q+I+1),5,99) S:$A(Y)=61 Y=$E(Y,2,999) X NO E  S @X=Y
+IBDEI0IK ; ; 18-NOV-2013
+ ;;3.0;IB ENCOUNTER FORM IMP/EXP;;NOV 18, 2013
+ Q:'DIFQR(358.3)  F I=1:2 S X=$T(Q+I) Q:X=""  S Y=$E($T(Q+I+1),4,999),X=$E(X,4,999) S:$A(Y)=126 I=I+1,Y=$E(Y,2,999)_$E($T(Q+I+1),5,99) S:$A(Y)=61 Y=$E(Y,2,999) X NO E  S @X=Y
 Q Q
- ;;^UTILITY(U,$J,358.6)
- ;;=^IBE(358.6,
- ;;^UTILITY(U,$J,358.6,0)
- ;;=IMP/EXP PACKAGE INTERFACE^358.6I^10^10
- ;;^UTILITY(U,$J,358.6,1,0)
- ;;=DPT PATIENT'S NAME^VADPT^IBDFN^REGISTRATION^1^2^1^1^1^^^1
- ;;^UTILITY(U,$J,358.6,1,1,0)
- ;;=^^2^2^2930212^^^^
- ;;^UTILITY(U,$J,358.6,1,1,1,0)
- ;;= 
- ;;^UTILITY(U,$J,358.6,1,1,2,0)
- ;;=Patient's Name
- ;;^UTILITY(U,$J,358.6,1,2)
- ;;=Patient's Name^30^^^^^^^^^^^^^^^1
- ;;^UTILITY(U,$J,358.6,1,3)
- ;;=PATIENT NAME
- ;;^UTILITY(U,$J,358.6,1,7,0)
- ;;=^358.67^1^1
- ;;^UTILITY(U,$J,358.6,1,7,1,0)
- ;;=DFN
- ;;^UTILITY(U,$J,358.6,2,0)
- ;;=DPT PATIENT'S PID^VADPT^IBDFN^REGISTRATION^1^2^1^1^1^^^1
- ;;^UTILITY(U,$J,358.6,2,1,0)
- ;;=^^1^1^2931015^^
- ;;^UTILITY(U,$J,358.6,2,1,1,0)
- ;;=Used to display the patient identifier.
- ;;^UTILITY(U,$J,358.6,2,2)
- ;;=PATIENT IDENTIFIER^15^^^^^^^^^^^^^^^1
- ;;^UTILITY(U,$J,358.6,2,3)
- ;;=PATIENT IDENTIFIER PID
- ;;^UTILITY(U,$J,358.6,2,7,0)
- ;;=^358.67^1^1
- ;;^UTILITY(U,$J,358.6,2,7,1,0)
- ;;=DFN
- ;;^UTILITY(U,$J,358.6,3,0)
- ;;=DPT PATIENT'S DOB/AGE^VADPT^IBDFN^REGISTRATION^1^2^2^^1^^^1
- ;;^UTILITY(U,$J,358.6,3,1,0)
- ;;=^^2^2^2951023^
- ;;^UTILITY(U,$J,358.6,3,1,1,0)
- ;;=Patient's DOB in MM DD, YYYY format
- ;;^UTILITY(U,$J,358.6,3,1,2,0)
- ;;=Patient's age in years.
- ;;^UTILITY(U,$J,358.6,3,2)
- ;;=Patient's DOB^12^Patient's Age^3^^^^^^^^^^^^^1
- ;;^UTILITY(U,$J,358.6,3,3)
- ;;=PATIENT DOB AGE PIMS
- ;;^UTILITY(U,$J,358.6,3,7,0)
- ;;=^358.67^1^1
- ;;^UTILITY(U,$J,358.6,3,7,1,0)
- ;;=DFN
- ;;^UTILITY(U,$J,358.6,3,15,0)
- ;;=^358.615I^1^1
- ;;^UTILITY(U,$J,358.6,3,15,1,0)
- ;;=Patient's Age^3^2
- ;;^UTILITY(U,$J,358.6,4,0)
- ;;=DG SELECT ICD-9 DIAGNOSIS CODES^ICD9^IBDFN4^SCHEDULING^^3^2^^1^^^1^5^^^^1^1
- ;;^UTILITY(U,$J,358.6,4,1,0)
- ;;=^^2^2^2970304^^^^
- ;;^UTILITY(U,$J,358.6,4,1,1,0)
- ;;=Allows the user to select ICD-9 diagnosis codes from the ICD Diagnosis
- ;;^UTILITY(U,$J,358.6,4,1,2,0)
- ;;=file. Allows only active codes to be selected.
- ;;^UTILITY(U,$J,358.6,4,2)
- ;;=CODE^7^DIAGNOSIS^30^DESCRIPTION^200^^^^^^^^^^^1^1
- ;;^UTILITY(U,$J,358.6,4,3)
- ;;=SELECT ICD9 ICD-9 CODES DIAGNOSIS
- ;;^UTILITY(U,$J,358.6,4,9)
- ;;=D INPUTICD^IBDFN8(.X)
- ;;^UTILITY(U,$J,358.6,4,11)
- ;;=D TESTICD^IBDFN7
- ;;^UTILITY(U,$J,358.6,4,13,0)
- ;;=^358.613V^2^2
- ;;^UTILITY(U,$J,358.6,4,13,1,0)
- ;;=1;IBD(358.98,
- ;;^UTILITY(U,$J,358.6,4,13,2,0)
- ;;=2;IBD(358.98,
- ;;^UTILITY(U,$J,358.6,4,15,0)
- ;;=^358.615I^2^2
- ;;^UTILITY(U,$J,358.6,4,15,1,0)
- ;;=DIAGNOSIS^30^2^^DIAGNOSIS
- ;;^UTILITY(U,$J,358.6,4,15,2,0)
- ;;=DESCRIPTION^200^3^^DIAGNOSIS
- ;;^UTILITY(U,$J,358.6,4,16)
- ;;=o^2^Diagnosis^^r^1^ICD-9 Code^^1
- ;;^UTILITY(U,$J,358.6,4,17)
- ;;=D SLCTDX^IBDFN12(.X)
- ;;^UTILITY(U,$J,358.6,4,19)
- ;;=D DX^IBDFN14(X)
- ;;^UTILITY(U,$J,358.6,5,0)
- ;;=INPUT DIAGNOSIS CODE (ICD9)^^^PATIENT CARE ENCOUNTER^^1^^^1^^^1^^^^SMP^^^1
- ;;^UTILITY(U,$J,358.6,5,1,0)
- ;;=^^1^1^2970304^^^^
- ;;^UTILITY(U,$J,358.6,5,1,1,0)
- ;;=Used for inputting ICD9 diagnosis codes.
- ;;^UTILITY(U,$J,358.6,5,2)
- ;;=^^^^^^^^^^^^^^^^^1
- ;;^UTILITY(U,$J,358.6,5,3)
- ;;=INPUT ICD9 ICD-9 DIAGNOSIS CODES
- ;;^UTILITY(U,$J,358.6,5,9)
- ;;=D INPUTICD^IBDFN8(.X)
- ;;^UTILITY(U,$J,358.6,5,10)
- ;;=Enter an active ICD9 diagnosis code.
- ;;^UTILITY(U,$J,358.6,5,11)
- ;;=D TESTICD^IBDFN7
- ;;^UTILITY(U,$J,358.6,5,12)
- ;;=DIAGNOSIS/PROBLEM^1^13^14^2
- ;;^UTILITY(U,$J,358.6,5,13,0)
- ;;=^358.613V^10^10
- ;;^UTILITY(U,$J,358.6,5,13,1,0)
- ;;=1;IBD(358.98,^^1^^^^^2
- ;;^UTILITY(U,$J,358.6,5,13,2,0)
- ;;=2;IBD(358.98,^^1^^^^^2
- ;;^UTILITY(U,$J,358.6,5,13,3,0)
- ;;=3;IBD(358.98,^^1^^^^^9
- ;;^UTILITY(U,$J,358.6,5,13,4,0)
- ;;=1;IBE(358.99,^^0
- ;;^UTILITY(U,$J,358.6,5,13,5,0)
- ;;=4;IBD(358.98,^^1^^^^^10
- ;;^UTILITY(U,$J,358.6,5,13,6,0)
- ;;=5;IBD(358.98,^^1^^^^^11
- ;;^UTILITY(U,$J,358.6,5,13,7,0)
- ;;=6;IBD(358.98,^^1^^^^^12
- ;;^UTILITY(U,$J,358.6,5,13,8,0)
- ;;=7;IBD(358.98,^^1^^^^^5
- ;;^UTILITY(U,$J,358.6,5,13,9,0)
- ;;=8;IBD(358.98,^^1^^^^^6
- ;;^UTILITY(U,$J,358.6,5,13,10,0)
- ;;=9;IBD(358.98,^^1^^^^^6
- ;;^UTILITY(U,$J,358.6,5,14)
- ;;=S Y=$$DSPLYICD^IBDFN9(Y)
- ;;^UTILITY(U,$J,358.6,5,17)
- ;;=D SLCTDX^IBDFN12(.X)
- ;;^UTILITY(U,$J,358.6,5,18)
- ;;=S IBDF("OTHER")="80^I '$P(^(0),U,9)" D LIST^IBDFDE2(.IBDSEL,.IBDF,"Diagnosis Code")
- ;;^UTILITY(U,$J,358.6,5,19)
- ;;=D DX^IBDFN14(X)
- ;;^UTILITY(U,$J,358.6,6,0)
- ;;=DG SELECT VISIT TYPE CPT PROCEDURES^VSIT^IBDFN4^SCHEDULING^^3^2^^1^^^1^7^^^^^^^^1
- ;;^UTILITY(U,$J,358.6,6,1,0)
- ;;=^^1^1^2941116^^^^
- ;;^UTILITY(U,$J,358.6,6,1,1,0)
- ;;=Allows for select of just Visit type CPT codes from the CPT file.
- ;;^UTILITY(U,$J,358.6,6,2)
- ;;=CODE^5^RECOMMENDED TEXT-SHORT NAME^40^RECOMMENDED HEADER^30^SHORT NAME FROM CPT FILE^28^^^^^^^^^1^1
- ;;^UTILITY(U,$J,358.6,6,3)
- ;;=SELECT TYPE OF VISIT CPT
- ;;^UTILITY(U,$J,358.6,6,11)
- ;;=D TESTVST^IBDFN7
- ;;^UTILITY(U,$J,358.6,6,15,0)
- ;;=^358.615I^4^3
- ;;^UTILITY(U,$J,358.6,6,15,2,0)
- ;;=RECOMMENDED TEXT-SHORT NAME^40^2
- ;;^UTILITY(U,$J,358.6,6,15,3,0)
- ;;=RECOMMENDED HEADER^30^3
- ;;^UTILITY(U,$J,358.6,6,15,4,0)
- ;;=SHORT NAME FROM CPT FILE^28^4
- ;;^UTILITY(U,$J,358.6,7,0)
- ;;=INPUT VISIT TYPE^^^PATIENT CARE ENCOUNTER^^1^^^1^^^1^^^^SMP
- ;;^UTILITY(U,$J,358.6,7,1,0)
- ;;=^^1^1^2951023^
- ;;^UTILITY(U,$J,358.6,7,1,1,0)
- ;;=Used for inputting the visit type that applies to the visit.
- ;;^UTILITY(U,$J,358.6,7,2)
- ;;=^^^^^^^^^^^^^^^^^1
- ;;^UTILITY(U,$J,358.6,7,3)
- ;;=VISIT TYPE OF VISIT
- ;;^UTILITY(U,$J,358.6,7,9)
- ;;=D INPUTCPT^IBDFN8(.X)
- ;;^UTILITY(U,$J,358.6,7,10)
- ;;=Enter an active Visit Type code.
- ;;^UTILITY(U,$J,358.6,7,11)
- ;;=D TESTVST^IBDFN7
- ;;^UTILITY(U,$J,358.6,7,12)
- ;;=ENCOUNTER^5
- ;;^UTILITY(U,$J,358.6,7,14)
- ;;=S Y=$$DSPLYCPT^IBDFN9(Y)
- ;;^UTILITY(U,$J,358.6,7,17)
- ;;=D SLCTVST^IBDFN12(.X)
- ;;^UTILITY(U,$J,358.6,7,18)
- ;;=S IBDF("OTHER")="357.69^I '$P(^(0),U,4)" D LIST^IBDFDE2(.IBDSEL,.IBDF,"Visit Type (EM) Code")
- ;;^UTILITY(U,$J,358.6,7,19)
- ;;=D VST^IBDFN14(X)
- ;;^UTILITY(U,$J,358.6,8,0)
- ;;=DG SELECT CPT PROCEDURE CODES^CPT^IBDFN4^SCHEDULING^^3^2^^1^^^1^9^^^^^^^^1
- ;;^UTILITY(U,$J,358.6,8,1,0)
- ;;=^^2^2^2961007^^^^
- ;;^UTILITY(U,$J,358.6,8,1,1,0)
- ;;=Allows for the selection of CPT codes from the CPT file. Only active codes
- ;;^UTILITY(U,$J,358.6,8,1,2,0)
- ;;=are allowed.
- ;;^UTILITY(U,$J,358.6,8,2)
- ;;=CODE^5^SHORT NAME^28^DESCRIPTION^161^^^^^^^^^^CODE^1^1
- ;;^UTILITY(U,$J,358.6,8,3)
- ;;=SELECT CPT PROCEDURE CODES
- ;;^UTILITY(U,$J,358.6,8,9)
- ;;=S X=$$CPT^IBDFN12(X)
- ;;^UTILITY(U,$J,358.6,8,11)
- ;;=D TESTCPT^IBDFN7
- ;;^UTILITY(U,$J,358.6,8,15,0)
- ;;=^357.615I^2^2
- ;;^UTILITY(U,$J,358.6,8,15,1,0)
- ;;=SHORT NAME^28^2^^PROCEDURE
- ;;^UTILITY(U,$J,358.6,8,15,2,0)
- ;;=DESCRIPTION^161^3^^PROCEDURE
- ;;^UTILITY(U,$J,358.6,8,16)
- ;;=o^2^Procedure Narrative^^r^3^CPT CODE^1
- ;;^UTILITY(U,$J,358.6,9,0)
- ;;=INPUT PROCEDURE CODE (CPT4)^^^PATIENT CARE ENCOUNTER^^1^4^^1^0^^1^^^^SMP
- ;;^UTILITY(U,$J,358.6,9,1,0)
- ;;=^^1^1^2960205^^^^
- ;;^UTILITY(U,$J,358.6,9,1,1,0)
- ;;=Used for inputting CPT coded procedures performed on the patient.
- ;;^UTILITY(U,$J,358.6,9,2)
- ;;=^^^^^^^^^^^^^^^^^1
- ;;^UTILITY(U,$J,358.6,9,3)
- ;;=CPT4 PROCEDURE CODES
- ;;^UTILITY(U,$J,358.6,9,9)
- ;;=D INPUTCPT^IBDFN8(.X)
- ;;^UTILITY(U,$J,358.6,9,10)
- ;;=Enter an active CPT procedure code.
- ;;^UTILITY(U,$J,358.6,9,11)
- ;;=D TESTCPT^IBDFN7
- ;;^UTILITY(U,$J,358.6,9,12)
- ;;=PROCEDURE^1^6^7^3^2
- ;;^UTILITY(U,$J,358.6,9,13,0)
- ;;=^358.613V^2^2
- ;;^UTILITY(U,$J,358.6,9,13,1,0)
- ;;=1;IBD(358.98,^^0
- ;;^UTILITY(U,$J,358.6,9,13,2,0)
- ;;=2;IBD(358.98,^^0
- ;;^UTILITY(U,$J,358.6,9,14)
- ;;=S Y=$$DSPLYCPT^IBDFN9(Y)
- ;;^UTILITY(U,$J,358.6,9,15,0)
- ;;=^357.615I^0^0
- ;;^UTILITY(U,$J,358.6,9,17)
- ;;=D SLCTCPT^IBDFN12(.X)
- ;;^UTILITY(U,$J,358.6,9,18)
- ;;=S IBDF("OTHER")="81^I '$P(^(0),U,4)" D LIST^IBDFDE2(.IBDSEL,.IBDF,"CPT Procedure Code")
- ;;^UTILITY(U,$J,358.6,9,19)
- ;;=D CPT^IBDFN14(X)
- ;;^UTILITY(U,$J,358.6,10,0)
- ;;=IBDF UTILITY FOR LABELS ONLY^LABELS^IBDFN^AUTOMATED INFO COLLECTION SYS^0^2^2^^1^^^1
- ;;^UTILITY(U,$J,358.6,10,1,0)
- ;;=^^2^2^2970319^^^
- ;;^UTILITY(U,$J,358.6,10,1,1,0)
- ;;=This interface returns no data. Its purpose is to print labels without
- ;;^UTILITY(U,$J,358.6,10,1,2,0)
- ;;=data to the form.
- ;;^UTILITY(U,$J,358.6,10,2)
- ;;=Underscore Only^0^^^^^^^^^^^^^^^1
- ;;^UTILITY(U,$J,358.6,10,3)
- ;;=UTILITY BLANKS LABELS
- ;;^UTILITY(U,$J,358.6,10,15,0)
- ;;=^357.615I^0^0
+ ;;^UTILITY(U,$J,358.3,24972,1,5,0)
+ ;;=5^Ulcer Of Ankle
+ ;;^UTILITY(U,$J,358.3,24972,2)
+ ;;=^322145
+ ;;^UTILITY(U,$J,358.3,24973,0)
+ ;;=707.12^^161^1482^2
+ ;;^UTILITY(U,$J,358.3,24973,1,0)
+ ;;=^358.31IA^5^2
+ ;;^UTILITY(U,$J,358.3,24973,1,2,0)
+ ;;=2^707.12
+ ;;^UTILITY(U,$J,358.3,24973,1,5,0)
+ ;;=5^Ulcer Of Calf
+ ;;^UTILITY(U,$J,358.3,24973,2)
+ ;;=^322144
+ ;;^UTILITY(U,$J,358.3,24974,0)
+ ;;=707.15^^161^1482^6
+ ;;^UTILITY(U,$J,358.3,24974,1,0)
+ ;;=^358.31IA^5^2
+ ;;^UTILITY(U,$J,358.3,24974,1,2,0)
+ ;;=2^707.15
+ ;;^UTILITY(U,$J,358.3,24974,1,5,0)
+ ;;=5^Ulcer Of Toes
+ ;;^UTILITY(U,$J,358.3,24974,2)
+ ;;=^322148
+ ;;^UTILITY(U,$J,358.3,24975,0)
+ ;;=707.14^^161^1482^3
+ ;;^UTILITY(U,$J,358.3,24975,1,0)
+ ;;=^358.31IA^5^2
+ ;;^UTILITY(U,$J,358.3,24975,1,2,0)
+ ;;=2^707.14
+ ;;^UTILITY(U,$J,358.3,24975,1,5,0)
+ ;;=5^Ulcer Of Heel
+ ;;^UTILITY(U,$J,358.3,24975,2)
+ ;;=^322146
+ ;;^UTILITY(U,$J,358.3,24976,0)
+ ;;=707.19^^161^1482^4
+ ;;^UTILITY(U,$J,358.3,24976,1,0)
+ ;;=^358.31IA^5^2
+ ;;^UTILITY(U,$J,358.3,24976,1,2,0)
+ ;;=2^707.19
+ ;;^UTILITY(U,$J,358.3,24976,1,5,0)
+ ;;=5^Ulcer Of Knee
+ ;;^UTILITY(U,$J,358.3,24976,2)
+ ;;=^322150
+ ;;^UTILITY(U,$J,358.3,24977,0)
+ ;;=707.11^^161^1482^5
+ ;;^UTILITY(U,$J,358.3,24977,1,0)
+ ;;=^358.31IA^5^2
+ ;;^UTILITY(U,$J,358.3,24977,1,2,0)
+ ;;=2^707.11
+ ;;^UTILITY(U,$J,358.3,24977,1,5,0)
+ ;;=5^Ulcer Of Thigh
+ ;;^UTILITY(U,$J,358.3,24977,2)
+ ;;=^322143
+ ;;^UTILITY(U,$J,358.3,24978,0)
+ ;;=995.1^^161^1483^1
+ ;;^UTILITY(U,$J,358.3,24978,1,0)
+ ;;=^358.31IA^5^2
+ ;;^UTILITY(U,$J,358.3,24978,1,2,0)
+ ;;=2^995.1
+ ;;^UTILITY(U,$J,358.3,24978,1,5,0)
+ ;;=5^Angioedema
+ ;;^UTILITY(U,$J,358.3,24978,2)
+ ;;=^7527
+ ;;^UTILITY(U,$J,358.3,24979,0)
+ ;;=708.3^^161^1483^3
+ ;;^UTILITY(U,$J,358.3,24979,1,0)
+ ;;=^358.31IA^5^2
+ ;;^UTILITY(U,$J,358.3,24979,1,2,0)
+ ;;=2^708.3
+ ;;^UTILITY(U,$J,358.3,24979,1,5,0)
+ ;;=5^Dermatographic Urticaria
+ ;;^UTILITY(U,$J,358.3,24979,2)
+ ;;=^265291
+ ;;^UTILITY(U,$J,358.3,24980,0)
+ ;;=708.5^^161^1483^2
+ ;;^UTILITY(U,$J,358.3,24980,1,0)
+ ;;=^358.31IA^5^2
+ ;;^UTILITY(U,$J,358.3,24980,1,2,0)
+ ;;=2^708.5
+ ;;^UTILITY(U,$J,358.3,24980,1,5,0)
+ ;;=5^Cholinergic Urticaria
+ ;;^UTILITY(U,$J,358.3,24980,2)
+ ;;=^265460
+ ;;^UTILITY(U,$J,358.3,24981,0)
+ ;;=708.8^^161^1483^4
+ ;;^UTILITY(U,$J,358.3,24981,1,0)
+ ;;=^358.31IA^5^2
+ ;;^UTILITY(U,$J,358.3,24981,1,2,0)
+ ;;=2^708.8
+ ;;^UTILITY(U,$J,358.3,24981,1,5,0)
+ ;;=5^Exercise Induced Urticaria
+ ;;^UTILITY(U,$J,358.3,24981,2)
+ ;;=^88159
+ ;;^UTILITY(U,$J,358.3,24982,0)
+ ;;=757.33^^161^1483^6
+ ;;^UTILITY(U,$J,358.3,24982,1,0)
+ ;;=^358.31IA^5^2
+ ;;^UTILITY(U,$J,358.3,24982,1,2,0)
+ ;;=2^757.33
+ ;;^UTILITY(U,$J,358.3,24982,1,5,0)
+ ;;=5^Urticaria Pigmentosa
+ ;;^UTILITY(U,$J,358.3,24982,2)
+ ;;=^27472
+ ;;^UTILITY(U,$J,358.3,24983,0)
+ ;;=708.9^^161^1483^5
+ ;;^UTILITY(U,$J,358.3,24983,1,0)
+ ;;=^358.31IA^5^2
+ ;;^UTILITY(U,$J,358.3,24983,1,2,0)
+ ;;=2^708.9
+ ;;^UTILITY(U,$J,358.3,24983,1,5,0)
+ ;;=5^Generalized Urticaria
+ ;;^UTILITY(U,$J,358.3,24983,2)
+ ;;=^124650
+ ;;^UTILITY(U,$J,358.3,24984,0)
+ ;;=454.1^^161^1484^1
+ ;;^UTILITY(U,$J,358.3,24984,1,0)
+ ;;=^358.31IA^5^2
+ ;;^UTILITY(U,$J,358.3,24984,1,2,0)
+ ;;=2^454.1
+ ;;^UTILITY(U,$J,358.3,24984,1,5,0)
+ ;;=5^Varicose Veins W/ Inflammation
+ ;;^UTILITY(U,$J,358.3,24984,2)
+ ;;=^125435
+ ;;^UTILITY(U,$J,358.3,24985,0)
+ ;;=454.2^^161^1484^2
+ ;;^UTILITY(U,$J,358.3,24985,1,0)
+ ;;=^358.31IA^5^2
+ ;;^UTILITY(U,$J,358.3,24985,1,2,0)
+ ;;=2^454.2
+ ;;^UTILITY(U,$J,358.3,24985,1,5,0)
+ ;;=5^Varicose Veins W/ Inflammation, Ulcerated
+ ;;^UTILITY(U,$J,358.3,24985,2)
+ ;;=^269821
+ ;;^UTILITY(U,$J,358.3,24986,0)
+ ;;=454.0^^161^1484^3
+ ;;^UTILITY(U,$J,358.3,24986,1,0)
+ ;;=^358.31IA^5^2
+ ;;^UTILITY(U,$J,358.3,24986,1,2,0)
+ ;;=2^454.0
+ ;;^UTILITY(U,$J,358.3,24986,1,5,0)
+ ;;=5^Varicose Veins, Ulcerated
+ ;;^UTILITY(U,$J,358.3,24986,2)
+ ;;=^125410
+ ;;^UTILITY(U,$J,358.3,24987,0)
+ ;;=998.83^^161^1485^4
+ ;;^UTILITY(U,$J,358.3,24987,1,0)
+ ;;=^358.31IA^5^2
+ ;;^UTILITY(U,$J,358.3,24987,1,2,0)
+ ;;=2^998.83
+ ;;^UTILITY(U,$J,358.3,24987,1,5,0)
+ ;;=5^Non-Healing Surgical Wound
+ ;;^UTILITY(U,$J,358.3,24987,2)
+ ;;=^304351
+ ;;^UTILITY(U,$J,358.3,24988,0)
+ ;;=998.59^^161^1485^3
+ ;;^UTILITY(U,$J,358.3,24988,1,0)
+ ;;=^358.31IA^5^2
+ ;;^UTILITY(U,$J,358.3,24988,1,2,0)
+ ;;=2^998.59
+ ;;^UTILITY(U,$J,358.3,24988,1,5,0)
+ ;;=5^Infection(Post Operative)
+ ;;^UTILITY(U,$J,358.3,24988,2)
+ ;;=^97081
+ ;;^UTILITY(U,$J,358.3,24989,0)
+ ;;=998.12^^161^1485^2
+ ;;^UTILITY(U,$J,358.3,24989,1,0)
+ ;;=^358.31IA^5^2
+ ;;^UTILITY(U,$J,358.3,24989,1,2,0)
+ ;;=2^998.12
+ ;;^UTILITY(U,$J,358.3,24989,1,5,0)
+ ;;=5^Hematoma(Post Operative)
+ ;;^UTILITY(U,$J,358.3,24989,2)
+ ;;=^304348
+ ;;^UTILITY(U,$J,358.3,24990,0)
+ ;;=998.32^^161^1485^1
+ ;;^UTILITY(U,$J,358.3,24990,1,0)
+ ;;=^358.31IA^5^2
+ ;;^UTILITY(U,$J,358.3,24990,1,2,0)
+ ;;=2^998.32
+ ;;^UTILITY(U,$J,358.3,24990,1,5,0)
+ ;;=5^Disruption of ext surg wound
+ ;;^UTILITY(U,$J,358.3,24990,2)
+ ;;=Disruption of ext surg wound
+ ;;^UTILITY(U,$J,358.3,24991,0)
+ ;;=701.2^^161^1486^1
+ ;;^UTILITY(U,$J,358.3,24991,1,0)
+ ;;=^358.31IA^5^2
+ ;;^UTILITY(U,$J,358.3,24991,1,2,0)
+ ;;=2^701.2
+ ;;^UTILITY(U,$J,358.3,24991,1,5,0)
+ ;;=5^Acanthosis Nigricans
+ ;;^UTILITY(U,$J,358.3,24991,2)
+ ;;=^2231
+ ;;^UTILITY(U,$J,358.3,24992,0)
+ ;;=528.8^^161^1486^3
+ ;;^UTILITY(U,$J,358.3,24992,1,0)
+ ;;=^358.31IA^5^2
+ ;;^UTILITY(U,$J,358.3,24992,1,2,0)
+ ;;=2^528.8
+ ;;^UTILITY(U,$J,358.3,24992,1,5,0)
+ ;;=5^Apthous Stomatitis
+ ;;^UTILITY(U,$J,358.3,24992,2)
+ ;;=^86127
+ ;;^UTILITY(U,$J,358.3,24993,0)
+ ;;=277.30^^161^1486^2
+ ;;^UTILITY(U,$J,358.3,24993,1,0)
+ ;;=^358.31IA^5^2
+ ;;^UTILITY(U,$J,358.3,24993,1,2,0)
+ ;;=2^277.30
+ ;;^UTILITY(U,$J,358.3,24993,1,5,0)
+ ;;=5^Amyloidosis NOS
+ ;;^UTILITY(U,$J,358.3,24993,2)
+ ;;=^334185
+ ;;^UTILITY(U,$J,358.3,24994,0)
+ ;;=136.1^^161^1487^1
+ ;;^UTILITY(U,$J,358.3,24994,1,0)
+ ;;=^358.31IA^5^2
+ ;;^UTILITY(U,$J,358.3,24994,1,2,0)
+ ;;=2^136.1
+ ;;^UTILITY(U,$J,358.3,24994,1,5,0)
+ ;;=5^Behcet's Syndrome
+ ;;^UTILITY(U,$J,358.3,24994,2)
+ ;;=^13205
+ ;;^UTILITY(U,$J,358.3,24995,0)
+ ;;=705.89^^161^1487^2
+ ;;^UTILITY(U,$J,358.3,24995,1,0)
+ ;;=^358.31IA^5^2
+ ;;^UTILITY(U,$J,358.3,24995,1,2,0)
+ ;;=2^705.89
+ ;;^UTILITY(U,$J,358.3,24995,1,5,0)
+ ;;=5^Bromhidrosis
+ ;;^UTILITY(U,$J,358.3,24995,2)
+ ;;=^271930
+ ;;^UTILITY(U,$J,358.3,24996,0)
+ ;;=700.^^161^1488^7
+ ;;^UTILITY(U,$J,358.3,24996,1,0)
+ ;;=^358.31IA^5^2
+ ;;^UTILITY(U,$J,358.3,24996,1,2,0)
+ ;;=2^700.
+ ;;^UTILITY(U,$J,358.3,24996,1,5,0)
+ ;;=5^Corns And Callosities
+ ;;^UTILITY(U,$J,358.3,24996,2)
+ ;;=^18351
+ ;;^UTILITY(U,$J,358.3,24997,0)
+ ;;=709.09^^161^1488^2
+ ;;^UTILITY(U,$J,358.3,24997,1,0)
+ ;;=^358.31IA^5^2
+ ;;^UTILITY(U,$J,358.3,24997,1,2,0)
+ ;;=2^709.09
+ ;;^UTILITY(U,$J,358.3,24997,1,5,0)
+ ;;=5^Cafe au lait spot
+ ;;^UTILITY(U,$J,358.3,24997,2)
+ ;;=^303313
+ ;;^UTILITY(U,$J,358.3,24998,0)
+ ;;=709.3^^161^1488^3
+ ;;^UTILITY(U,$J,358.3,24998,1,0)
+ ;;=^358.31IA^5^2
+ ;;^UTILITY(U,$J,358.3,24998,1,2,0)
+ ;;=2^709.3
+ ;;^UTILITY(U,$J,358.3,24998,1,5,0)
+ ;;=5^Calcinosis,Skin
+ ;;^UTILITY(U,$J,358.3,24998,2)
+ ;;=^31460
+ ;;^UTILITY(U,$J,358.3,24999,0)
+ ;;=380.00^^161^1488^4
+ ;;^UTILITY(U,$J,358.3,24999,1,0)
+ ;;=^358.31IA^5^2
+ ;;^UTILITY(U,$J,358.3,24999,1,2,0)
+ ;;=2^380.00
+ ;;^UTILITY(U,$J,358.3,24999,1,5,0)
+ ;;=5^Chondrodermatitis Nodularis Helicis
+ ;;^UTILITY(U,$J,358.3,24999,2)
+ ;;=^269337
+ ;;^UTILITY(U,$J,358.3,25000,0)
+ ;;=706.2^^161^1488^8
+ ;;^UTILITY(U,$J,358.3,25000,1,0)
+ ;;=^358.31IA^5^2
+ ;;^UTILITY(U,$J,358.3,25000,1,2,0)
+ ;;=2^706.2
+ ;;^UTILITY(U,$J,358.3,25000,1,5,0)
+ ;;=5^Cyst,Epidermal
+ ;;^UTILITY(U,$J,358.3,25000,2)
+ ;;=^41304
+ ;;^UTILITY(U,$J,358.3,25001,0)
+ ;;=078.11^^161^1488^6
+ ;;^UTILITY(U,$J,358.3,25001,1,0)
+ ;;=^358.31IA^5^2
+ ;;^UTILITY(U,$J,358.3,25001,1,2,0)
+ ;;=2^078.11
+ ;;^UTILITY(U,$J,358.3,25001,1,5,0)
+ ;;=5^Condyloma NOS
+ ;;^UTILITY(U,$J,358.3,25001,2)
+ ;;=^295788
+ ;;^UTILITY(U,$J,358.3,25002,0)
+ ;;=710.1^^161^1488^1
+ ;;^UTILITY(U,$J,358.3,25002,1,0)
+ ;;=^358.31IA^5^2
+ ;;^UTILITY(U,$J,358.3,25002,1,2,0)
+ ;;=2^710.1
+ ;;^UTILITY(U,$J,358.3,25002,1,5,0)
+ ;;=5^CRST Syndrome
+ ;;^UTILITY(U,$J,358.3,25002,2)
+ ;;=^108590
+ ;;^UTILITY(U,$J,358.3,25003,0)
+ ;;=078.11^^161^1488^5
+ ;;^UTILITY(U,$J,358.3,25003,1,0)
+ ;;=^358.31IA^5^2
+ ;;^UTILITY(U,$J,358.3,25003,1,2,0)
+ ;;=2^078.11
+ ;;^UTILITY(U,$J,358.3,25003,1,5,0)
+ ;;=5^Condyloma Accuminatum
+ ;;^UTILITY(U,$J,358.3,25003,2)
+ ;;=^295788
+ ;;^UTILITY(U,$J,358.3,25004,0)
+ ;;=216.8^^161^1489^1
+ ;;^UTILITY(U,$J,358.3,25004,1,0)
+ ;;=^358.31IA^5^2
+ ;;^UTILITY(U,$J,358.3,25004,1,2,0)
+ ;;=2^216.8
+ ;;^UTILITY(U,$J,358.3,25004,1,5,0)
+ ;;=5^Dermatofibroma
+ ;;^UTILITY(U,$J,358.3,25004,2)
+ ;;=^267637
+ ;;^UTILITY(U,$J,358.3,25005,0)
+ ;;=710.3^^161^1489^3
+ ;;^UTILITY(U,$J,358.3,25005,1,0)
+ ;;=^358.31IA^5^2
+ ;;^UTILITY(U,$J,358.3,25005,1,2,0)
+ ;;=2^710.3
+ ;;^UTILITY(U,$J,358.3,25005,1,5,0)
+ ;;=5^Dermatomyositis
+ ;;^UTILITY(U,$J,358.3,25005,2)
+ ;;=^33162
+ ;;^UTILITY(U,$J,358.3,25006,0)
+ ;;=709.00^^161^1489^5
+ ;;^UTILITY(U,$J,358.3,25006,1,0)
+ ;;=^358.31IA^5^2
+ ;;^UTILITY(U,$J,358.3,25006,1,2,0)
+ ;;=2^709.00
+ ;;^UTILITY(U,$J,358.3,25006,1,5,0)
+ ;;=5^Dyschromia
+ ;;^UTILITY(U,$J,358.3,25006,2)
+ ;;=^37473
+ ;;^UTILITY(U,$J,358.3,25007,0)
+ ;;=709.9^^161^1489^4
+ ;;^UTILITY(U,$J,358.3,25007,1,0)
+ ;;=^358.31IA^5^2
+ ;;^UTILITY(U,$J,358.3,25007,1,2,0)
+ ;;=2^709.9
+ ;;^UTILITY(U,$J,358.3,25007,1,5,0)
+ ;;=5^Dermatosis, Nos
+ ;;^UTILITY(U,$J,358.3,25007,2)
+ ;;=^111083
+ ;;^UTILITY(U,$J,358.3,25008,0)
+ ;;=708.3^^161^1489^2
+ ;;^UTILITY(U,$J,358.3,25008,1,0)
+ ;;=^358.31IA^5^2
+ ;;^UTILITY(U,$J,358.3,25008,1,2,0)
+ ;;=2^708.3
+ ;;^UTILITY(U,$J,358.3,25008,1,5,0)
+ ;;=5^Dermatographia
+ ;;^UTILITY(U,$J,358.3,25008,2)
+ ;;=^265291
+ ;;^UTILITY(U,$J,358.3,25009,0)
+ ;;=705.81^^161^1489^6
+ ;;^UTILITY(U,$J,358.3,25009,1,0)
+ ;;=^358.31IA^5^2
+ ;;^UTILITY(U,$J,358.3,25009,1,2,0)
+ ;;=2^705.81
+ ;;^UTILITY(U,$J,358.3,25009,1,5,0)
+ ;;=5^Dyshidrosis
+ ;;^UTILITY(U,$J,358.3,25009,2)
+ ;;=^96545
+ ;;^UTILITY(U,$J,358.3,25010,0)
+ ;;=459.89^^161^1490^1
+ ;;^UTILITY(U,$J,358.3,25010,1,0)
+ ;;=^358.31IA^5^2

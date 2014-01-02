@@ -1,6 +1,11 @@
 ACKQNQ ;AUG/JLTP,AEM BIR/PTD HCIOFO/BH HCIOFO/AG-Inquire - A&SP Patient ; 12/24/09 2:14pm
- ;;3.0;QUASAR;**8,14,18**;Feb 11, 2000;Build 1
- ;Per VHA Directive 10-93-142, this routine SHOULD NOT be modified.
+ ;;3.0;QUASAR;**8,14,18,22**;Feb 11, 2000;Build 5
+ ;Per VHA Directive 2004-038, this routine SHOULD NOT be modified.
+ ;
+ ;
+ ;  Reference/ICR
+ ;  $$ICDDX^ICDCODE - 3990
+ ;
  ;
 OPTN ;  Introduce option.
  S ACKQUIT=0
@@ -119,11 +124,11 @@ DIHEAD W !,"DIAGNOSIS",?60,"DATE ENTERED",!,$$REPEAT^XLFSTR("-",IOM-1)
 ICDSORT S ACKI=0 F  S ACKI=$O(^ACK(509850.2,DFN,1,ACKI)) Q:'ACKI  D
  . N ACKARY,ACKDD
  . S ACKDC=^ACK(509850.2,DFN,1,ACKI,0),ACKDD=$P(ACKDC,U,2)
- . D GETS^DIQ(80,+ACKDC_",",".01;2","E","ACKTGT","ACKMSG")
- . S ACKDN=ACKTGT(80,+ACKDC_",",.01,"E")
+ . ;ACKQ*3.0*22 updated api
+ . N ACKTGT S ACKTGT=$$ICDDX^ICDCODE(+ACKDC)
+ . S ACKDN=$P(ACKTGT,U,2)
  . S ACKARY=$P($$ICDDX^ICDCODE(ACKDN,ACKDD),"^",4)
- . S ACKICD(ACKDN)=ACKDN_U_ACKTGT(80,+ACKDC_",",2,"E")_U_ACKARY_U_ACKDD
- K ACKTGT,ACKMSG
+ . S ACKICD(ACKDN)=ACKDN_U_$P(ACKTGT,U,3)_U_ACKARY_U_ACKDD
  Q
  ;
 UPDATE ;  Update patient's diagnostic history in 509850.2.

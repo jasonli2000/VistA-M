@@ -1,5 +1,5 @@
-PRCSEA ;WISC/SAW/DXH/BM/SC/DAP - CONTROL POINT ACTIVITY EDITS ; 3/31/05 2:59pm
-V ;;5.1;IFCAP;**81,147,150**;Oct 20, 2000;Build 24
+PRCSEA ;WISC/SAW/DXH/BM/SC/DAP - CONTROL POINT ACTIVITY EDITS ;5/8/13  15:31
+V ;;5.1;IFCAP;**81,147,150,174**;Oct 20, 2000;Build 23
  ;Per VHA Directive 2004-038, this routine should not be modified.
  ;
  ;PRC*5.1*81 BMM 3/23/05 when a 2237 is canceled, in CT1, add code 
@@ -119,6 +119,7 @@ CT ;CANCEL A (PERMANENT) TRANS
 CT1 W !,"Cancel this transaction" S %=2 D YN^DICN G CT1:%=0,EXIT:%'=1
  S DA=+Y
  L +^PRCS(410,DA):1 I $T=0 W !,"File is being accessed...please try later" G CT
+ S DIE="^PRCS(410,",DR="104////^S X=DUZ" D ^DIE K DIE,DR
  S T=$P(^PRCS(410,DA,0),"^")
  I T?1A.E D  G EXIT:%'=1 W !! G CT     ;PRC*5.1*150 Will DELETE entry if temporary transaction
  . S DIK="^PRCS(410,",PRCIENCT=$P(^PRCS(410,0),"^",3)+1

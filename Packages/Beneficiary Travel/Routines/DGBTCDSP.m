@@ -1,5 +1,5 @@
 DGBTCDSP ;;ALB/BLD-BENEFICIARY TRAVEL CLAIM DISPLAY - SPECIAL MODE;02/03/2012
- ;;1.0;Beneficiary Travel;**20**;FEBRUARY 4 2012;Build 185
+ ;;1.0;Beneficiary Travel;**20,21**;FEBRUARY 4 2012;Build 7
  Q
 SCREEN ;this will display the information screen at the end of a claim and 
  N TOSTATE,DPSTATE,Z,INFOLINE
@@ -58,7 +58,8 @@ ACCT W !!,"Account: ",$G(DGBTSP("ACCOUNT"))
  W ?45,"Wait Time Fee: "
  S X=$G(DGBTSP("WAIT TIME")),X2="2$" D COMMA^%DTC W ?67,X
  ;
- W !,"Auth. Person: ",$P(^VA(200,DUZ,0),"^",1)
+ ;;changing auth. person to field 12 of file 392 - dbe patch DGBT*1*21
+ W !,"Auth. Person: ",$$GET1^DIQ(392,DGBTDT_",",12)
  ;
  W ?45,"Extra Crew Fee: "
  S X=$G(DGBTSP("EXTRA CREW")),X2="2$" D COMMA^%DTC W ?67,X

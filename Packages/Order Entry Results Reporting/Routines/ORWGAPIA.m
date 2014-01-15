@@ -1,5 +1,8 @@
 ORWGAPIA ; SLC/STAFF - Graph Application Calls ;2/22/07  11:16
- ;;3.0;ORDER ENTRY/RESULTS REPORTING;**215,251,260,243**;Dec 17, 1997;Build 242
+ ;;3.0;ORDER ENTRY/RESULTS REPORTING;**215,251,260,243,372**;Dec 17, 1997;Build 3
+ ;
+ ; Reference to API ICDDX^ICDCODE supported by IA #3990
+ ; Reference to API ICDOP^ICDCODE supported by IA #3990
  ;
 ADMITX(DFN) ; $$(dfn) -> 1 if patient has data else 0
  Q $O(^DGPM("C",+$G(DFN),0))>0
@@ -47,10 +50,14 @@ HF(NODE,ORVALUE,VALUES) ; from ORWGAPI4
  Q
  ;
 ICD0(IEN) ; $$(ien) -> external display of IDC0
- Q $P($G(^ICD0(IEN,0)),U)_" "_$P($G(^ICD0(IEN,0)),U,4)
+ N ARY S ARY=$$ICDOP^ICDCODE(IEN,"","","")
+ ;Q $P($G(^ICD0(IEN,0)),U)_" "_$P($G(^ICD0(IEN,0)),U,4)
+ Q $P(ARY,U,2)_" "_$P(ARY,U,5)
  ;
 ICD9(IEN) ; $$(ien) -> external display of IDC9
- Q $P($G(^ICD9(IEN,0)),U)_" "_$P($G(^ICD9(IEN,0)),U,3)
+ N ARY S ARY=$$ICDDX^ICDCODE(IEN,"","","")
+ ;Q $P($G(^ICD9(IEN,0)),U)_" "_$P($G(^ICD9(IEN,0)),U,3)
+ Q $P(ARY,U,2)_" "_$P(ARY,U,4)
  ;
 ICPT(IEN,CSD) ; $$(ien) -> external display of CPT
  N X S X=$$CPT^ICPTCOD($G(IEN),$G(CSD))

@@ -1,8 +1,8 @@
-PSOCAN ;BIR/JMB-Rx discontinue and reinstate ; 9/14/12 3:01pm
- ;;7.0;OUTPATIENT PHARMACY;**11,21,24,27,32,37,88,117,131,185,253,251,375,379,390,413**;DEC 1997;Build 2
+PSOCAN ;BIR/JMB - Rx discontinue and reinstate ;8/3/06 12:38pm
+ ;;7.0;OUTPATIENT PHARMACY;**11,21,24,27,32,37,88,117,131,185,253,251,375,379,390,413,372,416**;DEC 1997;Build 32
  ;External reference to File #55 supported by DBIA 2228
  ;External references L, UL, PSOL, and PSOUL^PSSLOCK supported by DBIA 2789
-START S WARN=0,(DAYS360,SPCANC)=1 D KCAN1^PSOCAN3 W !! S DIR("A")="Discontinue/Reinstate by Rx# or patient name",DIR(0)="SBO^R:RX NUMBER;P:PATIENT NAME"
+START N PSOODOSP,PSOREINF,PSOONOFC S WARN=0,(DAYS360,SPCANC)=1 D KCAN1^PSOCAN3 W !! S DIR("A")="Discontinue/Reinstate by Rx# or patient name",DIR(0)="SBO^R:RX NUMBER;P:PATIENT NAME"
  S DIR("?")="Enter 'R' to discontinue/reinstate by Rx#.  Enter 'P' to discontinue/reinstate by patient name." D ^DIR K DIR
  G:$G(DIRUT) KILL^PSOCAN1 K RP S RP=Y G:RP="P" PAT^PSOCAN1
 NUM D DCORD^PSONEW2
@@ -12,7 +12,7 @@ NUM D DCORD^PSONEW2
  S IN=Y G RX:Y[","
 NO I '$O(^PSRX("B",Y,0)) W " Rx Not Found!",! G NUM
  S PSPOP=0,DIC=52,DIC(0)="QEMZ" D ^DIC K DIC Q:$G(POERR)&(Y<0)
- G:Y<0 NUM S (DA,IFN,PSOULRX)=+Y,RXNUM=Y(0,0),PSODFN=+$P(^PSRX(DA,0),"^",2)
+ G:Y<0 NUM S (DA,IFN,PSOULRX)=+Y,RXNUM=Y(0,0),PSODFN=+$P(^PSRX(DA,0),"^",2) I PSODFN'=$G(PSOODOSP) K PSORX("DOSING OFF"),PSOREINF S PSOODOSP=PSODFN
  S PSOWUN=1 S PSOPLCK=$$L^PSSLOCK(PSODFN,0) I '$G(PSOPLCK) D LOCK^PSOORCPY K PSOPLCK G NUM
  K PSOPLCK D PSOL^PSSLOCK(IFN) I '$G(PSOMSG) W !!,$S($P($G(PSOMSG),"^",2)'="":$P($G(PSOMSG),"^",2),1:"Another person is editing this order.") K PSOMSG D ULP G NUM
  I $P($G(^PSRX(+$G(IFN),"STA")),"^")=12,$P($G(^("PKI")),"^") W !!,"Cannot be Reinstated - Digitally Signed" D ULP G NUM

@@ -1,5 +1,5 @@
-ECRRPT ;ALB/JAM - Event Capture Report RPC Broker ;11/15/12  13:06
- ;;2.0;EVENT CAPTURE;**25,32,41,56,61,82,94,95,108,119**;8 May 96;Build 12
+ECRRPT ;ALB/JAM - Event Capture Report RPC Broker ;12/9/13  12:48
+ ;;2.0;EVENT CAPTURE;**25,32,41,56,61,82,94,95,108,112,119,122**;8 May 96;Build 2
  ;
  ;119 For patch 119, added comment regarding ECPTYP being set to "E" when exporting, for those reports that are now exportable.
 REQCHK(ECV) ;Required data check

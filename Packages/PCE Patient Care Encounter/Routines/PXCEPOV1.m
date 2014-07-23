@@ -1,6 +1,9 @@
 PXCEPOV1 ;ISL/dee - Used to edit and display V POV ;8/31/05
- ;;1.0;PCE PATIENT CARE ENCOUNTER;**134,149,124,170**;Aug 12, 1996
- ;; ;
+ ;;1.0;PCE PATIENT CARE ENCOUNTER;**134,149,124,170,203**;Aug 12, 1996;Build 7
+ ;;
+ ; Calls to $$CODEC^ICDCODE, $$ICDD^ICDCODE & $$ICDDX^ICDCODE
+ ;  Supported by ICR # 3990
+ ;;
  Q
  ;
  ;********************************
@@ -69,7 +72,23 @@ ENARRAT1 ;
  N PXCEX,PXCEY
  I $E(Y,1)="=" S PXCEX=$E(PXCEIN01_" "_$E($P(Y,"^"),2,245),1,245)
  E  S PXCEX=Y
- I DEFAULT,PXCEX="" S PXCEX=$$EXTTEXT^PXUTL1($P(PXCEAFTR(0),"^",1),REQUIRED,$G(FILE),$G(FIELD1),$G(FIELD2))
+ ; PX*1.0*203 - Fixed for when ICD*18.0*57/LEX*2.0*80 are installed.
+ ; Fields 5 and 10 in file #80 have been modified by STS for ICD-10.
+ ; In the following lines of code these two field numbers are
+ ; intercepted and an appropriate, alternative data retrieval is
+ ; implemented.  Other file and field numbers will behave as they
+ ; previously did.
+ N PXCOD,PXDXCTDA,PXLDX,PXNO
+ I DEFAULT,PXCEX="" D
+ . S PXCOD=-1 I $G(FILE)=80,"^5^10^"[("^"_FIELD1_"^") D
+ .. S PXCOD=$$CODEC^ICDCODE($P(PXCEAFTR(0),"^",1))
+ . I $P(PXCOD,"^",1)'=-1,$G(FILE)=80,$G(FIELD1)=10 D  Q
+ .. S PXNO=$$ICDD^ICDCODE(PXCOD,"PXLDX")
+ .. S PXCEX=$S(PXNO>0:PXLDX(1),1:"")
+ . I $P(PXCOD,"^",1)'=-1,$G(FILE)=80,$G(FIELD1)=5 D  Q
+ .. S PXDXCTDA=$P($$ICDDX^ICDCODE(PXCOD),"^",6)
+ .. S PXCEX="" I $L(PXDXCTDA) S PXCEX=$$GET1^DIQ(80.3,PXDXCTDA,.01)
+ . S PXCEX=$$EXTTEXT^PXUTL1($P(PXCEAFTR(0),"^",1),REQUIRED,$G(FILE),$G(FIELD1),$G(FIELD2))
  I ASKING D
  . W !,PXCEX
  I $L(PXCEX)=1,PXCEX'="@" W !,"Must be 2 to 245 characters." G ENARRAT1

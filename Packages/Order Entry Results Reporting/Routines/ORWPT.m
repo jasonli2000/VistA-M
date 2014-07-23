@@ -1,5 +1,5 @@
-ORWPT ; SLC/KCM/REV - Patient Lookup Functions ;04/14/10  10:37
- ;;3.0;ORDER ENTRY/RESULTS REPORTING;**10,85,132,149,206,187,190,215,243,280,306**;Dec 17, 1997;Build 43
+ORWPT ; SLC/KCM/REV - Patient Lookup Functions ;03/26/13  09:06
+ ;;3.0;ORDER ENTRY/RESULTS REPORTING;**10,85,132,149,206,187,190,215,243,280,306,311**;Dec 17, 1997;Build 30
  ;
  ; Ref. to ^UTILITY via IA 10061
  ;
@@ -49,7 +49,7 @@ SELECT(REC,DFN) ; Selects patient & returns key information
  I '$D(^DPT(+DFN,0)) S REC="-1^^^^^Patient is unknown to CPRS." Q
  ;
  N X
- K ^TMP($J,"OC-OPOS") ; delete once per order session order checks
+ I $G(XWB("2","RPC"))="ORWPT SELECT" K ^TMP($J,"OC-OPOS") ; delete once per order session order checks
  K ^TMP("ORWPCE",$J) ; delete PCE 'cache' when switching patients
  S X=^DPT(DFN,0),REC=$P(X,U,1,3)_U_$P(X,U,9)_U_U_$G(^(.1))_U_$G(^(.101))
  S X=$P(REC,U,6) I $L(X) S $P(REC,U,5)=+$G(^DIC(42,+$O(^DIC(42,"B",X,0)),44))

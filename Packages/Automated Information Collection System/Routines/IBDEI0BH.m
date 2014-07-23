@@ -1,382 +1,288 @@
-IBDEI0BH ; ; 13-FEB-2014
- ;;3.0;IB ENCOUNTER FORM IMP/EXP;;FEB 13, 2014
+IBDEI0BH ; ; 09-MAY-2014
+ ;;3.0;IB ENCOUNTER FORM IMP/EXP;;MAY 09, 2014
  Q:'DIFQR(358.3)  F I=1:2 S X=$T(Q+I) Q:X=""  S Y=$E($T(Q+I+1),4,999),X=$E(X,4,999) S:$A(Y)=126 I=I+1,Y=$E(Y,2,999)_$E($T(Q+I+1),5,99) S:$A(Y)=61 Y=$E(Y,2,999) X NO E  S @X=Y
 Q Q
- ;;^UTILITY(U,$J,358.3,15297,1,0)
- ;;=^358.31IA^5^2
- ;;^UTILITY(U,$J,358.3,15297,1,4,0)
- ;;=4^171.9
- ;;^UTILITY(U,$J,358.3,15297,1,5,0)
- ;;=5^  Soft Tissue Sarcoma
- ;;^UTILITY(U,$J,358.3,15297,2)
- ;;=^267165
- ;;^UTILITY(U,$J,358.3,15298,0)
- ;;=186.9^^103^923^32
- ;;^UTILITY(U,$J,358.3,15298,1,0)
- ;;=^358.31IA^5^2
- ;;^UTILITY(U,$J,358.3,15298,1,4,0)
- ;;=4^186.9
- ;;^UTILITY(U,$J,358.3,15298,1,5,0)
- ;;=5^  Testis/Scrotum
- ;;^UTILITY(U,$J,358.3,15298,2)
- ;;=^267242
- ;;^UTILITY(U,$J,358.3,15299,0)
- ;;=198.7^^103^923^42
- ;;^UTILITY(U,$J,358.3,15299,1,0)
- ;;=^358.31IA^5^2
- ;;^UTILITY(U,$J,358.3,15299,1,4,0)
- ;;=4^198.7
- ;;^UTILITY(U,$J,358.3,15299,1,5,0)
- ;;=5^  Adrenal
- ;;^UTILITY(U,$J,358.3,15299,2)
- ;;=^267337
- ;;^UTILITY(U,$J,358.3,15300,0)
- ;;=198.5^^103^923^43
- ;;^UTILITY(U,$J,358.3,15300,1,0)
- ;;=^358.31IA^5^2
- ;;^UTILITY(U,$J,358.3,15300,1,4,0)
- ;;=4^198.5
- ;;^UTILITY(U,$J,358.3,15300,1,5,0)
- ;;=5^  Bone/Bone Marrow
- ;;^UTILITY(U,$J,358.3,15300,2)
- ;;=^267336
- ;;^UTILITY(U,$J,358.3,15301,0)
- ;;=198.3^^103^923^44
- ;;^UTILITY(U,$J,358.3,15301,1,0)
- ;;=^358.31IA^5^2
- ;;^UTILITY(U,$J,358.3,15301,1,4,0)
- ;;=4^198.3
- ;;^UTILITY(U,$J,358.3,15301,1,5,0)
- ;;=5^  Brain/Spinal Cord
- ;;^UTILITY(U,$J,358.3,15301,2)
- ;;=Brain Metatastasis^267334
- ;;^UTILITY(U,$J,358.3,15302,0)
- ;;=198.4^^103^923^39
- ;;^UTILITY(U,$J,358.3,15302,1,0)
- ;;=^358.31IA^5^2
- ;;^UTILITY(U,$J,358.3,15302,1,4,0)
- ;;=4
- ;;^UTILITY(U,$J,358.3,15302,1,5,0)
- ;;=5^  Nervous System
- ;;^UTILITY(U,$J,358.3,15302,2)
- ;;=^267335
- ;;^UTILITY(U,$J,358.3,15303,0)
- ;;=197.7^^103^923^14
- ;;^UTILITY(U,$J,358.3,15303,1,0)
- ;;=^358.31IA^5^2
- ;;^UTILITY(U,$J,358.3,15303,1,4,0)
- ;;=4^197.7
- ;;^UTILITY(U,$J,358.3,15303,1,5,0)
- ;;=5^  Liver (Secondary)
- ;;^UTILITY(U,$J,358.3,15303,2)
- ;;=CA Liver, Secondary^267328
- ;;^UTILITY(U,$J,358.3,15304,0)
- ;;=197.0^^103^923^45
- ;;^UTILITY(U,$J,358.3,15304,1,0)
- ;;=^358.31IA^5^2
- ;;^UTILITY(U,$J,358.3,15304,1,4,0)
- ;;=4^197.0
- ;;^UTILITY(U,$J,358.3,15304,1,5,0)
- ;;=5^  Lung
- ;;^UTILITY(U,$J,358.3,15304,2)
- ;;=Mets to Lung^267322
- ;;^UTILITY(U,$J,358.3,15305,0)
- ;;=V10.51^^103^923^48
- ;;^UTILITY(U,$J,358.3,15305,1,0)
- ;;=^358.31IA^5^2
- ;;^UTILITY(U,$J,358.3,15305,1,4,0)
- ;;=4^V10.51
- ;;^UTILITY(U,$J,358.3,15305,1,5,0)
- ;;=5^  Bladder
- ;;^UTILITY(U,$J,358.3,15305,2)
- ;;=^295228
- ;;^UTILITY(U,$J,358.3,15306,0)
- ;;=V10.3^^103^923^49
- ;;^UTILITY(U,$J,358.3,15306,1,0)
- ;;=^358.31IA^5^2
- ;;^UTILITY(U,$J,358.3,15306,1,4,0)
- ;;=4^V10.3
- ;;^UTILITY(U,$J,358.3,15306,1,5,0)
- ;;=5^  Breast
- ;;^UTILITY(U,$J,358.3,15306,2)
- ;;=^295217
- ;;^UTILITY(U,$J,358.3,15307,0)
- ;;=V10.41^^103^923^50
- ;;^UTILITY(U,$J,358.3,15307,1,0)
- ;;=^358.31IA^5^2
- ;;^UTILITY(U,$J,358.3,15307,1,4,0)
- ;;=4^V10.41
- ;;^UTILITY(U,$J,358.3,15307,1,5,0)
- ;;=5^  Cervix
- ;;^UTILITY(U,$J,358.3,15307,2)
- ;;=^295219
- ;;^UTILITY(U,$J,358.3,15308,0)
- ;;=V10.05^^103^923^51
- ;;^UTILITY(U,$J,358.3,15308,1,0)
- ;;=^358.31IA^5^2
- ;;^UTILITY(U,$J,358.3,15308,1,4,0)
- ;;=4^V10.05
- ;;^UTILITY(U,$J,358.3,15308,1,5,0)
- ;;=5^  Colon
- ;;^UTILITY(U,$J,358.3,15308,2)
- ;;=H/O Colon Cancer^295207
- ;;^UTILITY(U,$J,358.3,15309,0)
- ;;=V10.03^^103^923^52
- ;;^UTILITY(U,$J,358.3,15309,1,0)
- ;;=^358.31IA^5^2
- ;;^UTILITY(U,$J,358.3,15309,1,4,0)
- ;;=4^V10.03
- ;;^UTILITY(U,$J,358.3,15309,1,5,0)
- ;;=5^  Esophagus
- ;;^UTILITY(U,$J,358.3,15309,2)
- ;;=^295205
- ;;^UTILITY(U,$J,358.3,15310,0)
- ;;=V10.60^^103^923^55
- ;;^UTILITY(U,$J,358.3,15310,1,0)
- ;;=^358.31IA^5^2
- ;;^UTILITY(U,$J,358.3,15310,1,4,0)
- ;;=4^V10.60
- ;;^UTILITY(U,$J,358.3,15310,1,5,0)
- ;;=5^  Leukemia
- ;;^UTILITY(U,$J,358.3,15310,2)
- ;;=H/O Leukemia^295231
- ;;^UTILITY(U,$J,358.3,15311,0)
- ;;=V10.11^^103^923^56
- ;;^UTILITY(U,$J,358.3,15311,1,0)
- ;;=^358.31IA^5^2
- ;;^UTILITY(U,$J,358.3,15311,1,4,0)
- ;;=4^V10.11
- ;;^UTILITY(U,$J,358.3,15311,1,5,0)
- ;;=5^  Lung/Bronchus
- ;;^UTILITY(U,$J,358.3,15311,2)
- ;;=H/O Lung Cancer^295211
- ;;^UTILITY(U,$J,358.3,15312,0)
- ;;=V10.79^^103^923^57
- ;;^UTILITY(U,$J,358.3,15312,1,0)
- ;;=^358.31IA^5^2
- ;;^UTILITY(U,$J,358.3,15312,1,4,0)
- ;;=4^V10.79
- ;;^UTILITY(U,$J,358.3,15312,1,5,0)
- ;;=5^  Lymphoma
- ;;^UTILITY(U,$J,358.3,15312,2)
- ;;=H/O Lymphoma^295238
- ;;^UTILITY(U,$J,358.3,15313,0)
- ;;=V10.82^^103^923^58
- ;;^UTILITY(U,$J,358.3,15313,1,0)
- ;;=^358.31IA^5^2
- ;;^UTILITY(U,$J,358.3,15313,1,4,0)
- ;;=4^V10.82
- ;;^UTILITY(U,$J,358.3,15313,1,5,0)
- ;;=5^  Malignant Melanoma
- ;;^UTILITY(U,$J,358.3,15313,2)
- ;;=^295240
- ;;^UTILITY(U,$J,358.3,15314,0)
- ;;=V10.02^^103^923^59
- ;;^UTILITY(U,$J,358.3,15314,1,0)
- ;;=^358.31IA^5^2
- ;;^UTILITY(U,$J,358.3,15314,1,4,0)
- ;;=4^V10.02
- ;;^UTILITY(U,$J,358.3,15314,1,5,0)
- ;;=5^  Oral/Pharynx
- ;;^UTILITY(U,$J,358.3,15314,2)
- ;;=^295204
- ;;^UTILITY(U,$J,358.3,15315,0)
- ;;=V10.43^^103^923^60
- ;;^UTILITY(U,$J,358.3,15315,1,0)
- ;;=^358.31IA^5^2
- ;;^UTILITY(U,$J,358.3,15315,1,4,0)
- ;;=4^V10.43
- ;;^UTILITY(U,$J,358.3,15315,1,5,0)
- ;;=5^  Ovary
- ;;^UTILITY(U,$J,358.3,15315,2)
- ;;=^295221
- ;;^UTILITY(U,$J,358.3,15316,0)
- ;;=V10.46^^103^923^61
- ;;^UTILITY(U,$J,358.3,15316,1,0)
- ;;=^358.31IA^5^2
- ;;^UTILITY(U,$J,358.3,15316,1,4,0)
- ;;=4^V10.46
- ;;^UTILITY(U,$J,358.3,15316,1,5,0)
- ;;=5^  Prostate
- ;;^UTILITY(U,$J,358.3,15316,2)
- ;;=^295224
- ;;^UTILITY(U,$J,358.3,15317,0)
- ;;=V10.06^^103^923^62
- ;;^UTILITY(U,$J,358.3,15317,1,0)
- ;;=^358.31IA^5^2
- ;;^UTILITY(U,$J,358.3,15317,1,4,0)
- ;;=4^V10.06
- ;;^UTILITY(U,$J,358.3,15317,1,5,0)
- ;;=5^  Rectum/Rectosigmoid/Anus
- ;;^UTILITY(U,$J,358.3,15317,2)
- ;;=^295208
- ;;^UTILITY(U,$J,358.3,15318,0)
- ;;=V10.52^^103^923^53
- ;;^UTILITY(U,$J,358.3,15318,1,0)
- ;;=^358.31IA^5^2
- ;;^UTILITY(U,$J,358.3,15318,1,4,0)
- ;;=4^V10.52
- ;;^UTILITY(U,$J,358.3,15318,1,5,0)
- ;;=5^  Kidney
- ;;^UTILITY(U,$J,358.3,15318,2)
- ;;=H/o Renal Cancer^295229
- ;;^UTILITY(U,$J,358.3,15319,0)
- ;;=V10.04^^103^923^64
- ;;^UTILITY(U,$J,358.3,15319,1,0)
- ;;=^358.31IA^5^2
- ;;^UTILITY(U,$J,358.3,15319,1,4,0)
- ;;=4^V10.04
- ;;^UTILITY(U,$J,358.3,15319,1,5,0)
- ;;=5^  Stomach
- ;;^UTILITY(U,$J,358.3,15319,2)
- ;;=^295206
- ;;^UTILITY(U,$J,358.3,15320,0)
- ;;=V10.47^^103^923^65
- ;;^UTILITY(U,$J,358.3,15320,1,0)
- ;;=^358.31IA^5^2
- ;;^UTILITY(U,$J,358.3,15320,1,4,0)
- ;;=4^V10.47
- ;;^UTILITY(U,$J,358.3,15320,1,5,0)
- ;;=5^  Testis/Scrotum
- ;;^UTILITY(U,$J,358.3,15320,2)
- ;;=^295225
- ;;^UTILITY(U,$J,358.3,15321,0)
- ;;=V10.83^^103^923^63
- ;;^UTILITY(U,$J,358.3,15321,1,0)
- ;;=^358.31IA^5^2
- ;;^UTILITY(U,$J,358.3,15321,1,4,0)
- ;;=4^V10.83
- ;;^UTILITY(U,$J,358.3,15321,1,5,0)
- ;;=5^  Skin
- ;;^UTILITY(U,$J,358.3,15321,2)
- ;;=H/O Skin Cancer^295241
- ;;^UTILITY(U,$J,358.3,15322,0)
- ;;=201.90^^103^923^67
- ;;^UTILITY(U,$J,358.3,15322,1,0)
- ;;=^358.31IA^5^2
- ;;^UTILITY(U,$J,358.3,15322,1,4,0)
- ;;=4^201.90
- ;;^UTILITY(U,$J,358.3,15322,1,5,0)
- ;;=5^  Hodgkin's Lymphoma
- ;;^UTILITY(U,$J,358.3,15322,2)
- ;;=^267430
- ;;^UTILITY(U,$J,358.3,15323,0)
- ;;=200.20^^103^923^69
- ;;^UTILITY(U,$J,358.3,15323,1,0)
- ;;=^358.31IA^5^2
- ;;^UTILITY(U,$J,358.3,15323,1,4,0)
- ;;=4^200.20
- ;;^UTILITY(U,$J,358.3,15323,1,5,0)
- ;;=5^  Lymphoma, Burkitt's
- ;;^UTILITY(U,$J,358.3,15323,2)
- ;;=^17529
- ;;^UTILITY(U,$J,358.3,15324,0)
- ;;=203.01^^103^923^71
- ;;^UTILITY(U,$J,358.3,15324,1,0)
- ;;=^358.31IA^5^2
- ;;^UTILITY(U,$J,358.3,15324,1,4,0)
- ;;=4^203.01
- ;;^UTILITY(U,$J,358.3,15324,1,5,0)
- ;;=5^  Multiple Myeloma
- ;;^UTILITY(U,$J,358.3,15324,2)
- ;;=^267515
- ;;^UTILITY(U,$J,358.3,15325,0)
- ;;=238.6^^103^923^74
- ;;^UTILITY(U,$J,358.3,15325,1,0)
- ;;=^358.31IA^5^2
- ;;^UTILITY(U,$J,358.3,15325,1,4,0)
- ;;=4^238.6
- ;;^UTILITY(U,$J,358.3,15325,1,5,0)
- ;;=5^  Plasmacytoma
- ;;^UTILITY(U,$J,358.3,15325,2)
- ;;=^81973
- ;;^UTILITY(U,$J,358.3,15326,0)
- ;;=37.2^1^103^923^33^Other ^1
- ;;^UTILITY(U,$J,358.3,15326,1,0)
- ;;=^358.31IA^5^2
- ;;^UTILITY(U,$J,358.3,15326,1,4,0)
- ;;=4
- ;;^UTILITY(U,$J,358.3,15326,1,5,0)
- ;;=5
- ;;^UTILITY(U,$J,358.3,15327,0)
- ;;=175.9^^103^923^36
- ;;^UTILITY(U,$J,358.3,15327,1,0)
- ;;=^358.31IA^5^2
- ;;^UTILITY(U,$J,358.3,15327,1,4,0)
- ;;=4^175.9
- ;;^UTILITY(U,$J,358.3,15327,1,5,0)
- ;;=5^  Breast (Male)
- ;;^UTILITY(U,$J,358.3,15327,2)
- ;;=^267205
- ;;^UTILITY(U,$J,358.3,15328,0)
- ;;=196.9^^103^923^46
- ;;^UTILITY(U,$J,358.3,15328,1,0)
- ;;=^358.31IA^5^2
- ;;^UTILITY(U,$J,358.3,15328,1,4,0)
- ;;=4^196.9
- ;;^UTILITY(U,$J,358.3,15328,1,5,0)
- ;;=5^  Lymph Nodes
- ;;^UTILITY(U,$J,358.3,15328,2)
- ;;=^267313
- ;;^UTILITY(U,$J,358.3,15329,0)
- ;;=202.80^^103^923^73
- ;;^UTILITY(U,$J,358.3,15329,1,0)
- ;;=^358.31IA^5^2
- ;;^UTILITY(U,$J,358.3,15329,1,4,0)
- ;;=4^202.80
- ;;^UTILITY(U,$J,358.3,15329,1,5,0)
- ;;=5^  Non-Hodgkin's Lymphoma
- ;;^UTILITY(U,$J,358.3,15329,2)
- ;;=^87701
- ;;^UTILITY(U,$J,358.3,15330,0)
- ;;=200.00^^103^923^75
- ;;^UTILITY(U,$J,358.3,15330,1,0)
- ;;=^358.31IA^5^2
- ;;^UTILITY(U,$J,358.3,15330,1,4,0)
- ;;=4^200.00
- ;;^UTILITY(U,$J,358.3,15330,1,5,0)
- ;;=5^  Reticulosarcoma
- ;;^UTILITY(U,$J,358.3,15330,2)
- ;;=^72635
- ;;^UTILITY(U,$J,358.3,15331,0)
- ;;=200.10^^103^923^70
- ;;^UTILITY(U,$J,358.3,15331,1,0)
- ;;=^358.31IA^5^2
- ;;^UTILITY(U,$J,358.3,15331,1,4,0)
- ;;=4^200.10
- ;;^UTILITY(U,$J,358.3,15331,1,5,0)
- ;;=5^  Lymphosarcoma
- ;;^UTILITY(U,$J,358.3,15331,2)
- ;;=^175886
- ;;^UTILITY(U,$J,358.3,15332,0)
- ;;=204.90^^103^923^68
- ;;^UTILITY(U,$J,358.3,15332,1,0)
- ;;=^358.31IA^5^2
- ;;^UTILITY(U,$J,358.3,15332,1,4,0)
- ;;=4^204.90
- ;;^UTILITY(U,$J,358.3,15332,1,5,0)
- ;;=5^  Lymphoid Leukemia
- ;;^UTILITY(U,$J,358.3,15332,2)
- ;;=^267529
- ;;^UTILITY(U,$J,358.3,15333,0)
- ;;=100^1^103^923^66^Myeloma/Lymphoma^1
- ;;^UTILITY(U,$J,358.3,15333,1,0)
- ;;=^358.31IA^5^2
- ;;^UTILITY(U,$J,358.3,15333,1,4,0)
- ;;=4
- ;;^UTILITY(U,$J,358.3,15333,1,5,0)
- ;;=5
- ;;^UTILITY(U,$J,358.3,15334,0)
- ;;=205.90^^103^923^72
- ;;^UTILITY(U,$J,358.3,15334,1,0)
- ;;=^358.31IA^5^2
- ;;^UTILITY(U,$J,358.3,15334,1,4,0)
- ;;=4^205.90
- ;;^UTILITY(U,$J,358.3,15334,1,5,0)
- ;;=5^  Myeloid Leukemia
- ;;^UTILITY(U,$J,358.3,15334,2)
- ;;=^267541
- ;;^UTILITY(U,$J,358.3,15335,0)
- ;;=V10.21^^103^923^54
- ;;^UTILITY(U,$J,358.3,15335,1,0)
- ;;=^358.31IA^5^2
+ ;;^UTILITY(U,$J,358.3,15516,1,2,0)
+ ;;=2^Open TX of calcaneal fracture, with or without internal or external fixation; with primary iliac or other autogenous bone graft
+ ;;^UTILITY(U,$J,358.3,15516,1,3,0)
+ ;;=3^28420
+ ;;^UTILITY(U,$J,358.3,15517,0)
+ ;;=28430^^99^1001^6^^^^1
+ ;;^UTILITY(U,$J,358.3,15517,1,0)
+ ;;=^358.31IA^3^2
+ ;;^UTILITY(U,$J,358.3,15517,1,2,0)
+ ;;=2^Closed TX of talus fracture; without manipulation 
+ ;;^UTILITY(U,$J,358.3,15517,1,3,0)
+ ;;=3^28430
+ ;;^UTILITY(U,$J,358.3,15518,0)
+ ;;=28435^^99^1001^7^^^^1
+ ;;^UTILITY(U,$J,358.3,15518,1,0)
+ ;;=^358.31IA^3^2
+ ;;^UTILITY(U,$J,358.3,15518,1,2,0)
+ ;;=2^Closed TX of talus fracture; with manipulation 
+ ;;^UTILITY(U,$J,358.3,15518,1,3,0)
+ ;;=3^28435
+ ;;^UTILITY(U,$J,358.3,15519,0)
+ ;;=28436^^99^1001^8^^^^1
+ ;;^UTILITY(U,$J,358.3,15519,1,0)
+ ;;=^358.31IA^3^2
+ ;;^UTILITY(U,$J,358.3,15519,1,2,0)
+ ;;=2^Perc Fixation Talus Fx
+ ;;^UTILITY(U,$J,358.3,15519,1,3,0)
+ ;;=3^28436
+ ;;^UTILITY(U,$J,358.3,15520,0)
+ ;;=28445^^99^1001^9^^^^1
+ ;;^UTILITY(U,$J,358.3,15520,1,0)
+ ;;=^358.31IA^3^2
+ ;;^UTILITY(U,$J,358.3,15520,1,2,0)
+ ;;=2^Open/Closed TX of Talus FX,w/internal fixation
+ ;;^UTILITY(U,$J,358.3,15520,1,3,0)
+ ;;=3^28445
+ ;;^UTILITY(U,$J,358.3,15521,0)
+ ;;=28450^^99^1001^10^^^^1
+ ;;^UTILITY(U,$J,358.3,15521,1,0)
+ ;;=^358.31IA^3^2
+ ;;^UTILITY(U,$J,358.3,15521,1,2,0)
+ ;;=2^TX of tarsal bone fracture; without manipulation, each 
+ ;;^UTILITY(U,$J,358.3,15521,1,3,0)
+ ;;=3^28450
+ ;;^UTILITY(U,$J,358.3,15522,0)
+ ;;=28455^^99^1001^11^^^^1
+ ;;^UTILITY(U,$J,358.3,15522,1,0)
+ ;;=^358.31IA^3^2
+ ;;^UTILITY(U,$J,358.3,15522,1,2,0)
+ ;;=2^TX of tarsal bone fracture; with manipulation, each
+ ;;^UTILITY(U,$J,358.3,15522,1,3,0)
+ ;;=3^28455
+ ;;^UTILITY(U,$J,358.3,15523,0)
+ ;;=28456^^99^1001^12^^^^1
+ ;;^UTILITY(U,$J,358.3,15523,1,0)
+ ;;=^358.31IA^3^2
+ ;;^UTILITY(U,$J,358.3,15523,1,2,0)
+ ;;=2^Perc Fixation Tarsal Fx
+ ;;^UTILITY(U,$J,358.3,15523,1,3,0)
+ ;;=3^28456
+ ;;^UTILITY(U,$J,358.3,15524,0)
+ ;;=28465^^99^1001^13^^^^1
+ ;;^UTILITY(U,$J,358.3,15524,1,0)
+ ;;=^358.31IA^3^2
+ ;;^UTILITY(U,$J,358.3,15524,1,2,0)
+ ;;=2^Open/Closed TX of tarsal FX,w/ internal fixation
+ ;;^UTILITY(U,$J,358.3,15524,1,3,0)
+ ;;=3^28465
+ ;;^UTILITY(U,$J,358.3,15525,0)
+ ;;=28470^^99^1001^14^^^^1
+ ;;^UTILITY(U,$J,358.3,15525,1,0)
+ ;;=^358.31IA^3^2
+ ;;^UTILITY(U,$J,358.3,15525,1,2,0)
+ ;;=2^Closed TX of metatarsal fracture; without manipulation, eachnt of me
+ ;;^UTILITY(U,$J,358.3,15525,1,3,0)
+ ;;=3^28470
+ ;;^UTILITY(U,$J,358.3,15526,0)
+ ;;=28475^^99^1001^15^^^^1
+ ;;^UTILITY(U,$J,358.3,15526,1,0)
+ ;;=^358.31IA^3^2
+ ;;^UTILITY(U,$J,358.3,15526,1,2,0)
+ ;;=2^Closed TX of metatarsal fracture; with manipulation, each
+ ;;^UTILITY(U,$J,358.3,15526,1,3,0)
+ ;;=3^28475
+ ;;^UTILITY(U,$J,358.3,15527,0)
+ ;;=28476^^99^1001^16^^^^1
+ ;;^UTILITY(U,$J,358.3,15527,1,0)
+ ;;=^358.31IA^3^2
+ ;;^UTILITY(U,$J,358.3,15527,1,2,0)
+ ;;=2^Perc Fixation Metatarsal Fx
+ ;;^UTILITY(U,$J,358.3,15527,1,3,0)
+ ;;=3^28476
+ ;;^UTILITY(U,$J,358.3,15528,0)
+ ;;=28485^^99^1001^17^^^^1
+ ;;^UTILITY(U,$J,358.3,15528,1,0)
+ ;;=^358.31IA^3^2
+ ;;^UTILITY(U,$J,358.3,15528,1,2,0)
+ ;;=2^Open/Closed TX of Metatarsal FX,w/internal fixation
+ ;;^UTILITY(U,$J,358.3,15528,1,3,0)
+ ;;=3^28485
+ ;;^UTILITY(U,$J,358.3,15529,0)
+ ;;=28490^^99^1001^18^^^^1
+ ;;^UTILITY(U,$J,358.3,15529,1,0)
+ ;;=^358.31IA^3^2
+ ;;^UTILITY(U,$J,358.3,15529,1,2,0)
+ ;;=2^Closed TX of fracture great toe, phalanx or phalanges; without manipulation
+ ;;^UTILITY(U,$J,358.3,15529,1,3,0)
+ ;;=3^28490
+ ;;^UTILITY(U,$J,358.3,15530,0)
+ ;;=28495^^99^1001^19^^^^1
+ ;;^UTILITY(U,$J,358.3,15530,1,0)
+ ;;=^358.31IA^3^2
+ ;;^UTILITY(U,$J,358.3,15530,1,2,0)
+ ;;=2^Closed TX of fracture great toe, phalanx or phalanges; with manipulation
+ ;;^UTILITY(U,$J,358.3,15530,1,3,0)
+ ;;=3^28495
+ ;;^UTILITY(U,$J,358.3,15531,0)
+ ;;=28496^^99^1001^20^^^^1
+ ;;^UTILITY(U,$J,358.3,15531,1,0)
+ ;;=^358.31IA^3^2
+ ;;^UTILITY(U,$J,358.3,15531,1,2,0)
+ ;;=2^Perc Fixation Great Toe Fx
+ ;;^UTILITY(U,$J,358.3,15531,1,3,0)
+ ;;=3^28496
+ ;;^UTILITY(U,$J,358.3,15532,0)
+ ;;=28505^^99^1001^21^^^^1
+ ;;^UTILITY(U,$J,358.3,15532,1,0)
+ ;;=^358.31IA^3^2
+ ;;^UTILITY(U,$J,358.3,15532,1,2,0)
+ ;;=2^Open TX of fracture great toe, phalanx or phalanges, with or without internal or external fixation
+ ;;^UTILITY(U,$J,358.3,15532,1,3,0)
+ ;;=3^28505
+ ;;^UTILITY(U,$J,358.3,15533,0)
+ ;;=28510^^99^1001^22^^^^1
+ ;;^UTILITY(U,$J,358.3,15533,1,0)
+ ;;=^358.31IA^3^2
+ ;;^UTILITY(U,$J,358.3,15533,1,2,0)
+ ;;=2^Closed TX of fracture, phalanx or phalanges, other than great toe; without manipulation, each
+ ;;^UTILITY(U,$J,358.3,15533,1,3,0)
+ ;;=3^28510
+ ;;^UTILITY(U,$J,358.3,15534,0)
+ ;;=28515^^99^1001^23^^^^1
+ ;;^UTILITY(U,$J,358.3,15534,1,0)
+ ;;=^358.31IA^3^2
+ ;;^UTILITY(U,$J,358.3,15534,1,2,0)
+ ;;=2^Closed TX of fracture, phalanx or phalanges, other than great toe; with manipulation, each
+ ;;^UTILITY(U,$J,358.3,15534,1,3,0)
+ ;;=3^28515
+ ;;^UTILITY(U,$J,358.3,15535,0)
+ ;;=28525^^99^1001^24^^^^1
+ ;;^UTILITY(U,$J,358.3,15535,1,0)
+ ;;=^358.31IA^3^2
+ ;;^UTILITY(U,$J,358.3,15535,1,2,0)
+ ;;=2^Open TX of fracture, phalanx or phalanges, other than great toe, with or without internal or external fixation, each
+ ;;^UTILITY(U,$J,358.3,15535,1,3,0)
+ ;;=3^28525
+ ;;^UTILITY(U,$J,358.3,15536,0)
+ ;;=28530^^99^1001^25^^^^1
+ ;;^UTILITY(U,$J,358.3,15536,1,0)
+ ;;=^358.31IA^3^2
+ ;;^UTILITY(U,$J,358.3,15536,1,2,0)
+ ;;=2^Closed TX of sesamiod fracture 
+ ;;^UTILITY(U,$J,358.3,15536,1,3,0)
+ ;;=3^28530
+ ;;^UTILITY(U,$J,358.3,15537,0)
+ ;;=28531^^99^1001^26^^^^1
+ ;;^UTILITY(U,$J,358.3,15537,1,0)
+ ;;=^358.31IA^3^2
+ ;;^UTILITY(U,$J,358.3,15537,1,2,0)
+ ;;=2^Open TX of sesamiod fracture, with or without internal fixation
+ ;;^UTILITY(U,$J,358.3,15537,1,3,0)
+ ;;=3^28531
+ ;;^UTILITY(U,$J,358.3,15538,0)
+ ;;=27760^^99^1001^27^^^^1
+ ;;^UTILITY(U,$J,358.3,15538,1,0)
+ ;;=^358.31IA^3^2
+ ;;^UTILITY(U,$J,358.3,15538,1,2,0)
+ ;;=2^Closed TX of medial malleolus fracture; without manipulation 
+ ;;^UTILITY(U,$J,358.3,15538,1,3,0)
+ ;;=3^27760
+ ;;^UTILITY(U,$J,358.3,15539,0)
+ ;;=27762^^99^1001^28^^^^1
+ ;;^UTILITY(U,$J,358.3,15539,1,0)
+ ;;=^358.31IA^3^2
+ ;;^UTILITY(U,$J,358.3,15539,1,2,0)
+ ;;=2^Closed TX of medial malleolus fracture; with manipulation, with or without skin or skeletal traction
+ ;;^UTILITY(U,$J,358.3,15539,1,3,0)
+ ;;=3^27762
+ ;;^UTILITY(U,$J,358.3,15540,0)
+ ;;=27766^^99^1001^29^^^^1
+ ;;^UTILITY(U,$J,358.3,15540,1,0)
+ ;;=^358.31IA^3^2
+ ;;^UTILITY(U,$J,358.3,15540,1,2,0)
+ ;;=2^Open/Closed TX of medial matteolus FX,w/ internal fixation
+ ;;^UTILITY(U,$J,358.3,15540,1,3,0)
+ ;;=3^27766
+ ;;^UTILITY(U,$J,358.3,15541,0)
+ ;;=27786^^99^1001^30^^^^1
+ ;;^UTILITY(U,$J,358.3,15541,1,0)
+ ;;=^358.31IA^3^2
+ ;;^UTILITY(U,$J,358.3,15541,1,2,0)
+ ;;=2^Closed TX of distal fibular fracture (lateral malleolus); without manipulation
+ ;;^UTILITY(U,$J,358.3,15541,1,3,0)
+ ;;=3^27786
+ ;;^UTILITY(U,$J,358.3,15542,0)
+ ;;=27788^^99^1001^31^^^^1
+ ;;^UTILITY(U,$J,358.3,15542,1,0)
+ ;;=^358.31IA^3^2
+ ;;^UTILITY(U,$J,358.3,15542,1,2,0)
+ ;;=2^Closed TX of distal fibular (lateral malleolus); with manipulation
+ ;;^UTILITY(U,$J,358.3,15542,1,3,0)
+ ;;=3^27788
+ ;;^UTILITY(U,$J,358.3,15543,0)
+ ;;=27792^^99^1001^32^^^^1
+ ;;^UTILITY(U,$J,358.3,15543,1,0)
+ ;;=^358.31IA^3^2
+ ;;^UTILITY(U,$J,358.3,15543,1,2,0)
+ ;;=2^Open TX of distal fibular fracture (lateral malleolus), with or without internal or external fixation
+ ;;^UTILITY(U,$J,358.3,15543,1,3,0)
+ ;;=3^27792
+ ;;^UTILITY(U,$J,358.3,15544,0)
+ ;;=27808^^99^1001^33^^^^1
+ ;;^UTILITY(U,$J,358.3,15544,1,0)
+ ;;=^358.31IA^3^2
+ ;;^UTILITY(U,$J,358.3,15544,1,2,0)
+ ;;=2^Closed TX of bimalleolar ankle fracture, (including Potts); without manipulation
+ ;;^UTILITY(U,$J,358.3,15544,1,3,0)
+ ;;=3^27808
+ ;;^UTILITY(U,$J,358.3,15545,0)
+ ;;=27810^^99^1001^34^^^^1
+ ;;^UTILITY(U,$J,358.3,15545,1,0)
+ ;;=^358.31IA^3^2
+ ;;^UTILITY(U,$J,358.3,15545,1,2,0)
+ ;;=2^Closed TX of bimalleolar ankle fracture, (including Potts); with manipulation
+ ;;^UTILITY(U,$J,358.3,15545,1,3,0)
+ ;;=3^27810
+ ;;^UTILITY(U,$J,358.3,15546,0)
+ ;;=27814^^99^1001^35^^^^1
+ ;;^UTILITY(U,$J,358.3,15546,1,0)
+ ;;=^358.31IA^3^2
+ ;;^UTILITY(U,$J,358.3,15546,1,2,0)
+ ;;=2^Open TX of bimalleolar ankle fracture, with or without internal or external fixation
+ ;;^UTILITY(U,$J,358.3,15546,1,3,0)
+ ;;=3^27814
+ ;;^UTILITY(U,$J,358.3,15547,0)
+ ;;=27816^^99^1001^36^^^^1
+ ;;^UTILITY(U,$J,358.3,15547,1,0)
+ ;;=^358.31IA^3^2
+ ;;^UTILITY(U,$J,358.3,15547,1,2,0)
+ ;;=2^Closed TX of trimalleolar ankle fracture; without manipulation
+ ;;^UTILITY(U,$J,358.3,15547,1,3,0)
+ ;;=3^27816
+ ;;^UTILITY(U,$J,358.3,15548,0)
+ ;;=27818^^99^1001^37^^^^1
+ ;;^UTILITY(U,$J,358.3,15548,1,0)
+ ;;=^358.31IA^3^2
+ ;;^UTILITY(U,$J,358.3,15548,1,2,0)
+ ;;=2^Closed TX of trimalleolar ankle fracture; with manipulation
+ ;;^UTILITY(U,$J,358.3,15548,1,3,0)
+ ;;=3^27818
+ ;;^UTILITY(U,$J,358.3,15549,0)
+ ;;=27822^^99^1001^38^^^^1
+ ;;^UTILITY(U,$J,358.3,15549,1,0)
+ ;;=^358.31IA^3^2
+ ;;^UTILITY(U,$J,358.3,15549,1,2,0)
+ ;;=2^Open Tx of trimalleolar ankle fracture, with or w/o internal or external fixation of, medial and/or lateral malleolus; w/o fixation of posterior lip
+ ;;^UTILITY(U,$J,358.3,15549,1,3,0)
+ ;;=3^27822
+ ;;^UTILITY(U,$J,358.3,15550,0)
+ ;;=27823^^99^1001^39^^^^1
+ ;;^UTILITY(U,$J,358.3,15550,1,0)
+ ;;=^358.31IA^3^2
+ ;;^UTILITY(U,$J,358.3,15550,1,2,0)
+ ;;=2^Open Tx of trimalleolar ankle fracture, with or w/o internal or external fixation, medial and/or lateral malleolus; with fixation of posterior lip  
+ ;;^UTILITY(U,$J,358.3,15550,1,3,0)
+ ;;=3^27823
+ ;;^UTILITY(U,$J,358.3,15551,0)
+ ;;=27824^^99^1001^40^^^^1
+ ;;^UTILITY(U,$J,358.3,15551,1,0)
+ ;;=^358.31IA^3^2
+ ;;^UTILITY(U,$J,358.3,15551,1,2,0)
+ ;;=2^Closed Tx of fracture of weight bearing articular portion of distal tibia, with or w/o anesthesia; w/o manipulation 
+ ;;^UTILITY(U,$J,358.3,15551,1,3,0)
+ ;;=3^27824

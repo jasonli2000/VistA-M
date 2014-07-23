@@ -1,5 +1,5 @@
 IBCNES ;ALB/ESG - eIV elig/Benefit screen ;14-Jul-2009
- ;;2.0;INTEGRATED BILLING;**416,438**;21-MAR-94;Build 52
+ ;;2.0;INTEGRATED BILLING;**416,438,497**;21-MAR-94;Build 120
  ;;Per VHA Directive 2004-038, this routine should not be modified.
  ;
  Q
@@ -43,6 +43,10 @@ HDR ; -- header code - called by ListManager
  . S VALMHDR(1)=$$FO^IBCNEUT1(PN,30)_"  "_$$FO^IBCNEUT1(LPID,15)_"  "_$$FO^IBCNEUT1(INSNM,30)
  . Q
  ;
+ I $G(IBBUFDA) D
+ .N SRVARRAY,Z
+ .D SERVLN^IBCNBLE(IBBUFDA,.SRVARRAY) I SRVARRAY F Z=1:1:SRVARRAY S VALMHDR(Z+1)=SRVARRAY(Z)
+ .Q
  Q
  ;
 INIT(IBVF,IBVIENS,IBVEBFLG,IBVV,IBVSUB) ; List Entry
@@ -76,6 +80,8 @@ INIT(IBVF,IBVIENS,IBVEBFLG,IBVV,IBVSUB) ; List Entry
  ;
  I $D(VALMEVL),'$G(IBVV) S IBVV=1    ; default reverse video for ListMan
  I '$D(VALMEVL) S IBVV=""            ; no video attributes for non-ListMan
+ ;
+ D RPDM^IBCNES3($S(IBVF=365.02:365,1:2.312),.IBVDA,IBVV,IBVSUB)  ; IB*2*497  display group level eligibility information
  ;
  I IBVF=2.322 S GLO=$NA(^DPT(+$G(IBVDA(1)),.312,+$G(IBVDA),6))   ; pt. insurance
  I IBVF=365.02 S GLO=$NA(^IBCN(365,+$G(IBVDA),2))                ; response file

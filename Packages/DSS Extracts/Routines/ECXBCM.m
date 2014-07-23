@@ -1,5 +1,5 @@
-ECXBCM ;ALB/JAP-Bar Code Medical Administration Extract ;5/21/13  11:29
- ;;3.0;DSS EXTRACTS;**107,127,132,136,143,144**;Dec 22, 1997 ;Build 9
+ECXBCM ;ALB/JAP-Bar Code Medical Administration Extract ;11/6/13  16:31
+ ;;3.0;DSS EXTRACTS;**107,127,132,136,143,144,148**;Dec 22, 1997 ;Build 3
  ;
 BEG ;entry point from option
  ;ECFILE=^ECX(727.833,
@@ -158,6 +158,8 @@ CCODE(RIEN) ; get component information
  ...S ECXIVSC=CCDGVN*UNITCOST
  ..S CCTYPE=$S(I=.5:"D",I=.6:"A",I=.7:"S",1:"")
  ..S CCIEN=$S(I=.5:CCIEN_";PSDRUG(",I=.6:CCIEN_";PS(52.6,",I=.7:CCIEN_";PS(52.7,",1:"")
+ ..S CCDGVN=$P(DATA,U,3) ;148 Reset component dose given to original value
+ ..S CCUNIT=$P(DATA,U,4) ;148 Reset component unit to original value
  ..D CMPT
  Q
  ;

@@ -1,5 +1,5 @@
 RORRP016 ;HCIOFO/SG - RPC: LIST OF ICD-9 CODES ;6/16/06 2:16pm
- ;;1.5;CLINICAL CASE REGISTRIES;**1,10**;Feb 17, 2006;Build 32
+ ;;1.5;CLINICAL CASE REGISTRIES;**1,10,23**;Feb 17, 2006;Build 7
  ;
  ; This routine uses the following IAs:
  ;
@@ -114,14 +114,13 @@ QUERY(PART,FLAGS,NR,FROM) ;
  N FLDS,RORMSG,SCR,TMP,XREF
  ;--- Compile the screen logic (be careful with naked references)
  S SCR=""
- I FLAGS["D"  S:PART'="" SCR=SCR_"I $P(D,U,3)["""_PART_""" ",PART=""
- S:FLAGS["F" SCR=SCR_"I $P(D,U,10)'=""F"" "
- S:FLAGS["M" SCR=SCR_"I $P(D,U,10)'=""M"" "
- S:FLAGS["P" SCR=SCR_"I '$P(D,U,4) "
- S:SCR'="" SCR="S D=$G(^(0)) "_SCR ;Naked Ref: ^ICD9(
+ S SCR=SCR_"I $$CSI^ICDEX(80,Y)=""1"" "
+ I FLAGS["D" S:PART'="" SCR=SCR_"I $$UP^XLFSTR($$VSTD^ICDEX(Y))["""_PART_""" ",PART=""
+ S:FLAGS["F" SCR=SCR_"I $$VSEX^ICDEX(80,Y)'=""F"" "
+ S:FLAGS["M" SCR=SCR_"I $$VSEX^ICDEX(80,Y)'=""M"" "
+ S:FLAGS["P" SCR=SCR_"I '$$UPDX^ICDEX(Y) "
  ;--- Get the list of codes and some data
- ;S FLDS="@;3;.01;9.5I;IXI",TMP="P"_$S(FLAGS["B":"B",1:"")
- S FLDS="@;.01;9.5I;IXI",TMP="P"_$S(FLAGS["B":"B",1:"")
+ S FLDS="@;.01;IXI",TMP="P"_$S(FLAGS["B":"B",1:"")
  S XREF=$S(FLAGS["D":"#",FLAGS["K":"D",1:"BA")
  D LIST^DIC(80,,FLDS,TMP,NR,.FROM,PART,XREF,SCR,,RORESULT,"RORMSG")
  I $G(DIERR)  K @RORESULT  Q $$DBS^RORERR("RORMSG",-9,,,80)
@@ -135,13 +134,12 @@ QUERY1(PART,FLAGS,NR,FROM) ;
  N FLDS,RORMSG,SCR,TMP,XREF
  ;--- Compile the screen logic (be careful with naked references)
  S SCR=""
- I FLAGS["D"  S:PART'="" SCR=SCR_"I $P(D,U,4)["""_PART_""" ",PART=""
- S:FLAGS["F" SCR=SCR_"I $P(D,U,10)'=""F"" "
- S:FLAGS["M" SCR=SCR_"I $P(D,U,10)'=""M"" "
- S:SCR'="" SCR="S D=$G(^(0)) "_SCR ;Naked Ref: ^ICD0(
+ S SCR=SCR_"I $$CSI^ICDEX(80.1,Y)=""2"" "
+ I FLAGS["D" S:PART'="" SCR=SCR_"I $$UP^XLFSTR($$VSTP^ICDEX(Y))["""_PART_""" ",PART=""
+ S:FLAGS["F" SCR=SCR_"I $$VSEX^ICDEX(80.1,Y)'=""F"" "
+ S:FLAGS["M" SCR=SCR_"I $$VSEX^ICDEX(80.1,Y)'=""M"" "
  ;--- Get the list of codes and some data
- ;S FLDS="@;4;.01;9.5I;IXI",TMP="P"_$S(FLAGS["B":"B",1:"")
- S FLDS="@;.01;9.5I;IXI",TMP="P"_$S(FLAGS["B":"B",1:"")
+ S FLDS="@;.01;IXI",TMP="P"_$S(FLAGS["B":"B",1:"")
  S XREF=$S(FLAGS["D":"#",FLAGS["K":"D",1:"BA")
  D LIST^DIC(80.1,,FLDS,TMP,NR,.FROM,PART,XREF,SCR,,RORESULT,"RORMSG")
  I $G(DIERR)  K @RORESULT  Q $$DBS^RORERR("RORMSG",-9,,,80.1)
@@ -159,13 +157,14 @@ REFINE(PART,FLAGS,DATE) ;
  . S BUF=@RORESULT@(SUBS,0)
  . ;--- Remove duplicates created by the logic of the "BAA" xref
  . I MODE  D  I '(TMP?1.E1" ")  K @RORESULT@(SUBS)  Q
- . . S TMP=$P(BUF,U,5)
+ . . S TMP=$P(BUF,U,4)
  . ;--- Load the additional data
  . S ICDINFO=$$ICDDX^ICDCODE(+$P(BUF,U),DATE)
  . I ICDINFO<0  K @RORESULT@(SUBS)  Q
  . ;--- Screen active/inactive records
  . S TMP=+$P(ICDINFO,U,10)                      ; Status
  . I $S(TMP:FLAGS["A",1:FLAGS["I")  K @RORESULT@(SUBS)  Q
+ . S $P(BUF,U,4)=$P(ICDINFO,U,11)  ; Sex
  . S $P(BUF,U,5)=TMP
  . S $P(BUF,U,6)=$S(TMP:$P(ICDINFO,U,12),1:"")  ; Inactivation Date
  . ;--- Versioned diagnosis
@@ -189,13 +188,14 @@ REFINE1(PART,FLAGS,DATE) ;
  . S BUF=@RORESULT@(SUBS,0)
  . ;--- Remove duplicates created by the logic of the "BAA" xref
  . I MODE  D  I '(TMP?1.E1" ")  K @RORESULT@(SUBS)  Q
- . . S TMP=$P(BUF,U,5)
+ . . S TMP=$P(BUF,U,4)
  . ;--- Load the additional data
  . S ICDINFO=$$ICDOP^ICDCODE(+$P(BUF,U),DATE)
  . I ICDINFO<0  K @RORESULT@(SUBS)  Q
  . ;--- Screen active/inactive records
  . S TMP=+$P(ICDINFO,U,10)                      ; Status
  . I $S(TMP:FLAGS["A",1:FLAGS["I")  K @RORESULT@(SUBS)  Q
+ . S $P(BUF,U,4)=$P(ICDINFO,U,11)  ; Sex
  . S $P(BUF,U,5)=TMP
  . S $P(BUF,U,6)=$S(TMP:$P(ICDINFO,U,12),1:"")  ; Inactivation Date
  . ;--- Versioned operation/procedure

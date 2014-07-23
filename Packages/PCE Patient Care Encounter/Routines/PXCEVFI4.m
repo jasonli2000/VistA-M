@@ -1,5 +1,8 @@
 PXCEVFI4 ;ISL/dee - Routine to display a visit or v-file entry and input providers in to V PROVIDER from other V Files ;6/20/96
- ;;1.0;PCE PATIENT CARE ENCOUNTER;**124**;Aug 12, 1996
+ ;;1.0;PCE PATIENT CARE ENCOUNTER;**124,203**;Aug 12, 1996;Build 7
+ ;
+ ; $$CODEC^ICDCODE AND $$ICDD^ICDCODE UTILIZED FROM ICR 3990
+ ;
  Q
 DISPLAY ; -- display the data
  Q:PXCECAT="CSTP"
@@ -93,7 +96,12 @@ DIAGNOS(PXCEPOV) ;See if it is a new diagnosis and if it is add them.
  . S DIR("A")="Provider Narrative: "
  . D ^DIR
  S PXCEX=Y
- I PXCEX="" S PXCEX=$$EXTTEXT^PXUTL1(+PXCEPOV,1,80,10,3)
+ ; NEW PX*1.0*203 GETS DX DESC FOR PROV NARR PROPERLY
+ I PXCEX="" D
+ . N PXCOD,PXLDX,PXNO S PXCOD=$$CODEC^ICDCODE(+PXCEPOV)
+ . S PXCEX="" I $P(PXCOD,"^",1)'=-1 D
+ ..S PXNO=$$ICDD^ICDCODE(PXCOD,"PXLDX")
+ ..S PXCEX=$S(PXNO>0:PXLDX(1),1:"")
  W !,PXCEX
  S PXCEY=$$PROVNARR^PXAPI(PXCEX,9000010.07) I +PXCEY'>0 W "??",$C(7) S PXCEEND=1,PXCEQUIT=1 Q
  S PXCENARR=$P(PXCEY,"^",1)

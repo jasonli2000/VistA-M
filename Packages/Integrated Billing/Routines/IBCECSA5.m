@@ -1,5 +1,5 @@
 IBCECSA5 ;ALB/CXW - VIEW EOB SCREEN ;01-OCT-1999
- ;;2.0;INTEGRATED BILLING;**137,135,263,280,155,349**;21-MAR-1994;Build 46
+ ;;2.0;INTEGRATED BILLING;**137,135,263,280,155,349,489**;21-MAR-1994;Build 31
  ;;Per VHA Directive 2004-038, this routine should not be modified.
  ;
 EN ; -- main entry point for VIEW EOB
@@ -66,7 +66,7 @@ MIN ;
  Q
  ;
 MINDAT ; data for MIN tag
- ; format:  piece^lable^special format code^special decision for disp
+ ; format:  piece^label^special format code^special decision for disp
  ;;1^Cov Days/Visit Ct  : ^$$RJ(+IBD)^I $G(IBSRC)
  ;;3^Claim DRG Amt      : 
  ;;2^Lifetm Psych Dy Ct : ^$$RJ(IBD)
@@ -139,7 +139,7 @@ MRALLA S IB=$$SETSTR^VALM1("LINE LEVEL ADJUSTMENTS:","",1,50)
  . S RVL=+$P(IBREC1,U,12)       ; referenced Vista line#
  . I 'RVL S RVL=IBX             ; use the EOB line# if not there
  . S IBT=$$RJ($P(IBREC1,"^"),3) ;             line number
- . S IBT=IBT_" "_$$DAT1^IBOUTL($P($P(IBREC1,"^",16),".")) ; service date
+ . S IBT=IBT_" "_$$RJ($$DAT1^IBOUTL($P($P(IBREC1,"^",16),".")),8) ; service date
  . S IBT=IBT_" "_$$RJ($$EXTERNAL^DILFD(361.115,.1,"",$P(IBREC1,"^",10)),6) ;                                                revcd
  . S IBT=IBT_" "_$$RJ($P(IBREC1,"^",4),5) ;   procedure
  . S IBT=IBT_" "_$$RJ($P($G(^IBM(361.1,IBCNT,15,IBX,2,1,0)),"^"),3)_$S($D(^IBM(361.1,IBCNT,15,IBX,2,2,0)):"+",1:" ") ;      modifiers

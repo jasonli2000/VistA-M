@@ -1,384 +1,292 @@
-IBDEI0BD ; ; 13-FEB-2014
- ;;3.0;IB ENCOUNTER FORM IMP/EXP;;FEB 13, 2014
+IBDEI0BD ; ; 09-MAY-2014
+ ;;3.0;IB ENCOUNTER FORM IMP/EXP;;MAY 09, 2014
  Q:'DIFQR(358.3)  F I=1:2 S X=$T(Q+I) Q:X=""  S Y=$E($T(Q+I+1),4,999),X=$E(X,4,999) S:$A(Y)=126 I=I+1,Y=$E(Y,2,999)_$E($T(Q+I+1),5,99) S:$A(Y)=61 Y=$E(Y,2,999) X NO E  S @X=Y
 Q Q
- ;;^UTILITY(U,$J,358.3,15144,2)
- ;;=^266090
- ;;^UTILITY(U,$J,358.3,15145,0)
- ;;=011.95^^103^918^26
- ;;^UTILITY(U,$J,358.3,15145,1,0)
- ;;=^358.31IA^5^2
- ;;^UTILITY(U,$J,358.3,15145,1,4,0)
- ;;=4^011.95
- ;;^UTILITY(U,$J,358.3,15145,1,5,0)
- ;;=5^TB-Histo DX
- ;;^UTILITY(U,$J,358.3,15145,2)
- ;;=^266091
- ;;^UTILITY(U,$J,358.3,15146,0)
- ;;=011.96^^103^918^29
- ;;^UTILITY(U,$J,358.3,15146,1,0)
- ;;=^358.31IA^5^2
- ;;^UTILITY(U,$J,358.3,15146,1,4,0)
- ;;=4^011.96
- ;;^UTILITY(U,$J,358.3,15146,1,5,0)
- ;;=5^TB-Other Test
- ;;^UTILITY(U,$J,358.3,15146,2)
- ;;=^266092
- ;;^UTILITY(U,$J,358.3,15147,0)
- ;;=786.30^^103^918^12
- ;;^UTILITY(U,$J,358.3,15147,1,0)
- ;;=^358.31IA^5^2
- ;;^UTILITY(U,$J,358.3,15147,1,4,0)
- ;;=4^786.30
- ;;^UTILITY(U,$J,358.3,15147,1,5,0)
- ;;=5^Hemoptysis NOS
- ;;^UTILITY(U,$J,358.3,15147,2)
- ;;=^339669
- ;;^UTILITY(U,$J,358.3,15148,0)
- ;;=786.39^^103^918^11
- ;;^UTILITY(U,$J,358.3,15148,1,0)
- ;;=^358.31IA^5^2
- ;;^UTILITY(U,$J,358.3,15148,1,4,0)
- ;;=4^786.39
- ;;^UTILITY(U,$J,358.3,15148,1,5,0)
- ;;=5^Hemoptysis NEC
- ;;^UTILITY(U,$J,358.3,15148,2)
- ;;=^339640
- ;;^UTILITY(U,$J,358.3,15149,0)
- ;;=512.89^^103^918^18
- ;;^UTILITY(U,$J,358.3,15149,1,0)
- ;;=^358.31IA^5^2
- ;;^UTILITY(U,$J,358.3,15149,1,4,0)
- ;;=4^512.89
- ;;^UTILITY(U,$J,358.3,15149,1,5,0)
- ;;=5^Pneumothorax
- ;;^UTILITY(U,$J,358.3,15149,2)
- ;;=^340533
- ;;^UTILITY(U,$J,358.3,15150,0)
- ;;=795.51^^103^918^19
- ;;^UTILITY(U,$J,358.3,15150,1,0)
- ;;=^358.31IA^5^2
- ;;^UTILITY(U,$J,358.3,15150,1,4,0)
- ;;=4^795.51
- ;;^UTILITY(U,$J,358.3,15150,1,5,0)
- ;;=5^PPD Pos w/o Active TB
- ;;^UTILITY(U,$J,358.3,15150,2)
- ;;=^340572
- ;;^UTILITY(U,$J,358.3,15151,0)
- ;;=724.5^^103^919^3
- ;;^UTILITY(U,$J,358.3,15151,1,0)
- ;;=^358.31IA^5^2
- ;;^UTILITY(U,$J,358.3,15151,1,4,0)
- ;;=4^724.5
- ;;^UTILITY(U,$J,358.3,15151,1,5,0)
- ;;=5^Back Pain
- ;;^UTILITY(U,$J,358.3,15151,2)
- ;;=^12250
- ;;^UTILITY(U,$J,358.3,15152,0)
- ;;=729.1^^103^919^6
- ;;^UTILITY(U,$J,358.3,15152,1,0)
- ;;=^358.31IA^5^2
- ;;^UTILITY(U,$J,358.3,15152,1,4,0)
- ;;=4^729.1
- ;;^UTILITY(U,$J,358.3,15152,1,5,0)
- ;;=5^Fibromyalgia
- ;;^UTILITY(U,$J,358.3,15152,2)
- ;;=^80160
- ;;^UTILITY(U,$J,358.3,15153,0)
- ;;=723.1^^103^919^5
- ;;^UTILITY(U,$J,358.3,15153,1,0)
- ;;=^358.31IA^5^2
- ;;^UTILITY(U,$J,358.3,15153,1,4,0)
- ;;=4^723.1
- ;;^UTILITY(U,$J,358.3,15153,1,5,0)
- ;;=5^Cervicalgia
- ;;^UTILITY(U,$J,358.3,15153,2)
- ;;=^21917
- ;;^UTILITY(U,$J,358.3,15154,0)
- ;;=729.2^^103^919^22
- ;;^UTILITY(U,$J,358.3,15154,1,0)
- ;;=^358.31IA^5^2
- ;;^UTILITY(U,$J,358.3,15154,1,4,0)
- ;;=4^729.2
- ;;^UTILITY(U,$J,358.3,15154,1,5,0)
- ;;=5^Neuropathic Pain
- ;;^UTILITY(U,$J,358.3,15154,2)
- ;;=Neuropathic Pain^82605
- ;;^UTILITY(U,$J,358.3,15155,0)
- ;;=721.0^^103^919^4
- ;;^UTILITY(U,$J,358.3,15155,1,0)
- ;;=^358.31IA^5^2
- ;;^UTILITY(U,$J,358.3,15155,1,4,0)
- ;;=4^721.0
- ;;^UTILITY(U,$J,358.3,15155,1,5,0)
- ;;=5^Cervical Spondylosis
- ;;^UTILITY(U,$J,358.3,15155,2)
- ;;=^272452
- ;;^UTILITY(U,$J,358.3,15156,0)
- ;;=720.0^^103^919^1
- ;;^UTILITY(U,$J,358.3,15156,1,0)
- ;;=^358.31IA^5^2
- ;;^UTILITY(U,$J,358.3,15156,1,4,0)
- ;;=4^720.0
- ;;^UTILITY(U,$J,358.3,15156,1,5,0)
- ;;=5^Ankylosing Spondylitis
- ;;^UTILITY(U,$J,358.3,15156,2)
- ;;=^113484
- ;;^UTILITY(U,$J,358.3,15157,0)
- ;;=719.00^^103^919^10
- ;;^UTILITY(U,$J,358.3,15157,1,0)
- ;;=^358.31IA^5^2
- ;;^UTILITY(U,$J,358.3,15157,1,4,0)
- ;;=4^719.00
- ;;^UTILITY(U,$J,358.3,15157,1,5,0)
- ;;=5^Joint Effusion
- ;;^UTILITY(U,$J,358.3,15157,2)
- ;;=^38674
- ;;^UTILITY(U,$J,358.3,15158,0)
- ;;=274.9^^103^919^7
- ;;^UTILITY(U,$J,358.3,15158,1,0)
- ;;=^358.31IA^5^2
- ;;^UTILITY(U,$J,358.3,15158,1,4,0)
- ;;=4^274.9
- ;;^UTILITY(U,$J,358.3,15158,1,5,0)
- ;;=5^Gout
- ;;^UTILITY(U,$J,358.3,15158,2)
- ;;=^52625
- ;;^UTILITY(U,$J,358.3,15159,0)
- ;;=714.9^^103^919^9
- ;;^UTILITY(U,$J,358.3,15159,1,0)
- ;;=^358.31IA^5^2
- ;;^UTILITY(U,$J,358.3,15159,1,4,0)
- ;;=4^714.9
- ;;^UTILITY(U,$J,358.3,15159,1,5,0)
- ;;=5^Inflammatory Polyarthropathy
- ;;^UTILITY(U,$J,358.3,15159,2)
- ;;=^272122
- ;;^UTILITY(U,$J,358.3,15160,0)
- ;;=733.00^^103^919^34
- ;;^UTILITY(U,$J,358.3,15160,1,0)
- ;;=^358.31IA^5^2
- ;;^UTILITY(U,$J,358.3,15160,1,4,0)
- ;;=4^733.00
- ;;^UTILITY(U,$J,358.3,15160,1,5,0)
- ;;=5^Osteoporosis
- ;;^UTILITY(U,$J,358.3,15160,2)
- ;;=^87159
- ;;^UTILITY(U,$J,358.3,15161,0)
- ;;=696.0^^103^919^37
- ;;^UTILITY(U,$J,358.3,15161,1,0)
- ;;=^358.31IA^5^2
- ;;^UTILITY(U,$J,358.3,15161,1,4,0)
- ;;=4^696.0
- ;;^UTILITY(U,$J,358.3,15161,1,5,0)
- ;;=5^Psoriatic Arthritis
- ;;^UTILITY(U,$J,358.3,15161,2)
- ;;=^100320
- ;;^UTILITY(U,$J,358.3,15162,0)
- ;;=099.3^^103^919^38
- ;;^UTILITY(U,$J,358.3,15162,1,0)
- ;;=^358.31IA^5^2
- ;;^UTILITY(U,$J,358.3,15162,1,4,0)
- ;;=4^099.3
- ;;^UTILITY(U,$J,358.3,15162,1,5,0)
- ;;=5^Reiter'S Disease
- ;;^UTILITY(U,$J,358.3,15162,2)
- ;;=Reiter's Disease^104534^711.10
- ;;^UTILITY(U,$J,358.3,15163,0)
- ;;=714.0^^103^919^39
- ;;^UTILITY(U,$J,358.3,15163,1,0)
- ;;=^358.31IA^5^2
- ;;^UTILITY(U,$J,358.3,15163,1,4,0)
- ;;=4^714.0
- ;;^UTILITY(U,$J,358.3,15163,1,5,0)
- ;;=5^Rheumatoid Arthritis
- ;;^UTILITY(U,$J,358.3,15163,2)
- ;;=^10473
- ;;^UTILITY(U,$J,358.3,15164,0)
- ;;=726.10^^103^919^40
- ;;^UTILITY(U,$J,358.3,15164,1,0)
- ;;=^358.31IA^5^2
- ;;^UTILITY(U,$J,358.3,15164,1,4,0)
- ;;=4^726.10
- ;;^UTILITY(U,$J,358.3,15164,1,5,0)
- ;;=5^Rotator Cuff Synd
- ;;^UTILITY(U,$J,358.3,15164,2)
- ;;=^272523
- ;;^UTILITY(U,$J,358.3,15165,0)
- ;;=720.2^^103^919^41
- ;;^UTILITY(U,$J,358.3,15165,1,0)
- ;;=^358.31IA^5^2
- ;;^UTILITY(U,$J,358.3,15165,1,4,0)
- ;;=4^720.2
- ;;^UTILITY(U,$J,358.3,15165,1,5,0)
- ;;=5^Sacroiliitis Nec
- ;;^UTILITY(U,$J,358.3,15165,2)
- ;;=^259118
- ;;^UTILITY(U,$J,358.3,15166,0)
- ;;=724.3^^103^919^42
- ;;^UTILITY(U,$J,358.3,15166,1,0)
- ;;=^358.31IA^5^2
- ;;^UTILITY(U,$J,358.3,15166,1,4,0)
- ;;=4^724.3
- ;;^UTILITY(U,$J,358.3,15166,1,5,0)
- ;;=5^Sciatica
- ;;^UTILITY(U,$J,358.3,15166,2)
- ;;=^108484
- ;;^UTILITY(U,$J,358.3,15167,0)
- ;;=724.00^^103^919^43
- ;;^UTILITY(U,$J,358.3,15167,1,0)
- ;;=^358.31IA^5^2
- ;;^UTILITY(U,$J,358.3,15167,1,4,0)
- ;;=4^724.00
- ;;^UTILITY(U,$J,358.3,15167,1,5,0)
- ;;=5^Spinal Stenosis
- ;;^UTILITY(U,$J,358.3,15167,2)
- ;;=^113279
- ;;^UTILITY(U,$J,358.3,15168,0)
- ;;=729.81^^103^919^44
- ;;^UTILITY(U,$J,358.3,15168,1,0)
- ;;=^358.31IA^5^2
- ;;^UTILITY(U,$J,358.3,15168,1,4,0)
- ;;=4^729.81
- ;;^UTILITY(U,$J,358.3,15168,1,5,0)
- ;;=5^Swelling Of Limb
- ;;^UTILITY(U,$J,358.3,15168,2)
- ;;=^272609
- ;;^UTILITY(U,$J,358.3,15169,0)
- ;;=710.0^^103^919^45
- ;;^UTILITY(U,$J,358.3,15169,1,0)
- ;;=^358.31IA^5^2
- ;;^UTILITY(U,$J,358.3,15169,1,4,0)
- ;;=4^710.0
- ;;^UTILITY(U,$J,358.3,15169,1,5,0)
- ;;=5^Systemic Lupus Erythematosis
- ;;^UTILITY(U,$J,358.3,15169,2)
- ;;=^72159
- ;;^UTILITY(U,$J,358.3,15170,0)
- ;;=731.0^^103^919^35
- ;;^UTILITY(U,$J,358.3,15170,1,0)
- ;;=^358.31IA^5^2
- ;;^UTILITY(U,$J,358.3,15170,1,4,0)
- ;;=4^731.0
- ;;^UTILITY(U,$J,358.3,15170,1,5,0)
- ;;=5^Paget'S Disease
- ;;^UTILITY(U,$J,358.3,15170,2)
- ;;=Paget's Disease^86892
- ;;^UTILITY(U,$J,358.3,15171,0)
- ;;=733.90^^103^919^33
- ;;^UTILITY(U,$J,358.3,15171,1,0)
- ;;=^358.31IA^5^2
- ;;^UTILITY(U,$J,358.3,15171,1,4,0)
- ;;=4^733.90
- ;;^UTILITY(U,$J,358.3,15171,1,5,0)
- ;;=5^Osteopenia
- ;;^UTILITY(U,$J,358.3,15171,2)
- ;;=Osteopenia^35593
- ;;^UTILITY(U,$J,358.3,15172,0)
- ;;=716.90^^103^919^2
- ;;^UTILITY(U,$J,358.3,15172,1,0)
- ;;=^358.31IA^5^2
- ;;^UTILITY(U,$J,358.3,15172,1,4,0)
- ;;=4^716.90
- ;;^UTILITY(U,$J,358.3,15172,1,5,0)
- ;;=5^Arthritis
- ;;^UTILITY(U,$J,358.3,15172,2)
- ;;=^66343
- ;;^UTILITY(U,$J,358.3,15173,0)
- ;;=715.90^^103^919^24
- ;;^UTILITY(U,$J,358.3,15173,1,0)
- ;;=^358.31IA^5^2
- ;;^UTILITY(U,$J,358.3,15173,1,4,0)
- ;;=4^715.90
- ;;^UTILITY(U,$J,358.3,15173,1,5,0)
- ;;=5^Osteoarthritis, Unspec Site
- ;;^UTILITY(U,$J,358.3,15173,2)
- ;;=^272161
- ;;^UTILITY(U,$J,358.3,15174,0)
- ;;=716.10^^103^919^46
- ;;^UTILITY(U,$J,358.3,15174,1,0)
- ;;=^358.31IA^5^2
- ;;^UTILITY(U,$J,358.3,15174,1,4,0)
- ;;=4^716.10
- ;;^UTILITY(U,$J,358.3,15174,1,5,0)
- ;;=5^Traumatic Arthritis
- ;;^UTILITY(U,$J,358.3,15174,2)
- ;;=^265063
- ;;^UTILITY(U,$J,358.3,15175,0)
- ;;=719.40^^103^919^11
- ;;^UTILITY(U,$J,358.3,15175,1,0)
- ;;=^358.31IA^5^2
- ;;^UTILITY(U,$J,358.3,15175,1,4,0)
- ;;=4^719.40
- ;;^UTILITY(U,$J,358.3,15175,1,5,0)
- ;;=5^Joint Pain
- ;;^UTILITY(U,$J,358.3,15175,2)
- ;;=^66375
- ;;^UTILITY(U,$J,358.3,15176,0)
- ;;=721.90^^103^919^23
- ;;^UTILITY(U,$J,358.3,15176,1,0)
- ;;=^358.31IA^5^2
- ;;^UTILITY(U,$J,358.3,15176,1,4,0)
- ;;=4^721.90
- ;;^UTILITY(U,$J,358.3,15176,1,5,0)
- ;;=5^Osteoarthritis, Spine
- ;;^UTILITY(U,$J,358.3,15176,2)
- ;;=^272463
- ;;^UTILITY(U,$J,358.3,15177,0)
- ;;=733.10^^103^919^36
- ;;^UTILITY(U,$J,358.3,15177,1,0)
- ;;=^358.31IA^5^2
- ;;^UTILITY(U,$J,358.3,15177,1,4,0)
- ;;=4^733.10
- ;;^UTILITY(U,$J,358.3,15177,1,5,0)
- ;;=5^Pathologic Fracture
- ;;^UTILITY(U,$J,358.3,15177,2)
- ;;=^295810
- ;;^UTILITY(U,$J,358.3,15178,0)
- ;;=715.91^^103^919^31
- ;;^UTILITY(U,$J,358.3,15178,1,0)
- ;;=^358.31IA^5^2
- ;;^UTILITY(U,$J,358.3,15178,1,4,0)
- ;;=4^715.91
- ;;^UTILITY(U,$J,358.3,15178,1,5,0)
- ;;=5^Osteoarthros Nos-Shlder
- ;;^UTILITY(U,$J,358.3,15178,2)
- ;;=^272162
- ;;^UTILITY(U,$J,358.3,15179,0)
- ;;=715.92^^103^919^32
- ;;^UTILITY(U,$J,358.3,15179,1,0)
- ;;=^358.31IA^5^2
- ;;^UTILITY(U,$J,358.3,15179,1,4,0)
- ;;=4^715.92
- ;;^UTILITY(U,$J,358.3,15179,1,5,0)
- ;;=5^Osteoarthros Nos-Up/Arm
- ;;^UTILITY(U,$J,358.3,15179,2)
- ;;=^272163
- ;;^UTILITY(U,$J,358.3,15180,0)
- ;;=715.93^^103^919^27
- ;;^UTILITY(U,$J,358.3,15180,1,0)
- ;;=^358.31IA^5^2
- ;;^UTILITY(U,$J,358.3,15180,1,4,0)
- ;;=4^715.93
- ;;^UTILITY(U,$J,358.3,15180,1,5,0)
- ;;=5^Osteoarthros Nos-Forearm
- ;;^UTILITY(U,$J,358.3,15180,2)
- ;;=^272164
- ;;^UTILITY(U,$J,358.3,15181,0)
- ;;=715.94^^103^919^28
- ;;^UTILITY(U,$J,358.3,15181,1,0)
- ;;=^358.31IA^5^2
- ;;^UTILITY(U,$J,358.3,15181,1,4,0)
- ;;=4^715.94
- ;;^UTILITY(U,$J,358.3,15181,1,5,0)
- ;;=5^Osteoarthros Nos-Hand
- ;;^UTILITY(U,$J,358.3,15181,2)
- ;;=^272165
- ;;^UTILITY(U,$J,358.3,15182,0)
- ;;=715.95^^103^919^30
- ;;^UTILITY(U,$J,358.3,15182,1,0)
- ;;=^358.31IA^5^2
- ;;^UTILITY(U,$J,358.3,15182,1,4,0)
- ;;=4^715.95
- ;;^UTILITY(U,$J,358.3,15182,1,5,0)
- ;;=5^Osteoarthros Nos-Pelvis
+ ;;^UTILITY(U,$J,358.3,15366,1,0)
+ ;;=^358.31IA^3^2
+ ;;^UTILITY(U,$J,358.3,15366,1,2,0)
+ ;;=2^Excision Benign Lesion-scalp, neck, hands, feet, genitalia; 0.6cm to 1.0cm
+ ;;^UTILITY(U,$J,358.3,15366,1,3,0)
+ ;;=3^11421
+ ;;^UTILITY(U,$J,358.3,15367,0)
+ ;;=11422^^99^990^9^^^^1
+ ;;^UTILITY(U,$J,358.3,15367,1,0)
+ ;;=^358.31IA^3^2
+ ;;^UTILITY(U,$J,358.3,15367,1,2,0)
+ ;;=2^Excision Benign Lesion-scalp, neck, hands, feet, genitalia; 1.1cm to 2.0cm
+ ;;^UTILITY(U,$J,358.3,15367,1,3,0)
+ ;;=3^11422
+ ;;^UTILITY(U,$J,358.3,15368,0)
+ ;;=11423^^99^990^10^^^^1
+ ;;^UTILITY(U,$J,358.3,15368,1,0)
+ ;;=^358.31IA^3^2
+ ;;^UTILITY(U,$J,358.3,15368,1,2,0)
+ ;;=2^Excision Benign Lesion-scalp, neck, hands, feet, genitalia; 2.1cm to 4.0cm
+ ;;^UTILITY(U,$J,358.3,15368,1,3,0)
+ ;;=3^11423
+ ;;^UTILITY(U,$J,358.3,15369,0)
+ ;;=11424^^99^990^11^^^^1
+ ;;^UTILITY(U,$J,358.3,15369,1,0)
+ ;;=^358.31IA^3^2
+ ;;^UTILITY(U,$J,358.3,15369,1,2,0)
+ ;;=2^Excision Benign Lesion-scalp, neck, hands,feet, genitalia; 3.1cm to 4.0cm 
+ ;;^UTILITY(U,$J,358.3,15369,1,3,0)
+ ;;=3^11424
+ ;;^UTILITY(U,$J,358.3,15370,0)
+ ;;=11426^^99^990^12^^^^1
+ ;;^UTILITY(U,$J,358.3,15370,1,0)
+ ;;=^358.31IA^3^2
+ ;;^UTILITY(U,$J,358.3,15370,1,2,0)
+ ;;=2^Excision Benign Lesion-scalp, neck, hands, feet, genitalia; over 4.0cm
+ ;;^UTILITY(U,$J,358.3,15370,1,3,0)
+ ;;=3^11426
+ ;;^UTILITY(U,$J,358.3,15371,0)
+ ;;=11600^^99^991^1^^^^1
+ ;;^UTILITY(U,$J,358.3,15371,1,0)
+ ;;=^358.31IA^3^2
+ ;;^UTILITY(U,$J,358.3,15371,1,2,0)
+ ;;=2^Excision Malignant Lesions-trunk, arms or legs; 0.5cm or less
+ ;;^UTILITY(U,$J,358.3,15371,1,3,0)
+ ;;=3^11600
+ ;;^UTILITY(U,$J,358.3,15372,0)
+ ;;=11601^^99^991^2^^^^1
+ ;;^UTILITY(U,$J,358.3,15372,1,0)
+ ;;=^358.31IA^3^2
+ ;;^UTILITY(U,$J,358.3,15372,1,2,0)
+ ;;=2^Excision Malignant Lesions-trunk, arms or legs; 0.6cm to 1.0cm
+ ;;^UTILITY(U,$J,358.3,15372,1,3,0)
+ ;;=3^11601
+ ;;^UTILITY(U,$J,358.3,15373,0)
+ ;;=11602^^99^991^3^^^^1
+ ;;^UTILITY(U,$J,358.3,15373,1,0)
+ ;;=^358.31IA^3^2
+ ;;^UTILITY(U,$J,358.3,15373,1,2,0)
+ ;;=2^Excision Malignant Lesions-trunk, arms or legs; 1.1cm to 2.0cm
+ ;;^UTILITY(U,$J,358.3,15373,1,3,0)
+ ;;=3^11602
+ ;;^UTILITY(U,$J,358.3,15374,0)
+ ;;=11603^^99^991^4^^^^1
+ ;;^UTILITY(U,$J,358.3,15374,1,0)
+ ;;=^358.31IA^3^2
+ ;;^UTILITY(U,$J,358.3,15374,1,2,0)
+ ;;=2^Excision Malignant Lesions-trunk, arms or legs; 2.1cm to 3.0cm
+ ;;^UTILITY(U,$J,358.3,15374,1,3,0)
+ ;;=3^11603
+ ;;^UTILITY(U,$J,358.3,15375,0)
+ ;;=11604^^99^991^5^^^^1
+ ;;^UTILITY(U,$J,358.3,15375,1,0)
+ ;;=^358.31IA^3^2
+ ;;^UTILITY(U,$J,358.3,15375,1,2,0)
+ ;;=2^Excision Malignant Lesions-trunk, arms or legs; 3.1cm to 4.0cm
+ ;;^UTILITY(U,$J,358.3,15375,1,3,0)
+ ;;=3^11604
+ ;;^UTILITY(U,$J,358.3,15376,0)
+ ;;=11606^^99^991^6^^^^1
+ ;;^UTILITY(U,$J,358.3,15376,1,0)
+ ;;=^358.31IA^3^2
+ ;;^UTILITY(U,$J,358.3,15376,1,2,0)
+ ;;=2^Excision Malignant Lesions-trunk, arms or legs; over 4.0cm
+ ;;^UTILITY(U,$J,358.3,15376,1,3,0)
+ ;;=3^11606
+ ;;^UTILITY(U,$J,358.3,15377,0)
+ ;;=11620^^99^991^7^^^^1
+ ;;^UTILITY(U,$J,358.3,15377,1,0)
+ ;;=^358.31IA^3^2
+ ;;^UTILITY(U,$J,358.3,15377,1,2,0)
+ ;;=2^Excision Malignant Lesions-scalp, neck, hands, feet, genitalia; 0.5cm or less
+ ;;^UTILITY(U,$J,358.3,15377,1,3,0)
+ ;;=3^11620
+ ;;^UTILITY(U,$J,358.3,15378,0)
+ ;;=11621^^99^991^8^^^^1
+ ;;^UTILITY(U,$J,358.3,15378,1,0)
+ ;;=^358.31IA^3^2
+ ;;^UTILITY(U,$J,358.3,15378,1,2,0)
+ ;;=2^Excision Malignant Lesions-scalp, neck, hands, feet, genitalia; 0.6cm to 1.0cm
+ ;;^UTILITY(U,$J,358.3,15378,1,3,0)
+ ;;=3^11621
+ ;;^UTILITY(U,$J,358.3,15379,0)
+ ;;=11622^^99^991^9^^^^1
+ ;;^UTILITY(U,$J,358.3,15379,1,0)
+ ;;=^358.31IA^3^2
+ ;;^UTILITY(U,$J,358.3,15379,1,2,0)
+ ;;=2^Excision Malignant Lesions-scalp, neck, hands, feet, genitalia; 1.1cm to 2.0cm
+ ;;^UTILITY(U,$J,358.3,15379,1,3,0)
+ ;;=3^11622
+ ;;^UTILITY(U,$J,358.3,15380,0)
+ ;;=11623^^99^991^10^^^^1
+ ;;^UTILITY(U,$J,358.3,15380,1,0)
+ ;;=^358.31IA^3^2
+ ;;^UTILITY(U,$J,358.3,15380,1,2,0)
+ ;;=2^Excision Malignant Lesions-scalp, neck, hands, feet, genitalia; 2.1cm to 3.0cm
+ ;;^UTILITY(U,$J,358.3,15380,1,3,0)
+ ;;=3^11623
+ ;;^UTILITY(U,$J,358.3,15381,0)
+ ;;=11624^^99^991^11^^^^1
+ ;;^UTILITY(U,$J,358.3,15381,1,0)
+ ;;=^358.31IA^3^2
+ ;;^UTILITY(U,$J,358.3,15381,1,2,0)
+ ;;=2^Excision Malignant Lesions-scalp, neck, hands, feet, genitalia; 3.1cm to 4.0cm
+ ;;^UTILITY(U,$J,358.3,15381,1,3,0)
+ ;;=3^11624
+ ;;^UTILITY(U,$J,358.3,15382,0)
+ ;;=11626^^99^991^12^^^^1
+ ;;^UTILITY(U,$J,358.3,15382,1,0)
+ ;;=^358.31IA^3^2
+ ;;^UTILITY(U,$J,358.3,15382,1,2,0)
+ ;;=2^Excision Malignant Lesions-scalp, neck, hands, feet, gentalia; over 4.0cm
+ ;;^UTILITY(U,$J,358.3,15382,1,3,0)
+ ;;=3^11626
+ ;;^UTILITY(U,$J,358.3,15383,0)
+ ;;=12001^^99^992^1^^^^1
+ ;;^UTILITY(U,$J,358.3,15383,1,0)
+ ;;=^358.31IA^3^2
+ ;;^UTILITY(U,$J,358.3,15383,1,2,0)
+ ;;=2^Simple Repair of Superficial Wounds of scalp, neck, azillae, external genitalia, trunk, extriemities; 2.5cm or less 
+ ;;^UTILITY(U,$J,358.3,15383,1,3,0)
+ ;;=3^12001
+ ;;^UTILITY(U,$J,358.3,15384,0)
+ ;;=12002^^99^992^2^^^^1
+ ;;^UTILITY(U,$J,358.3,15384,1,0)
+ ;;=^358.31IA^3^2
+ ;;^UTILITY(U,$J,358.3,15384,1,2,0)
+ ;;=2^Simple Repair of Superficial Wounds of scalp, neck, exillae, external genitalia, trunk, extremities; 2.6cm to 7.5cm 
+ ;;^UTILITY(U,$J,358.3,15384,1,3,0)
+ ;;=3^12002
+ ;;^UTILITY(U,$J,358.3,15385,0)
+ ;;=12041^^99^992^3^^^^1
+ ;;^UTILITY(U,$J,358.3,15385,1,0)
+ ;;=^358.31IA^3^2
+ ;;^UTILITY(U,$J,358.3,15385,1,2,0)
+ ;;=2^Layer Closure of Wounds of neck, hands, feet, external genitalia; 2.5cm or less
+ ;;^UTILITY(U,$J,358.3,15385,1,3,0)
+ ;;=3^12041
+ ;;^UTILITY(U,$J,358.3,15386,0)
+ ;;=12042^^99^992^4^^^^1
+ ;;^UTILITY(U,$J,358.3,15386,1,0)
+ ;;=^358.31IA^3^2
+ ;;^UTILITY(U,$J,358.3,15386,1,2,0)
+ ;;=2^Layer Closure of Wounds of neck, hands, feet, external genitalia; 2.6cm to 7.5cm
+ ;;^UTILITY(U,$J,358.3,15386,1,3,0)
+ ;;=3^12042
+ ;;^UTILITY(U,$J,358.3,15387,0)
+ ;;=12031^^99^992^5^^^^1
+ ;;^UTILITY(U,$J,358.3,15387,1,0)
+ ;;=^358.31IA^3^2
+ ;;^UTILITY(U,$J,358.3,15387,1,2,0)
+ ;;=2^Layer Closure of Wounds of scalp, axillae, trunk, extremities; 2.5cm or less Wounds of
+ ;;^UTILITY(U,$J,358.3,15387,1,3,0)
+ ;;=3^12031
+ ;;^UTILITY(U,$J,358.3,15388,0)
+ ;;=12032^^99^992^6^^^^1
+ ;;^UTILITY(U,$J,358.3,15388,1,0)
+ ;;=^358.31IA^3^2
+ ;;^UTILITY(U,$J,358.3,15388,1,2,0)
+ ;;=2^Layer Closure of Wounds of scalp, axillae, trunk, extremities; 2.6cm to 7.5cm Wounds of
+ ;;^UTILITY(U,$J,358.3,15388,1,3,0)
+ ;;=3^12032
+ ;;^UTILITY(U,$J,358.3,15389,0)
+ ;;=12020^^99^992^7^^^^1
+ ;;^UTILITY(U,$J,358.3,15389,1,0)
+ ;;=^358.31IA^3^2
+ ;;^UTILITY(U,$J,358.3,15389,1,2,0)
+ ;;=2^TX of Superficial Wound Dehiscence; simple closure
+ ;;^UTILITY(U,$J,358.3,15389,1,3,0)
+ ;;=3^12020
+ ;;^UTILITY(U,$J,358.3,15390,0)
+ ;;=12021^^99^992^8^^^^1
+ ;;^UTILITY(U,$J,358.3,15390,1,0)
+ ;;=^358.31IA^3^2
+ ;;^UTILITY(U,$J,358.3,15390,1,2,0)
+ ;;=2^TX of Superficial Wound Dehiscence; simple closure with packing
+ ;;^UTILITY(U,$J,358.3,15390,1,3,0)
+ ;;=3^12021
+ ;;^UTILITY(U,$J,358.3,15391,0)
+ ;;=13160^^99^992^9^^^^1
+ ;;^UTILITY(U,$J,358.3,15391,1,0)
+ ;;=^358.31IA^3^2
+ ;;^UTILITY(U,$J,358.3,15391,1,2,0)
+ ;;=2^Secondary Closure of Surgical Wound or Dehiscence, extensive or complicated 
+ ;;^UTILITY(U,$J,358.3,15391,1,3,0)
+ ;;=3^13160
+ ;;^UTILITY(U,$J,358.3,15392,0)
+ ;;=27650^^99^992^10^^^^1
+ ;;^UTILITY(U,$J,358.3,15392,1,0)
+ ;;=^358.31IA^3^2
+ ;;^UTILITY(U,$J,358.3,15392,1,2,0)
+ ;;=2^Repair Primary Ruptured Achilles Tendon
+ ;;^UTILITY(U,$J,358.3,15392,1,3,0)
+ ;;=3^27650
+ ;;^UTILITY(U,$J,358.3,15393,0)
+ ;;=28406^^99^992^11^^^^1
+ ;;^UTILITY(U,$J,358.3,15393,1,0)
+ ;;=^358.31IA^3^2
+ ;;^UTILITY(U,$J,358.3,15393,1,2,0)
+ ;;=2^Perc Fixation Calcaneous Fx
+ ;;^UTILITY(U,$J,358.3,15393,1,3,0)
+ ;;=3^28406
+ ;;^UTILITY(U,$J,358.3,15394,0)
+ ;;=16020^^99^993^2^^^^1
+ ;;^UTILITY(U,$J,358.3,15394,1,0)
+ ;;=^358.31IA^3^2
+ ;;^UTILITY(U,$J,358.3,15394,1,2,0)
+ ;;=2^Dressings and/or Debridement, initial or subsequent; without anesthesia, office or hospital, small
+ ;;^UTILITY(U,$J,358.3,15394,1,3,0)
+ ;;=3^16020
+ ;;^UTILITY(U,$J,358.3,15395,0)
+ ;;=11100^^99^994^1^^^^1
+ ;;^UTILITY(U,$J,358.3,15395,1,0)
+ ;;=^358.31IA^3^2
+ ;;^UTILITY(U,$J,358.3,15395,1,2,0)
+ ;;=2^Biopsy of skin,subq tissue single lesion
+ ;;^UTILITY(U,$J,358.3,15395,1,3,0)
+ ;;=3^11100
+ ;;^UTILITY(U,$J,358.3,15396,0)
+ ;;=11101^^99^994^2^^^^1
+ ;;^UTILITY(U,$J,358.3,15396,1,0)
+ ;;=^358.31IA^3^2
+ ;;^UTILITY(U,$J,358.3,15396,1,2,0)
+ ;;=2^Biopsy of skin,subq tissue ea addl lesion
+ ;;^UTILITY(U,$J,358.3,15396,1,3,0)
+ ;;=3^11101
+ ;;^UTILITY(U,$J,358.3,15397,0)
+ ;;=20605^^99^995^1^^^^1
+ ;;^UTILITY(U,$J,358.3,15397,1,0)
+ ;;=^358.31IA^3^2
+ ;;^UTILITY(U,$J,358.3,15397,1,2,0)
+ ;;=2^Arthrocentesis, aspiration, aspiration &/or injection; intermediate joint, bursa or ganglion cyst
+ ;;^UTILITY(U,$J,358.3,15397,1,3,0)
+ ;;=3^20605
+ ;;^UTILITY(U,$J,358.3,15398,0)
+ ;;=20615^^99^995^3^^^^1
+ ;;^UTILITY(U,$J,358.3,15398,1,0)
+ ;;=^358.31IA^3^2
+ ;;^UTILITY(U,$J,358.3,15398,1,2,0)
+ ;;=2^Aspiration and injection for tx of bone cyst
+ ;;^UTILITY(U,$J,358.3,15398,1,3,0)
+ ;;=3^20615
+ ;;^UTILITY(U,$J,358.3,15399,0)
+ ;;=20600^^99^995^2^^^^1
+ ;;^UTILITY(U,$J,358.3,15399,1,0)
+ ;;=^358.31IA^3^2
+ ;;^UTILITY(U,$J,358.3,15399,1,2,0)
+ ;;=2^Arthroentesis, aspiration and/or injection; small joint, bursa or ganglion cyst 
+ ;;^UTILITY(U,$J,358.3,15399,1,3,0)
+ ;;=3^20600
+ ;;^UTILITY(U,$J,358.3,15400,0)
+ ;;=11900^^99^995^12^^^^1
+ ;;^UTILITY(U,$J,358.3,15400,1,0)
+ ;;=^358.31IA^3^2
+ ;;^UTILITY(U,$J,358.3,15400,1,2,0)
+ ;;=2^Injection, intralesional; up to and including seven lesion 
+ ;;^UTILITY(U,$J,358.3,15400,1,3,0)
+ ;;=3^11900
+ ;;^UTILITY(U,$J,358.3,15401,0)
+ ;;=11901^^99^995^11^^^^1
+ ;;^UTILITY(U,$J,358.3,15401,1,0)
+ ;;=^358.31IA^3^2
+ ;;^UTILITY(U,$J,358.3,15401,1,2,0)
+ ;;=2^Injection, intralesional; more than seven lesions
+ ;;^UTILITY(U,$J,358.3,15401,1,3,0)
+ ;;=3^11901
+ ;;^UTILITY(U,$J,358.3,15402,0)
+ ;;=64450^^99^995^10^^^^1

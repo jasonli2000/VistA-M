@@ -1,5 +1,5 @@
 DGBTE1 ;ALB/SCK/GAH - BENEFICIARY TRAVEL FIND OLD CLAIM DATES; 10/10/06@11:17am; 10/10/06
- ;;1.0;Beneficiary Travel;**8,12,13,20,21**;September 25, 2001;Build 7
+ ;;1.0;Beneficiary Travel;**8,12,13,20,21,22**;September 25, 2001;Build 5
 DATE ;  get date for claim, either new or past date
  N DGBTDCLM
  K ^TMP("DGBT",$J),^TMP("DGBTARA",$J),DIR
@@ -73,6 +73,7 @@ MEANS ;  find corres. means test entry, gets MT income, status, no. of dependent
  ;
 PREV ; if past claim get SC%, elig.
  I CHZFLG S X=^DGBT(392,DGBTA,0),DGBTELG=$P(X,U,3),DGBTCSC=$P(X,U,4) D
+ . S:$P(X,U,11) DGBTDIVI=+$P(X,U,11),DGBTDIVN=$P($G(^DG(40.8,DGBTDIVI,0)),U,7) ;dbe patch DGBT*1*22 - save division of existing claims
  . S:DGBTCSC DGBTCSC=1_U_DGBTCSC S:'DGBTCSC DGBTCSC=0
  . S:DGBTELG DGBTELG=DGBTELG_U_$P(^DIC(8,DGBTELG,0),U)
 CERT ;  get last BT certification,  get date, then get eligibility

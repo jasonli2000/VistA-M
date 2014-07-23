@@ -1,380 +1,302 @@
-IBDEI0BC ; ; 13-FEB-2014
- ;;3.0;IB ENCOUNTER FORM IMP/EXP;;FEB 13, 2014
+IBDEI0BC ; ; 09-MAY-2014
+ ;;3.0;IB ENCOUNTER FORM IMP/EXP;;MAY 09, 2014
  Q:'DIFQR(358.3)  F I=1:2 S X=$T(Q+I) Q:X=""  S Y=$E($T(Q+I+1),4,999),X=$E(X,4,999) S:$A(Y)=126 I=I+1,Y=$E(Y,2,999)_$E($T(Q+I+1),5,99) S:$A(Y)=61 Y=$E(Y,2,999) X NO E  S @X=Y
 Q Q
- ;;^UTILITY(U,$J,358.3,15107,1,0)
- ;;=^358.31IA^5^2
- ;;^UTILITY(U,$J,358.3,15107,1,4,0)
- ;;=4^V43.3
- ;;^UTILITY(U,$J,358.3,15107,1,5,0)
- ;;=5^S/P Heart Valve Replacement
- ;;^UTILITY(U,$J,358.3,15107,2)
- ;;=^295440
- ;;^UTILITY(U,$J,358.3,15108,0)
- ;;=454.0^^103^917^23
- ;;^UTILITY(U,$J,358.3,15108,1,0)
- ;;=^358.31IA^5^2
- ;;^UTILITY(U,$J,358.3,15108,1,4,0)
- ;;=4^454.0
- ;;^UTILITY(U,$J,358.3,15108,1,5,0)
- ;;=5^Varicose Veins
- ;;^UTILITY(U,$J,358.3,15108,2)
- ;;=Varicose Veins^125410
- ;;^UTILITY(U,$J,358.3,15109,0)
- ;;=396.0^^103^917^5
- ;;^UTILITY(U,$J,358.3,15109,1,0)
- ;;=^358.31IA^5^2
- ;;^UTILITY(U,$J,358.3,15109,1,4,0)
- ;;=4^396.0
- ;;^UTILITY(U,$J,358.3,15109,1,5,0)
- ;;=5^Aortic and Mitral Stenosis
- ;;^UTILITY(U,$J,358.3,15109,2)
- ;;=Aortic and Mitral Stenosis^269580
- ;;^UTILITY(U,$J,358.3,15110,0)
- ;;=396.3^^103^917^4
- ;;^UTILITY(U,$J,358.3,15110,1,0)
- ;;=^358.31IA^5^2
- ;;^UTILITY(U,$J,358.3,15110,1,4,0)
- ;;=4^396.3
- ;;^UTILITY(U,$J,358.3,15110,1,5,0)
- ;;=5^Aortic and Mitral Insufficiency
- ;;^UTILITY(U,$J,358.3,15110,2)
- ;;=Aortic and Mitral Insufficiency^269583
- ;;^UTILITY(U,$J,358.3,15111,0)
- ;;=786.50^^103^917^12
- ;;^UTILITY(U,$J,358.3,15111,1,0)
- ;;=^358.31IA^5^2
- ;;^UTILITY(U,$J,358.3,15111,1,4,0)
- ;;=4^786.50
- ;;^UTILITY(U,$J,358.3,15111,1,5,0)
- ;;=5^Chest Pain
- ;;^UTILITY(U,$J,358.3,15111,2)
- ;;=^22485
- ;;^UTILITY(U,$J,358.3,15112,0)
- ;;=414.00^^103^917^7
- ;;^UTILITY(U,$J,358.3,15112,1,0)
- ;;=^358.31IA^5^2
- ;;^UTILITY(U,$J,358.3,15112,1,4,0)
- ;;=4^414.00
- ;;^UTILITY(U,$J,358.3,15112,1,5,0)
- ;;=5^CAD, S/P CABG
- ;;^UTILITY(U,$J,358.3,15112,2)
- ;;=Coronary Artery Disease^28512
- ;;^UTILITY(U,$J,358.3,15113,0)
- ;;=425.4^^103^917^10
- ;;^UTILITY(U,$J,358.3,15113,1,0)
- ;;=^358.31IA^5^2
- ;;^UTILITY(U,$J,358.3,15113,1,4,0)
- ;;=4^425.4
- ;;^UTILITY(U,$J,358.3,15113,1,5,0)
- ;;=5^Cardiomyopathy
- ;;^UTILITY(U,$J,358.3,15113,2)
- ;;=Cardiomyopathy^87808
- ;;^UTILITY(U,$J,358.3,15114,0)
- ;;=443.9^^103^917^17
- ;;^UTILITY(U,$J,358.3,15114,1,0)
- ;;=^358.31IA^5^2
- ;;^UTILITY(U,$J,358.3,15114,1,4,0)
- ;;=4^443.9
- ;;^UTILITY(U,$J,358.3,15114,1,5,0)
- ;;=5^Peripheral Vascular Disease
- ;;^UTILITY(U,$J,358.3,15114,2)
- ;;=^184182
- ;;^UTILITY(U,$J,358.3,15115,0)
- ;;=423.9^^103^917^16
- ;;^UTILITY(U,$J,358.3,15115,1,0)
- ;;=^358.31IA^5^2
- ;;^UTILITY(U,$J,358.3,15115,1,4,0)
- ;;=4^423.9
- ;;^UTILITY(U,$J,358.3,15115,1,5,0)
- ;;=5^Pericarditis
- ;;^UTILITY(U,$J,358.3,15115,2)
- ;;=^123813
- ;;^UTILITY(U,$J,358.3,15116,0)
- ;;=414.01^^103^917^6
- ;;^UTILITY(U,$J,358.3,15116,1,0)
- ;;=^358.31IA^5^2
- ;;^UTILITY(U,$J,358.3,15116,1,4,0)
- ;;=4^414.01
- ;;^UTILITY(U,$J,358.3,15116,1,5,0)
- ;;=5^CAD Native Artery
- ;;^UTILITY(U,$J,358.3,15116,2)
- ;;=^303281
- ;;^UTILITY(U,$J,358.3,15117,0)
- ;;=453.9^^103^917^25
- ;;^UTILITY(U,$J,358.3,15117,1,0)
- ;;=^358.31IA^5^2
- ;;^UTILITY(U,$J,358.3,15117,1,4,0)
- ;;=4^453.9
- ;;^UTILITY(U,$J,358.3,15117,1,5,0)
- ;;=5^Venous Thrombosis NOS
- ;;^UTILITY(U,$J,358.3,15117,2)
- ;;=^39455
- ;;^UTILITY(U,$J,358.3,15118,0)
- ;;=V45.02^^103^917^19
- ;;^UTILITY(U,$J,358.3,15118,1,0)
- ;;=^358.31IA^5^2
- ;;^UTILITY(U,$J,358.3,15118,1,4,0)
- ;;=4^V45.02
- ;;^UTILITY(U,$J,358.3,15118,1,5,0)
- ;;=5^S/P Defibrillator Placement
- ;;^UTILITY(U,$J,358.3,15118,2)
- ;;=^303420
- ;;^UTILITY(U,$J,358.3,15119,0)
- ;;=494.0^^103^918^5
- ;;^UTILITY(U,$J,358.3,15119,1,0)
- ;;=^358.31IA^5^2
- ;;^UTILITY(U,$J,358.3,15119,1,4,0)
- ;;=4^494.0
- ;;^UTILITY(U,$J,358.3,15119,1,5,0)
- ;;=5^Bronchiectasis
- ;;^UTILITY(U,$J,358.3,15119,2)
- ;;=^321990
- ;;^UTILITY(U,$J,358.3,15120,0)
- ;;=496.^^103^918^7
- ;;^UTILITY(U,$J,358.3,15120,1,0)
- ;;=^358.31IA^5^2
- ;;^UTILITY(U,$J,358.3,15120,1,4,0)
- ;;=4^496.
- ;;^UTILITY(U,$J,358.3,15120,1,5,0)
- ;;=5^Copd
- ;;^UTILITY(U,$J,358.3,15120,2)
- ;;=COPD^24355
- ;;^UTILITY(U,$J,358.3,15121,0)
- ;;=786.2^^103^918^8
- ;;^UTILITY(U,$J,358.3,15121,1,0)
- ;;=^358.31IA^5^2
- ;;^UTILITY(U,$J,358.3,15121,1,4,0)
- ;;=4^786.2
- ;;^UTILITY(U,$J,358.3,15121,1,5,0)
- ;;=5^Cough
- ;;^UTILITY(U,$J,358.3,15121,2)
- ;;=Cough^28905
- ;;^UTILITY(U,$J,358.3,15122,0)
- ;;=786.09^^103^918^9
- ;;^UTILITY(U,$J,358.3,15122,1,0)
- ;;=^358.31IA^5^2
- ;;^UTILITY(U,$J,358.3,15122,1,4,0)
- ;;=4^786.09
- ;;^UTILITY(U,$J,358.3,15122,1,5,0)
- ;;=5^Dyspnea
- ;;^UTILITY(U,$J,358.3,15122,2)
- ;;=Dyspnea^87547
- ;;^UTILITY(U,$J,358.3,15123,0)
- ;;=492.8^^103^918^10
- ;;^UTILITY(U,$J,358.3,15123,1,0)
- ;;=^358.31IA^5^2
- ;;^UTILITY(U,$J,358.3,15123,1,4,0)
- ;;=4^492.8
- ;;^UTILITY(U,$J,358.3,15123,1,5,0)
- ;;=5^Emphysema
- ;;^UTILITY(U,$J,358.3,15123,2)
- ;;=Emphysema^87569
- ;;^UTILITY(U,$J,358.3,15124,0)
- ;;=515.^^103^918^13
- ;;^UTILITY(U,$J,358.3,15124,1,0)
- ;;=^358.31IA^5^2
- ;;^UTILITY(U,$J,358.3,15124,1,4,0)
- ;;=4^515.
- ;;^UTILITY(U,$J,358.3,15124,1,5,0)
- ;;=5^Interstitial Lung Disease
- ;;^UTILITY(U,$J,358.3,15124,2)
- ;;=^101072
- ;;^UTILITY(U,$J,358.3,15125,0)
- ;;=786.52^^103^918^14
- ;;^UTILITY(U,$J,358.3,15125,1,0)
- ;;=^358.31IA^5^2
- ;;^UTILITY(U,$J,358.3,15125,1,4,0)
- ;;=4^786.52
- ;;^UTILITY(U,$J,358.3,15125,1,5,0)
- ;;=5^Painful Respiration/Pleurodynia
- ;;^UTILITY(U,$J,358.3,15125,2)
- ;;=^89126
- ;;^UTILITY(U,$J,358.3,15126,0)
- ;;=511.9^^103^918^15
- ;;^UTILITY(U,$J,358.3,15126,1,0)
- ;;=^358.31IA^5^2
- ;;^UTILITY(U,$J,358.3,15126,1,4,0)
- ;;=4^511.9
- ;;^UTILITY(U,$J,358.3,15126,1,5,0)
- ;;=5^Pleural Effusion
- ;;^UTILITY(U,$J,358.3,15126,2)
- ;;=^123973
- ;;^UTILITY(U,$J,358.3,15127,0)
- ;;=511.0^^103^918^16
- ;;^UTILITY(U,$J,358.3,15127,1,0)
- ;;=^358.31IA^5^2
- ;;^UTILITY(U,$J,358.3,15127,1,4,0)
- ;;=4^511.0
- ;;^UTILITY(U,$J,358.3,15127,1,5,0)
- ;;=5^Pleurisy
- ;;^UTILITY(U,$J,358.3,15127,2)
- ;;=Pleurisy^95432
- ;;^UTILITY(U,$J,358.3,15128,0)
- ;;=486.^^103^918^17
- ;;^UTILITY(U,$J,358.3,15128,1,0)
- ;;=^358.31IA^5^2
- ;;^UTILITY(U,$J,358.3,15128,1,4,0)
- ;;=4^486.
- ;;^UTILITY(U,$J,358.3,15128,1,5,0)
- ;;=5^Pneumonia
- ;;^UTILITY(U,$J,358.3,15128,2)
- ;;=^95632
- ;;^UTILITY(U,$J,358.3,15129,0)
- ;;=135.^^103^918^21
- ;;^UTILITY(U,$J,358.3,15129,1,0)
- ;;=^358.31IA^5^2
- ;;^UTILITY(U,$J,358.3,15129,1,4,0)
- ;;=4^135.
- ;;^UTILITY(U,$J,358.3,15129,1,5,0)
- ;;=5^Sarcoidosis
- ;;^UTILITY(U,$J,358.3,15129,2)
- ;;=Sarcoidosis^107916^517.8
- ;;^UTILITY(U,$J,358.3,15130,0)
- ;;=786.05^^103^918^22
- ;;^UTILITY(U,$J,358.3,15130,1,0)
- ;;=^358.31IA^5^2
- ;;^UTILITY(U,$J,358.3,15130,1,4,0)
- ;;=4^786.05
- ;;^UTILITY(U,$J,358.3,15130,1,5,0)
- ;;=5^Shortness Of Breath
- ;;^UTILITY(U,$J,358.3,15130,2)
- ;;=Shortness of Breath^37632
- ;;^UTILITY(U,$J,358.3,15131,0)
- ;;=786.1^^103^918^23
- ;;^UTILITY(U,$J,358.3,15131,1,0)
- ;;=^358.31IA^5^2
- ;;^UTILITY(U,$J,358.3,15131,1,4,0)
- ;;=4^786.1
- ;;^UTILITY(U,$J,358.3,15131,1,5,0)
- ;;=5^Stridor
- ;;^UTILITY(U,$J,358.3,15131,2)
- ;;=Stridor^114767
- ;;^UTILITY(U,$J,358.3,15132,0)
- ;;=011.90^^103^918^30
- ;;^UTILITY(U,$J,358.3,15132,1,0)
- ;;=^358.31IA^5^2
- ;;^UTILITY(U,$J,358.3,15132,1,4,0)
- ;;=4^011.90
- ;;^UTILITY(U,$J,358.3,15132,1,5,0)
- ;;=5^TB-Unspec
- ;;^UTILITY(U,$J,358.3,15132,2)
- ;;=Tuberculosis^122756
- ;;^UTILITY(U,$J,358.3,15133,0)
- ;;=786.06^^103^918^31
- ;;^UTILITY(U,$J,358.3,15133,1,0)
- ;;=^358.31IA^5^2
- ;;^UTILITY(U,$J,358.3,15133,1,4,0)
- ;;=4^786.06
- ;;^UTILITY(U,$J,358.3,15133,1,5,0)
- ;;=5^Tachypnea
- ;;^UTILITY(U,$J,358.3,15133,2)
- ;;=Tachypnea^321213
- ;;^UTILITY(U,$J,358.3,15134,0)
- ;;=786.07^^103^918^32
- ;;^UTILITY(U,$J,358.3,15134,1,0)
- ;;=^358.31IA^5^2
- ;;^UTILITY(U,$J,358.3,15134,1,4,0)
- ;;=4^786.07
- ;;^UTILITY(U,$J,358.3,15134,1,5,0)
- ;;=5^Wheezing
- ;;^UTILITY(U,$J,358.3,15134,2)
- ;;=Wheezing^127848
- ;;^UTILITY(U,$J,358.3,15135,0)
- ;;=493.90^^103^918^3
- ;;^UTILITY(U,$J,358.3,15135,1,0)
- ;;=^358.31IA^5^2
- ;;^UTILITY(U,$J,358.3,15135,1,4,0)
- ;;=4^493.90
- ;;^UTILITY(U,$J,358.3,15135,1,5,0)
- ;;=5^Asthma
- ;;^UTILITY(U,$J,358.3,15135,2)
- ;;=^330091
- ;;^UTILITY(U,$J,358.3,15136,0)
- ;;=518.0^^103^918^4
- ;;^UTILITY(U,$J,358.3,15136,1,0)
- ;;=^358.31IA^5^2
- ;;^UTILITY(U,$J,358.3,15136,1,4,0)
- ;;=4^518.0
- ;;^UTILITY(U,$J,358.3,15136,1,5,0)
- ;;=5^Atelectasis
- ;;^UTILITY(U,$J,358.3,15136,2)
- ;;=^11199
- ;;^UTILITY(U,$J,358.3,15137,0)
- ;;=512.1^^103^918^1
- ;;^UTILITY(U,$J,358.3,15137,1,0)
- ;;=^358.31IA^5^2
- ;;^UTILITY(U,$J,358.3,15137,1,4,0)
- ;;=4^512.1
- ;;^UTILITY(U,$J,358.3,15137,1,5,0)
- ;;=5^  Iatrogenic/Postoperative
- ;;^UTILITY(U,$J,358.3,15137,2)
- ;;=^303293
- ;;^UTILITY(U,$J,358.3,15138,0)
- ;;=518.81^^103^918^20
- ;;^UTILITY(U,$J,358.3,15138,1,0)
- ;;=^358.31IA^5^2
- ;;^UTILITY(U,$J,358.3,15138,1,4,0)
- ;;=4^518.81
- ;;^UTILITY(U,$J,358.3,15138,1,5,0)
- ;;=5^Respiratory Failure
- ;;^UTILITY(U,$J,358.3,15138,2)
- ;;=^328757
- ;;^UTILITY(U,$J,358.3,15139,0)
- ;;=273.4^^103^918^2
- ;;^UTILITY(U,$J,358.3,15139,1,0)
- ;;=^358.31IA^5^2
- ;;^UTILITY(U,$J,358.3,15139,1,4,0)
- ;;=4^273.4
- ;;^UTILITY(U,$J,358.3,15139,1,5,0)
- ;;=5^Alpha-1-Antitrypsin Def
- ;;^UTILITY(U,$J,358.3,15139,2)
- ;;=^331442
- ;;^UTILITY(U,$J,358.3,15140,0)
- ;;=490.^^103^918^6
- ;;^UTILITY(U,$J,358.3,15140,1,0)
- ;;=^358.31IA^5^2
- ;;^UTILITY(U,$J,358.3,15140,1,4,0)
- ;;=4^490.
- ;;^UTILITY(U,$J,358.3,15140,1,5,0)
- ;;=5^Bronchitis Nos
- ;;^UTILITY(U,$J,358.3,15140,2)
- ;;=^17164
- ;;^UTILITY(U,$J,358.3,15141,0)
- ;;=011.91^^103^918^28
- ;;^UTILITY(U,$J,358.3,15141,1,0)
- ;;=^358.31IA^5^2
- ;;^UTILITY(U,$J,358.3,15141,1,4,0)
- ;;=4^011.91
- ;;^UTILITY(U,$J,358.3,15141,1,5,0)
- ;;=5^TB-No Exam
- ;;^UTILITY(U,$J,358.3,15141,2)
- ;;=^266087
- ;;^UTILITY(U,$J,358.3,15142,0)
- ;;=011.92^^103^918^25
- ;;^UTILITY(U,$J,358.3,15142,1,0)
- ;;=^358.31IA^5^2
- ;;^UTILITY(U,$J,358.3,15142,1,4,0)
- ;;=4^011.92
- ;;^UTILITY(U,$J,358.3,15142,1,5,0)
- ;;=5^TB-Exam Unknown
- ;;^UTILITY(U,$J,358.3,15142,2)
- ;;=^266088
- ;;^UTILITY(U,$J,358.3,15143,0)
- ;;=011.93^^103^918^27
- ;;^UTILITY(U,$J,358.3,15143,1,0)
- ;;=^358.31IA^5^2
- ;;^UTILITY(U,$J,358.3,15143,1,4,0)
- ;;=4^011.93
- ;;^UTILITY(U,$J,358.3,15143,1,5,0)
- ;;=5^TB-Micro DX
- ;;^UTILITY(U,$J,358.3,15143,2)
- ;;=^266089
- ;;^UTILITY(U,$J,358.3,15144,0)
- ;;=011.94^^103^918^24
- ;;^UTILITY(U,$J,358.3,15144,1,0)
- ;;=^358.31IA^5^2
- ;;^UTILITY(U,$J,358.3,15144,1,4,0)
- ;;=4^011.94
- ;;^UTILITY(U,$J,358.3,15144,1,5,0)
- ;;=5^TB-Cult DX
+ ;;^UTILITY(U,$J,358.3,15329,0)
+ ;;=11012^^99^985^5^^^^1
+ ;;^UTILITY(U,$J,358.3,15329,1,0)
+ ;;=^358.31IA^3^2
+ ;;^UTILITY(U,$J,358.3,15329,1,2,0)
+ ;;=2^Debridement incl. removal of foreign material associate w/ openFx(s) &/or dislocation(s); skin, subcutaneous tissue, muscle fascia, muscle & bone
+ ;;^UTILITY(U,$J,358.3,15329,1,3,0)
+ ;;=3^11012
+ ;;^UTILITY(U,$J,358.3,15330,0)
+ ;;=11001^^99^985^2^^^^1
+ ;;^UTILITY(U,$J,358.3,15330,1,0)
+ ;;=^358.31IA^3^2
+ ;;^UTILITY(U,$J,358.3,15330,1,2,0)
+ ;;=2^Debr of extensive eczematous;ea addl 10%
+ ;;^UTILITY(U,$J,358.3,15330,1,3,0)
+ ;;=3^11001
+ ;;^UTILITY(U,$J,358.3,15331,0)
+ ;;=11300^^99^986^1
+ ;;^UTILITY(U,$J,358.3,15331,1,0)
+ ;;=^358.31IA^3^2
+ ;;^UTILITY(U,$J,358.3,15331,1,2,0)
+ ;;=2^Shaving of Epidermal or Dermal Lesions, Single; trunk, arms, legs- 0.5 cm or less
+ ;;^UTILITY(U,$J,358.3,15331,1,3,0)
+ ;;=3^11300
+ ;;^UTILITY(U,$J,358.3,15332,0)
+ ;;=11301^^99^986^2
+ ;;^UTILITY(U,$J,358.3,15332,1,0)
+ ;;=^358.31IA^3^2
+ ;;^UTILITY(U,$J,358.3,15332,1,2,0)
+ ;;=2^Shaving of Epidermal or Dermal Lesion, Single; trunk, arms or legs- 0.6 to 1.0 cm
+ ;;^UTILITY(U,$J,358.3,15332,1,3,0)
+ ;;=3^11301
+ ;;^UTILITY(U,$J,358.3,15333,0)
+ ;;=11302^^99^986^3
+ ;;^UTILITY(U,$J,358.3,15333,1,0)
+ ;;=^358.31IA^3^2
+ ;;^UTILITY(U,$J,358.3,15333,1,2,0)
+ ;;=2^Shaving of Epidermal or Dermal Lesion, Single- trunk, arms or legs 1.1 to 2.0 cm
+ ;;^UTILITY(U,$J,358.3,15333,1,3,0)
+ ;;=3^11302
+ ;;^UTILITY(U,$J,358.3,15334,0)
+ ;;=11305^^99^986^5
+ ;;^UTILITY(U,$J,358.3,15334,1,0)
+ ;;=^358.31IA^3^2
+ ;;^UTILITY(U,$J,358.3,15334,1,2,0)
+ ;;=2^Shaving of Epidermal or Dermal Lesion Single; scalp, neck, hands, feet, genitalia- 0.5 cm or less
+ ;;^UTILITY(U,$J,358.3,15334,1,3,0)
+ ;;=3^11305
+ ;;^UTILITY(U,$J,358.3,15335,0)
+ ;;=11306^^99^986^6
+ ;;^UTILITY(U,$J,358.3,15335,1,0)
+ ;;=^358.31IA^3^2
+ ;;^UTILITY(U,$J,358.3,15335,1,2,0)
+ ;;=2^Shaving of Epidermal or Dermal Lesion, Single; scalp, neck, hands, feet, genitalia- 0.6 to 1.0 cm 
+ ;;^UTILITY(U,$J,358.3,15335,1,3,0)
+ ;;=3^11306
+ ;;^UTILITY(U,$J,358.3,15336,0)
+ ;;=11307^^99^986^7
+ ;;^UTILITY(U,$J,358.3,15336,1,0)
+ ;;=^358.31IA^3^2
+ ;;^UTILITY(U,$J,358.3,15336,1,2,0)
+ ;;=2^Shaving of Epidermal or Dermal Lesion, Single; scalp, neck, hands, feet, genitalia- 1.1 to 2.0 cm
+ ;;^UTILITY(U,$J,358.3,15336,1,3,0)
+ ;;=3^11307
+ ;;^UTILITY(U,$J,358.3,15337,0)
+ ;;=11308^^99^986^8
+ ;;^UTILITY(U,$J,358.3,15337,1,0)
+ ;;=^358.31IA^3^2
+ ;;^UTILITY(U,$J,358.3,15337,1,2,0)
+ ;;=2^Shaving of Epidermal or Dermal Lesion, Single; scalp, neck, hands, feet, genitalia- over 2.0 cm
+ ;;^UTILITY(U,$J,358.3,15337,1,3,0)
+ ;;=3^11308
+ ;;^UTILITY(U,$J,358.3,15338,0)
+ ;;=11303^^99^986^4^^^^1
+ ;;^UTILITY(U,$J,358.3,15338,1,0)
+ ;;=^358.31IA^3^2
+ ;;^UTILITY(U,$J,358.3,15338,1,2,0)
+ ;;=2^Shaving of Epidermal or Dermal Lesion, Single; trunk, arms or legs- over 2.0 cm
+ ;;^UTILITY(U,$J,358.3,15338,1,3,0)
+ ;;=3^11303
+ ;;^UTILITY(U,$J,358.3,15339,0)
+ ;;=11719^^99^987^1^^^^1
+ ;;^UTILITY(U,$J,358.3,15339,1,0)
+ ;;=^358.31IA^3^2
+ ;;^UTILITY(U,$J,358.3,15339,1,2,0)
+ ;;=2^Trimming Nondystrophic Nails, any number
+ ;;^UTILITY(U,$J,358.3,15339,1,3,0)
+ ;;=3^11719
+ ;;^UTILITY(U,$J,358.3,15340,0)
+ ;;=G0127^^99^987^2^^^^1
+ ;;^UTILITY(U,$J,358.3,15340,1,0)
+ ;;=^358.31IA^3^2
+ ;;^UTILITY(U,$J,358.3,15340,1,2,0)
+ ;;=2^Trimming Dystrophic Nails, any number
+ ;;^UTILITY(U,$J,358.3,15340,1,3,0)
+ ;;=3^G0127
+ ;;^UTILITY(U,$J,358.3,15341,0)
+ ;;=11720^^99^987^3^^^^1
+ ;;^UTILITY(U,$J,358.3,15341,1,0)
+ ;;=^358.31IA^3^2
+ ;;^UTILITY(U,$J,358.3,15341,1,2,0)
+ ;;=2^Debridement of Nail(s)any method(s); 1-5 
+ ;;^UTILITY(U,$J,358.3,15341,1,3,0)
+ ;;=3^11720
+ ;;^UTILITY(U,$J,358.3,15342,0)
+ ;;=11721^^99^987^4^^^^1
+ ;;^UTILITY(U,$J,358.3,15342,1,0)
+ ;;=^358.31IA^3^2
+ ;;^UTILITY(U,$J,358.3,15342,1,2,0)
+ ;;=2^Debridement of Nails any method; 6 or more
+ ;;^UTILITY(U,$J,358.3,15342,1,3,0)
+ ;;=3^11721
+ ;;^UTILITY(U,$J,358.3,15343,0)
+ ;;=11730^^99^987^5^^^^1
+ ;;^UTILITY(U,$J,358.3,15343,1,0)
+ ;;=^358.31IA^3^2
+ ;;^UTILITY(U,$J,358.3,15343,1,2,0)
+ ;;=2^Avulsion of Nail Plate,part/comp,single
+ ;;^UTILITY(U,$J,358.3,15343,1,3,0)
+ ;;=3^11730
+ ;;^UTILITY(U,$J,358.3,15344,0)
+ ;;=11732^^99^987^6^^^^1
+ ;;^UTILITY(U,$J,358.3,15344,1,0)
+ ;;=^358.31IA^3^2
+ ;;^UTILITY(U,$J,358.3,15344,1,2,0)
+ ;;=2^Avulsion of Nail Plate,part/comp,ea addl nail
+ ;;^UTILITY(U,$J,358.3,15344,1,3,0)
+ ;;=3^11732
+ ;;^UTILITY(U,$J,358.3,15345,0)
+ ;;=11740^^99^987^7^^^^1
+ ;;^UTILITY(U,$J,358.3,15345,1,0)
+ ;;=^358.31IA^3^2
+ ;;^UTILITY(U,$J,358.3,15345,1,2,0)
+ ;;=2^Evacuation Subungual Hematoma
+ ;;^UTILITY(U,$J,358.3,15345,1,3,0)
+ ;;=3^11740
+ ;;^UTILITY(U,$J,358.3,15346,0)
+ ;;=11750^^99^987^8^^^^1
+ ;;^UTILITY(U,$J,358.3,15346,1,0)
+ ;;=^358.31IA^3^2
+ ;;^UTILITY(U,$J,358.3,15346,1,2,0)
+ ;;=2^Excision of Nail and Nail Matrx, partial or complete, for permanent removal
+ ;;^UTILITY(U,$J,358.3,15346,1,3,0)
+ ;;=3^11750
+ ;;^UTILITY(U,$J,358.3,15347,0)
+ ;;=11755^^99^987^9^^^^1
+ ;;^UTILITY(U,$J,358.3,15347,1,0)
+ ;;=^358.31IA^3^2
+ ;;^UTILITY(U,$J,358.3,15347,1,2,0)
+ ;;=2^Biopsy of Nail Unit
+ ;;^UTILITY(U,$J,358.3,15347,1,3,0)
+ ;;=3^11755
+ ;;^UTILITY(U,$J,358.3,15348,0)
+ ;;=11760^^99^987^10^^^^1
+ ;;^UTILITY(U,$J,358.3,15348,1,0)
+ ;;=^358.31IA^3^2
+ ;;^UTILITY(U,$J,358.3,15348,1,2,0)
+ ;;=2^Repair of Nail Bed
+ ;;^UTILITY(U,$J,358.3,15348,1,3,0)
+ ;;=3^11760
+ ;;^UTILITY(U,$J,358.3,15349,0)
+ ;;=11765^^99^987^11^^^^1
+ ;;^UTILITY(U,$J,358.3,15349,1,0)
+ ;;=^358.31IA^3^2
+ ;;^UTILITY(U,$J,358.3,15349,1,2,0)
+ ;;=2^Wedge Excision of Skin Nail Fold
+ ;;^UTILITY(U,$J,358.3,15349,1,3,0)
+ ;;=3^11765
+ ;;^UTILITY(U,$J,358.3,15350,0)
+ ;;=11055^^99^988^1^^^^1
+ ;;^UTILITY(U,$J,358.3,15350,1,0)
+ ;;=^358.31IA^3^2
+ ;;^UTILITY(U,$J,358.3,15350,1,2,0)
+ ;;=2^Trim Skin Lesion, Single Lesion
+ ;;^UTILITY(U,$J,358.3,15350,1,3,0)
+ ;;=3^11055
+ ;;^UTILITY(U,$J,358.3,15351,0)
+ ;;=11056^^99^988^2^^^^1
+ ;;^UTILITY(U,$J,358.3,15351,1,0)
+ ;;=^358.31IA^3^2
+ ;;^UTILITY(U,$J,358.3,15351,1,2,0)
+ ;;=2^Trim Skin Lesion,2-4 Lesions
+ ;;^UTILITY(U,$J,358.3,15351,1,3,0)
+ ;;=3^11056
+ ;;^UTILITY(U,$J,358.3,15352,0)
+ ;;=11057^^99^988^3^^^^1
+ ;;^UTILITY(U,$J,358.3,15352,1,0)
+ ;;=^358.31IA^3^2
+ ;;^UTILITY(U,$J,358.3,15352,1,2,0)
+ ;;=2^Trim Skin Lesions, Over 4
+ ;;^UTILITY(U,$J,358.3,15352,1,3,0)
+ ;;=3^11057
+ ;;^UTILITY(U,$J,358.3,15353,0)
+ ;;=17000^^99^989^1^^^^1
+ ;;^UTILITY(U,$J,358.3,15353,1,0)
+ ;;=^358.31IA^3^2
+ ;;^UTILITY(U,$J,358.3,15353,1,2,0)
+ ;;=2^Destruction, all benign or premalignant lesions other than skin tags or cutaneous vascular proliferative lesion; 1st lesion
+ ;;^UTILITY(U,$J,358.3,15353,1,3,0)
+ ;;=3^17000
+ ;;^UTILITY(U,$J,358.3,15354,0)
+ ;;=17003^^99^989^2^^^^1
+ ;;^UTILITY(U,$J,358.3,15354,1,0)
+ ;;=^358.31IA^3^2
+ ;;^UTILITY(U,$J,358.3,15354,1,2,0)
+ ;;=2^Destruction, all benign or premalignant lesions other than skin tags or cutaneous vascular proliferative lesions; 2nd-14th lesion, each
+ ;;^UTILITY(U,$J,358.3,15354,1,3,0)
+ ;;=3^17003
+ ;;^UTILITY(U,$J,358.3,15355,0)
+ ;;=17004^^99^989^3^^^^1
+ ;;^UTILITY(U,$J,358.3,15355,1,0)
+ ;;=^358.31IA^3^2
+ ;;^UTILITY(U,$J,358.3,15355,1,2,0)
+ ;;=2^Destruction, all benign or premalignant lesions other than skin tags or cutaneous vascular proliferative lesions; 15 or more lesions
+ ;;^UTILITY(U,$J,358.3,15355,1,3,0)
+ ;;=3^17004
+ ;;^UTILITY(U,$J,358.3,15356,0)
+ ;;=17110^^99^989^4^^^^1
+ ;;^UTILITY(U,$J,358.3,15356,1,0)
+ ;;=^358.31IA^3^2
+ ;;^UTILITY(U,$J,358.3,15356,1,2,0)
+ ;;=2^Destruction, of flat warts, molluscum contagiosum, or milia; up to 14 lesions
+ ;;^UTILITY(U,$J,358.3,15356,1,3,0)
+ ;;=3^17110
+ ;;^UTILITY(U,$J,358.3,15357,0)
+ ;;=17111^^99^989^5^^^^1
+ ;;^UTILITY(U,$J,358.3,15357,1,0)
+ ;;=^358.31IA^3^2
+ ;;^UTILITY(U,$J,358.3,15357,1,2,0)
+ ;;=2^Destruction, of flat warts, molluscum contagiosum, or milia; 15 or more lesions
+ ;;^UTILITY(U,$J,358.3,15357,1,3,0)
+ ;;=3^17111
+ ;;^UTILITY(U,$J,358.3,15358,0)
+ ;;=17250^^99^989^6^^^^1
+ ;;^UTILITY(U,$J,358.3,15358,1,0)
+ ;;=^358.31IA^3^2
+ ;;^UTILITY(U,$J,358.3,15358,1,2,0)
+ ;;=2^Chemical cauterization of granulation tissue
+ ;;^UTILITY(U,$J,358.3,15358,1,3,0)
+ ;;=3^17250
+ ;;^UTILITY(U,$J,358.3,15359,0)
+ ;;=11400^^99^990^1^^^^1
+ ;;^UTILITY(U,$J,358.3,15359,1,0)
+ ;;=^358.31IA^3^2
+ ;;^UTILITY(U,$J,358.3,15359,1,2,0)
+ ;;=2^Excision Benign Lesion-trunk,  legs; 0.5 cm or less 
+ ;;^UTILITY(U,$J,358.3,15359,1,3,0)
+ ;;=3^11400
+ ;;^UTILITY(U,$J,358.3,15360,0)
+ ;;=11401^^99^990^2^^^^1
+ ;;^UTILITY(U,$J,358.3,15360,1,0)
+ ;;=^358.31IA^3^2
+ ;;^UTILITY(U,$J,358.3,15360,1,2,0)
+ ;;=2^Excision Benign Lesion-trunk,  legs; 0.6cm to 1.0cm
+ ;;^UTILITY(U,$J,358.3,15360,1,3,0)
+ ;;=3^11401
+ ;;^UTILITY(U,$J,358.3,15361,0)
+ ;;=11402^^99^990^3^^^^1
+ ;;^UTILITY(U,$J,358.3,15361,1,0)
+ ;;=^358.31IA^3^2
+ ;;^UTILITY(U,$J,358.3,15361,1,2,0)
+ ;;=2^Excision Benign Lesion-trunk,  legs; 1.1cm to 2.0cm
+ ;;^UTILITY(U,$J,358.3,15361,1,3,0)
+ ;;=3^11402
+ ;;^UTILITY(U,$J,358.3,15362,0)
+ ;;=11403^^99^990^4^^^^1
+ ;;^UTILITY(U,$J,358.3,15362,1,0)
+ ;;=^358.31IA^3^2
+ ;;^UTILITY(U,$J,358.3,15362,1,2,0)
+ ;;=2^Excision Benign Lesion-trunk,  legs; 2.1cm to 3.0cm
+ ;;^UTILITY(U,$J,358.3,15362,1,3,0)
+ ;;=3^11403
+ ;;^UTILITY(U,$J,358.3,15363,0)
+ ;;=11404^^99^990^5^^^^1
+ ;;^UTILITY(U,$J,358.3,15363,1,0)
+ ;;=^358.31IA^3^2
+ ;;^UTILITY(U,$J,358.3,15363,1,2,0)
+ ;;=2^Excision Benign Lesion-trunk,  legs; 3.1cm to 4.0cm
+ ;;^UTILITY(U,$J,358.3,15363,1,3,0)
+ ;;=3^11404
+ ;;^UTILITY(U,$J,358.3,15364,0)
+ ;;=11406^^99^990^6^^^^1
+ ;;^UTILITY(U,$J,358.3,15364,1,0)
+ ;;=^358.31IA^3^2
+ ;;^UTILITY(U,$J,358.3,15364,1,2,0)
+ ;;=2^Excision Benign Lesion-trunk,  legs; over 4.0cm
+ ;;^UTILITY(U,$J,358.3,15364,1,3,0)
+ ;;=3^11406
+ ;;^UTILITY(U,$J,358.3,15365,0)
+ ;;=11420^^99^990^7^^^^1
+ ;;^UTILITY(U,$J,358.3,15365,1,0)
+ ;;=^358.31IA^3^2
+ ;;^UTILITY(U,$J,358.3,15365,1,2,0)
+ ;;=2^Excisiofeet, genitalia; 0.5cm or less
+ ;;^UTILITY(U,$J,358.3,15365,1,3,0)
+ ;;=3^11420
+ ;;^UTILITY(U,$J,358.3,15366,0)
+ ;;=11421^^99^990^8^^^^1

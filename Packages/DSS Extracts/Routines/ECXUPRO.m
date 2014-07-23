@@ -1,5 +1,5 @@
-ECXUPRO ;ALB/TJL-Prosthetic Extract Unusual Cost Report ;3/4/13  16:11
- ;;3.0;DSS EXTRACTS;**49,111,144**;July 1, 2003;Build 9
+ECXUPRO ;ALB/TJL-Prosthetic Extract Unusual Cost Report ;10/22/13  17:42
+ ;;3.0;DSS EXTRACTS;**49,111,144,148**;Dec 22, 1997;Build 3
  ;
 EN ; entry point
  N X,Y,DATE,ECRUN,ECXDESC,ECXSAVE,ECXTL,ECTHLD,ECXPORT,CNT ;144

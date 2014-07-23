@@ -1,370 +1,132 @@
-IBDEI0H2 ; ; 13-FEB-2014
- ;;3.0;IB ENCOUNTER FORM IMP/EXP;;FEB 13, 2014
- Q:'DIFQR(358.3)  F I=1:2 S X=$T(Q+I) Q:X=""  S Y=$E($T(Q+I+1),4,999),X=$E(X,4,999) S:$A(Y)=126 I=I+1,Y=$E(Y,2,999)_$E($T(Q+I+1),5,99) S:$A(Y)=61 Y=$E(Y,2,999) X NO E  S @X=Y
+IBDEI0H2 ; ; 09-MAY-2014
+ ;;3.0;IB ENCOUNTER FORM IMP/EXP;;MAY 09, 2014
+ Q:'DIFQ(358.6)  F I=1:2 S X=$T(Q+I) Q:X=""  S Y=$E($T(Q+I+1),4,999),X=$E(X,4,999) S:$A(Y)=126 I=I+1,Y=$E(Y,2,999)_$E($T(Q+I+1),5,99) S:$A(Y)=61 Y=$E(Y,2,999) X NO E  S @X=Y
 Q Q
- ;;^UTILITY(U,$J,358.3,22955,2)
- ;;=^67114
- ;;^UTILITY(U,$J,358.3,22956,0)
- ;;=583.9^^152^1367^16
- ;;^UTILITY(U,$J,358.3,22956,1,0)
- ;;=^358.31IA^5^2
- ;;^UTILITY(U,$J,358.3,22956,1,4,0)
- ;;=4^583.9
- ;;^UTILITY(U,$J,358.3,22956,1,5,0)
- ;;=5^Glomerulonephritis
- ;;^UTILITY(U,$J,358.3,22956,2)
- ;;=^83446
- ;;^UTILITY(U,$J,358.3,22957,0)
- ;;=403.90^^152^1367^48
- ;;^UTILITY(U,$J,358.3,22957,1,0)
- ;;=^358.31IA^5^2
- ;;^UTILITY(U,$J,358.3,22957,1,4,0)
- ;;=4^403.90
- ;;^UTILITY(U,$J,358.3,22957,1,5,0)
- ;;=5^Renal Insufficiency with Hypertension (CRI and HTN)
- ;;^UTILITY(U,$J,358.3,22957,2)
- ;;=Renal Insufficiency with Hypertension (CRI and HTN)^269609
- ;;^UTILITY(U,$J,358.3,22958,0)
- ;;=593.9^^152^1367^9
- ;;^UTILITY(U,$J,358.3,22958,1,0)
- ;;=^358.31IA^5^2
- ;;^UTILITY(U,$J,358.3,22958,1,4,0)
- ;;=4^593.9
- ;;^UTILITY(U,$J,358.3,22958,1,5,0)
- ;;=5^Chronic Renal Insufficiency
- ;;^UTILITY(U,$J,358.3,22958,2)
- ;;=Chronic Renal Insufficiency^123849
- ;;^UTILITY(U,$J,358.3,22959,0)
- ;;=581.9^^152^1367^34
- ;;^UTILITY(U,$J,358.3,22959,1,0)
- ;;=^358.31IA^5^2
- ;;^UTILITY(U,$J,358.3,22959,1,4,0)
- ;;=4^581.9
- ;;^UTILITY(U,$J,358.3,22959,1,5,0)
- ;;=5^Nephrotic Syndrome
- ;;^UTILITY(U,$J,358.3,22959,2)
- ;;=^82357
- ;;^UTILITY(U,$J,358.3,22960,0)
- ;;=753.12^^152^1367^40
- ;;^UTILITY(U,$J,358.3,22960,1,0)
- ;;=^358.31IA^5^2
- ;;^UTILITY(U,$J,358.3,22960,1,4,0)
- ;;=4^753.12
- ;;^UTILITY(U,$J,358.3,22960,1,5,0)
- ;;=5^Polycystic Kidney Disease
- ;;^UTILITY(U,$J,358.3,22960,2)
- ;;=^67295
- ;;^UTILITY(U,$J,358.3,22961,0)
- ;;=791.0^^152^1367^42
- ;;^UTILITY(U,$J,358.3,22961,1,0)
- ;;=^358.31IA^5^2
- ;;^UTILITY(U,$J,358.3,22961,1,4,0)
- ;;=4^791.0
- ;;^UTILITY(U,$J,358.3,22961,1,5,0)
- ;;=5^Proteinuria
- ;;^UTILITY(U,$J,358.3,22961,2)
- ;;=Proteinuria^99873
- ;;^UTILITY(U,$J,358.3,22962,0)
- ;;=791.9^^152^1367^45
- ;;^UTILITY(U,$J,358.3,22962,1,0)
- ;;=^358.31IA^5^2
- ;;^UTILITY(U,$J,358.3,22962,1,4,0)
- ;;=4^791.9
- ;;^UTILITY(U,$J,358.3,22962,1,5,0)
- ;;=5^Pyuria
- ;;^UTILITY(U,$J,358.3,22962,2)
- ;;=^273408
- ;;^UTILITY(U,$J,358.3,22963,0)
- ;;=592.0^^152^1367^46
- ;;^UTILITY(U,$J,358.3,22963,1,0)
- ;;=^358.31IA^5^2
- ;;^UTILITY(U,$J,358.3,22963,1,4,0)
- ;;=4^592.0
- ;;^UTILITY(U,$J,358.3,22963,1,5,0)
- ;;=5^Renal Calculi
- ;;^UTILITY(U,$J,358.3,22963,2)
- ;;=^67056
- ;;^UTILITY(U,$J,358.3,22964,0)
- ;;=403.91^^152^1367^47
- ;;^UTILITY(U,$J,358.3,22964,1,0)
- ;;=^358.31IA^5^2
- ;;^UTILITY(U,$J,358.3,22964,1,4,0)
- ;;=4^403.91
- ;;^UTILITY(U,$J,358.3,22964,1,5,0)
- ;;=5^Renal Failure, Chronic Hypertensive
- ;;^UTILITY(U,$J,358.3,22964,2)
- ;;=^269610
- ;;^UTILITY(U,$J,358.3,22965,0)
- ;;=586.^^152^1367^50
- ;;^UTILITY(U,$J,358.3,22965,1,0)
- ;;=^358.31IA^5^2
- ;;^UTILITY(U,$J,358.3,22965,1,4,0)
- ;;=4^586.
- ;;^UTILITY(U,$J,358.3,22965,1,5,0)
- ;;=5^Uremia
- ;;^UTILITY(U,$J,358.3,22965,2)
- ;;=Uremia^104733
- ;;^UTILITY(U,$J,358.3,22966,0)
- ;;=599.0^^152^1367^60
- ;;^UTILITY(U,$J,358.3,22966,1,0)
- ;;=^358.31IA^5^2
- ;;^UTILITY(U,$J,358.3,22966,1,4,0)
- ;;=4^599.0
- ;;^UTILITY(U,$J,358.3,22966,1,5,0)
- ;;=5^Urinary Tract Infection
- ;;^UTILITY(U,$J,358.3,22966,2)
- ;;=Urinary Tract Infection^124436
- ;;^UTILITY(U,$J,358.3,22967,0)
- ;;=275.42^^152^1367^25
- ;;^UTILITY(U,$J,358.3,22967,1,0)
- ;;=^358.31IA^5^2
- ;;^UTILITY(U,$J,358.3,22967,1,4,0)
- ;;=4^275.42
- ;;^UTILITY(U,$J,358.3,22967,1,5,0)
- ;;=5^Hypercalcemia
- ;;^UTILITY(U,$J,358.3,22967,2)
- ;;=Hypercalcemia^59932
- ;;^UTILITY(U,$J,358.3,22968,0)
- ;;=275.41^^152^1367^28
- ;;^UTILITY(U,$J,358.3,22968,1,0)
- ;;=^358.31IA^5^2
- ;;^UTILITY(U,$J,358.3,22968,1,4,0)
- ;;=4^275.41
- ;;^UTILITY(U,$J,358.3,22968,1,5,0)
- ;;=5^Hypocalcemia
- ;;^UTILITY(U,$J,358.3,22968,2)
- ;;=Hypocalcemia^60542
- ;;^UTILITY(U,$J,358.3,22969,0)
- ;;=276.7^^152^1367^26
- ;;^UTILITY(U,$J,358.3,22969,1,0)
- ;;=^358.31IA^5^2
- ;;^UTILITY(U,$J,358.3,22969,1,4,0)
- ;;=4^276.7
- ;;^UTILITY(U,$J,358.3,22969,1,5,0)
- ;;=5^Hyperkalemia/Hyperpotassemia
- ;;^UTILITY(U,$J,358.3,22969,2)
- ;;=Hyperkalemia/Hyperpotassemia^60042
- ;;^UTILITY(U,$J,358.3,22970,0)
- ;;=276.8^^152^1367^29
- ;;^UTILITY(U,$J,358.3,22970,1,0)
- ;;=^358.31IA^5^2
- ;;^UTILITY(U,$J,358.3,22970,1,4,0)
- ;;=4^276.8
- ;;^UTILITY(U,$J,358.3,22970,1,5,0)
- ;;=5^Hypokalemia/Hypopotassemia
- ;;^UTILITY(U,$J,358.3,22970,2)
- ;;=Hypokalemia/Hypopotassemia^60611
- ;;^UTILITY(U,$J,358.3,22971,0)
- ;;=275.2^^152^1367^23
- ;;^UTILITY(U,$J,358.3,22971,1,0)
- ;;=^358.31IA^5^2
- ;;^UTILITY(U,$J,358.3,22971,1,4,0)
- ;;=4^275.2
- ;;^UTILITY(U,$J,358.3,22971,1,5,0)
- ;;=5^Hyper Or Hypomagnesemia
- ;;^UTILITY(U,$J,358.3,22971,2)
- ;;=^35626
- ;;^UTILITY(U,$J,358.3,22972,0)
- ;;=276.0^^152^1367^27
- ;;^UTILITY(U,$J,358.3,22972,1,0)
- ;;=^358.31IA^5^2
- ;;^UTILITY(U,$J,358.3,22972,1,4,0)
- ;;=4^276.0
- ;;^UTILITY(U,$J,358.3,22972,1,5,0)
- ;;=5^Hypernatremia
- ;;^UTILITY(U,$J,358.3,22972,2)
- ;;=^60144
- ;;^UTILITY(U,$J,358.3,22973,0)
- ;;=276.1^^152^1367^30
- ;;^UTILITY(U,$J,358.3,22973,1,0)
- ;;=^358.31IA^5^2
- ;;^UTILITY(U,$J,358.3,22973,1,4,0)
- ;;=4^276.1
- ;;^UTILITY(U,$J,358.3,22973,1,5,0)
- ;;=5^Hyponatremia
- ;;^UTILITY(U,$J,358.3,22973,2)
- ;;=Hyponatremia^60722
- ;;^UTILITY(U,$J,358.3,22974,0)
- ;;=275.3^^152^1367^24
- ;;^UTILITY(U,$J,358.3,22974,1,0)
- ;;=^358.31IA^5^2
- ;;^UTILITY(U,$J,358.3,22974,1,4,0)
- ;;=4^275.3
- ;;^UTILITY(U,$J,358.3,22974,1,5,0)
- ;;=5^Hyper Or Hypophosphatemia
- ;;^UTILITY(U,$J,358.3,22974,2)
- ;;=^93796
- ;;^UTILITY(U,$J,358.3,22975,0)
- ;;=250.40^^152^1367^13
- ;;^UTILITY(U,$J,358.3,22975,1,0)
- ;;=^358.31IA^5^2
- ;;^UTILITY(U,$J,358.3,22975,1,4,0)
- ;;=4^250.40
- ;;^UTILITY(U,$J,358.3,22975,1,5,0)
- ;;=5^DM type II with Nephropathy
- ;;^UTILITY(U,$J,358.3,22975,2)
- ;;=DM type II with Nephropathy^267837^583.81
- ;;^UTILITY(U,$J,358.3,22976,0)
- ;;=790.93^^152^1367^1
- ;;^UTILITY(U,$J,358.3,22976,1,0)
- ;;=^358.31IA^5^2
- ;;^UTILITY(U,$J,358.3,22976,1,4,0)
- ;;=4^790.93
- ;;^UTILITY(U,$J,358.3,22976,1,5,0)
- ;;=5^Abnormal PSA
- ;;^UTILITY(U,$J,358.3,22976,2)
- ;;=Abnormal PSA^295772
- ;;^UTILITY(U,$J,358.3,22977,0)
- ;;=627.3^^152^1367^3
- ;;^UTILITY(U,$J,358.3,22977,1,0)
- ;;=^358.31IA^5^2
- ;;^UTILITY(U,$J,358.3,22977,1,4,0)
- ;;=4^627.3
- ;;^UTILITY(U,$J,358.3,22977,1,5,0)
- ;;=5^Atrophic Vaginitis
- ;;^UTILITY(U,$J,358.3,22977,2)
- ;;=^270577
- ;;^UTILITY(U,$J,358.3,22978,0)
- ;;=607.1^^152^1367^6
- ;;^UTILITY(U,$J,358.3,22978,1,0)
- ;;=^358.31IA^5^2
- ;;^UTILITY(U,$J,358.3,22978,1,4,0)
- ;;=4^607.1
- ;;^UTILITY(U,$J,358.3,22978,1,5,0)
- ;;=5^Balanitis
- ;;^UTILITY(U,$J,358.3,22978,2)
- ;;=^12530
- ;;^UTILITY(U,$J,358.3,22979,0)
- ;;=596.0^^152^1367^7
- ;;^UTILITY(U,$J,358.3,22979,1,0)
- ;;=^358.31IA^5^2
- ;;^UTILITY(U,$J,358.3,22979,1,4,0)
- ;;=4^596.0
- ;;^UTILITY(U,$J,358.3,22979,1,5,0)
- ;;=5^Bladder Neck Obstruction
- ;;^UTILITY(U,$J,358.3,22979,2)
- ;;=^15144
- ;;^UTILITY(U,$J,358.3,22980,0)
- ;;=595.0^^152^1367^10
- ;;^UTILITY(U,$J,358.3,22980,1,0)
- ;;=^358.31IA^5^2
- ;;^UTILITY(U,$J,358.3,22980,1,4,0)
- ;;=4^595.0
- ;;^UTILITY(U,$J,358.3,22980,1,5,0)
- ;;=5^Cystitis, Acute
- ;;^UTILITY(U,$J,358.3,22980,2)
- ;;=^259104
- ;;^UTILITY(U,$J,358.3,22981,0)
- ;;=595.82^^152^1367^11
- ;;^UTILITY(U,$J,358.3,22981,1,0)
- ;;=^358.31IA^5^2
- ;;^UTILITY(U,$J,358.3,22981,1,4,0)
- ;;=4^595.82
- ;;^UTILITY(U,$J,358.3,22981,1,5,0)
- ;;=5^Cystitis, Radiation
- ;;^UTILITY(U,$J,358.3,22981,2)
- ;;=^270391
- ;;^UTILITY(U,$J,358.3,22982,0)
- ;;=596.59^^152^1367^14
- ;;^UTILITY(U,$J,358.3,22982,1,0)
- ;;=^358.31IA^5^2
- ;;^UTILITY(U,$J,358.3,22982,1,4,0)
- ;;=4^596.59
- ;;^UTILITY(U,$J,358.3,22982,1,5,0)
- ;;=5^Detrusor Muscle Insuff
- ;;^UTILITY(U,$J,358.3,22982,2)
- ;;=^270393
- ;;^UTILITY(U,$J,358.3,22983,0)
- ;;=788.1^^152^1367^15
- ;;^UTILITY(U,$J,358.3,22983,1,0)
- ;;=^358.31IA^5^2
- ;;^UTILITY(U,$J,358.3,22983,1,4,0)
- ;;=4^788.1
- ;;^UTILITY(U,$J,358.3,22983,1,5,0)
- ;;=5^Dysuria
- ;;^UTILITY(U,$J,358.3,22983,2)
- ;;=^37716
- ;;^UTILITY(U,$J,358.3,22984,0)
- ;;=604.90^^152^1367^38
- ;;^UTILITY(U,$J,358.3,22984,1,0)
- ;;=^358.31IA^5^2
- ;;^UTILITY(U,$J,358.3,22984,1,4,0)
- ;;=4^604.90
- ;;^UTILITY(U,$J,358.3,22984,1,5,0)
- ;;=5^Orchitis/Epididymit
- ;;^UTILITY(U,$J,358.3,22984,2)
- ;;=^86178
- ;;^UTILITY(U,$J,358.3,22985,0)
- ;;=607.84^^152^1367^31
- ;;^UTILITY(U,$J,358.3,22985,1,0)
- ;;=^358.31IA^5^2
- ;;^UTILITY(U,$J,358.3,22985,1,4,0)
- ;;=4^607.84
- ;;^UTILITY(U,$J,358.3,22985,1,5,0)
- ;;=5^Impotence, Organic Origin
- ;;^UTILITY(U,$J,358.3,22985,2)
- ;;=^270441
- ;;^UTILITY(U,$J,358.3,22986,0)
- ;;=098.0^^152^1367^52
- ;;^UTILITY(U,$J,358.3,22986,1,0)
- ;;=^358.31IA^5^2
- ;;^UTILITY(U,$J,358.3,22986,1,4,0)
- ;;=4^098.0
- ;;^UTILITY(U,$J,358.3,22986,1,5,0)
- ;;=5^Urethritis, Gonococcal
- ;;^UTILITY(U,$J,358.3,22986,2)
- ;;=^52567
- ;;^UTILITY(U,$J,358.3,22987,0)
- ;;=550.92^^152^1367^20
- ;;^UTILITY(U,$J,358.3,22987,1,0)
- ;;=^358.31IA^5^2
- ;;^UTILITY(U,$J,358.3,22987,1,4,0)
- ;;=4^550.92
- ;;^UTILITY(U,$J,358.3,22987,1,5,0)
- ;;=5^Hernia, Inguinal, Bilat
- ;;^UTILITY(U,$J,358.3,22987,2)
- ;;=^270212
- ;;^UTILITY(U,$J,358.3,22988,0)
- ;;=550.90^^152^1367^21
- ;;^UTILITY(U,$J,358.3,22988,1,0)
- ;;=^358.31IA^5^2
- ;;^UTILITY(U,$J,358.3,22988,1,4,0)
- ;;=4^550.90
- ;;^UTILITY(U,$J,358.3,22988,1,5,0)
- ;;=5^Hernia, Inguinal, Unilat
- ;;^UTILITY(U,$J,358.3,22988,2)
- ;;=^63302
- ;;^UTILITY(U,$J,358.3,22989,0)
- ;;=302.72^^152^1367^32
- ;;^UTILITY(U,$J,358.3,22989,1,0)
- ;;=^358.31IA^5^2
- ;;^UTILITY(U,$J,358.3,22989,1,4,0)
- ;;=4^302.72
- ;;^UTILITY(U,$J,358.3,22989,1,5,0)
- ;;=5^Impotence, Psychosocial
- ;;^UTILITY(U,$J,358.3,22989,2)
- ;;=^100632
- ;;^UTILITY(U,$J,358.3,22990,0)
- ;;=788.30^^152^1367^57
- ;;^UTILITY(U,$J,358.3,22990,1,0)
- ;;=^358.31IA^5^2
- ;;^UTILITY(U,$J,358.3,22990,1,4,0)
- ;;=4^788.30
- ;;^UTILITY(U,$J,358.3,22990,1,5,0)
- ;;=5^Urinary Incontinence, Unspec
- ;;^UTILITY(U,$J,358.3,22990,2)
- ;;=^124400
- ;;^UTILITY(U,$J,358.3,22991,0)
- ;;=V13.01^^152^1367^22
- ;;^UTILITY(U,$J,358.3,22991,1,0)
- ;;=^358.31IA^5^2
- ;;^UTILITY(U,$J,358.3,22991,1,4,0)
- ;;=4^V13.01
- ;;^UTILITY(U,$J,358.3,22991,1,5,0)
- ;;=5^Hx Of Kidney Stone
- ;;^UTILITY(U,$J,358.3,22991,2)
- ;;=^303403
- ;;^UTILITY(U,$J,358.3,22992,0)
- ;;=302.71^^152^1367^33
- ;;^UTILITY(U,$J,358.3,22992,1,0)
- ;;=^358.31IA^5^2
+ ;;^DIC(358.6,0,"GL")
+ ;;=^IBE(358.6,
+ ;;^DIC("B","IMP/EXP PACKAGE INTERFACE",358.6)
+ ;;=
+ ;;^DIC(358.6,"%D",0)
+ ;;=^^1^1^2950927^^^^
+ ;;^DIC(358.6,"%D",1,0)
+ ;;=This file is used as a workspace by the import/export utility.
+ ;;^DIC(358.6,"%D",2,0)
+ ;;=Import/Export Utility as a temporary staging area for data from that file
+ ;;^DIC(358.6,"%D",3,0)
+ ;;=that is being imported or exported.
+ ;;^DIC(358.6,"%D",4,0)
+ ;;= 
+ ;;^DIC(358.6,"%D",5,0)
+ ;;=This file contains a description of all of the interfaces with other packages.
+ ;;^DIC(358.6,"%D",6,0)
+ ;;=The form will invoke the proper interface routines by doing a lookup on
+ ;;^DIC(358.6,"%D",7,0)
+ ;;=this file and then invoking the routine by indirection. The INPUT VARIABLE
+ ;;^DIC(358.6,"%D",8,0)
+ ;;=fields are for documentation purposes and to verify that the proper
+ ;;^DIC(358.6,"%D",9,0)
+ ;;=variables are defined. Data will be exchanged between the encounter form
+ ;;^DIC(358.6,"%D",10,0)
+ ;;=utilities and other packages by putting the data in a predefined location.
+ ;;^DIC(358.6,"%D",11,0)
+ ;;=The first part of the subscript is always be ^TMP("IB",$J,"INTERFACES".
+ ;;^DIC(358.6,"%D",12,0)
+ ;;=For output routines, but not selection routines, the fourth subscript is
+ ;;^DIC(358.6,"%D",13,0)
+ ;;=be the patient DFN. The next subscript is the name of the Package
+ ;;^DIC(358.6,"%D",14,0)
+ ;;=Interface. For single valued data and record valued data there is no
+ ;;^DIC(358.6,"%D",15,0)
+ ;;=additional subscript. For interfaces returning a list there is one
+ ;;^DIC(358.6,"%D",16,0)
+ ;;=additional subscript level, the number of the item on the list. For
+ ;;^DIC(358.6,"%D",17,0)
+ ;;=word processing type data the data will be in FM word-processing format,
+ ;;^DIC(358.6,"%D",18,0)
+ ;;=i.e., the final subscripts will be ...1,0),...2,0),...3,0), etc.
+ ;;^DIC(358.6,"%D",19,0)
+ ;;=these items of data can have its own entry in the Package Interface file,
+ ;;^DIC(358.6,"%D",20,0)
+ ;;=but by using the same entry point there is a savings because all of the
+ ;;^DIC(358.6,"%D",21,0)
+ ;;=data on that node can be obtained at once. The routines that invoke the
+ ;;^DIC(358.6,"%D",22,0)
+ ;;=entry point keep track of the entry points already invoked so they are
+ ;;^DIC(358.6,"%D",23,0)
+ ;;=not repeated.
+ ;;^DD(358.6,0)
+ ;;=FIELD^^21^76
+ ;;^DD(358.6,0,"DDA")
+ ;;=N
+ ;;^DD(358.6,0,"DT")
+ ;;=3000124
+ ;;^DD(358.6,0,"ID",.06)
+ ;;=W ""
+ ;;^DD(358.6,0,"ID","WRITE")
+ ;;=N IBDWNAM S IBDWNAM=$E($P(^(0),U),1,40) D EN^DDIOL(IBDWNAM,"","!?0")
+ ;;^DD(358.6,0,"ID","WRITE1")
+ ;;=N IBDWTYPE S IBDWTYPE=$S($P(^(0),"^",6)=1:"INPUT",$P(^(0),"^",6)=2:"OUTPUT",$P(^(0),"^",6)=3:"SELECTION",1:"REPORT")_$S($P(^(0),U,6)=3&'$P(^(0),"^",13):"  ** NOT SCANNABLE **",1:"") D EN^DDIOL("TYPE="_IBDWTYPE,"","?45")
+ ;;^DD(358.6,0,"IX","B",358.6,.01)
+ ;;=
+ ;;^DD(358.6,0,"IX","C",358.6,.04)
+ ;;=
+ ;;^DD(358.6,0,"IX","D",358.6,3)
+ ;;=
+ ;;^DD(358.6,0,"IX","E",358.6,.01)
+ ;;=
+ ;;^DD(358.6,0,"NM","IMP/EXP PACKAGE INTERFACE")
+ ;;=
+ ;;^DD(358.6,0,"PT",358.2,.11)
+ ;;=
+ ;;^DD(358.6,0,"PT",358.5,.03)
+ ;;=
+ ;;^DD(358.6,0,"PT",358.6,.13)
+ ;;=
+ ;;^DD(358.6,0,"PT",358.93,.06)
+ ;;=
+ ;;^DD(358.6,0,"VRPK")
+ ;;=IBD
+ ;;^DD(358.6,.01,0)
+ ;;=NAME^RF^^0;1^K:X[""""!($A(X)=45) X I $D(X) K:$L(X)>40!($L(X)<3)!'(X'?1P.E) X
+ ;;^DD(358.6,.01,1,0)
+ ;;=^.1
+ ;;^DD(358.6,.01,1,1,0)
+ ;;=358.6^B
+ ;;^DD(358.6,.01,1,1,1)
+ ;;=S ^IBE(358.6,"B",$E(X,1,30),DA)=""
+ ;;^DD(358.6,.01,1,1,2)
+ ;;=K ^IBE(358.6,"B",$E(X,1,30),DA)
+ ;;^DD(358.6,.01,1,2,0)
+ ;;=358.6^E^MUMPS
+ ;;^DD(358.6,.01,1,2,1)
+ ;;=S ^IBE(358.6,"E",$E(X,$F(X," "),40),DA)=""
+ ;;^DD(358.6,.01,1,2,2)
+ ;;=K ^IBE(358.6,"E",$E(X,$F(X," "),40),DA)
+ ;;^DD(358.6,.01,1,2,"%D",0)
+ ;;=^^4^4^2940224^
+ ;;^DD(358.6,.01,1,2,"%D",1,0)
+ ;;= 
+ ;;^DD(358.6,.01,1,2,"%D",2,0)
+ ;;=For package interfaces that are output routines the name has the custodial
+ ;;^DD(358.6,.01,1,2,"%D",3,0)
+ ;;=package's name space as a prefix. This cross-reference removes that
+ ;;^DD(358.6,.01,1,2,"%D",4,0)
+ ;;=prefix. It is used to improve the display of output routines for the user.
+ ;;^DD(358.6,.01,1,2,"DT")
+ ;;=2930409
+ ;;^DD(358.6,.01,3)
+ ;;=Answer must be 3-40 characters in length. All entries with Action Type other than PRINT REPORT must be be prefixed with the namespace of the package that is responsible for the data.
+ ;;^DD(358.6,.01,21,0)
+ ;;=^^3^3^2950412^^^^
+ ;;^DD(358.6,.01,21,1,0)
+ ;;= 
+ ;;^DD(358.6,.01,21,2,0)
+ ;;=The name of the Package Interface. For interfaces returning data the name
+ ;;^DD(358.6,.01,21,3,0)
+ ;;=should be preceded with the namespace of the package.
+ ;;^DD(358.6,.01,23,0)
+ ;;=^^1^1^2950412^
+ ;;^DD(358.6,.01,23,1,0)
+ ;;= 
+ ;;^DD(358.6,.01,"DT")
+ ;;=2930409

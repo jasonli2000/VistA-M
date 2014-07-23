@@ -1,5 +1,5 @@
 FBAAV4 ;AISC/GRR-ELECTRONICALLY TRANSMIT PATIENT MRA'S ;12/16/2003
- ;;3.5;FEE BASIS;**13,34,37,70,146**;JAN 30, 1995;Build 57
+ ;;3.5;FEE BASIS;**13,34,37,70,146,127**;JAN 30, 1995;Build 9
  ;;Per VHA Directive 10-93-142, this routine should not be modified.
  ;D STATION^FBAAUTL,HD^FBAAUTL Q:$D(FB("ERROR"))
  S FBTXT=0,ZMCNT=1 ;FBTXT , ZMCNT 
@@ -64,7 +64,10 @@ GOT ;patient MRA portion of the message
  ;
  ;using pointer FEE BASIS PATIENT MRA file retrieve info from 
  ;FEE BASIS PATIENT file#161, from its authorization multiple ^FBAAA(DA(1),1,DA
- S FBAUTH=$P(^FBAA(161.26,J,0),"^",3) Q:FBAUTH']""  Q:'$D(^FBAAA(DFN,1,FBAUTH,0))  S Y(0)=^(0)
+ ;S FBAUTH=$P(^FBAA(161.26,J,0),"^",3) Q:FBAUTH']""  Q:'$D(^FBAAA(DFN,1,FBAUTH,0))  S Y(0)=^(0) ;Removed line to modify code - FB*3.5*127
+ S FBAUTH=$P(^FBAA(161.26,J,0),"^",3) I FBAUTH']"" S FBOKTX=0 Q  ;FB*3.5*127
+ I '$D(^FBAAA(DFN,1,FBAUTH,0)) S FBOKTX=0 Q  ;FB*3.5*127
+ S Y(0)=^(0) ;FB*3.5*127
  ;authorisation FROM
  S FBFR=$P(Y(0),"^")
  ;authorisation TO

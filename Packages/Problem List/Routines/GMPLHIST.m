@@ -1,12 +1,12 @@
-GMPLHIST ; SLC/MKB/KER -- Problem List Historical data ;06/08/12  13:37
- ;;2.0;Problem List;**7,26,31,35,36**;Aug 25, 1994;Build 65
+GMPLHIST ; SLC/MKB/KER/TC -- Problem List Historical data ;08/21/12  14:16
+ ;;2.0;Problem List;**7,26,31,35,36,42**;Aug 25, 1994;Build 46
  ;
  ; External References
  ;   DBIA 10060  ^VA(200
  ;
 DT ; Add historical data (audit trail) to DT list
  ;   Called from ^GMPLDISP, requires AIFN and adds to GMPDT()
- N NODE,DATE,FLD,PROV,OLD,NEW,ROOT,CHNGE
+ N NODE,DATE,FLD,PROV,OLD,NEW,ROOT,CHNGE,GMPLCSYS
  S NODE=$G(^GMPL(125.8,AIFN,0)) Q:NODE=""
  S DATE=$$EXTDT^GMPLX($P(NODE,U,3)),FLD=+$P(NODE,U,2),PROV=+$P(NODE,U,8)
  S:'PROV PROV=$P(NODE,U,4)
@@ -24,6 +24,10 @@ DT ; Add historical data (audit trail) to DT list
  . S CHNGE=$S(NEW="H":"removed",OLD="T":"verified",1:"placed back on list")
  . S GMPDT(LCNT,0)=$J(DATE,10)_": PROBLEM "_CHNGE_" by "_PROV
  S GMPDT(LCNT,0)=$J(DATE,10)_": "_$P(FLD,U,2)_$S(OLD]"":" changed",1:" added")_" by "_PROV,LCNT=LCNT+1
+ I +FLD=.01 D  Q
+ . N CSYSOLD,CSYSNEW
+ . S CSYSOLD=$$CSI^ICDEX(80,OLD),CSYSNEW=$$CSI^ICDEX(80,NEW)
+ . S GMPDT(LCNT,0)=$J("from ",17)_$S(CSYSOLD=30:"(ICD-10-CM ",1:"(ICD-9-CM ")_$P($$ICDDATA^ICDXCODE(CSYSOLD,OLD,DT,"I"),U,2)_")"_" to "_$S(CSYSNEW=30:"(ICD-10-CM ",1:"(ICD-9-CM ")_$P($$ICDDATA^ICDXCODE(CSYSNEW,NEW,DT,"I"),U,2)_")"
  I +FLD=.12 S GMPDT(LCNT,0)=$J("from ",17)_$S(OLD="A":"ACTIVE",OLD="I":"INACTIVE",1:"UNKNOWN")_" to "_$S(NEW="A":"ACTIVE",NEW="I":"INACTIVE",1:"UNKNOWN") Q
  I (+FLD=.13)!(+FLD=1.07) S GMPDT(LCNT,0)=$J("from ",17)_$$EXTDT^GMPLX(OLD)_" to "_$$EXTDT^GMPLX(NEW) Q
  I +FLD=1.14 S GMPDT(LCNT,0)=$J("from ",17)_$S(OLD="A":"ACUTE",OLD="C":"CHRONIC",1:"UNSPECIFIED")_" to "_$S(NEW="A":"ACUTE",NEW="C":"CHRONIC",1:"UNSPECIFIED") Q
@@ -33,9 +37,10 @@ DT ; Add historical data (audit trail) to DT list
  . . I OLD="" S GMPDT(LCNT,0)=$J(" as ",17)_NEW
  . . E  S GMPDT(LCNT,0)=$J("from ",17)_OLD_$$PAD^GMPLX(OLD,6)_" to "_NEW
  . E  S GMPDT(LCNT,0)=$J(OLD_$$PAD^GMPLX(OLD,6),23)_" removed."
- I +FLD>1.09 S GMPDT(LCNT,0)=$J("from ",17)_$S(+OLD:"YES",OLD=0:"NO",1:"UNKNOWN")_" to "_$S(+NEW:"YES",NEW=0:"NO",1:"UNKNOWN") Q
- I "^.01^.05^1.01^1.04^1.05^1.06^1.08^"[(U_+FLD_U) D
- . S ROOT=$S(+FLD=.01:"ICD9(",+FLD=.05:"AUTNPOV(",+FLD=1.01:"LEX(757.01,",(+FLD=1.04)!(+FLD=1.05):"VA(200,",+FLD=1.06:"DIC(49,",+FLD=1.08:"SC(",1:"") Q:ROOT=""
+ I (+FLD>1.09)&(+FLD<=1.18) S GMPDT(LCNT,0)=$J("from ",17)_$S(+OLD:"YES",OLD=0:"NO",1:"UNKNOWN")_" to "_$S(+NEW:"YES",NEW=0:"NO",1:"UNKNOWN") Q
+ I (+FLD=80001)!(+FLD=80002) S GMPDT(LCNT,0)=$J("from ",17)_OLD_" to "_NEW
+ I "^.05^1.01^1.04^1.05^1.06^1.08^"[(U_+FLD_U) D
+ . S ROOT=$S(+FLD=.05:"AUTNPOV(",+FLD=1.01:"LEX(757.01,",(+FLD=1.04)!(+FLD=1.05):"VA(200,",+FLD=1.06:"DIC(49,",+FLD=1.08:"SC(",1:"") Q:ROOT=""
  . S GMPDT(LCNT,0)=$J("from ",17)_$S(OLD:$P(@(U_ROOT_OLD_",0)"),U)_$$PAD^GMPLX($P(@(U_ROOT_OLD_",0)"),U),6),1:"UNSPECIFIED")
  . S LCNT=LCNT+1,GMPDT(LCNT,0)=$J("to ",17)_$S(NEW:$P(@(U_ROOT_NEW_",0)"),U),1:"UNSPECIFIED")
  Q

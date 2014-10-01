@@ -1,5 +1,5 @@
-PXRMUTIL ;SLC/PKR/PJH - Utility routines for use by PXRM. ;11/29/2012
- ;;2.0;CLINICAL REMINDERS;**4,6,11,12,17,18,24**;Feb 04, 2005;Build 193
+PXRMUTIL ;SLC/PKR/PJH - Utility routines for use by PXRM. ;02/05/2013
+ ;;2.0;CLINICAL REMINDERS;**4,6,11,12,17,18,24,26**;Feb 04, 2005;Build 404
  ;
  ;=================================
 ATTVALUE(STRING,ATTR,SEP,AVSEP) ;STRING contains a list of attribute value
@@ -167,13 +167,39 @@ FNFR(ROOT) ;Given the root of a file return the file number.
  ;=================================
 GPRINT(REF) ;General printing.
  N DIR,IOTP,POP
+ S %ZIS="Q"
  D ^%ZIS
  I POP Q
+ I $D(IO("Q")) D  Q
+ . N ZTDESC,ZTRTN,ZTSAVE
+ . S ZTSAVE("IO")=""
+ .;Save the evaluated name of REF.
+ . S ZTSAVE("REF")=$NA(@$$CREF^DILF(REF))
+ .;Save the open root form for TaskMan.
+ . S ZTSAVE($$OREF^DILF(ZTSAVE("REF")))=""
+ . S ZTRTN="GPRINTQ^PXRMUTIL"
+ . S ZTDESC="Queued print job"
+ . D ^%ZTLOAD
+ . W !,"Task number ",ZTSK
+ . D HOME^%ZIS
+ . K IO("Q")
+ . H 2
+ ;If this is being called from List Manager go to full screen.
+ I $D(VALMDDF) D FULL^VALM1
  U IO
  S IOTP=IOT
  D APRINT^PXRMUTIL(REF)
  D ^%ZISC
  I IOTP["TRM" S DIR(0)="E",DIR("A")="Press ENTER to continue" D ^DIR
+ I $D(VALMDDF) S VALMBCK="R"
+ Q
+ ;
+ ;=================================
+GPRINTQ ;Queued general printing.
+ U IO
+ D APRINT^PXRMUTIL(REF)
+ D ^%ZISC
+ S ZTREQ="@"
  Q
  ;
  ;=================================
@@ -292,7 +318,7 @@ SEHIST(FILENUM,ROOT,IEN) ;Set the edit date and edit by and prompt the
  S IENS="+"_IND_","_IEN_","
  S FDAIEN(IEN)=IEN
  S FDA(SFN,IENS,.01)=$$FMTE^XLFDT($$NOW^XLFDT,"5Z")
- S FDA(SFN,IENS,1)="`"_DUZ
+ S FDA(SFN,IENS,1)=$$GET1^DIQ(200,DUZ,.01)
  ;Prompt the user for edit comments.
  S DIC="^TMP(""PXRMWP"",$J,"
  S DWLW=72

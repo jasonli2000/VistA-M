@@ -1,5 +1,5 @@
 IBCNEHL4 ;DAOU/ALA - HL7 Process Incoming RPI Msgs (cont.) ;26-JUN-2002  ; Compiled December 16, 2004 15:35:46
- ;;2.0;INTEGRATED BILLING;**300,416,438,497**;21-MAR-94;Build 120
+ ;;2.0;INTEGRATED BILLING;**300,416,438,497*506**;21-MAR-94;Build 74
  ;;Per VHA Directive 2004-038, this routine should not be modified.
  ;
  ;**Program Description**
@@ -328,7 +328,7 @@ NTE(ERDA,ERROR,IBSEG,RIEN) ; Process NTE segment
  S DA(1)=RIEN,DA=ERDA
  S IENS=$$IENS^DILF(.DA)
  S MSGSTR=$G(IBSEG(4))
- F Z=1:1 S MSG=$P(MSGSTR,HLREP,Z) Q:'MSG  S RSUPDT(365.061,"+"_Z_","_IENS,".01")=MSG
+ F Z=1:1 S MSG=$P(MSGSTR,HLREP,Z) Q:MSG=""  S RSUPDT(365.061,"+"_Z_","_IENS,".01")=MSG  ;IB*506  Q:'MSG
  I $D(RSUPDT) D UPDATE^DIE("E","RSUPDT",,"ERROR")
  Q
  ;

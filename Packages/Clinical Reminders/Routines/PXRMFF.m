@@ -1,9 +1,9 @@
-PXRMFF ;SLC/PKR - Clinical Reminders function finding evaluation. ;09/18/2012
- ;;2.0;CLINICAL REMINDERS;**4,6,11,18,22,24**;Feb 04, 2005;Build 193
+PXRMFF ;SLC/PKR - Clinical Reminders function finding evaluation. ;03/12/2013
+ ;;2.0;CLINICAL REMINDERS;**4,6,11,18,22,24,26**;Feb 04, 2005;Build 404
  ;===========================================
 EVAL(DFN,DEFARR,FIEVAL) ;Evaluate function findings.
- N FFIND,FFN,ARGLIST,FN,FUN,FUNIND,FUNN,FVALUE,JND
- N LOGIC,LOGVAL,NL,NLOGIC,ROUTINE,TEMP
+ N ARGLIST,FFIND,FFN,FN,FUN,FUNIND,FUNN,FVALUE,JND
+ N LOGIC,LOGVAL,NL,ROUTINE,TEMP
  I '$D(DEFARR(25)) Q
  S FFN="FF"
  F  S FFN=$O(DEFARR(25,FFN)) Q:FFN'["FF"  D
@@ -24,36 +24,41 @@ EVAL(DFN,DEFARR,FIEVAL) ;Evaluate function findings.
  .. S FN(FUNIND)=FVALUE
  . S LOGIC=$G(DEFARR(25,FFN,10))
  . S LOGIC=$S(LOGIC'="":LOGIC,1:0)
- . S NLOGIC=$$NLOGIC(LOGIC,.FN)
- . S LOGVAL=$$EVALLOG(NLOGIC)
+ . S LOGVAL=$$EVALLOG(LOGIC,.FN)
  . S FIEVAL(FFN)=LOGVAL
  . S FIEVAL(FFN,"NUMBER")=$P(FFN,"FF",2)
  . S FIEVAL(FFN,"FINDING")=$G(FUN)_";PXRMD(802.4,"
  . I $G(PXRMDEBG) D
- .. S ^TMP(PXRMPID,$J,"FFDEB",FFN,"DETAIL")=FIEVAL(FFN)_U_DEFARR(25,FFN,3)_U_NLOGIC
- .. I $G(PXRMFFSS) D SBSDISP(NLOGIC,FFN)
+ .. S ^TMP(PXRMPID,$J,"FFDEB",FFN,"DETAIL")=FIEVAL(FFN)_U_DEFARR(25,FFN,3)_U_$$NLOGIC(LOGIC,.FN)
+ .. I $G(PXRMFFSS) D SBSDISP(LOGIC,FFN,.FN)
  Q
  ;
  ;===========================================
-EVALLOG(NLOGIC) ;Evaluate the logic string.
- N DIVBY0,DIVOP,IND,NULL,NUMSTACK,OP1,OP2,OPER,OPERS,PFSTACK
- N RES,TEMP,UNARY
- I NLOGIC="" Q 0
+EVALLOG(LOGIC,FN) ;Evaluate the logic string.
+ N DIVBY0,DIVOP,IND,NLOGIC,NODIV,NULL,NUMSTACK,OP1,OP2,OPER,OPERS
+ N PFSTACK,RES,TEMP,UNARY
+ I LOGIC="" Q 0
+ S NULL="" ;REMOVE THIS WHEN DONE FIXING.
+ S NODIV=$S(LOGIC["/":0,LOGIC["\":0,LOGIC["#":0,1:1)
+ I NODIV Q @LOGIC
  S NULL=""
  S DIVBY0=0,DIVOP="/\#"
  S OPERS=$$GETOPERS^PXRMFFDB
+ S NLOGIC=$$NLOGIC(LOGIC,.FN)
  D POSTFIX^PXRMSTAC(NLOGIC,OPERS,.PFSTACK)
  F IND=1:1:PFSTACK(0) D
  . S TEMP=PFSTACK(IND)
- . S OPER=$P(TEMP,"U",1)
+ .;Check for a unary operator.
+ . S UNARY=$S(TEMP="+U":1,TEMP="-U":1,TEMP="'U":1,1:0)
+ . S OPER=$S(UNARY:$E(TEMP,1),1:TEMP)
  . I OPERS'[OPER D PUSH^PXRMSTAC(.NUMSTACK,TEMP) Q
  .;If control gets to here we have an operator.
- .;Check for a unary operator
- . S UNARY=$S($E(TEMP,2)="U":1,1:0)
  . S OP2=$$POP^PXRMSTAC(.NUMSTACK)
+ . S OP2=$$STRCLEAN(OP2)
  . I UNARY S TEMP="S RES="_OPER_"OP2"
  . I 'UNARY D
  .. S OP1=$$POP^PXRMSTAC(.NUMSTACK)
+ .. S OP1=$$STRCLEAN(OP1)
  ..;Flag division by 0 with ~
  .. I DIVOP[OPER,+OP2=0 S DIVBY0=1,TEMP="S RES=""~"""
  .. E  S TEMP="S RES=OP1"_OPER_"OP2"
@@ -177,7 +182,7 @@ NLOGIC(LOGIC,FN) ;Replace the symbols in the logic string with their values.
  I $D(PXRMSEX) S NLOGIC=$$STRREP^PXRMUTIL(NLOGIC,"PXRMSEX",""""_PXRMSEX_"""")
  S IND=""
  F  S IND=$O(FN(IND)) Q:IND=""  D
- . S TEMP=$S(FN(IND)="":"NULL",+FN(IND)'=FN(IND):""""_FN(IND)_"""",1:FN(IND))
+ . S TEMP=$S(FN(IND)="":"NULL",1:FN(IND))
  . S NLOGIC=$$STRREP^PXRMUTIL(NLOGIC,"FN("_IND_")",TEMP)
  Q NLOGIC
  ;
@@ -202,29 +207,32 @@ PRP(LOGIC) ;Process $P in logic.
  Q LOGIC
  ;
  ;===========================================
-SBSDISP(NLOGIC,FFN) ;Create a step-by-step display of the function finding
+SBSDISP(LOGIC,FFN,FN) ;Create a step-by-step display of the function finding
  ;evaluation for reminder test.
- N DIVOP,IND,NUMSTACK,OP1,OP2,OPER,OPERS,PFSTACK
+ N DIVOP,IND,NLOGIC,NUMSTACK,OP1,OP2,OPER,OPERS,PFSTACK
  N RES,TEMP,TEXT,UNARY
  N NSTEPS,REPL
- I NLOGIC="" Q 0
- K ^TMP("PXRMFFSS",$J,FFN)
- S ^TMP("PXRMFFSS",$J,FFN,0)=NLOGIC
+ I LOGIC="" Q 0
  S NSTEPS=0
  S DIVOP="/\#"
  S OPERS=$$GETOPERS^PXRMFFDB
+ S NLOGIC=$$NLOGIC(LOGIC,.FN)
+ K ^TMP("PXRMFFSS",$J,FFN)
+ S ^TMP("PXRMFFSS",$J,FFN,0)=NLOGIC
  D POSTFIX^PXRMSTAC(NLOGIC,OPERS,.PFSTACK)
  F IND=1:1:PFSTACK(0) D
  . S TEMP=PFSTACK(IND)
- . S OPER=$P(TEMP,"U",1)
+ .;Check for a unary operator.
+ . S UNARY=$S(TEMP="+U":1,TEMP="-U":1,TEMP="'U":1,1:0)
+ . S OPER=$S(UNARY:$E(TEMP,1),1:TEMP)
  . I OPERS'[OPER D PUSH^PXRMSTAC(.NUMSTACK,TEMP) Q
  .;If control gets to here we have an operator.
- .;Check for a unary operator
- . S UNARY=$S($E(TEMP,2)="U":1,1:0)
  . S OP2=$$POP^PXRMSTAC(.NUMSTACK)
+ . S OP2=$$STRCLEAN(OP2)
  . I UNARY S TEMP="S RES="_OPER_"OP2",TEXT=OPER_OP2
  . I 'UNARY D
  .. S OP1=$$POP^PXRMSTAC(.NUMSTACK)
+ .. S OP1=$$STRCLEAN(OP1)
  ..;Flag division by 0 with ~
  .. I DIVOP[OPER,+OP2=0 S TEMP="S RES=""~""",TEXT="0/0"
  .. E  S TEMP="S RES=OP1"_OPER_"OP2",TEXT=OP1_OPER_OP2
@@ -240,4 +248,13 @@ SBSDISP(NLOGIC,FFN) ;Create a step-by-step display of the function finding
  . S RES=$S(NLOGIC:1,1:0)
  . S ^TMP("PXRMFFSS",$J,FFN,1)=PFSTACK(1)_"="_RES
  Q
+ ;
+ ;===========================================
+STRCLEAN(STRING) ;Remove extra quotes from strings.
+ I +STRING=STRING Q STRING
+ N LEN,QUOTE
+ S QUOTE=$C(34)
+ S LEN=$L(STRING)
+ I ($E(STRING,1)=QUOTE),($E(STRING,LEN)=QUOTE) Q $E(STRING,2,LEN-1)
+ Q STRING
  ;

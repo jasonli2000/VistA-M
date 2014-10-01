@@ -1,5 +1,5 @@
 IBCNEHL3 ;DAOU/ALA - HL7 Process Incoming RPI Continued ;03-JUL-2002  ; Compiled June 2, 2005 14:20:19
- ;;2.0;INTEGRATED BILLING;**300,416,497**;21-MAR-94;Build 120
+ ;;2.0;INTEGRATED BILLING;**300,416,497,506**;21-MAR-94;Build 74
  ;;Per VHA Directive 2004-038, this routine should not be modified.
  ;
  ;**Program Description**
@@ -23,44 +23,55 @@ ERROR(TQN,ERACT,ERCON,TRCN) ; Entry point
  ;
  I $G(TQN)="" G ERRORX
  ;
+ ;/Removed the following lines of code as part of IB*2.0*506 but wanted to
+ ;/leave this code available if it should be needed in the future.
  ; Scenarios:
  ; #1 - If error message = "Resubmission Allowed" OR "Please Resubmit
- ;  Original Transaction" - set TQ
- ;  Fut Trans Dt to T + Comm Failure Days and Status to "Hold"
- I ERACT="R"!(ERACT="P") D  G ERRORX
- . I $P($G(^IBCN(365.1,TQN,0)),U,9)="" D  Q    ; first time payer asked us to resubmit
- . . ; Update IIV TQ fields: "Hold" (4), IIV Site Param Comm Failure Days
- . . D UPDATE(TQN,4,+$P($G(^IBE(350.9,1,51)),U,5),ERACT)
- . . ;
- . ; payer asked us to resubmit for the 2nd time for this inquiry
- . ; Update IIV TQ fields: "Response Received" (3), n/a ("")
- . D UPDATE(TQN,3,"",ERACT,ERCON)
- . ; clear future transmission date so it won't display in the buffer
- . S DA=TQN,DIE="^IBCN(365.1,",DR=".09///@" D ^DIE
+ ; Original Transaction" - set TQ
+ ; Fut Trans Dt to T + Comm Failure Days and Status to "Hold"
+ ;I ERACT="R"!(ERACT="P") D G ERRORX
+ ;. I $P($G(^IBCN(365.1,TQN,0)),U,9)="" D Q ; first time payer asked us to resubmit
+ ;. . ; Update IIV TQ fields: "Hold" (4), IIV Site Param Comm Failure Days
+ ;. . D UPDATE(TQN,4,+$P($G(^IBE(350.9,1,51)),U,5),ERACT)
+ ;. . ;
+ ;. ; payer asked us to resubmit for the 2nd time for this inquiry
+ ;. ; Update IIV TQ fields: "Response Received" (3), n/a ("")
+ ;. D UPDATE(TQN,3,"",ERACT,ERCON)
+ ;. ; clear future transmission date so it won't display in the buffer
+ ;. S DA=TQN,DIE="^IBCN(365.1,",DR=".09///@" D ^DIE
  ;
  ; #2 - If error message = "Please Wait 30 Days and Resubmit" - set TQ
- ;  Fut Trans Dt to T + 30 and Status to "Hold"
- I ERACT="W" D  G ERRORX
- . ; Update IIV TQ fields: "Hold" (4), 30
- . D UPDATE(TQN,4,30,ERACT)
+ ; Fut Trans Dt to T + 30 and Status to "Hold"
+ ;I ERACT="W" D G ERRORX
+ ;. ; Update IIV TQ fields: "Hold" (4), 30
+ ;. D UPDATE(TQN,4,30,ERACT)
  ;
  ; #3 - If error message = "Please Wait 10 Days and Resubmit" - set TQ
- ;  Fut Trans Dt to T + 10 and Status to "Hold"
- I ERACT="X" D  G ERRORX
- . ; Update IIV TQ fields: "Hold" (4), 10
- . D UPDATE(TQN,4,10,ERACT)
+ ; Fut Trans Dt to T + 10 and Status to "Hold"
+ ;I ERACT="X" D G ERRORX
+ ;. ; Update IIV TQ fields: "Hold" (4), 10
+ ;. D UPDATE(TQN,4,10,ERACT)
  ;
  ; #4 - If error message = "Resubmission Not Allowed" or
- ;  "Do not resubmit ...." OR "Please correct and resubmit"
- ;  - set TQ Status to "Response Received"
+ ; "Do not resubmit ...." OR "Please correct and resubmit"
+ ; - set TQ Status to "Response Received"
  ; If we receive error txt, treat as an "N"
- I ERACT="" S ERACT="N"
- I ERACT="N"!(ERACT="Y")!(ERACT="S")!(ERACT="C") D  G ERRORX
- . ; Update IIV TQ fields: "Response Received" (3), n/a ("")
- . D UPDATE(TQN,3,"",ERACT,ERCON)
+ ;I ERACT="" S ERACT="N"
+ ;I ERACT="N"!(ERACT="Y")!(ERACT="S")!(ERACT="C") D G ERRORX
+ ;. ; Update IIV TQ fields: "Response Received" (3), n/a ("")
+ ;. D UPDATE(TQN,3,"",ERACT,ERCON)
  ;
  ; #5 - Error message is unfamiliar - new Error Action Code
  ; *** Currently processed in IBCNEHL1 ***
+ ;/End of removed code for IB*2.0*506
+ ;
+ ; /IB*2.0*506 Beginning
+ ; For all Scenarios 1 thru 5, set TQ Status to "Response Received"
+ I ERACT="" S ERACT="N"
+ I ",R,P,W,X,N,Y,S,C,"[(","_ERACT_",") D  G ERRORX
+ . ; Update IIV TQ fields: "Response Received" (3), n/a ("")
+ . D UPDATE(TQN,3,"",ERACT,ERCON)
+ ; /IB*2.0*506 End
  ;
 ERRORX ; ERROR exit pt
  Q

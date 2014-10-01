@@ -1,5 +1,5 @@
 IBCNUPD ;ALB/TAZ - UPDATE SUBCRIBER INFO FOR SELECTED PATIENTS ; 07 Mar 2013  14:44 PM
- ;;2.0;INTEGRATED BILLING;**497**;21-MAR-94;Build 120
+ ;;2.0;INTEGRATED BILLING;**497,506**;21-MAR-94;Build 74
  ;;Per VHA Directive 10-93-142, this routine should not be modified.
  ;
  ; Call at tags only
@@ -9,12 +9,14 @@ IBCNUPD ;ALB/TAZ - UPDATE SUBCRIBER INFO FOR SELECTED PATIENTS ; 07 Mar 2013  14
 EN ; Entry Point for TaskMan.  The routine should be called at label TASK since it will take awhile to complete.
  ;
  N DFN,FILE,INS,IBREL,IBVAL,IENS,FIELD,DATA,DA,DR,DIE,EXPDT,X,Y
+ K ^TMP($J,"IBCNUPD")
  S DFN=0
  S FILE=2.312
  F  S DFN=$O(^DPT(DFN)) Q:'DFN  D
  . K ^UTILITY("VAPA",$J),^UTILITY("VADM",$J)
  . S INS=0
  . F  S INS=$O(^DPT(DFN,.312,INS)) Q:'INS  D
+ .. I '$D(^DPT(DFN,.312,INS,0)) Q  ;Don't process bad nodes.
  .. S IENS=INS_","_DFN_","
  .. S EXPDT=+$$GET1^DIQ(FILE,IENS,3,"I")
  .. I EXPDT,EXPDT<DT Q  ;insurance expiration date exists and it's a past date which means inactive policy
@@ -27,7 +29,10 @@ EN ; Entry Point for TaskMan.  The routine should be called at label TASK since 
  ... S DA(1)=DFN,DA=INS
  ... S DR=FIELD_"///^S X=IBVAL"
  ... D ^DIE
- Q
+ ;Send completion message
+ D MAIL
+ ;
+ENQ Q
  ;
 OPT ; Enter from the option
  W !,$$TASK()
@@ -114,3 +119,19 @@ SCHED(ZTDTH) ;
  D ^%ZTLOAD
  Q ZTSK
  ;
+MAIL ;Send completion message
+ NEW XMDUZ,XMSUBJ,XMBODY,MSG,XMTO,DA,DIE,DR
+ S XMDUZ=DUZ,XMSUBJ="Subscriber Update Has Completed",XMBODY="MSG"
+ S MSG(1)="The Subscriber Update Option has completed at "
+ S MSG(2)=" "
+ S MSG(3)="     "_$$SITE^VASITE
+ ;
+ ; recipients of message
+ S XMTO(DUZ)=""
+ S XMTO("G.PATCHES")=""
+ S XMTO("G.IB EDI")=""
+ S XMTO("G.IB EDI SUPERVISOR")=""
+ ;
+ D SENDMSG^XMXAPI(XMDUZ,XMSUBJ,XMBODY,.XMTO)
+ ;
+ Q

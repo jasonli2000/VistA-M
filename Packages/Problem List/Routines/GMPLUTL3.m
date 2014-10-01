@@ -1,8 +1,8 @@
-GMPLUTL3 ; SLC/JST/JVS/TC -- PL Utilities (CIRN)           ;06/08/12  16:54
- ;;2.0;Problem List;**14,15,19,25,26,36**;Aug 25, 1994;Build 65
+GMPLUTL3 ; SLC/JST/JVS/TC -- PL Utilities (CIRN)           ;08/22/12  08:50
+ ;;2.0;Problem List;**14,15,19,25,26,36,42**;Aug 25, 1994;Build 46
  ;
  ; External References
- ;   DBIA  3990  $$ICDDX^ICDCODE
+ ;   DBIA  5699  $$ICDDATA^ICDXCODE
  ;
  ; This routine is primarily called by CIRN for use
  ; in HL7 (RGHOPL), and Historical Load (RGHOPLB),
@@ -82,7 +82,7 @@ LIST ; Returns list of Problems for Patient
  ;             Piece 1:  Pointer to Problem #9000011
  ;                   2:  Status
  ;                   3:  Provider Narrative
- ;                   4:  ICD-9 code
+ ;                   4:  ICD code
  ;                   5:  Date of Onset
  ;                   6:  Date Last Modified
  ;                   7:  Service Connected
@@ -91,7 +91,8 @@ LIST ; Returns list of Problems for Patient
  ;                  10:  Transcribed Problem or not
  ;                  11:  SNOMED-CT Concept code
  ;                  12:  SNOMED-CT Designation code
- ;       GMPL(1,"ICDD")  ICD-9 Description
+ ;                  13:  ICD Coding System (ex: ICD-10-CM="10D", ICD-9-CM="ICD")
+ ;       GMPL(1,"ICDD")  ICD Description
  ;           GMPL(#,C#)  Comments
  ;           GMPL(0)     Number of Problems Returned
  ;
@@ -101,16 +102,17 @@ LIST ; Returns list of Problems for Patient
  S GMPLVIEW("ACT")=GMPSTAT,GMPLVIEW("PROV")=0,GMPLVIEW("VIEW")=""
  D GETPLIST^GMPLMGR1(.GMPLIST,.GMPTOTAL,.GMPLVIEW)
  F NUM=0:0 S NUM=$O(GMPLIST(NUM)) Q:NUM'>0  D
- . N GMPL0,GMPL1,GMPL800,ICD,ICDD,IFN,LASTMOD,ONSET,SC,SCS,SCTC,SCTD,SP,ST
+ . N GMPL0,GMPL1,GMPL800,GMPL802,ICD,ICDD,IFN,LASTMOD,ONSET,SC,SCS,SCTC,SCTD,SP,ST,GMPLCSYS,GMPLDT
  . S IFN=+GMPLIST(NUM) Q:IFN'>0
- . S GMPL0=$G(^AUPNPROB(IFN,0)),GMPL1=$G(^(1)),GMPL800=$G(^(800)),CNT=CNT+1
- . S ICD=$P($$ICDDX^ICDCODE(+GMPL0),U,2),LASTMOD=$P(GMPL0,U,3)
+ . S GMPL0=$G(^AUPNPROB(IFN,0)),GMPL1=$G(^(1)),GMPL800=$G(^(800)),GMPL802=$G(^(802)),CNT=CNT+1
+ . S GMPLDT=$S(+$P(GMPL802,U,1):$P(GMPL802,U,1),1:$P(GMPL0,U,8)),GMPLCSYS=$S($P(GMPL802,U,2)]"":$P(GMPL802,U,2),1:$$SAB^ICDEX($$CSI^ICDEX(80,+GMPL0),GMPLDT))
+ . S ICD=$P($$ICDDATA^ICDXCODE(GMPLCSYS,+GMPL0,GMPLDT,"I"),U,2),LASTMOD=$P(GMPL0,U,3)
  . S ST=$P(GMPL0,U,12),ONSET=$P(GMPL0,U,13)
  . S SC=$S(+$P(GMPL1,U,10):"SC",$P(GMPL1,U,10)=0:"NSC",1:"")
  . D SCS^GMPLX1(IFN,.SCS) S SP=$G(SCS(3))
  . S SCTC=$P(GMPL800,U),SCTD=$P(GMPL800,U,2)
- . I +SCTC'>0&(+SCTD'>0) S ICDD=$$ICDDESC^GMPLUTL2(ICD,$P(GMPL0,U,8))
- . S GMPL(CNT)=IFN_U_ST_U_$$PROBTEXT^GMPLX(IFN)_U_ICD_U_ONSET_U_LASTMOD_U_SC_U_SP_U_$S($P(GMPL1,U,14)="A":"*",1:"")_U_$S('$P($G(^GMPL(125.99,1,0)),U,2):"",$P(GMPL1,U,2)'="T":"",1:"$")_U_SCTC_U_SCTD
+ . I +SCTC'>0&(+SCTD'>0) S ICDD=$$ICDDESC^GMPLUTL2(ICD,GMPLDT,GMPLCSYS)
+ . S GMPL(CNT)=IFN_U_ST_U_$$PROBTEXT^GMPLX(IFN)_U_ICD_U_ONSET_U_LASTMOD_U_SC_U_SP_U_$S($P(GMPL1,U,14)="A":"*",1:"")_U_$S('$P($G(^GMPL(125.99,1,0)),U,2):"",$P(GMPL1,U,2)'="T":"",1:"$")_U_SCTC_U_SCTD_U_GMPLCSYS
  . I $L($G(ICDD)) S GMPL(CNT,"ICDD")=ICDD
  . I $G(GMPCOMM) D
  . . N FAC,NIFN,NOTE,NOTECNT

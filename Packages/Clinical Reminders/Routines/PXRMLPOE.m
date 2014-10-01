@@ -1,5 +1,5 @@
-PXRMLPOE ;SLC/PJH,PKR - Build OE/RR Team from Patient List ;03/19/2012
- ;;2.0;CLINICAL REMINDERS;**4,24**;Feb 04, 2005;Build 193
+PXRMLPOE ;SLC/PJH,PKR - Build OE/RR Team from Patient List ;02/21/2014
+ ;;2.0;CLINICAL REMINDERS;**4,24,26**;Feb 04, 2005;Build 404
  ; 
  ; Called from PXRM PATIENT LIST OE/RR protocol
 ASK(PLIEN,OPT) ;Verify patient list name
@@ -17,7 +17,7 @@ ASK(PLIEN,OPT) ;Verify patient list name
  Q
  ;
 LOCK(LIST) ;Lock the list
- L +^PXRMXP(100.21,LIST):0
+ L +^PXRMXP(100.21,LIST):DILOCKTM
  E  W !!?5,"Another user is using this OE/RR team list" S DUOUT=1
  Q
  ;
@@ -113,6 +113,7 @@ UPDLST(IENO,LIST,NAME) ;Update patient list
  . S TEMP=DFN_";DPT("
  . S ^OR(100.21,IEN,10,CNT,0)=TEMP
  . S ^OR(100.21,IEN,10,"B",TEMP,CNT)=""
+ . S ^OR(100.21,"AB",TEMP,IEN,CNT)=""
   S ^OR(100.21,IEN,10,0)="^100.2101AV"_U_CNT_U_CNT
  ;Unlock patient list
  D UNLOCK(LIST)

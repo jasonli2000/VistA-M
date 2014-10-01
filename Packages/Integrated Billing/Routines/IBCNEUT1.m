@@ -1,5 +1,5 @@
 IBCNEUT1 ;DAOU/ESG - IIV MISC. UTILITIES ;03-JUN-2002
- ;;2.0;INTEGRATED BILLING;**184,497**;21-MAR-94;Build 120
+ ;;2.0;INTEGRATED BILLING;**184,497,506**;21-MAR-94;Build 74
  ;;Per VHA Directive 10-93-142, this routine should not be modified.
  ;
  ; Can't be called from the top
@@ -222,3 +222,16 @@ LENCHK(VAL,MAX,NUMFLG) ; check value length, called from input transforms on eIV
  I $S(NUMFLG:VAL,1:$L(VAL))>MAX S RES=0
 LENCHKX ;
  Q RES
+ ;
+CODECK(VAL) ; validate the response for the output transforms on the CODE (.01) field in the IIV Status Table (#365.15) file.
+ ; VAL - value to translate
+ ; OUT - output value based up the value entered.
+ ;
+ N IN,OUT,STR1,STR2
+ S IN=$E(VAL)
+ S STR1="Response Received"
+ S STR2="Problem Identified"
+ S OUT=$S(IN="D":STR1_", Inactive Policy",IN="B":STR2,IN="A":STR1_", Active Policy",IN="E":STR1_", Active Policy (Escalated)",IN="Q":"Inquiry Sent, Awaiting Response",IN="U":STR1_", Ambiguous Answer",IN="C":STR2_", Communication Failure",1:"")
+CODECKX ;
+ Q OUT
+ ;

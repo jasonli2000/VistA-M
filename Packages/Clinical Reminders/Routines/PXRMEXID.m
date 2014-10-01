@@ -1,5 +1,5 @@
-PXRMEXID ;SLC/PJH - Reminder Dialog Exchange Install Routine. ;11/20/2011
- ;;2.0;CLINICAL REMINDERS;**6,12,24**;Feb 04, 2005;Build 193
+PXRMEXID ;SLC/PJH - Reminder Dialog Exchange Install Routine. ;01/28/2013
+ ;;2.0;CLINICAL REMINDERS;**6,12,24,26**;Feb 04, 2005;Build 404
  ;
  ;==================================================
  ;Install all dialog components in an exchange file entry
@@ -268,7 +268,7 @@ PXRM(NAME) ;Validate prompts
  ;
  ;Lock the dialog file
 LOCK() ;
- L +^PXRMD(801.41):0 I  Q 1
+ L +^PXRMD(801.41):DILOCKTM I  Q 1
  E  W !,"Another user is editing this file, try later" H 2
  Q 0
  ;

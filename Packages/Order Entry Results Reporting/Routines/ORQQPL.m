@@ -1,5 +1,11 @@
-ORQQPL ; ISL/CLA,REV,JER - RPCs to return problem list data ;08/08/12  12:43
- ;;3.0;ORDER ENTRY/RESULTS REPORTING;**9,10,85,173,306**;Dec 17, 1997;Build 43
+ORQQPL ; ISL/CLA,REV,JER,TC - RPCs to return problem list data ;09/06/13  09:22
+ ;;3.0;ORDER ENTRY/RESULTS REPORTING;**9,10,85,173,306,361**;Dec 17, 1997;Build 39
+ ;
+ ;  External References:
+ ;  $$CODECS^ICDEX          ICR #5747
+ ;  $$STATCHK^ICDXCODE      ICR #5699
+ ;  $$STATCHK^LEXSRC2       ICR #4083
+ ;
 LIST(ORPY,DFN,STATUS)  ;return pt's problem list in format: ien^description^
  ; ICD^onset^last modified^SC^SpExp
  ; STATUS = status of problems to return: (A)CTIVE, (I)NACTIVE, ("")ALL
@@ -12,8 +18,8 @@ LIST(ORPY,DFN,STATUS)  ;return pt's problem list in format: ien^description^
  .F I=1:1:ORGMPL(0) D
  ..N LEX,X
  ..S X=ORGMPL(I)
- ..S ORPY(I)=$P(X,U)_U_$P(X,U,3)_U_$P(X,U,2)_U_$P(X,U,4)_U_$P(X,U,5)_U_$P(X,U,6)_U_$P(X,U,7)_U_$P(X,U,8)_U_$P(X,U,10)_U_$P(X,U,9)_U_U_DETAIL_U_U_$P(X,U,11)_U_$P(X,U,12)
- ..I '+$$STATCHK^ICDAPIU($P(ORPY(I),U,4),DT) D  I 1
+ ..S ORPY(I)=$P(X,U)_U_$P(X,U,3)_U_$P(X,U,2)_U_$P(X,U,4)_U_$P(X,U,5)_U_$P(X,U,6)_U_$P(X,U,7)_U_$P(X,U,8)_U_$P(X,U,10)_U_$P(X,U,9)_U_U_DETAIL_U_U_$P(X,U,11)_U_$P(X,U,12)_U_$P(X,U,13)
+ ..I '+$$STATCHK^ICDXCODE($P(ORPY(I),U,16),$P(ORPY(I),U,4),DT) D  I 1
  ...S $P(ORPY(I),U,13)="#",$P(ORPY(I),U,9)="#"
  ..E  I $L($P(ORPY(I),U,14)),(+$$STATCHK^LEXSRC2($P(ORPY(I),U,14),DT,.LEX)'=1) S $P(ORPY(I),U,13)="$",$P(ORPY(I),U,9)="#"
  .S:+$G(ORPY(1))<1 ORPY(1)="^No problems found."
@@ -21,23 +27,25 @@ LIST(ORPY,DFN,STATUS)  ;return pt's problem list in format: ien^description^
  K X
  Q
 DETAIL(Y,DFN,PROBIEN,ID)  ; RETURN DETAILED PROBLEM DATA
- N ORGMPL,GMPDT
+ N ORGMPL,GMPDT,ORICDLBL
  I $L($T(DETAIL^GMPLUTL2))>0 D
  .N CR,I,J,T,LEX S CR=$CHAR(13),I=1
  .D DETAIL^GMPLUTL2(PROBIEN,.ORGMPL)
+ .S ORICDLBL=$P($$CODECS^ICDEX(ORGMPL("DIAGNOSIS"),80,ORGMPL("DTINTEREST")),U,2)
  .S Y(I)=ORGMPL("NARRATIVE"),I=I+1
- .I '+$$STATCHK^ICDAPIU(ORGMPL("DIAGNOSIS"),DT) D  I 1
- ..S Y(I)="*** The ICD-9-CM code "_ORGMPL("DIAGNOSIS")_" is currently inactive. ***",I=I+1
+ .I '+$$STATCHK^ICDXCODE(ORGMPL("CSYS"),ORGMPL("DIAGNOSIS"),DT) D  I 1
+ ..S Y(I)="*** The "_ORICDLBL_" code "_ORGMPL("DIAGNOSIS")_" is currently inactive. ***",I=I+1
  .I +$G(ORGMPL("SCTC")),(+$$STATCHK^LEXSRC2($G(ORGMPL("SCTC")),DT,.LEX)'=1) D
  ..S Y(I)="*** The SNOMED-CT code "_ORGMPL("SCTC")_" is currently inactive. ***",I=I+1
  .I $L($G(ORGMPL("SCTC")))!$L($G(ORGMPL("SCTD"))) D  I 1
  ..I $P(ORGMPL("NARRATIVE")," (SCT")'=ORGMPL("SCTT") S Y(I)="         SNOMED-CT: "_ORGMPL("SCTT"),I=I+1
- ..I $L($G(ORGMPL("DIAGNOSIS")))&$L($G(ORGMPL("ICDD"))) S Y(I)="  Primary ICD-9-CM: "_$G(ORGMPL("DIAGNOSIS"))_$$PAD^ORUTL($G(ORGMPL("DIAGNOSIS")),6)_" ["_$G(ORGMPL("ICDD"))_"]",I=I+1
+ ..I $L($G(ORGMPL("DIAGNOSIS")))&$L($G(ORGMPL("ICDD"))) S Y(I)=$S(ORGMPL("CSYS")="10D":" Primary ",1:"  Primary ")_ORICDLBL_": "_$G(ORGMPL("DIAGNOSIS"))_$$PAD^ORUTL($G(ORGMPL("DIAGNOSIS")),6)_" ["_$G(ORGMPL("ICDD"))_"]",I=I+1
  .E  I $L($G(ORGMPL("ICDD"))) D
  ..N ICDD,J S ICDD=$$WRAP^ORU2($G(ORGMPL("ICDD")),65)
- ..F J=1:1:$L(ICDD,"|") S Y(I)=$S(J=1:"ICD-9-CM TEXT: ",1:"              ")_$P(ICDD,"|",J),I=I+1
+ ..F J=1:1:$L(ICDD,"|") S Y(I)=$S(J=1:ORICDLBL_" TEXT: ",1:"              ")_$P(ICDD,"|",J),I=I+1
  .I ORGMPL("ICD9MLTP")'="" F T=1:1:ORGMPL("ICD9MLTP") D
- ..S Y(I)=$S(T=1:"Secondary ICD-9-CM: ",T>1:"                  : ")_$P($G(ORGMPL("ICD9MLTP",T)),U)_$$PAD^ORUTL($P($G(ORGMPL("ICD9MLTP",T)),U),6)_" ["_$P($G(ORGMPL("ICD9MLTP",T)),U,2)_"]",I=I+1
+ ..N ORMELBL S ORMELBL=$S($P($G(ORGMPL("ICD9MLTP",T)),U,3)="10D":"ICD-10-CM",1:"ICD-9-CM")
+ ..S Y(I)=$S(T=1:"Secondary "_ORMELBL_": ",T>1:"                  : ")_$P($G(ORGMPL("ICD9MLTP",T)),U)_$$PAD^ORUTL($P($G(ORGMPL("ICD9MLTP",T)),U),6)_" ["_$P($G(ORGMPL("ICD9MLTP",T)),U,2)_"]",I=I+1
  .S Y(I)=" ",I=I+1
  .S Y(I)="        Onset: "_ORGMPL("ONSET"),I=I+1
  .S Y(I)="       Status: "_ORGMPL("STATUS")

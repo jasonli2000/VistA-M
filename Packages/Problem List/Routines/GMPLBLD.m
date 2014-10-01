@@ -1,7 +1,7 @@
-GMPLBLD ; SLC/MKB -- Build Problem Selection Lists ;09/22/11  15:14
- ;;2.0;Problem List;**3,28,33,36**;Aug 25, 1994;Build 65
+GMPLBLD ; SLC/MKB/TC -- Build Problem Selection Lists ;08/21/12  10:01
+ ;;2.0;Problem List;**3,28,33,36,42**;Aug 25, 1994;Build 46
  ;
- ;This routine invokes IA #3991
+ ;This routine invokes ICR #5699 & #5747
  ;
 EN ; -- main entry point
  D EN^VALM("GMPL SELECTION LIST BUILD")
@@ -52,10 +52,11 @@ BUILD(LIST,MODE) ; Build ^TMP("GMPLST",$J,)
  .. S IFN=$O(^GMPL(125.12,"C",+GROUP,PSEQ,0)),LCNT=LCNT+1
  .. S ITEM=$G(^GMPL(125.12,IFN,0)),^TMP("GMPLST",$J,LCNT,0)="             "_$P(ITEM,U,4)
  .. I $L($P(ITEM,U,5)) D
- ... N GMI
- ... S ^TMP("GMPLST",$J,LCNT,0)=^TMP("GMPLST",$J,LCNT,0)_" ("_$P(ITEM,U,5)_")"
+ ... N GMI,GMPCSPTR,GMPCSREC,GMPCSNME
+ ... S GMPCSREC=$$CODECS^ICDEX($P($P(ITEM,U,5),"/"),80,DT),GMPCSPTR=$P(GMPCSREC,U),GMPCSNME=$P(GMPCSREC,U,2)
+ ... S ^TMP("GMPLST",$J,LCNT,0)=^TMP("GMPLST",$J,LCNT,0)_" ("_GMPCSNME_" "_$P(ITEM,U,5)_")"
  ... F GMI=1:1:$L($P(ITEM,U,5),"/") D
- .... I $$STATCHK^ICDAPIU($P($P(ITEM,U,5),"/",GMI),DT) Q  ; code is active
+ .... I $$STATCHK^ICDXCODE(GMPCSPTR,$P($P(ITEM,U,5),"/",GMI),DT) Q  ; code is active
  .... S ^TMP("GMPLST",$J,LCNT,0)=^TMP("GMPLST",$J,LCNT,0)_"    <INACTIVE CODE>"
  . S LCNT=LCNT+1,^TMP("GMPLST",$J,LCNT,0)="   "
  S ^TMP("GMPLST",$J,0)=NUM_U_LCNT,VALMCNT=LCNT
@@ -90,7 +91,7 @@ ADD ; Add group(s)
  . I $D(^TMP("GMPLIST",$J,"GRP",+GROUP)) W !?4,">>>  This category is already part of this list!" Q
  . I '$$VALGRP^GMPLBLD2(+GROUP) D  Q
  .. D FULL^VALM1
- .. W !!,$C(7),"This category contains one or more problems with inactive ICD-9 codes. "
+ .. W !!,$C(7),"This category contains one or more problems with inactive ICD codes. "
  .. W !,"These codes must be updated before adding the category to a selection list."
  .. N DIR,DTOUT,DIRUT,DUOUT,X,Y
  .. S DIR(0)="E" D ^DIR

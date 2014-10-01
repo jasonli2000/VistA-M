@@ -1,11 +1,12 @@
 IBCNSJ3 ;ALB/CPM - ADD NEW INSURANCE PLAN ; 11-JAN-95
- ;;2.0;INTEGRATED BILLING;**28,497**;21-MAR-94;Build 120
+ ;;2.0;INTEGRATED BILLING;**28,497,506**;21-MAR-94;Build 74
  ;;Per VHA Directive 2004-038, this routine should not be modified.
  ;
-NEW(IBCNS,IBCPOL,IBFG) ; Add a new insurance plan
+NEW(IBCNS,IBCPOL,IBFG,IBKEY) ; Add a new insurance plan
  ;  Input:   IBCNS  --  Pointer to an insurance company in file #36
  ;            IBFG  --  [Optional] -> Set to 1 to force creation
  ;                      of a group plan
+ ;           IBKEY  --  [Optional] -> Set to 1 to check for security key
  ; Output:  IBCPOL  --  0, if a new plan was not added, or
  ;                      >0 => pointer to the new plan in file #355.3
  ;
@@ -16,6 +17,9 @@ NEW(IBCNS,IBCPOL,IBFG) ; Add a new insurance plan
  S DIR(0)="Y",DIR("B")="NO",DIR("A")="Do you wish to add a new Insurance Plan"
  S DIR("?")="If you have identified a new plan that has not been previously entered, and you wish to add it, answer 'YES'.  If you do not wish to add a new plan, enter 'NO'."
  D ^DIR K DIR I Y<1!($D(DIRUT)) G NEWQ
+ ;
+ ; IB*2.0*506 Added the following line.
+ I $G(IBKEY),'$D(^XUSEC("IB GROUP PLAN EDIT",DUZ)) W !!,"Sorry, you are not authorized to create a new Insurance Plan" D WAIT^IBCNBAA G NEWQ
  ;
  ; - collect plan characteristics
  I $G(IBFG) S IBGRP=1 G MORE

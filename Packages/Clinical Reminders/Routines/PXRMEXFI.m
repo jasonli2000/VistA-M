@@ -1,9 +1,9 @@
-PXRMEXFI ;SLC/PKR/PJH - Exchange utilities for file entries. ;05/18/2012
- ;;2.0;CLINICAL REMINDERS;**6,12,18,24**;Feb 04, 2005;Build 193
+PXRMEXFI ;SLC/PKR/PJH - Exchange utilities for file entries. ;08/02/2013
+ ;;2.0;CLINICAL REMINDERS;**6,12,18,24,26**;Feb 04, 2005;Build 404
  ;==============================================
 DELALL(FILENUM,NAME) ;Delete all file entries named NAME.
  N IEN,IND,LIST,MSG
- D FIND^DIC(FILENUM,"","@","K",NAME,"*","","","","LIST","MSG")
+ D FIND^DIC(FILENUM,"","@","KU",NAME,"*","","","","LIST","MSG")
  I $P(LIST("DILIST",0),U,1)=0 Q
  S IND=0
  F  S IND=$O(LIST("DILIST",2,IND)) Q:IND=""  D
@@ -159,15 +159,19 @@ CHK ;
  Q ACTION
  ;
  ;==============================================
-IOKTI(FILENUM,ITEMINFO) ;Check if it is ok to install this item.
+IOKTI(IEN,FILENUM,ITEMINFO) ;Check if it is ok to install this item.
  ;To be installable, items from 801.41 need to be marked as selectable.
  I FILENUM=801.41 Q $P(ITEMINFO,U,7)
+ ;Do not allow national routines.
+ I (FILENUM=0),'$D(PXRMINCF),$E($P(ITEMINFO,U,1),1,4)="PXRM" Q 0
  N FDASTART,FDAEND
  S FDASTART=$P(ITEMINFO,U,2)
  S FDAEND=$P(ITEMINFO,U,3)
  ;If FDSTART=FDAEND then only the .01 was packed so it may not
  ;be installable.
  I FDASTART=FDAEND Q $$IOKTP(FILENUM)
+ ;Check computed findings, national ones cannot be installed.
+ I (FILENUM=811.4),'$D(PXRMINCF) Q $$CFOKTI^PXRMEXU0(IEN,FDASTART,FDAEND)
  Q 1
  ;
  ;==============================================
@@ -177,6 +181,7 @@ IOKTP(FILENUM,IEN) ;Check if it is ok to pack this item.
  N OK
  S OK=1
  ;Check files where only specific entries can be packed.
+ ;
  ;Health Summary Object not allowed if the type is not allowed
  I FILENUM=142.5 D  Q OK
  . I '$D(IEN)!($G(IEN)="") S OK=0 Q
@@ -206,7 +211,7 @@ IOKTP(FILENUM,IEN) ;Check if it is ok to pack this item.
  I FILENUM=142.1 D  Q OK
  .;Only use to pack new national components being released
  .;with the patch.
- . I '$G(PXRMINST) S OK=0
+ . I '$G(PXRMIHSC) S OK=0
  .;DBIA #5445
  .;Create description of local HS Components
  . I +$G(IEN)>99999 D EN^GMTSDESC(IEN,142.1,"HS COMP")

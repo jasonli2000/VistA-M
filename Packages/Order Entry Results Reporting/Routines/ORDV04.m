@@ -1,5 +1,5 @@
-ORDV04 ; SLC/DAN - OE/RR Components ;08/08/12  12:44
- ;;3.0;ORDER ENTRY/RESULTS REPORTING;**109,148,160,208,195,241,215,274,256,243,306**;Dec 17,1997;Build 43
+ORDV04 ; SLC/DAN - OE/RR Components ;10/05/12  08:40
+ ;;3.0;ORDER ENTRY/RESULTS REPORTING;**109,148,160,208,195,241,215,274,256,243,306,361**;Dec 17,1997;Build 39
  ;
  ; ^TMP("GMPLHS",$J) DBIA 1183
  ; ^UTILITY & ^TMP("GMRVD") DBIA 10061
@@ -80,25 +80,27 @@ PLAIL ; problems(active, inactive or all)
  I '$D(^TMP("GMPLHS",$J)) Q
  S ORPROBNO=0
  F I=1:1 S ORPROBNO=$O(^TMP("GMPLHS",$J,ORPROBNO)) Q:'ORPROBNO  D
- . N ORXREC0,SITE,ICD,SCTC,VHATC,PROVNARR,ORMORE,K
+ . N ORXREC0,SITE,ICD,SCTC,VHATC,PROVNARR,ORMORE,K,ORCSYS,ORICDLBL
  . S ORXREC0=$G(^TMP("GMPLHS",$J,ORPROBNO,0)),ORMORE=0
  . S SITE=$S($L($G(^TMP("GMPLHS",$J,ORPROBNO,"facility"))):^("facility"),1:ORSITE)
  . S ICD=$P(ORXREC0,U,17),SCTC=$P(ORXREC0,U,15),VHATC=$P(ORXREC0,U,19)
- . S PROVNARR=$P($G(^TMP("GMPLHS",$J,ORPROBNO,"N"))," (SN")_$S($L($G(ICD))&('$L($G(SCTC))&'$L($G(VHATC))):" (ICD-9-CM "_$G(ICD)_")",$L($G(SCTC)):" (SCT "_$G(SCTC)_")",$L($G(VHATC)):" (VHAT "_$G(VHATC)_")",1:"")
+ . S ORCSYS=$P(ORXREC0,U,22),ORICDLBL=$S(ORCSYS="10D":"ICD-10-CM",1:"ICD-9-CM")
+ . S PROVNARR=$P($G(^TMP("GMPLHS",$J,ORPROBNO,"N"))," (")
+ . S PROVNARR=PROVNARR_$S($L($G(ICD))&('$L($G(SCTC))&'$L($G(VHATC))):" ("_$G(ORICDLBL)_" "_$G(ICD)_")",$L($G(SCTC))&($L($G(ICD))):" (SCT "_$G(SCTC)_")"_" ("_$G(ORICDLBL)_" "_$G(ICD)_")",$L($G(VHATC)):" (VHAT "_$G(VHATC)_")",1:"")
  . S ^TMP("ORDATA",$J,ORPROBNO,"WP",1)="1^"_SITE ;Station ID
  . S ^TMP("ORDATA",$J,ORPROBNO,"WP",2)="2^"_$P(ORXREC0,U,5) ;status
  . S ^TMP("ORDATA",$J,ORPROBNO,"WP",3)="3^"_PROVNARR ;provider narrative
- . I $S(PROVNARR["(SCT":1,PROVNARR["(VHAT":1,1:0)&($G(ICD)'="799.9") D
+ . I $S(PROVNARR["(SCT":1,PROVNARR["(VHAT":1,1:0)&($G(ICD)'="799.9"!($G(ICD)'="R69.")) D
  . . N PLAINARR,PREFTEXT
  . . I PROVNARR["(SCT" S PLAINARR=$P(PROVNARR," (S"),PREFTEXT=$P(ORXREC0,U,16)
  . . E  I PROVNARR["(VHAT" S PLAINARR=$P(PROVNARR," (V"),PREFTEXT=$P(ORXREC0,U,20)
  . . S ^TMP("ORDATA",$J,ORPROBNO,"WP",4)="4^"_$S((PREFTEXT]"")&(PLAINARR'=PREFTEXT):PREFTEXT,1:"") ; Preferred Text
- . . S ^TMP("ORDATA",$J,ORPROBNO,"WP",5)="5^"_$S($L($G(ICD))&($L($G(SCTC))!$L(VHATC)):$G(ICD)_" ["_$P(ORXREC0,U,18)_"]",1:"") ; Primary ICD-9-CM Code & Description
- . . I $G(^TMP("GMPLHS",$J,ORPROBNO,0,"ICD9"))'="" N T,J S J=0 F T=1:1:$G(^TMP("GMPLHS",$J,ORPROBNO,0,"ICD9")) D  ;Check for the existence of multiple ICD-9-CM codes
+ . . S ^TMP("ORDATA",$J,ORPROBNO,"WP",5)="5^"_$S($L($G(ICD))&($L($G(SCTC))!$L(VHATC)):$G(ORICDLBL)_" "_$G(ICD)_" ["_$P(ORXREC0,U,18)_"]",1:"") ; Primary ICD-9/10 Code & Description
+ . . I $G(^TMP("GMPLHS",$J,ORPROBNO,0,"ICD9"))'="" N T,J S J=0 F T=1:1:$G(^TMP("GMPLHS",$J,ORPROBNO,0,"ICD9")) D  ;Check for the existence of multiple ICD-9/10 codes
  . . . ;N T,J S J=0 F T=1:1:$G(^TMP("GMPLHS",$J,ORPROBNO,0,"ICD9")) D
  . . . N ICD9MLT S J=J+1,ICD9MLT=$G(^TMP("GMPLHS",$J,ORPROBNO,T,"ICD9"))
- . . . S ^TMP("ORDATA",$J,ORPROBNO,"WP",6,J)="6^"_$P($G(ICD9MLT),U)_" ["_$P($G(ICD9MLT),U,2)_"]" ;Secondary ICD-9-CM Code & Description
- . E  I PROVNARR["(ICD"&($G(ICD)'="799.9") S ^TMP("ORDATA",$J,ORPROBNO,"WP",5)="5^"_$S($L($G(ICD)):$G(ICD)_" ["_$P(ORXREC0,U,18)_"]",1:"")
+ . . . S ^TMP("ORDATA",$J,ORPROBNO,"WP",6,J)="6^"_$G(ORICDLBL)_" "_$P($G(ICD9MLT),U)_" ["_$P($G(ICD9MLT),U,2)_"]" ;Secondary ICD-9/10 Code & Description
+ . E  I PROVNARR["(ICD"&($G(ICD)'="799.9"!($G(ICD)'="R69.")) S ^TMP("ORDATA",$J,ORPROBNO,"WP",5)="5^"_$S($L($G(ICD)):$G(ORICDLBL)_" "_$G(ICD)_" ["_$P(ORXREC0,U,18)_"]",1:"")
  . S ^TMP("ORDATA",$J,ORPROBNO,"WP",7)="7^"_$$DATE^ORDVU($P(ORXREC0,U,6)) ;onset date
  . S ^TMP("ORDATA",$J,ORPROBNO,"WP",8)="8^"_$$DATE^ORDVU($P(ORXREC0,U,2)) ;last modified date
  . S ^TMP("ORDATA",$J,ORPROBNO,"WP",9)="9^"_$P(ORXREC0,U,7) ;provider

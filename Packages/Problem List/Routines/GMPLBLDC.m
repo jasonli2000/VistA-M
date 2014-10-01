@@ -1,7 +1,7 @@
-GMPLBLDC ; SLC/MKB -- Build Problem Selection Categories ;09/22/11  14:31
- ;;2.0;Problem List;**3,7,28,36**;Aug 25, 1994;Build 65
+GMPLBLDC ; SLC/MKB,TC -- Build Problem Selection Categories ;08/21/12  13:05
+ ;;2.0;Problem List;**3,7,28,36,42**;Aug 25, 1994;Build 46
  ;
- ; This routine invokes IA #3991
+ ; This routine invokes ICR #5699, #5747
  ;
 EN ; -- main entry point for GMPL SELECTION GROUP BUILD
  D EN^VALM("GMPL SELECTION GROUP BUILD")
@@ -37,14 +37,15 @@ BUILD(LIST,MODE) ; Build ^TMP("GMPLST",$J,) of current items in LIST for display
  I $P($G(^TMP("GMPLIST",$J,0)),U,1)'>0 S ^TMP("GMPLST",$J,1,0)="   ",^TMP("GMPLST",$J,2,0)="No items available.",^TMP("GMPLST",$J,0)="0^2",VALMCNT=2 Q
  S (LCNT,NUM,SEQ)=0
  F  S SEQ=$O(^TMP("GMPLIST",$J,"SEQ",SEQ)) Q:SEQ'>0  D
- . N GMI
+ . N GMI,GMPLCSYS,GMPLCPTR
  . S IFN=^TMP("GMPLIST",$J,"SEQ",SEQ),LCNT=LCNT+1,NUM=NUM+1
  . S PROB=$P(^TMP("GMPLIST",$J,IFN),U,2),TEXT=$P(^TMP("GMPLIST",$J,IFN),U,3),CODE=$P(^TMP("GMPLIST",$J,IFN),U,4)
  . S ^TMP("GMPLST",$J,LCNT,0)=$S(MODE="I":$J("<"_SEQ_">",8),1:"        ")_$J(NUM,4)_" "_TEXT
  . I $L(CODE) D
- .. S ^TMP("GMPLST",$J,LCNT,0)=^TMP("GMPLST",$J,LCNT,0)_" ("_CODE_")"
+ .. S ^TMP("GMPLST",$J,LCNT,0)=^TMP("GMPLST",$J,LCNT,0)_" ("_$P($$CODECS^ICDEX($P(CODE,"/"),80,DT),U,2)_" "_CODE_")"
  .. F GMI=1:1:$L(CODE,"/") D
- ... I $$STATCHK^ICDAPIU($P(CODE,"/",GMI),DT) Q  ; OK - code is active
+ ... N GMPLCPTR S GMPLCPTR=$P($$CODECS^ICDEX($P(CODE,"/",GMI),80,DT),U)
+ ... I $$STATCHK^ICDXCODE(GMPLCPTR,$P(CODE,"/",GMI),DT) Q  ; OK - code is active
  ... S ^TMP("GMPLST",$J,LCNT,0)=^TMP("GMPLST",$J,LCNT,0)_"     <INACTIVE CODE>"
  . D CNTRL^VALM10(LCNT,9,5,IOINHI,IOINORM)
  . S ^TMP("GMPLST",$J,"B",NUM)=IFN
@@ -92,7 +93,7 @@ ADD ; Add new problem(s)
  . S RT1="^TMP(""GMPLIST"",$J,""SEQ"",",SEQ=+$$LAST^GMPLBLD2(RT1)+1 ; dflt = next #
  . S SEQ=$$SEQ^GMPLBLD1(SEQ) I SEQ="^" S GMPQUIT=1 Q
  . S IFN=$$TMPIFN^GMPLBLD1,^TMP("GMPLIST",$J,0)=^TMP("GMPLIST",$J,0)+1
- . S ^TMP("GMPLIST",$J,IFN)=SEQ_U_+Y_U_X_U_CODE_U_SCTC_U_SCTD ; seq ^ # ^ text ^ code
+ . S ^TMP("GMPLIST",$J,IFN)=SEQ_U_+Y_U_X_U_CODE_U_SCTC_U_SCTD ; seq ^ # ^ text ^ code ^ snomed ct concept ^ snomed ct designation
  . S (^TMP("GMPLIST",$J,"PROB",+Y),^TMP("GMPLIST",$J,"SEQ",SEQ))=IFN,GMPREBLD=1
  I $D(GMPREBLD) S VALMBCK="R",GMPLSAVE=1 D BUILD("^TMP(""GMPLIST"",$J)",GMPLMODE),HDR
  S VALMBCK="R" S VALMSG=$$MSG^GMPLX

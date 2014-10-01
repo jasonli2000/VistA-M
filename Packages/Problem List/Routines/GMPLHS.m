@@ -1,8 +1,9 @@
-GMPLHS ; SLC/MKB/KER/TC - Extract Prob List Health Summary ;06/08/12  13:40
- ;;2.0;Problem List;**22,26,35,36**;Aug 25, 1994;Build 65
+GMPLHS ; SLC/MKB/KER/TC - Extract Prob List Health Summary ;11/27/12  09:17
+ ;;2.0;Problem List;**22,26,35,36,42**;Aug 25, 1994;Build 46
  ;
  ; External References
  ;   DBIA  3106  ^DIC(49
+ ;    ICR  5747  $$CSI/SAB^ICDEX
  ;   DBIA 10060  ^VA(200
  ;   DBIA 10015  EN^DIQ1
  ;
@@ -25,7 +26,7 @@ BUILD ; Build list for selected patient
 GETPROB(IFN) ; Get problem data and set it to ^TMP array
  ;   Sets Global Arrays:
  ;   ^TMP("GMPLHS",$J,CNT,0)
- ;   Piece 1:  Pointer to ICD9 file #80
+ ;   Piece 1:  Pointer to ICD file #80
  ;         2:  Internal Date Last Modified
  ;         3:  Facility Name
  ;         4:  Internal Date Entered
@@ -45,10 +46,12 @@ GETPROB(IFN) ; Get problem data and set it to ^TMP array
  ;        18:  Primary ICD Description
  ;        19:  VHAT Concept Code
  ;        20:  VHAT Preferred Text
+ ;        21:  Date of Interest
+ ;        22:  Coding System
  ;
- ;   ^TMP("GMPLHS",$J,CNT,#,"ICD9") <-Multiple ICD-9-CM codes mapped to a SNOMED-CT concept
- ;   Piece 1: Secondary ICD-9-CM Code
- ;   Piece 2: Secondary ICD-9-CM Description
+ ;   ^TMP("GMPLHS",$J,CNT,#,"ICD9") <-Multiple ICD-9/10-CM codes mapped to a SNOMED-CT concept
+ ;   Piece 1: Secondary ICD-9/10-CM Code
+ ;   Piece 2: Secondary ICD-9/10-CM Description
  ;
  ;   ^TMP("GMPLHS",$J,CNT,"N")
  ;   Piece 1:  Provider Narrative
@@ -56,10 +59,10 @@ GETPROB(IFN) ; Get problem data and set it to ^TMP array
  ;   ^TMP("GMPLHS",$J,CNT,"IEN")
  ;   Piece 1:  Pointer to Problem file 9000011
  ;
- N DIC,DIQ,DR,DA,REC,DIAG,LASTMDT,NARR,SITE,ENTDT,STAT,ONSETDT,RPROV,T,VHATC,VHATT
- N SERV,SERVABB,RESDT,CLIN,RECDT,LEXI,LEX,PG,AO,EXP,HNC,MST,CV,SHD,IR,SCS,SCTC,SCTT,ICD,ICDD
+ N DIC,DIQ,DR,DA,REC,DIAG,LASTMDT,NARR,SITE,ENTDT,STAT,ONSETDT,RPROV,T,VHATC,VHATT,DTINT,CSYS
+ N SERV,SERVABB,RESDT,CLIN,RECDT,LEXI,LEX,PG,AO,EXP,HNC,MST,CV,SHD,IR,SCS,SCTC,SCTT,ICD,ICDD,GMPL
  S DIC=9000011,DA=IFN,DIQ="REC(",DIQ(0)="IE"
- S DR=".01;.03;.05;.06;.08;.12;.13;1.01;1.05;1.06;1.07;1.08;1.09;1.11;1.12;1.13;1.15;1.16;1.17;1.18;80001;80003"
+ S DR=".01;.03;.05;.06;.08;.12;.13;1.01;1.05;1.06;1.07;1.08;1.09;1.11;1.12;1.13;1.15;1.16;1.17;1.18;80001;80003;80201;80202"
  D EN^DIQ1
  S ICD=REC(9000011,DA,.01,"E")
  S DIAG=REC(9000011,DA,.01,"I"),LASTMDT=REC(9000011,DA,.03,"I")
@@ -83,11 +86,13 @@ GETPROB(IFN) ; Get problem data and set it to ^TMP array
  S SHD=+REC(9000011,DA,1.18,"I")
  S SCTC=REC(9000011,DA,80001,"I")
  S VHATC=REC(9000011,DA,80003,"I")
- I $L($G(SCTC)) S SCTT=$$SCTTEXT^GMPLUTL2($G(SCTC),$G(ENTDT),"SCT")
+ S DTINT=$S(+REC(9000011,DA,80201,"I"):REC(9000011,DA,80201,"I"),1:ENTDT)
+ S CSYS=$S(REC(9000011,DA,80202,"I")]"":REC(9000011,DA,80202,"I"),1:$$SAB^ICDEX($$CSI^ICDEX(80,DIAG),DTINT))
+ I $L($G(SCTC)) S SCTT=$P($$SCTTEXT^GMPLUTL2($G(SCTC),$G(ENTDT),"SCT"),U)
  I $L($G(VHATC)) S VHATT=$$SCTTEXT^GMPLUTL2($G(VHATC),$G(ENTDT),"VHAT")
- S ICDD=$$ICDDESC^GMPLUTL2($G(ICD),$G(ENTDT))
+ S ICDD=$$ICDDESC^GMPLUTL2($G(ICD),$G(DTINT),$G(CSYS))
  K SCS D SCS^GMPLX1(DA,.SCS) S EXP=$G(SCS(1))
- S GMPCNT=+$G(GMPCNT)+1,^TMP("GMPLHS",$J,GMPCNT,0)=DIAG_U_LASTMDT_U_SITE_U_ENTDT_U_STAT_U_ONSETDT_U_RPROV_U_SERV_U_SERVABB_U_RESDT_U_CLIN_U_RECDT_U_LEX_U_EXP_U_SCTC_U_$G(SCTT)_U_$G(ICD)_U_$G(ICDD)_U_VHATC_U_$G(VHATT)
+ S GMPCNT=+$G(GMPCNT)+1,^TMP("GMPLHS",$J,GMPCNT,0)=DIAG_U_LASTMDT_U_SITE_U_ENTDT_U_STAT_U_ONSETDT_U_RPROV_U_SERV_U_SERVABB_U_RESDT_U_CLIN_U_RECDT_U_LEX_U_EXP_U_SCTC_U_$G(SCTT)_U_$G(ICD)_U_$G(ICDD)_U_VHATC_U_$G(VHATT)_U_DTINT_U_CSYS
  S ^TMP("GMPLHS",$J,GMPCNT,"N")=NARR,^TMP("GMPLHS",$J,GMPCNT,"IEN")=IFN
  S:+LEXI>0 ^TMP("GMPLHS",$J,GMPCNT,"L")=LEXI_"^"_LEX
  D DETAIL^GMPLUTL2(IFN,.GMPL)

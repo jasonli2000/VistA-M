@@ -1,7 +1,7 @@
-GMPLBLD2 ; SLC/MKB,JFR -- Bld PL Selection Lists cont ;09/21/11  16:33
- ;;2.0;Problem List;**3,28,36**;Aug 25, 1994;Build 65
+GMPLBLD2 ; SLC/MKB,JFR,TC -- Bld PL Selection Lists cont ;08/21/12  13:02
+ ;;2.0;Problem List;**3,28,36,42**;Aug 25, 1994;Build 46
  ;
- ; This routine invokes IA #3991
+ ; This routine invokes ICR #5699, #5747
  ;
 NEWGRP ; Change problem groups
  N NEWGRP D FULL^VALM1
@@ -60,10 +60,12 @@ SAVE ; Save changes to group/list
  . F  S ITM=$O(^TMP("GMPLIST",$J,ITM)) Q:'ITM!(GMPLQT)  D
  .. N GMI
  .. S CODE=$P(^TMP("GMPLIST",$J,ITM),U,4) Q:'$L(CODE)
- .. F GMI=1:1:$L(CODE,"/") I '$$STATCHK^ICDAPIU($P(CODE,"/",GMI),DT) S GMPLQT=1 Q
+ .. F GMI=1:1:$L(CODE,"/") D
+ ... N GMPLCPTR S GMPLCPTR=$P($$CODECS^ICDEX($P(CODE,"/",GMI),80,DT),U)
+ ... I '$$STATCHK^ICDXCODE(GMPLCPTR,$P(CODE,"/",GMI),DT) S GMPLQT=1 Q
  . I 'GMPLQT Q  ;no inactive codes in the category
  . D FULL^VALM1
- . W !!,$C(7),"This Group contains problems with inactive ICD9 codes associated with them."
+ . W !!,$C(7),"This Group contains problems with inactive ICD codes associated with them."
  . W !,"The codes must be edited and corrected before the group can be saved."
  . N DIR,DUOUT,DTOUT,DIRUT
  . S DIR(0)="E" D ^DIR
@@ -78,7 +80,7 @@ SAVE ; Save changes to group/list
  .. S GMPLQT=1
  . I 'GMPLQT Q  ; all groups and problems OK
  . D FULL^VALM1
- . W !!,$C(7),"This Selection List contains problems with inactive ICD9 codes associated with"
+ . W !!,$C(7),"This Selection List contains problems with inactive ICD codes associated with"
  . W !,"them. The codes must be edited and corrected before the list can be saved."
  . N DIR,DUOUT,DTOUT,DIRUT
  . S DIR(0)="E" D ^DIR
@@ -159,7 +161,9 @@ VALGRP(GMPLCAT) ; check all problems in the category for inactive codes
  . N GMPLCOD,GMI
  . S GMPLCOD=$P(^GMPL(125.12,PROB,0),U,5)
  . Q:'$L(GMPLCOD)  ; no code there
- . F GMI=1:1:$L(GMPLCOD,"/") I '$$STATCHK^ICDAPIU($P(GMPLCOD,"/",GMI),DT) S GMPLVALC=0
+ . F GMI=1:1:$L(GMPLCOD,"/") D
+ . . N GMPLCPTR S GMPLCPTR=$P($$CODECS^ICDEX($P(GMPLCOD,"/",GMI),80,DT),U)
+ . . I '$$STATCHK^ICDXCODE(GMPLCPTR,$P(GMPLCOD,"/",GMI),DT) S GMPLVALC=0
  . Q
  Q GMPLVALC
  ;
@@ -190,7 +194,7 @@ ASSIGN ; allow lookup of PROB SEL LIST and assign to users
  Q:$D(DTOUT)!($D(DUOUT))
  Q:Y<0
  I '$$VALLIST(+Y) D  G ASSIGN
- . W !!,$C(7),"This Selection List contains problems with inactive ICD9 codes associated with"
+ . W !!,$C(7),"This Selection List contains problems with inactive ICD codes associated with"
  . W !,"them. The codes must be edited and corrected before the list can be assigned to",!,"users.",!!
  ;
  S GMPLSLST=+Y

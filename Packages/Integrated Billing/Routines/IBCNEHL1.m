@@ -1,5 +1,5 @@
 IBCNEHL1 ;DAOU/ALA - HL7 Process Incoming RPI Messages ;26-JUN-2002
- ;;2.0;INTEGRATED BILLING;**300,345,416,444,438,497**;21-MAR-94;Build 120
+ ;;2.0;INTEGRATED BILLING;**300,345,416,444,438,497,506**;21-MAR-94;Build 74
  ;;Per VHA Directive 2004-038, this routine should not be modified.
  ;
  ;**Program Description**
@@ -230,7 +230,10 @@ FIL ; Finish processing the response message - file into insurance buffer
  ; If an unknown error action or an error filing the response message,
  ; send a warning email message
  ; Note - A call to UEACT will always set ERFLAG=1
- I ",W,X,R,P,C,N,Y,S,"'[(","_$G(ERACT)_",")&($G(ERACT)'="")!$D(ERROR) D UEACT^IBCNEHL3
+ ;
+ ; IB*2.0*506 Removed the following line of code to Treat all AAA Action Codes
+ ; as though the Payer/FSC Responded.
+ ;I ",W,X,R,P,C,N,Y,S,"'[(","_$G(ERACT)_",")&($G(ERACT)'="")!$D(ERROR) D UEACT^IBCNEHL3
  ;
  ; If an error occurred, processing complete
  I $G(ERFLG)=1 Q
@@ -369,6 +372,18 @@ EBFILE(DFN,IEN312,RIEN,AFLG) ; file eligibility/benefit data from file 365 into 
  ; delete existing EB data
  S DIK="^DPT("_DFN_",.312,"_IEN312_",6,",DA(2)=DFN,DA(1)=IEN312
  S DA=0 F  S DA=$O(^DPT(DFN,.312,IEN312,6,DA)) Q:DA=""!(DA?1.A)  D ^DIK
+ ;
+ ; /IB*2.0*506 Beginning
+ ; File the new Requested Service Date field (file #2.312,8.01) from the file #365,1.1 field,
+ ; if the Service Date is not present, then use the Eligibility Date which would be from the file #365,1.11 field
+ ; ALSO, file the new Requested Service Type field (file #2.312,8.02) from the file #365.02,.04 field.
+ N DIE,DR,NODE0,RSRVDT,RSTYPE,TQIEN
+ S TQIEN=$P($G(^IBCN(365,RIEN,0)),U,5),NODE0=$G(^IBCN(365.1,TQIEN,0)),RSTYPE=$P(NODE0,U,20)
+ S RSRVDT=$P($G(^IBCN(365,RIEN,1)),U,10) I RSRVDT="" S RSRVDT=$P(NODE0,U,12)
+ S DIE="^DPT("_DFN_",.312,",DA(1)=DFN,DA=IEN312,DR="8.01///"_RSRVDT_";8.02///"_RSTYPE
+ D ^DIE
+ ; /IB*2.0*506 End
+ ;
  ; file new EB data
  S IENSTR=IEN312_","_DFN_","
  S GIEN=+$P($G(^DPT(DFN,.312,IEN312,0)),U,18)

@@ -1,5 +1,5 @@
-PXRMDUTL ; SLC/AGP - DIALOG UTILITIES. ;09/6/2012
- ;;2.0;CLINICAL REMINDERS;**24**;Feb 04, 2005;Build 193
+PXRMDUTL ; SLC/AGP - DIALOG UTILITIES. ;04/10/2013
+ ;;2.0;CLINICAL REMINDERS;**24,26**;Feb 04, 2005;Build 404
  Q
  ;
  ;==========================================
@@ -53,7 +53,7 @@ DMAKENAT(DA) ; sets the class field and renamed to the correct national format
  ;
  ;=============================================================
  ; Build an array of findings for dialog types
- ; Input a string of characters for the dailog type field.
+ ; Input a string of characters for the dialog type field.
  ;    example "EGS" = search element, groups, result groups
  ; Output an array by finding types, Finding IEN, Dialog IEN, "F" or "A"
  ;    example OUT("AUTTHF(",608,631,"F")=""
@@ -74,6 +74,19 @@ FARRAY(OUTPUT,TYPES) ;
  ...S AFIEN=$O(^PXRMD(801.41,DIEN,3,"B",AFIND,""))
  ...D SETGBL(.OUTPUT,DIEN,AFIND,"A",AFIEN)
  Q
+ ;
+RTAXNAME(NAME) ;
+ I '$D(^PXD(811.2,"B",NAME)) Q NAME
+ N CNT,FOUND,RESULT,TEMP
+ S TEMP=NAME,CNT=0
+ I $L(NAME)>64 S TEMP=$E(NAME,1,60)
+ S TEMP=TEMP_"*"
+ I '$D(^PXD(811.2,"B",TEMP)) Q TEMP
+ S FOUND=0
+ F  D  Q:FOUND=1
+ .S CNT=CNT+1
+ .I '$D(^PXD(811.2,"B",TEMP_CNT)) S RESULT=TEMP_CNT,FOUND=1
+ Q RESULT
  ;
 SETGBL(ARRAY,DIEN,VARP,LOC,IEN) ;
  N FIEN,GBL

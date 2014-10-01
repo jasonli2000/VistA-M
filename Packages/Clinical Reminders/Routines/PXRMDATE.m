@@ -1,5 +1,5 @@
-PXRMDATE ;SLC/PKR - Clinical Reminders date utilities. ;09/12/2012
- ;;2.0;CLINICAL REMINDERS;**4,6,12,17,18,24**;Feb 04, 2005;Build 193
+PXRMDATE ;SLC/PKR - Clinical Reminders date utilities. ;10/23/2013
+ ;;2.0;CLINICAL REMINDERS;**4,6,12,17,18,24,26**;Feb 04, 2005;Build 404
  ;
  ;==================================================
 CEFD(FDA) ;Called by the Exchange Utility only if the input packed
@@ -161,6 +161,7 @@ DURATION(START,STOP) ;Return the number days between the Start Date and
 EDATE(DATE) ;Check for an historical (event) date, format as appropriate,
  ;include time.
  I DATE=0 Q "00/00/0000"
+ I DATE=-1 Q "None"
  Q $$FMTE^XLFDT(DATE,"5Z")
  ;
  ;==================================================

@@ -1,6 +1,5 @@
-ICDGTDRG ;ALB/ADL - COLLECTION OF DRG APIS ;04/21/2014
- ;;18.0;DRG Grouper;**7,12,14,17,57**;Oct 20, 2000;Build 1
- ;
+ICDGTDRG ;ALB/ADL - COLLECTION OF DRG APIS ;07/19/2012
+ ;;18.0;DRG Grouper;**7,12,14,17,57,64**;Oct 20, 2000;Build 103
  ;   Collection of API's for accessing new "DRG" level
  ;   of files #80, #80.1, and #80.2.  These new levels
  ;   were added for the Code Set Versioning Project
@@ -20,7 +19,7 @@ ICDGTDRG ;ALB/ADL - COLLECTION OF DRG APIS ;04/21/2014
  ;    $$ISVALID^ICDEX     ICR  N/A
  ;               
  ; Local Variables NEWed or KILLed Elsewhere
- ;     ICDMDC
+ ;     EFFD,ICDMDC
  ;     
 GETDRG(CODE,DGNDT,FILE) ; Get DRG or DRG string associated with a Code
  ;
@@ -38,8 +37,7 @@ GETDRG(CODE,DGNDT,FILE) ; Get DRG or DRG string associated with a Code
  ;            Delimited by ";" because DRG's can be
  ;            multiple and are already delimited by "^"
  ;            
- ;  NOTE:  For ICD Procedures, it uses the additional 
- ;         variable ICDMDC for procedures
+ ;  NOTE:  For ICD Procedures, it uses the additional variable ICDMDC
  ;
  Q $$GETDRG^ICDEX($G(FILE),$G(CODE),$P($G(DGNDT),".",1),$G(ICDMDC))
 DRG(CODE,EDT)   ; Returns a string of information from the DRG file (#80.2)

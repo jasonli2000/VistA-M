@@ -1,5 +1,5 @@
 IBCNEHLM ;DAOU/ALA - HL7 Registration MFN Message ;10-JUN-2002
- ;;2.0;INTEGRATED BILLING;**184,251,300,416,438,497**;21-MAR-94;Build 120
+ ;;2.0;INTEGRATED BILLING;**184,251,300,416,438,497,506**;21-MAR-94;Build 74
  ;;Per VHA Directive 2004-038, this routine should not be modified.
  ;
  ;**Program Description**
@@ -26,6 +26,8 @@ IBCNEHLM ;DAOU/ALA - HL7 Registration MFN Message ;10-JUN-2002
  ;    IHLT = Interface HL7 Batch Start Time
  ;    IHLS = Interface HL7 Batch Stop Time
  ;    IVER = Interface Version
+ ;    TIMOUT = Timeout Days Site Parameter
+ ;    RETRY = Retry Flag Site Parameter
  ;
  N IBPERSIST
  S IBPERSIST="N" ; persistence flag - If "N", FSC will not use the statistics on the NTE segment
@@ -45,13 +47,13 @@ REG ;  Registration message for when a site installs
  NEW IHLT,CNTC,APP,EVENT,CODE,EDT,MFN,HL,HLFS,HLECH,MCT,HLPROD,HLX,ID
  NEW HLEID,IPP,IPA,IBCNEDAT,HLCS,HLINST,HLN,RESP,HLHDR,HLREP
  NEW HLTYPE,HLQ,HLRESLT,IHLS,HLCDOM,HLCINS,HLCSTCP,HLIP,%I,ZMID
- NEW VMFE,IVER
+ NEW VMFE,IVER,TIMOUT,RETRY         ; IB*2.0*506
  K ^TMP("HLS",$J) S MCT=0,QFL=0
  ;
  ;  Get data from IB Parameters File
  S TAXID=$TR($P($G(^IBE(350.9,1,1)),U,5),"-",""),CNTCPH="",CNTCEM="",CNTCNM=""
  S IBCNE=$G(^IBE(350.9,1,51))
- S FRSH=$P(IBCNE,U,1)
+ S FRSH=$P(IBCNE,U,1),TIMOUT=$P(IBCNE,U,5),RETRY=$P(IBCNE,U,26) ; IB*2.0*506
  S MGRP=$$MGRP^IBCNEUT5()
  S INACT=$E($$GET1^DIQ(350.9,"1,",51.08,"E"))
  S IHLP=$P(IBCNE,U,13),IHLT=$P(IBCNE,U,14),CNTC=$P(IBCNE,U,16)
@@ -114,6 +116,7 @@ HL ;  When a site installs, the enrollment should be an
  ; Set the NTE segment
  S DSTAT=$$GETSTAT^IBCNEDST()
  S VNTE="NTE"_HLFS_"1"_HLFS_HLFS_IBPERSIST_HLREP_$TR(DSTAT,U,HLREP)
+ S VNTE=VNTE_HLREP_RETRY_HLREP_TIMOUT          ;IB*2.0*506
  S ^TMP("HLS",$J,4)=VNTE
  ;
  D GENERATE^HLMA("IBCNE IIV REGISTER","GM",1,.HLRESLT,"")

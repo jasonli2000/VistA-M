@@ -1,20 +1,31 @@
-ORQQPL4 ; ISL/JER - Lexicon Look-up w/Synonyms ;12/19/12  13:53
- ;;3.0;ORDER ENTRY/RESULTS REPORTING;**306**;Dec 17, 1997;Build 43
+ORQQPL4 ; ISL/JER/TC - Lexicon Look-up w/Synonyms ;03/21/14  12:40
+ ;;3.0;ORDER ENTRY/RESULTS REPORTING;**306,361**;Dec 17, 1997;Build 39
  ;
  ; DBIA 2950   LOOK^LEXA          ^TMP("LEXFND",$J)
  ; DBIA 1609   CONFIG^LEXSET      ^TMP("LEXSCH",$J)
- ; DBIA 1365   DSELECT^GMPLENFM   ^TMP("IB",$J)
- ; DBIA 3991   $$STATCHK^ICDAPIU
+ ;  ICR 5699   $$ICDDATA^ICDXCODE
  ;
  Q
 LEX(LST,X,VIEW,ORDATE,ORINCSYN) ; return list after lexicon lookup
+ ; Call with: X           (Required) The search text entered by the user
+ ;            [VIEW]      (Optional) The Lexicon VIEW parameter (Defaults to
+ ;                                   Problem List Subset (i.e., "PLS")
+ ;            [ORDATE]    (Optional) the date of interest (Defaults to TODAY)
+ ;            [ORINCSYN]  (Optional) Boolean flag specifying whether or not to
+ ;                                   include synonyms for SNOMED CT Concepts
+ ;                                   (Defaults to 0 (FALSE))
+ ;
+ ;   Returns: LST=gvn of ^TMP("ORLEX",$J), which contains search result set as:
+ ;            ^TMP("ORLEX",$J,1..n)=LEXIEN^PREFTEXT^ICDCODE(S)^ICDIEN^CODESYS^CONCEPTID^DESIGID^ICDVER^PARENTSUBSCRIPT
+ ;            ^TMP("ORLEX",$J,n+1)="<n> matches found"
+ ;
  N LEX,ILST,I,IEN,APP
  S APP="GMPX",LST=$NA(^TMP("ORLEX",$J)) K @LST
  S:'+$G(ORDATE) ORDATE=DT
  S:'$L($G(VIEW)) VIEW="PLS"
  S ORINCSYN=+$G(ORINCSYN)
- I $S(X?.1A2.3N1".".2N:1,X?.1A2.3N1"+":1,1:0) D  Q
- . S @LST@(1)="icd^Searching by code on the Problems Tab supports SNOMED CT, and not ICD-9-CM."
+ I $S(X?.1A2.3N.1".".2N:1,X?.1A2.3N1"+":1,1:0) D  Q
+ . S @LST@(1)="icd^Searching by code on the Problems Tab supports SNOMED CT, but not ICD."
  . S @LST@(2)="Please try a different search"
  D CONFIG^LEXSET(APP,VIEW,ORDATE)
  ; call LOOK^LEXA to execute the search as defined by the call to CONFIG^LEXSET
@@ -56,12 +67,12 @@ SYNONYMS(LST,ILST,ORCSYS,ORCCODE,ORDT) ; Get synonyms for expression
  Q
 SETELEM(ORLEX,ORTXT,ORCODSYS,ORCCODE,ORDATE) ; Set List Element
  N ORY,ORDCODE,ORIMPDT,ORICD,ORICDID
- S ORIMPDT=$S($L($T(IMPDATE^LEXU)):$$IMPDATE^LEXU("10D"),1:0)
+ S ORIMPDT=$$IMPDATE^LEXU("10D")
  S ORDCODE=$$GETDES^LEXTRAN1("SCT",ORTXT,ORDATE)
  S ORDCODE=$S(+ORDCODE=1:$P(ORDCODE,U,2),1:"")
- S ORICD=$$GETDX^ORQQPL1(ORCCODE,ORCODSYS)
- S ORICDID=+$$CODEN^ICDCODE($P(ORICD,"/"),80)
+ S ORICD=$$GETDX^ORQQPL1(ORCCODE,ORCODSYS,ORDATE)
+ S ORICDID=+$$ICDDATA^ICDXCODE("DIAG",$P(ORICD,"/"),ORDATE,"E")
  S ORY=ORLEX_U_ORTXT_U_ORICD_U_ORICDID_U_ORCODSYS_U_ORCCODE_U_ORDCODE
  I (ORCODSYS["SNOMED")!(ORCODSYS["VHAT") D
- .S ORY=ORY_U_$S(ORIMPDT=0:"ICD-9-CM",ORDATE<ORIMPDT:"ICD-9-CM",1:"ICD-10-CM")
+ .S ORY=ORY_U_$S(ORDATE<ORIMPDT:"ICD-9-CM",1:"ICD-10-CM")
  Q ORY

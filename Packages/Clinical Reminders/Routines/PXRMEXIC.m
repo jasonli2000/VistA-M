@@ -1,5 +1,5 @@
-PXRMEXIC ;SLC/PKR/PJH - Routines to install repository entry components. ;09/07/2012
- ;;2.0;CLINICAL REMINDERS;**6,12,17,16,18,22,24**;Feb 04, 2005;Build 193
+PXRMEXIC ;SLC/PKR/PJH - Routines to install repository entry components. ;08/05/2013
+ ;;2.0;CLINICAL REMINDERS;**6,12,17,16,18,22,24,26**;Feb 04, 2005;Build 404
  ;=================================================
 FILE(PXRMRIEN,SITEIEN,IND120,JND120,ACTION,ATTR,NAMECHG) ;Read and process a
  ;file entry in repository entry PXRMRIEN. IND120 and JND120 are the
@@ -52,7 +52,7 @@ FILE(PXRMRIEN,SITEIEN,IND120,JND120,ACTION,ATTR,NAMECHG) ;Read and process a
  ..;open spot. For PCE entries install at source ien unless they
  ..;are national.
  .. I ACTION="I" D
- ... S IENUSED=+$$FIND1^DIC(FILENUM,"","Q","`"_SRCIEN)
+ ... S IENUSED=+$$FIND1^DIC(FILENUM,"","QU","`"_SRCIEN)
  ... S IENROOT(SRCIEN)=$S(IENUSED=0:SRCIEN,1:$$LOIEN^PXRMEXU5(FILENUM))
  ... I $$ISPCEFIL^PXRMEXU0(TOPFNUM) D
  .... I IENUSED=0 S IENROOT(SRCIEN)=SRCIEN
@@ -103,6 +103,9 @@ FILE(PXRMRIEN,SITEIEN,IND120,JND120,ACTION,ATTR,NAMECHG) ;Read and process a
  ;
  ;Special handling for file 810.9
  I TOPFNUM=810.9 D LOC^PXRMEXU0(.FDA)
+ ;
+ ;Special handling for file 811.2
+ I TOPFNUM=811.2 D TAX^PXRMEXU0(.FDA,"CFR")
  ;
  ;If the file number is 811.4 the user must have programmer
  ;access to install it.
@@ -177,12 +180,18 @@ FILE(PXRMRIEN,SITEIEN,IND120,JND120,ACTION,ATTR,NAMECHG) ;Read and process a
  . D AWRITE^PXRMUTIL("MSG")
  . W !
  . H 2
- S VERSN=$$GETTAGV^PXRMEXU3(^PXD(811.8,PXRMRIEN,100,3,0),"<PACKAGE_VERSION>")
+ ;
  I TOPFNUM=811.2 D
- .;Rebuild taxonomy expansions.
- . N IEN,PXRMEXCH
- . S IEN=+$O(^PXD(811.2,"B",ATTR("PT01"),""))
- . I IEN>0 D EXPAND^PXRMBXTL(IEN,"")
+ .;Finish conversion from pointer based structure to Lexicon based.
+ . N IEN,PDS
+ . S IEN=+$O(^PXD(811.2,"B",ATTR("NAME"),""))
+ . I IEN=0 Q
+ . D EXCH^PXRMTXCR(IEN,"CFR")
+ . S PDS=$P(^PXD(811.2,IEN,0),U,4)
+ . I PDS="" D SPDS^PXRMPDS(IEN,PDS)
+ . D TAX30^PXRMEXU0(IEN)
+ ;
+ S VERSN=$$GETTAGV^PXRMEXU3(^PXD(811.8,PXRMRIEN,100,3,0),"<PACKAGE_VERSION>")
  I TOPFNUM=811.9,VERSN=1.5 D
  . N IEN,PXRMEXCH,X
  . S IEN=+$O(^PXD(811.9,"B",ATTR("PT01"),""))

@@ -1,5 +1,5 @@
-GMPLUTL1 ; SLC/MKB/KER -- PL Utilities (cont) ;06/08/12  12:14
- ;;2.0;Problem List;**3,8,7,9,26,35,39,36**;Aug 25, 1994;Build 65
+GMPLUTL1 ; SLC/MKB/KER/TC -- PL Utilities (cont) ;01/15/14  11:13
+ ;;2.0;Problem List;**3,8,7,9,26,35,39,36,42**;Aug 25, 1994;Build 46
  ;
  ; External References
  ;   DBIA   446  ^AUTNPOV(
@@ -9,6 +9,7 @@ GMPLUTL1 ; SLC/MKB/KER -- PL Utilities (cont) ;06/08/12  12:14
  ;   DBIA 10060  ^VA(200
  ;   DBIA 10003  ^%DT
  ;   DBIA 10104  $$UP^XLFSTR
+ ;    ICR  5699  $$ICDDATA^ICDXCODE
  ;
  ; All entry points in this routine expect the
  ; PL("data item") array from routine ^GMPLUTL.
@@ -25,8 +26,9 @@ GMPLUTL1 ; SLC/MKB/KER -- PL Utilities (cont) ;06/08/12  12:14
  ;
  Q
 DIAGNOSI ; ICD Diagnosis Pointer
+ N GMPICDSY S GMPICDSY=$S($L($G(PL("CODESYS"))):PL("CODESYS"),1:"DIAG")
  S:'$L($G(PL("DIAGNOSIS"))) PL("DIAGNOSIS")=$$NOS^GMPLX
- Q:$P($$CODEC^ICDCODE(+PL("DIAGNOSIS"),$S($$PATCH^XPDUTL("ICD*18.0*57"):80,1:"")),U)'=-1
+ Q:$P($$ICDDATA^ICDXCODE(GMPICDSY,+PL("DIAGNOSIS"),PL("DX_DATE_OF_INTEREST"),"I"),U)>0
  S GMPQUIT=1,PLY(0)="Invalid ICD Diagnosis"
  Q
  ;
@@ -36,7 +38,7 @@ LEXICON ; Clinical Lexicon Pointer
  S GMPQUIT=1,PLY(0)="Invalid Lexicon term"
  Q
 DUPLICAT ; Problem Already on the List
- N DUPL
+ N DUPL,NODE0,NODE1
  Q:$P($G(^GMPL(125.99,1,0)),U,6)'=1
  S:'$L($G(PL("DIAGNOSIS"))) PL("DIAGNOSIS")=$$NOS^GMPLX
  I '$D(^AUPNPROB("B",+PL("DIAGNOSIS")))!('$D(^AUPNPROB("AC",GMPDFN))) Q
@@ -44,7 +46,7 @@ DUPLICAT ; Problem Already on the List
  . S (DUPL(1),DUPL(2))=0
  . S NODE0=$G(^AUPNPROB(IFN,0)),NODE1=$G(^(1)) Q:$P(NODE1,U,2)="H"
  . I +PL("DIAGNOSIS")=+NODE0 S DUPL(1)=IFN
- . S:PL("NARRATIVE")=$$UP^XLFSTR($P(^AUTNPOV($P(NODE0,U,5),0),U)) DUPL(2)=IFN
+ . S:$$UP^XLFSTR(PL("NARRATIVE"))=$$UP^XLFSTR($P(^AUTNPOV($P(NODE0,U,5),0),U)) DUPL(2)=IFN
  . I DUPL(1)>0&DUPL(2)>0 S GMPQUIT=1,PLY(0)="Duplicate problem"
  Q
  ;
@@ -166,7 +168,7 @@ LDATE(PRMPT,STATUS,DFLT) ; Get late date
  S Y=$$READ("DOA^::AET",GMPLPRMT,GMPLDFLT)
  Q Y
 STOP(PROMPT,SCROLL) ; Call DIR at bottom of screen
- N DIR,X,Y
+ N DIR,X,Y,DTOUT
  I $E(IOST)'="C" S Y="" G STOPX
  I +$G(SCROLL),(IOSL>($Y+5)) F  W ! Q:IOSL<($Y+6)
  S DIR(0)="FO^1:1",DIR("A")=$S($G(PROMPT)]"":PROMPT,1:"Press RETURN to continue or '^' to exit")

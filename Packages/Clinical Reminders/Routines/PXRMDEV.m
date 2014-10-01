@@ -1,5 +1,5 @@
-PXRMDEV ;SLC/PKR - This is a driver for testing Clinical Reminders. ;10/09/2012
- ;;2.0;CLINICAL REMINDERS;**4,6,11,16,18,24**;Feb 04, 2005;Build 193
+PXRMDEV ;SLC/PKR - This is a driver for testing Clinical Reminders. ;03/12/2013
+ ;;2.0;CLINICAL REMINDERS;**4,6,11,16,18,24,26**;Feb 04, 2005;Build 404
  ;
  ;==================================================
 CMOUT(PXRHM,NL,OUTPUT) ;Do formatted Clinical Maintenance output.
@@ -115,7 +115,8 @@ GREM2 D ^DIC
  ;
  ;==================================================
 DOREM(DFN,PXRMITEM,PXRHM,DATE) ;Do the reminder
- N BOP,DEFARR,FIEVAL,FINDING,IND,JND,NL,NOUT,OUTPUT,PNAME,PXRMDEBG,PXRMID
+ N BOP,DEFARR,FIEVAL,FINDING,IND,JND,NL,NOUT,OUTPUT,PNAME
+ N PXRMDEBG,PXRMDEFS,PXRMID
  N REF,TEXTOUT,TFIEVAL,TTEXT,X
  ;This is a debugging run so set PXRMDEBG.
  S NL=0,PXRMDEBG=1
@@ -147,14 +148,14 @@ DOREM(DFN,PXRMITEM,PXRHM,DATE) ;Do the reminder
  . S FFN=""
  . F  S FFN=$O(^TMP("PXRMFFSS",$J,FFN)) Q:FFN=""  D
  .. S NL=NL+1,OUTPUT(NL)=""
- .. S NL=NL+1,OUTPUT(NL)=" Function finding "_FFN
+ .. S NL=NL+1,OUTPUT(NL)=" Function finding "_FFN_"="_FIEVAL(FFN)
  .. D FORMATS^PXRMTEXT(1,79,$P(FIEVAL(FFN,"DETAIL"),U,2),.NOUT,.TEXTOUT)
  .. F JND=1:1:NOUT S NL=NL+1,OUTPUT(NL)=TEXTOUT(JND)
  .. S NL=NL+1,OUTPUT(NL)=" = "_^TMP("PXRMFFSS",$J,FFN,0)
- .. S NL=NL+1,OUTPUT(NL)="Step Result"
+ .. S NL=NL+1,OUTPUT(NL)="Step  Result"
  .. S STEP=0
  .. F  S STEP=$O(^TMP("PXRMFFSS",$J,FFN,STEP)) Q:STEP=""  D
- ... S NL=NL+1,OUTPUT(NL)=$$RJ^XLFSTR(STEP_".",4," ")_"     "_^TMP("PXRMFFSS",$J,FFN,STEP)
+ ... S NL=NL+1,OUTPUT(NL)=$$RJ^XLFSTR(STEP_".",4," ")_"  "_^TMP("PXRMFFSS",$J,FFN,STEP)
  . K ^TMP("PXRMFFSS",$J)
  I $G(PXRMTDEB) D
  . S NL=NL+1,OUTPUT(NL)="",NL=NL+1,OUTPUT(NL)=""
@@ -196,7 +197,7 @@ DOREM(DFN,PXRMITEM,PXRHM,DATE) ;Do the reminder
  I BOP="B" D
  . S X="IORESET"
  . D ENDR^%ZISS
- . D BROWSE^DDBR("OUTPUT","N","Reminder Test")
+ . D BROWSE^DDBR("OUTPUT","NR","Reminder Test")
  . W IORESET
  . D KILL^%ZISS
  I BOP="P" D GPRINT^PXRMUTIL("OUTPUT")

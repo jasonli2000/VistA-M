@@ -1,5 +1,5 @@
-PXRMEXPS ; SLC/PKR - Packing save routines. ;08/23/2012
- ;;2.0;CLINICAL REMINDERS;**12,16,18,22,24**;Feb 04, 2005;Build 193
+PXRMEXPS ; SLC/PKR - Packing save routines. ;10/24/2012
+ ;;2.0;CLINICAL REMINDERS;**12,16,18,22,24,26**;Feb 04, 2005;Build 404
  ;==========================================
 ADD(FILENUM,IEN,PACKLIST,NF) ;
  S NF=+$O(PACKLIST(FILENUM,"IEN"),-1)+1
@@ -134,11 +134,6 @@ SDIALOG(FILENUM,DIEN,PACKLIST) ;Reminder dialogs.
  I DIEN'>0 Q
  N IEN,IND,FI,FNUM,GBL,MHT,OI,OLIST,REG,ROUTINE,TEMP,TERM,TLIST
  D SGENR(FILENUM,DIEN,.PACKLIST)
- ;Get the source reminder.
- S IEN=$P(^PXRMD(801.41,DIEN,0),U,2)
- I IEN'="" D
- . S ROUTINE=$$GETSRTN(811.9)_"(811.9,IEN,.PACKLIST)"
- . D @ROUTINE
  ;Check for a finding item.
  S TEMP=$G(^PXRMD(801.41,DIEN,1))
  S FI=$P(TEMP,U,5)

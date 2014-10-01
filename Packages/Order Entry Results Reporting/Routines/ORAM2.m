@@ -1,7 +1,14 @@
-ORAM2 ;POR/RSF - ANTICOAGULATION MANAGEMENT RPCS (3 of 4) ; 6/21/12 7:48am
- ;;3.0;ORDER ENTRY/RESULTS REPORTING;**307,339,354**;Dec 17, 1997;Build 12
+ORAM2 ;POR/RSF - ANTICOAGULATION MANAGEMENT RPCS (3 of 4) ;02/11/13  08:15
+ ;;3.0;ORDER ENTRY/RESULTS REPORTING;**307,339,354,361**;Dec 17, 1997;Build 39
  ;;Per VHA Directive 2004-038, this routine should not be modified
  Q
+ ;
+ ;  External References:
+ ;  $$GET1^DIQ                             ICR #2056
+ ;  $$SETSTR^VALM1                         ICR #10116
+ ;  $$FMADD/$$FMDIFF/$$FMTE/$$NOW^XLFDT    ICR #10103
+ ;  $$TITLE/$$UP^XLFSTR                    ICR #10104
+ ;  $$GET^XPAR                             ICR #2263
  ;
 ALLGOAL(RESULT,DAYS,CLINIC) ; last inr for all pts seen in last x days
  ;;RPC = ORAM2 ALLGOAL
@@ -134,8 +141,8 @@ RPT(ROOT,DFN,ID,ALPHA,OMEGA,DTRANGE,REMOTE,MAX,ORFHIE) ;
  . N ICDC
  . S ICDC=$$GET^XPAR(ORAMCLIN_";SC(","ORAM AUTO PRIMARY INDICATION",1,"E")
  . I ICDC]"" D
- . . N ICDD,ICDDL,ICDDESC
- . . S ICDDL=$$ICDD^ICDCODE(ICDC,"ICDDESC",DT)
+ . . N ICDD,ICDDESC
+ . . D ICDDESC^ICDXCODE("DIAGNOSIS",ICDC,DT,.ICDDESC)
  . . S ORAMPIND=ICDC_U_$$TITLE^XLFSTR($G(ICDDESC(1)))_" ("_ICDC_")"
  I ORAMPIND]"" D
  . W !!,"Primary Indication: ",$P(ORAMPIND,U,2)

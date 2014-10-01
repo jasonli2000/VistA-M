@@ -1,5 +1,11 @@
-ORQQPL2 ; ALB/PDR/REV - RPCs FOR CPRS GUI IMPLEMENTATION ;02/07/13  08:43
- ;;3.0;ORDER ENTRY/RESULTS REPORTING;**10,306**;Dec 17, 1997;Build 43
+ORQQPL2 ; ALB/PDR/REV/TC - RPCs FOR CPRS GUI IMPLEMENTATION ;03/08/13  08:25
+ ;;3.0;ORDER ENTRY/RESULTS REPORTING;**10,306,361**;Dec 17, 1997;Build 39
+ ;
+ ;  External References:
+ ;  $$SITE^VASITE                   ICR #10112
+ ;  $$FMTE/$$HTFM/$$NOW^XLFDT       ICR #10103
+ ;  $$GET^XPAR                      ICR #2263
+ ;  $$NAME^XUSER                    ICR #2343
  ;
  ; -------------- GET HISTORY FOR DETAIL DISPLAY ----------------------
  ;
@@ -14,6 +20,8 @@ HIST(RETURN,GMPIFN) ; GET AUDIT HISTORY
  F  S IDT=$O(^GMPL(125.8,"AD",GMPIFN,IDT)) Q:IDT'>0  D
  . S AIFN=""
  . F  S AIFN=$O(^GMPL(125.8,"AD",GMPIFN,IDT,AIFN)) Q:AIFN'>0  D
+ .. N FLD,GMPL0 S GMPL0=^GMPL(125.8,AIFN,0),FLD=$P(GMPL0,U,2)
+ .. Q:(FLD=80201)!(FLD=80202)!(FLD=80002)
  .. D DT^GMPLHIST
  ;         Transfer data and clean up for return to GUI
  S S="",I=0,TXT=""
@@ -25,7 +33,7 @@ HIST(RETURN,GMPIFN) ; GET AUDIT HISTORY
  .. S TXT=$$STRIP($P(L,": ",2,999)) ; start new text string
  . S TXT=TXT_" "_$$STRIP(L)  ; line does not begin with date, so add to existing text line
  I '$D(RETURN(0)) S RETURN(0)=I
- D FLUSH(.RETURN,.I,$G(ORDT),TXT)
+ D FLUSH(.RETURN,.I,$G(ORDT),$G(TXT))
  Q
  ;
 FLUSH(RETURN,I,ORDT,TXT) ; FLUSH FORMATTED AUDIT STRING

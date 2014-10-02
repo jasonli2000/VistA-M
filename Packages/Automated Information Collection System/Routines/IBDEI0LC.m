@@ -1,62 +1,138 @@
-IBDEI0LC ; ; 13-FEB-2014
- ;;3.0;IB ENCOUNTER FORM IMP/EXP;;FEB 13, 2014
- Q:'DIFQ(358.5)  F I=1:2 S X=$T(Q+I) Q:X=""  S Y=$E($T(Q+I+1),4,999),X=$E(X,4,999) S:$A(Y)=126 I=I+1,Y=$E(Y,2,999)_$E($T(Q+I+1),5,99) S:$A(Y)=61 Y=$E(Y,2,999) X NO E  S @X=Y
+IBDEI0LC ; ; 12-AUG-2014
+ ;;3.0;IB ENCOUNTER FORM IMP/EXP;;MAY 15, 2014
+ Q:'DIFQR(358.3)  F I=1:2 S X=$T(Q+I) Q:X=""  S Y=$E($T(Q+I+1),4,999),X=$E(X,4,999) S:$A(Y)=126 I=I+1,Y=$E(Y,2,999)_$E($T(Q+I+1),5,99) S:$A(Y)=61 Y=$E(Y,2,999) X NO E  S @X=Y
 Q Q
- ;;^DIC(358.5,0,"GL")
- ;;=^IBE(358.5,
- ;;^DIC("B","IMP/EXP DATA FIELD",358.5)
- ;;=
- ;;^DIC(358.5,"%D",0)
- ;;=^^1^1^2940829^^^^
- ;;^DIC(358.5,"%D",1,0)
- ;;=Used by the import/export utility as a workspace.
- ;;^DIC(358.5,"%D",2,0)
- ;;= 
- ;;^DIC(358.5,"%D",3,0)
- ;;= 
- ;;^DIC(358.5,"%D",4,0)
- ;;=This file is nearly identical to file #357.5. It is used by the
- ;;^DIC(358.5,"%D",5,0)
- ;;=Import/Export Utility as a temporary staging area for data from that file
- ;;^DIC(358.5,"%D",6,0)
- ;;=that is being imported or exported.
- ;;^DD(358.5,0)
- ;;=FIELD^^2^13
- ;;^DD(358.5,0,"DDA")
- ;;=N
- ;;^DD(358.5,0,"DT")
- ;;=2930730
- ;;^DD(358.5,0,"ID",.02)
- ;;=W ""
- ;;^DD(358.5,0,"ID",.03)
- ;;=W ""
- ;;^DD(358.5,0,"IX","B",358.5,.01)
- ;;=
- ;;^DD(358.5,0,"IX","C",358.5,.02)
- ;;=
- ;;^DD(358.5,0,"NM","IMP/EXP DATA FIELD")
- ;;=
- ;;^DD(358.5,0,"VRPK")
- ;;=IBD
- ;;^DD(358.5,.01,0)
- ;;=NAME^RF^^0;1^K:$L(X)>30!($L(X)<3)!'(X'?1P.E) X
- ;;^DD(358.5,.01,1,0)
- ;;=^.1
- ;;^DD(358.5,.01,1,1,0)
- ;;=358.5^B
- ;;^DD(358.5,.01,1,1,1)
- ;;=S ^IBE(358.5,"B",$E(X,1,30),DA)=""
- ;;^DD(358.5,.01,1,1,2)
- ;;=K ^IBE(358.5,"B",$E(X,1,30),DA)
- ;;^DD(358.5,.01,3)
- ;;=Answer must be 3-30 characters in length.
- ;;^DD(358.5,.01,21,0)
- ;;=^^3^3^2930419^^^
- ;;^DD(358.5,.01,21,1,0)
- ;;= 
- ;;^DD(358.5,.01,21,2,0)
- ;;=The name is used to identify the field within a block. It can be anything
- ;;^DD(358.5,.01,21,3,0)
- ;;=the designer of a form wants it to be.
- ;;^DD(358.5,.01,"DT")
- ;;=2930419
+ ;;^UTILITY(U,$J,358.3,10460,1,5,0)
+ ;;=5^Hallucinations
+ ;;^UTILITY(U,$J,358.3,10460,2)
+ ;;=Hallucinations^53738
+ ;;^UTILITY(U,$J,358.3,10461,0)
+ ;;=780.8^^67^678^87
+ ;;^UTILITY(U,$J,358.3,10461,1,0)
+ ;;=^358.31IA^5^2
+ ;;^UTILITY(U,$J,358.3,10461,1,4,0)
+ ;;=4^780.8
+ ;;^UTILITY(U,$J,358.3,10461,1,5,0)
+ ;;=5^Hyperhidrosis
+ ;;^UTILITY(U,$J,358.3,10461,2)
+ ;;=Hyperhidrosis^60030
+ ;;^UTILITY(U,$J,358.3,10462,0)
+ ;;=307.41^^67^678^99
+ ;;^UTILITY(U,$J,358.3,10462,1,0)
+ ;;=^358.31IA^5^2
+ ;;^UTILITY(U,$J,358.3,10462,1,4,0)
+ ;;=4^307.41
+ ;;^UTILITY(U,$J,358.3,10462,1,5,0)
+ ;;=5^Insomnia, Nonorganic, Transient
+ ;;^UTILITY(U,$J,358.3,10462,2)
+ ;;=^268285
+ ;;^UTILITY(U,$J,358.3,10463,0)
+ ;;=780.52^^67^678^100
+ ;;^UTILITY(U,$J,358.3,10463,1,0)
+ ;;=^358.31IA^5^2
+ ;;^UTILITY(U,$J,358.3,10463,1,4,0)
+ ;;=4^780.52
+ ;;^UTILITY(U,$J,358.3,10463,1,5,0)
+ ;;=5^Insomnia, Organic
+ ;;^UTILITY(U,$J,358.3,10463,2)
+ ;;=Insomnia, Organic^87662
+ ;;^UTILITY(U,$J,358.3,10464,0)
+ ;;=302.71^^67^678^103
+ ;;^UTILITY(U,$J,358.3,10464,1,0)
+ ;;=^358.31IA^5^2
+ ;;^UTILITY(U,$J,358.3,10464,1,4,0)
+ ;;=4^302.71
+ ;;^UTILITY(U,$J,358.3,10464,1,5,0)
+ ;;=5^Loss of Libido
+ ;;^UTILITY(U,$J,358.3,10464,2)
+ ;;=^268178
+ ;;^UTILITY(U,$J,358.3,10465,0)
+ ;;=785.6^^67^678^106
+ ;;^UTILITY(U,$J,358.3,10465,1,0)
+ ;;=^358.31IA^5^2
+ ;;^UTILITY(U,$J,358.3,10465,1,4,0)
+ ;;=4^785.6
+ ;;^UTILITY(U,$J,358.3,10465,1,5,0)
+ ;;=5^Lymphadenopathy
+ ;;^UTILITY(U,$J,358.3,10465,2)
+ ;;=Lymphadenopathy^72368
+ ;;^UTILITY(U,$J,358.3,10466,0)
+ ;;=728.85^^67^678^112
+ ;;^UTILITY(U,$J,358.3,10466,1,0)
+ ;;=^358.31IA^5^2
+ ;;^UTILITY(U,$J,358.3,10466,1,4,0)
+ ;;=4^728.85
+ ;;^UTILITY(U,$J,358.3,10466,1,5,0)
+ ;;=5^Muscle Spasm
+ ;;^UTILITY(U,$J,358.3,10466,2)
+ ;;=Muscle Spasm^112558
+ ;;^UTILITY(U,$J,358.3,10467,0)
+ ;;=782.0^^67^678^51
+ ;;^UTILITY(U,$J,358.3,10467,1,0)
+ ;;=^358.31IA^5^2
+ ;;^UTILITY(U,$J,358.3,10467,1,4,0)
+ ;;=4^782.0
+ ;;^UTILITY(U,$J,358.3,10467,1,5,0)
+ ;;=5^Disturbance of Skin Sensation
+ ;;^UTILITY(U,$J,358.3,10467,2)
+ ;;=Disturbance of Skin Sensation^35757
+ ;;^UTILITY(U,$J,358.3,10468,0)
+ ;;=278.00^^67^678^117
+ ;;^UTILITY(U,$J,358.3,10468,1,0)
+ ;;=^358.31IA^5^2
+ ;;^UTILITY(U,$J,358.3,10468,1,4,0)
+ ;;=4^278.00
+ ;;^UTILITY(U,$J,358.3,10468,1,5,0)
+ ;;=5^Obesity
+ ;;^UTILITY(U,$J,358.3,10468,2)
+ ;;=Obesity^84823
+ ;;^UTILITY(U,$J,358.3,10469,0)
+ ;;=278.01^^67^678^118
+ ;;^UTILITY(U,$J,358.3,10469,1,0)
+ ;;=^358.31IA^5^2
+ ;;^UTILITY(U,$J,358.3,10469,1,4,0)
+ ;;=4^278.01
+ ;;^UTILITY(U,$J,358.3,10469,1,5,0)
+ ;;=5^Obesity, Morbid
+ ;;^UTILITY(U,$J,358.3,10469,2)
+ ;;=Obesity, Morbid^84844
+ ;;^UTILITY(U,$J,358.3,10470,0)
+ ;;=783.5^^67^678^127
+ ;;^UTILITY(U,$J,358.3,10470,1,0)
+ ;;=^358.31IA^5^2
+ ;;^UTILITY(U,$J,358.3,10470,1,4,0)
+ ;;=4^783.5
+ ;;^UTILITY(U,$J,358.3,10470,1,5,0)
+ ;;=5^Polydipsia
+ ;;^UTILITY(U,$J,358.3,10470,2)
+ ;;=Polydipsia^186699
+ ;;^UTILITY(U,$J,358.3,10471,0)
+ ;;=783.6^^67^678^128
+ ;;^UTILITY(U,$J,358.3,10471,1,0)
+ ;;=^358.31IA^5^2
+ ;;^UTILITY(U,$J,358.3,10471,1,4,0)
+ ;;=4^783.6
+ ;;^UTILITY(U,$J,358.3,10471,1,5,0)
+ ;;=5^Polyphagia
+ ;;^UTILITY(U,$J,358.3,10471,2)
+ ;;=Polyphagia^60236
+ ;;^UTILITY(U,$J,358.3,10472,0)
+ ;;=780.2^^67^678^144
+ ;;^UTILITY(U,$J,358.3,10472,1,0)
+ ;;=^358.31IA^5^2
+ ;;^UTILITY(U,$J,358.3,10472,1,4,0)
+ ;;=4^780.2
+ ;;^UTILITY(U,$J,358.3,10472,1,5,0)
+ ;;=5^Syncope and Collapse
+ ;;^UTILITY(U,$J,358.3,10472,2)
+ ;;=^116707
+ ;;^UTILITY(U,$J,358.3,10473,0)
+ ;;=783.1^^67^678^156
+ ;;^UTILITY(U,$J,358.3,10473,1,0)
+ ;;=^358.31IA^5^2
+ ;;^UTILITY(U,$J,358.3,10473,1,4,0)
+ ;;=4^783.1
+ ;;^UTILITY(U,$J,358.3,10473,1,5,0)
+ ;;=5^Weight gain, abnormal
+ ;;^UTILITY(U,$J,358.3,10473,2)
+ ;;=^998

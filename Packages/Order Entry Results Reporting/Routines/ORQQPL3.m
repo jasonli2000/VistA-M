@@ -1,5 +1,5 @@
-ORQQPL3 ; ALB/PDR,REV,ISL/JER/TC - Problem List RPCs ;12/04/12  10:06
- ;;3.0;ORDER ENTRY/RESULTS REPORTING;**10,148,173,243,280,306,361**;Dec 17, 1997;Build 39
+ORQQPL3 ; ALB/PDR,REV,ISL/JER/TC - Problem List RPCs ;04/15/14  10:29
+ ;;3.0;ORDER ENTRY/RESULTS REPORTING;**10,148,173,243,280,306,361,385**;Dec 17, 1997;Build 12
  ;
  ;  External References:
  ;  $$ICDDESC^GMPLUTL2                 ICR #2741
@@ -10,17 +10,18 @@ ORQQPL3 ; ALB/PDR,REV,ISL/JER/TC - Problem List RPCs ;12/04/12  10:06
  ;
  ;---------------- LIST PATIENT PROBLEMS ------------------------
  ;
-PROBL(ROOT,DFN,CONTEXT) ;  GET LIST OF PATIENT PROBLEMS
+PROBL(ROOT,DFN,CONTEXT,ORIDT) ;  GET LIST OF PATIENT PROBLEMS
  N DIWL,DIWR,DIWF
  N ST,ORI,ORX
+ S ORIDT=$G(ORIDT,DT)
  S (LCNT,NUM)=0
  S DIWL=1,DIWR=48,DIWF="C48"
  S CONTEXT=";;"_$G(CONTEXT)
  I CONTEXT=";;" S CONTEXT=";;A"
  S ST=$P(CONTEXT,";",3)
  ;
- I ST="R" D DELLIST(.ROOT,+DFN) ; show deleted only
- I ST'="R"  D LIST(.ROOT,+DFN,ST) ; show others - don't trust ELSE here
+ I ST="R" D DELLIST(.ROOT,+DFN,ORIDT) ; show deleted only
+ I ST'="R"  D LIST(.ROOT,+DFN,ST,ORIDT) ; show others - don't trust ELSE here
  ;
  I ROOT(0)<1 D
  . S LCNT=1
@@ -28,7 +29,7 @@ PROBL(ROOT,DFN,CONTEXT) ;  GET LIST OF PATIENT PROBLEMS
  Q
  ;
  ;
-LIST(GMPL,GMPDFN,GMPSTAT) ; -- Returns list of problems for patient GMPDFN
+LIST(GMPL,GMPDFN,GMPSTAT,ORIDT) ; -- Returns list of problems for patient GMPDFN
  ;    in GMPL(#)=ifn^status^description^ICD^onset^last modified^SC^SpExp^Condition^Loc^
  ;                          loc.type^prov^service^priority^has comment^date recorded^SC condition(s)^
  ;               inactive flag^ICD long description^ICD coding system
@@ -36,8 +37,11 @@ LIST(GMPL,GMPDFN,GMPSTAT) ; -- Returns list of problems for patient GMPDFN
  ; This is virtually same as LIST^GMPLUTL2 except that it appends the
  ; condition - T)ranscribed or P)ermanent,location,loc type,provider, service.
  ;
- N CNT,SP,NUM,ORLIST,ORVIEW,GMPARAM
+ N CNT,SP,NUM,ORLIST,ORVIEW,GMPARAM,IMPLDT
  Q:$G(GMPDFN)'>0
+ S IMPLDT=$$IMPDATE^LEXU("10D")
+ S ORIDT=$G(ORIDT,DT)
+ S:ORIDT=0 ORIDT=DT
  S CNT=0,SP=""
  S GMPARAM("QUIET")=1
  S GMPARAM("REV")=$P($G(^GMPL(125.99,1,0)),U,5)="R"
@@ -62,12 +66,12 @@ LIST(GMPL,GMPDFN,GMPSTAT) ; -- Returns list of problems for patient GMPDFN
  . S ORDTINT=$S(+$P(GMPL802,U,1):$P(GMPL802,U,1),1:$P(GMPL0,U,8))
  . S ORPLCSYS=$S($P(GMPL802,U,2)]"":$P(GMPL802,U,2),1:$$SAB^ICDEX($$CSI^ICDEX(80,+GMPL0),ORDTINT))
  . S ICD=$P($$ICDDATA^ICDXCODE(ORPLCSYS,+GMPL0,ORDTINT,"I"),U,2)
- . I '+$$STATCHK^ICDXCODE($$CSI^ICDEX(80,+GMPL0),ICD,DT) S INACT="#" I 1
- . I +$G(SCT),(+$$STATCHK^LEXSRC2(SCT,DT,.LEX)'=1) S INACT="$"
+ . I (ORIDT<IMPLDT),(+$$STATCHK^ICDXCODE($$CSI^ICDEX(80,+GMPL0),ICD,ORIDT)'=1) S INACT="#"
+ . I +$G(SCT),(+$$STATCHK^LEXSRC2(SCT,ORIDT,.LEX)'=1) S INACT="$"
  . I $D(^AUPNPROB(IFN,803)) D
  . . N I S I=0
  . . F  S I=$O(^AUPNPROB(IFN,803,I)) Q:+I'>0  S $P(ICD,"/",(I+1))=$P($G(^AUPNPROB(IFN,803,I,0)),U)
- . I +SCT'>0,(+ICD>0) S ICDD=$$ICDDESC^GMPLUTL2(ICD,DT,ORPLCSYS)
+ . I +SCT'>0,(+ICD>0) S ICDD=$$ICDDESC^GMPLUTL2(ICD,ORIDT,ORPLCSYS)
  . S LASTMOD=$P(GMPL0,U,3)
  . S ST=$P(GMPL0,U,12)
  . S ONSET=$P(GMPL0,U,13)
@@ -102,9 +106,12 @@ LIST(GMPL,GMPDFN,GMPSTAT) ; -- Returns list of problems for patient GMPDFN
  ;
  ;------------------------ GET LIST OF DELETED PROBLEMS -----------------------------
  ;
-DELLIST(RETURN,GMPDFN) ; GET LIST OF DELETED PROBLEMS
+DELLIST(RETURN,GMPDFN,ORIDT) ; GET LIST OF DELETED PROBLEMS
  ; see GETPLIST^GMPLMGR1 and LIST^GMPUTL2
- N S,I
+ N S,I,IMPLDT
+ S IMPLDT=$$IMPDATE^LEXU("10D")
+ S ORIDT=$G(ORIDT,DT)
+ S:ORIDT=0 ORIDT=DT
  S I=0,S=""
  F  S S=$O(^AUPNPROB("ACTIVE",GMPDFN,S)) Q:S=""  D
  . N IFN,L0,L1,L800,L802,SCT,ST,TXT,ICD,ONSET,MOD,SC,SP,LOC,LT,PROV,SERV,PRIO,HASCMT,DTREC
@@ -123,8 +130,8 @@ DELLIST(RETURN,GMPDFN) ; GET LIST OF DELETED PROBLEMS
  ... S ORDTINT=$S(+$P(L802,U,1):$P(L802,U,1),1:$P(L0,U,8))
  ... S ORPLCSYS=$S($P(L802,U,2)]"":$P(L802,U,2),1:$$SAB^ICDEX($$CSI^ICDEX(80,+L0),ORDTINT))
  ... S ICD=$P($$ICDDATA^ICDXCODE(ORPLCSYS,+L0,ORDTINT,"I"),U,2)
- ... I '+$$STATCHK^ICDXCODE($$CSI^ICDEX(80,+L0),ICD,DT) S INACT="#"
- ... I +SCT'>0,(+ICD>0) S ICDD=$$ICDDESC^GMPLUTL2(ICD,DT,ORPLCSYS)
+ ... I (ORIDT<IMPLDT),(+$$STATCHK^ICDXCODE($$CSI^ICDEX(80,+L0),ICD,ORIDT)'=1) S INACT="#"
+ ... I +SCT'>0,(+ICD>0) S ICDD=$$ICDDESC^GMPLUTL2(ICD,ORIDT,ORPLCSYS)
  ... S ONSET=$P(L0,U,13)
  ... S MOD=$P(L0,U,3)
  ... S SC=$S(+$P(L1,U,10):"SC",$P(L1,U,10)=0:"NSC",1:"")
@@ -202,7 +209,7 @@ PROB(TMP,GROUP) ; Get user problem list for given group
  ; iterate through problems in category
  S (PSEQ,PCNT)=0
  F  S PSEQ=$O(^GMPL(125.12,"C",GROUP,PSEQ)) Q:PSEQ'>0  D
- . N ORI,ORQUIT S ORQUIT=0
+ . N ORI,ORK,ORQUIT S ORQUIT=0
  . S IFN=$O(^GMPL(125.12,"C",GROUP,PSEQ,0)) Q:IFN'>0
  . S ITEM=$G(^GMPL(125.12,IFN,0))
  . S TEXT=$P(ITEM,U,4)
@@ -210,13 +217,20 @@ PROB(TMP,GROUP) ; Get user problem list for given group
  . ; "...code which is to be displayed... generally assumed to be ICD"
  . S CODE=$P(ITEM,U,5)
  . ; if any codes inactive, exclude from list
- . S ORPLCPTR=$S($L(CODE):+$$CODECS^ICDEX($P(CODE,U),80,DT),1:""),ORPLCSYS=$S($L(CODE):$$SAB^ICDEX(ORPLCPTR,DT),1:"ICD")
- . F ORI=1:1:$L(CODE,"/") I '+$$STATCHK^ICDXCODE(ORPLCPTR,$P(CODE,"/",ORI),DT) S ORQUIT=1 Q
+ . I $L(CODE)&(CODE["/") D
+ . . F ORK=1:1:$L(CODE,"/") Q:+ORQUIT  D
+ . . . S ORPLCPTR=+$$CODECS^ICDEX($P(CODE,"/",ORK),80,DT),ORPLCSYS=$$SAB^ICDEX(ORPLCPTR,DT)
+ . . . I '+$$STATCHK^ICDXCODE(ORPLCPTR,$P(CODE,"/",ORK),DT) S ORQUIT=1 Q
+ . . Q
+ . E  D
+ . . S ORPLCPTR=$S($L(CODE):+$$CODECS^ICDEX(CODE,80,DT),1:""),ORPLCSYS=$S($L(CODE):$$SAB^ICDEX(ORPLCPTR,DT),1:"ICD")
+ . . I '+$$STATCHK^ICDXCODE(ORPLCPTR,CODE,DT) S ORQUIT=1 Q
+ . . Q
  . I +ORQUIT Q
  . S PCNT=PCNT+1
  . ; RETURN:
- . ; PROBLEM^DISPLAY TEXT^CODE^CODE IFN
- . S @TG@(PCNT)=$P(ITEM,U,3,4)_U_"("_$P($$CODECS^ICDEX(CODE,80,DT),U,2)_" "_$G(CODE)_")"_U_+$$ICDDATA^ICDXCODE(ORPLCSYS,$P(CODE,"/"),DT,"E")_U_$P(ITEM,U,6,7)
+ . ; PROBLEM^DISPLAY TEXT^ICD CODE^ICD CODE IFN^^SNOMED CT CONCEPT CODE^SNOMED CT DESIGNATION CODE
+ . S @TG@(PCNT)=$P(ITEM,U,3,4)_U_"("_$P($$CODECS^ICDEX($P(CODE,"/"),80,DT),U,2)_" "_$G(CODE)_")"_U_+$$ICDDATA^ICDXCODE(ORPLCSYS,$P(CODE,"/"),DT,"E")_U_U_$P(ITEM,U,6,7)
  Q
  ;
  ;------------------ Filter Providers ---------------------

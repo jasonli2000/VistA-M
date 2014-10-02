@@ -1,58 +1,144 @@
-IBDEI0H4 ; ; 09-MAY-2014
- ;;3.0;IB ENCOUNTER FORM IMP/EXP;;MAY 09, 2014
- Q:'DIFQ(358.7)  F I=1:2 S X=$T(Q+I) Q:X=""  S Y=$E($T(Q+I+1),4,999),X=$E(X,4,999) S:$A(Y)=126 I=I+1,Y=$E(Y,2,999)_$E($T(Q+I+1),5,99) S:$A(Y)=61 Y=$E(Y,2,999) X NO E  S @X=Y
+IBDEI0H4 ; ; 12-AUG-2014
+ ;;3.0;IB ENCOUNTER FORM IMP/EXP;;MAY 15, 2014
+ Q:'DIFQR(358.3)  F I=1:2 S X=$T(Q+I) Q:X=""  S Y=$E($T(Q+I+1),4,999),X=$E(X,4,999) S:$A(Y)=126 I=I+1,Y=$E(Y,2,999)_$E($T(Q+I+1),5,99) S:$A(Y)=61 Y=$E(Y,2,999) X NO E  S @X=Y
 Q Q
- ;;^DIC(358.7,0,"GL")
- ;;=^IBE(358.7,
- ;;^DIC("B","IMP/EXP FORM LINE",358.7)
- ;;=
- ;;^DIC(358.7,"%D",0)
- ;;=^^3^3^2940217^
- ;;^DIC(358.7,"%D",1,0)
- ;;=This file is nearly identical to file #357.7. It is used by the
- ;;^DIC(358.7,"%D",2,0)
- ;;=Import/Export Utility as a temporary staging area for data from that file
- ;;^DIC(358.7,"%D",3,0)
- ;;=that is being imported or exported.
- ;;^DD(358.7,0)
- ;;=FIELD^^.08^8
- ;;^DD(358.7,0,"DDA")
- ;;=N
- ;;^DD(358.7,0,"DT")
- ;;=2950717
- ;;^DD(358.7,0,"ID",.02)
- ;;=W " STARTING COL=",$P(^(0),U,2)+1
- ;;^DD(358.7,0,"ID",.03)
- ;;=W " STARTING ROW=",$P(^(0),U,3)+1
- ;;^DD(358.7,0,"ID",.06)
- ;;=W ""
- ;;^DD(358.7,0,"IX","B",358.7,.01)
- ;;=
- ;;^DD(358.7,0,"IX","C",358.7,.06)
- ;;=
- ;;^DD(358.7,0,"NM","IMP/EXP FORM LINE")
- ;;=
- ;;^DD(358.7,0,"VRPK")
- ;;=IBD
- ;;^DD(358.7,.01,0)
- ;;=NAME^RF^^0;1^K:$L(X)>30!(X?.N)!($L(X)<3)!'(X'?1P.E) X
- ;;^DD(358.7,.01,1,0)
- ;;=^.1
- ;;^DD(358.7,.01,1,1,0)
- ;;=358.7^B
- ;;^DD(358.7,.01,1,1,1)
- ;;=S ^IBE(358.7,"B",$E(X,1,30),DA)=""
- ;;^DD(358.7,.01,1,1,2)
- ;;=K ^IBE(358.7,"B",$E(X,1,30),DA)
- ;;^DD(358.7,.01,3)
- ;;=NAME MUST BE 3-30 CHARACTERS, NOT NUMERIC OR STARTING WITH PUNCTUATION
- ;;^DD(358.7,.01,21,0)
- ;;=^^4^4^2930527^
- ;;^DD(358.7,.01,21,1,0)
- ;;= 
- ;;^DD(358.7,.01,21,2,0)
- ;;=The name given to the line. Lines should be given names that will allow
- ;;^DD(358.7,.01,21,3,0)
- ;;=them to be identifies, such as V(1,1), meaning a vertical line starting at
- ;;^DD(358.7,.01,21,4,0)
- ;;=coordinates (1,1).
+ ;;^UTILITY(U,$J,358.3,8314,0)
+ ;;=368.01^^58^608^7
+ ;;^UTILITY(U,$J,358.3,8314,1,0)
+ ;;=^358.31IA^4^2
+ ;;^UTILITY(U,$J,358.3,8314,1,3,0)
+ ;;=3^Amblyopia,Strabismic
+ ;;^UTILITY(U,$J,358.3,8314,1,4,0)
+ ;;=4^368.01
+ ;;^UTILITY(U,$J,358.3,8314,2)
+ ;;=^265358
+ ;;^UTILITY(U,$J,358.3,8315,0)
+ ;;=368.12^^58^608^123
+ ;;^UTILITY(U,$J,358.3,8315,1,0)
+ ;;=^358.31IA^4^2
+ ;;^UTILITY(U,$J,358.3,8315,1,3,0)
+ ;;=3^Transient Visual Loss
+ ;;^UTILITY(U,$J,358.3,8315,1,4,0)
+ ;;=4^368.12
+ ;;^UTILITY(U,$J,358.3,8315,2)
+ ;;=^268834
+ ;;^UTILITY(U,$J,358.3,8316,0)
+ ;;=368.14^^58^608^59
+ ;;^UTILITY(U,$J,358.3,8316,1,0)
+ ;;=^358.31IA^4^2
+ ;;^UTILITY(U,$J,358.3,8316,1,3,0)
+ ;;=3^Metamorphopsia
+ ;;^UTILITY(U,$J,358.3,8316,1,4,0)
+ ;;=4^368.14
+ ;;^UTILITY(U,$J,358.3,8316,2)
+ ;;=^268836
+ ;;^UTILITY(U,$J,358.3,8317,0)
+ ;;=368.15^^58^608^102
+ ;;^UTILITY(U,$J,358.3,8317,1,0)
+ ;;=^358.31IA^4^2
+ ;;^UTILITY(U,$J,358.3,8317,1,3,0)
+ ;;=3^Photopsia
+ ;;^UTILITY(U,$J,358.3,8317,1,4,0)
+ ;;=4^368.15
+ ;;^UTILITY(U,$J,358.3,8317,2)
+ ;;=^268837
+ ;;^UTILITY(U,$J,358.3,8318,0)
+ ;;=368.16^^58^608^45
+ ;;^UTILITY(U,$J,358.3,8318,1,0)
+ ;;=^358.31IA^4^2
+ ;;^UTILITY(U,$J,358.3,8318,1,3,0)
+ ;;=3^Hallucinations,Visual
+ ;;^UTILITY(U,$J,358.3,8318,1,4,0)
+ ;;=4^368.16
+ ;;^UTILITY(U,$J,358.3,8318,2)
+ ;;=^268838
+ ;;^UTILITY(U,$J,358.3,8319,0)
+ ;;=368.41^^58^608^109
+ ;;^UTILITY(U,$J,358.3,8319,1,0)
+ ;;=^358.31IA^4^2
+ ;;^UTILITY(U,$J,358.3,8319,1,3,0)
+ ;;=3^Scotoma,Central Area
+ ;;^UTILITY(U,$J,358.3,8319,1,4,0)
+ ;;=4^368.41
+ ;;^UTILITY(U,$J,358.3,8319,2)
+ ;;=^265366
+ ;;^UTILITY(U,$J,358.3,8320,0)
+ ;;=368.42^^58^608^108
+ ;;^UTILITY(U,$J,358.3,8320,1,0)
+ ;;=^358.31IA^4^2
+ ;;^UTILITY(U,$J,358.3,8320,1,3,0)
+ ;;=3^Scotoma,Blind Spot
+ ;;^UTILITY(U,$J,358.3,8320,1,4,0)
+ ;;=4^368.42
+ ;;^UTILITY(U,$J,358.3,8320,2)
+ ;;=^265368
+ ;;^UTILITY(U,$J,358.3,8321,0)
+ ;;=368.43^^58^608^10
+ ;;^UTILITY(U,$J,358.3,8321,1,0)
+ ;;=^358.31IA^4^2
+ ;;^UTILITY(U,$J,358.3,8321,1,3,0)
+ ;;=3^Arcuate Defects
+ ;;^UTILITY(U,$J,358.3,8321,1,4,0)
+ ;;=4^368.43
+ ;;^UTILITY(U,$J,358.3,8321,2)
+ ;;=^268845
+ ;;^UTILITY(U,$J,358.3,8322,0)
+ ;;=368.44^^58^608^124
+ ;;^UTILITY(U,$J,358.3,8322,1,0)
+ ;;=^358.31IA^4^2
+ ;;^UTILITY(U,$J,358.3,8322,1,3,0)
+ ;;=3^Visual Field Defect,Oth Localized
+ ;;^UTILITY(U,$J,358.3,8322,1,4,0)
+ ;;=4^368.44
+ ;;^UTILITY(U,$J,358.3,8322,2)
+ ;;=^87688
+ ;;^UTILITY(U,$J,358.3,8323,0)
+ ;;=368.45^^58^608^42
+ ;;^UTILITY(U,$J,358.3,8323,1,0)
+ ;;=^358.31IA^4^2
+ ;;^UTILITY(U,$J,358.3,8323,1,3,0)
+ ;;=3^Generalized Constriction
+ ;;^UTILITY(U,$J,358.3,8323,1,4,0)
+ ;;=4^368.45
+ ;;^UTILITY(U,$J,358.3,8323,2)
+ ;;=^268846
+ ;;^UTILITY(U,$J,358.3,8324,0)
+ ;;=368.46^^58^608^51
+ ;;^UTILITY(U,$J,358.3,8324,1,0)
+ ;;=^358.31IA^4^2
+ ;;^UTILITY(U,$J,358.3,8324,1,3,0)
+ ;;=3^Homonymous Field Defect
+ ;;^UTILITY(U,$J,358.3,8324,1,4,0)
+ ;;=4^368.46
+ ;;^UTILITY(U,$J,358.3,8324,2)
+ ;;=^58452
+ ;;^UTILITY(U,$J,358.3,8325,0)
+ ;;=368.47^^58^608^50
+ ;;^UTILITY(U,$J,358.3,8325,1,0)
+ ;;=^358.31IA^4^2
+ ;;^UTILITY(U,$J,358.3,8325,1,3,0)
+ ;;=3^Heteronymous Field Defect
+ ;;^UTILITY(U,$J,358.3,8325,1,4,0)
+ ;;=4^368.47
+ ;;^UTILITY(U,$J,358.3,8325,2)
+ ;;=^268847
+ ;;^UTILITY(U,$J,358.3,8326,0)
+ ;;=368.55^^58^608^23
+ ;;^UTILITY(U,$J,358.3,8326,1,0)
+ ;;=^358.31IA^4^2
+ ;;^UTILITY(U,$J,358.3,8326,1,3,0)
+ ;;=3^Color Blind,Acquired
+ ;;^UTILITY(U,$J,358.3,8326,1,4,0)
+ ;;=4^368.55
+ ;;^UTILITY(U,$J,358.3,8326,2)
+ ;;=^268856
+ ;;^UTILITY(U,$J,358.3,8327,0)
+ ;;=369.62^^58^608^14
+ ;;^UTILITY(U,$J,358.3,8327,1,0)
+ ;;=^358.31IA^4^2
+ ;;^UTILITY(U,$J,358.3,8327,1,3,0)
+ ;;=3^Blindness-One Eye
+ ;;^UTILITY(U,$J,358.3,8327,1,4,0)
+ ;;=4^369.62
+ ;;^UTILITY(U,$J,358.3,8327,2)
+ ;;=^268890

@@ -1,28 +1,21 @@
-PSOXZA12 ; COMPILED XREF FOR FILE #52.2 ; 01/06/14
+PSOXZA12 ; COMPILED XREF FOR FILE #52.07 ; 09/02/14
  ; 
  S DA=0
 A1 ;
  I $D(DISET) K DIKLM S:DIKM1=1 DIKLM=1 G @DIKM1
 0 ;
-A S DA=$O(^PSRX(DA(1),"P",DA)) I DA'>0 S DA=0 G END
+A S DA=$O(^PSRX(DA(1),"RTS",DA)) I DA'>0 S DA=0 G END
 1 ;
- S DIKZ(0)=$G(^PSRX(DA(1),"P",DA,0))
+ S DIKZ(0)=$G(^PSRX(DA(1),"RTS",DA,0))
  S X=$P($G(DIKZ(0)),U,1)
- I X'="" S ^PSRX("ADP",$E(X,1,7),DA(1),DA)=""
- S X=$P($G(DIKZ(0)),U,9)
- I X'="" D SAS2^PSOSUTL
- S X=$P($G(DIKZ(0)),U,16)
- I X'="" S ^PSRX("AN",$E(X,1,30),DA(1),DA)=""
- S X=$P($G(DIKZ(0)),U,19)
- I X'="" S ^PSRX("AM",$E(X,1,30),DA(1),DA)=""
-CR1 S DIXR=463
+ I X'="" S ^PSRX(DA(1),"RTS","B",$E(X,1,30),DA)=""
+CR1 S DIXR=758
  K X
- S X(1)=$P(DIKZ(0),U,10)
- S X(2)=$P(DIKZ(0),U,19)
+ S X(1)=$P(DIKZ(0),U,1)
  S X=$G(X(1))
- I $G(X(1))]"",$G(X(2))]"" D
+ I $G(X(1))]"" D
  . K X1,X2 M X1=X,X2=X
- . D SKIDX^PSOPXRMU(.X,.DA,"P","S")
+ . S ^PSRX("ARTS",X,DA(1),DA)=""
 CR2 K X
  G:'$D(DIKLM) A Q:$D(DISET)
 END G ^PSOXZA13

@@ -1,52 +1,138 @@
-IBDEI0H9 ; ; 09-MAY-2014
- ;;3.0;IB ENCOUNTER FORM IMP/EXP;;MAY 09, 2014
- Q:'DIFQ(358.93)  F I=1:2 S X=$T(Q+I) Q:X=""  S Y=$E($T(Q+I+1),4,999),X=$E(X,4,999) S:$A(Y)=126 I=I+1,Y=$E(Y,2,999)_$E($T(Q+I+1),5,99) S:$A(Y)=61 Y=$E(Y,2,999) X NO E  S @X=Y
+IBDEI0H9 ; ; 12-AUG-2014
+ ;;3.0;IB ENCOUNTER FORM IMP/EXP;;MAY 15, 2014
+ Q:'DIFQR(358.3)  F I=1:2 S X=$T(Q+I) Q:X=""  S Y=$E($T(Q+I+1),4,999),X=$E(X,4,999) S:$A(Y)=126 I=I+1,Y=$E(Y,2,999)_$E($T(Q+I+1),5,99) S:$A(Y)=61 Y=$E(Y,2,999) X NO E  S @X=Y
 Q Q
- ;;^DIC(358.93,0,"GL")
- ;;=^IBE(358.93,
- ;;^DIC("B","IMP/EXP MULTIPLE CHOICE FIELD",358.93)
- ;;=
- ;;^DIC(358.93,"%D",0)
- ;;=^^2^2^2951024^^^
- ;;^DIC(358.93,"%D",1,0)
- ;;=This file is used as a work space for the import/export utility of the
- ;;^DIC(358.93,"%D",2,0)
- ;;=encounter form utilities.
- ;;^DD(358.93,0)
- ;;=FIELD^^1^9
- ;;^DD(358.93,0,"DDA")
- ;;=N
- ;;^DD(358.93,0,"DT")
- ;;=2960119
- ;;^DD(358.93,0,"IX","A",358.931,.01)
- ;;=
- ;;^DD(358.93,0,"IX","A1",358.931,.02)
- ;;=
- ;;^DD(358.93,0,"IX","B",358.93,.01)
- ;;=
- ;;^DD(358.93,0,"IX","C",358.93,.08)
- ;;=
- ;;^DD(358.93,0,"NM","IMP/EXP MULTIPLE CHOICE FIELD")
- ;;=
- ;;^DD(358.93,0,"VRPK")
- ;;=IBD
- ;;^DD(358.93,.01,0)
- ;;=NAME^RF^^0;1^K:$L(X)>30!(X?.N)!($L(X)<3)!'(X'?1P.E) X
- ;;^DD(358.93,.01,1,0)
- ;;=^.1
- ;;^DD(358.93,.01,1,1,0)
- ;;=358.93^B
- ;;^DD(358.93,.01,1,1,1)
- ;;=S ^IBE(358.93,"B",$E(X,1,30),DA)=""
- ;;^DD(358.93,.01,1,1,2)
- ;;=K ^IBE(358.93,"B",$E(X,1,30),DA)
- ;;^DD(358.93,.01,3)
- ;;=NAME MUST BE 3-30 CHARACTERS, NOT NUMERIC OR STARTING WITH PUNCTUATION
- ;;^DD(358.93,.01,21,0)
- ;;=^^2^2^2930623^^^^
- ;;^DD(358.93,.01,21,1,0)
- ;;= 
- ;;^DD(358.93,.01,21,2,0)
- ;;=The division the setup is for.
- ;;^DD(358.93,.01,"DT")
- ;;=2930518
+ ;;^UTILITY(U,$J,358.3,8384,0)
+ ;;=695.3^^58^609^2
+ ;;^UTILITY(U,$J,358.3,8384,1,0)
+ ;;=^358.31IA^4^2
+ ;;^UTILITY(U,$J,358.3,8384,1,3,0)
+ ;;=3^Acne Rosacea
+ ;;^UTILITY(U,$J,358.3,8384,1,4,0)
+ ;;=4^695.3
+ ;;^UTILITY(U,$J,358.3,8384,2)
+ ;;=Acne Rosacea^107114
+ ;;^UTILITY(U,$J,358.3,8385,0)
+ ;;=250.00^^58^609^22
+ ;;^UTILITY(U,$J,358.3,8385,1,0)
+ ;;=^358.31IA^4^2
+ ;;^UTILITY(U,$J,358.3,8385,1,3,0)
+ ;;=3^DM type II w/o Eye Disease
+ ;;^UTILITY(U,$J,358.3,8385,1,4,0)
+ ;;=4^250.00
+ ;;^UTILITY(U,$J,358.3,8385,2)
+ ;;=DM type II w/o Eye Disease^33605
+ ;;^UTILITY(U,$J,358.3,8386,0)
+ ;;=346.90^^58^609^41
+ ;;^UTILITY(U,$J,358.3,8386,1,0)
+ ;;=^358.31IA^4^2
+ ;;^UTILITY(U,$J,358.3,8386,1,3,0)
+ ;;=3^Headache,Migraine-Not Intractable
+ ;;^UTILITY(U,$J,358.3,8386,1,4,0)
+ ;;=4^346.90
+ ;;^UTILITY(U,$J,358.3,8386,2)
+ ;;=Migraine without Intract^293880
+ ;;^UTILITY(U,$J,358.3,8387,0)
+ ;;=376.30^^58^609^30
+ ;;^UTILITY(U,$J,358.3,8387,1,0)
+ ;;=^358.31IA^4^2
+ ;;^UTILITY(U,$J,358.3,8387,1,3,0)
+ ;;=3^Exophthalmos,NOS
+ ;;^UTILITY(U,$J,358.3,8387,1,4,0)
+ ;;=4^376.30
+ ;;^UTILITY(U,$J,358.3,8387,2)
+ ;;=Exophthalmos NOS^43683
+ ;;^UTILITY(U,$J,358.3,8388,0)
+ ;;=368.8^^58^609^7
+ ;;^UTILITY(U,$J,358.3,8388,1,0)
+ ;;=^358.31IA^4^2
+ ;;^UTILITY(U,$J,358.3,8388,1,3,0)
+ ;;=3^Blurred Vision
+ ;;^UTILITY(U,$J,358.3,8388,1,4,0)
+ ;;=4^368.8
+ ;;^UTILITY(U,$J,358.3,8388,2)
+ ;;=Blurred Vision^88172
+ ;;^UTILITY(U,$J,358.3,8389,0)
+ ;;=362.34^^58^609^5
+ ;;^UTILITY(U,$J,358.3,8389,1,0)
+ ;;=^358.31IA^4^2
+ ;;^UTILITY(U,$J,358.3,8389,1,3,0)
+ ;;=3^Amaurosis Fugax
+ ;;^UTILITY(U,$J,358.3,8389,1,4,0)
+ ;;=4^362.34
+ ;;^UTILITY(U,$J,358.3,8389,2)
+ ;;=^268622
+ ;;^UTILITY(U,$J,358.3,8390,0)
+ ;;=368.13^^58^609^88
+ ;;^UTILITY(U,$J,358.3,8390,1,0)
+ ;;=^358.31IA^4^2
+ ;;^UTILITY(U,$J,358.3,8390,1,3,0)
+ ;;=3^Photophobia
+ ;;^UTILITY(U,$J,358.3,8390,1,4,0)
+ ;;=4^368.13
+ ;;^UTILITY(U,$J,358.3,8390,2)
+ ;;=^126851
+ ;;^UTILITY(U,$J,358.3,8391,0)
+ ;;=368.40^^58^609^113
+ ;;^UTILITY(U,$J,358.3,8391,1,0)
+ ;;=^358.31IA^4^2
+ ;;^UTILITY(U,$J,358.3,8391,1,3,0)
+ ;;=3^Vis Field Defect
+ ;;^UTILITY(U,$J,358.3,8391,1,4,0)
+ ;;=4^368.40
+ ;;^UTILITY(U,$J,358.3,8391,2)
+ ;;=^126859
+ ;;^UTILITY(U,$J,358.3,8392,0)
+ ;;=369.4^^58^609^58
+ ;;^UTILITY(U,$J,358.3,8392,1,0)
+ ;;=^358.31IA^4^2
+ ;;^UTILITY(U,$J,358.3,8392,1,3,0)
+ ;;=3^Legally Blind,USA Definition
+ ;;^UTILITY(U,$J,358.3,8392,1,4,0)
+ ;;=4^369.4
+ ;;^UTILITY(U,$J,358.3,8392,2)
+ ;;=Legal Blindness^268887
+ ;;^UTILITY(U,$J,358.3,8393,0)
+ ;;=250.01^^58^609^21
+ ;;^UTILITY(U,$J,358.3,8393,1,0)
+ ;;=^358.31IA^4^2
+ ;;^UTILITY(U,$J,358.3,8393,1,3,0)
+ ;;=3^DM Type I w/o Eye Disease
+ ;;^UTILITY(U,$J,358.3,8393,1,4,0)
+ ;;=4^250.01
+ ;;^UTILITY(U,$J,358.3,8393,2)
+ ;;=Diabetes Mellitus Type I^33586
+ ;;^UTILITY(U,$J,358.3,8394,0)
+ ;;=V08.^^58^609^40
+ ;;^UTILITY(U,$J,358.3,8394,1,0)
+ ;;=^358.31IA^4^2
+ ;;^UTILITY(U,$J,358.3,8394,1,3,0)
+ ;;=3^HIV Positive
+ ;;^UTILITY(U,$J,358.3,8394,1,4,0)
+ ;;=4^V08.
+ ;;^UTILITY(U,$J,358.3,8394,2)
+ ;;=Asymptomatic HIV Status^303392
+ ;;^UTILITY(U,$J,358.3,8395,0)
+ ;;=921.0^^58^609^16
+ ;;^UTILITY(U,$J,358.3,8395,1,0)
+ ;;=^358.31IA^4^2
+ ;;^UTILITY(U,$J,358.3,8395,1,3,0)
+ ;;=3^Contusion of Eye
+ ;;^UTILITY(U,$J,358.3,8395,1,4,0)
+ ;;=4^921.0
+ ;;^UTILITY(U,$J,358.3,8395,2)
+ ;;=^15052
+ ;;^UTILITY(U,$J,358.3,8396,0)
+ ;;=379.91^^58^609^87
+ ;;^UTILITY(U,$J,358.3,8396,1,0)
+ ;;=^358.31IA^4^2
+ ;;^UTILITY(U,$J,358.3,8396,1,3,0)
+ ;;=3^Pain in/around the Eye
+ ;;^UTILITY(U,$J,358.3,8396,1,4,0)
+ ;;=4^379.91
+ ;;^UTILITY(U,$J,358.3,8396,2)
+ ;;=Pain in or around eye^89093
+ ;;^UTILITY(U,$J,358.3,8397,0)
+ ;;=V58.69^^58^609^44
+ ;;^UTILITY(U,$J,358.3,8397,1,0)
+ ;;=^358.31IA^4^2

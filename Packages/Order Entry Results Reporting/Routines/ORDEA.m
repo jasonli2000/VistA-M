@@ -1,7 +1,8 @@
-ORDEA ;ISL/TC & JMH & JLC - DEA related items ;08/27/12  07:49
- ;;3.0;ORDER ENTRY/RESULTS REPORTING;**306**;Dec 17, 1997;Build 43
+ORDEA ;ISL/TC & JMH & JLC - DEA related items ;05/06/14  06:58
+ ;;3.0;ORDER ENTRY/RESULTS REPORTING;**306,374**;Dec 17, 1997;Build 9
  ;
- ;
+ ;Reference to ^PSSOPKI supported by DBIA #3737
+ ;Reference to ^PSSUTLA1 supported by DBIA #3373
  ;
  ;
 DEATEXT(ORY) ;returns the mandatory dea text to show when a user checks a controlled substance order to be signed on the signature dialog
@@ -111,8 +112,8 @@ BUILDFDA(ORIFN,ORDFDA,OROUT,HASH,OHD) ;
  ;this will need to be updated once we have a way to store DEA and DETOX
  ;numbers that are retrieved during validation
  ;returns 0 if not successful, 1 if successful
- N ERROR,ORDIALOG,ISSDATE,A,B,PDRUG,PIEN,PROVIDER,DFN,PTNM,NIENS,S1,PNAME,DOSE,SCHED,ROUTE,DURA
- N CONJ,INSTR,SCHED,DUR,DOSE
+ N ERROR,ORDIALOG,A,PIEN,DFN,S1,DOSE,SCHED,ROUTE,I
+ N CONJ,INSTR,SCHED,DUR,DOSE,VADM
  I $G(ORIFN)="" Q 0
  K ^TMP($J,"ORDEA")
  S ORDIALOG=$$GET1^DIQ(100,ORIFN_",",2,"I") I ORDIALOG="" Q 0
@@ -152,13 +153,12 @@ BUILDFDA(ORIFN,ORDFDA,OROUT,HASH,OHD) ;
  . I '$D(OROUT(3)) S OROUT(3)="Directions:"_A
  . E  S OROUT(3)=OROUT(3)_A
  S A=+$$GET1^DIQ(100,ORIFN_",",6,"I"),A=$$GET1^DIQ(44,A,3,"I")
- D GETS^DIQ(4,A,".01;.02;1.01;1.02;1.03;1.04","E","ORINST")
- S DFN=+$$GET1^DIQ(100,ORIFN_",",.02,"I"),ORDFDA(101.52,IENS,20)=$$GETICN^MPIF001(DFN)
+ S DFN=+$$GET1^DIQ(100,ORIFN_",",.02,"I"),A=$$GETICN^MPIF001(DFN),ORDFDA(101.52,IENS,20)=$S(A["^":"",1:A)
  D DEM^VADPT S ORDFDA(101.52,IENS,18)=VADM(1),ORDFDA(101.52,IENS,19)=DFN
  S ORDFDA(101.52,IENS,2)=$G(HASH)
  Q
 BUILD(ORIFN) ;Build ARCHIVE entry for CPRS order number
- N ORDFDA,OROUT
+ N ORDFDA,OROUT,ERROR
  D BUILDFDA(ORIFN,.ORDFDA,.OROUT)
  D UPDATE^DIE("","ORDFDA","ORIEN","ERROR")
  Q 1
@@ -199,7 +199,7 @@ ARCHIVE(ORIFN) ;retrieve archive for specified order number
  Q
 HASHRTN(ORIFN) ;returns hash of a specified archive entry
  ;ORIFN is the CPRS order number for the archive
- N IEN,ORHASH
+ N IEN,ORHASH,ERR,ERROR
  S IEN=$$FIND1^DIC(101.52,"","MXQ",ORIFN,"","","ERR")
  I 'IEN Q 0
  S IEN=IEN_","
@@ -247,4 +247,3 @@ DUR(DUR) ;
  Q $S(DUR="":"",DUR=0:"",1:$E($P(DUR," ",2))_+DUR)
 CONJ(CNJ) ;
  Q $S(CNJ="":"",CNJ'="T":CNJ,1:"S")
- 

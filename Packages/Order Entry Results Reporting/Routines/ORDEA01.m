@@ -1,5 +1,9 @@
 ORDEA01 ;ISP/RFR - DEA TOOLS;03/20/2013  07:07
- ;;3.0;ORDER ENTRY/RESULTS REPORTING;**218**;Dec 17, 1997;Build 87
+ ;;3.0;ORDER ENTRY/RESULTS REPORTING;**218,374**;Dec 17, 1997;Build 9
+ ;
+ ;
+ ;
+ ;
  Q
 SITE ;Edit the site-level parameter
  N DA,SITE
@@ -54,6 +58,11 @@ USER ;Edit user-level parameter
  ..I $P(ACTION,U,1)="disabled" D
  ...N RETURN,PROBLEM,OUTPUT,TEXT,DELIMIT,COUNT
  ...S RETURN=$$VDEA^XUSER(.RETURN,+IEN),SEX=$$GET1^DIQ(200,+IEN_",",4),SEX=$S(SEX="MALE":"he",SEX="FEMALE":"she",1:"it")
+ ... I 'RETURN D
+ .... S PROBLEM="" F  S PROBLEM=$O(RETURN(PROBLEM)) Q:PROBLEM=""  D
+ ..... I PROBLEM["DEA number with no expiration date" K RETURN(PROBLEM)
+ ..... I PROBLEM["expired DEA number" K RETURN(PROBLEM)
+ .... S PROBLEM=$O(RETURN("")) I PROBLEM["permitted to prescribe all schedules",$O(RETURN(PROBLEM))="" S RETURN=1
  ...I RETURN D
  ....S FDA(100.71,"+1,"_DA_",",.01)=+IEN
  ....D UPDATE^DIE("S","FDA",,"ERROR")

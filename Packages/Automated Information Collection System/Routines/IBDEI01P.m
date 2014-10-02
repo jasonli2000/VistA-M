@@ -1,378 +1,136 @@
-IBDEI01P ; ; 09-MAY-2014
- ;;3.0;IB ENCOUNTER FORM IMP/EXP;;MAY 09, 2014
+IBDEI01P ; ; 12-AUG-2014
+ ;;3.0;IB ENCOUNTER FORM IMP/EXP;;MAY 15, 2014
  Q:'DIFQR(358.3)  F I=1:2 S X=$T(Q+I) Q:X=""  S Y=$E($T(Q+I+1),4,999),X=$E(X,4,999) S:$A(Y)=126 I=I+1,Y=$E(Y,2,999)_$E($T(Q+I+1),5,99) S:$A(Y)=61 Y=$E(Y,2,999) X NO E  S @X=Y
 Q Q
- ;;^UTILITY(U,$J,358.3,1825,1,5,0)
- ;;=5^553.1
- ;;^UTILITY(U,$J,358.3,1825,2)
- ;;=^123475
- ;;^UTILITY(U,$J,358.3,1826,0)
- ;;=553.20^^21^155^63
- ;;^UTILITY(U,$J,358.3,1826,1,0)
+ ;;^UTILITY(U,$J,358.3,320,2)
+ ;;=^331838
+ ;;^UTILITY(U,$J,358.3,321,0)
+ ;;=295.12^^2^23^2
+ ;;^UTILITY(U,$J,358.3,321,1,0)
  ;;=^358.31IA^5^2
- ;;^UTILITY(U,$J,358.3,1826,1,4,0)
- ;;=4^Hernia,Ventral
- ;;^UTILITY(U,$J,358.3,1826,1,5,0)
- ;;=5^553.20
- ;;^UTILITY(U,$J,358.3,1826,2)
- ;;=^123997
- ;;^UTILITY(U,$J,358.3,1827,0)
- ;;=574.20^^21^155^39
- ;;^UTILITY(U,$J,358.3,1827,1,0)
+ ;;^UTILITY(U,$J,358.3,321,1,2,0)
+ ;;=2^295.12
+ ;;^UTILITY(U,$J,358.3,321,1,5,0)
+ ;;=5^Disorganized Schizophrenia, Chronic
+ ;;^UTILITY(U,$J,358.3,321,2)
+ ;;=^268051
+ ;;^UTILITY(U,$J,358.3,322,0)
+ ;;=295.14^^2^23^3
+ ;;^UTILITY(U,$J,358.3,322,1,0)
  ;;=^358.31IA^5^2
- ;;^UTILITY(U,$J,358.3,1827,1,4,0)
- ;;=4^Cholelithiasis
- ;;^UTILITY(U,$J,358.3,1827,1,5,0)
- ;;=5^574.20
- ;;^UTILITY(U,$J,358.3,1827,2)
- ;;=^18282
- ;;^UTILITY(U,$J,358.3,1828,0)
- ;;=154.1^^21^155^27
- ;;^UTILITY(U,$J,358.3,1828,1,0)
+ ;;^UTILITY(U,$J,358.3,322,1,2,0)
+ ;;=2^295.14
+ ;;^UTILITY(U,$J,358.3,322,1,5,0)
+ ;;=5^Disorganized Schizophrenia,Chr w/Exacerbation
+ ;;^UTILITY(U,$J,358.3,322,2)
+ ;;=^268053
+ ;;^UTILITY(U,$J,358.3,323,0)
+ ;;=295.52^^2^23^6
+ ;;^UTILITY(U,$J,358.3,323,1,0)
  ;;=^358.31IA^5^2
- ;;^UTILITY(U,$J,358.3,1828,1,4,0)
- ;;=4^CA of Rectum
- ;;^UTILITY(U,$J,358.3,1828,1,5,0)
- ;;=5^154.1
- ;;^UTILITY(U,$J,358.3,1828,2)
- ;;=^267090
- ;;^UTILITY(U,$J,358.3,1829,0)
- ;;=562.10^^21^155^50
- ;;^UTILITY(U,$J,358.3,1829,1,0)
+ ;;^UTILITY(U,$J,358.3,323,1,2,0)
+ ;;=2^295.52
+ ;;^UTILITY(U,$J,358.3,323,1,5,0)
+ ;;=5^Latent Schizophrenia, Chronic
+ ;;^UTILITY(U,$J,358.3,323,2)
+ ;;=Latent Schizophrenia, Chronic^268073
+ ;;^UTILITY(U,$J,358.3,324,0)
+ ;;=295.54^^2^23^5
+ ;;^UTILITY(U,$J,358.3,324,1,0)
  ;;=^358.31IA^5^2
- ;;^UTILITY(U,$J,358.3,1829,1,4,0)
- ;;=4^Diverticulosis
- ;;^UTILITY(U,$J,358.3,1829,1,5,0)
- ;;=5^562.10
- ;;^UTILITY(U,$J,358.3,1829,2)
- ;;=^35917
- ;;^UTILITY(U,$J,358.3,1830,0)
- ;;=562.11^^21^155^49
- ;;^UTILITY(U,$J,358.3,1830,1,0)
+ ;;^UTILITY(U,$J,358.3,324,1,2,0)
+ ;;=2^295.54
+ ;;^UTILITY(U,$J,358.3,324,1,5,0)
+ ;;=5^Latent Schizophrenia, Chr w/Exacerbation
+ ;;^UTILITY(U,$J,358.3,324,2)
+ ;;=^268075
+ ;;^UTILITY(U,$J,358.3,325,0)
+ ;;=295.32^^2^23^8
+ ;;^UTILITY(U,$J,358.3,325,1,0)
  ;;=^358.31IA^5^2
- ;;^UTILITY(U,$J,358.3,1830,1,4,0)
- ;;=4^Diverticulitis
- ;;^UTILITY(U,$J,358.3,1830,1,5,0)
- ;;=5^562.11
- ;;^UTILITY(U,$J,358.3,1830,2)
- ;;=^270274
- ;;^UTILITY(U,$J,358.3,1831,0)
- ;;=575.10^^21^155^38
- ;;^UTILITY(U,$J,358.3,1831,1,0)
+ ;;^UTILITY(U,$J,358.3,325,1,2,0)
+ ;;=2^295.32
+ ;;^UTILITY(U,$J,358.3,325,1,5,0)
+ ;;=5^Paranoid Schizophrenia, Chronic
+ ;;^UTILITY(U,$J,358.3,325,2)
+ ;;=Paranoid Schizophrenia, Chronic^268061
+ ;;^UTILITY(U,$J,358.3,326,0)
+ ;;=295.34^^2^23^9
+ ;;^UTILITY(U,$J,358.3,326,1,0)
  ;;=^358.31IA^5^2
- ;;^UTILITY(U,$J,358.3,1831,1,4,0)
- ;;=4^Cholecystitis
- ;;^UTILITY(U,$J,358.3,1831,1,5,0)
- ;;=5^575.10
- ;;^UTILITY(U,$J,358.3,1831,2)
- ;;=^23341
- ;;^UTILITY(U,$J,358.3,1832,0)
- ;;=566.^^21^155^1
- ;;^UTILITY(U,$J,358.3,1832,1,0)
+ ;;^UTILITY(U,$J,358.3,326,1,2,0)
+ ;;=2^295.34
+ ;;^UTILITY(U,$J,358.3,326,1,5,0)
+ ;;=5^Paranoid, Schizophrenia Chr w/Exacerbation
+ ;;^UTILITY(U,$J,358.3,326,2)
+ ;;=^268063
+ ;;^UTILITY(U,$J,358.3,327,0)
+ ;;=295.62^^2^23^23
+ ;;^UTILITY(U,$J,358.3,327,1,0)
  ;;=^358.31IA^5^2
- ;;^UTILITY(U,$J,358.3,1832,1,4,0)
- ;;=4^Abscess,Anal/Rectal
- ;;^UTILITY(U,$J,358.3,1832,1,5,0)
- ;;=5^566.
- ;;^UTILITY(U,$J,358.3,1832,2)
- ;;=^270285
- ;;^UTILITY(U,$J,358.3,1833,0)
- ;;=550.92^^21^155^60
- ;;^UTILITY(U,$J,358.3,1833,1,0)
+ ;;^UTILITY(U,$J,358.3,327,1,2,0)
+ ;;=2^295.62
+ ;;^UTILITY(U,$J,358.3,327,1,5,0)
+ ;;=5^Undifferentiated Schizophrenia, Chr
+ ;;^UTILITY(U,$J,358.3,327,2)
+ ;;=^268078
+ ;;^UTILITY(U,$J,358.3,328,0)
+ ;;=295.72^^2^23^11
+ ;;^UTILITY(U,$J,358.3,328,1,0)
  ;;=^358.31IA^5^2
- ;;^UTILITY(U,$J,358.3,1833,1,4,0)
- ;;=4^Hernia,Inguinal Bilat
- ;;^UTILITY(U,$J,358.3,1833,1,5,0)
- ;;=5^550.92
- ;;^UTILITY(U,$J,358.3,1833,2)
- ;;=^270212
- ;;^UTILITY(U,$J,358.3,1834,0)
- ;;=555.9^^21^155^46
- ;;^UTILITY(U,$J,358.3,1834,1,0)
+ ;;^UTILITY(U,$J,358.3,328,1,2,0)
+ ;;=2^295.72
+ ;;^UTILITY(U,$J,358.3,328,1,5,0)
+ ;;=5^Schizoaffective Disorder, Chr
+ ;;^UTILITY(U,$J,358.3,328,2)
+ ;;=^268083
+ ;;^UTILITY(U,$J,358.3,329,0)
+ ;;=295.74^^2^23^12
+ ;;^UTILITY(U,$J,358.3,329,1,0)
  ;;=^358.31IA^5^2
- ;;^UTILITY(U,$J,358.3,1834,1,4,0)
- ;;=4^Crohn's/Enteritis, Unspec
- ;;^UTILITY(U,$J,358.3,1834,1,5,0)
- ;;=5^555.9
- ;;^UTILITY(U,$J,358.3,1834,2)
- ;;=^29356
- ;;^UTILITY(U,$J,358.3,1835,0)
- ;;=530.81^^21^155^52
- ;;^UTILITY(U,$J,358.3,1835,1,0)
+ ;;^UTILITY(U,$J,358.3,329,1,2,0)
+ ;;=2^295.74
+ ;;^UTILITY(U,$J,358.3,329,1,5,0)
+ ;;=5^Schizoaffective Disorder, w/Exacerb.
+ ;;^UTILITY(U,$J,358.3,329,2)
+ ;;=^268085
+ ;;^UTILITY(U,$J,358.3,330,0)
+ ;;=295.42^^2^23^17
+ ;;^UTILITY(U,$J,358.3,330,1,0)
  ;;=^358.31IA^5^2
- ;;^UTILITY(U,$J,358.3,1835,1,4,0)
- ;;=4^GERD
- ;;^UTILITY(U,$J,358.3,1835,1,5,0)
- ;;=5^530.81
- ;;^UTILITY(U,$J,358.3,1835,2)
- ;;=GERD^295749
- ;;^UTILITY(U,$J,358.3,1836,0)
- ;;=455.0^^21^155^55
- ;;^UTILITY(U,$J,358.3,1836,1,0)
+ ;;^UTILITY(U,$J,358.3,330,1,2,0)
+ ;;=2^295.42
+ ;;^UTILITY(U,$J,358.3,330,1,5,0)
+ ;;=5^Schizophreniform Disorder, Chr
+ ;;^UTILITY(U,$J,358.3,330,2)
+ ;;=^268068
+ ;;^UTILITY(U,$J,358.3,331,0)
+ ;;=295.44^^2^23^18
+ ;;^UTILITY(U,$J,358.3,331,1,0)
  ;;=^358.31IA^5^2
- ;;^UTILITY(U,$J,358.3,1836,1,4,0)
- ;;=4^Hemorrhoid,Internal
- ;;^UTILITY(U,$J,358.3,1836,1,5,0)
- ;;=5^455.0
- ;;^UTILITY(U,$J,358.3,1836,2)
- ;;=^269822
- ;;^UTILITY(U,$J,358.3,1837,0)
- ;;=578.1^^21^155^71
- ;;^UTILITY(U,$J,358.3,1837,1,0)
+ ;;^UTILITY(U,$J,358.3,331,1,2,0)
+ ;;=2^295.44
+ ;;^UTILITY(U,$J,358.3,331,1,5,0)
+ ;;=5^Schizophreniform Disorderw/Exacerb.
+ ;;^UTILITY(U,$J,358.3,331,2)
+ ;;=^268070
+ ;;^UTILITY(U,$J,358.3,332,0)
+ ;;=295.02^^2^23^21
+ ;;^UTILITY(U,$J,358.3,332,1,0)
  ;;=^358.31IA^5^2
- ;;^UTILITY(U,$J,358.3,1837,1,4,0)
- ;;=4^Melena
- ;;^UTILITY(U,$J,358.3,1837,1,5,0)
- ;;=5^578.1
- ;;^UTILITY(U,$J,358.3,1837,2)
- ;;=^276839
- ;;^UTILITY(U,$J,358.3,1838,0)
- ;;=556.9^^21^155^42
- ;;^UTILITY(U,$J,358.3,1838,1,0)
+ ;;^UTILITY(U,$J,358.3,332,1,2,0)
+ ;;=2^295.02
+ ;;^UTILITY(U,$J,358.3,332,1,5,0)
+ ;;=5^Simple Schizophrenia, Chronic
+ ;;^UTILITY(U,$J,358.3,332,2)
+ ;;=Simple Schizophrenia, Chronic^268046
+ ;;^UTILITY(U,$J,358.3,333,0)
+ ;;=295.04^^2^23^20
+ ;;^UTILITY(U,$J,358.3,333,1,0)
  ;;=^358.31IA^5^2
- ;;^UTILITY(U,$J,358.3,1838,1,4,0)
- ;;=4^Colitis,Ulcerative
- ;;^UTILITY(U,$J,358.3,1838,1,5,0)
- ;;=5^556.9
- ;;^UTILITY(U,$J,358.3,1838,2)
- ;;=^26044
- ;;^UTILITY(U,$J,358.3,1839,0)
- ;;=787.91^^21^155^48
- ;;^UTILITY(U,$J,358.3,1839,1,0)
- ;;=^358.31IA^5^2
- ;;^UTILITY(U,$J,358.3,1839,1,4,0)
- ;;=4^Diarrhea
- ;;^UTILITY(U,$J,358.3,1839,1,5,0)
- ;;=5^787.91
- ;;^UTILITY(U,$J,358.3,1839,2)
- ;;=^33921
- ;;^UTILITY(U,$J,358.3,1840,0)
- ;;=564.1^^21^155^68
- ;;^UTILITY(U,$J,358.3,1840,1,0)
- ;;=^358.31IA^5^2
- ;;^UTILITY(U,$J,358.3,1840,1,4,0)
- ;;=4^Irritable Colon
- ;;^UTILITY(U,$J,358.3,1840,1,5,0)
- ;;=5^564.1
- ;;^UTILITY(U,$J,358.3,1840,2)
- ;;=^65682
- ;;^UTILITY(U,$J,358.3,1841,0)
- ;;=530.3^^21^155^51
- ;;^UTILITY(U,$J,358.3,1841,1,0)
- ;;=^358.31IA^5^2
- ;;^UTILITY(U,$J,358.3,1841,1,4,0)
- ;;=4^Esophageal Stricture
- ;;^UTILITY(U,$J,358.3,1841,1,5,0)
- ;;=5^530.3
- ;;^UTILITY(U,$J,358.3,1841,2)
- ;;=^114760
- ;;^UTILITY(U,$J,358.3,1842,0)
- ;;=571.2^^21^155^40
- ;;^UTILITY(U,$J,358.3,1842,1,0)
- ;;=^358.31IA^5^2
- ;;^UTILITY(U,$J,358.3,1842,1,4,0)
- ;;=4^Cirrhosis,Alcohol Liver
- ;;^UTILITY(U,$J,358.3,1842,1,5,0)
- ;;=5^571.2
- ;;^UTILITY(U,$J,358.3,1842,2)
- ;;=^71505
- ;;^UTILITY(U,$J,358.3,1843,0)
- ;;=533.90^^21^155^79
- ;;^UTILITY(U,$J,358.3,1843,1,0)
- ;;=^358.31IA^5^2
- ;;^UTILITY(U,$J,358.3,1843,1,4,0)
- ;;=4^Ulcer,Peptic
- ;;^UTILITY(U,$J,358.3,1843,1,5,0)
- ;;=5^533.90
- ;;^UTILITY(U,$J,358.3,1843,2)
- ;;=^93051
- ;;^UTILITY(U,$J,358.3,1844,0)
- ;;=553.3^^21^155^58
- ;;^UTILITY(U,$J,358.3,1844,1,0)
- ;;=^358.31IA^5^2
- ;;^UTILITY(U,$J,358.3,1844,1,4,0)
- ;;=4^Hernia,Hiatal
- ;;^UTILITY(U,$J,358.3,1844,1,5,0)
- ;;=5^553.3
- ;;^UTILITY(U,$J,358.3,1844,2)
- ;;=^33903
- ;;^UTILITY(U,$J,358.3,1845,0)
- ;;=153.5^^21^155^5
- ;;^UTILITY(U,$J,358.3,1845,1,0)
- ;;=^358.31IA^5^2
- ;;^UTILITY(U,$J,358.3,1845,1,4,0)
- ;;=4^CA of Appendix
- ;;^UTILITY(U,$J,358.3,1845,1,5,0)
- ;;=5^153.5
- ;;^UTILITY(U,$J,358.3,1845,2)
- ;;=CA of Appendix^267084
- ;;^UTILITY(U,$J,358.3,1846,0)
- ;;=153.4^^21^155^18
- ;;^UTILITY(U,$J,358.3,1846,1,0)
- ;;=^358.31IA^5^2
- ;;^UTILITY(U,$J,358.3,1846,1,4,0)
- ;;=4^CA of Ileocecal Valve
- ;;^UTILITY(U,$J,358.3,1846,1,5,0)
- ;;=5^153.4
- ;;^UTILITY(U,$J,358.3,1846,2)
- ;;=CA of Ileocecal Valve^267083
- ;;^UTILITY(U,$J,358.3,1847,0)
- ;;=154.0^^21^155^9
- ;;^UTILITY(U,$J,358.3,1847,1,0)
- ;;=^358.31IA^5^2
- ;;^UTILITY(U,$J,358.3,1847,1,4,0)
- ;;=4^CA of Colon and Rectum
- ;;^UTILITY(U,$J,358.3,1847,1,5,0)
- ;;=5^154.0
- ;;^UTILITY(U,$J,358.3,1847,2)
- ;;=CA of Colon and Rectum^267089
- ;;^UTILITY(U,$J,358.3,1848,0)
- ;;=153.6^^21^155^6
- ;;^UTILITY(U,$J,358.3,1848,1,0)
- ;;=^358.31IA^5^2
- ;;^UTILITY(U,$J,358.3,1848,1,4,0)
- ;;=4^CA of Ascending Colon
- ;;^UTILITY(U,$J,358.3,1848,1,5,0)
- ;;=5^153.6
- ;;^UTILITY(U,$J,358.3,1848,2)
- ;;=CA of Ascending Colon^267085
- ;;^UTILITY(U,$J,358.3,1849,0)
- ;;=153.8^^21^155^12
- ;;^UTILITY(U,$J,358.3,1849,1,0)
- ;;=^358.31IA^5^2
- ;;^UTILITY(U,$J,358.3,1849,1,4,0)
- ;;=4^CA of Colon/Contiguous Sites
- ;;^UTILITY(U,$J,358.3,1849,1,5,0)
- ;;=5^153.8
- ;;^UTILITY(U,$J,358.3,1849,2)
- ;;=CA of Colon/Contiguous Sites^267087
- ;;^UTILITY(U,$J,358.3,1850,0)
- ;;=153.2^^21^155^13
- ;;^UTILITY(U,$J,358.3,1850,1,0)
- ;;=^358.31IA^5^2
- ;;^UTILITY(U,$J,358.3,1850,1,4,0)
- ;;=4^CA of Descending Colon
- ;;^UTILITY(U,$J,358.3,1850,1,5,0)
- ;;=5^153.2
- ;;^UTILITY(U,$J,358.3,1850,2)
- ;;=CA of Descending Colon^267081
- ;;^UTILITY(U,$J,358.3,1851,0)
- ;;=153.3^^21^155^28
- ;;^UTILITY(U,$J,358.3,1851,1,0)
- ;;=^358.31IA^5^2
- ;;^UTILITY(U,$J,358.3,1851,1,4,0)
- ;;=4^CA of Sigmoid Colon
- ;;^UTILITY(U,$J,358.3,1851,1,5,0)
- ;;=5^153.3
- ;;^UTILITY(U,$J,358.3,1851,2)
- ;;=Ca of Sigmoid Colon^267082
- ;;^UTILITY(U,$J,358.3,1852,0)
- ;;=153.1^^21^155^37
- ;;^UTILITY(U,$J,358.3,1852,1,0)
- ;;=^358.31IA^5^2
- ;;^UTILITY(U,$J,358.3,1852,1,4,0)
- ;;=4^CA of Transverse Colon
- ;;^UTILITY(U,$J,358.3,1852,1,5,0)
- ;;=5^153.1
- ;;^UTILITY(U,$J,358.3,1852,2)
- ;;=CA of Transverse Colon^267080
- ;;^UTILITY(U,$J,358.3,1853,0)
- ;;=153.0^^21^155^11
- ;;^UTILITY(U,$J,358.3,1853,1,0)
- ;;=^358.31IA^5^2
- ;;^UTILITY(U,$J,358.3,1853,1,4,0)
- ;;=4^CA of Colon, Hepatic Flexure.
- ;;^UTILITY(U,$J,358.3,1853,1,5,0)
- ;;=5^153.0
- ;;^UTILITY(U,$J,358.3,1853,2)
- ;;=CA of Colon at Hepatic Flexure^267079
- ;;^UTILITY(U,$J,358.3,1854,0)
- ;;=153.7^^21^155^10
- ;;^UTILITY(U,$J,358.3,1854,1,0)
- ;;=^358.31IA^5^2
- ;;^UTILITY(U,$J,358.3,1854,1,4,0)
- ;;=4^CA of Colon at Splenic Flexure
- ;;^UTILITY(U,$J,358.3,1854,1,5,0)
- ;;=5^153.7
- ;;^UTILITY(U,$J,358.3,1854,2)
- ;;=CA of Colon at Splenic Flexure^267086
- ;;^UTILITY(U,$J,358.3,1855,0)
- ;;=151.9^^21^155^29
- ;;^UTILITY(U,$J,358.3,1855,1,0)
- ;;=^358.31IA^5^2
- ;;^UTILITY(U,$J,358.3,1855,1,4,0)
- ;;=4^CA of Stomach
- ;;^UTILITY(U,$J,358.3,1855,1,5,0)
- ;;=5^151.9
- ;;^UTILITY(U,$J,358.3,1855,2)
- ;;=CA of Stomach^73532
- ;;^UTILITY(U,$J,358.3,1856,0)
- ;;=151.2^^21^155^4
- ;;^UTILITY(U,$J,358.3,1856,1,0)
- ;;=^358.31IA^5^2
- ;;^UTILITY(U,$J,358.3,1856,1,4,0)
- ;;=4^CA of Antrum of Stomach
- ;;^UTILITY(U,$J,358.3,1856,1,5,0)
- ;;=5^151.2
- ;;^UTILITY(U,$J,358.3,1856,2)
- ;;=CA of Antrum of Stomach^267065
- ;;^UTILITY(U,$J,358.3,1857,0)
- ;;=151.4^^21^155^30
- ;;^UTILITY(U,$J,358.3,1857,1,0)
- ;;=^358.31IA^5^2
- ;;^UTILITY(U,$J,358.3,1857,1,4,0)
- ;;=4^CA of Stomach Body
- ;;^UTILITY(U,$J,358.3,1857,1,5,0)
- ;;=5^151.4
- ;;^UTILITY(U,$J,358.3,1857,2)
- ;;=CA of Stomach Body^267067
- ;;^UTILITY(U,$J,358.3,1858,0)
- ;;=151.0^^21^155^31
- ;;^UTILITY(U,$J,358.3,1858,1,0)
- ;;=^358.31IA^5^2
- ;;^UTILITY(U,$J,358.3,1858,1,4,0)
- ;;=4^CA of Stomach Cardia
- ;;^UTILITY(U,$J,358.3,1858,1,5,0)
- ;;=5^151.0
- ;;^UTILITY(U,$J,358.3,1858,2)
- ;;=CA of Stomach Cardia^267063
- ;;^UTILITY(U,$J,358.3,1859,0)
- ;;=151.3^^21^155^32
- ;;^UTILITY(U,$J,358.3,1859,1,0)
- ;;=^358.31IA^5^2
- ;;^UTILITY(U,$J,358.3,1859,1,4,0)
- ;;=4^CA of Stomach Fundus
- ;;^UTILITY(U,$J,358.3,1859,1,5,0)
- ;;=5^151.3
- ;;^UTILITY(U,$J,358.3,1859,2)
- ;;=CA of Fundus of Stomach^267066
- ;;^UTILITY(U,$J,358.3,1860,0)
- ;;=151.6^^21^155^33
- ;;^UTILITY(U,$J,358.3,1860,1,0)
- ;;=^358.31IA^5^2
- ;;^UTILITY(U,$J,358.3,1860,1,4,0)
- ;;=4^CA of Stomach Great Curve
- ;;^UTILITY(U,$J,358.3,1860,1,5,0)
- ;;=5^151.6
- ;;^UTILITY(U,$J,358.3,1860,2)
- ;;=^267069
- ;;^UTILITY(U,$J,358.3,1861,0)
- ;;=151.5^^21^155^34
- ;;^UTILITY(U,$J,358.3,1861,1,0)
- ;;=^358.31IA^5^2
- ;;^UTILITY(U,$J,358.3,1861,1,4,0)
- ;;=4^CA of Stomach Less Curv
- ;;^UTILITY(U,$J,358.3,1861,1,5,0)
- ;;=5^151.5
- ;;^UTILITY(U,$J,358.3,1861,2)
- ;;=CA of Lesser Curve of Stomach^267068
- ;;^UTILITY(U,$J,358.3,1862,0)
- ;;=151.1^^21^155^26
- ;;^UTILITY(U,$J,358.3,1862,1,0)
- ;;=^358.31IA^5^2
- ;;^UTILITY(U,$J,358.3,1862,1,4,0)
- ;;=4^CA of Pylorus
- ;;^UTILITY(U,$J,358.3,1862,1,5,0)
- ;;=5^151.1
- ;;^UTILITY(U,$J,358.3,1862,2)
- ;;=Cancer of Pylorus^267064
+ ;;^UTILITY(U,$J,358.3,333,1,2,0)
+ ;;=2^295.04
+ ;;^UTILITY(U,$J,358.3,333,1,5,0)
+ ;;=5^Simple Schizophrenia,  Chr w/Exacerbation
+ ;;^UTILITY(U,$J,358.3,333,2)
+ ;;=^268048

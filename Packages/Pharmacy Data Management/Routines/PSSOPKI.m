@@ -1,5 +1,5 @@
 PSSOPKI ;BHAM ISC/MHA-New API's to CPRS for DEA/PKI Pilot Project ;03/11/02
- ;;1.0;PHARMACY DATA MANAGEMENT;**61,69,166**;9/30/97;Build 9
+ ;;1.0;PHARMACY DATA MANAGEMENT;**61,69,166,183**;9/30/97;Build 10
  ;Reference to ^PSNDF(50.68 supported by DBIA 3735
  ;
 OIDEA(PSSXOI,PSSXOIP) ; CPRS Orderable Item call 
@@ -63,10 +63,14 @@ DSET ;
  S PSSX("DD",PSSDIENM)=PSSX("DD",PSSDIENM)_"^"_PSSDEAXV_"^"_$S($D(PSSHLF(PSSDIENM)):1,1:0)
  Q
  ;
-DETOX(PSSDIEN) ;Returns 1 if the drug is a detox drug - drug name contains "BUPREN"  - PKI 2011 Project
+DETOX(PSSDIEN) ;Returns 1 if the drug is a detox drug - drug name contains "BUPREN" & the dosage form is not a patch
  Q:'$G(PSSDIEN) 0
- Q:$P($G(^PSDRUG(PSSDIEN,0)),"^")["BUPREN" 1
- Q 0
+ Q:$P($G(^PSDRUG(PSSDIEN,0)),"^")'["BUPREN" 0
+ N PSSJ,PSSY,PSSNDF S PSSJ=1
+ I +$P($G(^PSDRUG(PSSDIEN,"ND")),"^",3) S PSSNDF=$P(^("ND"),"^",3) D  Q PSSJ
+ .S PSSY=+$P($G(^PSNDF(50.68,PSSNDF,0)),"^",3) I $P($G(^PS(50.606,PSSY,0)),"^")["PATCH" S PSSJ=0
+ S PSSY=$P($G(^PSDRUG(PSSDIEN,2)),"^") I PSSY,$P($G(^PS(50.606,$P(^PS(50.7,PSSY,0),"^",2),0)),"^")["PATCH" S PSSJ=0
+ Q PSSJ
  ;
 OIDETOX(PSSXOI,PSSXOIP) ; CPRS Orderable Item to check a drug is a DETOX or not 
  ;Input - PSSXOI - Orderable Item IEN

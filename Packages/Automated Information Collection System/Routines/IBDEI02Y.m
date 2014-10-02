@@ -1,384 +1,124 @@
-IBDEI02Y ; ; 09-MAY-2014
- ;;3.0;IB ENCOUNTER FORM IMP/EXP;;MAY 09, 2014
+IBDEI02Y ; ; 12-AUG-2014
+ ;;3.0;IB ENCOUNTER FORM IMP/EXP;;MAY 15, 2014
  Q:'DIFQR(358.3)  F I=1:2 S X=$T(Q+I) Q:X=""  S Y=$E($T(Q+I+1),4,999),X=$E(X,4,999) S:$A(Y)=126 I=I+1,Y=$E(Y,2,999)_$E($T(Q+I+1),5,99) S:$A(Y)=61 Y=$E(Y,2,999) X NO E  S @X=Y
 Q Q
- ;;^UTILITY(U,$J,358.3,3576,0)
- ;;=797.^^26^288^135
- ;;^UTILITY(U,$J,358.3,3576,1,0)
+ ;;^UTILITY(U,$J,358.3,1008,1,3,0)
+ ;;=3^Tinnitus Assessment
+ ;;^UTILITY(U,$J,358.3,1009,0)
+ ;;=410.01^^13^111^1
+ ;;^UTILITY(U,$J,358.3,1009,1,0)
  ;;=^358.31IA^5^2
- ;;^UTILITY(U,$J,358.3,3576,1,4,0)
- ;;=4^797.
- ;;^UTILITY(U,$J,358.3,3576,1,5,0)
- ;;=5^Senility w/o psychosis
- ;;^UTILITY(U,$J,358.3,3576,2)
- ;;=^109215
- ;;^UTILITY(U,$J,358.3,3577,0)
- ;;=305.90^^26^288^142
- ;;^UTILITY(U,$J,358.3,3577,1,0)
+ ;;^UTILITY(U,$J,358.3,1009,1,4,0)
+ ;;=4^410.01
+ ;;^UTILITY(U,$J,358.3,1009,1,5,0)
+ ;;=5^Acute MI, Anterolateral, Initial
+ ;;^UTILITY(U,$J,358.3,1009,2)
+ ;;=Acute MI, Anterolateral, Initial^269639
+ ;;^UTILITY(U,$J,358.3,1010,0)
+ ;;=410.02^^13^111^2
+ ;;^UTILITY(U,$J,358.3,1010,1,0)
  ;;=^358.31IA^5^2
- ;;^UTILITY(U,$J,358.3,3577,1,4,0)
- ;;=4^305.90
- ;;^UTILITY(U,$J,358.3,3577,1,5,0)
- ;;=5^Substance Abuse
- ;;^UTILITY(U,$J,358.3,3577,2)
- ;;=Substance Abuse^268258
- ;;^UTILITY(U,$J,358.3,3578,0)
- ;;=781.7^^26^288^147
- ;;^UTILITY(U,$J,358.3,3578,1,0)
+ ;;^UTILITY(U,$J,358.3,1010,1,4,0)
+ ;;=4^410.02
+ ;;^UTILITY(U,$J,358.3,1010,1,5,0)
+ ;;=5^Acute MI Anterolateral, Subsequent
+ ;;^UTILITY(U,$J,358.3,1010,2)
+ ;;=Acute MI Anterolateral, Subsequent^269640
+ ;;^UTILITY(U,$J,358.3,1011,0)
+ ;;=410.11^^13^111^3
+ ;;^UTILITY(U,$J,358.3,1011,1,0)
  ;;=^358.31IA^5^2
- ;;^UTILITY(U,$J,358.3,3578,1,4,0)
- ;;=4^781.7
- ;;^UTILITY(U,$J,358.3,3578,1,5,0)
- ;;=5^Tetany/Carpopedl spasm
- ;;^UTILITY(U,$J,358.3,3578,2)
- ;;=^118032
- ;;^UTILITY(U,$J,358.3,3579,0)
- ;;=781.4^^26^288^150
- ;;^UTILITY(U,$J,358.3,3579,1,0)
+ ;;^UTILITY(U,$J,358.3,1011,1,4,0)
+ ;;=4^410.11
+ ;;^UTILITY(U,$J,358.3,1011,1,5,0)
+ ;;=5^Acute MI, Anterior, Initial
+ ;;^UTILITY(U,$J,358.3,1011,2)
+ ;;=Acute MI, Anterior, Initial^269643
+ ;;^UTILITY(U,$J,358.3,1012,0)
+ ;;=410.12^^13^111^4
+ ;;^UTILITY(U,$J,358.3,1012,1,0)
  ;;=^358.31IA^5^2
- ;;^UTILITY(U,$J,358.3,3579,1,4,0)
- ;;=4^781.4
- ;;^UTILITY(U,$J,358.3,3579,1,5,0)
- ;;=5^Transient Limb Paralysis
- ;;^UTILITY(U,$J,358.3,3579,2)
- ;;=^273353
- ;;^UTILITY(U,$J,358.3,3580,0)
- ;;=368.9^^26^288^154
- ;;^UTILITY(U,$J,358.3,3580,1,0)
+ ;;^UTILITY(U,$J,358.3,1012,1,4,0)
+ ;;=4^410.12
+ ;;^UTILITY(U,$J,358.3,1012,1,5,0)
+ ;;=5^Acute MI, Anterior, Subsequent
+ ;;^UTILITY(U,$J,358.3,1012,2)
+ ;;=Acute MI, Anterior, Subsequent^269644
+ ;;^UTILITY(U,$J,358.3,1013,0)
+ ;;=410.21^^13^111^5
+ ;;^UTILITY(U,$J,358.3,1013,1,0)
  ;;=^358.31IA^5^2
- ;;^UTILITY(U,$J,358.3,3580,1,4,0)
- ;;=4^368.9
- ;;^UTILITY(U,$J,358.3,3580,1,5,0)
- ;;=5^Visual disturbance
- ;;^UTILITY(U,$J,358.3,3580,2)
- ;;=^124001
- ;;^UTILITY(U,$J,358.3,3581,0)
- ;;=782.8^^26^288^37
- ;;^UTILITY(U,$J,358.3,3581,1,0)
+ ;;^UTILITY(U,$J,358.3,1013,1,4,0)
+ ;;=4^410.21
+ ;;^UTILITY(U,$J,358.3,1013,1,5,0)
+ ;;=5^Acute MI, Inferolateral, Initial
+ ;;^UTILITY(U,$J,358.3,1013,2)
+ ;;=Acute MI, Inferolateral, Initial^269647
+ ;;^UTILITY(U,$J,358.3,1014,0)
+ ;;=410.22^^13^111^6
+ ;;^UTILITY(U,$J,358.3,1014,1,0)
  ;;=^358.31IA^5^2
- ;;^UTILITY(U,$J,358.3,3581,1,4,0)
- ;;=4^782.8
- ;;^UTILITY(U,$J,358.3,3581,1,5,0)
- ;;=5^Change in skin texture
- ;;^UTILITY(U,$J,358.3,3581,2)
- ;;=^273360
- ;;^UTILITY(U,$J,358.3,3582,0)
- ;;=782.5^^26^288^46
- ;;^UTILITY(U,$J,358.3,3582,1,0)
+ ;;^UTILITY(U,$J,358.3,1014,1,4,0)
+ ;;=4^410.22
+ ;;^UTILITY(U,$J,358.3,1014,1,5,0)
+ ;;=5^Acute MI, Inferior, Subsequent
+ ;;^UTILITY(U,$J,358.3,1014,2)
+ ;;=Acute MI, Inferior, Subsequent^269648
+ ;;^UTILITY(U,$J,358.3,1015,0)
+ ;;=410.31^^13^111^7
+ ;;^UTILITY(U,$J,358.3,1015,1,0)
  ;;=^358.31IA^5^2
- ;;^UTILITY(U,$J,358.3,3582,1,4,0)
- ;;=4^782.5
- ;;^UTILITY(U,$J,358.3,3582,1,5,0)
- ;;=5^Cyanosis
- ;;^UTILITY(U,$J,358.3,3582,2)
- ;;=Cyanosis^29863
- ;;^UTILITY(U,$J,358.3,3583,0)
- ;;=782.7^^26^288^61
- ;;^UTILITY(U,$J,358.3,3583,1,0)
+ ;;^UTILITY(U,$J,358.3,1015,1,4,0)
+ ;;=4^410.31
+ ;;^UTILITY(U,$J,358.3,1015,1,5,0)
+ ;;=5^Acute MI, Inferopostior, Initial
+ ;;^UTILITY(U,$J,358.3,1015,2)
+ ;;=Acute MI, Inferopostior, Initial^269651
+ ;;^UTILITY(U,$J,358.3,1016,0)
+ ;;=410.32^^13^111^8
+ ;;^UTILITY(U,$J,358.3,1016,1,0)
  ;;=^358.31IA^5^2
- ;;^UTILITY(U,$J,358.3,3583,1,4,0)
- ;;=4^782.7
- ;;^UTILITY(U,$J,358.3,3583,1,5,0)
- ;;=5^Ecchymoses, spontaneous
- ;;^UTILITY(U,$J,358.3,3583,2)
- ;;=^273359
- ;;^UTILITY(U,$J,358.3,3584,0)
- ;;=782.62^^26^288^72
- ;;^UTILITY(U,$J,358.3,3584,1,0)
+ ;;^UTILITY(U,$J,358.3,1016,1,4,0)
+ ;;=4^410.32
+ ;;^UTILITY(U,$J,358.3,1016,1,5,0)
+ ;;=5^Acute MI, Inferoposterior, Subsequent
+ ;;^UTILITY(U,$J,358.3,1016,2)
+ ;;=Acute MI, Inferoposterior, Subsequent^269652
+ ;;^UTILITY(U,$J,358.3,1017,0)
+ ;;=410.41^^13^111^9
+ ;;^UTILITY(U,$J,358.3,1017,1,0)
  ;;=^358.31IA^5^2
- ;;^UTILITY(U,$J,358.3,3584,1,4,0)
- ;;=4^782.62
- ;;^UTILITY(U,$J,358.3,3584,1,5,0)
- ;;=5^Flushing
- ;;^UTILITY(U,$J,358.3,3584,2)
- ;;=Flushing^47184
- ;;^UTILITY(U,$J,358.3,3585,0)
- ;;=703.0^^26^288^118
- ;;^UTILITY(U,$J,358.3,3585,1,0)
+ ;;^UTILITY(U,$J,358.3,1017,1,4,0)
+ ;;=4^410.41
+ ;;^UTILITY(U,$J,358.3,1017,1,5,0)
+ ;;=5^Acute MI, Inferorposterior, Initial
+ ;;^UTILITY(U,$J,358.3,1017,2)
+ ;;=Acute MI, Inferorposterior, Initial^269655
+ ;;^UTILITY(U,$J,358.3,1018,0)
+ ;;=410.42^^13^111^10
+ ;;^UTILITY(U,$J,358.3,1018,1,0)
  ;;=^358.31IA^5^2
- ;;^UTILITY(U,$J,358.3,3585,1,4,0)
- ;;=4^703.0
- ;;^UTILITY(U,$J,358.3,3585,1,5,0)
- ;;=5^Onychocryptosis
- ;;^UTILITY(U,$J,358.3,3585,2)
- ;;=Onychocryptosis^81221
- ;;^UTILITY(U,$J,358.3,3586,0)
- ;;=782.4^^26^288^98
- ;;^UTILITY(U,$J,358.3,3586,1,0)
+ ;;^UTILITY(U,$J,358.3,1018,1,4,0)
+ ;;=4^410.42
+ ;;^UTILITY(U,$J,358.3,1018,1,5,0)
+ ;;=5^Acute MI Inferior, Subsequent
+ ;;^UTILITY(U,$J,358.3,1018,2)
+ ;;=Acute MI Inferior, Subsequent^269656
+ ;;^UTILITY(U,$J,358.3,1019,0)
+ ;;=410.51^^13^111^11
+ ;;^UTILITY(U,$J,358.3,1019,1,0)
  ;;=^358.31IA^5^2
- ;;^UTILITY(U,$J,358.3,3586,1,4,0)
- ;;=4^782.4
- ;;^UTILITY(U,$J,358.3,3586,1,5,0)
- ;;=5^Jaundice
- ;;^UTILITY(U,$J,358.3,3586,2)
- ;;=Jaundice^66155
- ;;^UTILITY(U,$J,358.3,3587,0)
- ;;=782.2^^26^288^107
- ;;^UTILITY(U,$J,358.3,3587,1,0)
+ ;;^UTILITY(U,$J,358.3,1019,1,4,0)
+ ;;=4^410.51
+ ;;^UTILITY(U,$J,358.3,1019,1,5,0)
+ ;;=5^Acute MI, Lateral, Initial
+ ;;^UTILITY(U,$J,358.3,1019,2)
+ ;;=Acute MI, Lateral, Initial^269659
+ ;;^UTILITY(U,$J,358.3,1020,0)
+ ;;=410.52^^13^111^12
+ ;;^UTILITY(U,$J,358.3,1020,1,0)
  ;;=^358.31IA^5^2
- ;;^UTILITY(U,$J,358.3,3587,1,4,0)
- ;;=4^782.2
- ;;^UTILITY(U,$J,358.3,3587,1,5,0)
- ;;=5^Mass, Lump of skin
- ;;^UTILITY(U,$J,358.3,3587,2)
- ;;=^71690
- ;;^UTILITY(U,$J,358.3,3588,0)
- ;;=703.8^^26^288^119
- ;;^UTILITY(U,$J,358.3,3588,1,0)
- ;;=^358.31IA^5^2
- ;;^UTILITY(U,$J,358.3,3588,1,4,0)
- ;;=4^703.8
- ;;^UTILITY(U,$J,358.3,3588,1,5,0)
- ;;=5^Onychodystrophy/Onycholysis
- ;;^UTILITY(U,$J,358.3,3588,2)
- ;;=Onychodystrophy/Onycholysis^271926
- ;;^UTILITY(U,$J,358.3,3589,0)
- ;;=110.1^^26^288^120
- ;;^UTILITY(U,$J,358.3,3589,1,0)
- ;;=^358.31IA^5^2
- ;;^UTILITY(U,$J,358.3,3589,1,4,0)
- ;;=4^110.1
- ;;^UTILITY(U,$J,358.3,3589,1,5,0)
- ;;=5^Onychomycosis finger or toe
- ;;^UTILITY(U,$J,358.3,3589,2)
- ;;=^33173
- ;;^UTILITY(U,$J,358.3,3590,0)
- ;;=782.61^^26^288^123
- ;;^UTILITY(U,$J,358.3,3590,1,0)
- ;;=^358.31IA^5^2
- ;;^UTILITY(U,$J,358.3,3590,1,4,0)
- ;;=4^782.61
- ;;^UTILITY(U,$J,358.3,3590,1,5,0)
- ;;=5^Pallor
- ;;^UTILITY(U,$J,358.3,3590,2)
- ;;=Pallor^89216
- ;;^UTILITY(U,$J,358.3,3591,0)
- ;;=782.1^^26^288^136
- ;;^UTILITY(U,$J,358.3,3591,1,0)
- ;;=^358.31IA^5^2
- ;;^UTILITY(U,$J,358.3,3591,1,4,0)
- ;;=4^782.1
- ;;^UTILITY(U,$J,358.3,3591,1,5,0)
- ;;=5^Skin eruption, nonspec
- ;;^UTILITY(U,$J,358.3,3591,2)
- ;;=^102948
- ;;^UTILITY(U,$J,358.3,3592,0)
- ;;=788.35^^26^288^57
- ;;^UTILITY(U,$J,358.3,3592,1,0)
- ;;=^358.31IA^5^2
- ;;^UTILITY(U,$J,358.3,3592,1,4,0)
- ;;=4^788.35
- ;;^UTILITY(U,$J,358.3,3592,1,5,0)
- ;;=5^Dribbling, post-void
- ;;^UTILITY(U,$J,358.3,3592,2)
- ;;=^293938
- ;;^UTILITY(U,$J,358.3,3593,0)
- ;;=788.1^^26^288^60
- ;;^UTILITY(U,$J,358.3,3593,1,0)
- ;;=^358.31IA^5^2
- ;;^UTILITY(U,$J,358.3,3593,1,4,0)
- ;;=4^788.1
- ;;^UTILITY(U,$J,358.3,3593,1,5,0)
- ;;=5^Dysuria
- ;;^UTILITY(U,$J,358.3,3593,2)
- ;;=Dysuria^37716
- ;;^UTILITY(U,$J,358.3,3594,0)
- ;;=788.36^^26^288^67
- ;;^UTILITY(U,$J,358.3,3594,1,0)
- ;;=^358.31IA^5^2
- ;;^UTILITY(U,$J,358.3,3594,1,4,0)
- ;;=4^788.36
- ;;^UTILITY(U,$J,358.3,3594,1,5,0)
- ;;=5^Enuresis, nocturnal
- ;;^UTILITY(U,$J,358.3,3594,2)
- ;;=^293939
- ;;^UTILITY(U,$J,358.3,3595,0)
- ;;=788.41^^26^288^73
- ;;^UTILITY(U,$J,358.3,3595,1,0)
- ;;=^358.31IA^5^2
- ;;^UTILITY(U,$J,358.3,3595,1,4,0)
- ;;=4^788.41
- ;;^UTILITY(U,$J,358.3,3595,1,5,0)
- ;;=5^Frequency of urine
- ;;^UTILITY(U,$J,358.3,3595,2)
- ;;=^124396
- ;;^UTILITY(U,$J,358.3,3596,0)
- ;;=788.21^^26^288^88
- ;;^UTILITY(U,$J,358.3,3596,1,0)
- ;;=^358.31IA^5^2
- ;;^UTILITY(U,$J,358.3,3596,1,4,0)
- ;;=4^788.21
- ;;^UTILITY(U,$J,358.3,3596,1,5,0)
- ;;=5^Incomplet bladder emptying
- ;;^UTILITY(U,$J,358.3,3596,2)
- ;;=^295766
- ;;^UTILITY(U,$J,358.3,3597,0)
- ;;=788.34^^26^288^90
- ;;^UTILITY(U,$J,358.3,3597,1,0)
- ;;=^358.31IA^5^2
- ;;^UTILITY(U,$J,358.3,3597,1,4,0)
- ;;=4^788.34
- ;;^UTILITY(U,$J,358.3,3597,1,5,0)
- ;;=5^Incontinence, continuous
- ;;^UTILITY(U,$J,358.3,3597,2)
- ;;=^293937
- ;;^UTILITY(U,$J,358.3,3598,0)
- ;;=788.33^^26^288^91
- ;;^UTILITY(U,$J,358.3,3598,1,0)
- ;;=^358.31IA^5^2
- ;;^UTILITY(U,$J,358.3,3598,1,4,0)
- ;;=4^788.33
- ;;^UTILITY(U,$J,358.3,3598,1,5,0)
- ;;=5^Incontinence, mixed
- ;;^UTILITY(U,$J,358.3,3598,2)
- ;;=^293936
- ;;^UTILITY(U,$J,358.3,3599,0)
- ;;=788.30^^26^288^92
- ;;^UTILITY(U,$J,358.3,3599,1,0)
- ;;=^358.31IA^5^2
- ;;^UTILITY(U,$J,358.3,3599,1,4,0)
- ;;=4^788.30
- ;;^UTILITY(U,$J,358.3,3599,1,5,0)
- ;;=5^Incontinence, other
- ;;^UTILITY(U,$J,358.3,3599,2)
- ;;=Incontinence, other^124400
- ;;^UTILITY(U,$J,358.3,3600,0)
- ;;=788.32^^26^288^94
- ;;^UTILITY(U,$J,358.3,3600,1,0)
- ;;=^358.31IA^5^2
- ;;^UTILITY(U,$J,358.3,3600,1,4,0)
- ;;=4^788.32
- ;;^UTILITY(U,$J,358.3,3600,1,5,0)
- ;;=5^Incontinence, stress, male
- ;;^UTILITY(U,$J,358.3,3600,2)
- ;;=^293934
- ;;^UTILITY(U,$J,358.3,3601,0)
- ;;=625.6^^26^288^93
- ;;^UTILITY(U,$J,358.3,3601,1,0)
- ;;=^358.31IA^5^2
- ;;^UTILITY(U,$J,358.3,3601,1,4,0)
- ;;=4^625.6
- ;;^UTILITY(U,$J,358.3,3601,1,5,0)
- ;;=5^Incontinence, stress, female
- ;;^UTILITY(U,$J,358.3,3601,2)
- ;;=^114717
- ;;^UTILITY(U,$J,358.3,3602,0)
- ;;=788.31^^26^288^95
- ;;^UTILITY(U,$J,358.3,3602,1,0)
- ;;=^358.31IA^5^2
- ;;^UTILITY(U,$J,358.3,3602,1,4,0)
- ;;=4^788.31
- ;;^UTILITY(U,$J,358.3,3602,1,5,0)
- ;;=5^Incontinence, urge
- ;;^UTILITY(U,$J,358.3,3602,2)
- ;;=^260046
- ;;^UTILITY(U,$J,358.3,3603,0)
- ;;=788.43^^26^288^113
- ;;^UTILITY(U,$J,358.3,3603,1,0)
- ;;=^358.31IA^5^2
- ;;^UTILITY(U,$J,358.3,3603,1,4,0)
- ;;=4^788.43
- ;;^UTILITY(U,$J,358.3,3603,1,5,0)
- ;;=5^Nocturia
- ;;^UTILITY(U,$J,358.3,3603,2)
- ;;=Nocturia^84740
- ;;^UTILITY(U,$J,358.3,3604,0)
- ;;=788.5^^26^288^117
- ;;^UTILITY(U,$J,358.3,3604,1,0)
- ;;=^358.31IA^5^2
- ;;^UTILITY(U,$J,358.3,3604,1,4,0)
- ;;=4^788.5
- ;;^UTILITY(U,$J,358.3,3604,1,5,0)
- ;;=5^Oliguria/Anuria
- ;;^UTILITY(U,$J,358.3,3604,2)
- ;;=Oliguria/Anuria^85458
- ;;^UTILITY(U,$J,358.3,3605,0)
- ;;=788.42^^26^288^128
- ;;^UTILITY(U,$J,358.3,3605,1,0)
- ;;=^358.31IA^5^2
- ;;^UTILITY(U,$J,358.3,3605,1,4,0)
- ;;=4^788.42
- ;;^UTILITY(U,$J,358.3,3605,1,5,0)
- ;;=5^Polyuria
- ;;^UTILITY(U,$J,358.3,3605,2)
- ;;=Polyuria^96503
- ;;^UTILITY(U,$J,358.3,3606,0)
- ;;=788.0^^26^288^132
- ;;^UTILITY(U,$J,358.3,3606,1,0)
- ;;=^358.31IA^5^2
- ;;^UTILITY(U,$J,358.3,3606,1,4,0)
- ;;=4^788.0
- ;;^UTILITY(U,$J,358.3,3606,1,5,0)
- ;;=5^Renal Colic
- ;;^UTILITY(U,$J,358.3,3606,2)
- ;;=Renal Colic^265306
- ;;^UTILITY(U,$J,358.3,3607,0)
- ;;=788.20^^26^288^133
- ;;^UTILITY(U,$J,358.3,3607,1,0)
- ;;=^358.31IA^5^2
- ;;^UTILITY(U,$J,358.3,3607,1,4,0)
- ;;=4^788.20
- ;;^UTILITY(U,$J,358.3,3607,1,5,0)
- ;;=5^Retention, urinary
- ;;^UTILITY(U,$J,358.3,3607,2)
- ;;=^295812
- ;;^UTILITY(U,$J,358.3,3608,0)
- ;;=788.62^^26^288^137
- ;;^UTILITY(U,$J,358.3,3608,1,0)
- ;;=^358.31IA^5^2
- ;;^UTILITY(U,$J,358.3,3608,1,4,0)
- ;;=4^788.62
- ;;^UTILITY(U,$J,358.3,3608,1,5,0)
- ;;=5^Slowing, urine stream
- ;;^UTILITY(U,$J,358.3,3608,2)
- ;;=^295769
- ;;^UTILITY(U,$J,358.3,3609,0)
- ;;=788.7^^26^288^151
- ;;^UTILITY(U,$J,358.3,3609,1,0)
- ;;=^358.31IA^5^2
- ;;^UTILITY(U,$J,358.3,3609,1,4,0)
- ;;=4^788.7
- ;;^UTILITY(U,$J,358.3,3609,1,5,0)
- ;;=5^Urethral Discharge
- ;;^UTILITY(U,$J,358.3,3609,2)
- ;;=^265872
- ;;^UTILITY(U,$J,358.3,3610,0)
- ;;=599.0^^26^288^152
- ;;^UTILITY(U,$J,358.3,3610,1,0)
- ;;=^358.31IA^5^2
- ;;^UTILITY(U,$J,358.3,3610,1,4,0)
- ;;=4^599.0
- ;;^UTILITY(U,$J,358.3,3610,1,5,0)
- ;;=5^Urinary tract infection
- ;;^UTILITY(U,$J,358.3,3610,2)
- ;;=^124436
- ;;^UTILITY(U,$J,358.3,3611,0)
- ;;=784.49^^26^288^82
- ;;^UTILITY(U,$J,358.3,3611,1,0)
- ;;=^358.31IA^5^2
- ;;^UTILITY(U,$J,358.3,3611,1,4,0)
- ;;=4^784.49
- ;;^UTILITY(U,$J,358.3,3611,1,5,0)
- ;;=5^Hoarseness
- ;;^UTILITY(U,$J,358.3,3611,2)
- ;;=Hoarseness^88244
- ;;^UTILITY(U,$J,358.3,3612,0)
- ;;=525.10^^26^288^101
- ;;^UTILITY(U,$J,358.3,3612,1,0)
- ;;=^358.31IA^5^2
- ;;^UTILITY(U,$J,358.3,3612,1,4,0)
- ;;=4^525.10
- ;;^UTILITY(U,$J,358.3,3612,1,5,0)
- ;;=5^Loss of Teeth
- ;;^UTILITY(U,$J,358.3,3612,2)
- ;;=Loss of Teeth^323490
- ;;^UTILITY(U,$J,358.3,3613,0)
- ;;=795.39^^26^288^129
- ;;^UTILITY(U,$J,358.3,3613,1,0)
- ;;=^358.31IA^5^2
- ;;^UTILITY(U,$J,358.3,3613,1,4,0)
- ;;=4^795.39
- ;;^UTILITY(U,$J,358.3,3613,1,5,0)
- ;;=5^Positive Culture findings
- ;;^UTILITY(U,$J,358.3,3613,2)
- ;;=Positive Culture findings^328582
+ ;;^UTILITY(U,$J,358.3,1020,1,4,0)
+ ;;=4^410.52
+ ;;^UTILITY(U,$J,358.3,1020,1,5,0)
+ ;;=5^Acute MI, Lateral, Subsequent

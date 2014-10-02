@@ -1,5 +1,5 @@
-ORCACT01 ;SLC/MKB-Validate order actions cont ;07/13/12  07:59
- ;;3.0;ORDER ENTRY/RESULTS REPORTING;**94,116,134,141,163,187,190,213,243,306**;Dec 17, 1997;Build 43
+ORCACT01 ;SLC/MKB-Validate order actions cont ;10/24/13  09:11
+ ;;3.0;ORDER ENTRY/RESULTS REPORTING;**94,116,134,141,163,187,190,213,243,306,374**;Dec 17, 1997;Build 9
  ;
  ;
 ES ; -- sign [on chart]
@@ -10,6 +10,8 @@ ES ; -- sign [on chart]
  I ACTION="OC",$G(DG)="NV RX" S:MEDPARM<2 ERROR="You are not authorized to release non-VA med orders!" Q
  S X=$P(ORA0,U,4) I X=3 S:ACTSTS'=11&(ACTSTS'=10) ERROR="This order does not require a signature!" Q
  I X'=2 S ERROR="This order has been signed!" Q
+ N ORCS D CSVALUE^ORDEA(.ORCS,+IFN)
+ I DG="O RX",ACTION="RS",$G(NATR)="I",ORCS=1 S ERROR="Controlled Substance outpatient meds may not be released without a clinician's signature!" Q
  I DG="O RX",ACTION'="ES",ACTION'="DS",$G(NATR)'="I" S ERROR="Outpatient meds may not be released without a clinician's signature!" Q
  I (ACTION="ES"!(ACTION="DS")),$D(^XUSEC("ORELSE",DUZ)),$P(OR0,U,16)'<2 S ERROR="You are not privileged to sign this order!" Q
  I ACTION="OC" S:MEDPARM<2 ERROR="You are not authorized to release med orders!" Q

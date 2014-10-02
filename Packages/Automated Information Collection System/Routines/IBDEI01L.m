@@ -1,368 +1,148 @@
-IBDEI01L ; ; 09-MAY-2014
- ;;3.0;IB ENCOUNTER FORM IMP/EXP;;MAY 09, 2014
+IBDEI01L ; ; 12-AUG-2014
+ ;;3.0;IB ENCOUNTER FORM IMP/EXP;;MAY 15, 2014
  Q:'DIFQR(358.3)  F I=1:2 S X=$T(Q+I) Q:X=""  S Y=$E($T(Q+I+1),4,999),X=$E(X,4,999) S:$A(Y)=126 I=I+1,Y=$E(Y,2,999)_$E($T(Q+I+1),5,99) S:$A(Y)=61 Y=$E(Y,2,999) X NO E  S @X=Y
 Q Q
- ;;^UTILITY(U,$J,358.3,1677,1,5,0)
- ;;=5^174.4
- ;;^UTILITY(U,$J,358.3,1677,2)
- ;;=Cancer, Upper Outer Breast^267198
- ;;^UTILITY(U,$J,358.3,1678,0)
- ;;=610.0^^21^144^13
- ;;^UTILITY(U,$J,358.3,1678,1,0)
+ ;;^UTILITY(U,$J,358.3,263,1,5,0)
+ ;;=5^Economic Problem
+ ;;^UTILITY(U,$J,358.3,263,2)
+ ;;=^62174
+ ;;^UTILITY(U,$J,358.3,264,0)
+ ;;=V62.89^^2^19^37
+ ;;^UTILITY(U,$J,358.3,264,1,0)
  ;;=^358.31IA^5^2
- ;;^UTILITY(U,$J,358.3,1678,1,4,0)
- ;;=4^Cyst,Breast
- ;;^UTILITY(U,$J,358.3,1678,1,5,0)
- ;;=5^610.0
- ;;^UTILITY(U,$J,358.3,1678,2)
- ;;=^112247
- ;;^UTILITY(U,$J,358.3,1679,0)
- ;;=625.3^^21^144^14
- ;;^UTILITY(U,$J,358.3,1679,1,0)
+ ;;^UTILITY(U,$J,358.3,264,1,2,0)
+ ;;=2^V62.89
+ ;;^UTILITY(U,$J,358.3,264,1,5,0)
+ ;;=5^Psychological Stress
+ ;;^UTILITY(U,$J,358.3,264,2)
+ ;;=^87822
+ ;;^UTILITY(U,$J,358.3,265,0)
+ ;;=V62.9^^2^19^38
+ ;;^UTILITY(U,$J,358.3,265,1,0)
  ;;=^358.31IA^5^2
- ;;^UTILITY(U,$J,358.3,1679,1,4,0)
- ;;=4^Dysmenorrhea
- ;;^UTILITY(U,$J,358.3,1679,1,5,0)
- ;;=5^625.3
- ;;^UTILITY(U,$J,358.3,1679,2)
- ;;=^37592
- ;;^UTILITY(U,$J,358.3,1680,0)
- ;;=610.1^^21^144^18
- ;;^UTILITY(U,$J,358.3,1680,1,0)
+ ;;^UTILITY(U,$J,358.3,265,1,2,0)
+ ;;=2^V62.9
+ ;;^UTILITY(U,$J,358.3,265,1,5,0)
+ ;;=5^Psychosocial Circum
+ ;;^UTILITY(U,$J,358.3,265,2)
+ ;;=^295551
+ ;;^UTILITY(U,$J,358.3,266,0)
+ ;;=V60.0^^2^19^22
+ ;;^UTILITY(U,$J,358.3,266,1,0)
  ;;=^358.31IA^5^2
- ;;^UTILITY(U,$J,358.3,1680,1,4,0)
- ;;=4^Fibrocystic Disease,Breast
- ;;^UTILITY(U,$J,358.3,1680,1,5,0)
- ;;=5^610.1
- ;;^UTILITY(U,$J,358.3,1680,2)
- ;;=^46167
- ;;^UTILITY(U,$J,358.3,1681,0)
- ;;=217.^^21^144^2
- ;;^UTILITY(U,$J,358.3,1681,1,0)
+ ;;^UTILITY(U,$J,358.3,266,1,2,0)
+ ;;=2^V60.0
+ ;;^UTILITY(U,$J,358.3,266,1,5,0)
+ ;;=5^Lack Of Housing
+ ;;^UTILITY(U,$J,358.3,266,2)
+ ;;=^295539
+ ;;^UTILITY(U,$J,358.3,267,0)
+ ;;=V62.81^^2^19^21
+ ;;^UTILITY(U,$J,358.3,267,1,0)
  ;;=^358.31IA^5^2
- ;;^UTILITY(U,$J,358.3,1681,1,4,0)
- ;;=4^Benign Neoplasm Breast
- ;;^UTILITY(U,$J,358.3,1681,1,5,0)
- ;;=5^217.
- ;;^UTILITY(U,$J,358.3,1681,2)
- ;;=^267638
- ;;^UTILITY(U,$J,358.3,1682,0)
- ;;=617.9^^21^144^15
- ;;^UTILITY(U,$J,358.3,1682,1,0)
+ ;;^UTILITY(U,$J,358.3,267,1,2,0)
+ ;;=2^V62.81
+ ;;^UTILITY(U,$J,358.3,267,1,5,0)
+ ;;=5^Interpersonal Problem
+ ;;^UTILITY(U,$J,358.3,267,2)
+ ;;=^276358
+ ;;^UTILITY(U,$J,358.3,268,0)
+ ;;=V71.01^^2^19^24
+ ;;^UTILITY(U,$J,358.3,268,1,0)
  ;;=^358.31IA^5^2
- ;;^UTILITY(U,$J,358.3,1682,1,4,0)
- ;;=4^Endometriosis
- ;;^UTILITY(U,$J,358.3,1682,1,5,0)
- ;;=5^617.9
- ;;^UTILITY(U,$J,358.3,1682,2)
- ;;=^40463
- ;;^UTILITY(U,$J,358.3,1683,0)
- ;;=618.6^^21^144^16
- ;;^UTILITY(U,$J,358.3,1683,1,0)
+ ;;^UTILITY(U,$J,358.3,268,1,2,0)
+ ;;=2^V71.01
+ ;;^UTILITY(U,$J,358.3,268,1,5,0)
+ ;;=5^Observ-Antisocial Behav
+ ;;^UTILITY(U,$J,358.3,268,2)
+ ;;=^295603
+ ;;^UTILITY(U,$J,358.3,269,0)
+ ;;=V71.09^^2^19^25
+ ;;^UTILITY(U,$J,358.3,269,1,0)
  ;;=^358.31IA^5^2
- ;;^UTILITY(U,$J,358.3,1683,1,4,0)
- ;;=4^Enterocele,Vaginal
- ;;^UTILITY(U,$J,358.3,1683,1,5,0)
- ;;=5^618.6
- ;;^UTILITY(U,$J,358.3,1683,2)
- ;;=^56796
- ;;^UTILITY(U,$J,358.3,1684,0)
- ;;=625.6^^21^144^20
- ;;^UTILITY(U,$J,358.3,1684,1,0)
+ ;;^UTILITY(U,$J,358.3,269,1,2,0)
+ ;;=2^V71.09
+ ;;^UTILITY(U,$J,358.3,269,1,5,0)
+ ;;=5^Observ-Mental Condition
+ ;;^UTILITY(U,$J,358.3,269,2)
+ ;;=^295604
+ ;;^UTILITY(U,$J,358.3,270,0)
+ ;;=V15.41^^2^19^19
+ ;;^UTILITY(U,$J,358.3,270,1,0)
  ;;=^358.31IA^5^2
- ;;^UTILITY(U,$J,358.3,1684,1,4,0)
- ;;=4^Incontin,Female Stress
- ;;^UTILITY(U,$J,358.3,1684,1,5,0)
- ;;=5^625.6
- ;;^UTILITY(U,$J,358.3,1684,2)
- ;;=^114717
- ;;^UTILITY(U,$J,358.3,1685,0)
- ;;=611.72^^21^144^21
- ;;^UTILITY(U,$J,358.3,1685,1,0)
+ ;;^UTILITY(U,$J,358.3,270,1,2,0)
+ ;;=2^V15.41
+ ;;^UTILITY(U,$J,358.3,270,1,5,0)
+ ;;=5^Hx Of Sexual Abuse
+ ;;^UTILITY(U,$J,358.3,270,2)
+ ;;=^304352
+ ;;^UTILITY(U,$J,358.3,271,0)
+ ;;=V61.01^^2^19^10
+ ;;^UTILITY(U,$J,358.3,271,1,0)
  ;;=^358.31IA^5^2
- ;;^UTILITY(U,$J,358.3,1685,1,4,0)
- ;;=4^Lump/Mass In Breast
- ;;^UTILITY(U,$J,358.3,1685,1,5,0)
- ;;=5^611.72
- ;;^UTILITY(U,$J,358.3,1685,2)
- ;;=Lump/Mass in Breast^72018
- ;;^UTILITY(U,$J,358.3,1686,0)
- ;;=795.00^^21^144^1
- ;;^UTILITY(U,$J,358.3,1686,1,0)
+ ;;^UTILITY(U,$J,358.3,271,1,2,0)
+ ;;=2^V61.01
+ ;;^UTILITY(U,$J,358.3,271,1,5,0)
+ ;;=5^Fmily Dsrpt-Fam Military
+ ;;^UTILITY(U,$J,358.3,271,2)
+ ;;=^336799
+ ;;^UTILITY(U,$J,358.3,272,0)
+ ;;=V61.02^^2^19^11
+ ;;^UTILITY(U,$J,358.3,272,1,0)
  ;;=^358.31IA^5^2
- ;;^UTILITY(U,$J,358.3,1686,1,4,0)
- ;;=4^Abnormal Pap Smear, Nos
- ;;^UTILITY(U,$J,358.3,1686,1,5,0)
- ;;=5^795.00
- ;;^UTILITY(U,$J,358.3,1686,2)
- ;;=Abnormal Pap Smear, NOS^117041
- ;;^UTILITY(U,$J,358.3,1687,0)
- ;;=618.00^^21^144^29
- ;;^UTILITY(U,$J,358.3,1687,1,0)
+ ;;^UTILITY(U,$J,358.3,272,1,2,0)
+ ;;=2^V61.02
+ ;;^UTILITY(U,$J,358.3,272,1,5,0)
+ ;;=5^Fmily Dsrpt-Ret Military
+ ;;^UTILITY(U,$J,358.3,272,2)
+ ;;=^336800
+ ;;^UTILITY(U,$J,358.3,273,0)
+ ;;=V61.03^^2^19^9
+ ;;^UTILITY(U,$J,358.3,273,1,0)
  ;;=^358.31IA^5^2
- ;;^UTILITY(U,$J,358.3,1687,1,4,0)
- ;;=4^Vaginal Wall Prolpse Nos
- ;;^UTILITY(U,$J,358.3,1687,1,5,0)
- ;;=5^618.00
- ;;^UTILITY(U,$J,358.3,1687,2)
- ;;=^331533
- ;;^UTILITY(U,$J,358.3,1688,0)
- ;;=611.89^^21^144^19
- ;;^UTILITY(U,$J,358.3,1688,1,0)
+ ;;^UTILITY(U,$J,358.3,273,1,2,0)
+ ;;=2^V61.03
+ ;;^UTILITY(U,$J,358.3,273,1,5,0)
+ ;;=5^Fmily Dsrpt-Divorce/Sep
+ ;;^UTILITY(U,$J,358.3,273,2)
+ ;;=^336801
+ ;;^UTILITY(U,$J,358.3,274,0)
+ ;;=V61.04^^2^19^7
+ ;;^UTILITY(U,$J,358.3,274,1,0)
  ;;=^358.31IA^5^2
- ;;^UTILITY(U,$J,358.3,1688,1,4,0)
- ;;=4^Hematoma,Breast
- ;;^UTILITY(U,$J,358.3,1688,1,5,0)
- ;;=5^611.89
- ;;^UTILITY(U,$J,358.3,1688,2)
- ;;=^336616
- ;;^UTILITY(U,$J,358.3,1689,0)
- ;;=173.51^^21^144^10
- ;;^UTILITY(U,$J,358.3,1689,1,0)
+ ;;^UTILITY(U,$J,358.3,274,1,2,0)
+ ;;=2^V61.04
+ ;;^UTILITY(U,$J,358.3,274,1,5,0)
+ ;;=5^Family Dsrpt-Estrangment
+ ;;^UTILITY(U,$J,358.3,274,2)
+ ;;=^336802
+ ;;^UTILITY(U,$J,358.3,275,0)
+ ;;=V61.05^^2^19^8
+ ;;^UTILITY(U,$J,358.3,275,1,0)
  ;;=^358.31IA^5^2
- ;;^UTILITY(U,$J,358.3,1689,1,4,0)
- ;;=4^Cancer, Skin Of Breast
- ;;^UTILITY(U,$J,358.3,1689,1,5,0)
- ;;=5^173.51
- ;;^UTILITY(U,$J,358.3,1689,2)
- ;;=^340479
- ;;^UTILITY(U,$J,358.3,1690,0)
- ;;=175.9^^21^145^1
- ;;^UTILITY(U,$J,358.3,1690,1,0)
+ ;;^UTILITY(U,$J,358.3,275,1,2,0)
+ ;;=2^V61.05
+ ;;^UTILITY(U,$J,358.3,275,1,5,0)
+ ;;=5^Fmily Dsrpt-Chld Custody
+ ;;^UTILITY(U,$J,358.3,275,2)
+ ;;=^336803
+ ;;^UTILITY(U,$J,358.3,276,0)
+ ;;=V61.09^^2^19^6
+ ;;^UTILITY(U,$J,358.3,276,1,0)
  ;;=^358.31IA^5^2
- ;;^UTILITY(U,$J,358.3,1690,1,4,0)
- ;;=4^Ca, Male Breast
- ;;^UTILITY(U,$J,358.3,1690,1,5,0)
- ;;=5^175.9
- ;;^UTILITY(U,$J,358.3,1690,2)
- ;;=CA, Male Breast^267205
- ;;^UTILITY(U,$J,358.3,1691,0)
- ;;=175.0^^21^145^2
- ;;^UTILITY(U,$J,358.3,1691,1,0)
+ ;;^UTILITY(U,$J,358.3,276,1,2,0)
+ ;;=2^V61.09
+ ;;^UTILITY(U,$J,358.3,276,1,5,0)
+ ;;=5^Family Disruption NEC
+ ;;^UTILITY(U,$J,358.3,276,2)
+ ;;=^336805
+ ;;^UTILITY(U,$J,358.3,277,0)
+ ;;=V62.21^^2^19^13
+ ;;^UTILITY(U,$J,358.3,277,1,0)
  ;;=^358.31IA^5^2
- ;;^UTILITY(U,$J,358.3,1691,1,4,0)
- ;;=4^Ca, Male Nipple
- ;;^UTILITY(U,$J,358.3,1691,1,5,0)
- ;;=5^175.0
- ;;^UTILITY(U,$J,358.3,1691,2)
- ;;=CA, Male Nipple^267204
- ;;^UTILITY(U,$J,358.3,1692,0)
- ;;=611.1^^21^145^3
- ;;^UTILITY(U,$J,358.3,1692,1,0)
- ;;=^358.31IA^5^2
- ;;^UTILITY(U,$J,358.3,1692,1,4,0)
- ;;=4^Gynecomastia,Male
- ;;^UTILITY(U,$J,358.3,1692,1,5,0)
- ;;=5^611.1
- ;;^UTILITY(U,$J,358.3,1692,2)
- ;;=^60454
- ;;^UTILITY(U,$J,358.3,1693,0)
- ;;=216.0^^21^146^4
- ;;^UTILITY(U,$J,358.3,1693,1,0)
- ;;=^358.31IA^5^2
- ;;^UTILITY(U,$J,358.3,1693,1,4,0)
- ;;=4^Benign Lesion, Lip
- ;;^UTILITY(U,$J,358.3,1693,1,5,0)
- ;;=5^216.0
- ;;^UTILITY(U,$J,358.3,1693,2)
- ;;=Benign Neoplasm of Skin of Lip^267629
- ;;^UTILITY(U,$J,358.3,1694,0)
- ;;=216.1^^21^146^2
- ;;^UTILITY(U,$J,358.3,1694,1,0)
- ;;=^358.31IA^5^2
- ;;^UTILITY(U,$J,358.3,1694,1,4,0)
- ;;=4^Benign Lesion, Eyelid
- ;;^UTILITY(U,$J,358.3,1694,1,5,0)
- ;;=5^216.1
- ;;^UTILITY(U,$J,358.3,1694,2)
- ;;=Benign Neoplasm of Skin of Eyelid^267630
- ;;^UTILITY(U,$J,358.3,1695,0)
- ;;=216.2^^21^146^1
- ;;^UTILITY(U,$J,358.3,1695,1,0)
- ;;=^358.31IA^5^2
- ;;^UTILITY(U,$J,358.3,1695,1,4,0)
- ;;=4^Benign Lesion, Ear
- ;;^UTILITY(U,$J,358.3,1695,1,5,0)
- ;;=5^216.2
- ;;^UTILITY(U,$J,358.3,1695,2)
- ;;=Benign Neoplasm of Skin of Ear^267631
- ;;^UTILITY(U,$J,358.3,1696,0)
- ;;=216.4^^21^146^6
- ;;^UTILITY(U,$J,358.3,1696,1,0)
- ;;=^358.31IA^5^2
- ;;^UTILITY(U,$J,358.3,1696,1,4,0)
- ;;=4^Benign Lesion, Neck
- ;;^UTILITY(U,$J,358.3,1696,1,5,0)
- ;;=5^216.4
- ;;^UTILITY(U,$J,358.3,1696,2)
- ;;=Benign Neoplasm of Skin of Neck^267633
- ;;^UTILITY(U,$J,358.3,1697,0)
- ;;=216.5^^21^146^8
- ;;^UTILITY(U,$J,358.3,1697,1,0)
- ;;=^358.31IA^5^2
- ;;^UTILITY(U,$J,358.3,1697,1,4,0)
- ;;=4^Benign Lesion, Trunk
- ;;^UTILITY(U,$J,358.3,1697,1,5,0)
- ;;=5^216.5
- ;;^UTILITY(U,$J,358.3,1697,2)
- ;;=Benign Neoplasm of Skin of Trunk^267634
- ;;^UTILITY(U,$J,358.3,1698,0)
- ;;=216.6^^21^146^9
- ;;^UTILITY(U,$J,358.3,1698,1,0)
- ;;=^358.31IA^5^2
- ;;^UTILITY(U,$J,358.3,1698,1,4,0)
- ;;=4^Benign Lesion, Upper Limb
- ;;^UTILITY(U,$J,358.3,1698,1,5,0)
- ;;=5^216.6
- ;;^UTILITY(U,$J,358.3,1698,2)
- ;;=Benign Neoplasm of Skin of Arm^267635
- ;;^UTILITY(U,$J,358.3,1699,0)
- ;;=216.7^^21^146^5
- ;;^UTILITY(U,$J,358.3,1699,1,0)
- ;;=^358.31IA^5^2
- ;;^UTILITY(U,$J,358.3,1699,1,4,0)
- ;;=4^Benign Lesion, Lower Limb
- ;;^UTILITY(U,$J,358.3,1699,1,5,0)
- ;;=5^216.7
- ;;^UTILITY(U,$J,358.3,1699,2)
- ;;=Benign Neoplasm of of skin of leg^267636
- ;;^UTILITY(U,$J,358.3,1700,0)
- ;;=216.8^^21^146^7
- ;;^UTILITY(U,$J,358.3,1700,1,0)
- ;;=^358.31IA^5^2
- ;;^UTILITY(U,$J,358.3,1700,1,4,0)
- ;;=4^Benign Lesion, Skin Other
- ;;^UTILITY(U,$J,358.3,1700,1,5,0)
- ;;=5^216.8
- ;;^UTILITY(U,$J,358.3,1700,2)
- ;;=Ben Neoplasm, Skin, Unspec^267637
- ;;^UTILITY(U,$J,358.3,1701,0)
- ;;=216.3^^21^146^3
- ;;^UTILITY(U,$J,358.3,1701,1,0)
- ;;=^358.31IA^5^2
- ;;^UTILITY(U,$J,358.3,1701,1,4,0)
- ;;=4^Benign Lesion, Face
- ;;^UTILITY(U,$J,358.3,1701,1,5,0)
- ;;=5^216.3
- ;;^UTILITY(U,$J,358.3,1701,2)
- ;;=^267632
- ;;^UTILITY(U,$J,358.3,1702,0)
- ;;=173.00^^21^147^15
- ;;^UTILITY(U,$J,358.3,1702,1,0)
- ;;=^358.31IA^5^2
- ;;^UTILITY(U,$J,358.3,1702,1,4,0)
- ;;=4^CA Skin Lip, Unspec
- ;;^UTILITY(U,$J,358.3,1702,1,5,0)
- ;;=5^173.00
- ;;^UTILITY(U,$J,358.3,1702,2)
- ;;=MALIG NEOPL SKIN LIP NOS^340596
- ;;^UTILITY(U,$J,358.3,1703,0)
- ;;=173.10^^21^147^12
- ;;^UTILITY(U,$J,358.3,1703,1,0)
- ;;=^358.31IA^5^2
- ;;^UTILITY(U,$J,358.3,1703,1,4,0)
- ;;=4^CA Skin Eyelid, Unspec
- ;;^UTILITY(U,$J,358.3,1703,1,5,0)
- ;;=5^173.10
- ;;^UTILITY(U,$J,358.3,1703,2)
- ;;=MAL NEO EYELID/CANTH NOS^340597
- ;;^UTILITY(U,$J,358.3,1704,0)
- ;;=173.20^^21^147^11
- ;;^UTILITY(U,$J,358.3,1704,1,0)
- ;;=^358.31IA^5^2
- ;;^UTILITY(U,$J,358.3,1704,1,4,0)
- ;;=4^CA Skin Ear, Unspec
- ;;^UTILITY(U,$J,358.3,1704,1,5,0)
- ;;=5^173.20
- ;;^UTILITY(U,$J,358.3,1704,2)
- ;;=MALIG NEO SKIN EAR NOS^340598
- ;;^UTILITY(U,$J,358.3,1705,0)
- ;;=173.30^^21^147^13
- ;;^UTILITY(U,$J,358.3,1705,1,0)
- ;;=^358.31IA^5^2
- ;;^UTILITY(U,$J,358.3,1705,1,4,0)
- ;;=4^CA Skin Face, Unspec
- ;;^UTILITY(U,$J,358.3,1705,1,5,0)
- ;;=5^173.30
- ;;^UTILITY(U,$J,358.3,1705,2)
- ;;=MAL NEO SKN FACE NEC/NOS^340599
- ;;^UTILITY(U,$J,358.3,1706,0)
- ;;=173.40^^21^147^16
- ;;^UTILITY(U,$J,358.3,1706,1,0)
- ;;=^358.31IA^5^2
- ;;^UTILITY(U,$J,358.3,1706,1,4,0)
- ;;=4^CA Skin Scalp/Neck, Unspec
- ;;^UTILITY(U,$J,358.3,1706,1,5,0)
- ;;=5^173.40
- ;;^UTILITY(U,$J,358.3,1706,2)
- ;;=MAL NEO SCLP/SKN NCK NOS^340600
- ;;^UTILITY(U,$J,358.3,1707,0)
- ;;=173.50^^21^147^17
- ;;^UTILITY(U,$J,358.3,1707,1,0)
- ;;=^358.31IA^5^2
- ;;^UTILITY(U,$J,358.3,1707,1,4,0)
- ;;=4^CA Skin Trunk, Unspec
- ;;^UTILITY(U,$J,358.3,1707,1,5,0)
- ;;=5^173.50
- ;;^UTILITY(U,$J,358.3,1707,2)
- ;;=MALIG NEO SKIN TRUNK NOS^340601
- ;;^UTILITY(U,$J,358.3,1708,0)
- ;;=173.60^^21^147^10
- ;;^UTILITY(U,$J,358.3,1708,1,0)
- ;;=^358.31IA^5^2
- ;;^UTILITY(U,$J,358.3,1708,1,4,0)
- ;;=4^CA Skin Arm/Shoulder, Unspec
- ;;^UTILITY(U,$J,358.3,1708,1,5,0)
- ;;=5^173.60
- ;;^UTILITY(U,$J,358.3,1708,2)
- ;;=MAL NEO SKIN UP LIMB NOS^340602
- ;;^UTILITY(U,$J,358.3,1709,0)
- ;;=173.70^^21^147^14
- ;;^UTILITY(U,$J,358.3,1709,1,0)
- ;;=^358.31IA^5^2
- ;;^UTILITY(U,$J,358.3,1709,1,4,0)
- ;;=4^CA Skin Leg/Hip, Unspec
- ;;^UTILITY(U,$J,358.3,1709,1,5,0)
- ;;=5^173.70
- ;;^UTILITY(U,$J,358.3,1709,2)
- ;;=MAL NEO SKN LOW LIMB NOS^340603
- ;;^UTILITY(U,$J,358.3,1710,0)
- ;;=173.80^^21^147^18
- ;;^UTILITY(U,$J,358.3,1710,1,0)
- ;;=^358.31IA^5^2
- ;;^UTILITY(U,$J,358.3,1710,1,4,0)
- ;;=4^CA Skin, Other Part
- ;;^UTILITY(U,$J,358.3,1710,1,5,0)
- ;;=5^173.80
- ;;^UTILITY(U,$J,358.3,1710,2)
- ;;=MAL NEO SKN SITE NEC/NOS^340604
- ;;^UTILITY(U,$J,358.3,1711,0)
- ;;=173.01^^21^147^6
- ;;^UTILITY(U,$J,358.3,1711,1,0)
- ;;=^358.31IA^5^2
- ;;^UTILITY(U,$J,358.3,1711,1,4,0)
- ;;=4^BCC Skin,Lip
- ;;^UTILITY(U,$J,358.3,1711,1,5,0)
- ;;=5^173.01
- ;;^UTILITY(U,$J,358.3,1711,2)
- ;;=^340464
- ;;^UTILITY(U,$J,358.3,1712,0)
- ;;=173.02^^21^147^24
- ;;^UTILITY(U,$J,358.3,1712,1,0)
- ;;=^358.31IA^5^2
- ;;^UTILITY(U,$J,358.3,1712,1,4,0)
- ;;=4^SCC Skin,Lip
- ;;^UTILITY(U,$J,358.3,1712,1,5,0)
- ;;=5^173.02
- ;;^UTILITY(U,$J,358.3,1712,2)
- ;;=^340465
- ;;^UTILITY(U,$J,358.3,1713,0)
- ;;=173.11^^21^147^3
- ;;^UTILITY(U,$J,358.3,1713,1,0)
- ;;=^358.31IA^5^2
- ;;^UTILITY(U,$J,358.3,1713,1,4,0)
- ;;=4^BCC Skin,Eyelid
- ;;^UTILITY(U,$J,358.3,1713,1,5,0)
- ;;=5^173.11
- ;;^UTILITY(U,$J,358.3,1713,2)
- ;;=^340467
+ ;;^UTILITY(U,$J,358.3,277,1,2,0)
+ ;;=2^V62.21
+ ;;^UTILITY(U,$J,358.3,277,1,5,0)
+ ;;=5^HX Military Deployment
+ ;;^UTILITY(U,$J,358.3,277,2)
+ ;;=^336806

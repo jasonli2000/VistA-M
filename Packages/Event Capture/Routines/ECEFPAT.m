@@ -1,6 +1,9 @@
 ECEFPAT ;ALB/JAM-Enter Event Capture Data Patient Filer ;11/21/12  16:29
- ;;2.0;EVENT CAPTURE;**25,32,39,42,47,49,54,65,72,95,76,112,119**;8 May 96;Build 12
+ ;;2.0;EVENT CAPTURE;**25,32,39,42,47,49,54,65,72,95,76,112,119,114**;8 May 96;Build 20
  ;
+ ; Reference to $$SINFO^ICDEX supported by ICR #5747
+ ; Reference to $$ICDDX^ICDEX supported by ICR #5747
+ ; 
 FILE ;Used by the RPC broker to file patient encounter in file #721
  ;  Uses Supported IA 1995 - allow access to $$CPT^ICPTCOD
  ;
@@ -32,7 +35,11 @@ FILE ;Used by the RPC broker to file patient encounter in file #721
  ;       ^TMP($J,"ECMSG",n)=Success or failure to file in #721^Message
  ;
  N NODE,ECS,ECM,ECID,ECCPT,ECINT,ECPCE,ECX,ECERR,ECOUT,ECFLG,ECRES
- N ECFIL,ECPRV
+ N ECFIL,ECPRV,ECCS
+ ; Determine Active Coding System based on Date of Interest
+ S ECCS=$S($G(ECDT)'="":ECDT,1:DT)
+ S ECCS=$$SINFO^ICDEX("DIAG",ECCS) ; Supported by ICR 5747
+ ;
  S ECFLG=1,ECERR=0 D CHKDT(1) I ECERR Q
  F ECX=1:1 Q:'$D(@("ECU"_ECX))  D  I ECERR Q
  .I @("ECU"_ECX)="" Q
@@ -112,7 +119,8 @@ FILE ;Used by the RPC broker to file patient encounter in file #721
  . S DXS="",DIC(0)="L",DA(1)=ECFN,DIC("P")=$P(^DD(721,38,0),U,2)
  . S DIC="^ECH("_DA(1)_","_"""DX"""_",",ECDXY=ECDX K ECDXX
  . F ECX=1:1:$L(ECDXS,"^") S DXSIEN=$P(ECDXS,U,ECX) I +DXSIEN>0 D
- . . S DXCDE=$$ICDDX^ICDCODE(DXSIEN,ECDT) Q:+DXCDE<0  I '$P(DXCDE,U,10) Q
+ . . ; Retrieve ICD data - Supported by ICR 5747
+ . . S DXCDE=$$ICDDX^ICDEX(DXSIEN,ECDT,+ECCS,"I") Q:+DXCDE<0  I '$P(DXCDE,U,10) Q
  . . K DD,DO S X=DXSIEN D FILE^DICN
  . . S DXCDE=$P(DXCDE,U,2),ECDXX(DXCDE)=DXSIEN
  . . S ^DISV(DUZ,"^ICD9(")=DXSIEN  ;last ICD9 code

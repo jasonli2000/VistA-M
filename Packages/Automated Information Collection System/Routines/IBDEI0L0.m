@@ -1,64 +1,138 @@
-IBDEI0L0 ; ; 13-FEB-2014
- ;;3.0;IB ENCOUNTER FORM IMP/EXP;;FEB 13, 2014
- Q:'DIFQ(358.4)  F I=1:2 S X=$T(Q+I) Q:X=""  S Y=$E($T(Q+I+1),4,999),X=$E(X,4,999) S:$A(Y)=126 I=I+1,Y=$E(Y,2,999)_$E($T(Q+I+1),5,99) S:$A(Y)=61 Y=$E(Y,2,999) X NO E  S @X=Y
+IBDEI0L0 ; ; 12-AUG-2014
+ ;;3.0;IB ENCOUNTER FORM IMP/EXP;;MAY 15, 2014
+ Q:'DIFQR(358.3)  F I=1:2 S X=$T(Q+I) Q:X=""  S Y=$E($T(Q+I+1),4,999),X=$E(X,4,999) S:$A(Y)=126 I=I+1,Y=$E(Y,2,999)_$E($T(Q+I+1),5,99) S:$A(Y)=61 Y=$E(Y,2,999) X NO E  S @X=Y
 Q Q
- ;;^DIC(358.4,0,"GL")
- ;;=^IBE(358.4,
- ;;^DIC("B","IMP/EXP SELECTION GROUP",358.4)
- ;;=
- ;;^DIC(358.4,"%D",0)
- ;;=^^4^4^2940217^
- ;;^DIC(358.4,"%D",1,0)
- ;;= 
- ;;^DIC(358.4,"%D",2,0)
- ;;=This file is nearly identical to file #357.4. It is used by the
- ;;^DIC(358.4,"%D",3,0)
- ;;=Import/Export Utility as a temporary staging area for data from that file
- ;;^DIC(358.4,"%D",4,0)
- ;;=that is being imported or exported.
- ;;^DD(358.4,0)
- ;;=FIELD^^.04^4
- ;;^DD(358.4,0,"DDA")
- ;;=N
- ;;^DD(358.4,0,"DT")
- ;;=2950717
- ;;^DD(358.4,0,"ID",.02)
- ;;=W "   ",$P(^(0),U,2)
- ;;^DD(358.4,0,"ID",.03)
- ;;=S %I=Y,Y=$S('$D(^(0)):"",$D(^IBE(358.2,+$P(^(0),U,3),0))#2:$P(^(0),U,1),1:""),C=$P(^DD(358.2,.01,0),U,2) D Y^DIQ:Y]"" W "   ",Y,@("$E("_DIC_"%I,0),0)") S Y=%I K %I
- ;;^DD(358.4,0,"IX","APO",358.4,.02)
- ;;=
- ;;^DD(358.4,0,"IX","APO1",358.4,.03)
- ;;=
- ;;^DD(358.4,0,"IX","B",358.4,.01)
- ;;=
- ;;^DD(358.4,0,"IX","D",358.4,.03)
- ;;=
- ;;^DD(358.4,0,"NM","IMP/EXP SELECTION GROUP")
- ;;=
- ;;^DD(358.4,0,"PT",358.3,.04)
- ;;=
- ;;^DD(358.4,0,"VRPK")
- ;;=IBD
- ;;^DD(358.4,.01,0)
- ;;=HEADER^RF^^0;1^K:$L(X)>40!($L(X)<1) X
- ;;^DD(358.4,.01,1,0)
- ;;=^.1
- ;;^DD(358.4,.01,1,1,0)
- ;;=358.4^B
- ;;^DD(358.4,.01,1,1,1)
- ;;=S ^IBE(358.4,"B",$E(X,1,30),DA)=""
- ;;^DD(358.4,.01,1,1,2)
- ;;=K ^IBE(358.4,"B",$E(X,1,30),DA)
- ;;^DD(358.4,.01,3)
- ;;=What text do you want to appear at the top of this group?
- ;;^DD(358.4,.01,21,0)
- ;;=^^2^2^2930604^^^^
- ;;^DD(358.4,.01,21,1,0)
- ;;= 
- ;;^DD(358.4,.01,21,2,0)
- ;;=The name given to a group of selections appearing on a selection list.
- ;;^DD(358.4,.01,"DEL",1,0)
- ;;=I '$G(IBLISTPR) W "...Selection Groups can only be deleted through the Encounter Form Utilities!"
- ;;^DD(358.4,.01,"DT")
- ;;=2930604
+ ;;^UTILITY(U,$J,358.3,10297,0)
+ ;;=707.12^^67^674^74
+ ;;^UTILITY(U,$J,358.3,10297,1,0)
+ ;;=^358.31IA^5^2
+ ;;^UTILITY(U,$J,358.3,10297,1,4,0)
+ ;;=4^707.12
+ ;;^UTILITY(U,$J,358.3,10297,1,5,0)
+ ;;=5^Ulcer of Calf
+ ;;^UTILITY(U,$J,358.3,10297,2)
+ ;;=Ulcer of Calf, non-diabetic^322144
+ ;;^UTILITY(U,$J,358.3,10298,0)
+ ;;=707.15^^67^674^75
+ ;;^UTILITY(U,$J,358.3,10298,1,0)
+ ;;=^358.31IA^5^2
+ ;;^UTILITY(U,$J,358.3,10298,1,4,0)
+ ;;=4^707.15
+ ;;^UTILITY(U,$J,358.3,10298,1,5,0)
+ ;;=5^Ulcer of Foot
+ ;;^UTILITY(U,$J,358.3,10298,2)
+ ;;=Ulcer of Foot, non-diabetic^322148
+ ;;^UTILITY(U,$J,358.3,10299,0)
+ ;;=707.14^^67^674^76
+ ;;^UTILITY(U,$J,358.3,10299,1,0)
+ ;;=^358.31IA^5^2
+ ;;^UTILITY(U,$J,358.3,10299,1,4,0)
+ ;;=4^707.14
+ ;;^UTILITY(U,$J,358.3,10299,1,5,0)
+ ;;=5^Ulcer of Heel/Midfoot
+ ;;^UTILITY(U,$J,358.3,10299,2)
+ ;;=Ulcer of Heel/Midfoot, non-d-diabetic^322146
+ ;;^UTILITY(U,$J,358.3,10300,0)
+ ;;=707.10^^67^674^72
+ ;;^UTILITY(U,$J,358.3,10300,1,0)
+ ;;=^358.31IA^5^2
+ ;;^UTILITY(U,$J,358.3,10300,1,4,0)
+ ;;=4^707.10
+ ;;^UTILITY(U,$J,358.3,10300,1,5,0)
+ ;;=5^Ulcer Lower Extremity
+ ;;^UTILITY(U,$J,358.3,10300,2)
+ ;;=Ulcer, LE, non-diabetic^322142
+ ;;^UTILITY(U,$J,358.3,10301,0)
+ ;;=707.11^^67^674^77
+ ;;^UTILITY(U,$J,358.3,10301,1,0)
+ ;;=^358.31IA^5^2
+ ;;^UTILITY(U,$J,358.3,10301,1,4,0)
+ ;;=4^707.11
+ ;;^UTILITY(U,$J,358.3,10301,1,5,0)
+ ;;=5^Ulcer of Thigh
+ ;;^UTILITY(U,$J,358.3,10301,2)
+ ;;=Ulcer of Thigh, non-diabetic^322143
+ ;;^UTILITY(U,$J,358.3,10302,0)
+ ;;=695.3^^67^674^58
+ ;;^UTILITY(U,$J,358.3,10302,1,0)
+ ;;=^358.31IA^5^2
+ ;;^UTILITY(U,$J,358.3,10302,1,4,0)
+ ;;=4^695.3
+ ;;^UTILITY(U,$J,358.3,10302,1,5,0)
+ ;;=5^Rosacea
+ ;;^UTILITY(U,$J,358.3,10302,2)
+ ;;=^107114
+ ;;^UTILITY(U,$J,358.3,10303,0)
+ ;;=706.1^^67^674^1
+ ;;^UTILITY(U,$J,358.3,10303,1,0)
+ ;;=^358.31IA^5^2
+ ;;^UTILITY(U,$J,358.3,10303,1,4,0)
+ ;;=4^706.1
+ ;;^UTILITY(U,$J,358.3,10303,1,5,0)
+ ;;=5^Acne Vulgaris
+ ;;^UTILITY(U,$J,358.3,10303,2)
+ ;;=^87239
+ ;;^UTILITY(U,$J,358.3,10304,0)
+ ;;=702.0^^67^674^2
+ ;;^UTILITY(U,$J,358.3,10304,1,0)
+ ;;=^358.31IA^5^2
+ ;;^UTILITY(U,$J,358.3,10304,1,4,0)
+ ;;=4^702.0
+ ;;^UTILITY(U,$J,358.3,10304,1,5,0)
+ ;;=5^Actinic Keratosis
+ ;;^UTILITY(U,$J,358.3,10304,2)
+ ;;=^66900
+ ;;^UTILITY(U,$J,358.3,10305,0)
+ ;;=704.00^^67^674^3
+ ;;^UTILITY(U,$J,358.3,10305,1,0)
+ ;;=^358.31IA^5^2
+ ;;^UTILITY(U,$J,358.3,10305,1,4,0)
+ ;;=4^704.00
+ ;;^UTILITY(U,$J,358.3,10305,1,5,0)
+ ;;=5^Alopecia NOS
+ ;;^UTILITY(U,$J,358.3,10305,2)
+ ;;=^5078
+ ;;^UTILITY(U,$J,358.3,10306,0)
+ ;;=680.9^^67^674^5
+ ;;^UTILITY(U,$J,358.3,10306,1,0)
+ ;;=^358.31IA^5^2
+ ;;^UTILITY(U,$J,358.3,10306,1,4,0)
+ ;;=4^680.9
+ ;;^UTILITY(U,$J,358.3,10306,1,5,0)
+ ;;=5^Carbuncle/Furuncle
+ ;;^UTILITY(U,$J,358.3,10306,2)
+ ;;=^19191
+ ;;^UTILITY(U,$J,358.3,10307,0)
+ ;;=680.5^^67^674^4
+ ;;^UTILITY(U,$J,358.3,10307,1,0)
+ ;;=^358.31IA^5^2
+ ;;^UTILITY(U,$J,358.3,10307,1,4,0)
+ ;;=4^680.5
+ ;;^UTILITY(U,$J,358.3,10307,1,5,0)
+ ;;=5^Carbuncle Of Buttock
+ ;;^UTILITY(U,$J,358.3,10307,2)
+ ;;=^271878
+ ;;^UTILITY(U,$J,358.3,10308,0)
+ ;;=709.9^^67^674^66
+ ;;^UTILITY(U,$J,358.3,10308,1,0)
+ ;;=^358.31IA^5^2
+ ;;^UTILITY(U,$J,358.3,10308,1,4,0)
+ ;;=4^709.9
+ ;;^UTILITY(U,$J,358.3,10308,1,5,0)
+ ;;=5^Skin Lesion, Unsp
+ ;;^UTILITY(U,$J,358.3,10308,2)
+ ;;=^111083
+ ;;^UTILITY(U,$J,358.3,10309,0)
+ ;;=078.11^^67^674^15
+ ;;^UTILITY(U,$J,358.3,10309,1,0)
+ ;;=^358.31IA^5^2
+ ;;^UTILITY(U,$J,358.3,10309,1,4,0)
+ ;;=4^078.11
+ ;;^UTILITY(U,$J,358.3,10309,1,5,0)
+ ;;=5^Condyloma Acuminatum
+ ;;^UTILITY(U,$J,358.3,10309,2)
+ ;;=^295788
+ ;;^UTILITY(U,$J,358.3,10310,0)
+ ;;=700.^^67^674^16
+ ;;^UTILITY(U,$J,358.3,10310,1,0)
+ ;;=^358.31IA^5^2

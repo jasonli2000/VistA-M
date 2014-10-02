@@ -1,366 +1,132 @@
-IBDEI0DK ; ; 09-MAY-2014
- ;;3.0;IB ENCOUNTER FORM IMP/EXP;;MAY 09, 2014
+IBDEI0DK ; ; 12-AUG-2014
+ ;;3.0;IB ENCOUNTER FORM IMP/EXP;;MAY 15, 2014
  Q:'DIFQR(358.3)  F I=1:2 S X=$T(Q+I) Q:X=""  S Y=$E($T(Q+I+1),4,999),X=$E(X,4,999) S:$A(Y)=126 I=I+1,Y=$E(Y,2,999)_$E($T(Q+I+1),5,99) S:$A(Y)=61 Y=$E(Y,2,999) X NO E  S @X=Y
 Q Q
- ;;^UTILITY(U,$J,358.3,18322,0)
- ;;=V17.7^^110^1112^3
- ;;^UTILITY(U,$J,358.3,18322,1,0)
+ ;;^UTILITY(U,$J,358.3,6524,2)
+ ;;=Heart Failure, Chronic Diastolic^328498
+ ;;^UTILITY(U,$J,358.3,6525,0)
+ ;;=428.33^^55^567^47
+ ;;^UTILITY(U,$J,358.3,6525,1,0)
  ;;=^358.31IA^5^2
- ;;^UTILITY(U,$J,358.3,18322,1,4,0)
- ;;=4^V17.7
- ;;^UTILITY(U,$J,358.3,18322,1,5,0)
- ;;=5^Family H/O Arthritis
- ;;^UTILITY(U,$J,358.3,18322,2)
- ;;=^295309
- ;;^UTILITY(U,$J,358.3,18323,0)
- ;;=V19.0^^110^1112^5
- ;;^UTILITY(U,$J,358.3,18323,1,0)
+ ;;^UTILITY(U,$J,358.3,6525,1,4,0)
+ ;;=4^428.33
+ ;;^UTILITY(U,$J,358.3,6525,1,5,0)
+ ;;=5^Heart Failure, Diastolic, Acute on Chronic
+ ;;^UTILITY(U,$J,358.3,6525,2)
+ ;;=Heart Failure, Diastolic, Acute on Chronic^328499
+ ;;^UTILITY(U,$J,358.3,6526,0)
+ ;;=428.40^^55^567^46
+ ;;^UTILITY(U,$J,358.3,6526,1,0)
  ;;=^358.31IA^5^2
- ;;^UTILITY(U,$J,358.3,18323,1,4,0)
- ;;=4^V19.0
- ;;^UTILITY(U,$J,358.3,18323,1,5,0)
- ;;=5^Family H/O Blindness
- ;;^UTILITY(U,$J,358.3,18323,2)
- ;;=^295320
- ;;^UTILITY(U,$J,358.3,18324,0)
- ;;=V16.3^^110^1112^6
- ;;^UTILITY(U,$J,358.3,18324,1,0)
+ ;;^UTILITY(U,$J,358.3,6526,1,4,0)
+ ;;=4^428.40
+ ;;^UTILITY(U,$J,358.3,6526,1,5,0)
+ ;;=5^Heart Failure, Diastolic& Systolic
+ ;;^UTILITY(U,$J,358.3,6526,2)
+ ;;=Heart Failure, Systolic and Diastolic^328596
+ ;;^UTILITY(U,$J,358.3,6527,0)
+ ;;=428.41^^55^567^48
+ ;;^UTILITY(U,$J,358.3,6527,1,0)
  ;;=^358.31IA^5^2
- ;;^UTILITY(U,$J,358.3,18324,1,4,0)
- ;;=4^V16.3
- ;;^UTILITY(U,$J,358.3,18324,1,5,0)
- ;;=5^Family H/O Cancer Of Breast
- ;;^UTILITY(U,$J,358.3,18324,2)
- ;;=^295295
- ;;^UTILITY(U,$J,358.3,18325,0)
- ;;=V16.41^^110^1112^9
- ;;^UTILITY(U,$J,358.3,18325,1,0)
+ ;;^UTILITY(U,$J,358.3,6527,1,4,0)
+ ;;=4^428.41
+ ;;^UTILITY(U,$J,358.3,6527,1,5,0)
+ ;;=5^Heart Failure, Systolic & Diastolic, Acute
+ ;;^UTILITY(U,$J,358.3,6527,2)
+ ;;=Heart Failure, Systolic & Diastolic, Acute^328500
+ ;;^UTILITY(U,$J,358.3,6528,0)
+ ;;=428.42^^55^567^52
+ ;;^UTILITY(U,$J,358.3,6528,1,0)
  ;;=^358.31IA^5^2
- ;;^UTILITY(U,$J,358.3,18325,1,4,0)
- ;;=4^V16.41
- ;;^UTILITY(U,$J,358.3,18325,1,5,0)
- ;;=5^Family H/O Cancer Of Ovary
- ;;^UTILITY(U,$J,358.3,18325,2)
- ;;=^317951
- ;;^UTILITY(U,$J,358.3,18326,0)
- ;;=V16.42^^110^1112^10
- ;;^UTILITY(U,$J,358.3,18326,1,0)
+ ;;^UTILITY(U,$J,358.3,6528,1,4,0)
+ ;;=4^428.42
+ ;;^UTILITY(U,$J,358.3,6528,1,5,0)
+ ;;=5^Heart Failure,Systolic&Diastolic,Chronic
+ ;;^UTILITY(U,$J,358.3,6528,2)
+ ;;=^328501
+ ;;^UTILITY(U,$J,358.3,6529,0)
+ ;;=428.43^^55^567^51
+ ;;^UTILITY(U,$J,358.3,6529,1,0)
  ;;=^358.31IA^5^2
- ;;^UTILITY(U,$J,358.3,18326,1,4,0)
- ;;=4^V16.42
- ;;^UTILITY(U,$J,358.3,18326,1,5,0)
- ;;=5^Family H/O Cancer Of Prostate
- ;;^UTILITY(U,$J,358.3,18326,2)
- ;;=^317952
- ;;^UTILITY(U,$J,358.3,18327,0)
- ;;=V16.43^^110^1112^11
- ;;^UTILITY(U,$J,358.3,18327,1,0)
+ ;;^UTILITY(U,$J,358.3,6529,1,4,0)
+ ;;=4^428.43
+ ;;^UTILITY(U,$J,358.3,6529,1,5,0)
+ ;;=5^Heart Failure,Systolic&Diastolic
+ ;;^UTILITY(U,$J,358.3,6529,2)
+ ;;=^328502
+ ;;^UTILITY(U,$J,358.3,6530,0)
+ ;;=396.3^^55^567^10
+ ;;^UTILITY(U,$J,358.3,6530,1,0)
  ;;=^358.31IA^5^2
- ;;^UTILITY(U,$J,358.3,18327,1,4,0)
- ;;=4^V16.43
- ;;^UTILITY(U,$J,358.3,18327,1,5,0)
- ;;=5^Family H/O Cancer Of Testis
- ;;^UTILITY(U,$J,358.3,18327,2)
- ;;=^317953
- ;;^UTILITY(U,$J,358.3,18328,0)
- ;;=V19.5^^110^1112^12
- ;;^UTILITY(U,$J,358.3,18328,1,0)
+ ;;^UTILITY(U,$J,358.3,6530,1,4,0)
+ ;;=4^396.3
+ ;;^UTILITY(U,$J,358.3,6530,1,5,0)
+ ;;=5^Aortic and Mitral Insufficiency
+ ;;^UTILITY(U,$J,358.3,6530,2)
+ ;;=Aortic and Mitral Insufficiency^269583
+ ;;^UTILITY(U,$J,358.3,6531,0)
+ ;;=429.9^^55^567^28
+ ;;^UTILITY(U,$J,358.3,6531,1,0)
  ;;=^358.31IA^5^2
- ;;^UTILITY(U,$J,358.3,18328,1,4,0)
- ;;=4^V19.5
- ;;^UTILITY(U,$J,358.3,18328,1,5,0)
- ;;=5^Family H/O Congenital Anomalies
- ;;^UTILITY(U,$J,358.3,18328,2)
- ;;=^295325
- ;;^UTILITY(U,$J,358.3,18329,0)
- ;;=V19.2^^110^1112^13
- ;;^UTILITY(U,$J,358.3,18329,1,0)
+ ;;^UTILITY(U,$J,358.3,6531,1,4,0)
+ ;;=4^429.9
+ ;;^UTILITY(U,$J,358.3,6531,1,5,0)
+ ;;=5^Diastolic Dysfunction
+ ;;^UTILITY(U,$J,358.3,6531,2)
+ ;;=^54741
+ ;;^UTILITY(U,$J,358.3,6532,0)
+ ;;=453.79^^55^567^27
+ ;;^UTILITY(U,$J,358.3,6532,1,0)
  ;;=^358.31IA^5^2
- ;;^UTILITY(U,$J,358.3,18329,1,4,0)
- ;;=4^V19.2
- ;;^UTILITY(U,$J,358.3,18329,1,5,0)
- ;;=5^Family H/O Deafness Or Hearing Loss
- ;;^UTILITY(U,$J,358.3,18329,2)
- ;;=^295322
- ;;^UTILITY(U,$J,358.3,18330,0)
- ;;=V17.3^^110^1112^15
- ;;^UTILITY(U,$J,358.3,18330,1,0)
+ ;;^UTILITY(U,$J,358.3,6532,1,4,0)
+ ;;=4^453.79
+ ;;^UTILITY(U,$J,358.3,6532,1,5,0)
+ ;;=5^Chr Venous Emblsm Oth Spec Veins
+ ;;^UTILITY(U,$J,358.3,6532,2)
+ ;;=^338251
+ ;;^UTILITY(U,$J,358.3,6533,0)
+ ;;=453.89^^55^567^1
+ ;;^UTILITY(U,$J,358.3,6533,1,0)
  ;;=^358.31IA^5^2
- ;;^UTILITY(U,$J,358.3,18330,1,4,0)
- ;;=4^V17.3
- ;;^UTILITY(U,$J,358.3,18330,1,5,0)
- ;;=5^Family H/O Ischemic Heart Dis
- ;;^UTILITY(U,$J,358.3,18330,2)
- ;;=^295305
- ;;^UTILITY(U,$J,358.3,18331,0)
- ;;=V16.6^^110^1112^16
- ;;^UTILITY(U,$J,358.3,18331,1,0)
+ ;;^UTILITY(U,$J,358.3,6533,1,4,0)
+ ;;=4^453.89
+ ;;^UTILITY(U,$J,358.3,6533,1,5,0)
+ ;;=5^AC Venous Emblsm Oth Spec Veins
+ ;;^UTILITY(U,$J,358.3,6533,2)
+ ;;=^338259
+ ;;^UTILITY(U,$J,358.3,6534,0)
+ ;;=454.2^^55^567^85
+ ;;^UTILITY(U,$J,358.3,6534,1,0)
  ;;=^358.31IA^5^2
- ;;^UTILITY(U,$J,358.3,18331,1,4,0)
- ;;=4^V16.6
- ;;^UTILITY(U,$J,358.3,18331,1,5,0)
- ;;=5^Family H/O Leukemia
- ;;^UTILITY(U,$J,358.3,18331,2)
- ;;=^295298
- ;;^UTILITY(U,$J,358.3,18332,0)
- ;;=V18.61^^110^1112^19
- ;;^UTILITY(U,$J,358.3,18332,1,0)
+ ;;^UTILITY(U,$J,358.3,6534,1,4,0)
+ ;;=4^454.2
+ ;;^UTILITY(U,$J,358.3,6534,1,5,0)
+ ;;=5^Varicose Veins w/Ulcer&Inflam
+ ;;^UTILITY(U,$J,358.3,6534,2)
+ ;;=^269821
+ ;;^UTILITY(U,$J,358.3,6535,0)
+ ;;=397.1^^55^567^74
+ ;;^UTILITY(U,$J,358.3,6535,1,0)
  ;;=^358.31IA^5^2
- ;;^UTILITY(U,$J,358.3,18332,1,4,0)
- ;;=4^V18.61
- ;;^UTILITY(U,$J,358.3,18332,1,5,0)
- ;;=5^Family H/O Polycystic Kidney
- ;;^UTILITY(U,$J,358.3,18332,2)
- ;;=^321531
- ;;^UTILITY(U,$J,358.3,18333,0)
- ;;=V17.0^^110^1112^20
- ;;^UTILITY(U,$J,358.3,18333,1,0)
+ ;;^UTILITY(U,$J,358.3,6535,1,4,0)
+ ;;=4^397.1
+ ;;^UTILITY(U,$J,358.3,6535,1,5,0)
+ ;;=5^Rheumatic Disease Pulmonary Valve
+ ;;^UTILITY(U,$J,358.3,6535,2)
+ ;;=^269587
+ ;;^UTILITY(U,$J,358.3,6536,0)
+ ;;=397.0^^55^567^75
+ ;;^UTILITY(U,$J,358.3,6536,1,0)
  ;;=^358.31IA^5^2
- ;;^UTILITY(U,$J,358.3,18333,1,4,0)
- ;;=4^V17.0
- ;;^UTILITY(U,$J,358.3,18333,1,5,0)
- ;;=5^Family H/O Psychiatric Condition
- ;;^UTILITY(U,$J,358.3,18333,2)
- ;;=^295302
- ;;^UTILITY(U,$J,358.3,18334,0)
- ;;=V19.4^^110^1112^21
- ;;^UTILITY(U,$J,358.3,18334,1,0)
+ ;;^UTILITY(U,$J,358.3,6536,1,4,0)
+ ;;=4^397.0
+ ;;^UTILITY(U,$J,358.3,6536,1,5,0)
+ ;;=5^Rheumatic Disease Tricuspid Valve
+ ;;^UTILITY(U,$J,358.3,6536,2)
+ ;;=^35528
+ ;;^UTILITY(U,$J,358.3,6537,0)
+ ;;=414.3^^55^567^17
+ ;;^UTILITY(U,$J,358.3,6537,1,0)
  ;;=^358.31IA^5^2
- ;;^UTILITY(U,$J,358.3,18334,1,4,0)
- ;;=4^V19.4
- ;;^UTILITY(U,$J,358.3,18334,1,5,0)
- ;;=5^Family H/O Skin Condition
- ;;^UTILITY(U,$J,358.3,18334,2)
- ;;=^295324
- ;;^UTILITY(U,$J,358.3,18335,0)
- ;;=V17.1^^110^1112^22
- ;;^UTILITY(U,$J,358.3,18335,1,0)
- ;;=^358.31IA^5^2
- ;;^UTILITY(U,$J,358.3,18335,1,4,0)
- ;;=4^V17.1
- ;;^UTILITY(U,$J,358.3,18335,1,5,0)
- ;;=5^Family H/O Stroke (Cerebrovascular)
- ;;^UTILITY(U,$J,358.3,18335,2)
- ;;=^295303
- ;;^UTILITY(U,$J,358.3,18336,0)
- ;;=V16.8^^110^1112^18
- ;;^UTILITY(U,$J,358.3,18336,1,0)
- ;;=^358.31IA^5^2
- ;;^UTILITY(U,$J,358.3,18336,1,4,0)
- ;;=4^V16.8
- ;;^UTILITY(U,$J,358.3,18336,1,5,0)
- ;;=5^Family H/O Other Specified Cancer
- ;;^UTILITY(U,$J,358.3,18336,2)
- ;;=^295300
- ;;^UTILITY(U,$J,358.3,18337,0)
- ;;=V11.1^^110^1112^23
- ;;^UTILITY(U,$J,358.3,18337,1,0)
- ;;=^358.31IA^5^2
- ;;^UTILITY(U,$J,358.3,18337,1,4,0)
- ;;=4^V11.1
- ;;^UTILITY(U,$J,358.3,18337,1,5,0)
- ;;=5^Hx Of Affective Disorder
- ;;^UTILITY(U,$J,358.3,18337,2)
- ;;=^295250
- ;;^UTILITY(U,$J,358.3,18338,0)
- ;;=V15.89^^110^1112^46
- ;;^UTILITY(U,$J,358.3,18338,1,0)
- ;;=^358.31IA^5^2
- ;;^UTILITY(U,$J,358.3,18338,1,4,0)
- ;;=4^V15.89
- ;;^UTILITY(U,$J,358.3,18338,1,5,0)
- ;;=5^Hx Of Persian Gulf Region Exposure
- ;;^UTILITY(U,$J,358.3,18338,2)
- ;;=^295291
- ;;^UTILITY(U,$J,358.3,18339,0)
- ;;=V11.3^^110^1112^24
- ;;^UTILITY(U,$J,358.3,18339,1,0)
- ;;=^358.31IA^5^2
- ;;^UTILITY(U,$J,358.3,18339,1,4,0)
- ;;=4^V11.3
- ;;^UTILITY(U,$J,358.3,18339,1,5,0)
- ;;=5^Hx Of Alcoholism
- ;;^UTILITY(U,$J,358.3,18339,2)
- ;;=^295252
- ;;^UTILITY(U,$J,358.3,18340,0)
- ;;=V15.07^^110^1112^35
- ;;^UTILITY(U,$J,358.3,18340,1,0)
- ;;=^358.31IA^5^2
- ;;^UTILITY(U,$J,358.3,18340,1,4,0)
- ;;=4^V15.07
- ;;^UTILITY(U,$J,358.3,18340,1,5,0)
- ;;=5^Hx Of Latex Allergy
- ;;^UTILITY(U,$J,358.3,18340,2)
- ;;=^322043
- ;;^UTILITY(U,$J,358.3,18341,0)
- ;;=V13.4^^110^1112^25
- ;;^UTILITY(U,$J,358.3,18341,1,0)
- ;;=^358.31IA^5^2
- ;;^UTILITY(U,$J,358.3,18341,1,4,0)
- ;;=4^V13.4
- ;;^UTILITY(U,$J,358.3,18341,1,5,0)
- ;;=5^Hx Of Arthritis
- ;;^UTILITY(U,$J,358.3,18341,2)
- ;;=^295267
- ;;^UTILITY(U,$J,358.3,18342,0)
- ;;=V12.72^^110^1112^27
- ;;^UTILITY(U,$J,358.3,18342,1,0)
- ;;=^358.31IA^5^2
- ;;^UTILITY(U,$J,358.3,18342,1,4,0)
- ;;=4^V12.72
- ;;^UTILITY(U,$J,358.3,18342,1,5,0)
- ;;=5^Hx Of Colon Polyps
- ;;^UTILITY(U,$J,358.3,18342,2)
- ;;=^303401
- ;;^UTILITY(U,$J,358.3,18343,0)
- ;;=V12.59^^110^1112^28
- ;;^UTILITY(U,$J,358.3,18343,1,0)
- ;;=^358.31IA^5^2
- ;;^UTILITY(U,$J,358.3,18343,1,4,0)
- ;;=4^V12.59
- ;;^UTILITY(U,$J,358.3,18343,1,5,0)
- ;;=5^Hx Of Congestive Heart Failure
- ;;^UTILITY(U,$J,358.3,18343,2)
- ;;=^303399
- ;;^UTILITY(U,$J,358.3,18344,0)
- ;;=V45.81^^110^1112^29
- ;;^UTILITY(U,$J,358.3,18344,1,0)
- ;;=^358.31IA^5^2
- ;;^UTILITY(U,$J,358.3,18344,1,4,0)
- ;;=4^V45.81
- ;;^UTILITY(U,$J,358.3,18344,1,5,0)
- ;;=5^Hx Of Coronary Bypass
- ;;^UTILITY(U,$J,358.3,18344,2)
- ;;=^97129
- ;;^UTILITY(U,$J,358.3,18345,0)
- ;;=V15.84^^110^1112^26
- ;;^UTILITY(U,$J,358.3,18345,1,0)
- ;;=^358.31IA^5^2
- ;;^UTILITY(U,$J,358.3,18345,1,4,0)
- ;;=4^V15.84
- ;;^UTILITY(U,$J,358.3,18345,1,5,0)
- ;;=5^Hx Of Asbestos Exposure
- ;;^UTILITY(U,$J,358.3,18345,2)
- ;;=^303406
- ;;^UTILITY(U,$J,358.3,18346,0)
- ;;=V15.85^^110^1112^47
- ;;^UTILITY(U,$J,358.3,18346,1,0)
- ;;=^358.31IA^5^2
- ;;^UTILITY(U,$J,358.3,18346,1,4,0)
- ;;=4^V15.85
- ;;^UTILITY(U,$J,358.3,18346,1,5,0)
- ;;=5^Hx Of Potentially Hazardous Body Fluids
- ;;^UTILITY(U,$J,358.3,18346,2)
- ;;=^303407
- ;;^UTILITY(U,$J,358.3,18347,0)
- ;;=V10.72^^110^1112^32
- ;;^UTILITY(U,$J,358.3,18347,1,0)
- ;;=^358.31IA^5^2
- ;;^UTILITY(U,$J,358.3,18347,1,4,0)
- ;;=4^V10.72
- ;;^UTILITY(U,$J,358.3,18347,1,5,0)
- ;;=5^Hx Of Hodgkin's Disease
- ;;^UTILITY(U,$J,358.3,18347,2)
- ;;=^295237
- ;;^UTILITY(U,$J,358.3,18348,0)
- ;;=V15.3^^110^1112^33
- ;;^UTILITY(U,$J,358.3,18348,1,0)
- ;;=^358.31IA^5^2
- ;;^UTILITY(U,$J,358.3,18348,1,4,0)
- ;;=4^V15.3
- ;;^UTILITY(U,$J,358.3,18348,1,5,0)
- ;;=5^Hx Of Irradiation
- ;;^UTILITY(U,$J,358.3,18348,2)
- ;;=^295285
- ;;^UTILITY(U,$J,358.3,18349,0)
- ;;=V10.61^^110^1112^36
- ;;^UTILITY(U,$J,358.3,18349,1,0)
- ;;=^358.31IA^5^2
- ;;^UTILITY(U,$J,358.3,18349,1,4,0)
- ;;=4^V10.61
- ;;^UTILITY(U,$J,358.3,18349,1,5,0)
- ;;=5^Hx Of Lymphoid Leukemia
- ;;^UTILITY(U,$J,358.3,18349,2)
- ;;=Hx of Lymphoid Leukemia^295232
- ;;^UTILITY(U,$J,358.3,18350,0)
- ;;=V12.03^^110^1112^38
- ;;^UTILITY(U,$J,358.3,18350,1,0)
- ;;=^358.31IA^5^2
- ;;^UTILITY(U,$J,358.3,18350,1,4,0)
- ;;=4^V12.03
- ;;^UTILITY(U,$J,358.3,18350,1,5,0)
- ;;=5^Hx Of Malaria
- ;;^UTILITY(U,$J,358.3,18350,2)
- ;;=Hx of Malaria^303395
- ;;^UTILITY(U,$J,358.3,18351,0)
- ;;=V10.82^^110^1112^39
- ;;^UTILITY(U,$J,358.3,18351,1,0)
- ;;=^358.31IA^5^2
- ;;^UTILITY(U,$J,358.3,18351,1,4,0)
- ;;=4^V10.82
- ;;^UTILITY(U,$J,358.3,18351,1,5,0)
- ;;=5^Hx Of Malignant Melanoma
- ;;^UTILITY(U,$J,358.3,18351,2)
- ;;=Hx of Malignant Melanoma^295240
- ;;^UTILITY(U,$J,358.3,18352,0)
- ;;=V10.62^^110^1112^42
- ;;^UTILITY(U,$J,358.3,18352,1,0)
- ;;=^358.31IA^5^2
- ;;^UTILITY(U,$J,358.3,18352,1,4,0)
- ;;=4^V10.62
- ;;^UTILITY(U,$J,358.3,18352,1,5,0)
- ;;=5^Hx Of Myeloid Leukemia
- ;;^UTILITY(U,$J,358.3,18352,2)
- ;;=Hx of Myeloid Leukemia^295233
- ;;^UTILITY(U,$J,358.3,18353,0)
- ;;=V10.63^^110^1112^40
- ;;^UTILITY(U,$J,358.3,18353,1,0)
- ;;=^358.31IA^5^2
- ;;^UTILITY(U,$J,358.3,18353,1,4,0)
- ;;=4^V10.63
- ;;^UTILITY(U,$J,358.3,18353,1,5,0)
- ;;=5^Hx Of Monocytic Leukemia
- ;;^UTILITY(U,$J,358.3,18353,2)
- ;;=Hx of Monocytic Leukemia^295234
- ;;^UTILITY(U,$J,358.3,18354,0)
- ;;=V11.2^^110^1112^30
- ;;^UTILITY(U,$J,358.3,18354,1,0)
- ;;=^358.31IA^5^2
- ;;^UTILITY(U,$J,358.3,18354,1,4,0)
- ;;=4^V11.2
- ;;^UTILITY(U,$J,358.3,18354,1,5,0)
- ;;=5^Hx Of Dysthymia
- ;;^UTILITY(U,$J,358.3,18354,2)
- ;;=Hx of Dysthymia^295251
- ;;^UTILITY(U,$J,358.3,18355,0)
- ;;=V15.81^^110^1112^60
- ;;^UTILITY(U,$J,358.3,18355,1,0)
- ;;=^358.31IA^5^2
- ;;^UTILITY(U,$J,358.3,18355,1,4,0)
- ;;=4^V15.81
- ;;^UTILITY(U,$J,358.3,18355,1,5,0)
- ;;=5^Noncompliance With Medical Treatment
- ;;^UTILITY(U,$J,358.3,18355,2)
- ;;=^295290
- ;;^UTILITY(U,$J,358.3,18356,0)
- ;;=V10.43^^110^1112^43
- ;;^UTILITY(U,$J,358.3,18356,1,0)
- ;;=^358.31IA^5^2
- ;;^UTILITY(U,$J,358.3,18356,1,4,0)
- ;;=4^V10.43
- ;;^UTILITY(U,$J,358.3,18356,1,5,0)
- ;;=5^Hx Of Ovarian Ca
- ;;^UTILITY(U,$J,358.3,18356,2)
- ;;=Hx of Ovarian CA^295221
- ;;^UTILITY(U,$J,358.3,18357,0)
- ;;=V12.71^^110^1112^45
- ;;^UTILITY(U,$J,358.3,18357,1,0)
- ;;=^358.31IA^5^2
- ;;^UTILITY(U,$J,358.3,18357,1,4,0)
- ;;=4^V12.71
- ;;^UTILITY(U,$J,358.3,18357,1,5,0)
- ;;=5^Hx Of Peptic Ulcer Disease
- ;;^UTILITY(U,$J,358.3,18357,2)
- ;;=^303400
- ;;^UTILITY(U,$J,358.3,18358,0)
- ;;=V10.46^^110^1112^48
+ ;;^UTILITY(U,$J,358.3,6537,1,4,0)
+ ;;=4^414.3

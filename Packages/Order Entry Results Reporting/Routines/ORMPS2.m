@@ -1,5 +1,5 @@
 ORMPS2 ;SLC/MKB - Process Pharmacy ORM msgs cont ;10/01/2009
- ;;3.0;ORDER ENTRY/RESULTS REPORTING;**94,116,129,134,186,190,195,215,265,243,280,363**;Dec 17, 1997;Build 1
+ ;;3.0;ORDER ENTRY/RESULTS REPORTING;**94,116,129,134,186,190,195,215,265,243,280,363,386**;Dec 17, 1997;Build 4
  ;;Per VHA Directive 2004-038, this routine should not be modified.
  ;
 FINISHED() ; -- new order [SN^ORMPS] due to finishing?
@@ -64,6 +64,7 @@ CHANGED() ; -- Compare ORMSG to order ORIFN, return 1 if different
  N I,X,Y,X1,NTE,SIG,PI,TRXO S Y=0
  I +$P($$FIND^ORM(+RXE,3),U,4)'=+$$VALUE("DRUG") S Y=1 G CHQ ;p.363 dispense drug change check
  I $G(ORCAT)="I" D  G CHQ
+ . I $$FIND^ORM(+RXE,2)'=$$VALUE("SCHEDULE") S Y=1 Q  ;p386 added schedule check
  . I $$WPX S Y=1 Q  ;Special Instructions
  . S X=$$VALUE("DAYS") ;duration
  . I $G(X)'="" D  I $G(X)'=X1 S Y=1 Q

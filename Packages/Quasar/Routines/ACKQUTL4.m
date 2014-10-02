@@ -1,11 +1,11 @@
-ACKQUTL4 ;HCIOFO/BH-NEW/EDIT Visit Template Utilities for QUASAR ; 11/13/08 12:57pm
- ;;3.0;QUASAR;**1,8,14,17,16,22**;Feb 11, 2000;Build 5
+ACKQUTL4 ;HCIOFO/BH - NEW/EDIT Visit Template Utilities for QUASAR ;11/13/08 12:57pm
+ ;;3.0;QUASAR;**1,8,14,17,16,22,21**;Feb 11, 2000;Build 40
  ;Per VHA Directive 2004-038, this routine SHOULD NOT be modified.
  ;
  ;Reference/IA
  ;GETCUR^DGNTAPI/3457
  ;CVEDT^DGCV/4156
- ;$$ICDDX^ICDCODE - 3990
+ ;$$CODEC^ICDEX - 5747
  ;$$MOD^ICPTMOD - 1996
  ;
 CHK(Y,ACKVD) ;
@@ -145,7 +145,7 @@ ELIG ;  Set up eligibiliy variables and if more than one eligibility create
  ;
  Q
  ;
-ELIGDIS  ;  Display patients eligibilities
+ELIGDIS ;  Display patients eligibilities
  ;
  N ACKK2,RC
  D ENS^%ZISS
@@ -248,7 +248,7 @@ DIAGDIS ;  Get diagnoses already filed and display
  F  S ACKK3=$O(ACKDIAGD("DILIST",1,ACKK3)) Q:ACKK3=""  D
  . S ACKK4=ACKDIAGD("DILIST",1,ACKK3)
  . ;ACKQ*3.0*22 updated api
- . S ACKI=$P($$ICDDX^ICDCODE(ACKK4),U,2)
+ . S ACKI=$$CODEC^ICDEX(80,ACKK4)
  . S ACKD($S(ACKI?.NP:+ACKI,1:ACKI))=ACKI_$E("   ",1,7-$L(ACKI))_"- "_$E($$DIAGTXT^ACKQUTL8(ACKK4,ACKVD)_ACKSP,1,35)_$S($G(ACKDIAGD("DILIST","ID",ACKK3,".12"))=1:"  * Primary Diagnosis *",1:"  * Secondary Diagnosis *")
  ;
  S ACK1=""

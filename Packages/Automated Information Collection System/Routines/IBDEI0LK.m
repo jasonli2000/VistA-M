@@ -1,58 +1,142 @@
-IBDEI0LK ; ; 13-FEB-2014
- ;;3.0;IB ENCOUNTER FORM IMP/EXP;;FEB 13, 2014
- Q:'DIFQ(358.7)  F I=1:2 S X=$T(Q+I) Q:X=""  S Y=$E($T(Q+I+1),4,999),X=$E(X,4,999) S:$A(Y)=126 I=I+1,Y=$E(Y,2,999)_$E($T(Q+I+1),5,99) S:$A(Y)=61 Y=$E(Y,2,999) X NO E  S @X=Y
+IBDEI0LK ; ; 12-AUG-2014
+ ;;3.0;IB ENCOUNTER FORM IMP/EXP;;MAY 15, 2014
+ Q:'DIFQR(358.3)  F I=1:2 S X=$T(Q+I) Q:X=""  S Y=$E($T(Q+I+1),4,999),X=$E(X,4,999) S:$A(Y)=126 I=I+1,Y=$E(Y,2,999)_$E($T(Q+I+1),5,99) S:$A(Y)=61 Y=$E(Y,2,999) X NO E  S @X=Y
 Q Q
- ;;^DIC(358.7,0,"GL")
- ;;=^IBE(358.7,
- ;;^DIC("B","IMP/EXP FORM LINE",358.7)
- ;;=
- ;;^DIC(358.7,"%D",0)
- ;;=^^3^3^2940217^
- ;;^DIC(358.7,"%D",1,0)
- ;;=This file is nearly identical to file #357.7. It is used by the
- ;;^DIC(358.7,"%D",2,0)
- ;;=Import/Export Utility as a temporary staging area for data from that file
- ;;^DIC(358.7,"%D",3,0)
- ;;=that is being imported or exported.
- ;;^DD(358.7,0)
- ;;=FIELD^^.08^8
- ;;^DD(358.7,0,"DDA")
- ;;=N
- ;;^DD(358.7,0,"DT")
- ;;=2950717
- ;;^DD(358.7,0,"ID",.02)
- ;;=W " STARTING COL=",$P(^(0),U,2)+1
- ;;^DD(358.7,0,"ID",.03)
- ;;=W " STARTING ROW=",$P(^(0),U,3)+1
- ;;^DD(358.7,0,"ID",.06)
- ;;=W ""
- ;;^DD(358.7,0,"IX","B",358.7,.01)
- ;;=
- ;;^DD(358.7,0,"IX","C",358.7,.06)
- ;;=
- ;;^DD(358.7,0,"NM","IMP/EXP FORM LINE")
- ;;=
- ;;^DD(358.7,0,"VRPK")
- ;;=IBD
- ;;^DD(358.7,.01,0)
- ;;=NAME^RF^^0;1^K:$L(X)>30!(X?.N)!($L(X)<3)!'(X'?1P.E) X
- ;;^DD(358.7,.01,1,0)
- ;;=^.1
- ;;^DD(358.7,.01,1,1,0)
- ;;=358.7^B
- ;;^DD(358.7,.01,1,1,1)
- ;;=S ^IBE(358.7,"B",$E(X,1,30),DA)=""
- ;;^DD(358.7,.01,1,1,2)
- ;;=K ^IBE(358.7,"B",$E(X,1,30),DA)
- ;;^DD(358.7,.01,3)
- ;;=NAME MUST BE 3-30 CHARACTERS, NOT NUMERIC OR STARTING WITH PUNCTUATION
- ;;^DD(358.7,.01,21,0)
- ;;=^^4^4^2930527^
- ;;^DD(358.7,.01,21,1,0)
- ;;= 
- ;;^DD(358.7,.01,21,2,0)
- ;;=The name given to the line. Lines should be given names that will allow
- ;;^DD(358.7,.01,21,3,0)
- ;;=them to be identifies, such as V(1,1), meaning a vertical line starting at
- ;;^DD(358.7,.01,21,4,0)
- ;;=coordinates (1,1).
+ ;;^UTILITY(U,$J,358.3,10569,0)
+ ;;=599.0^^67^678^153
+ ;;^UTILITY(U,$J,358.3,10569,1,0)
+ ;;=^358.31IA^5^2
+ ;;^UTILITY(U,$J,358.3,10569,1,4,0)
+ ;;=4^599.0
+ ;;^UTILITY(U,$J,358.3,10569,1,5,0)
+ ;;=5^Urinary tract infection
+ ;;^UTILITY(U,$J,358.3,10569,2)
+ ;;=^124436
+ ;;^UTILITY(U,$J,358.3,10570,0)
+ ;;=784.49^^67^678^85
+ ;;^UTILITY(U,$J,358.3,10570,1,0)
+ ;;=^358.31IA^5^2
+ ;;^UTILITY(U,$J,358.3,10570,1,4,0)
+ ;;=4^784.49
+ ;;^UTILITY(U,$J,358.3,10570,1,5,0)
+ ;;=5^Hoarseness
+ ;;^UTILITY(U,$J,358.3,10570,2)
+ ;;=Hoarseness^88244
+ ;;^UTILITY(U,$J,358.3,10571,0)
+ ;;=525.10^^67^678^104
+ ;;^UTILITY(U,$J,358.3,10571,1,0)
+ ;;=^358.31IA^5^2
+ ;;^UTILITY(U,$J,358.3,10571,1,4,0)
+ ;;=4^525.10
+ ;;^UTILITY(U,$J,358.3,10571,1,5,0)
+ ;;=5^Loss of Teeth
+ ;;^UTILITY(U,$J,358.3,10571,2)
+ ;;=Loss of Teeth^323490
+ ;;^UTILITY(U,$J,358.3,10572,0)
+ ;;=795.39^^67^678^130
+ ;;^UTILITY(U,$J,358.3,10572,1,0)
+ ;;=^358.31IA^5^2
+ ;;^UTILITY(U,$J,358.3,10572,1,4,0)
+ ;;=4^795.39
+ ;;^UTILITY(U,$J,358.3,10572,1,5,0)
+ ;;=5^Positive Culture findings
+ ;;^UTILITY(U,$J,358.3,10572,2)
+ ;;=Positive Culture findings^328582
+ ;;^UTILITY(U,$J,358.3,10573,0)
+ ;;=564.00^^67^678^43
+ ;;^UTILITY(U,$J,358.3,10573,1,0)
+ ;;=^358.31IA^5^2
+ ;;^UTILITY(U,$J,358.3,10573,1,4,0)
+ ;;=4^564.00
+ ;;^UTILITY(U,$J,358.3,10573,1,5,0)
+ ;;=5^Constipation
+ ;;^UTILITY(U,$J,358.3,10573,2)
+ ;;=Constipation^323537
+ ;;^UTILITY(U,$J,358.3,10574,0)
+ ;;=790.22^^67^678^90
+ ;;^UTILITY(U,$J,358.3,10574,1,0)
+ ;;=^358.31IA^5^2
+ ;;^UTILITY(U,$J,358.3,10574,1,4,0)
+ ;;=4^790.22
+ ;;^UTILITY(U,$J,358.3,10574,1,5,0)
+ ;;=5^Impaired Oral Glucse Tol
+ ;;^UTILITY(U,$J,358.3,10574,2)
+ ;;=^329896
+ ;;^UTILITY(U,$J,358.3,10575,0)
+ ;;=719.7^^67^678^50
+ ;;^UTILITY(U,$J,358.3,10575,1,0)
+ ;;=^358.31IA^5^2
+ ;;^UTILITY(U,$J,358.3,10575,1,4,0)
+ ;;=4^719.7
+ ;;^UTILITY(U,$J,358.3,10575,1,5,0)
+ ;;=5^Difficulty In Walking
+ ;;^UTILITY(U,$J,358.3,10575,2)
+ ;;=^329945
+ ;;^UTILITY(U,$J,358.3,10576,0)
+ ;;=799.01^^67^678^27
+ ;;^UTILITY(U,$J,358.3,10576,1,0)
+ ;;=^358.31IA^5^2
+ ;;^UTILITY(U,$J,358.3,10576,1,4,0)
+ ;;=4^799.01
+ ;;^UTILITY(U,$J,358.3,10576,1,5,0)
+ ;;=5^Asphyxia
+ ;;^UTILITY(U,$J,358.3,10576,2)
+ ;;=^11005
+ ;;^UTILITY(U,$J,358.3,10577,0)
+ ;;=780.97^^67^678^21
+ ;;^UTILITY(U,$J,358.3,10577,1,0)
+ ;;=^358.31IA^5^2
+ ;;^UTILITY(U,$J,358.3,10577,1,4,0)
+ ;;=4^780.97
+ ;;^UTILITY(U,$J,358.3,10577,1,5,0)
+ ;;=5^Altered Mental Status
+ ;;^UTILITY(U,$J,358.3,10577,2)
+ ;;=^334164
+ ;;^UTILITY(U,$J,358.3,10578,0)
+ ;;=793.99^^67^678^15
+ ;;^UTILITY(U,$J,358.3,10578,1,0)
+ ;;=^358.31IA^5^2
+ ;;^UTILITY(U,$J,358.3,10578,1,4,0)
+ ;;=4^793.99
+ ;;^UTILITY(U,$J,358.3,10578,1,5,0)
+ ;;=5^Abnormal X-Ray Finding
+ ;;^UTILITY(U,$J,358.3,10578,2)
+ ;;=^334168
+ ;;^UTILITY(U,$J,358.3,10579,0)
+ ;;=787.20^^67^678^55
+ ;;^UTILITY(U,$J,358.3,10579,1,0)
+ ;;=^358.31IA^5^2
+ ;;^UTILITY(U,$J,358.3,10579,1,4,0)
+ ;;=4^787.20
+ ;;^UTILITY(U,$J,358.3,10579,1,5,0)
+ ;;=5^Dysphagia
+ ;;^UTILITY(U,$J,358.3,10579,2)
+ ;;=^335307
+ ;;^UTILITY(U,$J,358.3,10580,0)
+ ;;=789.59^^67^678^26
+ ;;^UTILITY(U,$J,358.3,10580,1,0)
+ ;;=^358.31IA^5^2
+ ;;^UTILITY(U,$J,358.3,10580,1,4,0)
+ ;;=4^789.59
+ ;;^UTILITY(U,$J,358.3,10580,1,5,0)
+ ;;=5^Ascites
+ ;;^UTILITY(U,$J,358.3,10580,2)
+ ;;=^335282
+ ;;^UTILITY(U,$J,358.3,10581,0)
+ ;;=790.6^^67^678^13
+ ;;^UTILITY(U,$J,358.3,10581,1,0)
+ ;;=^358.31IA^5^2
+ ;;^UTILITY(U,$J,358.3,10581,1,4,0)
+ ;;=4^790.6
+ ;;^UTILITY(U,$J,358.3,10581,1,5,0)
+ ;;=5^Abnormal LFT's
+ ;;^UTILITY(U,$J,358.3,10581,2)
+ ;;=^87228
+ ;;^UTILITY(U,$J,358.3,10582,0)
+ ;;=790.29^^67^678^86
+ ;;^UTILITY(U,$J,358.3,10582,1,0)
+ ;;=^358.31IA^5^2
+ ;;^UTILITY(U,$J,358.3,10582,1,4,0)
+ ;;=4^790.29
+ ;;^UTILITY(U,$J,358.3,10582,1,5,0)
+ ;;=5^Hyperglycemia (NOT DM)

@@ -1,5 +1,5 @@
-PSORXVW ;BHAM ISC/SAB - listman view of a prescription ;5/25/05 2:10pm
- ;;7.0;OUTPATIENT PHARMACY;**14,35,46,96,103,88,117,131,146,156,185,210,148,233,260,264,281,359,385,400,391**;DEC 1997;Build 13
+PSORXVW ;BHAM ISC/SAB - listman view of a prescription ;6/7/12 7:00pm
+ ;;7.0;OUTPATIENT PHARMACY;**14,35,46,96,103,88,117,131,146,156,185,210,148,233,260,264,281,359,385,400,391,313**;DEC 1997;Build 76
  ;External reference to File ^PS(55 supported by DBIA 2228
  ;External reference to ^PS(50.7 supported by DBIA 2223
  ;External reference ^PSDRUG( supported by DBIA 221
@@ -45,8 +45,13 @@ DP ; DBIA #4711 entry point from ECME
  S (DA,RXN)=PSOVDA K PSOVDA S RX0=^PSRX(RXN,0),RX2=$G(^(2)),RX3=$G(^(3)),ST=+$G(^("STA")),RXOR=$G(^("OR1"))
  I 'RXOR,$P(^PSDRUG($P(RX0,"^",6),2),"^") S $P(^PSRX(RXN,"OR1"),"^")=$P(^PSDRUG($P(RX0,"^",6),2),"^"),RXOR=$P(^PSDRUG($P(RX0,"^",6),2),"^")
  S IEN=0,$P(RN," ",12)=" "
- N APPND S APPND=$S($G(^PSRX(RXN,"IB")):"$",1:"")
- I $$ECMENUM^PSOBPSU2(RXN)'="" S APPND=APPND_$$ECME^PSOBPSUT(RXN)_"  (ECME#: "_$$ECMENUM^PSOBPSU2(RXN)_")"
+ N APPND,ECME,TITR
+ S APPND=$S($G(^PSRX(RXN,"IB")):"$",1:"")
+ S ECME=$$ECME^PSOBPSUT(RXN)  ; Returns "" (non-ECME), or "e" (ECME)
+ S TITR=$$TITRX^PSOUTL(RXN)  ; Returns "" (non-Titration), "m" (Maintenance) or "t" (titration)
+ S APPND=APPND_ECME_TITR
+ I ECME'="" S APPND=APPND_"  (ECME#: "_$$ECMENUM^PSOBPSU2(RXN)_")"
+ I TITR'="" S APPND=APPND_"  ("_$S(TITR="t":"Titration",1:"Maintenance")_")"
  S IEN=IEN+1,^TMP("PSOAL",$J,IEN,0)=$S($P($G(^PSRX(RXN,"TPB")),"^"):"            TPB Rx #: ",1:"                Rx #: ")_$P(RX0,"^")_APPND_$E(RN,$L($P(RX0,"^")_APPND)+1,12)
  S IEN=IEN+1,^TMP("PSOAL",$J,IEN,0)="      Orderable Item: "_$S($D(^PS(50.7,$P(+RXOR,"^"),0)):$P(^PS(50.7,$P(+RXOR,"^"),0),"^")_" "_$P(^PS(50.606,$P(^(0),"^",2),0),"^"),1:"No Pharmacy Orderable Item")
  S IEN=IEN+1,^TMP("PSOAL",$J,IEN,0)=$S($D(^PSDRUG("AQ",$P(RX0,"^",6))):"           CMOP ",1:"                ")_"Drug: "_$P(^PSDRUG($P(RX0,"^",6),0),"^")

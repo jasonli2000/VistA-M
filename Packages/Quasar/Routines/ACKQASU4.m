@@ -1,9 +1,9 @@
-ACKQASU4 ;HCIOFO/AG - New/Edit Visit Utilities  ; 12/31/07 7:28am
- ;;3.0;QUASAR;**17,22**;Feb 11, 2000;Build 5
+ACKQASU4 ;HCIOFO/AG - New/Edit Visit Utilities ;18 Nov 2013  4:38 PM
+ ;;3.0;QUASAR;**17,22,21**;Feb 11, 2000;Build 40
  ;Per VHA Directive 2004-038, this routine SHOULD NOT be modified.
  ;
  ;  Reference/ICR
- ;  $$ICDDX^ICDCODE - 3990
+ ;  $$CODEC^ICDEX - 5747
  ;  $$MOD^ICPTMOD - 1996
  ;  $$CPT^ICPTCOD - 1995
  ;
@@ -37,7 +37,7 @@ COPYPCE(ACKVIEN,ACKPCENO) ; Copies the visit data from given PCE Visit
  . ; if error returned then file
  . I 'ACKE D  Q
  . . ;ACKQ*3.0*22 updated api
- . . S ACKTMP="Diagnosis"_U_ACKICD_U_$P($$ICDDX^ICDCODE(ACKICD),U,2)_U_$P(ACKE,U,2)
+ . . S ACKTMP="Diagnosis"_U_ACKICD_U_$$CODEC^ICDEX(80,ACKICD)_U_$P(ACKE,U,2)
  . . D ADDERR
  . ; if successful then ensure Diagnosis is added to  Patient Diagnostic history
  . D DIAGHIST

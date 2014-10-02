@@ -1,5 +1,9 @@
 ECPCER ;BIR/JPW - Event Capture PCE Data Summary ;11/7/12  11:42
- ;;2.0;EVENT CAPTURE;**4,18,23,47,72,95,119**;8 May 96;Build 12
+ ;;2.0;EVENT CAPTURE;**4,18,23,47,72,95,119,114**;8 May 96;Build 20
+ ;
+ ; Reference to $$SINFO^ICDEX supported by ICR #5747
+ ; Reference to $$ICDDX^ICDEX supported by ICR #5747
+ ;
 EN ; entry point
  K DIC S DIC=2,DIC(0)="QEAMZ",DIC("A")="Select Patient: " D ^DIC K DIC G:Y<0 END S ECDFN=+Y,ECPAT=$P(Y,"^",2)
 DATE K %DT S %DT="AEX",%DT("A")="Start with Date:  " D ^%DT G:Y<0 END S ECSD=Y,%DT("A")="End with Date:  " D ^%DT G:Y<0 END S ECED=Y I ECED<ECSD W !,"End date must be after start date",! G DATE
@@ -48,7 +52,11 @@ SET ; set data
  S ECPS=$$CPT^ICPTCOD(ECCPT,$P(ECEC,"~")),ECCPT=$S(+ECPS>0:$P(ECPS,"^",2),1:""),ECEPN=$S(+ECPS>0:$P(ECPS,U,3),1:""),ECPS=$S(+ECPS>0:$P(ECPS,"^",2)_" "_$P(ECPS,"^",3),1:"CPT NAME UNKNOWN") ;119
  S ECLN=$S($P($G(^DIC(4,ECL,0)),"^")]"":$P(^(0),"^"),1:"UNKNOWN")
  S ECID=$S($P($G(^DIC(40.7,ECID,0)),"^",2)]"":$P(^(0),"^",2),1:"DSS ID UNKNOWN")
- S ECDXN=$P($$ICDDX^ICDCODE(ECDX,$P(ECEC,"~")),U,2) S:ECDXN="" ECDXN="UNKNOWN"
+ ; Changes for ICD10
+ N ECCS
+ S ECCS=$$SINFO^ICDEX("DIAG",$P(ECEC,"~")) ; Supported by ICR 5747
+ S ECDXN=$$ICDDX^ICDEX(ECDX,$P(ECEC,"~"),+ECCS,"I") ; Supported by ICR 5747
+ S ECDXN=$S($P(ECDXN,U,1)=-1:"UNKNOWN",1:$P(ECDXN,U,2))
  S ECPN=$S($P(ECEC,"~",16)]"":$P(ECEC,"~",16),1:ECPS)
  S ECPCODE="" ;119
  I $P(^ECH(ECFN,0),U,9)["EC" S:$P(ECEC,"~",16)]"" ECEPN=$$GET1^DIQ(721,ECFN,8) S ECPCODE=$P($P(ECEC,"~",16)," ") ;119
@@ -58,7 +66,8 @@ SET ; set data
  ;get secondary diagnosis codes, ALB/JAM
  S DXS=0,ECI=2,ECEI=1 F  S DXS=$O(^ECH(ECFN,"DX",DXS)) Q:'DXS  D  ;119
  . S DXSIEN=+$G(^ECH(ECFN,"DX",DXS,0)) I DXSIEN="" Q
- . S ECDXSN=$P($$ICDDX^ICDCODE(DXSIEN,$P(ECEC,"~")),"^",2) I ECDXSN="" Q
+ . S ECDXSN=$$ICDDX^ICDEX(DXSIEN,$P(ECEC,"~"),+ECCS,"I")
+ . S ECDXSN=$S($P(ECDXSN,U,1)=-1:"UNKNOWN",1:$P(ECDXSN,U,2))
  . I $L($G(ECDXS(ECI)))+$L(ECDXSN)>52 S ECI=ECI+1
  . I $G(ECDXS(ECI))="" S ECDXS(ECI)="Secondary Dx: "
  . S ECDXS(ECI)=ECDXS(ECI)_$S($L(ECDXS(ECI))=14:"",1:", ")_ECDXSN

@@ -1,5 +1,5 @@
 PSOORNE4 ;BIR/SAB-display renew RXs from backdoor ;07/29/96
- ;;7.0;OUTPATIENT PHARMACY;**11,27,32,36,46,75,96,103,99,117,131,225,386,390,391**;DEC 1997;Build 13
+ ;;7.0;OUTPATIENT PHARMACY;**11,27,32,36,46,75,96,103,99,117,131,225,386,390,391,313**;DEC 1997;Build 76
  ;^SC DBIA-10040;^PS(50.7-2223;^PS(50.606-2174;^PS(50.607-2221;^PS(51.2-2226;^PSDRUG-221;^PS(55-2228
  ;External reference to EN1^ORCFLAG supported by DBIA 3620
  ;
@@ -20,6 +20,10 @@ EDTSEL S PSOLM=1,(PSONEW("DFLG"),PSONEW("FIELD"),PSONEW3)=0
  Q
 ACP ; Renewal Accept
  N DIR,Y,DIRUT,DUOUT,DTOUT,DIR S Y=0
+ I $$TITRX^PSOUTL(+$G(PSONEW("OIRXN")))="t" D  K DIR,PSOMSG W ! S DIR("A")="Press Return to continue",DIR(0)="E" D ^DIR Q
+ . D FULL^VALM1
+ . W !!,"Rx "_$P($G(^PSRX(+$G(PSONEW("OIRXN")),0)),"^")_" is marked as 'Titration' and cannot be renewed.",$C(7)
+ . S VALMBCK="R"
  I $G(ORD),+$P($G(^PS(52.41,+ORD,0)),"^",23)=1 D  Q:$D(DIRUT)!'Y  D EN1^ORCFLAG(+$P($G(^PS(52.41,ORD,0)),"^")) H 1
  . D FULL^VALM1
  . I '$D(^XUSEC("PSORPH",DUZ)) D  S Y=0 Q

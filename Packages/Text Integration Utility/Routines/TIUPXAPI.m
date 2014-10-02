@@ -1,7 +1,7 @@
-TIUPXAPI ; SLC/JER - Interface w/PCE/Visit Tracking ;03/29/12  14:52
- ;;1.0;TEXT INTEGRATION UTILITIES;**15,24,29,82,107,126,161,267**;Jun 20, 1997;Build 2
+TIUPXAPI ; SLC/JER - Interface w/PCE/Visit Tracking ;04/16/13  15:22
+ ;;1.0;TEXT INTEGRATION UTILITIES;**15,24,29,82,107,126,161,267,263**;Jun 20, 1997;Build 16
 CREDIT(DFN,TIU,VSIT) ; Get Dx, CPT, (& SC) for the CMD's mandate
- N TIUCPT,TIUAICD,TIUICDAR,TIUCPTAR,TIUSC,DTOUT,TIUOK,TIUPRLST
+ N TIUCPT,TIUAICD,TIUICDAR,TIUCPTAR,TIUSC,DTOUT,TIUOK,TIUPRLST,CSYSINFO
  ; For Historical Visits, just QUEUE the PXAPI call and quit
  I $P(TIU("VSTR"),";",3)="E" D QUE^TIUPXAP1 Q
  ; If no Location, and not Historical Visit, then quit
@@ -11,9 +11,10 @@ REENTER I $G(VALMAR)="^TMP(""TIUR"",$J)",$D(TIU("PNM")) D
  . W $P($G(TIU("EDT")),U,2),"..."
  D PROVLIST(.TIUPRLST)
  N TIUVDT S TIUVDT=$P($G(TIU("VSTR")),";",2)
+ S CSYSINFO=$$CSYSINFO(TIUVDT)
  ; *161 Pass encounter date to GETICD as 3rd and 4th variable, then to IBDF18A
  D GETICD(TIU("LOC"),.TIUICDAR,TIUVDT)
-ICDCALL D ICD(.TIUAICD,.TIUICDAR,TIUVDT) G:+$G(DTOUT) INSUFF ; **15**
+ICDCALL D ICD(.TIUAICD,.TIUICDAR,TIUVDT,CSYSINFO) G:+$G(DTOUT) INSUFF ; **15**
  I '$D(TIUAICD),'$D(DTOUT) W !!,$C(7),"You MUST enter one or more Diagnoses." H 3 G ICDCALL
  K TIUICDAR ; **15**
  ; Pass encounter date to TIUPXAPC to pass to IBDF18A **161**
@@ -37,14 +38,19 @@ POST N ICD,CPT,SC
  D QUE^TIUPXAP1 ; Queue TIU/PXAPI RESOURCE
  W:'+$G(DTOUT) "Done."
  Q
+ ;
 CONFIRM(TIUAICD,TIUCPT,TIUSC) ; Show user and confirm
- N TIUI,TIUY S TIUY=0
+ N TIUI,TIUY,CODENO,CODSYSNO,CSYS S TIUY=0
  W !!,"You have indicated the following data apply to this visit:",!
  W !,"DIAGNOSES:"
  S TIUI=0
  F  S TIUI=$O(TIUAICD(TIUI)) Q:+TIUI'>0  D
- . W !?3,$P(TIUAICD(TIUI),U,2),?12,$E($P(TIUAICD(TIUI),U,3),1,67)
- . W:+$G(TIUAICD(TIUI,"PRIMARY")) "  <<< PRIMARY"
+ . S CODENO=$P(TIUAICD(TIUI),U,2) S CSYS=$P($$CODECS^ICDEX(CODENO,80),U,2) ;ICR 5747
+ . S CODSYSNO="("_CSYS_" "_CODENO_") " W !?3,CODSYSNO
+ . I +$G(TIUAICD(TIUI,"PRIMARY")) D  Q
+ . . I $L($P(TIUAICD(TIUI),U,3))+12<57 W ?22,$P(TIUAICD(TIUI),U,3)_"  <<< PRIMARY" Q
+ . . W ?22,$E($P(TIUAICD(TIUI),U,3),1,57),!,?7,"<<< PRIMARY"
+ . W ?22,$E($P(TIUAICD(TIUI),U,3),1,57)
  W !!,"PROCEDURES:"
  S TIUI=0
  F  S TIUI=$O(TIUCPT(TIUI)) Q:+TIUI'>0  D
@@ -61,11 +67,13 @@ CONFIRM(TIUAICD,TIUCPT,TIUSC) ; Show user and confirm
  . I $D(TIUSC("HNC")) W !?3,"Head and/or Neck Cancer? ",$S($G(TIUSC("HNC"))]"":$P($G(TIUSC("HNC")),U,2),1:"NOT ANSWERED")
  W ! S TIUY=+$$READ^TIUU("Y","   ...OK","YES")
  Q +$G(TIUY)
+ ;
  ; Pass encounter date to GETICD to pass to IBDF18A **161**
-GETICD(TIULOC,TIUICDAR,TIUVDT) ; Get ICD-9 codes for clinic
- N TIUI,TIUROW,TIUCOL,ARRY2,TIUITM,TIUPAGE,TIUCAT S TIUCAT=""
+GETICD(TIULOC,TIUICDAR,TIUVDT) ; Get ICD-9 or 10 codes for clinic
+ N TIUI,TIUROW,TIUCOL,ARRY2,TIUITM,TIUPAGE,TIUCAT,INTFACE S TIUCAT=""
  ; Pass encounter date as the 5th parameter to IBDF18A **161**
- D GETLST^IBDF18A(+TIULOC,"DG SELECT ICD-9 DIAGNOSIS CODES","ARRY2",,,,TIUVDT) ; ICR 1296
+ S INTFACE="DG SELECT ICD DIAGNOSIS CODES"
+ D GETLST^IBDF18A(+TIULOC,INTFACE,"ARRY2",,,,TIUVDT) ;ICR 1296
  S (TIUI,TIUROW,TIUITM)=0,(TIUCOL,TIUPAGE)=1
  F  S TIUI=$O(ARRY2(TIUI)) Q:+TIUI'>0  D
  . I $P(ARRY2(TIUI),U)]"" D  I 1
@@ -87,7 +95,7 @@ GETICD(TIULOC,TIUICDAR,TIUVDT) ; Get ICD-9 codes for clinic
  . I TIUROW#20'>0 S TIUCOL=$S(TIUCOL=3:1,1:TIUCOL+1),TIUROW=20*(TIUPAGE-1)
  Q
  ; Pass encounter date as TIUVDT for CSV **161**
-ICD(TIUAICD,TIUICDAR,TIUVDT) ; Select Dx's
+ICD(TIUAICD,TIUICDAR,TIUVDT,CSYSINFO) ; Select Dx's
  N TIUI,J,L,Y,TIUICD,TIUICNT,TIUPGS,TIUPG,TIUITM,TIULITM,TIUPNM
  S TIUPNM=$S($L($G(TIU("PNM"))):$G(TIU("PNM")),+$G(DFN):$$PTNAME^TIULC1(DFN),1:"the Patient")
  W !!,"Please Indicate the Diagnoses for which "_TIUPNM_" was Seen:"
@@ -102,19 +110,18 @@ ICD(TIUAICD,TIUICDAR,TIUVDT) ; Select Dx's
  . I TIUI#20=0 S Y=$S(+Y:Y,1:"")_$P($$PICK^TIUPXAP2(1,+$G(TIULITM),"Select Diagnoses"_$S(+$G(TIUPG)<TIUPGS:" (<RETURN> to see next page of choices)",1:"")),U),TIUPG=+$G(TIUPG)+1 W !
  . S L=TIUI S:TIUITM>+$G(TIULITM) TIULITM=TIUITM
  I +$G(DTOUT) Q
-  I L#20 S Y=$S(+Y:Y,1:"")_$P($$PICK^TIUPXAP2(1,TIULITM,"Select Diagnoses"),U)
+ I L#20 S Y=$S(+Y:Y,1:"")_$P($$PICK^TIUPXAP2(1,TIULITM,"Select Diagnoses"),U)
  I +Y,$P(TIUICDAR("INDEX",+Y),U)'="OTHER ICD" D  I 1
  . N TIUI,ITEM F TIUI=1:1:($L(Y,",")-1) D  Q:+$G(DTOUT)
  . . S ITEM=$P(Y,",",TIUI)
  . . I $P(TIUICDAR("INDEX",+ITEM),U)'="OTHER ICD" D
- . . . ;S TIUICD=+$O(^ICD9("AB",$P(TIUICDAR("INDEX",+ITEM),U)_" ",0))
- . . . S TIUICD=+$$CODEN^ICDCODE($P(TIUICDAR("INDEX",+ITEM),U),80)
+ . . . S TIUICD=+$$ICDDATA^ICDXCODE(+CSYSINFO,$P(TIUICDAR("INDEX",+ITEM),U),TIUVDT,"E") ; ICR 5699
  . . . S TIUAICD(TIUI)=TIUICD_U_$G(TIUICDAR("INDEX",+ITEM))
  . . ; Pass encounter date to ICDOUT to pass to LEXSET for CSV **161**
- . . E  D ICDOUT(.TIUAICD,.TIUI,TIUVDT)
+ . . E  D ICDOUT(.TIUAICD,.TIUI,TIUVDT,CSYSINFO)
  Q:+$G(DTOUT)
  ; Pass encounter date to ICDOUT to pass to LEXSET for CSV **161**
- E  D ICDOUT(.TIUAICD,,TIUVDT)
+ E  D ICDOUT(.TIUAICD,,TIUVDT,CSYSINFO)
  I +$O(TIUAICD(1)) D ASKPRMRY(.TIUAICD) I 1
  Q:+$G(DTOUT)
  E  I $D(TIUAICD(1)) S TIUAICD(1,"PRIMARY")=1
@@ -130,12 +137,14 @@ PRMAGN W !!,"Please indicate which of the Diagnoses is the Primary Diagnosis:",!
  I +Y'>0 W !!?3,$C(7),"You must specify a Primary Diagnosis." G PRMAGN
  I +Y,$D(TIUAICD(+Y)) S TIUAICD(+Y,"PRIMARY")=1
  Q
-ICDOUT(TIUAICD,TIUI,TIUVDT) ; Go off-list for Dx
- N DIC,X,Y,TIUICD,TIUOUT
+ICDOUT(TIUAICD,TIUI,TIUVDT,CSYSINFO) ; Go off-list for Dx
+ N DIC,X,Y,TIUICD,TIUOUT,CSYSIEN,NSID,SSID,CODE
+ S CSYSIEN=+CSYSINFO,(NSID,SSID)=$P(CSYSINFO,U,2)
  F  D  Q:+$G(TIUOUT)
  . I $L($T(CONFIG^LEXSET)) D  I 1
  . . ; Pass encounter date to LEXSET for CSV **161**
- . . D CONFIG^LEXSET("ICD","ICD",TIUVDT) ; ICR 1609
+ . . S (NSID,SSID)=$P(CSYSINFO,U,2)
+ . . D CONFIG^LEXSET(NSID,SSID,TIUVDT) ; ICR 1609 ******
  . E  D  Q
  . . W !,$C(7),"You must install LEXICON UTILITY v2.0 for this function to work...Contact IRM.",!
  . . I $$READ^TIUU("EA","Press RETURN to continue...") ; pause
@@ -145,32 +154,30 @@ ICDOUT(TIUAICD,TIUI,TIUVDT) ; Go off-list for Dx
  . N X K DIC("B")
  . D ^DIC
  . I +$D(DTOUT)!+$D(DUOUT)!(X="") S TIUOUT=1 Q
- . I $G(Y(1))]"" D  Q
- . . ;S TIUICD=+$O(^ICD9("AB",$P(Y(1),U)_" ",0))
- . . S TIUICD=+$$CODEN^ICDCODE($P(Y(1),U),80) ;ICR 3990
- . . ;S:TIUICD'>0 TIUICD=+$O(^ICD9("AB",$P(Y(1),U)_"0 ",0))
- . . S:TIUICD'>0 TIUICD=+$$CODEN^ICDCODE($P(Y(1),U)_"0",80)
+ . S CODE=$S(NSID="ICD":Y(1),NSID="10D":Y(30),1:"")
+ . I CODE]"" D  Q  ;Y(1 or 30)=DX CODE
+ . . S TIUICD=+$$ICDDATA^ICDXCODE(CSYSIEN,CODE,TIUVDT,"E")
  . . I +TIUICD'>0 W !,$C(7),"ICD CODE NOT FOUND FOR EXPRESSION." Q
  . . S:$S(+$G(TIUI)'>0:1,$D(TIUAICD(+$G(TIUI))):1,1:0) TIUI=$G(TIUI)+1
- . . S TIUAICD(TIUI)=TIUICD_U_Y(1)_U_$P(Y,U,2)
+ . . S TIUAICD(TIUI)=TIUICD_U_CODE_U_$P(Y,U,2)
  . W $C(7),!!,"Nothing found for ",X,"..."
  . F  D  Q:(+Y>0)!+$G(TIUOUT)
  . . N X
  . . I $L($T(CONFIG^LEXSET)) D  I 1
  . . . ; Pass encounter date to LEXSET for CSV **161**
- . . . D CONFIG^LEXSET("ICD","ICD",TIUVDT)
+ . . . D CONFIG^LEXSET(NSID,SSID,TIUVDT) ; ICR 1609
  . . E  D  Q
  . . . W !,$C(7),"You must install LEXICON UTILITY v2.0 for this function to work...Contact IRM.",!
-  . . . I $$READ^TIUU("EA","Press RETURN to continue...") ; pause
+ . . . I $$READ^TIUU("EA","Press RETURN to continue...") ; pause
  . . . S TIUOUT=1
  . . S DIC("A")="Please try another expression, or RETURN to continue: "
  . . D ^DIC
  . . I +$D(DTOUT)!+$D(DUOUT)!(X="") S TIUOUT=1 Q
- . . I +$G(Y(1))>0 D  Q
- . . . ;S TIUICD=+$O(^ICD9("AB",$P(Y(1),U)_" ",0))
- . . . S TIUICD=+$$CODEN^ICDCODE($P(Y(1),U),80)
+ . . S CODE=$S(NSID="ICD":Y(1),NSID="10D":Y(30),1:"")
+ . . I CODE]"" D  Q  ;Y(1 or 30)=DX CODE
+ . . . S TIUICD=+$$ICDDATA^ICDXCODE(+CSYSINFO,CODE,TIUVDT,"E")
  . . . S:$S(+$G(TIUI)'>0:1,$D(TIUAICD(+$G(TIUI))):1,1:0) TIUI=$G(TIUI)+1
- . . . S TIUAICD(TIUI)=TIUICD_U_Y(1)_U_$P(Y,U,2)
+ . . . S TIUAICD(TIUI)=TIUICD_U_CODE_U_$P(Y,U,2)
  . . W $C(7),!!,"Nothing found for ",X,"..."
  Q
 PROVLIST(PROVLIST) ; Identify primary provider
@@ -200,3 +207,13 @@ DFLTDOC(HLOC) ; Get the default Provider
  D PRV^PXBUTL2(HLOC) ; ICR 3152
  I $D(PXBPMT("DEF")) S TIUPNM=$O(PXBPMT("DEF","")),Y=$O(PXBPMT("DEF",TIUPNM,0))_U_TIUPNM
  Q Y
+ ;
+CSYSINFO(DATE) ;Function: Coding system Information
+ ; DATE is date of interest; defaults to today
+ ; Returns CodesystemIENin757.3^AppNamespacein757.2^ImpDateofICD-10
+ N X,X1,X2,IMPDT,CSIEN,NOW
+ D NOW^%DTC S NOW=X K X
+ S DATE=$S($G(DATE)>0:DATE,1:NOW)
+ S X1=DATE,IMPDT=$$IMPDATE^LEXU("10D"),X2=IMPDT ; ICR 5679
+ D ^%DTC I X'<0 Q 30_"^10D^"_IMPDT
+ Q 1_"^ICD^"_IMPDT

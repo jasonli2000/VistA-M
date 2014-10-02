@@ -1,6 +1,7 @@
 PSOORED3 ;BIR/SAB-edit finished orders through backdoor ;10/20/06 11:09am
- ;;7.0;OUTPATIENT PHARMACY;**46,78,99,117,133,148,249,251,379,378,372,416**;DEC 1997;Build 32
- ;External reference to PS(51.2 supported by DBIA 2226
+ ;;7.0;OUTPATIENT PHARMACY;**46,78,99,117,133,148,249,251,379,378,372,416,313**;DEC 1997;Build 76
+ ;External reference to PS(51.1 supported by DBIA 2225
+ ;External reference to PS(51.2 supported by DBIA 2226 
  ;called from psoored2
  D DOLST
  ;
@@ -60,6 +61,8 @@ CON D CON^PSOOREDX I X[U,$L(X)>1 S FIELD="CON" G JUMP
  I X="@" D CON1^PSOOREDX G:$D(DIRUT) EXQ G:'Y CON N CKX S CKX=1 D UPD^PSOOREDX G CON
  ;
  N PSODLBD4 S PSOSAVX=X,PSODLBD4=1
+ I '$$DUROK(.PSORXED,ENT) D  G DUR
+ . W !!,"Duration is required for the dosage entered prior to the THEN conjunction.",$C(7),!
  I $G(PSORXED("CONJUNCTION",ENT))]"" S PSOCKCON=1 D DCHK1^PSODOSUT G:$G(PSORXED("DFLG"))!($G(PSORX("DFLG"))) EXQ S ENT=ENT+1 K DIR G ASK
  E  K PSOCKCON I $$DCHK^PSODOSUT S PSOQUIT=1 G EXQ
  I PSOSAVX="",$G(PSORXED)!$D(PSOEDDOS) K PSOCKCON
@@ -147,3 +150,15 @@ CNON ;
  I $G(PSORXED("DOSE ORDERED",ENT))>1 S PSORXED("NOUN",ENT)=$E(PSONLL,1,(PSONLG-3))_$E(PSONLT,2) Q
  S PSORXED("NOUN",ENT)=$E(PSONLL,1,(PSONLG-3))
  Q
+ ;
+DUROK(DOSE,ENT) ; Duration OK? (Complex Doses only)
+ ;Input: PSORXED - array with doses
+ ;       ENT - dose entry in the PSORXED array
+ ;Output: 1: Duration OK / 0: Duration not OK (required, but missing)
+ N SCHIEN
+ I $G(DOSE("CONJUNCTION",ENT))'="T" Q 1
+ I $G(DOSE("DURATION",ENT)) Q 1
+ I $G(DOSE("SCHEDULE",ENT))="" Q 1
+ S SCHIEN=$O(^PS(51.1,"B",$G(DOSE("SCHEDULE",ENT)),0))
+ I $$GET1^DIQ(51.1,SCHIEN,5,"I")="O" Q 1
+ Q 0

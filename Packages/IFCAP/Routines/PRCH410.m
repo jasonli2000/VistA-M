@@ -1,9 +1,18 @@
 PRCH410 ;WISC/KMB/DXH/DGL - CREATE 2237 FROM PURCHASE CARD ORDER ; 4/4/00 7:56am
- ;;5.1;IFCAP;**123,171**;Oct 20, 2000;Build 3
+ ;;5.1;IFCAP;**123,171,181**;Oct 20, 2000;Build 6
  ;Per VHA Directive 2004-038, this routine should not be modified.
  ;
  ; prcsip is package-wide variable for inv pt that may or may not be
  ; passed to this routine
+ ;
+ ;PRC*5.1*181 Split the update for setting File 442, node 23 piece 23
+ ;            (410 pointer) and piece 13 (sort group) into two sets,
+ ;            410 pointer before the Sort Group query and Sort Group
+ ;            after. This eliminates a user crashing at Sort Group
+ ;            query and creating 2 410 entries due to missing 410 
+ ;            pointer in file 442 that was not set due to Sort
+ ;            Group query failure. 
+ ;
 START ;
  N VV,ST,Y,Z,Z0,Z1,Z2,I,J,CCEN,ESTS,NET,SERV,EMER,COUNT,COUNT1,L,PDUZ,FY,QTR,CP,LOC,ADATE,TDATE,SDATE,LL,PC,PCREF,XDA
  N SCP,SGRP,COR,VEN,VEND
@@ -54,9 +63,10 @@ SET ;set item data and vendor on record
  .S:+COUNT1'=0 ^PRCS(410,CDA,"IT",IT,1,0)="^410.03^"_COUNT1_"^"_COUNT1
  I $D(VEN) S ^PRCS(410,"E",$E(VEN,1,30),CDA)=""
  S ^PRCS(410,"AQ",1,CDA)="" S:COUNT'="" ^PRCS(410,CDA,"IT",0)="^410.02AI^"_COUNT_"^"_COUNT
+ L +^PRC(442,XDA):$S(DILOCKTM>15:DILOCKTM,1:15) Q:'$T  S $P(^PRC(442,XDA,23),"^",23)=CDA L -^PRC(442,XDA)   ;PRC*5.1*181  Set 410 pointer prior to Sort Group query
  I '$G(PRCPROST),$G(RPUSE)'=1,$G(COMMENT)'="delivery",$G(PRCHPC)'="" S DA=CDA,DR=49 D ^DIE
  L -^PRCS(410,CDA)
- L +^PRC(442,XDA):15 Q:'$T  S $P(^PRC(442,XDA,23),"^",23)=CDA,$P(^PRC(442,XDA,23),"^",13)=$P($G(^PRCS(410,CDA,11)),"^") L -^PRC(442,XDA)
+ L +^PRC(442,XDA):15 Q:'$T  S $P(^PRC(442,XDA,23),"^",13)=$P($G(^PRCS(410,CDA,11)),"^") L -^PRC(442,XDA)
  S DA=XDA K DIE QUIT
 ITEM ;
  F IT=1:1:COUNT D

@@ -1,5 +1,5 @@
-ORWPCE3 ; SLC/KCM/REV/JM/TC - Get a PCE encounter for a TIU document ;11/05/13  10:03
- ;;3.0;ORDER ENTRY/RESULTS REPORTING;**10,85,116,190,280,306,371,361**;Dec 17, 1997;Build 39
+ORWPCE3 ; SLC/KCM/REV/JM/TC - Get a PCE encounter for a TIU document ;02/07/14  13:02
+ ;;3.0;ORDER ENTRY/RESULTS REPORTING;**10,85,116,190,280,306,371,361,385**;Dec 17, 1997;Build 12
  ;
 PCE4NOTE(LST,IEN,DFN,VSITSTR) ; Return encounter for an associated note
  ; LST(1)=HDR^AllowEdit^CPTRequired^VStr^Author^hasCPT
@@ -206,10 +206,12 @@ SETNARR(NARR,CODE) ; Set narrative string
  S PRIMCODE=$S(CODE["/":$P(CODE,"/"),1:CODE),ICDLBL=$P($$CODECS^ICDEX(PRIMCODE,80,DT),U,2)
  I CODE["/" F I=1:1:$L(CODE,"/") D
  . N ICDC,ICDD S ICDC=$P(CODE,"/",I),ICDD=$$ICDDESC(ICDC)
- . S:(NARR'[ICDC)!((ICDD]"")&($$UP^XLFSTR(NARR)'[$$UP^XLFSTR(ICDD))) NARR=NARR_" - "_ICDD_" ("_$G(ICDLBL)_" "_ICDC_")"
+ . I (NARR'[ICDC)&((ICDD]"")&($$UP^XLFSTR(NARR)'=$$UP^XLFSTR(ICDD))) S NARR=NARR_" - "_ICDD_" ("_$G(ICDLBL)_" "_ICDC_")"
+ . E  S:NARR'[ICDC NARR=NARR_" ("_$G(ICDLBL)_" "_ICDC_")"
  E  D
  . N ICDD S ICDD=$$ICDDESC(CODE)
- . S:(NARR'[CODE)!((ICDD]"")&($$UP^XLFSTR(NARR)'[$$UP^XLFSTR(ICDD))) NARR=NARR_" - "_ICDD_" ("_$G(ICDLBL)_" "_CODE_")"
+ . I (NARR'[CODE)&((ICDD]"")&($$UP^XLFSTR(NARR)'=$$UP^XLFSTR(ICDD))) S NARR=NARR_" - "_ICDD_" ("_$G(ICDLBL)_" "_CODE_")"
+ . E  S:NARR'[CODE NARR=NARR_" ("_$G(ICDLBL)_" "_CODE_")"
  Q NARR
 ICDDESC(ORCODE,ORDT) ; Get description for ICD9 Code
  N ICDD,ORY S ORY="",ORDT=$G(ORDT,DT)

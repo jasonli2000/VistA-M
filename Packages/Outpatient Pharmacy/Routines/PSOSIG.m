@@ -1,5 +1,5 @@
 PSOSIG ;BIR/RTR-Utility to create SIG ;6/04/00
- ;;7.0;OUTPATIENT PHARMACY;**46,99,114,391**;DEC 1997;Build 13
+ ;;7.0;OUTPATIENT PHARMACY;**46,99,114,391,313**;DEC 1997;Build 76
  ;External reference to PS(51 supported by DBIA 2224
  ;External reference to PS(51.1 supported by DBIA 2225
  ;External reference to PSDRUG( supported by DBIA 221
@@ -117,8 +117,9 @@ QTS ;Find frequency
  I '$G(PSOFRQ) S PSQQUIT=1
  Q
 QEND ;
+ ; PSOMTFLG variable indicates a Maintenance Rx (Titration/Maintenance)
  K PSOFRQ
- I $G(PSOOUTQT),$G(QTYHLD),$G(PSOQX("QTY")),$G(QTYHLD)'=$G(PSOQX("QTY")) W !!!,"Quantity has been changed from "_QTYHLD_" to "_PSOQX("QTY") D  W ! N DIR S DIR(0)="E",DIR("A")="Press Return to Continue" D ^DIR W !
+ I $G(PSOOUTQT),$G(QTYHLD),$G(PSOQX("QTY")),$G(QTYHLD)'=$G(PSOQX("QTY")) W !!!,"Quantity has been changed from "_QTYHLD_" to "_PSOQX("QTY") D  I '$G(PSOMTFLG) W ! N DIR S DIR(0)="E",DIR("A")="Press Return to Continue" D ^DIR W !
  .I $G(PSONEW("FLD"))=8,$P($G(OR0),"^",24),$G(PSODRUG("IEN")),$D(^PSDRUG(+$G(PSODRUG("IEN")),0)) D
  ..I $P(^PSDRUG(PSODRUG("IEN"),0),"^",3)[2!($P(^PSDRUG(PSODRUG("IEN"),0),"^",3)["F") Q
  ..N ZRFA S ZRFA=$S($G(CLOZPAT)=2&(PSOQX("DAYS SUPPLY")=14):1,$G(CLOZPAT)=2&(PSOQX("DAYS SUPPLY")=7):3,$G(CLOZPAT)=1&(PSOQX("DAYS SUPPLY")=7):1,$D(CLOZPAT):0,1:5)

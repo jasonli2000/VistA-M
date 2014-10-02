@@ -1,48 +1,142 @@
-IBDEI0H5 ; ; 09-MAY-2014
- ;;3.0;IB ENCOUNTER FORM IMP/EXP;;MAY 09, 2014
- Q:'DIFQ(358.8)  F I=1:2 S X=$T(Q+I) Q:X=""  S Y=$E($T(Q+I+1),4,999),X=$E(X,4,999) S:$A(Y)=126 I=I+1,Y=$E(Y,2,999)_$E($T(Q+I+1),5,99) S:$A(Y)=61 Y=$E(Y,2,999) X NO E  S @X=Y
+IBDEI0H5 ; ; 12-AUG-2014
+ ;;3.0;IB ENCOUNTER FORM IMP/EXP;;MAY 15, 2014
+ Q:'DIFQR(358.3)  F I=1:2 S X=$T(Q+I) Q:X=""  S Y=$E($T(Q+I+1),4,999),X=$E(X,4,999) S:$A(Y)=126 I=I+1,Y=$E(Y,2,999)_$E($T(Q+I+1),5,99) S:$A(Y)=61 Y=$E(Y,2,999) X NO E  S @X=Y
 Q Q
- ;;^DIC(358.8,0,"GL")
- ;;=^IBE(358.8,
- ;;^DIC("B","IMP/EXP TEXT AREA",358.8)
- ;;=
- ;;^DIC(358.8,"%D",0)
- ;;=^^3^3^2940217^
- ;;^DIC(358.8,"%D",1,0)
- ;;=This file is nearly identical to file #357.8. It is used by the
- ;;^DIC(358.8,"%D",2,0)
- ;;=Import/Export Utility as a temporary staging area for data from that file
- ;;^DIC(358.8,"%D",3,0)
- ;;=that is being imported or exported.
- ;;^DD(358.8,0)
- ;;=FIELD^^1^7
- ;;^DD(358.8,0,"DDA")
- ;;=N
- ;;^DD(358.8,0,"DT")
- ;;=2930802
- ;;^DD(358.8,0,"IX","B",358.8,.01)
- ;;=
- ;;^DD(358.8,0,"IX","C",358.8,.02)
- ;;=
- ;;^DD(358.8,0,"NM","IMP/EXP TEXT AREA")
- ;;=
- ;;^DD(358.8,0,"VRPK")
- ;;=IBD
- ;;^DD(358.8,.01,0)
- ;;=NAME^RF^^0;1^K:$L(X)>30!(X?.N)!($L(X)<3)!'(X'?1P.E) X
- ;;^DD(358.8,.01,1,0)
- ;;=^.1
- ;;^DD(358.8,.01,1,1,0)
- ;;=358.8^B
- ;;^DD(358.8,.01,1,1,1)
- ;;=S ^IBE(358.8,"B",$E(X,1,30),DA)=""
- ;;^DD(358.8,.01,1,1,2)
- ;;=K ^IBE(358.8,"B",$E(X,1,30),DA)
- ;;^DD(358.8,.01,3)
- ;;=NAME MUST BE 3-30 CHARACTERS, NOT NUMERIC OR STARTING WITH PUNCTUATION
- ;;^DD(358.8,.01,21,0)
- ;;=^^2^2^2930528^
- ;;^DD(358.8,.01,21,1,0)
- ;;= 
- ;;^DD(358.8,.01,21,2,0)
- ;;=The name of the text area.
+ ;;^UTILITY(U,$J,358.3,8328,0)
+ ;;=377.00^^58^608^99
+ ;;^UTILITY(U,$J,358.3,8328,1,0)
+ ;;=^358.31IA^4^2
+ ;;^UTILITY(U,$J,358.3,8328,1,3,0)
+ ;;=3^Papilledema,Unspec
+ ;;^UTILITY(U,$J,358.3,8328,1,4,0)
+ ;;=4^377.00
+ ;;^UTILITY(U,$J,358.3,8328,2)
+ ;;=^89575
+ ;;^UTILITY(U,$J,358.3,8329,0)
+ ;;=377.02^^58^608^98
+ ;;^UTILITY(U,$J,358.3,8329,1,0)
+ ;;=^358.31IA^4^2
+ ;;^UTILITY(U,$J,358.3,8329,1,3,0)
+ ;;=3^Papilledema,Decreased Ocul Pressure
+ ;;^UTILITY(U,$J,358.3,8329,1,4,0)
+ ;;=4^377.02
+ ;;^UTILITY(U,$J,358.3,8329,2)
+ ;;=^269213
+ ;;^UTILITY(U,$J,358.3,8330,0)
+ ;;=377.03^^58^608^97
+ ;;^UTILITY(U,$J,358.3,8330,1,0)
+ ;;=^358.31IA^4^2
+ ;;^UTILITY(U,$J,358.3,8330,1,3,0)
+ ;;=3^Papilledema w/ Retina D/O
+ ;;^UTILITY(U,$J,358.3,8330,1,4,0)
+ ;;=4^377.03
+ ;;^UTILITY(U,$J,358.3,8330,2)
+ ;;=^269214
+ ;;^UTILITY(U,$J,358.3,8331,0)
+ ;;=377.04^^58^608^40
+ ;;^UTILITY(U,$J,358.3,8331,1,0)
+ ;;=^358.31IA^4^2
+ ;;^UTILITY(U,$J,358.3,8331,1,3,0)
+ ;;=3^Foster-Kennedy Syndrome
+ ;;^UTILITY(U,$J,358.3,8331,1,4,0)
+ ;;=4^377.04
+ ;;^UTILITY(U,$J,358.3,8331,2)
+ ;;=^265146
+ ;;^UTILITY(U,$J,358.3,8332,0)
+ ;;=377.11^^58^608^83
+ ;;^UTILITY(U,$J,358.3,8332,1,0)
+ ;;=^358.31IA^4^2
+ ;;^UTILITY(U,$J,358.3,8332,1,3,0)
+ ;;=3^Optic Atrophy,Primary
+ ;;^UTILITY(U,$J,358.3,8332,1,4,0)
+ ;;=4^377.11
+ ;;^UTILITY(U,$J,358.3,8332,2)
+ ;;=^269215
+ ;;^UTILITY(U,$J,358.3,8333,0)
+ ;;=377.12^^58^608^82
+ ;;^UTILITY(U,$J,358.3,8333,1,0)
+ ;;=^358.31IA^4^2
+ ;;^UTILITY(U,$J,358.3,8333,1,3,0)
+ ;;=3^Optic Atrophy,Postinflammatory
+ ;;^UTILITY(U,$J,358.3,8333,1,4,0)
+ ;;=4^377.12
+ ;;^UTILITY(U,$J,358.3,8333,2)
+ ;;=^269216
+ ;;^UTILITY(U,$J,358.3,8334,0)
+ ;;=377.15^^58^608^81
+ ;;^UTILITY(U,$J,358.3,8334,1,0)
+ ;;=^358.31IA^4^2
+ ;;^UTILITY(U,$J,358.3,8334,1,3,0)
+ ;;=3^Optic Atrophy,Partial
+ ;;^UTILITY(U,$J,358.3,8334,1,4,0)
+ ;;=4^377.15
+ ;;^UTILITY(U,$J,358.3,8334,2)
+ ;;=^269219
+ ;;^UTILITY(U,$J,358.3,8335,0)
+ ;;=377.16^^58^608^80
+ ;;^UTILITY(U,$J,358.3,8335,1,0)
+ ;;=^358.31IA^4^2
+ ;;^UTILITY(U,$J,358.3,8335,1,3,0)
+ ;;=3^Optic Atrophy,Leber's
+ ;;^UTILITY(U,$J,358.3,8335,1,4,0)
+ ;;=4^377.16
+ ;;^UTILITY(U,$J,358.3,8335,2)
+ ;;=^85931
+ ;;^UTILITY(U,$J,358.3,8336,0)
+ ;;=377.31^^58^608^94
+ ;;^UTILITY(U,$J,358.3,8336,1,0)
+ ;;=^358.31IA^4^2
+ ;;^UTILITY(U,$J,358.3,8336,1,3,0)
+ ;;=3^Optic Papillitis
+ ;;^UTILITY(U,$J,358.3,8336,1,4,0)
+ ;;=4^377.31
+ ;;^UTILITY(U,$J,358.3,8336,2)
+ ;;=^276874
+ ;;^UTILITY(U,$J,358.3,8337,0)
+ ;;=377.32^^58^608^89
+ ;;^UTILITY(U,$J,358.3,8337,1,0)
+ ;;=^358.31IA^4^2
+ ;;^UTILITY(U,$J,358.3,8337,1,3,0)
+ ;;=3^Optic Neuritis,Retrobulbar,Acute
+ ;;^UTILITY(U,$J,358.3,8337,1,4,0)
+ ;;=4^377.32
+ ;;^UTILITY(U,$J,358.3,8337,2)
+ ;;=^269225
+ ;;^UTILITY(U,$J,358.3,8338,0)
+ ;;=377.33^^58^608^92
+ ;;^UTILITY(U,$J,358.3,8338,1,0)
+ ;;=^358.31IA^4^2
+ ;;^UTILITY(U,$J,358.3,8338,1,3,0)
+ ;;=3^Optic Neuropathy,Nutritional
+ ;;^UTILITY(U,$J,358.3,8338,1,4,0)
+ ;;=4^377.33
+ ;;^UTILITY(U,$J,358.3,8338,2)
+ ;;=^269226
+ ;;^UTILITY(U,$J,358.3,8339,0)
+ ;;=377.39^^58^608^93
+ ;;^UTILITY(U,$J,358.3,8339,1,0)
+ ;;=^358.31IA^4^2
+ ;;^UTILITY(U,$J,358.3,8339,1,3,0)
+ ;;=3^Optic Neuropathy,Other
+ ;;^UTILITY(U,$J,358.3,8339,1,4,0)
+ ;;=4^377.39
+ ;;^UTILITY(U,$J,358.3,8339,2)
+ ;;=^87748
+ ;;^UTILITY(U,$J,358.3,8340,0)
+ ;;=377.42^^58^608^87
+ ;;^UTILITY(U,$J,358.3,8340,1,0)
+ ;;=^358.31IA^4^2
+ ;;^UTILITY(U,$J,358.3,8340,1,3,0)
+ ;;=3^Optic Nerve Sheaths Hemorrhage
+ ;;^UTILITY(U,$J,358.3,8340,1,4,0)
+ ;;=4^377.42
+ ;;^UTILITY(U,$J,358.3,8340,2)
+ ;;=^269233
+ ;;^UTILITY(U,$J,358.3,8341,0)
+ ;;=377.49^^58^608^86
+ ;;^UTILITY(U,$J,358.3,8341,1,0)
+ ;;=^358.31IA^4^2
+ ;;^UTILITY(U,$J,358.3,8341,1,3,0)
+ ;;=3^Optic Nerve Compression
+ ;;^UTILITY(U,$J,358.3,8341,1,4,0)
+ ;;=4^377.49

@@ -1,5 +1,5 @@
-MAGVIM01 ;WOIFO/DAC/NST/BT - Utilities for RPC calls for DICOM file processing ; 28 Aug 2012 9:54 AM
- ;;3.0;IMAGING;**118**;Mar 19, 2002;Build 4525;May 01, 2013
+MAGVIM01 ;WOIFO/DAC/NST/BT - Utilities for RPC calls for DICOM file processing ;  28 Aug 2012 2:13 PM
+ ;;3.0;IMAGING;**118,138**;Mar 19, 2002;Build 5380;Sep 03, 2013
  ;; Per VHA Directive 2004-038, this routine should not be modified.
  ;; +---------------------------------------------------------------+
  ;; | Property of the US Government.                                |
@@ -52,7 +52,7 @@ CRTITEM(OUT,TYPE,SUBTYPE,STATUS,PLACEID,PRIORITY,MSGTAGS,CRTUSR,CRTAPP) ; Create
  S FDA(2006.941,"+1,",4)=PLACEID
  S FDA(2006.941,"+1,",5)=PRIORITY
  S FDA(2006.941,"+1,",9)=CRTDAT
- S:CRTUSR'="" (FDA(2006.941,"+1,",8),FDA(2006.941,"+1,",10))="`"_CRTUSR  ; user DUZ is passed
+ S:$G(CRTUSR)'="" (FDA(2006.941,"+1,",8),FDA(2006.941,"+1,",10))="`"_CRTUSR  ; user DUZ is passed
  I $G(CRTAPP)'="" D
  . S APPIEN=$$GETIEN^MAGVAF05(2006.9193,CRTAPP,1)  ; Get application IEN
  . S (FDA(2006.941,"+1,",14),FDA(2006.941,"+1,",15))=CRTAPP
@@ -168,7 +168,7 @@ FIND(OUT,TYPE,SUBTYPE,STATUS,PLACEID,PRIORITY,STOPTAG,MAXROWS,TAGS) ; Find recor
  S IEN=0,WICOUNT=0
  F  S IEN=$O(^MAGV(2006.941,IEN)) Q:(+IEN=0)!($D(ERR))!((($G(MAXROWS)'="")&($G(MAXROWS)<=WICOUNT)))  D
  . S IENS=IEN_","
- . K ERR
+ . K ERR,MAGOUT
  . D GETS^DIQ(2006.941,IENS,FLDS,"IE","MAGOUT","ERR")
  . I $D(ERR) K OUT S OUT(0)=-1_SSEP_$G(ERR("DIERR",1,"TEXT",1)) Q  ; Set Error and quit
  . S FLD=""

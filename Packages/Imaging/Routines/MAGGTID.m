@@ -1,5 +1,5 @@
-MAGGTID ;WOIFO/SRR/RED/SAF/GEK/SG/JSL/NST - Deletion of Images and Pointers ; 14 Feb 2012 9:05 AM
- ;;3.0;IMAGING;**8,59,93,118**;Mar 19, 2002;Build 4525;May 01, 2013
+MAGGTID ;WOIFO/SRR/RED/SAF/GEK/SG/JSL/NST - Deletion of Images and Pointers ;  3 Sep 2013 4:35 PM
+ ;;3.0;IMAGING;**8,59,93,118,138**;Mar 19, 2002;Build 5380;Sep 03, 2013
  ;; Per VHA Directive 2004-038, this routine should not be modified.
  ;; +---------------------------------------------------------------+
  ;; | Property of the US Government.                                |
@@ -39,6 +39,8 @@ DELETE(RY,MAGIEN,DF,GRPDF,REASON) ;RPC [MAGQ DIK] Entry point for silent call
  ;MAGIEN=Image entry number to be deleted
  ; if MAGIEN has a 2nd piece = 1 then we force delete, don't test 
  ; for MAG DELETE KEY
+ ; if MAGIEN has a 3rd piece,  it's an Xtra PRocessing Flag 
+ ; Patch 140 Capture and Patch 135 Import API Now send this flag.
  ;DF=Delete file flag - 1=delete the Image file
  ;                    - 0=don't delete the image file
  ;
@@ -50,9 +52,13 @@ DELETE(RY,MAGIEN,DF,GRPDF,REASON) ;RPC [MAGQ DIK] Entry point for silent call
  . S MAGSYS=$P(Y,"^",2)
  . Q
  N MAGERR,SYSDEL,Z,GRPDEL,MAGACN
+ N XPRC,NOIMG ; P140
+ S XPRC=$$UP^XLFSTR($P(MAGIEN,U,3)) ; The new $p(,,3) says there is XtraPRocessing.
  S SYSDEL=+$P(MAGIEN,U,2),MAGIEN=+MAGIEN
+ S NOIMG=$S(XPRC="NOIMAGE":1,1:0) ; P140
+ I NOIMG D NOIMAGE(MAGIEN)
  ; Check the business rules for deleting an image
- D DELETE^MAGSIMBR(.RY,MAGIEN,SYSDEL) I +RY(0)=0 Q
+ I 'NOIMG D DELETE^MAGSIMBR(.RY,MAGIEN,SYSDEL) I +RY(0)=0 Q  ;140
  ;  a couple tests of privilege and valid IEN
  I '$D(^MAG(2005,MAGIEN,0)) D  Q
  . S RY(0)="0^Image entry doesn't exist in image file"
@@ -91,7 +97,8 @@ DEL1IMG ;
  I $G(MAGERR) S RY(0)="0^Error deleting Group Pointers." Q
  ;
  ; write the deleted by, delete reason, and delete date to the file.
- D SETDEL(MAGIEN,REASON)
+ ; P140   If NOIMAGE,  SetDel was already called.
+ I 'NOIMG D SETDEL(MAGIEN,REASON)
  ;
  ; save the Image record to the archive before we delete it.
  D ARCHIVE(MAGIEN)
@@ -109,9 +116,13 @@ DEL1IMG ;
  ; we were having problems with "AC" so lets check to make sure.
  I $D(^MAG(2005,"AC",MAGDFN,MAGIEN)) K ^MAG(2005,"AC",MAGDFN,MAGIEN)
  ; log it.
- D ENTRY^MAGLOG("DELETE",$G(DUZ),$G(MAGIEN),"PARENT:"_$G(MAGSTORE),$G(MAGDFN),1)
- S X="DEL^"_$G(MAGDFN)_"^"_$G(MAGIEN)
+ S X=$S(NOIMG:"NOIMAGE",1:"DELETE") ; P140
+ D ENTRY^MAGLOG(X,$G(DUZ),$G(MAGIEN),"PARENT:"_$G(MAGSTORE),$G(MAGDFN),1)
+ S X=$S(NOIMG:"NOIMAGE^",1:"DEL^") ; 140
+ S X=X_$G(MAGDFN)_"^"_$G(MAGIEN) ; 140 use X instead of "DEL^"
  D ACTION^MAGGTAU(X,"1")
+ ; 140 The cross reference of 2005.1 has set the Status to 12,  here we change it to 13
+ I NOIMG D SETSTAT(MAGIEN,13)
  ;
  I '$G(GRPDEL),$G(MAGACN)'="" D  ; If we delete a single image in a group and ACN is defined
  . N SSEP,OUT
@@ -120,7 +131,35 @@ DEL1IMG ;
  . I OUT<0 S RY(0)="0^Deletion of Image in Legacy was Successful but failed in New: "_$P(OUT,SSEP,2)
  . E  S RY(0)="1^Deletion of Image was Successful."
  . Q
- E  S RY(0)="1^Deletion of Image was Successful."
+ Q
+NOIMAGE(MAGNOT) ; P140 This is called when No Image exists.
+ ; Clear the Fields #2,  #2.1 and 102 This is the Abstract, Full and BIG
+ ;   pointers to the Image Share (Image Network Drive) ( Tier1 ) 
+ ; Set Status and Status Reason
+ ; Set SysDel and GrpDel Flags to allow deleting in all instances.
+ N MAGNFDA,MAGGXE,MAGERR,REASDESC,REASDA,MAGDA
+ S REASDESC="Image Never Existed"
+ S REASDA=$O(^MAG(2005.88,"B",REASDESC,""))
+ D SETDEL(MAGNOT,REASDESC) ; Set the Delete Fields. 
+ ;
+ S MAGDA=MAGNOT
+ S MAGNOT=MAGNOT_","
+ S MAGNFDA(2005,MAGNOT,2)="@" ;
+ S MAGNFDA(2005,MAGNOT,2.1)="@"
+ S MAGNFDA(2005,MAGNOT,102)="@"
+ S MAGNFDA(2005,MAGNOT,113)=13
+ S MAGNFDA(2005,MAGNOT,113.3)=REASDA
+ ;;;;;;;
+ D UPDATE^DIE("","MAGNFDA","","MAGGXE")
+ ;  ? ? If Error during UPdate..  Delete the entry.
+ I $D(DIERR) D  S RY=MAGERR Q
+ . D RTRNERR(.MAGERR)
+ . S DA=MAGDA,DIK="^MAG(2005," D ^DIK
+ . K DA,DIC,DIK
+ . D CLEAN^DILF
+ Q
+RTRNERR(ETXT) ; There was error from UPDATE^DIE quit with error text
+ S ETXT="0^ERROR  "_MAGGXE("DIERR",1,"TEXT",1)
  Q
 DELGRP ;del grp ptrs and check to see if this is the last image in the group
  N MAGGRP,MAGX,MAGQUIT,MAGIFNS,Z
@@ -164,6 +203,12 @@ SETDEL(MAGIEN,REASON) ; set deletion fields
  S DIE="2005",DA=MAGIEN D ^DIE
  Q
  ;
+SETSTAT(MAGIEN,STAT) ; set STATUS fields
+ N DA,DR,DIE
+ ; 4 slash. to stop FM question marks. ??
+ S DR="113////"_STAT
+ S DIE="2005.1",DA=MAGIEN D ^DIE
+ Q
 ARCHIVE(MAGARCIE) ;save image data before deletion
  N DA,DIK,MAGCNT,MAGLAST,SUB,TMP,%X,%Y
  S MAGCNT=$P(^MAG(2005.1,0),U,4)+1

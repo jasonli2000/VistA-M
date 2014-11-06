@@ -1,5 +1,5 @@
-MAGDRPCB ;WOIFO/PMK/MLS/SG - Imaging RPCs for Importer ; 20 Feb 2012 3:58 PM
- ;;3.0;IMAGING;**53,118**;Mar 19, 2002;Build 4525;May 01, 2013
+MAGDRPCB ;WOIFO/PMK/MLS/SG - Imaging RPCs for Importer ; 16 Jan 2013 4:41 PM
+ ;;3.0;IMAGING;**53,118,138**;Mar 19, 2002;Build 5380;Sep 03, 2013
  ;; Per VHA Directive 2004-038, this routine should not be modified.
  ;; +---------------------------------------------------------------+
  ;; | Property of the US Government.                                |
@@ -157,7 +157,7 @@ GETLOC(RESULTS,LOCATION) ; RPC = MAG DICOM GET HOSP LOCATION
  . ;
  . ; check inactivate date and reactivate date
  . S INACTIVE=$P(LIST(I),"^",4),REACTIVE=$P(LIST(I),"^",5)
- . I INACTIVE,DT>INACTIVE Q:'REACTIVE  Q:DT<REACTIVE
+ . I INACTIVE,DT>INACTIVE Q:'REACTIVE  Q:INACTIVE>REACTIVE  Q:DT<REACTIVE
  . ;
  . S RESULTS(1)=RESULTS(1)+1
  . S RESULTS(I)=$P(LIST(I),"^",1,2)

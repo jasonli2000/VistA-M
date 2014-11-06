@@ -1,5 +1,5 @@
-MAGVD003 ;WOIFO/NST - Utilities for RPC calls for deletion ; 30 Jan 2012 04:12 PM
- ;;3.0;IMAGING;**118**;Mar 19, 2002;Build 4525;May 01, 2013
+MAGVD003 ;WOIFO/NST - Utilities for RPC calls for deletion ; 03 Apr 2012 1:54 PM
+ ;;3.0;IMAGING;**118,138**;Mar 19, 2002;Build 5380;Sep 03, 2013
  ;; Per VHA Directive 2004-038, this routine should not be modified.
  ;; +---------------------------------------------------------------+
  ;; | Property of the US Government.                                |
@@ -44,10 +44,10 @@ GETACN(OUT,MAGDA) ; get accession number
  . Q
  I (PARENTFN=8925),PARENTD0 D
  . S CONSIX=$$GET1^DIQ(8925,PARENTD0,1405,"I")  ; #1405 REQUESTING PACKAGE REFERENCE
- . S:$P(CONSIX,";",2)="GMR(123," ACN="GMRC-"_$P(CONSIX,";",1)
+ . S:$P(CONSIX,";",2)="GMR(123," ACN=$$GMRCACN^MAGDFCNV($P(CONSIX,";",1))
  . Q
  I (PARENTFN=2006.5839),PARENTD0 D  ; Consult Image
- . S ACN="GMRC-"_PARENTD0
+ . S ACN=$$GMRCACN^MAGDFCNV(PARENTD0)
  . Q
  S:ACN="" OUT=$$FAILED^MAGVAF02()_RESDEL_"Accession number not found"
  D:ACN'="" SETOKVAL^MAGVAF02(.OUT,ACN)

@@ -1,5 +1,5 @@
-MAGDQR73 ;WOIFO/MLH - Imaging RPCs for Query/Retrieve - acc# scan for consult recs (old DB) ; 28 Feb 2012 7:43 PM
- ;;3.0;IMAGING;**118**;Mar 19, 2002;Build 4525;May 01, 2013
+MAGDQR73 ;WOIFO/MLH - Imaging RPCs for Query/Retrieve - acc# scan for consult recs (old DB) ; 07 Mar 2013 10:18 AM
+ ;;3.0;IMAGING;**118,138**;Mar 19, 2002;Build 5380;Sep 03, 2013
  ;; Per VHA Directive 2004-038, this routine should not be modified.
  ;; +---------------------------------------------------------------+
  ;; | Property of the US Government.                                |
@@ -19,12 +19,13 @@ MAGDQR73 ;WOIFO/MLH - Imaging RPCs for Query/Retrieve - acc# scan for consult re
  ; called from MAGDQR07
  ;
 ACCCON(REQ,T,P,ACC) ; scan old structure for Consult Related Images
- N TMPQ,ACCNUM,I,D0,MAGDFN,IMAGE,X,RESULT
+ N TMPQ,ACCNUM,GMRCIEN,I,D0,MAGDFN,IMAGE,X,RESULT
  S TMPQ=$NA(^TMP("MAG",$J,"QR")) K @TMPQ@(5)
- S ACCNUM=REQ(T,P) S:$E(ACCNUM,1,5)="GMRC-" ACCNUM=$E(ACCNUM,6,$L(ACCNUM))
+ S (ACCNUM,GMRCIEN)=REQ(T,P)
+ S X=$$GMRCIEN^MAGDFCNV(ACCNUM) I X S GMRCIEN=X
  ; For the time being, we can only do this:
- S:ACCNUM @TMPQ@(5,ACCNUM)=""
- S I=$$MATCHD^MAGDQR03(ACCNUM,"^GMR(123,LOOP)","@TMPQ@(5,LOOP)")
+ S:GMRCIEN @TMPQ@(5,GMRCIEN)=""
+ S I=$$MATCHD^MAGDQR03(GMRCIEN,"^GMR(123,LOOP)","@TMPQ@(5,LOOP)")
  S D0="" F  S D0=$O(^TMP("MAG",$J,"QR",5,D0)) Q:D0=""  D
  . S MAGDFN=$$GET1^DIQ(123,D0,.02,"I") Q:'MAGDFN  ; No Patient IEN
  . Q:$$GET1^DIQ(123,D0,8)="CANCELLED"
@@ -32,7 +33,7 @@ ACCCON(REQ,T,P,ACC) ; scan old structure for Consult Related Images
  . . S IMAGE=0
  . . F  S IMAGE=$O(^MAG(2006.5839,"C",123,D0,IMAGE)) Q:'IMAGE  D
  . . . S X=$G(^MAG(2006.5839,IMAGE,0)) Q:X=""
- . . . S X=MAGDFN_"^"_$P(X,"^",1)_"^"_$P(X,"^",2)_"^"_$P(X,"^",3)_"^"_ACCNUM
+ . . . S X=MAGDFN_"^"_$P(X,"^",1)_"^"_$P(X,"^",2)_"^"_$P(X,"^",3)_"^"_GMRCIEN
  . . . S @TMPQ@(6,"C^"_X)="",ACC=1
  . . . Q
  . . Q

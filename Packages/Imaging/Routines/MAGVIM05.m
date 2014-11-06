@@ -1,5 +1,5 @@
-MAGVIM05 ;WOIFO/MAT/BT - Utilities for RPC calls for DICOM file processing ; 31 Oct 2012 11:59 AM
- ;;3.0;IMAGING;**118**;Mar 19, 2002;Build 4525;May 01, 2013
+MAGVIM05 ;WOIFO/MAT,BT - Utilities for RPC calls for DICOM file processing ; 21 Jun 2013  5:04 PM
+ ;;3.0;IMAGING;**118,138**;Mar 19, 2002;Build 5380;Sep 03, 2013
  ;; Per VHA Directive 2004-038, this routine should not be modified.
  ;; +---------------------------------------------------------------+
  ;; | Property of the US Government.                                |
@@ -32,6 +32,10 @@ MAGVIM05 ;WOIFO/MAT/BT - Utilities for RPC calls for DICOM file processing ; 31 
  ;  MAGVUSR ..... DUZ of the Importer 2 application user.
  ;  MAGVUSRDV ... DUZ(2) of the Importer 2 user.
  ;  RAIMGTYP .... TYPE OF IMAGING (#2) of the REGISTERED EXAMS sub-file (#70.02)
+ ; [RASTDRPT] ... IEN of an entry in the STANDARD REPORTS file (#74.1)
+ ;           ---- Next two are IEN(s) of entries in the DIAGNOSTIC CODES file(#78.3)
+ ; [RADXPRIM]  .. Primary Diagnostic Code --> RAMISC Param PRIMDXCODE
+ ; [RADXSCND] ... List of Secondary Diagnostic Codes --> RAMISC Param SECDXCODE
  ;  
  ; Outputs:
  ; ========
@@ -41,7 +45,7 @@ MAGVIM05 ;WOIFO/MAT/BT - Utilities for RPC calls for DICOM file processing ; 31 
  ; 
  ; The parameters mirror those of the underlying call.
  ;
-XMCOMPLT(RETURN,RADPT,RAEXAM1,RAEXAM2,MAGVUSR,MAGVUSRDV,RAIMGTYP) ;
+XMCOMPLT(RETURN,RADPT,RAEXAM1,RAEXAM2,MAGVUSR,MAGVUSRDV,RAIMGTYP,RASTDRPT,RADXPRIM,RADXSCND) ;
  ;
  ;--- Initialize
  K RETURN
@@ -79,6 +83,16 @@ XMCOMPLT(RETURN,RADPT,RAEXAM1,RAEXAM2,MAGVUSR,MAGVUSRDV,RAIMGTYP) ;
  . S RETURN(0)="-1"_SEPSTAT_$P(MAGERR,U,2)
  . Q
  ;
+ ;--- Set flag to insert Primary DX code if passed in.
+ D:$G(RADXPRIM)'="" OUTPUT("PRIMDXCODE^^"_RADXPRIM,.RAMSC)
+ ;
+ ;--- Set flag to insert Secondary DX code(s) if passed in.
+ D:$G(RADXSCND(0))'=""
+ . ;
+ . N CT S CT=""
+ . F  S CT=$O(RADXSCND(CT)) Q:CT=""  D OUTPUT("SECDXCODE"_U_(CT+1)_U_RADXSCND(CT),.RAMSC)
+ . Q
+ ;
  ;--- Set flag to suppress HL7 message to dictation systems.
  D OUTPUT("FLAGS^^FS",.RAMSC)
  ;--- Call code underlying RPC: RAMAG EXAM COMPLETE (Private IA #5072)
@@ -105,9 +119,10 @@ XMCOMPLT(RETURN,RADPT,RAEXAM1,RAEXAM2,MAGVUSR,MAGVUSRDV,RAIMGTYP) ;
  . F  S X=$O(RARESULT(X)) Q:X=""  D
  . . S RETURN(X)=$TR(RARESULT(X),U,SEPOUTP)
  . . Q
+ . ;--- Call RA* code to trigger alerts for DX codes.
+ . D ALERT^MAGVIMRA(RADPT,RAEXAM1,RAEXAM2,1)
  . Q
  Q
- ;
  ;+++++ Wrap call to code underlying RPC: RAMAG EXAMINED & re-format output
  ;
  ; RPC: MAGV RAD STAT EXAMINED  Private IA #5071
@@ -319,9 +334,11 @@ MAKELIST(RACTION,RAIMGTYP,RAMSC,MAGVUSR,MAGSITEP) ; output required fields
  S RADPVAL=$$GET1^DIQ(2006.1,MAGSITEP,"RAD FILM SIZE","I")
  S REQ(4)="FILMSIZE^1^"_RADPVAL_U_"0"
  ;
- ;REQ005 - diagnostic code
- S RADPVAL=$$GET1^DIQ(2006.1,MAGSITEP,"RAD PRIMARY DIAGNOSTIC CODE","I")
- S REQ(5)="PRIMDXCODE^^"_RADPVAL
+ ;REQ005 - diagnostic code default, if not supplied by user.
+ D:$G(RADXPRIM)=""
+ . S RADPVAL=$$GET1^DIQ(2006.1,MAGSITEP,"RAD PRIMARY DIAGNOSTIC CODE","I")
+ . S REQ(5)="PRIMDXCODE^^"_RADPVAL
+ . Q
  ;
  ;REQ006 - camera / equipment / room
  S RADPVAL=$$GET1^DIQ(2006.1,MAGSITEP,"RAD PRIMARY CAMERA/EQUIP/RM","I")
@@ -333,8 +350,12 @@ MAKELIST(RACTION,RAIMGTYP,RAMSC,MAGVUSR,MAGSITEP) ; output required fields
  ;REQ010 - reserved
  ;
  ;REQ011 - report entered
- S REQ(11)="REPORT^1^Electronically generated report for outside study."
- S REQ(11,1)="RPTDTE^^"_TODAYHL7
+ S REQ(11)="RPTDTE^^"_TODAYHL7
+ I $G(RASTDRPT)="" D
+ . S REQ(11,1)="REPORT^1^Electronically generated report for outside study."
+ . Q
+ ;--- Add the REPORT text of a selected STANDARD REPORT to the RAMSC array.
+ E  D STNDRPRT(RASTDRPT,"R",1)
  ;
  ;REQ012 - verified report
  S REQ(12)="VERDTE^^"_TODAYHL7
@@ -349,7 +370,11 @@ MAKELIST(RACTION,RAIMGTYP,RAMSC,MAGVUSR,MAGSITEP) ; output required fields
  ;REQ015 - reserved
  ;
  ;REQ016 - impression
- S REQ(16)="IMPRESSION^1^Electronically generated report for outside study."
+ I $G(RASTDRPT)="" D
+ . S REQ(16)="IMPRESSION^1^Electronically generated report for outside study."
+ . Q
+ ;--- Add the IMPRESSION text of a selected STANDARD REPORT to the RAMSC array.
+ E  D STNDRPRT(RASTDRPT,"I",1)
  ;
  N INDEX
  F INDEX=1:1:16 I $P(INFO(0),"^",INDEX) D
@@ -358,6 +383,19 @@ MAKELIST(RACTION,RAIMGTYP,RAMSC,MAGVUSR,MAGSITEP) ; output required fields
  . Q
  ;
  Q 0
+ ;
+ ;+++++ Add selected STANDARD REPORT text to the Miscellaneous Parameters array.
+ ;
+STNDRPRT(RASTDRPT,SSCR,INDEX1) ;
+ ;
+ N PREFIX S PREFIX=$S(SSCR="R":"REPORT",SSCR="I":"IMPRESSION")
+ ;
+ N CT
+ S CT=0 F  S CT=$O(^RA(74.1,RASTDRPT,SSCR,CT)) Q:CT=""  D
+ . N RPTXT
+ . S RPTXT=PREFIX_U_(CT+INDEX1)_U_$G(^RA(74.1,RASTDRPT,SSCR,CT,0)) D OUTPUT(RPTXT,.RAMSC)
+ . Q
+ Q
  ;
 OUTPUT(TEXT,ARRAY) ;
  N I

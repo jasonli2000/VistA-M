@@ -1,5 +1,5 @@
-MAGDQR05 ;WOIFO/EdM,MLH,DAC - Imaging RPCs for Query/Retrieve ; 19 Jul 2012 1:30 PM
- ;;3.0;IMAGING;**54,118**;Mar 19, 2002;Build 4525;May 01, 2013
+MAGDQR05 ;WOIFO/EdM,MLH,DAC - Imaging RPCs for Query/Retrieve ; 07 Feb 2013 5:18 PM
+ ;;3.0;IMAGING;**54,118,138**;Mar 19, 2002;Build 5380;Sep 03, 2013
  ;; Per VHA Directive 2004-038, this routine should not be modified.
  ;; +---------------------------------------------------------------+
  ;; | Property of the US Government.                                |
@@ -47,7 +47,7 @@ TIM(REQ,FD,LD,TIM,ANY,SID) ; Overflow from MAGDQR02
  . . . . D:$P(X,"^",6)=8925
  . . . . . N T
  . . . . . S T=$P($G(^TIU(8925,+$P(X,"^",7),14)),"^",5) ; IA# 3268
- . . . . . S T=$S(T[";GMR(123,":"GMRC-"_(+T),1:"") ; Should use FileMan
+ . . . . . S T=$S(T[";GMR(123,":$$GMRCACN^MAGDFCNV(+T),1:"") ; Should use FileMan
  . . . . . S V="8925^"_$P(X,"^",7)_"^"_D0_"^"_T
  . . . . . Q
  . . . . S ^TMP("MAG",$J,"QR",10,"C^"_PAT_"^"_V)="",TIM=2

@@ -1,5 +1,5 @@
-MAGVIM06 ;WOIFO/DAC/MAT/NST/BT - Utilities for RPC calls for DICOM file processing ; 16 Mar 2012 4:13 PM
- ;;3.0;IMAGING;**118**;Mar 19, 2002;Build 4525;May 01, 2013
+MAGVIM06 ;WOIFO/DAC/MAT/NST/BT - Utilities for RPC calls for DICOM file processing ; 23 Oct 2012 10:30 AM
+ ;;3.0;IMAGING;**118,138**;Mar 19, 2002;Build 5380;Sep 03, 2013
  ;; Per VHA Directive 2004-038, this routine should not be modified.
  ;; +---------------------------------------------------------------+
  ;; | Property of the US Government.                                |
@@ -110,7 +110,7 @@ CONFIRM(OUT,UIDS) ;
  . ;
  . N ACN S ACN=$P(OUT,U,7)
  . I ACN="" S OUT(0)=-1_SSEP_"Null Accession Number." Q
- . I ACN["GMRC" D PATHCON,PATHOUT Q  ; Process through CONsult pathway.
+ . I $$GMRCIEN^MAGDFCNV(ACN) D PATHCON,PATHOUT Q  ; Process through CONsult pathway.
  . ;
  . ;
  . D PATHRAD,PATHOUT
@@ -209,7 +209,7 @@ LOOKUP1(PATDFN) ; patient and accession number lookup
  ;
 PATHCON ;--- Next 6 lines adapted from MAGDRPCA.
  N GMRCIEN,MODIFIER,PROCNAME,STUDYDAT,TMP
- S GMRCIEN=$P(ACN,"GMRC-",2)
+ S GMRCIEN=$$GMRCIEN^MAGDFCNV(ACN)
  S TMP=$$GET1^DIQ(123,GMRCIEN,.01,"I")\1
  S STUDYDAT=$S(TMP>0:17000000+TMP,1:"-1,Invalid study date")
  S PROCNAME=$$GET1^DIQ(123,GMRCIEN,1) ; TO SERVICE

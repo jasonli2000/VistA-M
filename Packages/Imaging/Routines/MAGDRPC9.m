@@ -1,5 +1,5 @@
-MAGDRPC9 ;WOIFO/EdM/MLH/JSL/SAF/DAC - Imaging RPCs ; 11 Oct 2012 2:46 PM
- ;;3.0;IMAGING;**50,54,53,49,123,118**;Mar 19, 2002;Build 4525;May 01, 2013
+MAGDRPC9 ;WOIFO/EdM/MLH/JSL/SAF/DAC/PMK - Imaging RPCs ; 17 Jul 2013 11:43 AM
+ ;;3.0;IMAGING;**50,54,53,49,123,118,138**;Mar 19, 2002;Build 5380;Sep 03, 2013
  ;; Per VHA Directive 2004-038, this routine should not be modified.
  ;; +---------------------------------------------------------------+
  ;; | Property of the US Government.                                |
@@ -147,22 +147,35 @@ GETICN(OUT,DFN) ; RPC = MAG DICOM GET ICN
  Q
  ;
 CLEAN ; Overflow from MAGDRPC4
- N STUID,PRI,S0,S1,STS
- S S0=$P(SENT(I),"^",1),S1=$P(SENT(I),"^",2)
+ N REQUESTDATETIME,STUID,PRI,S0,S1,STS,NEWSTS
+ S S0=$P(SENT(I),"^",1),S1=$P(SENT(I),"^",2),NEWSTS=$P(SENT(I),"^",3)
  Q:'$D(^MAGDOUTP(2006.574,S0,1,S1))
+ ;
  L +^MAGDOUTP(2006.574,S0,1,0):1E9 ; Background process MUST wait
  S X=$G(^MAGDOUTP(2006.574,S0,0)),LOC=$P(X,"^",4),PRI=+$P(X,"^",5)
+ S REQUESTDATETIME=$P(X,"^",7)
  S STS=$P($G(^MAGDOUTP(2006.574,S0,1,S1,0)),"^",2)
+ ;
+ I NEWSTS'="" D  Q  ; just update the status and get out
+ . S $P(^MAGDOUTP(2006.574,S0,1,S1,0),"^",2)=NEWSTS,$P(^(0),"^",3)=$H
+ . I LOC'="",PRI'="" S ^MAGDOUTP(2006.574,"STS",LOC,PRI,NEWSTS,S0,S1)=""
+ . I LOC'="",PRI'="",STS'="" K ^MAGDOUTP(2006.574,"STS",LOC,PRI,STS,S0,S1)
+ . L -^MAGDOUTP(2006.574,S0,1,0)
+ . Q
+ ;
  K ^MAGDOUTP(2006.574,S0,1,S1)
- I LOC'="",STS'="" K ^MAGDOUTP(2006.574,"STS",LOC,PRI,STS,S0,S1)
+ I LOC'="",PRI'="",STS'="" K ^MAGDOUTP(2006.574,"STS",LOC,PRI,STS,S0,S1)
  S X=$G(^MAGDOUTP(2006.574,S0,1,0))
  S $P(X,"^",4)=$P(X,"^",4)-1
  S ^MAGDOUTP(2006.574,S0,1,0)=X
  L -^MAGDOUTP(2006.574,S0,1,0)
- Q:$O(^MAGDOUTP(2006.574,S0,1,0))
+ ;
+ Q:$O(^MAGDOUTP(2006.574,S0,1,0))  ; don't delete the study node yet
+ ;
  L +^MAGDOUTP(2006.574,0):1E9 ; Background process MUST wait
  S STUID=$G(^MAGDOUTP(2006.574,S0,2))
  K ^MAGDOUTP(2006.574,S0)
+ K:REQUESTDATETIME'="" ^MAGDOUTP(2006.574,"C",REQUESTDATETIME,S0)
  K:STUID'="" ^MAGDOUTP(2006.574,"STUDY",STUID)
  S X=$G(^MAGDOUTP(2006.574,0))
  S $P(X,"^",4)=$P(X,"^",4)-1
@@ -210,18 +223,44 @@ IENLOOK ; Overflow from MAGDRPC4
  . S OUT(1)=1,OUT(2)=X
  . Q
  E  I P=8925 D
- . N GMRCIEN
+ . N GMRCIEN,LABINFO
  . ; get pointer from TIU to consult request
  . S X=$$GET1^DIQ(8925,D0,1405,"I") ; IA ???
  . I $P(X,";",2)="GMR(123," D
- . . S GMRCIEN=$P(X,";"),ACNUMB="GMRC-"_GMRCIEN
+ . . S GMRCIEN=$P(X,";"),ACNUMB=$$GMRCACN^MAGDFCNV(GMRCIEN)
  . . S STUDYDAT=17000000+($$GET1^DIQ(123,GMRCIEN,.01,"I")\1)
  . . S PROCNAME=$$GET1^DIQ(123,GMRCIEN,1) ; TO SERVICE
  . . S MODIFIER=$$GET1^DIQ(123,GMRCIEN,4) ; PROCEDURE
  . . S X=P_"^"_D0_"^"_NUMBER_"^"_ACNUMB_"^"_STUDYDAT_"^"_PROCNAME_"^"_MODIFIER
  . . S OUT(1)=1,OUT(2)=X
  . . Q
+ . S X=$$GET1^DIQ(8925,D0,.04,"E")
+ . I X="LR ANATOMIC PATHOLOGY" D
+ . . D GETINFO(.LABINFO,D0)
+ . . I $D(LABINFO) D
+ . . S X=P_"^"_D0_"^"_NUMBER_"^"_LABINFO("ACNUMB")
+ . . S X=X_"^"_LABINFO("DATE")
+ . . S X=X_"^"_LABINFO("LAB")_"^"
+ . . S OUT(1)=1,OUT(2)=X
+ . . Q
  . E  S OUT(1)="-8,Problem with parent file "_P_", internal entry number "_D0_" - no Accession Number."
  . Q
  E  S OUT(1)="-7,Parent file "_P_" not yet supported - no Accession Number."
  Q
+ ;
+GETINFO(INFO,TIUIEN) ; scan the TIU document and try to extract the accession number
+ N FILE ; ---- LAB DATA subfile numbers and other info
+ N ERRSTAT S ERRSTAT=0 ; error status - assume nothing to repor
+ N ERROR,I,LRSS,IENS,TEXT,X
+ S IENS=TIUIEN_","
+ D GETS^DIQ(8925,IENS,2,"I","TEXT","ERROR")
+ F I=1:1 Q:'$D(TEXT(8925,IENS,2,I))  S X=TEXT(8925,IENS,2,I) D
+ . I '$D(INFO("ACNUMB")),X["Accession No." D
+ . . S INFO("ACNUMB")=$P(X,"Accession No. ",2)
+ . . S LRSS=$E(INFO("ACNUMB"),1,2)
+ . . S ERRSTAT=$$GETFILE^MAGT7MA(LRSS) I ERRSTAT S INFO("LAB")="" Q
+ . . S INFO("LAB")=FILE("NAME")
+ . . Q
+ . I '$D(INFO("DATE")),X["Date obtained: " S INFO("DATE")=$P(X,"Date obtained: ",2)
+ . Q
+ Q 

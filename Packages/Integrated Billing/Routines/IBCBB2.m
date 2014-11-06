@@ -1,5 +1,5 @@
 IBCBB2 ;ALB/ARH - CONTINUATION OF EDIT CHECKS ROUTINE (CMS-1500) ;04/14/92
- ;;2.0;INTEGRATED BILLING;**51,137,210,245,232,296,320,349,371,403,432,447,473**;21-MAR-94;Build 29
+ ;;2.0;INTEGRATED BILLING;**51,137,210,245,232,296,320,349,371,403,432,447,473,488**;21-MAR-94;Build 184
  ;;Per VHA Directive 2004-038, this routine should not be modified.
  ;
  ;MAP TO DGCRBB2
@@ -36,7 +36,8 @@ EN ;
  S (IBN,IBI)=0 F  S IBI=$O(IBCPTL(IBI)) Q:'IBI  I '$D(IBDXL(IBI)) S IBN=1 Q
  I +IBN S IBER=IBER_"IB073;"
  ; ejk *296* Change # of diagnoses codes from 4 to 8 on CMS-1500 Claims. 
- I IBTX S IBI=8 F  S IBI=$O(IBDXO(IBI)) Q:'IBI  S Z=+$G(IBDX(+$G(IBDXO(IBI)))) I Z,$D(IBCPTL(Z)) D WARN^IBCBB11("Too many diagnoses for claim & will be rejected - consider printing locally")
+ ; baa *488* Change # of diagnoses codes from 8 to 12.
+ I IBTX S IBI=12 F  S IBI=$O(IBDXO(IBI)) Q:'IBI  S Z=+$G(IBDX(+$G(IBDXO(IBI)))) I Z,$D(IBCPTL(Z)) D WARN^IBCBB11("Too many diagnoses for claim & will be rejected - consider printing locally")
  ;
  I $$WNRBILL^IBEFUNC(IBIFN),$$MRATYPE^IBEFUNC(IBIFN)'="B" S IBER=IBER_"IB087;"
  ;
@@ -66,22 +67,22 @@ EN ;
  . ; Start IB*2.0*473 Changed the following two warnings to errors.
  . ;I '$P(IBNDU2,U,11),$P(IBXDATA(IBI),U,11) D WARN^IBCBB11("Purchased service amounts are invalid unless this is a NON-VA bill")
  . ;I IBNVFLG,'$P(IBXDATA(IBI),U,11) D WARN^IBCBB11("Non-VA facility indicated, but no purchased service charge on line# "_IBI)
- . I '$P(IBNDU2,U,11),$P(IBXDATA(IBI),U,11) S IBER=IBER_"IB350;"
- . I IBNVFLG,'$P(IBXDATA(IBI),U,11) S IBER=IBER_"IB351;"
+ . I $G(IBER)'["IB350" I '$P(IBNDU2,U,11),$P(IBXDATA(IBI),U,11) S IBER=IBER_"IB350;"
+ . I $G(IBER)'["IB351" I IBNVFLG,'$P(IBXDATA(IBI),U,11) S IBER=IBER_"IB351;"
  . ; End IB*2.0*473
- . I $D(IBXDATA(IBI,"A")) S IBER=IBER_"IB310;" Q
+ . I $G(IBER)'["IB310" I $D(IBXDATA(IBI,"A")) S IBER=IBER_"IB310;" Q
  . I $D(IBXDATA(IBI,"ARX")),IBER'["311;" S IBER=IBER_"IB311;" Q
  . I $P(IBXDATA(IBI),U,14) S IBOLAB=IBOLAB+1
- . ; Place of service required
- . I $G(IBER)'["IB314;",$P(IBXDATA(IBI),U,3)="" S IBER=IBER_"IB314;"
- . ; Type of service required
- . I $G(IBER)'["IB313;",$P(IBXDATA(IBI),U,4)="" S IBER=IBER_"IB313;"
+ . ; Place of service required => remove edit below for IB*2.0*488 ; baa
+ . ;I $G(IBER)'["IB314;",$P(IBXDATA(IBI),U,3)="" S IBER=IBER_"IB314;"
+ . ; Type of service required => remove edit below for IB*2.0*488 ; baa
+ . ;I $G(IBER)'["IB313;",$P(IBXDATA(IBI),U,4)="" S IBER=IBER_"IB313;"
  . ; 43 and 53 are invalid types of service
  . I $G(IBER)'["IB110;",($P(IBXDATA(IBI),U,4)=43!($P(IBXDATA(IBI),U,4)=53)) S IBER=IBER_"IB110;"
- . ; Units for the line item must be less than 100/1000
- . I IBER'["IB088",$P(IBXDATA(IBI),U,9)'<100 D
- .. I $P(IBXDATA(IBI),U,4)'=7 S IBER=IBER_"IB088;" Q
- .. I $P(IBXDATA(IBI),U,9)'<1000 S IBER=IBER_"IB088;"
+ . ; Units for the line item must be less than 100/1000 => Remove edit baa *488
+ . ;I IBER'["IB088",$P(IBXDATA(IBI),U,9)'<100 D
+ . ;. I $P(IBXDATA(IBI),U,4)'=7 S IBER=IBER_"IB088;" Q
+ . ;. I $P(IBXDATA(IBI),U,9)'<1000 S IBER=IBER_"IB088;"
  . ; Line item total charge must be less than $10,000.00, greater than 0
  . ; IB*2.0*432 - The IB system shall provide the ability for users to enter maximum line item dollar amounts of 9999999.99.
  . ; I IBER'["IB090",$P(IBXDATA(IBI),U,9)'<10000 S IBER=IBER_"IB090;"
@@ -89,19 +90,19 @@ EN ;
  . ; IB*2.0*447 BI Removed individual warning replaced by a claim level warning.
  . ; I '($P(IBXDATA(IBI),U,9)*$P(IBXDATA(IBI),U,8)),$$COBN^IBCEF(IBIFN)'>1 S Z="Procedure "_$P(IBXDATA(IBI),U,5)_" has a 0-charge and will not be transmitted" D WARN^IBCBB11(Z)
  I IBTX,IBLCT>50 D
- . I '$$REQMRA^IBEFUNC(IBIFN) S IBER=IBER_"IB308;" Q
- . I '$P(IBNDTX,U,9) S IBER=IBER_"IB325;"
+ . I $G(IBER)'["IB308" I '$$REQMRA^IBEFUNC(IBIFN) S IBER=IBER_"IB308;" Q
+ . I $G(IBER)'["IB325" I '$P(IBNDTX,U,9) S IBER=IBER_"IB325;"
  S IBU3=$P($G(^DGCR(399,IBIFN,"U3")),U,4,7) I $TR(IBU3,U)'="" D
  .; ib*2.0*432 add line-level check
  .;I +IBSP'=35 D WARN^IBCBB11("Chiropractic service details only valid if provider specialty is '35'")
  .I $$LINSPEC^IBCEU3(IBIFN)'[35 D WARN^IBCBB11("Chiropractic service details only valid if provider specialty is '35'")
- .I $P(IBU3,U,2)="" S IBER=IBER_"IB137;"
- .I $P(IBU3,U,4)="" S IBER=IBER_"IB138;" Q
- .I $P(IBU3,U,3)="","AM"[$P(IBU3,U,4) S IBER=IBER_"IB139;"
+ .I $G(IBER)'["IB137" I $P(IBU3,U,2)="" S IBER=IBER_"IB137;"
+ .I $G(IBER)'["IB338" I $P(IBU3,U,4)="" S IBER=IBER_"IB138;" Q
+ .I $G(IBER)'["IB139" I $P(IBU3,U,3)="","AM"[$P(IBU3,U,4) S IBER=IBER_"IB139;"
  .Q
  ; IB*2.0*473 BI Changed the following warning to an error.
  ;I IBPS'="" D WARN^IBCBB11("NON-VA facility indicated, but no purchased service charge on line item"_$S(IBPS[",":"s",1:"")_" #"_IBPS)
- I IBPS'="" S IBER=IBER_"IB351;"
+ I $G(IBER)'["IB351" I IBPS'="" S IBER=IBER_"IB351;"
  I $P(IBNDU2,U,11),$P(IBNDU2,U,11)=4,IBOLAB>1 D WARN^IBCBB11("For proper payment, you must bill each outside lab on a separate claim form")
  K IBXDATA
  ;

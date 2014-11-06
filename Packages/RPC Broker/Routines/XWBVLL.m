@@ -1,5 +1,5 @@
 XWBVLL ;OIFO-Oakland/REM - M2M Broker Listener  ;12/29/2010
- ;;1.1;RPC BROKER;**28,41,34,62**;Mar 28, 1997;Build 11
+ ;;1.1;RPC BROKER;**28,41,34,62,63**;Mar 28, 1997;Build 4
  ;Per VHA Directive 6402, this routine should not be modified
  ;
  QUIT
@@ -45,8 +45,8 @@ CACHEVMS ;Cache/VMS tcpip entry point, called from XWBSERVER_START.COM fLle *p41
  QUIT
  ;
 SPAWN ; -- spawned process
- NEW U,DTIME,DT,XWBROOT,XWBAVC,XWBSTOP
- SET U="^",DUZ=0,DUZ(0)="",DTIME=900,DT=$$DT^XLFDT(),XWBROOT=$NA(^TMP("XWBVLL",$J)),XWBSTOP=0
+ NEW U,DTIME,XWBROOT,XWBAVC,XWBSTOP
+ SET U="^",DUZ=0,DUZ(0)="",DTIME=900,XWBROOT=$NA(^TMP("XWBVLL",$J)),XWBSTOP=0
  ;
  ; -- initialize tcp processing variables
  DO INIT^XWBRL
@@ -73,10 +73,10 @@ SPAWN ; -- spawned process
  Q
  ;
 NXTCALL ; -- do next call
- NEW X,XWBREAD,XWBTO,XWBFIRST,XWBOK,XWBRL,BUG
+ NEW DT,X,XWBREAD,XWBTO,XWBFIRST,XWBOK,XWBRL,BUG
  ;
  ; -- setup environment variables
- SET XWBREAD=20,XWBTO=36000,XWBFIRST=1
+ SET DT=$$DT^XLFDT(),XWBREAD=20,XWBTO=36000,XWBFIRST=1 ;p63
  ;
  ; -- clean intake global - root is request data
  KILL @XWBROOT

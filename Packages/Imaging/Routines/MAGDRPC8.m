@@ -1,5 +1,5 @@
-MAGDRPC8 ;WOIFO/EdM/BT - RPCs for Master Files ; 29 Mar 2012 11:59 AM
- ;;3.0;IMAGING;**11,30,51,54,118**;Mar 19, 2002;Build 4525;May 01, 2013
+MAGDRPC8 ;WOIFO/EdM/BT - RPCs for Master Files ; 22 Mar 2013 9:52 AM
+ ;;3.0;IMAGING;**11,30,51,54,118,138**;Mar 19, 2002;Build 5380;Sep 03, 2013
  ;; Per VHA Directive 2004-038, this routine should not be modified.
  ;; +---------------------------------------------------------------+
  ;; | Property of the US Government.                                |
@@ -198,6 +198,7 @@ VALIMGT(OUT) ; RPC = MAG DICOM GET IMAGING TYPES
  ; Lists of valid imaging types
  S X="" F  S X=$O(^RA(79.2,"C",X)) Q:X=""  S N=N+1,OUT(N)="RAD^"_X
  S X="" F  S X=$O(^MAG(2005.84,"C",X)) Q:X=""  S N=N+1,OUT(N)="CON^"_X
+ S X="" F  S X=$O(^MAG(2005.85,"C",X)) Q:X=""  S N=N+1,OUT(N)="CON PROC^"_X
  S OUT(1)=N-1
  Q
  ;

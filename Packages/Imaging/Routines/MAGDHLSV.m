@@ -1,5 +1,5 @@
 MAGDHLSV ;WOIFO/MLH - IHE-based ADT interface for PACS - PV1 segment ; 08 Jul 2013 11:24 AM
- ;;3.0;IMAGING;**49,141**;Mar 19, 2002;Build 5;Sep 03, 2013
+ ;;3.0;IMAGING;**49,141,138**;Mar 19, 2002;Build 5380;Sep 03, 2013
  ;; Per VHA Directive 2004-038, this routine should not be modified.
  ;; +---------------------------------------------------------------+
  ;; | Property of the US Government.                                |

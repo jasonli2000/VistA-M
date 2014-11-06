@@ -1,5 +1,5 @@
-MAGVORDR ;WOIFO/RRB/BT - MAGV Order Lookup ; 11 Jul 2012 3:13 PM
- ;;3.0;IMAGING;**118**;Mar 19, 2002;Build 4525;May 01, 2013
+MAGVORDR ;WOIFO/RRB/BT/PMK - MAGV Order Lookup ; 31 Jul 2013 9:16 AM
+ ;;3.0;IMAGING;**118,138**;Mar 19, 2002;Build 5380;Sep 03, 2013
  ;; Per VHA Directive 2004-038, this routine should not be modified.
  ;; +---------------------------------------------------------------+
  ;; | Property of the US Government.                                |
@@ -24,7 +24,7 @@ MAGVORDR ;WOIFO/RRB/BT - MAGV Order Lookup ; 11 Jul 2012 3:13 PM
  ; 
  ; Output will be in the form of a string:
  ; 
- ;     Happy case example: 0~DFN~SITE (0~12345~660
+ ;     Happy case example: 0~DFN~SITE (0~12345~660)
  ;     
  ;     Incorrect accession # format or not present: -1~BAD CASE #
  ;     
@@ -37,22 +37,23 @@ LOOKUP(CASENUMB,IMGSVC) ; MAGV Order Lookup
  ;
  N RADATA
  ;
- I IMGSVC'="RAD",IMGSVC'="CON" Q "-1,INVALID IMAGE SERVICE"
+ I "^RAD^CON^LAB^"'[("^"_IMGSVC_"^") Q "-1~INVALID IMAGE SERVICE"
  I $G(CASENUMB)="" Q "-1~BAD CASE #"
  ; 
  I IMGSVC="RAD" D
  . S RADATA=$$RADLKUP(CASENUMB)
  . Q
- I IMGSVC="CON" D
- . I CASENUMB'?1"GMRC-".1N.N S RADATA="-1~BAD CASE #" Q
+ E  I IMGSVC="CON" D
+ . I '$$GMRCIEN^MAGDFCNV(CASENUMB) S RADATA="-1~BAD CASE #" Q
  . S RADATA=$$CONLKUP(CASENUMB)
+ . Q
+ E  I IMGSVC="LAB" D  ; P138
+ . S RADATA=$$LABLKUP(CASENUMB)
  . Q
  ;
  Q RADATA
  ;
 RADLKUP(CASENUMB) ; Radiology patient/study lookup
- ;
- ; returns RADATA array DFN, DATETIME, and PROCDESC
  ;
  N CPTCODE ;-- CPT code for the procedure
  N CPTNAME ;-- CPT name for the procedure
@@ -97,7 +98,7 @@ CONLKUP(CASENUMB) ; CPRS Consult/Procedure patient/study lookup
  N GMRCIEN
  N SITE
  ;
- S GMRCIEN=$P(CASENUMB,"-",2)
+ S GMRCIEN=$$GMRCIEN^MAGDFCNV(CASENUMB)
  S DFN=$$GET1^DIQ(123,GMRCIEN,.02,"I")
  I DFN="" Q "-1~NO CASE #" ; no patient demographics file pointer
  S SITE=$$GET1^DIQ(123,GMRCIEN,.05,"I")
@@ -116,3 +117,21 @@ OLDCASE(CASENUMB,LIST)  ; Lookup case numbers using old method
  S RADPT3=$O(^RADPT(RAIX,CASENUMB,RADPT1,RADPT2,"")) I 'RADPT3 Q 0
  S LIST(1)=RADPT1_"^"_RADPT2_"^"_RADPT3
  Q 1  ; Success
+ ;
+ ;
+LABLKUP(ACNUMB) ; Lab patient/study lookup - P138
+ N FMYEAR,LRAA,LRDFN,LRSS,IENS,YEAR,CASE,SITE
+ S LRSS=$P(ACNUMB," ",1),YEAR=$P(ACNUMB," ",2),CASE=$P(ACNUMB," ",3)
+ S LRAA=$$FIND1^DIC(68,"","BX",LRSS,"","","ERR") ; get lab area index
+ S FMYEAR="3"_YEAR_"0000"
+ S IENS=CASE_","_FMYEAR_","_LRAA
+ ; lookup in ACCESSION file (#68)
+ S LRDFN=$$GET1^DIQ(68.02,IENS,.01)
+ I LRDFN="" Q "-1~PATIENT NOT IN LAB FILE" ; patient not in LAB DATA file (#63)
+ S SITE=$$GET1^DIQ(68.02,IENS,26,"I")
+ I $$GET1^DIQ(68.02,IENS,1)'="PATIENT" Q "-1~WRONG PATIENT" ; patient not in PATIENT file (#2)
+ I $$GET1^DIQ(68.02,IENS,15)'=CASENUMB Q "-1~WRONG SPECIMEN" ; not right specimen
+ ; lookup in LAB DATA file (#63)
+ I $$GET1^DIQ(63,LRDFN,.02)'="PATIENT" Q "-1~PATIENT NOT ON FILE" ; patient not in PATIENT file (#2)
+ S DFN=$$GET1^DIQ(63,LRDFN,.03,"I")
+ Q "0~"_DFN_"~"_SITE

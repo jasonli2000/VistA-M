@@ -1,5 +1,5 @@
-MAGVRS51 ;WOIFO/DAC/JSL/NST - Utilities for RPC calls for DICOM file processing ; 16 Jul 2012 1:07 PM
- ;;3.0;IMAGING;**118**;Mar 19, 2002;Build 4525;May 01, 2013
+MAGVRS51 ;WOIFO/DAC/JSL/NST - Utilities for RPC calls for DICOM file processing ; 7 Jun 2012 2:43 PM
+ ;;3.0;IMAGING;**118,138**;Mar 19, 2002;Build 5380;Sep 03, 2013
  ;; Per VHA Directive 2004-038, this routine should not be modified.
  ;; +---------------------------------------------------------------+
  ;; | Property of the US Government.                                |
@@ -201,8 +201,8 @@ AEINTR3(IEN,NEW) ; DICOM AE SECURITY MATRIX User Interface - Allows user to add 
  N DIE,DR,DA,FDA,ERR,DIC,FLAGNAME,FLAGVALU,DIR,DLAYGO,D0,SMIEN
  S DIE=2006.9192
  I Y=-1 Q
- I NEW'=1 S DR=".01;1;1.1;1.3;1.4;2;3;4;6;7;8;9;10;11"
- I NEW=1 S DR="1//VISTA_STORAGE;1.3//NO;1.4//V;3;4"
+ I NEW'=1 S DR=".01;1;1.1;1.3;1.4;2;2.1;3;4;6;7;8;9;10;11;13;14"
+ I NEW=1 S DR="1//VISTA_STORAGE;1.3//NO;1.4//V;2.1;3;4"
  S DA=IEN
  D ^DIE
  K DIC,IENS,S,X
@@ -230,6 +230,7 @@ AEINTR3(IEN,NEW) ; DICOM AE SECURITY MATRIX User Interface - Allows user to add 
  . S DIR(0)="Y",DIR("B")="YES",DIR("A")="Accept these defaults"
  . D ^DIR K DIR
  . I Y'=1 S DR="6;7;8;9;10;11" D ^DIE K DIC,IENS,S,X
+ . S DR="13;14" D ^DIE K DIC,IENS,S,X
  K DA
  Q
 AEINTR6(SMIEN,I) ; Display DICOM AE SECURITY MATRIX entries for a given AE Instance

@@ -1,5 +1,5 @@
-MAGVGUID ;WOIFO/RRB,DAC - Duplicate DICOM Study, Series, & SOP Instance UID Checks ; 11 Apr 2012 12:55 PM
- ;;3.0;IMAGING;**118**;Mar 19, 2002;Build 4525;May 01, 2013
+MAGVGUID ;WOIFO/RRB,DAC - Duplicate DICOM Study, Series, & SOP Instance UID Checks ; 25 May 2012 3:17 PM
+ ;;3.0;IMAGING;**118,138**;Mar 19, 2002;Build 5380;Sep 03, 2013
  ;; Per VHA Directive 2004-038, this routine should not be modified.
  ;; +---------------------------------------------------------------+
  ;; | Property of the US Government.                                |
@@ -155,8 +155,8 @@ GETACN(MAGIEN) ; return the accession number of a study
  . S ACNUMBVAH=$P(RADPT0,"^",31)
  . I ACNUMBVAH="" S ACNUMBVAH=$P(RARPT0,"^",1)
  . Q
- E  I ROOT=8925 S ACNUMBVAH="GMRC-"_+$$GET1^DIQ(8925,POINTER,1405,"I")
- E  I ROOT=2006.5839 S ACNUMBVAH="GMRC-"_POINTER
+ E  I ROOT=8925 S ACNUMBVAH=$$GMRCACN^MAGDFCNV(+$$GET1^DIQ(8925,POINTER,1405,"I"))
+ E  I ROOT=2006.5839 S ACNUMBVAH=$$GMRCACN^MAGDFCNV(POINTER)
  E  S ACNUMBVAH=""
  Q ACNUMBVAH
  ;

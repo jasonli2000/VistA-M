@@ -1,5 +1,5 @@
-MAGNTLR2 ;WOIFO/NST - TeleReader Configuration  ; 21 Jun 2010 12:19 PM
- ;;3.0;IMAGING;**114,127**;Mar 19, 2002;Build 4231;Apr 01, 2013
+MAGNTLR2 ;WOIFO/NST - TeleReader Configuration  ; 25 Mar 2013 10:35 AM
+ ;;3.0;IMAGING;**114,127,138**;Mar 19, 2002;Build 5380;Sep 03, 2013
  ;; Per VHA Directive 2004-038, this routine should not be modified.
  ;; +---------------------------------------------------------------+
  ;; | Property of the US Government.                                |
@@ -98,7 +98,7 @@ LREADER(MAGRY) ;RPC [MAG3 TELEREADER READER LIST]
  S MAGRY(0)="1^"_(CNT-1)
  Q
  ;
- ;***** Return all records in DICOM HEALTHCARE PROVIDER SERVICE file (#2006.5831)
+ ;***** Return all records in CLINICAL SPECIALTY DICOM & HL7 file (#2006.5831)
  ; RPC: MAG3 TELEREADER DHPS LIST
  ;
  ; Input Parameters
@@ -111,8 +111,9 @@ LREADER(MAGRY) ;RPC [MAG3 TELEREADER READER LIST]
  ;   MAGRY(0) = "0^Error"
  ; if success
  ;   MAGRY(0)    = "1^#CNT" - where #CNT is a number of records returned
- ;   MAGRY(1)    = "IEN^Requested Service ID^Requested Service^Service Group ID^Service Group ID^
- ;                   Service Division ID^Service Division ID^Clinic"
+ ;   MAGRY(1)    = "IEN^Requested Service ID^Requested Service^Procedure ID^Procedure^
+ ;                  Specialty Index ID^Specialty Index^Procedure Index ID^Procedure Index
+ ;                  CPT CODE ID^CPT CODE^HL7 SUBSCRIBER ID^HL7 SUBSCRIBER^Clinic"
  ;                 
  ;   MAGRY(2..n) = "^" delimited string with values of fields listed in MAGRY(1)
  ;   
@@ -122,14 +123,16 @@ LDHSP(MAGRY) ;RPC [MAG3 TELEREADER DHPS LIST]
  ;
  N $ETRAP,$ESTACK S $ETRAP="D ERRA^MAGGTERR"
  ;
- N I0,I1,D0
+ N I0,I1,D0,CPTIEN,CPTCODE
  N CNT,DEL,DEL1,MLTPL
  N OUT,OUT1,MSG,MSG1
  K MAGRY,OUT,MSG
  S MAGRY(0)="0^Error"
- S MAGRY(1)="Requested Service ID^Requested Service^Service Group ID^Service Group ID^"
- S MAGRY(1)=MAGRY(1)_"Service Division ID^Service Division ID^Clinic"
- D LIST^DIC(2006.5831,"","@;.01I;.01;2I;2;3I;3",,,,,,,,"OUT","MSG")
+ S MAGRY(1)="IEN^Requested Service ID^Requested Service^Procedure ID^Procedure"
+ S MAGRY(1)=MAGRY(1)_"^Specialty Index ID^Specialty Index^Procedure Index ID^Procedure Index"
+ S MAGRY(1)=MAGRY(1)_"^Acquisition Site ID^Acquisition Site"
+ S MAGRY(1)=MAGRY(1)_"^CPT CODE ID^CPT CODE^HL7 SUBSCRIBER ID^HL7 SUBSCRIBER^Clinic"
+ D LIST^DIC(2006.5831,"","@;.01I;.01;2I;2;3I;3;4I;4;5I;5;6;6I;7;7I",,,,,,,,"OUT","MSG")
  Q:$$ISERROR(.MAGRY,.MSG)  ; Set MAGRY and quit if error exists
  S CNT=1 ; Will skip 0 and 1
  S I0=0
@@ -137,11 +140,17 @@ LDHSP(MAGRY) ;RPC [MAG3 TELEREADER DHPS LIST]
  . S D0=OUT("DILIST",2,I0)
  . S CNT=CNT+1
  . S MAGRY(CNT)=D0
- . S MAGRY(CNT)=MAGRY(CNT)_U_OUT("DILIST","ID",I0,".01","I")_U_OUT("DILIST","ID",I0,".01","E")
- . S MAGRY(CNT)=MAGRY(CNT)_U_OUT("DILIST","ID",I0,"2","I")_U_OUT("DILIST","ID",I0,"2","E")
- . S MAGRY(CNT)=MAGRY(CNT)_U_OUT("DILIST","ID",I0,"3","I")_U_OUT("DILIST","ID",I0,"3","E")
+ . S MAGRY(CNT)=MAGRY(CNT)_U_OUT("DILIST","ID",I0,".01","I")_U_OUT("DILIST","ID",I0,".01","E")  ; Service
+ . S MAGRY(CNT)=MAGRY(CNT)_U_OUT("DILIST","ID",I0,"2","I")_U_OUT("DILIST","ID",I0,"2","E")      ; Procedure
+ . S MAGRY(CNT)=MAGRY(CNT)_U_OUT("DILIST","ID",I0,"3","I")_U_OUT("DILIST","ID",I0,"3","E")      ; Specialty Index
+ . S MAGRY(CNT)=MAGRY(CNT)_U_OUT("DILIST","ID",I0,"4","I")_U_OUT("DILIST","ID",I0,"4","E")      ; Procedure Index
+ . S MAGRY(CNT)=MAGRY(CNT)_U_OUT("DILIST","ID",I0,"5","I")_U_OUT("DILIST","ID",I0,"5","E")      ; Acquisition Site
+ . S CPTIEN=OUT("DILIST","ID",I0,"6","I")
+ . S CPTCODE=$$CPT^ICPTCOD(CPTIEN) ; IA # 1995, supported reference
+ . S MAGRY(CNT)=MAGRY(CNT)_U_OUT("DILIST","ID",I0,"6","I")_U_OUT("DILIST","ID",I0,"6","E")_" "_$P(CPTCODE,U,3)      ; CPT CODE
+ . S MAGRY(CNT)=MAGRY(CNT)_U_OUT("DILIST","ID",I0,"7","I")_U_OUT("DILIST","ID",I0,"7","E")      ; HL7
  . K OUT1,MSG1
- . D LIST^DIC(2006.58314,","_D0_",","@;.01I;.01",,,,,,,,"OUT1","MSG1")
+ . D LIST^DIC(2006.58311,","_D0_",","@;.01I;.01",,,,,,,,"OUT1","MSG1")                          ; Clinics
  . S I1=0
  . S MLTPL=""
  . S DEL="",DEL1="~"

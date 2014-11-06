@@ -1,5 +1,5 @@
-MAGVD001 ;WOIFO/BT,NST,DAC - Delete Study By Accession Number ; 18 Jul 2012 4:32 PM
- ;;3.0;IMAGING;**118**;Mar 19, 2002;Build 4525;May 01, 2013
+MAGVD001 ;WOIFO/BT,NST,DAC - Delete Study By Accession Number ; 03 Dec 2012 11:26 AM
+ ;;3.0;IMAGING;**118,138**;Mar 19, 2002;Build 5380;Sep 03, 2013
  ;; Per VHA Directive 2004-038, this routine should not be modified.
  ;; +---------------------------------------------------------------+
  ;; | Property of the US Government.                                |
@@ -19,7 +19,7 @@ MAGVD001 ;WOIFO/BT,NST,DAC - Delete Study By Accession Number ; 18 Jul 2012 4:32
  ;
 DELSTUDY ; Delete Study by Accession Number (option MAG SYS-DELETE STUDY)
  N ACCNUM,SENSEMP,ERR,MAGDFN,REASON
- N OUT,MAGARR,SSEP,RES,Y,DG1,DGOPT
+ N OUT,MAGARR,SSEP,RES,Y,DG1,DGOPT,DIC
  S SSEP=$$STATSEP^MAGVRS41
  ;
  F  S ACCNUM=$$GETACC^MAGVD001() Q:ACCNUM=""  D
@@ -58,10 +58,10 @@ GETACC() ; Get Accession Number
 ISMSKOK(Y) ; Verify accession number format - 0 invalid; 1 - valid
  N OK
  S OK=0
- I $L(Y,"-")=3 S:Y?3N.N1"-"6N1"-"1.N OK=1
- I $L(Y,"-")=2 D
- . I Y?6N1"-"1.N S OK=1
- . I Y?1"GMRC-"1.N S OK=1
+ D  ; needed for QUITs
+ . I $L(Y,"-")=3 I Y?3N.N1"-"6N1"-"1.N S OK=1 Q  ; radiology SSS-MMDDYY-NNNNN format
+ . I $L(Y,"-")=2 I Y?6N1"-"1.N S OK=1 Q  ; radiology MMDDYY-NNNNN format
+ . I $$GMRCIEN^MAGDFCNV(Y) S OK=1 Q  ; consult format
  . Q
  Q OK
  ;

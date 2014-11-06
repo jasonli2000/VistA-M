@@ -1,5 +1,5 @@
 MAGDQR07 ;WOIFO/EdM,MLH,BT - Imaging RPCs for Query/Retrieve ; 10 May 2012 11:55 AM
- ;;3.0;IMAGING;**54,118**;Mar 19, 2002;Build 4525;May 01, 2013
+ ;;3.0;IMAGING;**54,118,138**;Mar 19, 2002;Build 5380;Sep 03, 2013
  ;; Per VHA Directive 2004-038, this routine should not be modified.
  ;; +---------------------------------------------------------------+
  ;; | Property of the US Government.                                |

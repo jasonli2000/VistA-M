@@ -1,5 +1,5 @@
 MAGNTLRS ;WOIFO/NST - TeleReader Configuration  ; 23 Apr 2012 2:30 PM
- ;;3.0;IMAGING;**114,127**;Mar 19, 2002;Build 4231;Apr 01, 2013
+ ;;3.0;IMAGING;**114,127,138**;Mar 19, 2002;Build 5380;Sep 03, 2013
  ;; Per VHA Directive 2004-038, this routine should not be modified.
  ;; +---------------------------------------------------------------+
  ;; | Property of the US Government.                                |
@@ -17,6 +17,71 @@ MAGNTLRS ;WOIFO/NST - TeleReader Configuration  ; 23 Apr 2012 2:30 PM
  ;;
  Q
  ;
+ ;***** Add/Update/Delete a service in TELEREADER ACQUISITION SERVICE file (#2006.5841)
+ ; RPC: MAG3 TELEREADER ACQ SRVC SETUP
+ ;
+ ; Input Parameters
+ ; ================
+ ;   Delete action:
+ ;     MAGPARAM("ACTION")           = "DELETE"
+ ;     MAGPARAM("IEN")              = IEN of the record that will be deleted
+ ;   Add or Update action:
+ ;     MAGPARAM("ACTION")           = "ADD" or "UPDATE"
+ ;     MAGPARAM("NAME")             = A pointer to REQUEST SERVICES file (#123.5)
+ ;     MAGPARAM("PROCEDURE")        = A pointer to GMRC PROCEDURE file (#123.5)
+ ;     MAGPARAM("SPECIALTY INDEX")  = A pointer to the SPECIALTY file (#2005.84)
+ ;     MAGPARAM("PROCEDURE INDEX")  = A pointer to the PROCEDURE/EVENT file (#2005.85)
+ ;     MAGPARAM("ACQUISITION SITE") = A pointer to the INSTITUTION file (#4) 
+ ;     MAGPARAM("UNREAD LIST CREATION TRIGGER") = I/O/F
+ ;     MAGPARAM("TIU NOTE FILE")    = A pointer to TIU DOCUMENT file (#8925.1)
+ ; 
+ ; Return Values
+ ; =============
+ ; if error MAGRY = "0^Error"
+ ; if success MAGRY = "1^IEN" - IEN of the record that is updated
+ ;                               or IEN of the added record
+ ;
+UASRVC(MAGRY,MAGPARAM) ;RPC [MAG3 TELEREADER ACQ SRVC SETUP]
+ ;
+ N $ETRAP,$ESTACK S $ETRAP="D ERR^MAGGTERR"
+ ;
+ N X,MAGNFDA,MAGNIEN,MAGNXE,IENS,MAGRESA
+ N DA,DIK
+ ;
+ ;^MAG(2006.5841,D0,0)=1=NAME, 2=PROCEDURE, 3=SPECIALTY INDEX, 4=PROCEDURE INDEX,
+ ;                     5=ACQUISITION SITE, 6=UNREAD LIST CREATION TRIGGER, 7=TIU NOTE FILE
+ ;
+ I MAGPARAM("ACTION")="DELETE" D  Q  ; Delete an entry IEN and exit
+ . S DIK="^MAG(2006.5841,"
+ . S DA=MAGPARAM("IEN")
+ . D ^DIK
+ . S MAGRY=1
+ . Q
+ ;
+ S MAGRY=""
+ I MAGPARAM("ACTION")="ADD" D  Q:MAGRY'=""  ; Quit if a service already exists
+ . D FIND^DIC(2006.5841,"","@;IX","PQX",MAGPARAM("NAME"),"1","B","","","X")
+ . I $D(X("DILIST","1",0)) S MAGRY="0^Service already exists"
+ . S IENS="+1,"
+ E  S IENS=MAGPARAM("IEN")_",",MAGNIEN(1)=MAGPARAM("IEN")
+ ;  
+ S MAGNFDA(2006.5841,IENS,.01)=MAGPARAM("NAME")
+ S MAGNFDA(2006.5841,IENS,1)=MAGPARAM("PROCEDURE")
+ S MAGNFDA(2006.5841,IENS,2)=MAGPARAM("SPECIALTY INDEX")
+ S MAGNFDA(2006.5841,IENS,3)=MAGPARAM("PROCEDURE INDEX")
+ S MAGNFDA(2006.5841,IENS,4)=MAGPARAM("ACQUISITION SITE")
+ S MAGNFDA(2006.5841,IENS,5)=MAGPARAM("UNREAD LIST CREATION TRIGGER")
+ S MAGNFDA(2006.5841,IENS,6)=MAGPARAM("TIU NOTE FILE")
+ ;
+ D UPDATE^DIE("SK","MAGNFDA","MAGNIEN","MAGNXE")
+ ;
+ I $D(MAGNXE("DIERR","E")) D  Q
+ . D MSG^DIALOG("A",.MAGRESA,245,5,"MAGNXE")
+ . S MAGRY="0^"_MAGRESA(1)
+ . Q
+ E  S MAGRY="1^"_MAGNIEN(1)
+ Q
+ ;
  ;***** Add/Update/Delete a service in DICOM HEALTHCARE PROVIDER SERVICE file (#2006.5831)
  ; RPC: MAG3 TELEREADER PDR SRVC SETUP
  ;
@@ -27,9 +92,13 @@ MAGNTLRS ;WOIFO/NST - TeleReader Configuration  ; 23 Apr 2012 2:30 PM
  ;     MAGPARAM("IEN")               = IEN of the record that will be deleted
  ;   Add or Update action:
  ;     MAGPARAM("ACTION")            = "ADD" or "UPDATE"
- ;     MAGPARAM("REQUESTED SERVICE") = A pointer to the "Request Services" file (#123.5)
- ;     MAGPARAM("SERVICE GROUP")     = A pointer to the SPECIALTY file (#2005.84)
- ;     MAGPARAM("SERVICE DIVISION")  = A pointer to the INSTITUTION file (#4)
+ ;     MAGPARAM("REQUEST SERVICE") = A pointer to the "Request Services" file (#123.5)
+ ;     MAGPARAM("PROCEDURE")        = A pointer to GMRC PROCEDURE file (#123.3)
+ ;     MAGPARAM("SPECIALTY INDEX")  = A pointer to SPECIALTY file (#2005.84)
+ ;     MAGPARAM("PROCEDURE INDEX")  = A pointer to PROCEDURE/EVENT file (#2005.85)
+ ;     MAGPARAM("ACQUISITION SITE") = A pointer to INSTITUTION file (#4) 
+ ;     MAGPARAM("CPT CODE")         = A pointer to CPT file (#81)
+ ;     MAGPARAM("HL7 HLO SUBSCRIPTION LIST") = A pointer to HLO SUBSCRIPTION REGISTRY file (#779.4)
  ;     MAGPARAM("CLINIC")            = "^" delimited string with clinics IENS in file (#44)
  ; 
  ; Return Values
@@ -45,7 +114,8 @@ UPSRVC(MAGRY,MAGPARAM) ;RPC [MAG3 TELEREADER PDR SRVC SETUP]
  N X,MAGNFDA,MAGNIEN,MAGNXE,IENS,IEN,MAGRESA
  N DA,DIK
  ;
- ;^MAG(2006.5831,D0,0)=1=REQUESTED SERVICE, 2=SERVICE GROUP, 3=SERVICE DIVISION
+ ;^MAG(2006.5831,D0,0)=1=REQUEST SERVICE, 2=PROCEDURE, 3=SPECIALTY INDEX, 4=PROCEDURE INDEX
+ ;                     5=ACQUSITION SITE, 6=CPT CODE, 7=HL7 HLO SUBSCRIPTION LIST
  ;
  I MAGPARAM("ACTION")="DELETE" D  Q  ; Delete an entry IEN and exit
  . S DIK="^MAG(2006.5831,"
@@ -55,19 +125,21 @@ UPSRVC(MAGRY,MAGPARAM) ;RPC [MAG3 TELEREADER PDR SRVC SETUP]
  . Q
  ;
  S MAGRY=""
- I MAGPARAM("ACTION")="ADD" D  Q:MAGRY'=""  ; Quit if a service already exists
- . D FIND^DIC(2006.5831,"","@;IX","PQX",MAGPARAM("REQUESTED SERVICE"),"1","","","","X")
- . I $D(X("DILIST","1",0)) S MAGRY="0^Service already exists"
+ I MAGPARAM("ACTION")="ADD" D  Q:MAGRY'=""  ; Quit if a service,procedure already exists
+ . I $$IREQUEST^MAGDHOW1(MAGPARAM("REQUEST SERVICE"),MAGPARAM("PROCEDURE"))>0 S MAGRY="0^Service/Procedure pair already exists." Q
  . S IENS="+1,"
- . S MAGNIEN(1)=MAGPARAM("REQUESTED SERVICE") ; if you add a new item using P^DI the new IEN will be value of field "NAME" (#.01)
  . Q
- E  S IENS=MAGPARAM("IEN")_",",MAGNIEN(1)=MAGPARAM("IEN")
+ E  S IENS=MAGPARAM("IEN")_",",MAGNIEN(1)=MAGPARAM("IEN") ; ACTION = UPDATE
  ;  
- S MAGNFDA(2006.5831,IENS,.01)=MAGPARAM("REQUESTED SERVICE")
- S MAGNFDA(2006.5831,IENS,2)=MAGPARAM("SERVICE GROUP")
- S MAGNFDA(2006.5831,IENS,3)=MAGPARAM("SERVICE DIVISION")
+ S MAGNFDA(2006.5831,IENS,.01)=MAGPARAM("REQUEST SERVICE") ; REQUEST SERVICE
+ S MAGNFDA(2006.5831,IENS,2)=MAGPARAM("PROCEDURE")           ; PROCEDURE
+ S MAGNFDA(2006.5831,IENS,3)=MAGPARAM("SPECIALTY INDEX")     ; SPECIALTY INDEX
+ S MAGNFDA(2006.5831,IENS,4)=MAGPARAM("PROCEDURE INDEX")     ; PROCEDURE INDEX
+ S MAGNFDA(2006.5831,IENS,5)=MAGPARAM("ACQUISITION SITE")     ; ACQUISITION SITE
+ S MAGNFDA(2006.5831,IENS,6)=MAGPARAM("CPT CODE")            ; CPT CODE
+ S MAGNFDA(2006.5831,IENS,7)=MAGPARAM("HL7 HLO SUBSCRIPTION LIST")     ; HL7 HLO SUBSCRIPTION LIST
  ;
- D UPDATE^DIE("SK","MAGNFDA","MAGNIEN","MAGNXE")
+ D UPDATE^DIE("S","MAGNFDA","MAGNIEN","MAGNXE")
  ;
  I $D(MAGNXE("DIERR","E")) D  Q
  . D MSG^DIALOG("A",.MAGRESA,245,5,"MAGNXE")
@@ -90,12 +162,12 @@ UPSRVC(MAGRY,MAGPARAM) ;RPC [MAG3 TELEREADER PDR SRVC SETUP]
  ; Output parameters
  ;   RES = "0^Error"
  ;
-UCLINIC(RES,CLINS,IEN) ; Update Clinic field in file #2006.58314
+UCLINIC(RES,CLINS,IEN) ; Update Clinic field in file #2006.58311  (old #2006.58314)
  N CLIN,CLINA,OUT,MSG,I
  N DA,DIK
  N MAGNFDA,MAGNXE,MAGNIEN
  S RES=""
- D LIST^DIC(2006.58314,","_IEN_",","@;.01I","",,,,,,,"OUT","MSG")
+ D LIST^DIC(2006.58311,","_IEN_",","@;.01I","",,,,,,,"OUT","MSG")
  I $D(MSG("DIERR","E")) S RES="0^Error updating CLINIC field" Q 0
  ;
  S DA(1)=IEN  ; set the variables so we can perform deletion of multiple if needed
@@ -116,7 +188,7 @@ UCLINIC(RES,CLINS,IEN) ; Update Clinic field in file #2006.58314
  S CLIN=""
  F  S CLIN=$O(CLINA(CLIN)) Q:CLIN=""  Q:RES'=""  D
  . K MAGNFDA,MAGNXE,MAGNIEN
- . S MAGNFDA(2006.58314,"+1,"_IEN_",",.01)=CLIN
+ . S MAGNFDA(2006.58311,"+1,"_IEN_",",.01)=CLIN
  . D UPDATE^DIE("","MAGNFDA","","MAGNXE")
  . I $D(MAGNXE("DIERR","E")) S RES="0^Error inserting CLINIC field " Q
  . Q
@@ -392,7 +464,7 @@ UPROCST(MAGPARAM) ; Update Procedure Index Status
  ;
  ; Input Parameters
  ; ================
- ;   MAGAPP is "DISPLAY", "CAPTURE", "VISTARAD", or "TELEREADER"
+ ;   MAGAPP is "DISPLAY", "CAPTURE", "VISTARAD", "TELEREADER", or "TELEPATHOLOGY"
  ;   MAGTIME is time out value
  ;
  ; Return Values
@@ -419,6 +491,7 @@ TIMEOUT(MAGRY,MAGAPP,MAGTIME) ;RPC [MAG3 SET TIMEOUT]
  I MAGAPP="CAPTURE" S MAGFLD=122
  I MAGAPP="VISTARAD" S MAGFLD=123
  I MAGAPP="TELEREADER" S MAGFLD=131
+ I MAGAPP="TELEPATHOLOGY" S MAGFLD=135
  ;
  S MAGNFDA(2006.1,IEN,MAGFLD)=MAGTIME
  D UPDATE^DIE("S","MAGNFDA","MAGNIEN","MAGNXE")

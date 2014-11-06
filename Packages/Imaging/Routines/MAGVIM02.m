@@ -1,5 +1,5 @@
-MAGVIM02 ;WOIFO/MAT - Utilities for RPC calls for DICOM file processing ; 16 Mar 2012 3:19 PM
- ;;3.0;IMAGING;**118**;Mar 19, 2002;Build 4525;May 01, 2013
+MAGVIM02 ;WOIFO/MAT,PMK - Utilities for RPC calls for DICOM file processing ; 25 Jul 2013 4:49 PM
+ ;;3.0;IMAGING;**118,138**;Mar 19, 2002;Build 5380;Sep 03, 2013
  ;; Per VHA Directive 2004-038, this routine should not be modified.
  ;; +---------------------------------------------------------------+
  ;; | Property of the US Government.                                |
@@ -57,7 +57,7 @@ GETORD(MAGVRY,PIDENT,PIDTYPE,PIDAUTHN,PIDCR8OR,ORDRTYPE,ORDTSTRT,ORDTSTOP) ;
  N MAGVERR S MAGVERR=0
  D
  . I '$D(ORDRTYPE)!(ORDRTYPE'?3U) S MAGVERR="Undefined or mis-formatted Order Type." Q
- . I "CON/RAD"'[ORDRTYPE S MAGVERR="Unsupported Order Type "_ORDRTYPE_"." Q
+ . I "CON/RAD/LAB"'[ORDRTYPE S MAGVERR="Unsupported Order Type "_ORDRTYPE_"." Q
  . I '$D(ORDTSTRT) S MAGVERR="Undefined Order Start Date." Q
  . I '$D(ORDTSTOP) S MAGVERR="Undefined Order Stop Date." Q
  . I ORDTSTRT'?8N S MAGVERR="Unexpected Order Start Date format." Q
@@ -81,6 +81,7 @@ GETORD(MAGVRY,PIDENT,PIDTYPE,PIDAUTHN,PIDCR8OR,ORDRTYPE,ORDTSTRT,ORDTSTOP) ;
  ;--- Branch to processor.
  D:ORDRTYPE["CON" GETORCON(PIDENT,"",ORDTSTRT,ORDTSTOP,ORDRSTAT,ORDRTYPE)
  D:ORDRTYPE["RAD" GETORRAD(PIDENT,ORDRTYPE)
+ D:ORDRTYPE["LAB" GETORLAB(PIDENT,ORDTSTRT,ORDTSTOP)
  M MAGVRY=RETURN K RETURN
  Q
  ;
@@ -100,9 +101,11 @@ GETORCON(MAGVPDFN,MAGVNULL,STARTDT,STOPDT,STATUS,OTYPE) ;
  ;--- Process if none found, or error, & QUIT.
  I $E($G(@MAGVGBL))="<" D  Q
  . ;
- . I $G(@MAGVGBL)["PATIENT DOES NOT HAVE ANY" D  Q
+ . I $G(@MAGVGBL)["PATIENT DOES NOT HAVE ANY" D
  . . S RETURN(0)="0"_SEPSTAT_"0"
- . S RETURN(0)="-1"_SEPSTAT_$G(@MAGVGBL)
+ . . Q
+ . E  S RETURN(0)="-1"_SEPSTAT_$G(@MAGVGBL)
+ . K @MAGVGBL
  . Q
  ;
  S MAGVGBL=$NA(^TMP("GMRCR",$J,"CS",0))
@@ -116,7 +119,7 @@ GETORCON(MAGVPDFN,MAGVNULL,STARTDT,STOPDT,STATUS,OTYPE) ;
  . . K MAGV
  . . ;
  . . ;--- Parse incoming data.
- . . S MAGV("GMRCDFN")=$P(DATA,U,1)
+ . . S MAGV("GMRCIEN")=$P(DATA,U,1)
  . . S MAGV("REQSTDT")=$$FMTE^XLFDT($P(DATA,U,2),1)
  . . S MAGV("ORDRSTAT")=$P(DATA,U,3)
  . . S MAGV("SERVTO")=$P(DATA,U,4)
@@ -130,9 +133,9 @@ GETORCON(MAGVPDFN,MAGVNULL,STARTDT,STOPDT,STATUS,OTYPE) ;
  . . S MAGV("CONTYPE")=$P(DATA,U,9)
  . . ;
  . . ;--- First line of Reason for Request (#123.01,.01).
- . . S MAGV("ORDREASN")=$$GET1^DIQ(123.01,"1,"_MAGV("GMRCDFN")_",",.01)
+ . . S MAGV("ORDREASN")=$$GET1^DIQ(123.01,"1,"_MAGV("GMRCIEN")_",",.01)
  . . ;
- . . S MAGV("CLINPROC")=$$GET1^DIQ(123,MAGV("GMRCDFN"),1.01)
+ . . S MAGV("CLINPROC")=$$GET1^DIQ(123,MAGV("GMRCIEN"),1.01)
  . . ;
  . . ;--- Re-format output.
  . . N LINEOUT S LINEOUT=$QS(MAGVGBL,4)
@@ -141,9 +144,9 @@ GETORCON(MAGVPDFN,MAGVNULL,STARTDT,STOPDT,STATUS,OTYPE) ;
  . . S $P(RETURN(LINEOUT),U,3)=MAGV("REQSTDT")
  . . S $P(RETURN(LINEOUT),U,4)=MAGV("ORDREASN")
  . . S $P(RETURN(LINEOUT),U,5)=MAGV("SERVTO")
- . . S $P(RETURN(LINEOUT),U,7)="GMRC-"_MAGV("GMRCDFN")
+ . . S $P(RETURN(LINEOUT),U,7)=$$GMRCACN^MAGDFCNV(MAGV("GMRCIEN"))
  . . S $P(RETURN(LINEOUT),U,8)=MAGV("ORDRSTAT")
- . . S $P(RETURN(LINEOUT),U,9)=MAGV("GMRCDFN")
+ . . S $P(RETURN(LINEOUT),U,9)=MAGV("GMRCIEN")
  . . S $P(RETURN(LINEOUT),U,10)=MAGV("CONTITLE")
  . . S $P(RETURN(LINEOUT),U,11)=$G(MAGV("CLINPROC"))
  . . S $P(RETURN(LINEOUT),U,12)=$G(MAGV("EXAMIEN"))
@@ -157,6 +160,7 @@ GETORCON(MAGVPDFN,MAGVNULL,STARTDT,STOPDT,STATUS,OTYPE) ;
  . . Q
  . K MAGV
  . Q
+ K @MAGVGBL
  Q
  ;
  ;+++++ Wrap call to modified code from ORDERS^MAGDRPCB (RPC: MAG DICOM GET RAD ORDERS)
@@ -214,7 +218,8 @@ GETORRAD(PATDFN,OTYPE) ;
  . S MAGV("ORDERDT")=$$FMTE^XLFDT($P(RETURN(LINECUR),U,5),1)
  . S MAGV("ORDREASN")=$P(RETURN(LINECUR),U,6)
  . S MAGV("EXAMACN")=$P(RETURN(LINECUR),U,9)
- . N SS F SS="EXAMADC","EXAMCASE","EXAMIEN","EXAMIEN2","EXAMSTAT" S MAGV(SS)=""
+ . N SS
+ . F SS="EXAMADC","EXAMCASE","EXAMIEN","EXAMIEN2","EXAMSTAT","CREDMETH","UIDSTUDY" S MAGV(SS)=""
  . D:MAGV("EXAMACN")'=""
  . . ;
  . . ;--- Resolve DAY-CASE, CASE from (Site-)Access'n Number [###-]MMDDYY-#####
@@ -231,9 +236,16 @@ GETORRAD(PATDFN,OTYPE) ;
  . . S MAGV("EXAMIEN")=$QS(ROOT,4)
  . . S MAGV("EXAMIEN2")=$QS(ROOT,5)
  . . ;
+ . . ;--- Resolve Examination Status and Credit Method.
  . . N EXSTP
  . . S EXSTP=$P($G(^RADPT(PATDFN,"DT",MAGV("EXAMIEN"),"P",MAGV("EXAMIEN2"),0)),U,3)
- . . S MAGV("EXAMSTAT")=$P($G(^RA(72,EXSTP,0)),U,1)
+ . . S MAGV("EXAMSTAT")=$$GET1^DIQ(72,EXSTP,.01,"E")
+ . . ;
+ . . N IENS S IENS=MAGV("EXAMIEN2")_","_MAGV("EXAMIEN")_","_PATDFN_","
+ . . S MAGV("CREDMETH")=$$GET1^DIQ(70.03,IENS,26,"E")
+ . . ;
+ . . ;--- Resolve Study Instance UID
+ . . S MAGV("UIDSTUDY")=$$GET1^DIQ(70.03,IENS,81)
  . . Q
  . ;--- IA #10103 (Supported).
  . S MAGV("EXAMDATE")=$$FMTE^XLFDT($P(RETURN(LINECUR),U,10),1)
@@ -266,9 +278,115 @@ GETORRAD(PATDFN,OTYPE) ;
  . S $P(RETURN(LINEOUT),SEPOUTP,15)=MAGV("ORDRPHYS")
  . S $P(RETURN(LINEOUT),SEPOUTP,16)=MAGV("ORDRLOCIEN")
  . S $P(RETURN(LINEOUT),SEPOUTP,17)=MAGV("PROCMOD")
+ . S $P(RETURN(LINEOUT),SEPOUTP,18)=MAGV("CREDMETH")
+ . S $P(RETURN(LINEOUT),SEPOUTP,19)=MAGV("UIDSTUDY")
  . Q
  . ;
  S RETURN(0)="0"_SEPSTAT_LINEOUT
+ Q
+ ;
+ ;
+ ; NOTES
+ ; =====
+ ; The case in the LAB DATA file (#63) is defined by three fields:
+ ; 1) LRDFN - this is the patient ien in the file.  It is stored
+ ;            in the PATIENT file (#2) in file 63 (^DPT(DFN,"LR")=LRDFN
+ ; 2) LRSS -- lab section ("CY", "EM", or "SP"), each has its own subfile
+ ;            See $$GETFILE^MAGT7MA(LRSS) for details
+ ; 3) LRI --- the is the inverse date/time of the study.  The cases are
+ ;            stored in reverse chronological order.
+ ; 
+ ; There are only two return variables to define the case in the LAB DATA file.
+ ; 1) EXAMIEN -- this is the subfile number for the corresponding  lab section
+ ; 2) EXAMIEN2 - this is the LRI value, the inverse date/time subsript
+ ; 
+ ; It is assumed that LRDFN can be obtained from the following code:
+ ;       S LRDFN=$$GET1^DIQ(2,DFN,63,"I")
+ ; 
+GETORLAB(PATDFN,ORDRSTRT,ORDRSTOP) ;
+ ;
+ N ERROR
+ N FILE ; ------ LAB DATA file (#63) subfile numbers
+ N IORDRSTRT ;-- inverted order start date/time
+ N IORDRSTOP ;-- inverted order stop date/time
+ N LRDFN ; ----- ien for patient in LAB DATA file (#63)
+ N LRI ; ------- inverted date/time for LAB DATA file (#63)
+ N LRSS ; ------ lab section (EM, CY, and SP)
+ N LRSSIX ;----- index for lab section
+ N MAGVGBL ; --- pointer to temporary lab data
+ N A,B,L,L1 ;--- scratch variables from GETS^DIQ
+ ;
+ N LINEOUT S LINEOUT=0
+ K RETURN
+ ;
+ S IORDRSTRT=9999999.9999-ORDRSTRT
+ S IORDRSTOP=9999999.9999-ORDRSTOP-2 ; fudge for $O-ing
+ ;
+ S LRDFN=$$GET1^DIQ(2,PATDFN,63)
+ I 'LRDFN S RETURN(0)=0_SEPSTAT_0 Q
+ ;
+ S MAGVGBL=$NA(^TMP("MAG",$J,"MAGVIM02")) K @MAGVGBL
+ F LRSS="EM","CY","SP" D
+ . N IENS,LRILIST
+ . ; get FILE information
+ . S ERROR=$$GETFILE^MAGT7MA(LRSS)
+ . K @MAGVGBL
+ . D GETS^DIQ(63,LRDFN,FILE("FIELD")_"*","I",MAGVGBL,"ERROR")
+ . S IENS="" F  S IENS=$O(@MAGVGBL@(FILE(0),IENS)) Q:IENS=""  D
+ . . S LRILIST($P(IENS,",",1))=""
+ . . Q
+ . S LRI=IORDRSTOP ; file 63 is in reverse chronological order
+ . F  S LRI=$O(LRILIST(LRI)) Q:LRI=""  Q:(LRI)>IORDRSTRT  D
+ . . D GETLCASE(MAGVGBL,.FILE,LRDFN,LRSS,LRI)
+ . . Q
+ . Q
+ S RETURN(0)="0"_SEPSTAT_LINEOUT
+ K @MAGVGBL
+ Q
+ ;
+GETLCASE(MAGVGBL,FILE,LRDFN,LRSS,LRI) ; get the data for one lab case
+ N ACNUMB,LABTEST,IENS,MAGV,X
+ S IENS=LRI_","_LRDFN_","
+ K @MAGVGBL
+ D GETS^DIQ(FILE(0),IENS,"**","I",MAGVGBL,"ERROR")
+ S X=$G(@MAGVGBL@(FILE(0),IENS,.01,"I")) ; date/time specimen taken
+ S MAGV("ORDERDT")=$$FMTE^XLFDT(X)
+ S MAGV("ORDREASN")="Perform pathology exam on specimen(s)."
+ S MAGV("ORDRLOCN")=@MAGVGBL@(FILE(0),IENS,.08,"I") ; patient location at order time
+ S X=$G(@MAGVGBL@(FILE(0),IENS,.1,"I")) ; date/time specimen received in lab
+ S MAGV("EXAMDATE")=$$FMTE^XLFDT(X)
+ S (ACNUMB,MAGV("EXAMACN"))=$G(@MAGVGBL@(FILE(0),IENS,.06,"I"))
+ S X=$G(@MAGVGBL@(FILE(0),IENS,.03,"I")) ; date report completed
+ S MAGV("EXAMSTAT")=$S(X:"Completed",1:"Active")
+ D TESTLKUP^MAGT7SB(MAGVGBL,.LABTEST)
+ S MAGV("PROCIEN")=LABTEST("ID")
+ S MAGV("PROCNAME")=LABTEST("TEXT")
+ S MAGV("EXAMCASE")=$P(ACNUMB," ",3)
+ S MAGV("EXAMIEN")=FILE(0)
+ S MAGV("RAOIEN")=""
+ S MAGV("EXAMIEN2")=LRI
+ S MAGV("ORDRPHYS")=$G(@MAGVGBL@(FILE(0),IENS,.07,"I")) ; surgeon/physician
+ S MAGV("ORDRLOCIEN")=""
+ S MAGV("PROCMOD")=""
+ ;
+ S LINEOUT=LINEOUT+1
+ S $P(RETURN(LINEOUT),SEPOUTP,1)="LAB"
+ S $P(RETURN(LINEOUT),SEPOUTP,2)=PATDFN
+ S $P(RETURN(LINEOUT),SEPOUTP,3)=MAGV("ORDERDT")
+ S $P(RETURN(LINEOUT),SEPOUTP,4)=MAGV("ORDREASN")
+ S $P(RETURN(LINEOUT),SEPOUTP,5)=MAGV("ORDRLOCN")
+ S $P(RETURN(LINEOUT),SEPOUTP,6)=MAGV("EXAMDATE")
+ S $P(RETURN(LINEOUT),SEPOUTP,7)=MAGV("EXAMACN")
+ S $P(RETURN(LINEOUT),SEPOUTP,8)=MAGV("EXAMSTAT")
+ S $P(RETURN(LINEOUT),SEPOUTP,9)=MAGV("PROCIEN")
+ S $P(RETURN(LINEOUT),SEPOUTP,10)=MAGV("PROCNAME")
+ S $P(RETURN(LINEOUT),SEPOUTP,11)=MAGV("EXAMCASE")
+ S $P(RETURN(LINEOUT),SEPOUTP,12)=MAGV("EXAMIEN")
+ S $P(RETURN(LINEOUT),SEPOUTP,13)=MAGV("RAOIEN")
+ S $P(RETURN(LINEOUT),SEPOUTP,14)=MAGV("EXAMIEN2")
+ S $P(RETURN(LINEOUT),SEPOUTP,15)=MAGV("ORDRPHYS")
+ S $P(RETURN(LINEOUT),SEPOUTP,16)=MAGV("ORDRLOCIEN")
+ S $P(RETURN(LINEOUT),SEPOUTP,17)=MAGV("PROCMOD")
  Q
  ;
  ;+++ Routine Utility: Initialize Separators

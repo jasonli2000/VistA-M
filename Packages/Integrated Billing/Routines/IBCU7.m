@@ -1,5 +1,5 @@
 IBCU7 ;ALB/AAS - INTERCEPT SCREEN INPUT OF PROCEDURE CODES ;29-OCT-91
- ;;2.0;INTEGRATED BILLING;**62,52,106,125,51,137,210,245,228,260,348,371,432,447**;21-MAR-94;Build 80
+ ;;2.0;INTEGRATED BILLING;**62,52,106,125,51,137,210,245,228,260,348,371,432,447,488**;21-MAR-94;Build 184
  ;;Per VHA Directive 2004-038, this routine should not be modified.
  ;
  ;MAP TO DGCRU7
@@ -163,16 +163,19 @@ DEFDIV(IBIFN) ; Find default division for bill IBIFN
 ADDTNL(IBIFN,DA) ;
  N DR,IBOK,X,Y,DIR
  S IBOK=1
- S DR="19;50.09;50.08" D ^DIE
+ S DR="19T;50.09T;50.08T" D ^DIE  ; WCJ;IB*2.0*488 Added Ts
  ;I '($$FT^IBCEF(IBIFN)'=3&($$INPAT^IBCEF(IBIFN))) D ATTACH  ; DEM;432 - Prompt for Attachment Control Number.
  I '($$FT^IBCEF(IBIFN)=3&($$INPAT^IBCEF(IBIFN))) D ATTACH  ; DEM;432 - Prompt for Attachment Control Number.
  I $D(Y) S IBOK=0 G ADDTNLQ
- S DIR("B")="NO",DIR("A")="EDIT CMS-1500 SPECIAL PROGRAM FIELDS and BOX 19?: ",DIR("A",1)=" ",DIR(0)="YA"
- S DIR("?",1)="Respond YES only if you need to add/edit data for chiropractic visits,"
- S DIR("?")="EPSDT care, or if billing for HOSPICE and attending is not a hospice employee."
- D ^DIR K DIR
- I Y'=1 S IBOK=0 G ADDTNLQ
- S DR="W !,""  <<EPSDT>>"";50.07;W !!,""  <<HOSPICE>>"";50.03"
+ ;/Beginning of IB*2.0*488 (vd)
+ ;S DIR("B")="NO",DIR("A")="EDIT CMS-1500 SPECIAL PROGRAM FIELDS and BOX 19?: ",DIR("A",1)=" ",DIR(0)="YA"
+ ;S DIR("?",1)="Respond YES only if you need to add/edit data for chiropractic visits,"
+ ;S DIR("?")="EPSDT care, or if billing for HOSPICE and attending is not a hospice employee."
+ ;D ^DIR K DIR
+ ;I Y'=1 S IBOK=0 G ADDTNLQ
+ ;S DR="W !,""  <<EPSDT>>"";50.07;W !!,""  <<HOSPICE>>"";50.03"
+ S DR="50.07T;50.03T"   ;WCJ;IB*2.0*488 added Ts
+ ;/End of IB*2.0*488 (vd)
  D ^DIE
  W !
 ADDTNLQ Q IBOK
@@ -203,5 +206,4 @@ ATTACH ; DEM;432 - Attachment control number.
  S DA(1)=IBIFN,DA=IBPROCP
  S DIE="^DGCR(399,"_DA(1)_",""CP"","
  S DR="71Report Type;72Report Transmission Method;70Attachment Control Number"
- D ^DIE
- Q
+ D ^DIE Q

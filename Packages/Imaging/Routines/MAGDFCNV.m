@@ -1,5 +1,5 @@
 MAGDFCNV ;WOIFO/PMK - Read HL7 and generate DICOM ; 03 Sep 2013 10:12 AM
- ;;3.0;IMAGING;**11,51,141**;Mar 19, 2002;Build 5;Sep 03, 2013
+ ;;3.0;IMAGING;**11,51,141,138**;Mar 19, 2002;Build 5380;Sep 03, 2013
  ;; Per VHA Directive 2004-038, this routine should not be modified.
  ;; +---------------------------------------------------------------+
  ;; | Property of the US Government.                                |

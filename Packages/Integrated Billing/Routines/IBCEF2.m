@@ -1,5 +1,5 @@
 IBCEF2 ;ALB/TMP - FORMATTER SPECIFIC BILL FUNCTIONS ;8/6/03 10:54am
- ;;2.0;INTEGRATED BILLING;**52,85,51,137,232,155,296,349,403,400,432**;21-MAR-94;Build 192
+ ;;2.0;INTEGRATED BILLING;**52,85,51,137,232,155,296,349,403,400,432,488**;21-MAR-94;Build 184
  ;;Per VHA Directive 2004-038, this routine should not be modified.
  ;
 HOS(IBIFN) ; Extract rev codes for inst. episode into IBXDATA
@@ -157,7 +157,8 @@ ID1(LN,DX,CT) ;Special entrypoint for diagnoses to 'save' the fact
  .S:EDX DXQ="BN" ; e-code DX qualifier
  .Q
  I 'IBINS S:EDX DXQ="BF" S POA="" ; on CMS-1500 e-code DX qualifiers are "BF" and there's no POA
- I 'IBINS,CT>8 S ^TMP("IBXSAVE",$J,"DX",IBXIEN)=$G(^TMP("IBXSAVE",$J,"DX",IBXIEN))+1,^TMP("IBXSAVE",$J,"DX",IBXIEN,$P(DX(+^TMP("IBXSAVE",$J,"DX",IBXIEN)),U,2))=$G(^TMP("IBXSAVE",$J,"DX",IBXIEN)) S DX="" Q
+ ;Changed 8 to 12 so we can transmit 12 codes. BAA *488*
+ I 'IBINS,CT>12 S ^TMP("IBXSAVE",$J,"DX",IBXIEN)=$G(^TMP("IBXSAVE",$J,"DX",IBXIEN))+1,^TMP("IBXSAVE",$J,"DX",IBXIEN,$P(DX(+^TMP("IBXSAVE",$J,"DX",IBXIEN)),U,2))=$G(^TMP("IBXSAVE",$J,"DX",IBXIEN)) S DX="" Q
  I CT'="",DX'="" D
  .; populate ^TMP("DCX") scratch global
  .S ^TMP("DCX",$J,1)=CT,CNT=$G(^TMP("DCX",$J,I))+1,^TMP("DCX",$J,I)=CNT

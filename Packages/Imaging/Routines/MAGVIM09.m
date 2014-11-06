@@ -1,5 +1,5 @@
-MAGVIM09 ;WOIFO/DAC/BT - Utilities for RPC calls for DICOM file processing ; 21 Jun 2012 1:36 PM
- ;;3.0;IMAGING;**118**;Mar 19, 2002;Build 4525;May 01, 2013
+MAGVIM09 ;WOIFO/DAC,BT,MAT - Utilities for RPC calls for DICOM file processing ; 1 Oct 2012 2:25 PM
+ ;;3.0;IMAGING;**118,138**;Mar 19, 2002;Build 5380;Sep 03, 2013
  ;; Per VHA Directive 2004-038, this routine should not be modified.
  ;; +---------------------------------------------------------------+
  ;; | Property of the US Government.                                |
@@ -53,6 +53,7 @@ GETWI(OUT,ID,STOPTAG) ; Return Work Item record in OUT array
  S AFLD(10)="IE"  ; LAST UPDATING USER
  S AFLD(14)="E"   ; CREATING APPLICATION
  S AFLD(15)="E"   ; LAST UPDATING APPLICATION
+ S AFLD(16)="E"   ; SC TRANSACTION ID
  ;
  ;Convert Institution IEN to Station Number
  I $G(MAGOUT(FILE,IENS,4,"I")) D

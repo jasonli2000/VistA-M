@@ -1,5 +1,5 @@
-MAGDQR08 ;WOIFO/EdM,MLH,BT - Cross-References for Query/Retrieve ; 07 Aug 2012 4:07 PM
- ;;3.0;IMAGING;**54,118**;Mar 19, 2002;Build 4525;May 01, 2013
+MAGDQR08 ;WOIFO/EdM,MLH,BT - Cross-References for Query/Retrieve ; 27 Nov 2012 12:58 PM
+ ;;3.0;IMAGING;**54,118,138**;Mar 19, 2002;Build 5380;Sep 03, 2013
  ;; Per VHA Directive 2004-038, this routine should not be modified.
  ;; +---------------------------------------------------------------+
  ;; | Property of the US Government.                                |
@@ -181,6 +181,7 @@ DELSUB(RESULT,HDRRECNO) ; Delete Sub File (2006.57321) record group including in
  Q DELCNT
  ;
 UPDHDREC(RESULT,R1,NEWCNT) ; Update Header Result # record with a new counter
+ N TAGVAL
  S NEWCNT=NEWCNT+1
  S TAGVAL="Result # "_NEWCNT
  S ^MAGDQR(2006.5732,RESULT,1,R1,0)=$$HDRTAG^MAGDQR00_U_TAGVAL
@@ -202,7 +203,7 @@ ACCNUM(IMAGE) ; Calculate Accession Number for Image
  I PARENT'=8925,PARENT'=2006.5839 Q ""
  Q:'TIUPTR ""
  S GMRCPTR=$$GET1^DIQ(8925,TIUPTR,1405,"I") Q:GMRCPTR'[";GMR(123" "" ; IA # 3268
- Q "GMRC-"_(+GMRCPTR)
+ Q $$GMRCACN^MAGDFCNV(+GMRCPTR)
  ;
 PROCNAM(IMAGE) ; Calculate Procedure Name for Image
  N PROCPTR,X
@@ -229,8 +230,8 @@ X1(DA,KILL) N GP,PA,T0,X
  I PA'=8925,PA'=2006.5839 Q
  Q:'T0
  S GP=$$GET1^DIQ(8925,T0,1405,"I") Q:GP'[";GMR(123"
- I KILL K ^MAG(2005,"CONSULT1","GMRC-"_(+GP),IMAGE) Q
- S ^MAG(2005,"CONSULT1","GMRC-"_(+GP),IMAGE)=""
+ I KILL K ^MAG(2005,"CONSULT1",$$GMRCACN^MAGDFCNV(+GP),IMAGE) Q
+ S ^MAG(2005,"CONSULT1",$$GMRCACN^MAGDFCNV(+GP),IMAGE)=""
  Q
  ;
 X2(IMAGE,KILL) N CO,GP,PA,PR,T0,X
@@ -240,8 +241,8 @@ X2(IMAGE,KILL) N CO,GP,PA,PR,T0,X
  S X=$G(^MAG(2005,IMAGE,40)),PR=$P(X,"^",4) Q:'PR
  S X=$G(^MAG(2005.84,PR,0)),CO=$P(X,"^",1) Q:CO=""
  S GP=$$GET1^DIQ(8925,T0,1405,"I") Q:GP'[";GMR(123"
- I KILL K ^MAG(2005,"CONSULT2",CO,"GMRC-"_(+GP),IMAGE) Q
- S ^MAG(2005,"CONSULT2",CO,"GMRC-"_(+GP),IMAGE)=""
+ I KILL K ^MAG(2005,"CONSULT2",CO,$$GMRCACN^MAGDFCNV(+GP),IMAGE) Q
+ S ^MAG(2005,"CONSULT2",CO,$$GMRCACN^MAGDFCNV(+GP),IMAGE)=""
  Q
  ;
  ; ============================================================

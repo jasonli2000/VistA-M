@@ -1,5 +1,5 @@
-MAGDQR03 ;WOIFO/EdM,MLH,JSL,SAF,BT,DAC,NST - Imaging RPCs for Query/Retrieve ; 01 May 2013 2:40 PM
- ;;3.0;IMAGING;**51,54,66,123,118**;Mar 19, 2002;Build 4525;May 01, 2013
+MAGDQR03 ;WOIFO/EdM,MLH,JSL,SAF,BT,DAC,NST - Imaging RPCs for Query/Retrieve ; 01 May 2013 5:13 PM
+ ;;3.0;IMAGING;**51,54,66,123,118,138**;Mar 19, 2002;Build 5380;Sep 03, 2013
  ;; Per VHA Directive 2004-038, this routine should not be modified.
  ;; +---------------------------------------------------------------+
  ;; | Property of the US Government.                                |
@@ -89,12 +89,12 @@ RESULT(TYPE,REQ,RESULT,MAGIEN,MAGDUZ,MAGDFN,MAGRORD,MAGINTERP,ERROR,FATAL) ;
  . S R2=$G(^MAG(2005,MAGIEN,2)) Q:R2=""
  . I $P(R2,"^",6)=2006.5839 D  Q
  . . S CONSIX=$P(R2,"^",7)
- . . S ^TMP("MAG",$J,"ACCESSION")="GMRC-"_CONSIX
+ . . S ^TMP("MAG",$J,"ACCESSION")=$$GMRCACN^MAGDFCNV(CONSIX)
  . . Q
  . I $P(R2,"^",6)=8925 D  Q
  . . S TIUNUM=$P(R2,"^",7) Q:'TIUNUM
  . . S CONSIX=$P($G(^TIU(8925,TIUNUM,14)),"^",5)
- . . S:$P(CONSIX,";",2)="GMR(123," ^TMP("MAG",$J,"ACCESSION")="GMRC-"_$P(CONSIX,";",1)
+ . . S:$P(CONSIX,";",2)="GMR(123," ^TMP("MAG",$J,"ACCESSION")=$$GMRCACN^MAGDFCNV($P(CONSIX,";",1))
  . . Q
  . Q
  D:TYPE="N"

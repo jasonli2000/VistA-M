@@ -1,5 +1,5 @@
-MAGVUID ;WOIFO/RRB - MAGV Duplicate UID Utilities and RPCs ; 19 Sep 2011 6:09 PM
- ;;3.0;IMAGING;**118**;Mar 19, 2002;Build 4525;May 01, 2013
+MAGVUID ;WOIFO/RRB,NST - MAGV Duplicate UID Utilities and RPCs ; 26 Jun 2013 5:30 PM
+ ;;3.0;IMAGING;**118,138**;Mar 19, 2002;Build 5380;Sep 03, 2013
  ;; Per VHA Directive 2004-038, this routine should not be modified.
  ;; +---------------------------------------------------------------+
  ;; | Property of the US Government.                                |
@@ -192,22 +192,11 @@ NEWUID(DFN,ACNUMB,SITE,INSTR,OUID,TYPE,STUDYUID,SERIESUID)  ; Utility to Generat
  ;
  Q:SITE="" "-1~Invalid Site Number"
  ;
- N I,ID,STAMP,UID,UINST,PGM,LOGCHK
+ N UID
  ;
- ; Remove alpha characters from SITE/STATION number
- ; 
- S SITE=$E(SITE,1,3)
- ;
- S (UID,UINST)=""
  S STUDYUID=$G(STUDYUID),SERIESUID=$G(SERIESUID)
- S ID=$S($E($P(ACNUMB,"-"),1)'?1N:$TR($H,",","")_$P(ACNUMB,"-",2),1:$TR(ACNUMB,"-",""))
- F I=1:1:$L(INSTR) S UINST=UINST+$A($E(INSTR,I))
- S SITE=SITE_"."_UINST
- S STAMP=$$NOW^XLFDT
- S STAMP=$TR($TR(STAMP,".","")," ","")
- S ID=+ID_+STAMP
- S PGM=TYPE_"^MAGVUID1(.UID,SITE,ID)"
- D @PGM
+ ;
+ S UID=$$GENUID^MAGVUID2(ACNUMB,SITE,INSTR,TYPE)  ; Generate a new UID
  ;
  ; Log duplicate UID error
  ; 
@@ -215,4 +204,4 @@ NEWUID(DFN,ACNUMB,SITE,INSTR,OUID,TYPE,STUDYUID,SERIESUID)  ; Utility to Generat
  D LOGDUP^MAGVRS61(OUID,.UID,ACNUMB,DFN,TYPE,STUDYUID,SERIESUID)  ; Log duplicate UID and adjust new UID to be unique if already logged
  ;
  Q UID  ; Return new UID to use
- ; 
+ ;

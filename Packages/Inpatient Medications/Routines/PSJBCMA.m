@@ -1,5 +1,5 @@
 PSJBCMA ;BIR/MV-RETURN INPATIENT ACTIVE MEDS (CONDENSED) ;1/23/13 1:23pm
- ;;5.0;INPATIENT MEDICATIONS ;**32,41,46,57,63,66,56,69,58,81,91,104,111,112,186,159,173,190,113,225,253,267,279**;16 DEC 97;Build 150
+ ;;5.0;INPATIENT MEDICATIONS ;**32,41,46,57,63,66,56,69,58,81,91,104,111,112,186,159,173,190,113,225,253,267,279,308**;16 DEC 97;Build 12
  ;
  ; Reference to ^PS(50.7 is supported by DBIA 2180.
  ; Reference to ^PS(51 is supported by DBIA 2176.
@@ -9,6 +9,8 @@ PSJBCMA ;BIR/MV-RETURN INPATIENT ACTIVE MEDS (CONDENSED) ;1/23/13 1:23pm
  ; Reference to ^PS(52.7 is supported by DBIA 2173.
  ; Reference to ^PS(55 is supported by DBIA 2191.
  ; Reference to ^PSDRUG is supported by DBIA 2192.
+ ; Reference to ^VADPT is supported by DBIA 10061.
+ ; Reference to ^XLFDT is supported by DBIA 10103
  ; Usage of this routine by BCMA is supported by DBIA 2828.
  ;
  ;*267 - add new piece of info to return TMP global. Need the Med 
@@ -224,19 +226,21 @@ CLINICS(CL,IGNOSND) ;IM & CO order tests                                        
  ; meets below conditions, else send the order over as a IM order.
  ;
  ;   If CPRS sends the Clinic IEN and the appointment date when the
- ;   order is signed in CPRS, then this is a Cllinc order and can be
+ ;   order is signed in CPRS, then this is a Clinic order and can be
  ;   sent to BCMA as a CO order, if it passes the 53.46 test as well.
  ;
  ; IGNOSND = Flag indicating the SEND TO BCMA parameter should be ignored.
  ; PSJHYBR = Hybrid order - contains reference to CLINIC, but no appointment date time
- ;
  ; Function Return values:   1 = Send order to BCMA
  ;                           0 = Do Not send order to BCMA
- ;
  ; * Orders with Clinic but no Appt should only be sent if patient is admitted or SEND TO BCMA flag set
  I '$G(CL)!$G(IGNOSND) Q 1
- N PSJVAIN4,X S PSJVAIN4=1 I $G(DFN) D
- .N VAIN,PSGP S PSGP=DFN D INP^VADPT I '$G(VAIN(4)) S PSJVAIN4=0
+ N PSJVAIN4,X,PSJCNT,PSJSTRT,PSJSTOP,VAIP S PSJVAIN4=1 I $G(DFN) D
+ .N VAIN,PSGP S PSGP=DFN D INP^VADPT I '$G(VAIN(4)) S PSJVAIN4=0 I $G(PSBRPT(".1"))'="" D  ;add code check for historical data when running BCMA
+ ..S PSJSTOP=$P(PSBRPT(".1"),U,8),PSJSTRT=$P(PSBRPT(".1"),U,6) Q:'PSJSTOP!'(PSJSTRT)
+ ..S PSJCNT=PSJSTRT F  Q:PSJCNT>PSJSTOP  S VAIP("D")=PSJCNT D IN5^VADPT S:+VAIP("3") PSJVAIN4=1 S PSJCNT=$$FMADD^XLFDT(PSJCNT,1) Q:$G(PSJVAIN4)  ;check to see if patient was admitted during time frame of report
+ .I 'PSJVAIN4,$G(PSBREC(2)),$G(PSBREC(0))="ADMLKUP" S VAIP("D")=PSBREC(2) D IN5^VADPT S:+VAIP("3") PSJVAIN4=1 ;return patient data for Edit med log option if patient was admitted when med log entry was recorded
+ .I 'PSJVAIN4,$G(PSBPRNDT) S VAIP("D")=$P(PSBSTRT,".") D IN5^VADPT S:+VAIP("3") PSJVAIN4=1
  I $G(PSJVAIN4) Q:'$$CLINIC(CL) 1                          ;no valid appt date
  N A
  S A=$O(^PS(53.46,"B",+CL,"")) Q:'A 0

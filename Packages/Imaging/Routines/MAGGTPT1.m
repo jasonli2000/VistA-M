@@ -1,5 +1,5 @@
 MAGGTPT1 ;WOIFO/GEK/SG/NST/JSL- Delphi-Broker calls for patient lookup and information ; 05 Oct 2010 9:15 AM
- ;;3.0;IMAGING;**16,8,92,46,59,93,117,122,131**;Mar 19, 2002;Build 5342;Aug 14, 2013
+ ;;3.0;IMAGING;**16,8,92,46,59,93,117,122,131,138**;Mar 19, 2002;Build 5380;Sep 03, 2013
  ;; Per VHA Directive 2004-038, this routine should not be modified.
  ;; +---------------------------------------------------------------+
  ;; | Property of the US Government.                                |

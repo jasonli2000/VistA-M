@@ -1,5 +1,5 @@
-MAGDQR06 ;WOIFO/EdM,MLH - Imaging RPCs for Query/Retrieve ; 24 Feb 2012 10:32 PM
- ;;3.0;IMAGING;**54,66,118**;Mar 19, 2002;Build 4525;May 01, 2013
+MAGDQR06 ;WOIFO/EdM,MLH - Imaging RPCs for Query/Retrieve ; 03 Apr 2012 11:26 AM
+ ;;3.0;IMAGING;**54,66,118,138**;Mar 19, 2002;Build 5380;Sep 03, 2013
  ;; Per VHA Directive 2004-038, this routine should not be modified.
  ;; +---------------------------------------------------------------+
  ;; | Property of the US Government.                                |
@@ -196,7 +196,7 @@ GMRC(ACCNUM,IMAGE) ; Return consult number for image
  N X
  D  ; perform appropriate lookup for old / new database structure
  . N G0,T0
- . S G0=+$TR($G(ACCNUM),"GMRCgmrc-") I G0 S X=G0 Q
+ . S G0=$$GMRCIEN^MAGDFCNV($G(ACCNUM)) I G0 S X=G0 Q
  . S TIUIX=$$TIUIX(TYPE,IMAGE) I 'TIUIX S X=0 Q
  . S X=$P($G(^TIU(8925,TIUIX,14)),"^",5) I X'[";GMR(123," S X=0 Q
  . S X=0 ; unresolvable IEN

@@ -1,5 +1,5 @@
-MAGVRS43 ;WOIFO/MLH - RPC calls for DICOM file processing ; 31 Jan 2012 05:41 PM
- ;;3.0;IMAGING;**118**;Mar 19, 2002;Build 4525;May 01, 2013
+MAGVRS43 ;WOIFO/MLH - RPC calls for DICOM file processing ; 03 Apr 2012 2:44 PM
+ ;;3.0;IMAGING;**118,138**;Mar 19, 2002;Build 5380;Sep 03, 2013
  ;; Per VHA Directive 2004-038, this routine should not be modified.
  ;; +---------------------------------------------------------------+
  ;; | Property of the US Government.                                |
@@ -17,7 +17,7 @@ MAGVRS43 ;WOIFO/MLH - RPC calls for DICOM file processing ; 31 Jan 2012 05:41 PM
  ;;
  Q
 TIUCHK(OUT,STYIEN) ; is this image study attached to a consult with a TIU note?
- N TIUIEN,PROCIEN,CONIEN,TIUPATIEN,DFN,PATIEN,PATID,PATREFDTA,STYDFN,TIUDFN
+ N TIUIEN,PROCIEN,CONIEN,TIUPATIEN,DFN,PATIEN,PATID,PATREFDTA,STYDFN,TIUDFN,X
  S STYIEN=$G(STYIEN)
  I STYIEN'?1N.E S OUT(1)="-1`Study IEN must be numeric" Q
  I STYIEN'>0 S OUT(1)="-2`Study IEN must be a positive integer" Q
@@ -37,7 +37,7 @@ TIUCHK(OUT,STYIEN) ; is this image study attached to a consult with a TIU note?
  S STYDFN=$P(PATREFDTA,"^",1)
  ; find DFN of patient associated with consult
  S CONIEN=$P($G(^MAGV(2005.61,PROCIEN,0)),"^",1)
- S:$P(CONIEN,"-",1)="GMRC" CONIEN=$P(CONIEN,"-",2)
+ S X=$$GMRCIEN^MAGDFCNV(CONIEN) I X S CONIEN=X
  S TIUIEN=$$TIULAST^MAGDGMRC(CONIEN)
  I "0"[TIUIEN S OUT(1)="5`No associated TIU note for associated consult "_CONIEN Q
  S TIUDFN=$$GET1^DIQ(8925,TIUIEN,.02,"I") ; entry on VA patient file
